@@ -1,7 +1,6 @@
 package com.tq.requisition.test.infrastructure.repository;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +14,6 @@ import com.tq.requisition.domain.model.project.Announcement;
 import com.tq.requisition.domain.model.project.IProjectRepository;
 import com.tq.requisition.domain.model.project.Project;
 import com.tq.requisition.infrastructure.serviceLocator.ServiceLocator;
-import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.dto.project.ProNameDto;
 
 public class TestProject {
@@ -147,9 +145,9 @@ public class TestProject {
 
 	@Test
 	public void export() throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		List<Project> pros = repository.exportByMonth(df.parse("2016-01-01"));
-		System.out.println(Serialization.toJson(pros));
+//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//		List<Project> pros = repository.exportByMonth(df.parse("2016-01-01"));
+//		System.out.println(Serialization.toJson(pros));
 	}
 
 	@Test

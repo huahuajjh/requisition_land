@@ -1,7 +1,6 @@
 package com.tq.requisition.infrastructure.Repository.project;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +25,7 @@ import com.tq.requisition.infrastructure.Specifications.project.ProItemExistsDat
 import com.tq.requisition.infrastructure.Specifications.project.ProQuery4PrintSpecification;
 import com.tq.requisition.infrastructure.Specifications.project.ProQueryByNameSpecification;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProNameDto;
 import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
@@ -192,9 +192,9 @@ public class ProjectRepository extends HbRepository<Project> implements
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Project> exportByMonth(Date date) {
+	public List<Project> exportByMonth(ProExportCondition condition) {
 		List<ProjectItem> list = getAllByHqlJoin(new ProByMonthSpecification(
-				ProjectItem.class, date), -1, -1);
+				ProjectItem.class, condition), -1, -1);
 		if (null == list || list.size() == 0) {
 			return null;
 		}

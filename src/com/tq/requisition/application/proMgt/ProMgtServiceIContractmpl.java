@@ -1,7 +1,6 @@
 package com.tq.requisition.application.proMgt;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,6 +22,7 @@ import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
 import com.tq.requisition.presentation.dto.project.NewProDto;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
 import com.tq.requisition.presentation.dto.project.ProNameDto;
@@ -215,11 +215,11 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 	}
 	
 	@Override
-	public List<ProImportAndExportDto> exportProByDate(Date date) {
-		if(null==date){
+	public List<ProImportAndExportDto> exportProByDate(ProExportCondition condition) {
+		if(null==condition){
 			return null;
 		}
-		List<Project> list = projectRepository.exportByMonth(date);
+		List<Project> list = projectRepository.exportByMonth(condition);
 		if(null==list || list.size()==0){
 			return null;
 		}

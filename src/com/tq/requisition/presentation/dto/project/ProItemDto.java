@@ -20,7 +20,7 @@ public class ProItemDto {
 	/** 本月已拆栋数 */
 	private Integer removedBuildings;
 	/** 本月已迁户数 */
-	private Integer rmovedHouses;
+	private Integer rmovedHouses=0;
 	/** 本月已拆合法面积 */
 	private float removedLegalArea;
 	/** 本月已拆违章面积 */

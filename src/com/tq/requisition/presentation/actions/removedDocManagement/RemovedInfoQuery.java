@@ -1,18 +1,12 @@
 package com.tq.requisition.presentation.actions.removedDocManagement;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import org.apache.struts2.ServletActionContext;
 
 import com.excel.util.ExcelFactory;
 import com.excel.util.intefaces.IExcelOutput;
@@ -22,7 +16,6 @@ import com.tq.requisition.domain.model.removedInfo.RemovedInfo;
 import com.tq.requisition.infrastructure.utils.ConfigFileUtil;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
-import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoDto;
 import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.AddressDto;
