@@ -72,7 +72,7 @@ public class TestProMgtService {
 	public void export() throws ParseException {
 		ProExportCondition condition = new ProExportCondition();		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		condition.setStartDate(df.parse("2016-02-01"));
+		condition.setStartDate(df.parse("2010-02-01"));
 		condition.setEndDate(df.parse("2016-11-01"));
 		List<ProImportAndExportDto> dtos = service.exportProByDate(condition);
 		System.out.println(Serialization.toJson(dtos));

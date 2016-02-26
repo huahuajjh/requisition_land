@@ -181,6 +181,10 @@ public class ProImportAndExportDto {
 	private float removedIllegalArea;
 	/** 本月已付赔偿款 */
 	private BigDecimal paidMoney = new BigDecimal(0);
+	/**项目分类id*/
+	private String categoryId;
+	/**项目分类str*/
+	private String categoryStr;
 	
 	/** 月度填报时间 */
 	private Date date;
@@ -323,6 +327,8 @@ public class ProImportAndExportDto {
 			dto.shouldPayMoney = project.getShouldPayMoney();
 			dto.totalPayMoney = project.getTotalPayMoney();
 			dto.startDate = project.getStartDate();
+			dto.categoryId = project.getCategoryId();
+			dto.categoryStr = project.getCategoryStr();
 			setProType(dto, project.getProTypeStr());
 			dto.totalAddress = project.getTotalAddress();
 			setAnnounce(dto, project);
