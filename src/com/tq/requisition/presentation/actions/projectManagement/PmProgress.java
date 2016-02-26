@@ -74,7 +74,7 @@ public class PmProgress extends BaseAction {
 	private String id;
 
 	// 打印参数
-	private String daYinDate;
+	private String daYinData;
 	private String daYinIds;
 	private String daoChuAttrModel;
 	private String daoChuHead;
@@ -213,7 +213,7 @@ public class PmProgress extends BaseAction {
 			colAttrVals.add(cVal);
 		}
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = dateFormat.parse(this.daYinDate);
+		Date date = dateFormat.parse(this.daYinData);//需要改动
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract
 				.exportProByDate(date);
 		for (int i = 0;dtos !=null && i < dtos.size(); i++) {
@@ -230,7 +230,7 @@ public class PmProgress extends BaseAction {
 			excelOutput.setColVal(1, 24, "单位：亩、栋、平方米、人、万元", 0, 8);
 			excelOutput.writeDatas(colDatas);
 			excelOutput.writeDatas(ProImportAndExportDto.class, dtos, colAttrVals, proTemplateRowIndex);
-			downloadChineseFileName = daYinDate;
+			downloadChineseFileName = daYinData;//需要改动
 			this.outputStream = excelOutput.getInputStream();
 			return SUCCESS;
 		} catch (IllegalArgumentException e) {
@@ -312,10 +312,6 @@ public class PmProgress extends BaseAction {
 		this.id = id;
 	}
 
-	public void setDaYinDate(String daYinDate) {
-		this.daYinDate = daYinDate;
-	}
-
 	public void setDaYinIds(String daYinIds) {
 		this.daYinIds = daYinIds;
 	}
@@ -335,4 +331,9 @@ public class PmProgress extends BaseAction {
 	public void setDaoChuHead(String daoChuHead) {
 		this.daoChuHead = daoChuHead;
 	}
+
+	public void setDaYinData(String daYinData) {
+		this.daYinData = daYinData;
+	}
+	
 }

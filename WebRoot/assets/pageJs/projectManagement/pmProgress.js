@@ -513,11 +513,15 @@ function initFormAnnounceForm(){
 	});
 }
 function daoChu(){
-	var date = $("#daYinYear").val() + "/" + $("#daYinMouth").val() + "/01";
+	var dateFirst = $("#daYinYearFirst").val() + "/" + $("#daYinMouthFirst").val() + "/01";
+	var dateLast = $("#daYinYearLast").val() + "/" + $("#daYinMouthLast").val() + "/01";
 	var d = exportProExcel();
 	$("#daoChuHead").val(JSON.stringify(d.heads));
 	$("#daoChuAttrModel").val(JSON.stringify(d.keys));
-	$("#daYinDate").val(date);
+	$("#daYinData").val(JSON.stringify({
+		dateFirst:dateFirst,
+		dateLast:dateLast
+	}));
 	$("#subDaoChu").submit();
 }
 

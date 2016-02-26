@@ -87,6 +87,8 @@ $("#goufangQuanShiYong").validate({
 		subData.situationExplain = $("#goufangQuanShiYong [name='shuoMing']").val();
 //		/**相关凭证*/
 		subData.evidencePath = $("#goufangQuanShiYong [name='evidencePath']").val();
+		//拍照
+		subData.image = $("#yuLanBtn").data("img");
 		$.post("housePurchaseMansgement/hptUseAndCashAdd",{
 			dataJson:JSON.stringify(subData)
 		},function(data){

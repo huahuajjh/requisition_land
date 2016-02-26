@@ -28,6 +28,8 @@ public class HPTUseAndCashInfoDto {
 	private Date oprDate;
 	/**ÊÇ·ñÉ¾³ý*/
 	private boolean del;
+	/**Í¼Æ¬²É¼¯*/
+	private String image;
 	
 	
 	public UUID getId() {
@@ -96,4 +98,11 @@ public class HPTUseAndCashInfoDto {
 	public void setDel(boolean del) {
 		this.del = del;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }

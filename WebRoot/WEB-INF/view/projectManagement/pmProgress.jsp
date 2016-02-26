@@ -613,7 +613,7 @@
 
 <form id="subDaoChu" action="projectManagement/pmProgressDaoChu" method="post" target="list" style="display:none;">
 	<iframe name="list"></iframe>
-	<input type="hidden" name="daYinDate" id="daYinDate">
+	<input type="hidden" name="daYinData" id="daYinData">
 	<input type="hidden" name="daoChuAttrModel" id="daoChuAttrModel">
 	<input type="hidden" name="daoChuHead" id="daoChuHead">
  </form>

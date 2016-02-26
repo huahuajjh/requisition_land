@@ -32,6 +32,8 @@ public class HPTUseAndCash extends Entity{
 	private Date oprDate;
 	/**ÊÇ·ñÉ¾³ý*/
 	private boolean del;
+	/**Í¼Æ¬²É¼¯*/
+	private String image;
 	
 	/*CONSTRUCTORS*/
 	public HPTUseAndCash(){
@@ -139,6 +141,12 @@ public class HPTUseAndCash extends Entity{
 	}
 	public UUID getId() {
 		return this.id;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

@@ -24,7 +24,7 @@
 		<property name="ticketId" column="ticket_id"  type="org.hibernate.type.UUIDCharType" not-null="true"  />
 		<property name="usingDate" column="using_date"  type="date" not-null="true"  />
 		<property name="usingToWhere" column="using_to_where"  type="string" length="70"  />
-		
+		<property name="image" column="image"  type="string" length="250"  />
 		<property name="usingType" length="30" not-null="true" column="using_type_id">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">com.tq.requisition.domain.model.share.UseType</param>

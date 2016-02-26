@@ -152,7 +152,7 @@
 	    	</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label class="control-label">领用凭证</label>
+					<label class="control-label">图片凭证</label>
 					<div class="form-control-static"">
 						<input type="file" id="upFile" style="display:none;" accept="image/*" />
 						<a class="label label-primary" id="upBtn" onclick="upFileZhaoPian();">上传</a>

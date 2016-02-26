@@ -18,6 +18,7 @@ public class HPTUseMapper {
 		model.setUsingDate(dto.getUsingDate());
 		model.setUsingToWhere(dto.getUsingToWhere());
 		model.setUsingType(dto.getUsingType());
+		model.setImage(dto.getImage());
 		return model;
 	}
 	
@@ -34,6 +35,7 @@ public class HPTUseMapper {
 		dto.setUsingDate(model.getUsingDate());
 		dto.setUsingToWhere(model.getUsingToWhere());
 		dto.setUsingType(model.getUsingType());
+		dto.setImage(model.getImage());
 		return dto;
 	}
 	
