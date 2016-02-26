@@ -219,19 +219,5 @@ public class ProItemDto {
 		this.proId = proId;
 		this.startDate = startDate;
 	}
-
-	@Override
-	public String toString() {
-		return "ProItemDto [id=" + id + ", date=" + date + ", removedLandArea="
-				+ removedLandArea + ", removedBuildings=" + removedBuildings
-				+ ", rmovedHouses=" + rmovedHouses + ", removedLegalArea="
-				+ removedLegalArea + ", removedIllegalArea="
-				+ removedIllegalArea + ", movedPopulation=" + movedPopulation
-				+ ", paidMoney=" + paidMoney + ", yearDeadlineFile="
-				+ yearDeadlineFile + ", yearCourtExecute=" + yearCourtExecute
-				+ ", yearLegalRemoved=" + yearLegalRemoved + ", remark="
-				+ remark + ", newStart=" + newStart + ", proId=" + proId
-				+ ", startDate=" + startDate + "]";
-	}
 	
 }

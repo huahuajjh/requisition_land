@@ -43,6 +43,8 @@
 		<property name="proId" column="pro_id"  type="org.hibernate.type.UUIDCharType"  not-null="true" />
 		<!-- 本月当前完成项目 -->
 		<property name="curMonthComplete" column="is_cur_month_complete"  type="string"  />
+		<!-- 备注 -->
+		<property name="remark"  column="remark" type="string"/>
 		
     </class>
 

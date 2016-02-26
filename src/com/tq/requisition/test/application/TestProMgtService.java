@@ -1,5 +1,6 @@
 package com.tq.requisition.test.application;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +14,7 @@ import com.tq.requisition.infrastructure.serviceLocator.ServiceLocator;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
+import com.tq.requisition.presentation.dto.project.ProItemDto;
 import com.tq.requisition.presentation.dto.project.ProTypeDto;
 import com.tq.requisition.presentation.serviceContract.proMgt.IProMgtServiceContract;
 
@@ -72,4 +74,28 @@ public class TestProMgtService {
 		System.out.println(Serialization.toJson(dtos));
 	}
 
+	@Test
+	public void addProItem() {
+		ProItemDto dto = new ProItemDto();
+		dto.setId(UUID.randomUUID());
+		dto.setDate(new Date());
+		dto.setRemovedLandArea(1.0f); 
+		dto.setRemovedBuildings(2);
+		dto.setRmovedHouses(2); 
+		dto.setRemovedLegalArea(1.2f); 
+		dto.setRemovedIllegalArea(1.2f);
+		dto.setMovedPopulation(3);
+		dto.setPaidMoney(new BigDecimal(10)); 
+		dto.setYearDeadlineFile(2); 
+		dto.setYearCourtExecute(2);
+		dto.setYearLegalRemoved(20); 
+		dto.setRemark("remarks"); 
+		dto.setNewStart(false);
+		dto.setProId(UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
+		dto.setStartDate(new Date());
+		dto.setCurMonthComplete("ÊÇ");
+		
+		service.addProItem(dto, UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
+	}
+	
 }

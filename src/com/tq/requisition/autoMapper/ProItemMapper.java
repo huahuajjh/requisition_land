@@ -30,13 +30,11 @@ public class ProItemMapper {
 		item.setStartDate(dto.getStartDate());
 		item.setPaidMoney(dto.getPaidMoney());
 		item.setCurMonthComplete(dto.getCurMonthComplete());
-		
 		return item;
 	}
 	
 	public static ProItemDto toDto(ProjectItem model) {
 		ProItemDto dto = new ProItemDto();
-		dto.setId(model.getId());
 		dto.setId(model.getId());
 		dto.setDate(model.getDate());
 		dto.setRemovedLandArea(model.getRemovedLandArea()); 

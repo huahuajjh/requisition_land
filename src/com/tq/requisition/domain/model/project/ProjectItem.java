@@ -150,6 +150,7 @@ public class ProjectItem extends Entity {
 	public void setCurMonthComplete(String curMonthComplete) {
 		this.curMonthComplete = curMonthComplete;
 	}
+
 	
 	/*constructors*/
 	public ProjectItem(){
