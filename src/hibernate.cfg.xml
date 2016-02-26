@@ -24,7 +24,7 @@
 		<!-- 设置hibernate语句到了50条发送 -->
 		<property name="hibernate.jdbc.batch_size">50</property>
 
-		<!-- c3p0连接池 -->
+		<!--<!-- c3p0连接池 -->
 		<!-- 指定c3p0连接类 -->
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<!-- 设置最小的数据库连接数 -->
@@ -35,6 +35,7 @@
 		<property name="hibernate.c3p0.timeout">1800</property>
 		<!-- 数据库空闲测试连接周期，mysql默认8小时主动断开inactive的连接，设立此值会在指定的时间周期性的发送一个数据库语句保证连接的有效性 -->
 		<property name="hibernate.c3p0.idle_test_period">25200</property>
+		
 
 		<!-- 实体mapping -->
 		<!-- 账户hbm -->

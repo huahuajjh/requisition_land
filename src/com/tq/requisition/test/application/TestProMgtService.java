@@ -95,7 +95,8 @@ public class TestProMgtService {
 		dto.setStartDate(new Date());
 		dto.setCurMonthComplete("ÊÇ");
 		
-		service.addProItem(dto, UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
+		String json = service.addProItem(dto, UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
+		System.out.println(json);
 	}
 	
 }
