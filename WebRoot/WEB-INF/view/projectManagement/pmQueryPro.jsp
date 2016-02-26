@@ -181,14 +181,15 @@
 							<td id="proInfoWZMJ"></td>
 						</tr>
 						<tr>
-						<td class="active text-right"><strong>所处公告：</strong></td>
+							<td class="active text-right"><strong>所处公告：</strong></td>
 							<td id="proInfoGG"></td>
 							<td class="active text-right"><strong>应付补偿款(万元)：</strong></td>
 							<td id="proInfoYBCK"></td>
 							<td class="active text-right"><strong>启动时间：</strong></td>
 							<td id="startDate"></td>
 						</tr>
-						<td class="active text-right"><strong>项目分类：</strong></td>
+						<tr>
+							<td class="active text-right"><strong>项目分类：</strong></td>
 							<td id="proInfoFL"></td>
 							<td class="active text-right"><strong>六前项目：</strong></td>
 							<td id="proInfoLQXM"></td>
@@ -218,13 +219,10 @@
 						<thead>
 							<tr>
 								<th>月份</th>
-								<th>已腾地数(亩)</th>
-								<th>已拆栋数</th>
-								<th>已迁户数</th>
-								<th>已拆合法面积<br>(平方米)</th>
-								<th>已拆违章面积<br>(平方米)</th>
-								<th>已动迁人口</th>
-								<th>已付赔偿款<br>(万元)</th>
+								<th>本月腾地数(亩)</th>
+								<th>本月拆栋数</th>
+								<th>本月拆合法面积<br>(平方米)</th>
+								<th>本月动迁人口</th>
 								<th>下达限期腾地决定书</th>
 								<th>申请法院执行</th>
 								<th>依法实施强制腾地户数</th>
@@ -267,11 +265,8 @@
 	<th>合计</th>
         <td>{{this.removedLandArea}}</td>
         <td>{{this.removedBuildings}}</td>
-        <td>{{this.rmovedHouses}}</td>
         <td>{{this.removedLegalArea}}</td>
-        <td>{{this.removedIllegalArea}}</td>
         <td>{{this.movedPopulation}}</td>
-        <td>{{this.paidMoney}}</td>
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
@@ -302,15 +297,16 @@
         <td>{{this.date}}</td>
         <td>{{this.removedLandArea}}</td>
         <td>{{this.removedBuildings}}</td>
-        <td>{{this.rmovedHouses}}</td>
         <td>{{this.removedLegalArea}}</td>
-        <td>{{this.removedIllegalArea}}</td>
         <td>{{this.movedPopulation}}</td>
-        <td>{{this.paidMoney}}</td>
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
     </tr>
+	<tr>
+		<td>备注:</td>
+		<td colspan="7">{{this.remark}}</td>
+	</tr>
 {{/each}}
 </script>
 <script id="editProInfoTemplate" type="text/x-handlebars-template">

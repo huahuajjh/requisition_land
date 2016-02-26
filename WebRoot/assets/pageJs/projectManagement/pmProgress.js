@@ -24,7 +24,8 @@
 });
 var thisDate = new Date();
 for (var i = 2010; i <= thisDate.getFullYear(); i++) {
-	$("#daYinYear").append('<option value="'+i+'">'+i+'</option>');
+	$("#daYinYearFirst").append('<option value="'+i+'">'+i+'</option>');
+	$("#daYinYearLast").append('<option value="'+i+'">'+i+'</option>');
 }
 $("#dataPageCount").change(function() {
 	tableData.setPageNum(parseInt($(this).val()));
@@ -74,12 +75,8 @@ $("#removedBuildings").keyup(function(){
 	var percentage = parseInt(num / data.shouldRemoveBuildings * 10000) * 1.00 / 100;
 	var requisitionArea = parseInt((data.requisitionArea*percentage / 100 * 10000000)) / 10000000;
 	$("#removedLandArea").val(requisitionArea);
-	var shouldRemoveHouses =  parseInt(data.shouldRemoveHouses*percentage / 100);
-	$("#rmovedHouses").val(shouldRemoveHouses);
 	var shouldRemoveLegalArea = parseInt((data.shouldRemoveLegalArea*percentage / 100 * 10000000)) / 10000000;
 	$("#removedLegalArea").val(shouldRemoveLegalArea);
-	var shouldRemoveIllegalArea = parseInt((data.shouldRemoveIllegalArea*percentage / 100 * 10000000)) / 10000000;
-	$("#removedIllegalArea").val(shouldRemoveIllegalArea);
 	var shouldMovePopulation = parseInt(data.shouldMovePopulation*percentage / 100);
 	$("#movedPopulation").val(shouldMovePopulation);
 });
@@ -420,19 +417,7 @@ $("#yueBaoAddModal").validate({
 			maxlength : 10,
 			min : 0
 		},
-		rmovedHouses : {
-			required : true,
-			digits : true,
-			maxlength : 10,
-			min : 0
-		},
 		removedLegalArea : {
-			required : true,
-			number : true,
-			maxlength : 10,
-			min : 0
-		},
-		removedIllegalArea : {
 			required : true,
 			number : true,
 			maxlength : 10,
@@ -442,12 +427,6 @@ $("#yueBaoAddModal").validate({
 			required : true,
 			maxlength : 10,
 			digits : true,
-			min : 0
-		},
-		paidMoney : {
-			required : true,
-			maxlength : 15,
-			number : true,
 			min : 0
 		},
 		yearDeadlineFile : {
@@ -477,17 +456,15 @@ $("#yueBaoAddModal").validate({
 		subData.date = $("[name='year']",form).val()+"/" + $("[name='month']",form).val() +"/01";
 		subData.removedLandArea = $('[name="removedLandArea"]',form).val();
 		subData.removedBuildings = $('[name="removedBuildings"]',form).val();
-		subData.rmovedHouses = $('[name="rmovedHouses"]',form).val();
 		subData.removedLegalArea = $('[name="removedLegalArea"]',form).val();
-		subData.removedIllegalArea = $('[name="removedIllegalArea"]',form).val();
 		subData.movedPopulation = $('[name="movedPopulation"]',form).val();
-		subData.paidMoney = $('[name="paidMoney"]',form).val();
 		subData.yearDeadlineFile = $('[name="yearDeadlineFile"]',form).val();
 		subData.yearCourtExecute = $('[name="yearCourtExecute"]',form).val();
 		subData.yearLegalRemoved = $('[name="yearLegalRemoved"]',form).val();
 		subData.proId = tr.data("data").id;
 		subData.startDate = $('[name="startDate"]',form).val();
 		subData.curMonthComplete = $('[name="isBenYueJieSuan"]:checked',form).val() == "true"?"是":"否";
+		subData.remark = $('[name="remark"]',form).val();
 		$.post("projectManagement/pmProgressInputMouth",{
 			dataJson:JSON.stringify(subData)
 		},function(data){

@@ -58,15 +58,10 @@
 	</div>
 	<div class="panel-body">
 			<div class="form-group">
-	        	<label class="col-md-3 control-label">身份证</label>
-	         	<div class="col-md-5">
-	             	<input type="text" id="idNumber"  class="form-control"  maxlength="20" placeholder="请输入需要录入人的身份证" />
-	        	</div>
-	      	</div>
-	      	<div class="form-group">
-	        	<label class="col-md-3 control-label">姓名</label>
-	         	<div class="col-md-5">
-	         	<input type="text" id="name" class="form-control"  maxlength="5" placeholder="身份证所属人姓名" />
+	        	<label class="col-md-3 control-label">请输入姓名或身份证进行查询</label>
+	         	<div class="col-md-5 downImput">
+	             	<input type="text" id="idNumberOrName"  class="form-control"  maxlength="20" placeholder="请输入需要录入人的身份证" />
+	             	<ul class="dropdown-menu" id="queryDown"></ul>
 	        	</div>
 	      	</div>
 	      	<div class="form-group">
@@ -81,7 +76,9 @@
 			</div>
 	</div>
 </form>
-
+<script id="queryDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{name}}-{{idNumber}}</a></li>
+</script>
 <div class="modal fade" id="showErrorModal">
 	<div class="modal-dialog">
 		<div class="modal-content">

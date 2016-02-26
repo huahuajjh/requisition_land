@@ -145,323 +145,6 @@
 				<h4 class="modal-title bk-fg-primary">项目详细信息</h4>
 			</div>
 			<div class="modal-body" id="proInfoArea">
-			<h4 class="ui header text-center text-primary">
-	<strong>{{proName}}</strong>
-</h4>
-<table class="table table-striped">
-	<tbody>
-		<tr>
-			<td class="active text-right"><strong>审批号：</strong></td>
-			<td>{{approvalNumber}}</td>
-			<td class="active text-right"><strong>项目地址：</strong></td>
-			<td>{{totalAddress}}</td>
-			<td class="active text-right"><strong>项目类型：</strong></td>
-			<td>{{proTypeStr}}</td>
-		</tr>
-		<tr>
-			<td class="active text-right"><strong>征地面积(亩)：</strong></td>
-			<td>{{requisitionArea}}</td>
-			<td class="active text-right"><strong>应拆栋数：</strong></td>
-			<td>{{shouldRemoveBuildings}}</td>
-			<td class="active text-right"><strong>应拆户数：</strong></td>
-			<td>{{shouldRemoveHouses}}</td>
-		</tr>
-		<tr>
-			<td class="active text-right"><strong>应动迁人口：</strong></td>
-			<td>{{shouldMovePopulation}}</td>
-			<td class="active text-right"><strong>应拆面积（合法）(平方米)：</strong></td>
-			<td>{{shouldRemoveLegalArea}}</td>
-			<td class="active text-right"><strong>应拆面积（违章）(平方米)：</strong></td>
-			<td>{{shouldRemoveIllegalArea}}</td>
-		</tr>
-		<tr>
-		<td class="active text-right"><strong>所处公告：</strong></td>
-			<td>{{sequenceStr}}</td>
-			<td class="active text-right"><strong>应付补偿款(万元)：</strong></td>
-			<td>{{shouldPayMoney}}</td>
-			<td class="active text-right"><strong>启动时间：</strong></td>
-			<td>{{startDate}}</td>
-		</tr>
-	</tbody>
-</table>
-<div class="table-responsive" style="margin:40px 30px;">
-	<table
-		class="table table-striped table-bordered bootstrap-datatable datatable">
-		<thead>
-			<tr>
-				<th>公告类型</th>
-				<th>公告文号</th>
-				<th>公告时间</th>
-				<th>公告批文</th>
-			</tr>
-		</thead>
-		<tbody id="proInfoAnnListInfo">
-		</tbody>
-	</table>
-</div>
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<h6>项目每月台账详细信息</h6>
-	</div>
-	<table class="table table-striped table-bordered bootstrap-datatable datatable">
-		<thead>
-			<tr>
-				<th>月份</th>
-				<th>已腾地数(亩)</th>
-				<th>已拆栋数</th>
-				<th>已迁户数</th>
-				<th>已拆合法面积<br>(平方米)</th>
-				<th>已拆违章面积<br>(平方米)</th>
-				<th>已动迁人口</th>
-				<th>已付赔偿款<br>(万元)</th>
-				<th>下达限期腾地决定书</th>
-				<th>申请法院执行</th>
-				<th>依法实施强制腾地户数</th>
-			</tr>
-		</thead>
-		<tbody id="showProMonthProces">
-		</tbody>
-		<tfoot id="proYurBaoHejiArea">
-		</tfoot>
-	</table>
-</div>
-
-<div class="panel panel-default">
-	<div class="panel-heading">拆迁户列表</div>
-	<div class="panel-body">
-
-<table class="table table-striped table-bordered bootstrap-datatable datatable">
-	<thead>
-		<tr>
-			<th>户主姓名</th>
-			<th>房子合法面积(平方米)</th>
-			<th>房子违章面积(平方米)</th>
-			<th>房子照片</th>
-			<th>地址</th>
-			<th>批证及其他情况说明</th>
-			<th>拟定处理方案</th>
-			<th>联合会审意见</th>
-			<th>联合会审附件</th>
-			<th>备注</th>
-			<th>操作</th>
-		</tr>
-	</thead>   
-	<tbody>
-		<tr>
-			<td>小明</td>
-			<td>10</td>
-			<td>12</td>
-			<td>
-				<a href="javascript:;" class="text-primary">点击查看</a>
-			</td>
-			<td>.......</td>
-<td></td>
-<td></td>
-<td></td>
-<td><a href="javascript:;" class="text-primary">点击下载</a></td>
-<td></td>
-<td><i class="fa fa-plus-square"></i> 查看详细</td></td>
-		</tr>
-		<tr>
-			<td>小明</td>
-			<td>10</td>
-			<td>12</td>
-			<td>
-				<a href="javascript:;" class="text-primary">点击查看</a>
-			</td>
-			<td>.......</td>
-<td></td>
-<td></td>
-<td></td>
-<td><a href="javascript:;" class="text-primary">点击下载</a></td>
-<td></td>
-<td><i class="fa fa-plus-square"></i> 查看详细</td></td>
-		</tr>						
-		<tr>
-			<td>小明</td>
-			<td>10</td>
-			<td>12</td>
-			<td>
-				<a href="javascript:;" class="text-primary">点击查看</a>
-			</td>
-			<td>.......</td>
-<td></td>
-<td></td>
-<td></td>
-<td><a href="javascript:;" class="text-primary">点击下载</a></td>
-<td></td>
-<td><i class="fa fa-minus-square"></i> 查看详细</td></td>
-		</tr>
-<td colspan="11">
-			<table class="table table-striped table-bordered bootstrap-datatable datatable">
-			<thead>
-				<tr>
-					<th>姓名</th>
-					<th>与户主关系</th>
-					<th>性别</th>
-					<th>出生日期</th>
-					<th>身份证</th>
-					<th>户口性质</th>
-					<th>半边户</th>
-					<th>独生子女证号</th>
-					<th style="width: 100px;">操作</th>
-				</tr>
-			</thead>   
-			<tbody>
-				<tr>
-					<td>小明</td>
-					<td>户主</td>
-					<td>男</td>
-					<td>2011/11/11</td>
-					<td>854785698745123654</td>
-					<td>城镇户口</td>
-					<td><i class="fa fa-check text-success"></i></td>
-					<td>518515415</td>
-					<td><i class="fa fa-minus-square"></i> 查看详细</td>
-				</tr>
-				<tr>
-					<td colspan="9">
-<h3>转户信息</h3>
-		<table class="table table-hover table-bordered">
-			<tbody>
-				<tr>
-					<td>转户时间：<strong>2011/11/11</strong></td>
-					<td>转户类型：<strong>城镇户口</strong></td>
-					<td>转户地址：<strong>。。。。</strong></td>
-				</tr>
-			</tbody>
-		</table>
-<h3>社保信息</h3>
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<td class="active">纳入社保日期</td>
-					<td>2011/11/11</td>
-					<td class="active">类型字符串</td>
-					<td>20+60</td>
-				</tr>
-				<tr>
-					<td class="active">军队服役时间(月)</td>
-					<td>1</td>
-					<td class="active">养老保险补缴年限</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td class="active">医疗保险视同缴费月数</td>
-					<td>1</td>
-					<td class="active">参加何种医疗保险</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td class="active">所属社区</td>
-					<td>1</td>
-					<td class="active">服刑或劳动教养时间(月)</td>
-					<td>1</td>
-				</tr>
-			</tbody>
-		</table>
-<h3>购房券信息</h3>
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<td class="active" style="width: 160px;">购房券状态</td>
-					<td>1</td>
-					<td class="active" style="width: 150px;">制券日期</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td class="active">补贴金额（万元）</td>
-					<td>151</td>
-					<td class="active">券号</td>
-					<td>10021</td>
-				</tr>
-				<tr>
-					<td class="active">领券时间</td>
-					<td>2011/11/11</td>
-					<td class="active">领用凭证</td>
-					<td><a class="text-primary">点击查看</a></td>
-				</tr>
-				<tr>
-					<td class="active">领用人姓名</td>
-					<td>小明</td>
-					<td class="active">领用身份证</td>
-					<td>11111223444323</td>
-				</tr>
-				<tr>
-					<td class="active">使用时间</td>
-					<td>2011/11/11</td>
-					<td class="active">使用类型</td>
-					<td>兑现</td>
-				</tr>
-				<tr>
-					<td class="active">使用去向</td>
-					<td></td>
-					<td class="active">情况说明</td>
-					<td></td>
-				</tr>
-		</table>
-					</td>
-				</tr>
-				<tr>
-					<td>小跑</td>
-					<td>儿子</td>
-					<td>男</td>
-					<td>2011/11/11</td>
-					<td>854785698745123654</td>
-					<td>城镇户口</td>
-					<td><i class="fa fa-check text-success"></i></td>
-					<td>518515415</td>
-					<td><i class="fa fa-plus-square"></i> 查看详细</td>
-				</tr>
-				<tr>
-					<td>小给</td>
-					<td>妻子</td>
-					<td>男</td>
-					<td>2011/11/11</td>
-					<td>854785698745123654</td>
-					<td>城镇户口</td>
-					<td><i class="fa fa-check text-success"></i></td>
-					<td>518515415</td>
-					<td><i class="fa fa-plus-square"></i> 查看详细</td>
-				</tr>
-				<tr>
-					<td>小都</td>
-					<td>儿子</td>
-					<td>男</td>
-					<td>2011/11/11</td>
-					<td>854785698745123654</td>
-					<td>城镇户口</td>
-					<td><i class="fa fa-check text-success"></i></td>
-					<td>518515415</td>
-					<td><i class="fa fa-plus-square"></i> 查看详细</td>
-				</tr>
-				<tr>
-					<td>小红</td>
-					<td>女儿</td>
-					<td>男</td>
-					<td>2011/11/11</td>
-					<td>854785698745123654</td>
-					<td>城镇户口</td>
-					<td><i class="fa fa-check text-success"></i></td>
-					<td>518515415</td>
-					<td><i class="fa fa-plus-square"></i> 查看详细</td>
-				</tr>
-			</tbody>
-		</table>
-		</td>
-	</tr>
-	</tbody>
-</table>
-	</div>
-	<div class="panel-footer text-right">
-		<div class="bk-margin-5 btn-group">
-			<button type="button" class="btn btn-default">1</button>
-			<button type="button" class="btn btn-default">2</button>
-			<button type="button" class="btn btn-default">3</button>
-			<button type="button" class="btn btn-default">4</button>
-		</div>
-	</div>
-</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -587,13 +270,10 @@
 		<thead>
 			<tr>
 				<th>月份</th>
-				<th>已腾地数(亩)</th>
-				<th>已拆栋数</th>
-				<th>已迁户数</th>
-				<th>已拆合法面积<br>(平方米)</th>
-				<th>已拆违章面积<br>(平方米)</th>
-				<th>已动迁人口</th>
-				<th>已付赔偿款<br>(万元)</th>
+				<th>本月腾地数(亩)</th>
+				<th>本月拆栋数</th>
+				<th>本月拆合法面积<br>(平方米)</th>
+				<th>本月动迁人口</th>
 				<th>下达限期腾地决定书</th>
 				<th>申请法院执行</th>
 				<th>依法实施强制腾地户数</th>
@@ -820,15 +500,16 @@
         <td>{{this.date}}</td>
         <td>{{this.removedLandArea}}</td>
         <td>{{this.removedBuildings}}</td>
-        <td>{{this.rmovedHouses}}</td>
         <td>{{this.removedLegalArea}}</td>
-        <td>{{this.removedIllegalArea}}</td>
         <td>{{this.movedPopulation}}</td>
-        <td>{{this.paidMoney}}</td>
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
     </tr>
+	<tr>
+		<td>备注:</td>
+		<td colspan="7">{{this.remark}}</td>
+	</tr>
 {{/each}}
 </script>
 <script id="yueCountTemplate" type="text/x-handlebars-template">
@@ -836,11 +517,8 @@
 	<th>合计</th>
     <td>{{this.removedLandArea}}</td>
     <td>{{this.removedBuildings}}</td>
-    <td>{{this.rmovedHouses}}</td>
     <td>{{this.removedLegalArea}}</td>
-    <td>{{this.removedIllegalArea}}</td>
     <td>{{this.movedPopulation}}</td>
-    <td>{{this.paidMoney}}</td>
     <td>{{this.yearDeadlineFile}}</td>
     <td>{{this.yearCourtExecute}}</td>
 	<td>{{this.yearLegalRemoved}}</td>

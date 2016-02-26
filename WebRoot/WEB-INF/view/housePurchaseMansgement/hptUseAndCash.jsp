@@ -45,6 +45,23 @@
   </div>
 </div>
 
+<div class="modal fade" id="phonePaiZhaoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+        <h4 class="modal-title">拍摄照片</h4>
+      </div>
+      <div class="modal-body" id="phonePaiZhaoBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script id="entrytemplate" type="text/x-handlebars-template">
 <div class="panel">
 	<div class="panel-heading bk-bg-primary">
@@ -109,7 +126,7 @@
 	    			<textarea class="form-control" name="shuoMing" rows="3" placeholder="请输入情况说明	" maxlength="140"></textarea>
 	    		</div>
 	    	</div>
-	    	<div class="col-md-8 col-md-offset-2">
+	    	<div class="col-md-4 col-md-offset-2">
 	    		<div class="form-group">
 	    			<label class="control-label">相关凭证</label>
 	    			<div class="controls">
@@ -133,6 +150,21 @@
         				</div>
 	    		</div>
 	    	</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="control-label">领用凭证</label>
+					<div class="form-control-static"">
+						<input type="file" id="upFile" style="display:none;" accept="image/*" />
+						<a class="label label-primary" id="upBtn" onclick="upFileZhaoPian();">上传</a>
+						<a class="label label-primary" id="zhaoBtn" onclick="paiZhao();">拍照</a>
+						<a class="label label-success" id="yuLanBtn" style="display: none">预览</a>
+						<span class="label">
+							<i class="fa fa-check text-success" id="paiZhaoFileCheckState" style="display: none"></i>
+							<img src="assets/img/login.gif" id="paiZhaoFileLoginState" style="display: none">
+						</span>
+					</div>
+				</div>
+			</div>
 	    </div>
 		<hr>
 		<div class="col-md-10">

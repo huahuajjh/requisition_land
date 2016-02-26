@@ -29,6 +29,30 @@ $("#queryData").validate({
 					var $this = $(this), opts = {};
 					$this.themePluginDatePicker(opts);
 				});
+				$("#yuLanBtn",rHtml).click(function(){
+					var img = $(this).data("img");
+					if(!img) return;
+					$.initShowImage([img]);
+				});
+				$("#upFile",rHtml).change(function(){
+					var val = $(this).val();
+					if(!val) return;
+					$("#paiZhaoFileLoginState").css("display","inline");
+					$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+					submitFile(this,{
+						fileType:"EVIDENCE_FILE"
+					},"json",function(data){
+						actionFormate(data, true, function(type, msg, data) {
+							data = data.substring(data.indexOf("/")+1);
+							$("#yuLanBtn").data("img",data);
+						});
+						$("#paiZhaoFileLoginState").css("display","none");
+						$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+					},function(e){
+						$("#paiZhaoFileLoginState").css("display","none");
+						$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+					});
+				});
 				$("#goufangQuanShiYong").data("data",datas);
 				$("#goufangQuanShiYong").html(rHtml);
 				submitFileStyle("#upLoadFile","EVIDENCE_FILE",function(data){
@@ -81,3 +105,33 @@ function showProInfo(id){
 		$("#showProInfoModal").modal("show");
 	});
 }
+function upFileZhaoPian(){
+	$("#upFile").click();
+}
+function paiZhao(){
+	$.get("share/photographs",function(html){
+		$("#phonePaiZhaoBody").html(html);
+		$("#phonePaiZhaoModal").modal("show");
+	});
+}
+$("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
+	if($(this).data("btnState") == true){
+		var imgData = $(this).data("imgData");
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		$.post("share/saveFile",{
+			baseSFFile:imgData
+		},function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				$("#yuLanBtn").data("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},"json");
+	}
+});
+$("#phonePaiZhaoModal").modal({
+	show:false, 
+	keyboard:false,
+	backdrop:"static",
+});

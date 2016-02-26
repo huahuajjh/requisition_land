@@ -76,7 +76,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         });
         $("#paiZhaoArea").closest(".modal").on("hide.bs.modal",function(){
         	if(localMediaStream)
-        		localMediaStream.stop();
+        		try {
+        			localMediaStream.stop();
+				} catch (e) {
+					// TODO: handle exception
+				}
         });
 	}
 </script>

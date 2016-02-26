@@ -1,3 +1,25 @@
+$.dropDownInput({
+	inputId : "#idNumberOrName",
+	dropDownId : "#queryDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"valName",
+	templateId : "#queryDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false,function(type,msg,data){
+			if(data){
+				for (var i = 0; i < data.length; i++) {
+					var d = data[i];
+					d.valName = d.name + "-" + d.idNumber;
+				}
+			}
+		}) || [];
+	},itemClick:function(data){
+		$("#idNumberOrName").val(data.name);
+		$("#idNumberOrName").data("data",data);
+	}
+});
 setPersonListModal("#selectPerson",function(data){
 	if(data){
 		$("#name").val(data.name);
@@ -6,12 +28,11 @@ setPersonListModal("#selectPerson",function(data){
 	}
 });
 $("#idNumberBtn").click(function() {
-	var idNumber = $("#idNumber").val();
-	var name = $("#name").val();
-	if (!idNumber || !name) return;
+	var data = $("#idNumberOrName").data("data");
+	if(!data) return;
 	$.post("housePurchaseMansgement/hptAddGet", {
-		idNumber : idNumber,
-		name : name
+		idNumber : data.idNumber,
+		name : data.name
 	}, function(data) {
 		actionFormate(data, true, function(type, msg, data) {
 			initDom(data);

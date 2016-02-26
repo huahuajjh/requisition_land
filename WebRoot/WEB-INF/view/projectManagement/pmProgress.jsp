@@ -189,13 +189,10 @@
 						<thead>
 							<tr>
 								<th>月份</th>
-								<th>已腾地数(亩)</th>
-								<th>已拆栋数</th>
-								<th>已迁户数</th>
-								<th>已拆合法面积<br>(平方米)</th>
-								<th>已拆违章面积<br>(平方米)</th>
-								<th>已动迁人口</th>
-								<th>已付赔偿款<br>(万元)</th>
+								<th>本月腾地数(亩)</th>
+								<th>本月拆栋数</th>
+								<th>本月拆合法面积<br>(平方米)</th>
+								<th>本月动迁人口</th>
 								<th>下达限期腾地决定书</th>
 								<th>申请法院执行</th>
 								<th>依法实施强制腾地户数</th>
@@ -258,64 +255,46 @@
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" >已拆除栋数<span class="text-danger">*</span></label>
-							<input type="text" maxlength="10" id="removedBuildings" name="removedBuildings" class="form-control" placeholder="请输入拆除栋数" value="">
+							<label class="control-label" >本月拆除栋数(合法)<span class="text-danger">*</span></label>
+							<input type="text" maxlength="10" id="removedBuildings" name="removedBuildings" class="form-control" placeholder="请输入本月拆除栋数(合法)" value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" >已腾地数（亩）<span class="text-danger">*</span></label>
-							<input type="text" maxlength="10" id="removedLandArea" name="removedLandArea" class="form-control" placeholder="请输入腾地数" value="">
+							<label class="control-label" >本月腾地数（亩）<span class="text-danger">*</span></label>
+							<input type="text" maxlength="10" id="removedLandArea" name="removedLandArea" class="form-control" placeholder="请输入本月腾地数（亩）" value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" >已拆除户数<span class="text-danger">*</span></label> <input
-								type="text" maxlength="10" id="rmovedHouses" name="rmovedHouses" class="form-control" placeholder="请输入除户数" value="">
+							<label class="control-label" >本月拆除面积（合法）（平方米）<span class="text-danger">*</span></label>
+							<input type="text" maxlength="10" id="removedLegalArea" name="removedLegalArea" class="form-control" placeholder="请输入本月拆除面积（合法）（平方米）" value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" >已拆除面积（合法）（平方米）<span class="text-danger">*</span></label>
-							<input type="text" maxlength="10" id="removedLegalArea" name="removedLegalArea" class="form-control" placeholder="请输入拆除面积（合法）" value="">
+							<label class="control-label" >本月动迁的人口<span class="text-danger">*</span></label> <input
+								type="text" maxlength="10" id="movedPopulation" name="movedPopulation" class="form-control" placeholder="请输入本月动迁的人口" value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" >已拆除面积（违章）（平方米）<span class="text-danger">*</span></label>
-							<input type="text" maxlength="10" id="removedIllegalArea" name="removedIllegalArea" class="form-control" placeholder="请输入拆除面积（违章）" value="">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label class="control-label" >已动迁的人口<span class="text-danger">*</span></label> <input
-								type="text" maxlength="10" id="movedPopulation" name="movedPopulation" class="form-control" placeholder="请输入动迁的人口" value="">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label class="control-label" >已付补偿款（万元）<span class="text-danger">*</span></label>
-							<input type="text" maxlength="15" id="paidMoney" name="paidMoney" class="form-control" placeholder="请输入所付补偿款" value="">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label class="control-label">已下达期限腾地决定书<span class="text-danger">*</span></label> <input
-								type="text" maxlength="10" name="yearDeadlineFile" class="form-control" placeholder="请输入下达期限腾地决定书"
+							<label class="control-label">本月下达期限腾地决定书<span class="text-danger">*</span></label> <input
+								type="text" maxlength="10" name="yearDeadlineFile" class="form-control" placeholder="请输入本月下达期限腾地决定书"
 								value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label">已申请法院执行数<span class="text-danger">*</span></label> <input
-								type="text" maxlength="10" name="yearCourtExecute" class="form-control" placeholder="请输入下达期限腾地决定书数"
+							<label class="control-label">本月申请法院执行数<span class="text-danger">*</span></label> <input
+								type="text" maxlength="10" name="yearCourtExecute" class="form-control" placeholder="请输入本月申请法院执行数"
 								value="">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label">已发实施强制户数<span class="text-danger">*</span></label> <input type="text"
-								class="form-control" maxlength="10" name="yearLegalRemoved" placeholder="请输入申请法院执行数" value="">
+							<label class="control-label">本月实施强制户数<span class="text-danger">*</span></label> <input type="text"
+								class="form-control" maxlength="10" name="yearLegalRemoved" placeholder="请输入本月实施强制户数" value="">
 						</div>
 					</div>
 					<div class="col-md-6" id="isSee">
@@ -324,14 +303,20 @@
 							<input type="text" id="monthStartTime" name="startDate" class="form-control" placeholder="____/__/__" data-plugin-datepicker="" data-plugin-datepicker-nottoday="" data-plugin-masked-input="" data-input-mask="9999/99/99">
 						</div>
 					</div>
-					<div class="col-md-6 col-md-offset-6">
+					<div class="col-md-6">
 						<div class="form-group">
-							<div class="form-control-static">
+							<div class="form-control-static" style="padding-top: 30px;">
 								<div class="checkbox-custom">
 									<input type="checkbox"  name="isBenYueJieSuan" value="true"> 
 									<label>是否为本月完成结算项目</label>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="control-label">备注</label>
+							<textarea class="form-control" rows="3" placeholder="请输入备注" maxlength="140" name="remark"></textarea>
 						</div>
 					</div>
 				</div>
@@ -467,11 +452,24 @@
       <div class="modal-body">
       	<div class="row">
       		<div class="col-md-12">
-      			<h4 class="bk-padding-top-10bk-docs-font-weight-300">导出的月份</h4>
+      			<h4 class="bk-padding-top-10bk-docs-font-weight-300">导出的筛选条件</h4>
       		</div>
-      		<div class="col-md-4">
-      			导出<select id="daYinYear"></select>年
-      			<select id="daYinMouth">
+      		<div class="col-md-12" style="padding-bottom: 10px;">
+      			导出<select id="daYinYearFirst"></select>年
+      			<select id="daYinMouthFirst">
+					<option value="01">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>月到<select id="daYinYearLast"></select>年<select id="daYinMouthLast">
 					<option value="01">1</option>
 					<option value="02">2</option>
 					<option value="03">3</option>
@@ -656,13 +654,10 @@
 				<table>
 					<thead>
 						<th>月份</th>
-						<th>已腾地数(亩)</th>
-						<th>已拆栋数</th>
-						<th>已迁户数</th>
-						<th>已拆合法面积<br>(平方米)</th>
-						<th>已拆违章面积<br>(平方米)</th>
-						<th>已动迁人口</th>
-						<th>已付赔偿款<br>(万元)</th>
+						<th>本月腾地数(亩)</th>
+						<th>本月拆栋数</th>
+						<th>本月拆合法面积<br>(平方米)</th>
+						<th>本月动迁人口</th>
 						<th>下达限期腾地决定书</th>
 						<th>申请法院执行</th>
 						<th>依法实施强制腾地户数</th>
@@ -673,15 +668,16 @@
         				<td>{{this.date}}</td>
         				<td>{{this.removedLandArea}}</td>
         				<td>{{this.removedBuildings}}</td>
-        				<td>{{this.rmovedHouses}}</td>
         				<td>{{this.removedLegalArea}}</td>
-        				<td>{{this.removedIllegalArea}}</td>
         				<td>{{this.movedPopulation}}</td>
-        				<td>{{this.paidMoney}}</td>
         				<td>{{this.yearDeadlineFile}}</td>
         				<td>{{this.yearCourtExecute}}</td>
 						<td>{{this.yearLegalRemoved}}</td>
     				</tr>
+					<tr>
+						<td>备注:</td>
+						<td colspan="7">{{this.remark}}</td>
+					</tr>
 					{{/each}}
 					</tbody>
 					<tfoot>
@@ -689,11 +685,8 @@
                         	<th>合计</th>
                             <td>{{this.countModel.removedLandArea}}</td>
                             <td>{{this.countModel.removedBuildings}}</td>
-                            <td>{{this.countModel.rmovedHouses}}</td>
                             <td>{{this.countModel.removedLegalArea}}</td>
-                            <td>{{this.countModel.removedIllegalArea}}</td>
                             <td>{{this.countModel.movedPopulation}}</td>
-                            <td>{{this.countModel.paidMoney}}</td>
                             <td>{{this.countModel.yearDeadlineFile}}</td>
                             <td>{{this.countModel.yearCourtExecute}}</td>
                         	<td>{{this.countModel.yearLegalRemoved}}</td>
@@ -718,11 +711,8 @@
 	<th>合计</th>
         <td>{{this.removedLandArea}}</td>
         <td>{{this.removedBuildings}}</td>
-        <td>{{this.rmovedHouses}}</td>
         <td>{{this.removedLegalArea}}</td>
-        <td>{{this.removedIllegalArea}}</td>
         <td>{{this.movedPopulation}}</td>
-        <td>{{this.paidMoney}}</td>
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
@@ -735,72 +725,60 @@
 <div class="row">
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已拆除栋数<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{removedBuildings}}" name="removedBuildings" class="form-control" placeholder="请输入拆除栋数" value="">
+		<label class="control-label" >本月拆除栋数(合法)<span class="text-danger">*</span></label>
+		<input type="text" maxlength="10" value="{{removedBuildings}}" name="removedBuildings" class="form-control" placeholder="请输入本月拆除栋数(合法)">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已腾地数（亩）<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{removedLandArea}}" name="removedLandArea" class="form-control" placeholder="请输入腾地数" value="">
+		<label class="control-label" >本月腾地数（亩）<span class="text-danger">*</span></label>
+		<input type="text" maxlength="10" value="{{removedLandArea}}" name="removedLandArea" class="form-control" placeholder="请输入本月腾地数（亩）">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已拆除户数<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{rmovedHouses}}" name="rmovedHouses" class="form-control" placeholder="请输入除户数">
+		<label class="control-label" >本月拆除面积（合法）（平方米）<span class="text-danger">*</span></label>
+		<input type="text" maxlength="10" value="{{removedLegalArea}}" name="removedLegalArea" class="form-control" placeholder="请输入本月拆除面积（合法）（平方米）">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已拆除面积（合法）（平方米）<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{removedLegalArea}}" name="removedLegalArea" class="form-control" placeholder="请输入拆除面积（合法）">
+		<label class="control-label" >本月动迁的人口<span class="text-danger">*</span></label> <input
+			type="text" maxlength="10" value="{{movedPopulation}}" name="movedPopulation" class="form-control" placeholder="请输入本月动迁的人口">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已拆除面积（违章）（平方米）<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{removedIllegalArea}}" name="removedIllegalArea" class="form-control" placeholder="请输入拆除面积（违章）">
+		<label class="control-label">本月下达期限腾地决定书<span class="text-danger">*</span></label>
+		<input type="text" maxlength="10" value="{{yearDeadlineFile}}" name="yearDeadlineFile" class="form-control" placeholder="请输入本月下达期限腾地决定书">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已动迁的人口<span class="text-danger">*</span></label> <input
-			type="text" maxlength="10" value="{{movedPopulation}}" name="movedPopulation" class="form-control" placeholder="请输入动迁的人口">
+		<label class="control-label">本月申请法院执行数<span class="text-danger">*</span></label>
+		<input type="text" maxlength="10" value="{{yearCourtExecute}}" name="yearCourtExecute" class="form-control" placeholder="请输入本月申请法院执行数">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label" >已付补偿款（万元）<span class="text-danger">*</span></label>
-		<input type="text" maxlength="15" value="{{paidMoney}}" name="paidMoney" class="form-control" placeholder="请输入所付补偿款">
+		<label class="control-label">本月发实施强制户数<span class="text-danger">*</span></label>
+		<input type="text" class="form-control" value="{{yearLegalRemoved}}" maxlength="10" name="yearLegalRemoved" placeholder="请输入本月发实施强制户数" value="">
 	</div>
 </div>
 <div class="col-md-6">
 	<div class="form-group">
-		<label class="control-label">已下达期限腾地决定书<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{yearDeadlineFile}}" name="yearDeadlineFile" class="form-control" placeholder="请输入下达期限腾地决定书">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="form-group">
-		<label class="control-label">已申请法院执行数<span class="text-danger">*</span></label>
-		<input type="text" maxlength="10" value="{{yearCourtExecute}}" name="yearCourtExecute" class="form-control" placeholder="请输入下达期限腾地决定书数">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="form-group">
-		<label class="control-label">已发实施强制户数<span class="text-danger">*</span></label>
-		<input type="text" class="form-control" value="{{yearLegalRemoved}}" maxlength="10" name="yearLegalRemoved" placeholder="请输入申请法院执行数" value="">
-	</div>
-</div>
-<div class="col-md-6 col-md-offset-6">
-	<div class="form-group">
-		<div class="form-control-static">
+		<div class="form-control-static" style="padding-top: 30px;">
 			<div class="checkbox-custom">
 				<input type="checkbox"  name="isBenYueJieSuan" value="true"> 
 				<label>是否为本月完成结算项目</label>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="form-group">
+		<label class="control-label">备注</label>
+		<textarea class="form-control" rows="3" placeholder="请输入备注" maxlength="140" name="remark">{{remark}}</textarea>
 	</div>
 </div>
 </div>
@@ -839,15 +817,16 @@
         <td>{{this.date}}</td>
         <td>{{this.removedLandArea}}</td>
         <td>{{this.removedBuildings}}</td>
-        <td>{{this.rmovedHouses}}</td>
         <td>{{this.removedLegalArea}}</td>
-        <td>{{this.removedIllegalArea}}</td>
         <td>{{this.movedPopulation}}</td>
-        <td>{{this.paidMoney}}</td>
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
     </tr>
+	<tr>
+		<td>备注:</td>
+		<td colspan="7">{{this.remark}}</td>
+	</tr>
 {{/each}}
 </script>
 <script id="announceInfoTemplate" type="text/x-handlebars-template">
