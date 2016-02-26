@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.tq.requisition.infrastructure.serviceLocator.ServiceLocator;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
 import com.tq.requisition.presentation.dto.project.ProTypeDto;
@@ -69,8 +70,11 @@ public class TestProMgtService {
 
 	@Test
 	public void export() throws ParseException {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");		
-		List<ProImportAndExportDto> dtos = service.exportProByDate(df.parse("2016-01-01"));
+		ProExportCondition condition = new ProExportCondition();		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		condition.setStartDate(df.parse("2016-02-01"));
+		condition.setEndDate(df.parse("2016-11-01"));
+		List<ProImportAndExportDto> dtos = service.exportProByDate(condition);
 		System.out.println(Serialization.toJson(dtos));
 	}
 

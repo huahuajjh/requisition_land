@@ -1,11 +1,11 @@
 package com.tq.requisition.presentation.serviceContract.proMgt;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
 import com.tq.requisition.presentation.dto.project.NewProDto;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
 import com.tq.requisition.presentation.dto.project.ProQueryModel;
@@ -126,14 +126,14 @@ public interface IProMgtServiceContract {
 	String addByFile(List<ProImportAndExportDto> list);
 	
 	/**
-	 * 根据月份导出项目报表
-	 * @param date
-	 * 		日期
+	 * 根据查询model导出项目报表
+	 * @param condition
+	 * 		查询model
 	 * @return List<ProImportAndExportDto>
 	 * 		项目导入导出model
 	 * 
 	 */
-	List<ProImportAndExportDto> exportProByDate(Date date);
+	List<ProImportAndExportDto> exportProByDate(ProExportCondition condition);
 	
 	/**
 	 * 编辑公告

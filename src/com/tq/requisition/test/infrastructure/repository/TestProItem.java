@@ -1,16 +1,13 @@
 package com.tq.requisition.test.infrastructure.repository;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.domain.model.project.IProjectRepository;
 import com.tq.requisition.domain.model.project.ProjectItem;
-import com.tq.requisition.infrastructure.Specifications.project.ProByMonthSpecification;
 import com.tq.requisition.infrastructure.serviceLocator.ServiceLocator;
 
 public class TestProItem {
@@ -53,11 +50,11 @@ public class TestProItem {
 
 	@Test
 	public void queryByMonth() {
-		IRepository rep = ServiceLocator.instance().getService("hbRepository", IRepository.class);
-		rep.setAggregatorRootClass(ProjectItem.class);
-		List<ProjectItem> list = rep.getAll(new ProByMonthSpecification(ProjectItem.class, new Date()));
-		for (ProjectItem projectItem : list) {
-			System.out.println(projectItem.getDate());
-		}		
+//		IRepository rep = ServiceLocator.instance().getService("hbRepository", IRepository.class);
+//		rep.setAggregatorRootClass(ProjectItem.class);
+//		List<ProjectItem> list = rep.getAll(new ProByMonthSpecification(ProjectItem.class, new Date()));
+//		for (ProjectItem projectItem : list) {
+//			System.out.println(projectItem.getDate());
+//		}		
 	}
 }

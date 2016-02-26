@@ -1,12 +1,12 @@
 package com.tq.requisition.domain.model.project;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProNameDto;
 import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
@@ -92,7 +92,7 @@ public interface IProjectRepository extends IRepository<Project> {
 	 * @return List<Project>
 	 * 		项目集合
 	 */
-	public List<Project> exportByMonth(Date date);
+	public List<Project> exportByMonth(ProExportCondition condition);
 	
 	/**
 	 * 修改公告

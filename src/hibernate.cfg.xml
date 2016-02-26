@@ -24,7 +24,7 @@
 		<!-- 设置hibernate语句到了50条发送 -->
 		<property name="hibernate.jdbc.batch_size">50</property>
 
-		<!--<!-- c3p0连接池 -->
+		<!-- c3p0连接池 -->
 		<!-- 指定c3p0连接类 -->
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<!-- 设置最小的数据库连接数 -->

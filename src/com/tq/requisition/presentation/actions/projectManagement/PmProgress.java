@@ -1,7 +1,5 @@
 package com.tq.requisition.presentation.actions.projectManagement;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -11,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import org.apache.struts2.ServletActionContext;
 
 import com.excel.util.ExcelFactory;
 import com.excel.util.intefaces.IExcelOutput;
@@ -215,7 +211,7 @@ public class PmProgress extends BaseAction {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = dateFormat.parse(this.daYinDate);
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract
-				.exportProByDate(date);
+				.exportProByDate(null);
 		for (int i = 0;dtos !=null && i < dtos.size(); i++) {
 			dtos.get(i).setNum("=row()");
 		}

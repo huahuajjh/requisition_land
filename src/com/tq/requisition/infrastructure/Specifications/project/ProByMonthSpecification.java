@@ -1,12 +1,11 @@
 package com.tq.requisition.infrastructure.Specifications.project;
 
-import java.util.Date;
-
 import com.tq.requisition.domain.Specification.Specification;
 import com.tq.requisition.domain.Specification.expression.IHqlExpression;
 import com.tq.requisition.domain.Specification.expression.OperationType;
 import com.tq.requisition.domain.model.project.ProjectItem;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 
 /**
  * 按照月份查询项目月度信息
@@ -15,18 +14,18 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
  *
  */
 public class ProByMonthSpecification extends Specification<ProjectItem>{
-	private Date date;
+	private ProExportCondition condition;
 	
-	public ProByMonthSpecification(Class<ProjectItem> _t,Date date) {
+	public ProByMonthSpecification(Class<ProjectItem> _t,ProExportCondition condition) {
 		super(_t);
-		this.date = date;
+		this.condition = condition;
 	}
 
 	@Override
 	public IHqlExpression getHqlExpression() {
 		IHqlExpression expression = new HqlExpression();
-		expression.setHql("from ProjectItem where date=?");
-		expression.setParameters(date);
+		expression.setHql("from ProjectItem where date between ? and ?");
+		expression.setParameters(condition.getStartDate(),condition.getEndDate());
 		expression.setType(OperationType.HQL);
 		return expression;
 	}
