@@ -75,6 +75,7 @@ function initProDom(data){
 		};
 		for (var i = 0; i < tempData.length; i++) {
 			var d = tempData[i];
+			d.date = d.date.substring(0, d.date.lastIndexOf("/"));
 			countModel.removedLandArea += d.removedLandArea;
 			countModel.removedBuildings += d.removedBuildings;
 			countModel.rmovedHouses += d.rmovedHouses;

@@ -30,15 +30,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group">
+					<div class="form-group downImput">
 						<label>身份证</label>
-						<input id="queryIdNumber" type="text" maxlength="20" class="form-control" placeholder="输入身份证进行搜索" />
+						<input id="queryIdNumber" type="text" maxlength="20" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group">
+					<div class="form-group downImput">
 						<label>姓名</label>
-						<input id="queryName" type="text" maxlength="5" class="form-control" placeholder="输入姓名进行搜索" />
+						<input id="queryName" type="text" maxlength="5" class="form-control" placeholder="输入姓名进行搜索" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="nameQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12 text-right">
@@ -110,6 +114,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
 </div>
 
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}</a></li>
+</script>
+<script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{name}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{name}}</td>

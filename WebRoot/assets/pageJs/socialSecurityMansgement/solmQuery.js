@@ -34,6 +34,20 @@ $("#dataPageCount").change(function() {
 	tableData.refreshData();
 });
 $.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
+$.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
 	url : "projectManagement/pmProgressNames",

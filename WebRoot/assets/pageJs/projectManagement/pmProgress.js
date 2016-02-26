@@ -150,6 +150,7 @@ function showInfo(dom) {
 		};
 		for (var i = 0; i < tempData.length; i++) {
 			var d = tempData[i];
+			d.date = d.date.substring(0, d.date.lastIndexOf("/"));
 			countModel.removedLandArea += d.removedLandArea || 0;
 			countModel.removedBuildings += d.removedBuildings || 0;
 			countModel.rmovedHouses += d.rmovedHouses || 0;
@@ -519,8 +520,8 @@ function daoChu(){
 	$("#daoChuHead").val(JSON.stringify(d.heads));
 	$("#daoChuAttrModel").val(JSON.stringify(d.keys));
 	$("#daYinData").val(JSON.stringify({
-		dateFirst:dateFirst,
-		dateLast:dateLast
+		startDate:dateFirst,
+		endDate:dateLast
 	}));
 	$("#subDaoChu").submit();
 }
@@ -583,6 +584,7 @@ function daYin(dom){
 				};
 				for (var l = 0; l < items.length; l++) {
 					var t = items[l];
+					t.date = t.date.substring(0, t.date.lastIndexOf("/"));
 					d.countModel.removedLandArea += t.removedLandArea || 0;
 					d.countModel.removedBuildings += t.removedBuildings || 0;
 					d.countModel.rmovedHouses += t.rmovedHouses || 0;

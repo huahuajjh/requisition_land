@@ -18,6 +18,7 @@ import com.tq.requisition.infrastructure.utils.ConfigFileUtil;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
+import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
 import com.tq.requisition.presentation.dto.project.ProQueryModel;
@@ -209,9 +210,9 @@ public class PmProgress extends BaseAction {
 			colAttrVals.add(cVal);
 		}
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = dateFormat.parse(this.daYinData);//需要改动
+		ProExportCondition data = Serialization.toObject(this.daYinData, ProExportCondition.class);//需要改动
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract
-				.exportProByDate(null);
+				.exportProByDate(data);
 		for (int i = 0;dtos !=null && i < dtos.size(); i++) {
 			dtos.get(i).setNum("=row()");
 		}
@@ -226,7 +227,7 @@ public class PmProgress extends BaseAction {
 			excelOutput.setColVal(1, 24, "单位：亩、栋、平方米、人、万元", 0, 8);
 			excelOutput.writeDatas(colDatas);
 			excelOutput.writeDatas(ProImportAndExportDto.class, dtos, colAttrVals, proTemplateRowIndex);
-			downloadChineseFileName = daYinData;//需要改动
+			downloadChineseFileName = "project";//需要改动
 			this.outputStream = excelOutput.getInputStream();
 			return SUCCESS;
 		} catch (IllegalArgumentException e) {

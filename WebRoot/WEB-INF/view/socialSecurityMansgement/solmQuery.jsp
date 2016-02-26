@@ -28,7 +28,9 @@
 				<div class="col-xs-3">
 					<div class="form-group downImput">
 						<label>身份证</label>
-						<input type="text"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证" id="idNumber">
+						<input type="text"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证" id="idNumber" autocomplete="OFF">
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-2">
@@ -147,6 +149,9 @@
     </div>
   </div>
 </div>
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td><a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a></td>

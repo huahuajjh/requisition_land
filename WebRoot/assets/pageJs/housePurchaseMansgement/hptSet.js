@@ -4,6 +4,20 @@ setHuListModal("#selectHuPerson",function(data){
 		$("#queryBtn").click();
 	}
 });
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
 $("#queryForm").validate({
 	rules: {
 		idNumber: {

@@ -67,6 +67,34 @@ $.dropDownInput({
 		$("#queryPrName").data("data",data);
 	}
 });
+$.dropDownInput({
+	inputId : "#name",
+	dropDownId : "#nameQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"name",
+	templateId : "#nameQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#name").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
 new bindingSelect({
 	masterSelect:"#community",
 	childSelect:"#zu",

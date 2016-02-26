@@ -60,12 +60,14 @@
         	<label class="col-md-3 control-label">身份证</label>
          	<div class="col-md-5">
              	<div class="controls">
-					<div class="input-group" style="width: 100%;">
-						<input id="idNumber" class="form-control"  type="text" placeholder="请输入需要录入人的身份证" maxlength="20"  />
+					<div class="input-group downImput" style="width: 100%;">
+						<input id="idNumber" class="form-control"  type="text" placeholder="请输入需要录入人的身份证" maxlength="20" autocomplete="OFF" />
 						<span class="input-group-btn" style="width: 100px;">
 							<button class="btn btn-default" id="idNumberBtn" type="button"><i class="fa fa-search"></i> 获取</button>
 							<button type="button" class="btn btn-default" onclick="$('#selectPerson').modal('show');">选择人员</button>
 						</span>
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
         	</div>
@@ -104,6 +106,10 @@
 		</div>
 	</div>
 </div>
+
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}</a></li>
+</script>
 <script id="errorItemTemplate" type="text/x-handlebars-template">
 {{#each this}}
 <li class="red">

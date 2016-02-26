@@ -56,43 +56,53 @@ function initDom(){
 				required : true
 			}
 		}, submitHandler:function(form){
-			var data = {};
-			data.name = $("[name='name']",form).val();
-			data.idNumber = $("[name='idNumber']",form).val();
-			data.birthday = $("[name='birthday']",form).val();
-			
-			data.gender =  $("[name='gender']",form).val();
-			data.genderStr =  $("[name='gender'] option:selected",form).html();
-			if($("[name='onlyChildNumber']",form).val()){
-				data.onlyChildNumber = $("[name='onlyChildNumber']",form).val();
-			}
-			data.half = $("[name='half']",form).prop("checked");
-			
-			data.relationshipId = $("[name='relationship']",form).val();
-			data.relationshipStr = $("[name='relationship'] option:selected",form).html();
+			$.getJSON(sendUrl.fmlItem_idnumberExists,{
+				idnumber:$("[name='idNumber']",form).val()
+			},function(d){
+				actionFormate(d, false,function(){
+					var data = {};
+					data.name = $("[name='name']",form).val();
+					data.idNumber = $("[name='idNumber']",form).val();
+					data.birthday = $("[name='birthday']",form).val();
+					
+					data.gender =  $("[name='gender']",form).val();
+					data.genderStr =  $("[name='gender'] option:selected",form).html();
+					if($("[name='onlyChildNumber']",form).val()){
+						data.onlyChildNumber = $("[name='onlyChildNumber']",form).val();
+					}
+					data.half = $("[name='half']",form).prop("checked");
+					
+					data.relationshipId = $("[name='relationship']",form).val();
+					data.relationshipStr = $("[name='relationship'] option:selected",form).html();
 
-			data.householdId = $("[name='householdId']",form).val();
-			data.householdStr = $("[name='householdId'] option:selected",form).html();
+					data.householdId = $("[name='householdId']",form).val();
+					data.householdStr = $("[name='householdId'] option:selected",form).html();
 
-			data.educationLevel = $("[name='educationLevel']",form).val();
-			data.currentEducationSituation = $("[name='currentEducationSituation']",form).val();
-			data.farmingTime = $("[name='farmingTime']",form).val();
-			data.serveArmySituation = $("[name='serveArmySituation']",form).val();
-			data.tel = $("[name='tel']",form).val();
-			data.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
-			data.remark = $("[name='remark']",form).val();
-			
-			var template = Handlebars.compile($("#familyItemTemplate").html());
-			var html = $(template(data));
-			html.attr("data",JSON.stringify(data));
-			$("#familyItems").append(html);
-			var dom = $("#personInfoModal").data("dom");
-			if(dom){
-				dom.remove();
-			}
-			$("#personInfoModal").modal("hide");
-			initFamilyNum();
-			$("#showHuZhuName").html(getHuZhuMing());
+					data.educationLevel = $("[name='educationLevel']",form).val();
+					data.currentEducationSituation = $("[name='currentEducationSituation']",form).val();
+					data.farmingTime = $("[name='farmingTime']",form).val();
+					data.serveArmySituation = $("[name='serveArmySituation']",form).val();
+					data.tel = $("[name='tel']",form).val();
+					data.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
+					data.remark = $("[name='remark']",form).val();
+					
+					var template = Handlebars.compile($("#familyItemTemplate").html());
+					var html = $(template(data));
+					html.attr("data",JSON.stringify(data));
+					$("#familyItems").append(html);
+					var dom = $("#personInfoModal").data("dom");
+					if(dom){
+						dom.remove();
+					}
+					$("#personInfoModal").modal("hide");
+					initFamilyNum();
+					$("#showHuZhuName").html(getHuZhuMing());
+				},function(type,msg,data){
+					$("#personInfoModal").validate().showErrors({
+						"idNumber" : msg
+					});
+				});
+			});
 		}
 	});
 	$("#addForm").validate({
@@ -342,6 +352,20 @@ function fimalyItem(dom){
 	$("[name='relationship']",html).val(data.relationshipId);
 	$("[name='relationship']",html).val(data.relationshipId);
 	$("[name='relationship']",html).val(data.relationshipId);
+	$('[name="idNumber"]',html).blur(function(){
+		var val = $(this).val() || "";
+		if(val.length >= 18){
+			$.getJSON(sendUrl.fmlItem_idnumberExists,{
+				idnumber:val
+			},function(data){
+				actionFormate(data, false,function(type,msg,data){},function(type,msg,data){
+					$("#personInfoModal").validate().showErrors({
+						"idNumber" : msg
+					});
+				});
+			});
+		}
+	});
 	$('[data-plugin-datepicker]',html).each(function() {
 		var $this = $(this), opts = {};
 		$this.themePluginDatePicker(opts);

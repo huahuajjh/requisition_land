@@ -4,6 +4,34 @@ setProListModal("#selectProInfoModal",function(data){
 		$("#queryPrName").val(data.proName);
 	}
 });
+$.dropDownInput({
+	inputId : "#queryIdNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#queryIdNumber").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryName",
+	dropDownId : "#nameQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"name",
+	templateId : "#nameQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#queryName").data("data",data);
+	}
+});
 var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",

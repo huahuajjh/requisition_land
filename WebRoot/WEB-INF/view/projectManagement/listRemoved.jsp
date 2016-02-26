@@ -32,9 +32,11 @@
 		<form action="" method="post">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="form-group">
+					<div class="form-group downImput">
 						<label>身份证</label>
-						<input type="text" id="idNumber" class="form-control" placeholder="请输入身份证" maxlength="20" />
+						<input type="text" id="idNumber" class="form-control" placeholder="请输入身份证" maxlength="20" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -51,7 +53,9 @@
 				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>姓名</label>
-						<input type="text" id="name" maxlength="5" class="form-control" placeholder="请输入要查询的姓名">
+						<input type="text" id="name" maxlength="5" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
+						<ul class="dropdown-menu" id="nameQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -747,6 +751,12 @@
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}</a></li>
+</script>
+<script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{name}}</a></li>
 </script>
 <script type="text/javascript" src="assets/js/showProListModal.js"></script>
 <script type="text/javascript" src="assets/js/select.js"></script>

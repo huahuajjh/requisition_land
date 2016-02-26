@@ -59,6 +59,20 @@ $("#queryData").validate({
 		},"json");
     }
 });
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
 $("#showQueryDataArea").validate({
 	rules: {
 		name: {

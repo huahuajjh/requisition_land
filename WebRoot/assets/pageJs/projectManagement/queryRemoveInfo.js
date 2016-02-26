@@ -76,6 +76,20 @@ $.dropDownInput({
 		$("#queryPrName").data("data",data);
 	}
 });
+$.dropDownInput({
+	inputId : "#huZhuName",
+	dropDownId : "#nameQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"name",
+	templateId : "#nameQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#huZhuName").data("data",data);
+	}
+});
 function showProInfo(id){
 	$.get("share/projectInfo",{
 		id:id

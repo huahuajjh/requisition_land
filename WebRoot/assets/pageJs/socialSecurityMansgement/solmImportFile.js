@@ -57,6 +57,20 @@ $("#addTalmportForm").validate({
 		}
     }
 });
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
 function initDom(data){
 	var template = Handlebars.compile($("#entrytemplate").html());
 	var ageDuan = ageCalculate(data.birthday);

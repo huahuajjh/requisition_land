@@ -15,9 +15,11 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="form-group">
+				<div class="form-group downImput">
 					<label>持有人身份证</label>
-					<input type="text" name="idNumber" id="idNumber" class="form-control" placeholder="请输入要查询的持有人身份证"  maxlength="20" />
+					<input type="text" name="idNumber" id="idNumber" class="form-control" placeholder="请输入要查询的持有人身份证"  maxlength="20" autocomplete="OFF" />
+					<ul class="dropdown-menu" id="idNumberQueryPrDown">
+					</ul>
 				</div>
 			</div>
 			<div class="col-md-12">
@@ -62,6 +64,9 @@
   </div>
 </div>
 
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <div class="panel">
 	<div class="panel-heading bk-bg-primary">

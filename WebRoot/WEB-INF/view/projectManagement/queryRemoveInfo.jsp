@@ -49,6 +49,8 @@
 					<div class="form-group downImput">
 						<label>户主姓名</label>
 						<input type="text" id="huZhuName" maxlength="5" class="form-control" placeholder="请输入要查询的户主姓名">
+						<ul class="dropdown-menu" id="nameQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-2">
@@ -290,7 +292,9 @@
 	   </div>
 	</div>
 </div>
-
+<script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{name}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>

@@ -4,6 +4,20 @@ setPersonListModal("#selectPerson",function(data){
 		initDom(data);
 	}
 });
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
 $("#idNumberBtn").click(function() {
 	var idNumber = $("#idNumber").val();
 	if (!idNumber)

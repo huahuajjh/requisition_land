@@ -81,6 +81,7 @@ function showInfo(dom) {
 		};
 		for (var i = 0; i < tempData.length; i++) {
 			var d = tempData[i];
+			d.date = d.date.substring(0, d.date.lastIndexOf("/"));
 			countModel.removedLandArea += d.removedLandArea || 0;
 			countModel.removedBuildings += d.removedBuildings || 0;
 			countModel.rmovedHouses += d.rmovedHouses || 0;
