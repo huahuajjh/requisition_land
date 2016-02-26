@@ -4,4 +4,3 @@ bin
 classes
 .classpath
 *.bat
-hibernate.cfg.xml
