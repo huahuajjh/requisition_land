@@ -12,6 +12,7 @@
 		<action name="hptAddGet" method="get" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		<action name="hptAddAdd" method="add" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		<action name="hptAddUpFile" method="upFile" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
+		<action name="hptAddAddFmlItem" method="addFmlItem" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		
 		<!--  购房券换发 -->
 		<action name="hptExchange" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptExchange">
@@ -70,6 +71,13 @@
 			<result name="success">../WEB-INF/view/housePurchaseMansgement/hptIssue.jsp</result>
 		</action>
 		<action name="hptIssueList" method="list" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptIssue"></action>
+		
+		<!-- 批量购房券使用与兑现 -->
+		<action name="hptBatchUseAndCash" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptBatchUseAndCash">
+			<result name="success">../WEB-INF/view/housePurchaseMansgement/hptBatchUseAndCash.jsp</result>
+		</action>
+		<action name="hptBatchUseAndCashList" method="list" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptBatchUseAndCash"></action>
+		<action name="hptBatchUseAndCashProcessing" method="processing" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptBatchUseAndCash"></action>
 		
 	</package>
 </struts>

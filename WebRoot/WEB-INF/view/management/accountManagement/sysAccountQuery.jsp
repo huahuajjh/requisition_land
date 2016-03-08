@@ -122,7 +122,7 @@
 	</div>
 </div>
 
-<form class="modal fade form-horizontal" id="editAccountModal">
+<form class="modal fade form-horizontal" id="editAccountModal" onsubmit="return false;">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -135,14 +135,15 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label" for="text-input">账号<span class="text-danger">*</span></label>
 					<div class="col-md-9">
-						<div class="form-control" id="editAccount">xiaomin</div>
+						<input type="text" class="form-control" placeholder="请输入账号"
+							name="account" id="editAccount" value="" maxlength="15" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label" for="text-input">姓名<span class="text-danger">*</span></label>
 					<div class="col-md-9">
 						<input type="text" class="form-control" placeholder="请输入姓名"
-						name="name" id="editName" value="小敏" maxlength="5" />
+						name="name" id="editName" value="" maxlength="5" />
 					</div>
 				</div>
 				<div class="form-group">

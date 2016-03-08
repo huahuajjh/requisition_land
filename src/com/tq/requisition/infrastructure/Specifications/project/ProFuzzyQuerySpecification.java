@@ -30,9 +30,13 @@ public class ProFuzzyQuerySpecification extends Specification<Project>{
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select * from tb_project where 1=1 ");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getCreateUId()!=null && !queryModel.getCreateUId().equals(""))
 		{
-			sb.append(" and id='"+queryModel.getProId().toString()).append("'");
+			sb.append(" and create_uId='" + queryModel.getCreateUId() + "'");
+		}
+		if(queryModel.getProName()!=null)
+		{
+			sb.append(" and pro_name like '%"+queryModel.getProName()).append("%'");
 		}
 		if(queryModel.getAnnouceQueue()!=0)
 		{

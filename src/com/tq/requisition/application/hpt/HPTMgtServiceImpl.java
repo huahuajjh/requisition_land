@@ -32,6 +32,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseAndCashInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
+import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtServiceContract;
 
@@ -252,6 +253,32 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			return toJson("导入购房券信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}finally{
 			context().close();
+		}
+	}
+
+	@Override
+	public String queryByPage4Json(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel) {
+		return toJsonByPage(queryByPage4List(queryModel, pageModel), "查询成功", Formater.OperationResult.SUCCESS);
+	}
+
+	@Override
+	public PageFormater queryByPage4List(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel) {
+		return hptRepository.queryByPage(queryModel, pageModel);
+	}
+
+	@Override
+	public String use(List<HPTUseAndCashInfoDto> dtos) {
+		try {
+			context().beginTransaction();
+			for (HPTUseAndCashInfoDto dto : dtos) {
+				hptService.useOrCash(HPTUseMapper.toModel(dto));
+			}
+			context().commit();
+			return toJson("兑换成功", null, Formater.OperationResult.SUCCESS);
+		} catch (Exception e) {
+			return toJson("兑换失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 

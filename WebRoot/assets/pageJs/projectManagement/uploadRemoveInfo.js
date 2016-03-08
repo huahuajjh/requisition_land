@@ -25,6 +25,51 @@ function initDom(){
 			return actionFormate(data, false);
 		}
 	});
+	$("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
+		if($(this).data("btnState") == true){
+			var imgData = $(this).data("imgData");
+			$("#paiZhaoFileLoginState").css("display","inline");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+			$.post("share/saveFile",{
+				baseSFFile:imgData
+			},function(data){
+				actionFormate(data, true, function(type, msg, data) {
+					$("#yuLanBtn").attr("img",data);
+				});
+				$("#paiZhaoFileLoginState").css("display","none");
+				$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+			},"json");
+		}
+	});
+	$("#phonePaiZhaoModal").modal({
+		show:false, 
+		keyboard:false,
+		backdrop:"static",
+	});
+	$("#yuLanBtn").click(function(){
+		var img = $(this).attr("img");
+		if(!img) return;
+		$.initShowImage([img]);
+	});
+	$("#upFile").change(function(){
+		var val = $(this).val();
+		if(!val) return;
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		submitFile(this,{
+			fileType:"EVIDENCE_FILE"
+		},"json",function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				data = data.substring(data.indexOf("/")+1);
+				$("#yuLanBtn").attr("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},function(e){
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		});
+	});
 	submitFileStyle("#upLoadFile","HOUSE_IMG",function(data){
 		actionFormate(data, true,function(type,msg,d){
 			var file = {};
@@ -46,13 +91,14 @@ function initDom(){
 			},relationship:{
 				required : true
 			},idNumber:{
-				required : true,
-				minlength : 18
+				required : true
 			},birthday:{
 				required : true
 			},gender:{
 				required : true
 			}, householdId:{
+				required : true
+			},certificateType:{
 				required : true
 			}
 		}, submitHandler:function(form){
@@ -85,6 +131,10 @@ function initDom(){
 					data.tel = $("[name='tel']",form).val();
 					data.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
 					data.remark = $("[name='remark']",form).val();
+					
+					data.certificateType = $("[name='certificateType']",form).val();
+					
+					data.otherRelationship = $("[name='otherRelationship']",form).val();
 					
 					var template = Handlebars.compile($("#familyItemTemplate").html());
 					var html = $(template(data));
@@ -186,6 +236,7 @@ function initDom(){
 			removeInfo.proName = proData.proName;
 			removeInfo.groupId = $("#zu").val();
 			removeInfo.unionSuggestionPath = $("#lianheVal").val();
+			removeInfo.image = $("#yuLanBtn").attr("img");
 			var fileItems = "";
 			$("input[name='fileItem']","#fileItems").each(function(){
 				fileItems = fileItems + $(this).val() + "|";
@@ -214,6 +265,7 @@ function initDom(){
 				yiQianHu.streetId = item.streetId;
 				yiQianHu.communityId = item.communityId;
 				yiQianHus.push(yiQianHu);
+
 			});
 			$.post("projectManagement/uploadRemoveInfoAdd",{
 				dataJson:JSON.stringify(removeInfo)
@@ -282,6 +334,15 @@ setProListModal("#showProInfoModal",function(data){
 		$("#proName").html(data.proName);
 	}
 });
+function upFileZhaoPian(){
+	$("#upFile").click();
+}
+function paiZhao(){
+	$.get("share/photographs",function(html){
+		$("#phonePaiZhaoBody").html(html);
+		$("#phonePaiZhaoModal").modal("show");
+	});
+}
 function resestData() {
 	setShareData("uploadRemoveInfo",null);
 	$("#showHuZhuName").html("");
@@ -291,6 +352,8 @@ function resestData() {
 	$("#proData").attr("proId","");
 	$("#proData").attr("proName","");
 	$("> .row","#familyItems").remove();
+	$("#yuLanBtn,#paiZhaoFileCheckState").css("display","none");
+	$("#yuLanBtn").attr("img","");
 	initFamilyNum();
 }
 function addreddQuanMing(){
@@ -348,13 +411,38 @@ function fimalyItem(dom){
 	$("[name='gender']",html).val(data.gender);
 	$("[name='householdId']",html).val(data.householdId);
 	$("[name='relationship']",html).val(data.relationshipId);
-	$("[name='relationship']",html).val(data.relationshipId);
-	$("[name='relationship']",html).val(data.relationshipId);
-	$("[name='relationship']",html).val(data.relationshipId);
-	$("[name='relationship']",html).val(data.relationshipId);
+	$("[name='certificateType']",html).val(data.certificateType);
+	$("[name='relationship']",html).change(function(){
+		var val = $("option:selected",this).html();
+		if(val == "其他"){
+			$('[name="otherRelationship"]',html).prop("disabled",false);
+		} else{
+			$('[name="otherRelationship"]',html).prop("disabled",true).val("");
+		}
+	});
+	$("[name='certificateType']",html).change(function(){
+		 var val = $(this).val();
+		 if(val){
+			 $('[name="idNumber"]',html).prop("disabled",false);
+		 } else {
+			 $('[name="idNumber"]',html).prop("disabled",true).val("");
+		 }
+	});
 	$('[name="idNumber"]',html).blur(function(){
-		var val = $(this).val() || "";
-		if(val.length >= 18){
+		var val = $(this).val();
+		if(val){
+			var certificateTypeVal = $('[name="certificateType"]',html).val();
+			if(certificateTypeVal == "idNumber"){
+				if(!IdCardValidate(val)){
+					$("#personInfoModal").validate().showErrors({
+						"idNumber" : "输入的身份证格式不正确"
+					});
+					return;
+				}
+				$("[name='birthday']",html).val(getDataByIdCard(val));
+				var sex = maleOrFemalByIdCard(val);
+				$("[name='gender']",html).val(sex=="male"?0:1);
+			}
 			$.getJSON(sendUrl.fmlItem_idnumberExists,{
 				idnumber:val
 			},function(data){

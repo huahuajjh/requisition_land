@@ -1,6 +1,7 @@
 package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,6 +51,13 @@ public class FamilyDto {
 	private String unionSuggestionPath;
 	/**家庭成员集合*/
 	private List<FamilyItemDto> items;
+	/**高拍仪拍照*/
+	private String image;
+	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
 	
 	/*getters and setters*/
 	public UUID getId() {
@@ -165,6 +173,24 @@ public class FamilyDto {
 	}
 	public void setUnionSuggestionPath(String unionSuggestionPath) {
 		this.unionSuggestionPath = unionSuggestionPath;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 	/*constructors*/

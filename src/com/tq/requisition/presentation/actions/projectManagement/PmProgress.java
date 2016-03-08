@@ -91,10 +91,11 @@ public class PmProgress extends BaseAction {
 	public String list() throws IOException {
 		ProQueryModel queryModel = new ProQueryModel();
 		queryModel.setAnnouceQueue(annouceQueue);
+		queryModel.setCreateUId(userId().toString());
 		if (!communityId.equals(""))
 			queryModel.setCommunityId(UUID.fromString(communityId));
-		if (!proId.equals("")) {
-			queryModel.setProId(UUID.fromString(proId));
+		if (val != null && !val.equals("")) {
+			queryModel.setProName(val);
 		}
 		if (!streetId.equals(""))
 			queryModel.setStreetId(UUID.fromString(streetId));
@@ -209,8 +210,7 @@ public class PmProgress extends BaseAction {
 		for (ColAttrVal cVal : cAttrValsArr) {
 			colAttrVals.add(cVal);
 		}
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		ProExportCondition data = Serialization.toObject(this.daYinData, ProExportCondition.class);//需要改动
+		ProExportCondition data = Serialization.toObject(this.daYinData, ProExportCondition.class);
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract
 				.exportProByDate(data);
 		for (int i = 0;dtos !=null && i < dtos.size(); i++) {
@@ -227,7 +227,7 @@ public class PmProgress extends BaseAction {
 			excelOutput.setColVal(1, 24, "单位：亩、栋、平方米、人、万元", 0, 8);
 			excelOutput.writeDatas(colDatas);
 			excelOutput.writeDatas(ProImportAndExportDto.class, dtos, colAttrVals, proTemplateRowIndex);
-			downloadChineseFileName = "project";//需要改动
+			downloadChineseFileName = "project";
 			this.outputStream = excelOutput.getInputStream();
 			return SUCCESS;
 		} catch (IllegalArgumentException e) {

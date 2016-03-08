@@ -134,3 +134,163 @@ $("#upLoadeFile").click(function(){
 		$("span","#upLoadeFile").html("上传");
 	},"housePurchaseMansgement/hptAddUpFile");
 });
+//-----------------------
+$("[name='relationship'] option","#personInfoModal").each(function(){
+	if($(this).html() == "户主"){
+		$(this).remove();
+	}
+});
+$("[name='relationship']","#personInfoModal").change(function(){
+	var val = $("option:selected",this).html();
+	if(val == "其他"){
+		$('[name="otherRelationship"]',"#personInfoModal").prop("disabled",false);
+	} else{
+		$('[name="otherRelationship"]',"#personInfoModal").prop("disabled",true).val("");
+	}
+});
+$("[name='certificateType']","#personInfoModal").change(function(){
+	 var val = $(this).val();
+	 if(val){
+		 $('[name="idNumber"]',"#personInfoModal").prop("disabled",false);
+	 } else {
+		 $('[name="idNumber"]',"#personInfoModal").prop("disabled",true).val("");
+	 }
+});
+$('[name="idNumber"]',"#personInfoModal").blur(function(){
+	var val = $(this).val();
+	if(val){
+		var certificateTypeVal = $('[name="certificateType"]',"#personInfoModal").val();
+		if(certificateTypeVal == "idNumber"){
+			if(!IdCardValidate(val)){
+				$("#personInfoModal").validate().showErrors({
+					"idNumber" : "输入的身份证格式不正确"
+				});
+				return;
+			}
+			$("[name='birthday']","#personInfoModal").val(getDataByIdCard(val));
+			var sex = maleOrFemalByIdCard(val);
+			$("[name='gender']","#personInfoModal").val(sex=="male"?0:1);
+		}
+		$.getJSON(sendUrl.fmlItem_idnumberExists,{
+			idnumber:val
+		},function(data){
+			actionFormate(data, false,function(type,msg,data){},function(type,msg,data){
+				$("#personInfoModal").validate().showErrors({
+					"idNumber" : msg
+				});
+			});
+		});
+	}
+});
+setHuListModal("#selectHuPerson",function(data){
+	if(data){
+		$("#selectedHuData").data("data",data).html(data.name + "-"+data.idNumber);
+	}
+});
+$("#personInfoModal").validate({
+	rules:{
+		name:{
+			required : true
+		},relationship:{
+			required : true
+		},idNumber:{
+			required : true
+		},birthday:{
+			required : true
+		},gender:{
+			required : true
+		}, householdId:{
+			required : true
+		},certificateType:{
+			required : true
+		}
+	}, submitHandler:function(form){
+		var huData = $("#selectedHuData").data("data");
+		if(!huData){
+			$("#showHuMsg").popover({
+				content : "请选择户主信息"
+			});
+			$("#showHuMsg").popover("show");
+			setTimeout(function() {
+				$("#showHuMsg").popover("destroy");
+			}, 1000);
+			return;
+		}
+		$.getJSON(sendUrl.fmlItem_idnumberExists,{
+			idnumber:$("[name='idNumber']",form).val()
+		},function(d){
+			actionFormate(d, false,function(){
+				var data = {};
+				data.name = $("[name='name']",form).val();
+				data.idNumber = $("[name='idNumber']",form).val();
+				data.birthday = $("[name='birthday']",form).val();
+				
+				data.gender =  $("[name='gender']",form).val();
+				data.genderStr =  $("[name='gender'] option:selected",form).html();
+				if($("[name='onlyChildNumber']",form).val()){
+					data.onlyChildNumber = $("[name='onlyChildNumber']",form).val();
+				}
+				data.half = $("[name='half']",form).prop("checked");
+				
+				data.relationshipId = $("[name='relationship']",form).val();
+				data.relationshipStr = $("[name='relationship'] option:selected",form).html();
+
+				data.householdId = $("[name='householdId']",form).val();
+				data.householdStr = $("[name='householdId'] option:selected",form).html();
+
+				data.educationLevel = $("[name='educationLevel']",form).val();
+				data.currentEducationSituation = $("[name='currentEducationSituation']",form).val();
+				data.farmingTime = $("[name='farmingTime']",form).val();
+				data.serveArmySituation = $("[name='serveArmySituation']",form).val();
+				data.tel = $("[name='tel']",form).val();
+				data.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
+				data.remark = $("[name='remark']",form).val();
+				
+				data.certificateType = $("[name='certificateType']",form).val();
+				
+				data.otherRelationship = $("[name='otherRelationship']",form).val();
+				
+				data.streetId = huData.streetId;
+				data.communityId = huData.communityId;
+				data.groupId = huData.groupId;
+				data.address = huData.address;
+				data.proId = huData.proId;
+				data.proName = huData.proName;
+				data.fmlId = huData.fmlId;
+				
+				var yiQianHus = [];
+				var yiQianHu = {};
+				yiQianHu.name = data.name;
+				yiQianHu.idNumber = data.idNumber;
+				yiQianHu.birthday = data.birthday;
+				yiQianHu.address = data.address;
+				yiQianHu.streetId = data.streetId;
+				yiQianHu.communityId = data.communityId;
+				yiQianHus.push(yiQianHu);
+				
+				$.post("housePurchaseMansgement/hptAddAddFmlItem",{
+					dataJson:JSON.stringify(data)
+				},function(data){
+					actionFormate(data, true,function(){
+						$.post(sendUrl.removedInfo_addBatch,{
+							list:JSON.stringify(yiQianHus)
+						},function(data){
+							actionFormate(data, true,function(){
+								 operationLog("手工添加已拆迁户","手工添加已拆迁户");
+							 });
+						},"json");
+						$("#selectedHuData").data("data",null).html("");
+						$("[name='otherRelationship']",form).val("").prop("disabled",true);
+						$("[name='idNumber']",form).val("").prop("disabled",true);
+						$("#personInfoModal")[0].reset();
+					});
+				},"json");
+				$("#personInfoModal").modal("hide");
+			},function(type,msg,data){
+				$("#personInfoModal").validate().showErrors({
+					"idNumber" : msg
+				});
+			});
+		});
+	}
+});

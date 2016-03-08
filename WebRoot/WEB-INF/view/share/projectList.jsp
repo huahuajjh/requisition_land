@@ -138,12 +138,9 @@ var selectQueryPro_tableData = $.generateData({
 	url : "projectManagement/pmQueryProList",
 	firstFn : function(data) {
 		data.pageNum = 10;
-		var queryPrName =  $("#selectQueryPro_name");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#selectQueryPro_name").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.annouceQueue = $("#selectQueryPro_jd").val();
 		data.typeId = $("#selectQueryPro_type").val();

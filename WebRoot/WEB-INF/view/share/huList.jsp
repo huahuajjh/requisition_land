@@ -130,12 +130,9 @@ var selectHu_tableData = $.generateData({
 	url : "share/huListList",
 	firstFn : function(data) {
 		data.pageNum = 10;
-		var queryPrName =  $("#selectHu_proName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#selectHu_proName").val();
+		if(queryPrName){
+				data.queryProName = queryPrName;
 		}
 		data.huZhuName = $("#selectHu_huZhuName").val();
 		data.streetId = $("#selectHu_queryStreet").val();

@@ -47,8 +47,8 @@ public class HuList extends BaseAction {
 		if(!zuId.equals("")){
 			familyQueryModel.setGroupId(UUID.fromString(zuId));
 		}
-		if(!proId.equals("")){
-			familyQueryModel.setProId(UUID.fromString(proId));
+		if(queryProName != null && !queryProName.equals("")){
+			familyQueryModel.setProName(queryProName);
 		}
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
@@ -61,6 +61,7 @@ public class HuList extends BaseAction {
 	private int pageNum = 30;
 	private int pageIndex = 1;
 
+	private String queryProName;
 	private String proId = "";
 	private String idNumber = null;
 	private String huZhuName = "";
@@ -90,5 +91,8 @@ public class HuList extends BaseAction {
 	}
 	public void setZuId(String zuId) {
 		this.zuId = zuId;
+	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
 	}
 }

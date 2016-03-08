@@ -92,6 +92,9 @@ $("#editInfoModal").validate({
 		subData.address += $("[name='communityId'] option:selected",form).html();
 		//	subData.address += $("[name='groupId'] option:selected",form).html();
 		subData.address += "," + $("[name='other']",form).val();
+		
+		subData.suitPolicy = $("[name='suitPolicy']",form).val();
+		
 		$.post(sendUrl.removedInfo_edit,{
 			entity:JSON.stringify(subData)
 		},function(d){
@@ -113,6 +116,34 @@ $("#editInfoModal").validate({
 			});
 		},"json");
     }
+});
+$.dropDownInput({
+	inputId : "#name",
+	dropDownId : "#nameQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"name",
+	templateId : "#nameQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#name").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
 });
 function deleteInfo(dom){
 	if(!confirm("确定要删除？")) return;
@@ -173,10 +204,4 @@ function editInfo(dom){
 	$('#editInfoModal').data("data",data);
 	$('#editInfoModal').data("dom",$(dom).closest("tr"));
 	$('#editInfoModal').modal('show');
-}
-function daoChu(){
-	var d = exportRemovedInfoExcel();
-	$("#daoChuHead").val(JSON.stringify(d.heads));
-	$("#daoChuAttrModel").val(JSON.stringify(d.keys));
-	$("#subDaoChu").submit();
 }

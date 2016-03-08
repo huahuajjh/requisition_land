@@ -28,15 +28,17 @@ public class FmlQueryFuzzySpecification extends Specification<Family>{
 		StringBuilder sb = new StringBuilder();
 		sb.append("select * from tb_family where 1=1 ");
 		List<Object> list = new ArrayList<Object>();
+		if(queryModel.getCreateUId() != null && !queryModel.equals("")){
+			sb.append(" and create_uId='" + queryModel.getCreateUId() + "'");
+		}
 		if(queryModel.getIdNumber()!=null)
 		{
 			sb.append(" and id_number=?");
 			list.add(queryModel.getIdNumber());
 		}
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and pro_id=?");
-			list.add(queryModel.getProId().toString());
+			sb.append(" and pro_name like " + "'%" + queryModel.getProName() +"%'");
 		}
 		if(queryModel.getStreetId()!=null)
 		{

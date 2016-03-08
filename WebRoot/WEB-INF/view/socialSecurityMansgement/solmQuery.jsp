@@ -102,7 +102,6 @@
 					<th>是否社保</th>
 					<th>待遇标准</th>
 					<th>社保时间</th>
-					<th>操作</th>
 				</tr>
 				</thead>
 				<tbody id="dataTbody">
@@ -150,7 +149,7 @@
   </div>
 </div>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
@@ -160,9 +159,6 @@
 	<td><i class="fa fa-check text-success"></i></td>
 	<td>{{ssTypeStr}}</td>
 	<td>{{ssDate}}</td>
-	<td>
-		<a class="label label-primary" onclick="editData(this);">编辑</a>
-	</td>
 </tr>
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">

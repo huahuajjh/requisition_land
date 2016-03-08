@@ -277,6 +277,8 @@
 				<th>下达限期腾地决定书</th>
 				<th>申请法院执行</th>
 				<th>依法实施强制腾地户数</th>
+				<th>是否为本月完成结算项目</th>
+				<th>本月新启动项目</th>
 			</tr>
 		</thead>
 		<tbody id="showProMonthProces">
@@ -300,9 +302,10 @@
     	<thead>
     		<tr>
     			<th><span class="jHead">户主姓名</span></th>
-    			<th><span class="jHead">房子合法面积<br>(平方米)</span></th>
-    			<th><span class="jHead">房子违章面积<br>(平方米)</span></th>
-    			<th><span class="jHead">房子照片</span></th>
+    			<th><span class="jHead">房屋合法面积<br>(平方米)</span></th>
+    			<th><span class="jHead">房屋违章面积<br>(平方米)</span></th>
+    			<th><span class="jHead">房屋照片</span></th>
+				<th><span class="jHead">高拍仪照片</span></th>
     			<th><span class="jHead">地址</span></th>
     			<th><span class="jHead">批证及其他情况说明</span></th>
     			<th><span class="jHead">拟定处理方案</span></th>
@@ -336,6 +339,9 @@
 		<a href="javascript:;" class="text-primary" onclick="showHuImg(this);">点击查看</a>
 	</td>
 	<td>
+		<a href="javascript:;" class="text-primary" onclick="showHuGPImg(this);">点击查看</a>
+	</td>
+	<td>
 		<span class="jBody"  data-toggle="tooltip" data-placement="top" title="{{address}}">{{address}}</span>
 	</td>
 	<td>
@@ -354,7 +360,7 @@
 	<td><a href="javascript:;" class="text-primary" onclick="showHuPersons(this);"><i class="fa fa-plus-square"></i> 查看详细</a></td>
 </tr>
 <tr style="display:none;" class="bk-bg-very-light-gray">
-	<td colspan="11" style="box-shadow: 0px 0px 10px inset;">
+	<td colspan="12" style="box-shadow: 0px 0px 10px inset;">
 		<table class="table table-bordered bootstrap-datatable datatable">
     		<thead>
     			<tr>
@@ -378,7 +384,7 @@
 <script id="huPersonEntrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{name}}</td>
-	<td>{{relationshipStr}}</td>
+	<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	<td>{{#dengYu gender 1}}男{{else}}女{{/dengYu}}</td>
 	<td>{{birthday}}</td>
 	<td>{{idNumber}}</td>
@@ -389,8 +395,8 @@
 </tr>
 <tr style="display:none;" class="bk-bg-very-light-gray">
 	<td colspan="9" style="box-shadow: 0px 0px 10px inset;">
-		<h3>转户信息</h3>
-		<table class="table table-bordered">
+		<h3 style="display:none">转户信息</h3>
+		<table class="table table-bordered" style="display:none">
 			<tbody class="showZhuanHuArea">
 			</tbody>
 		</table>
@@ -505,10 +511,12 @@
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
+		<td>{{this.curMonthComplete}}</td>
+		<td>{{this.isStart}}</td>
     </tr>
 	<tr>
 		<td>备注:</td>
-		<td colspan="7">{{this.remark}}</td>
+		<td colspan="9">{{this.remark}}</td>
 	</tr>
 {{/each}}
 </script>
@@ -522,6 +530,8 @@
     <td>{{this.yearDeadlineFile}}</td>
     <td>{{this.yearCourtExecute}}</td>
 	<td>{{this.yearLegalRemoved}}</td>
+	<td></td>
+	<td></td>
 </tr>
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">

@@ -31,10 +31,9 @@ public class TransferAddQuerySpecification extends Specification<TransferHouseho
 		List<Object> list = new ArrayList<Object>();
 		sb.append("select new com.tq.requisition.presentation.dto.transferMgt.TransferInfo4AddDto(f.name,f.proName,f.householdStr,f.address,f.idNumber,f.proId,f.id) from FamilyItem f");
 		sb.append(" where f.transfer=false ");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId=?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like " + "'%" + queryModel.getProName() + "%'");
 		}
 		
 		if(queryModel.getCommunityId()!=null)

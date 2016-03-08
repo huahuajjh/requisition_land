@@ -68,6 +68,20 @@ function getXiangMuMingChengHead(x,y){
 		celKey:["proName"]
 	};
 }
+function getXiangMuTianDate(x,y){
+	var celData = {
+		value:"填报时间",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["date"]
+	};
+}
 function getShenPiDanHaoHead(x,y){
 	var celData = {
 		value:"审批单号",
@@ -93,7 +107,7 @@ function getXiangMuFenLeiHead(x,y){
 	return {
 		y:y + 1,
 		celData:[celData],
-		celKey:["proCategory"]
+		celKey:["categoryStr"]
 	};
 }
 function getXiangMuLeiXingHead(x,y){
@@ -483,54 +497,57 @@ function exportModol(){
 		fn:getXiangMuMingChengHead
 	},{
 		id:"2",
+		fn:getXiangMuTianDate
+	}, {
+		id:"3",
 		fn:getShenPiDanHaoHead
 	},{
-		id:"3",
+		id:"4",
 		fn:getXiangMuFenLeiHead
 	},{
-		id:"4",
+		id:"5",
 		fn:getXiangMuLeiXingHead
 	},{
-		id:"5",
+		id:"6",
 		fn:getShiFouBenYueQiDongHead
 	},{
-		id:"6",
+		id:"7",
 		fn:getShiFouBenYueWanChengJieSuanHead
 	},{
-		id:"7",
+		id:"8",
 		fn:getYongDiWeiZhiHead
 	},{
-		id:"8",
+		id:"9",
 		fn:getYiGongGaoHead
 	},{
-		id:"9",
+		id:"10",
 		fn:getErGongGaoHead
 	},{
-		id:"10",
+		id:"11",
 		fn:getSanGongGaoHead
 	},{
-		id:"11",
+		id:"12",
 		fn:getTengDiQingKuangHead
 	},{
-		id:"12",
+		id:"13",
 		fn:getChaiChuFngWuQingKuangHead
 	},{
-		id:"13",
+		id:"14",
 		fn:getAnZhiQingKuangHead
 	},{
-		id:"14",
+		id:"15",
 		fn:getXiaDaTengDiShuHead
 	},{
-		id:"15",
+		id:"16",
 		fn:getShenQingFaYuanZhiXingHead
 	},{
-		id:"16",
+		id:"17",
 		fn:getYiFaQiangZhiTengDiHead
 	},{
-		id:"17",
+		id:"18",
 		fn:getLiuQianXingMuHead
 	},{
-		id:"18",
+		id:"19",
 		fn:getBeiZhuHead
 	}];
 }

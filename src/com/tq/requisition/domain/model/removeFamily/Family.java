@@ -1,6 +1,7 @@
 package com.tq.requisition.domain.model.removeFamily;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,6 +50,13 @@ public class Family extends AggregateRoot{
 	private UUID groupId;
 	/**联合会审意见文件路径*/
 	private String unionSuggestionPath;
+	/**高拍仪拍照*/
+	private String image;
+	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
 	
 	//非持久化字段
 	/**户主身份证*/
@@ -64,7 +72,7 @@ public class Family extends AggregateRoot{
 			UUID communityId, String address, Integer fmlNumber,
 			float houseLegalArea, float houseIllegalArea, String satuationDesc,
 			String dealSolution, String unionSuggestion, String remark,
-			String houseImgPath,List<FamilyItem> items,String proName,UUID groupId,String unionSuggestionPath) {
+			String houseImgPath,List<FamilyItem> items,String proName,UUID groupId,String unionSuggestionPath,String image,String createUid,Date createDate) {
 		this();
 		this.headName = headName;
 		this.proId = proId;
@@ -84,6 +92,9 @@ public class Family extends AggregateRoot{
 		this.proName = proName;
 		this.groupId = groupId;
 		this.unionSuggestionPath = unionSuggestionPath;
+		this.image = image;
+		this.createUid = createUid;
+		this.createDate = createDate;
 	}
 
 	/*public methods*/
@@ -91,7 +102,7 @@ public class Family extends AggregateRoot{
 			UUID communityId, String address, Integer fmlNumber,
 			float houseLegalArea, float houseIllegalArea, String satuationDesc,
 			String dealSolution, String unionSuggestion, String remark,
-			String houseImgPath,List<FamilyItem> items,String proName,UUID groupId,String unionSuggestionPath) {
+			String houseImgPath,List<FamilyItem> items,String proName,UUID groupId,String unionSuggestionPath,String image,String createUid,Date createDate) {
 		
 		return new Family(//
 				UUID.randomUUID(),
@@ -112,7 +123,10 @@ public class Family extends AggregateRoot{
 				items,//
 				proName,//
 				groupId,//
-				unionSuggestionPath);
+				unionSuggestionPath,
+				image,
+				createUid,
+				createDate);
 	}
 
 	public void validate() {
@@ -243,7 +257,26 @@ public class Family extends AggregateRoot{
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	
+	
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	/*public methods*/
 	/**
 	 * 新增数据验证
@@ -269,6 +302,7 @@ public class Family extends AggregateRoot{
 		this.satuationDesc = fml.getSatuationDesc();
 		this.unionSuggestionPath = fml.getUnionSuggestionPath();
 		this.houseImgPath = fml.getHouseImgPath();
+		this.image = fml.image;
 	}
 	
 }

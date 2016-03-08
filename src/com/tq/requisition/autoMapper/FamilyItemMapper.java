@@ -38,6 +38,7 @@ public class FamilyItemMapper {
 		item.setTel(dto.getTel());
 		item.setTransfer(dto.getTransfer());
 		item.setIsSocialsecurity(dto.getUserdSocialsecurity());
+		item.setOtherRelationship(dto.getOtherRelationship());
 		return item;		
 	}
 	
@@ -73,6 +74,7 @@ public class FamilyItemMapper {
 		dto.setTel(model.getTel());
 		dto.setTransfer(model.getTransfer());
 		dto.setUserdSocialsecurity(model.getIsSocialsecurity());
+		dto.setOtherRelationship(model.getOtherRelationship());
 		return dto;
 	}
 

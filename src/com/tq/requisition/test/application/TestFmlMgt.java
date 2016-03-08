@@ -139,7 +139,7 @@ public class TestFmlMgt {
 		queryModel.setCommunityId(UUID.randomUUID());
 		queryModel.setGroupId(UUID.randomUUID());
 //		queryModel.setIdNumber(UUID.randomUUID());
-		queryModel.setProId(UUID.randomUUID());
+		//queryModel.setProId(UUID.randomUUID());
 		queryModel.setStreetId(UUID.randomUUID());
 		
 		PageModel pageModel = new PageModel();

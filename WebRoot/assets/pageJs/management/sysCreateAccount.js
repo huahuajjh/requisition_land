@@ -2,7 +2,7 @@
 	rules : {
 		account : {
 			required : true,
-			minlength : 7,
+			minlength : 3,
 			maxlength : 15
 		},
 		name : {
@@ -19,7 +19,7 @@
 	messages : {
 		account : {
 			required : "账号不能为空",
-			minlength : "不能少于7个字符",
+			minlength : "不能少于3个字符",
 			maxlength : "账号格式不正确"
 		},
 		name : {

@@ -26,12 +26,18 @@
 			<result name="success">../WEB-INF/view/socialSecurityMansgement/solmInfoSummary.jsp</result>
 		</action>
 		
-		<!--    查询社保台账 -->
+		<!--   查询社保台账 -->
 		<action name="solmQuery" class="com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmQuery">
 			<result name="success">../WEB-INF/view/socialSecurityMansgement/solmQuery.jsp</result>
 		</action>
 		<action name="solmQueryList" method="list" class="com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmQuery"></action>
 		<action name="solmQueryEdit" method="edit" class="com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmQuery"></action>
+		
+		<!--   维护社保信息 -->
+		<action name="solmMaintain" class="com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmMaintain">
+			<result name="success">../WEB-INF/view/socialSecurityMansgement/solmMaintain.jsp</result>
+		</action>
+		<action name="solmMaintainList" method="list" class="com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmMaintain"></action>
 		
 	</package>
 </struts>

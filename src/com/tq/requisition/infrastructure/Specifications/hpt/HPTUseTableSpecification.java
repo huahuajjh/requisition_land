@@ -30,9 +30,9 @@ public class HPTUseTableSpecification extends Specification<HousePuraseTicket>{
 		sb.append(" from HPTUseAndCash u,FamilyItem fi,HousePuraseTicket h");
 		sb.append(" where u.ticketId=h.id and u.del=false and h.fmlItemId=fi.id and h.del=false");
 		sb.append(" and (h.state=? or h.state=?)");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and fi.proId='"+queryModel.getProId()+"'");
+			sb.append(" and fi.proName like '%"+queryModel.getProName()+"%'");
 		}
 		if(queryModel.getTicketNumber()!=null){
 			sb.append(" and h.ticketNumber='"+queryModel.getTicketNumber()+"'");

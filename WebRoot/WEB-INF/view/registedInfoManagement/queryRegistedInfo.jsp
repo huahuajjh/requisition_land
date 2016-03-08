@@ -59,7 +59,7 @@
 				<div class="col-md-12 text-right">
 					<hr>
 					<div class="btn-group">
-						<button class="btn btn-bg btn-success">导出已拆迁户台账</button>
+						<button class="btn btn-bg btn-success">导出在籍农业人口台账</button>
 						<input type="button" class="btn btn-primary pull-left" value="查询">
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 					<option selected value="30">30</option>
 					<option value="40">40</option>
 					<option value="50">50</option>
-				</select>条数据,总共有<span id="countArea">0</span>个迁户人员。
+				</select>条数据,总共有<span id="countArea">0</span>个在籍农业人口。
 			</div>
 		</div>
 

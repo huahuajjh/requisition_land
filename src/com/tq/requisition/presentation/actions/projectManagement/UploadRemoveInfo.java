@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.excel.util.ExcelFactory;
@@ -12,6 +13,7 @@ import com.excel.util.error.ConvertErrorException;
 import com.excel.util.intefaces.IErrorCallback;
 import com.excel.util.intefaces.IExcelInput;
 import com.excel.util.model.ExcelRowError;
+import com.mysql.fabric.xmlrpc.base.Data;
 import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.infrastructure.utils.ConfigFileUtil;
 import com.tq.requisition.infrastructure.utils.Formater.OperationResult;
@@ -81,6 +83,8 @@ public class UploadRemoveInfo extends BaseAction {
 		String stateJson = "";
 		try {
 			FamilyDto family = Serialization.toObject(dataJson, FamilyDto.class);
+			family.setCreateDate(new Date());
+			family.setCreateUid(userId().toString());
 			stateJson = this.familyMgtServiceContract.addFamily(family);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");
@@ -110,6 +114,8 @@ public class UploadRemoveInfo extends BaseAction {
 					List<FmlItemImportAndExport> items =  excelInput.getDatas(FmlItemImportAndExport.class, familyTemplateChildIndex);
 					if(errors.size() == 0){
 						Family family = dto.toFamily(items);
+						family.setCreateDate(new Date());
+						family.setCreateUid(userId().toString());
 						dtos.add(family);
 					}
 				}

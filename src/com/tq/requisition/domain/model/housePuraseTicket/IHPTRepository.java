@@ -11,6 +11,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTDisplayDto;
 import com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto;
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
+import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
@@ -96,6 +97,15 @@ public interface IHPTRepository extends IRepository<HousePuraseTicket>{
 	 * 		兑付台账model
 	 */
 	PageFormater queryUseTable(HPTFuzzyQueryModel queryModel,PageModel pageModel);
+	
+	/**
+	 * 查询购房券的使用与对付
+	 * @param queryModel
+	 * @param pageModel
+	 * @return
+	 */
+	PageFormater queryByPage(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel);
 	
 	/**
 	 * 根据身份证号查询购房券和人员信息

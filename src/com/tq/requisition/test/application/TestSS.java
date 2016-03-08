@@ -80,7 +80,6 @@ public class TestSS {
 	public void query() {
 		SocialsecurityQueryModel queryModel = new SocialsecurityQueryModel();
 		queryModel.setCommunityId(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(null);
 		
 		PageModel pageModel = new PageModel();
@@ -95,7 +94,6 @@ public class TestSS {
 	public void query4Add() {
 		SocialsecurityQueryModel queryModel = new SocialsecurityQueryModel();
 		queryModel.setCommunityId(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(null);
 		
 		PageModel pageModel = new PageModel();

@@ -269,16 +269,18 @@
 		<tr>
 			<td class="active text-right"><strong>户主姓名：</strong></td>
 			<td>{{headName}}</td>
-			<td class="active text-right"><strong>房子合法面积(平方米)：</strong></td>
+			<td class="active text-right"><strong>房屋合法面积(平方米)：</strong></td>
 			<td>{{houseLegalArea}}</td>
-			<td class="active text-right"><strong>房子违章面积(平方米)：</strong></td>
+			<td class="active text-right"><strong>房屋违章面积(平方米)：</strong></td>
 			<td>{{houseIllegalArea}}</td>
 		</tr>
 		<tr>
-			<td class="active text-right"><strong>房子照片：</strong></td>
+			<td class="active text-right"><strong>房屋照片：</strong></td>
 			<td><a href="javascript:;" onclick="showFileItem(this);" class="text-primary">点击查看</a></td>
+			<td class="active text-right"><strong>高拍仪拍照</strong></td>
+			<td><a href="javascript:;" onclick="showFileImage(this);" class="text-primary">点击查看</a></td>
 			<td class="active text-right"><strong>地址：</strong></td>
-			<td colspan="3">{{address}}</td>
+			<td>{{address}}</td>
 		</tr>
 		<tr>
 			<td colspan="6">
@@ -321,7 +323,7 @@
 		<a href="javascript:;" class="bk-fg-primary" onclick="showRemovedInfo(this);">{{name}}</a>
 	</td>
 	<td><a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}');">{{proName}}</a></td>
-	<td>{{relationshipStr}}</td>	
+	<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>	
 	<td>{{householdStr}}</td>
 	<td>{{genderStr}}</td>
 	<td>
@@ -354,7 +356,6 @@
 	</td>
 	<td>
 		<a class="label label-dark" onclick="showRemovedInfo(this);">查看</a> 
-		<a class="label label-info" onclick="editRemevedInfo(this);">编辑</a>
 	</td>
 </tr>
 </script>
@@ -401,7 +402,7 @@
     			<td style="width: 230px;">姓名</td>
     			<td><strong>{{name}}</strong></td>
     			<td style="width: 150px;">与户主关系</td>
-				<td><strong>{{relationshipStr}}</strong></td>
+				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
     			<td>身份证号码</td>
@@ -496,7 +497,7 @@
 <script id="famitlyItemEntrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td><a href="javascript:;" onclick="showPersonInfo(this);" class="text-primary">{{name}}</a></td>
-	<td>{{relationshipStr}}</td>
+	<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	<td>
 		{{#dengYu gender "MALE"}}
 			男
@@ -529,14 +530,16 @@
 		<tr>
 			<td class="active text-right"><strong>户主姓名：</strong></td>
 			<td><a href="javascript:;" onclick="showHuInfo(this);" class="text-primary">{{headName}}</a></td>
-			<td class="active text-right"><strong>房子合法面积(平方米)：</strong></td>
+			<td class="active text-right"><strong>房屋合法面积(平方米)：</strong></td>
 			<td>{{houseLegalArea}}</td>
-			<td class="active text-right"><strong>房子违章面积(平方米)：</strong></td>
+			<td class="active text-right"><strong>房屋违章面积(平方米)：</strong></td>
 			<td>{{houseIllegalArea}}</td>
 		</tr>
 		<tr>
-			<td class="active text-right"><strong>房子照片：</strong></td>
+			<td class="active text-right"><strong>房屋照片：</strong></td>
 			<td><a href="javascript:;" onclick="showFileItem(this);" class="text-primary">点击查看</a></td>
+			<td class="active text-right"><strong>高拍仪拍照</strong></td>
+			<td><a href="javascript:;" onclick="showFileImage(this);" class="text-primary">点击查看</a></td>
 			<td class="active text-right"><strong>地址：</strong></td>
 			<td colspan="3">{{address}}</td>
 		</tr>
@@ -551,7 +554,7 @@
     			<td style="width: 230px;">姓名</td>
     			<td><strong>{{name}}</strong></td>
     			<td style="width: 150px;">与户主关系</td>
-				<td><strong>{{relationshipStr}}</strong></td>
+				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
     			<td>身份证号码</td>
@@ -651,7 +654,7 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">与户主关系</label>
-			<div class="form-control">{{relationshipStr}}</div>
+			<div class="form-control">{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</div>
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -753,10 +756,10 @@
     <li><a href="javascript:;">{{proName}}</a></li>
 </script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{name}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script type="text/javascript" src="assets/js/showProListModal.js"></script>
 <script type="text/javascript" src="assets/js/select.js"></script>

@@ -28,6 +28,8 @@ public class HPTDisplayFmlDto {
 	private Date makeTime;
 	/**与户主关系*/
 	private String relationship;
+	/**与户主关系*/
+	private String otherRelationship;
 	
 	public String getProName() {
 		return proName;
@@ -95,11 +97,17 @@ public class HPTDisplayFmlDto {
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
 	}
+	public String getOtherRelationship() {
+		return otherRelationship;
+	}
+	public void setOtherRelationship(String otherRelationship) {
+		this.otherRelationship = otherRelationship;
+	}
 	
 	public HPTDisplayFmlDto(){}
 	public HPTDisplayFmlDto(String proName, UUID proId, UUID hptId,
 			UUID fmlItemId, String name, String idNumber, String ticketNumber,
-			float bonus, TicketState ticketState, Date makeTime, String relationship) {
+			float bonus, TicketState ticketState, Date makeTime, String relationship,String otherRelationship) {
 		super();
 		this.proName = proName;
 		this.proId = proId;
@@ -112,5 +120,6 @@ public class HPTDisplayFmlDto {
 		this.ticketState = ticketState;
 		this.makeTime = makeTime;
 		this.relationship = relationship;
+		this.otherRelationship = otherRelationship;
 	}	
 }

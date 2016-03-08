@@ -1,6 +1,7 @@
 package com.tq.requisition.presentation.dto.project;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * 新增項目dto
@@ -38,6 +39,11 @@ public class NewProDto {
 	private String proCategory;
 	/**是否属于六前项目*/
 	private String sixForwardPro;
+	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
 
 	/*constrcutors*/
 	public NewProDto(){}
@@ -152,6 +158,18 @@ public class NewProDto {
 	}
 	public void setSixForwardPro(String sixForwardPro) {
 		this.sixForwardPro = sixForwardPro;
+	}
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 	/*public methods*/

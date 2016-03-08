@@ -25,12 +25,9 @@ var tableData = $.generateData({
 	url : "transferAccountManagement/taQueryList",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.streetId = $("#street").val();
 		data.communityId = $("#community").val();

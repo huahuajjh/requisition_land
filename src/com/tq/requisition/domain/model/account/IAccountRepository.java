@@ -12,6 +12,10 @@ import com.tq.requisition.infrastructure.utils.PageFormater;
  * 表示账户的聚合根仓储接口
  * @author jjh
  * @time 2015-12-20 23:26
+ * 
+ * 增加一个检查用户账号是否存在的接口
+ * @author Bless
+ * @time 2016/3/3 9:51
  */
 public interface IAccountRepository extends IRepository<Account>{
 	/**
@@ -151,4 +155,13 @@ public interface IAccountRepository extends IRepository<Account>{
 	 * 		账户集合
 	 */
 	PageFormater queryByPage(String userName, String name, UUID orgId, UUID deptId, int pageIndex, int pageNum);
+	
+	/**
+	 * 根据用户账号检测是否存在该用户
+	 * @param account
+	 * 		用户账号
+	 * @return boolean
+	 * 		如果存在该用户返回true，否则返回false
+	 */
+	public boolean existsByAccount(String account);
 }

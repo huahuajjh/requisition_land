@@ -12,7 +12,7 @@ public class FamilyQueryModel {
 	/**身份证号*/
 	private String idNumber;
 	/**项目id*/
-	private UUID proId;
+	private String proName;
 	/**街道地址id*/
 	private UUID streetId;
 	/**社区地址id*/
@@ -21,6 +21,8 @@ public class FamilyQueryModel {
 	private UUID groupId;
 	/**户主姓名*/
 	private String name;
+	/**创建用户*/
+	private String createUId;
 		
 	/*getters and setters*/
  	public String getIdNumber() {
@@ -28,12 +30,6 @@ public class FamilyQueryModel {
 	}
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
-	}
-	public UUID getProId() {
-		return proId;
-	}
-	public void setProId(UUID proId) {
-		this.proId = proId;
 	}
 	public UUID getStreetId() {
 		return streetId;
@@ -47,12 +43,6 @@ public class FamilyQueryModel {
 	public void setCommunityId(UUID communityId) {
 		this.communityId = communityId;
 	}
-	@Override
-	public String toString() {
-		return "FamilyQueryModel [idNumber=" + idNumber + ", proId=" + proId
-				+ ", streetId=" + streetId + ", communityId=" + communityId
-				+ "]";
-	}
 	public UUID getGroupId() {
 		return groupId;
 	}
@@ -64,6 +54,18 @@ public class FamilyQueryModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getProName() {
+		return proName;
+	}
+	public void setProName(String proName) {
+		this.proName = proName;
+	}
+	public String getCreateUId() {
+		return createUId;
+	}
+	public void setCreateUId(String createUId) {
+		this.createUId = createUId;
 	}
 	
 }

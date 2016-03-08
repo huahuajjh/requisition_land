@@ -93,6 +93,7 @@
 <script type="text/javascript" src="assets/js/showProListModal.js"></script>
 <script type="text/javascript" src="assets/js/operationLog.js"></script>
 <script type="text/javascript" src="assets/js/base64.js"></script>
+<script type="text/javascript" src="assets/js/idNumberCheck.js"></script>
 <script type="text/javascript">
 	Handlebars.registerHelper("dengYu",function(v1,v2,options){
 		if(v1 == v2){

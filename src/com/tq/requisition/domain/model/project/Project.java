@@ -90,7 +90,12 @@ public class Project extends AggregateRoot{
 	private List<Announcement> announcements;
 	/**项目item集合*/
 	private List<ProjectItem> items;
-		
+	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
+	
 	/*getters and setters*/
 	public String getProName() {
 		return proName;
@@ -332,6 +337,18 @@ public class Project extends AggregateRoot{
 	}
 	public void setSixForward(String sixForward) {
 		this.sixForward = sixForward;
+	}
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 	/*constructors*/

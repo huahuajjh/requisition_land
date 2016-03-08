@@ -76,7 +76,7 @@
 </div>
 
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <div class="panel">
@@ -126,7 +126,7 @@
 	</td>
 	<td>{{name}}</td>
 	<td>{{idNumber}}</td>
-	<td>{{relationship}}</td>
+	<td>{{relationship}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	<td>{{bonus}}</td>
 	<td>{{ticketNumber}}</td>
 	<td>{{ticketName}}</td>

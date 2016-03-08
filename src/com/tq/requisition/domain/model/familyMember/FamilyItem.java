@@ -74,7 +74,8 @@ public class FamilyItem extends AggregateRoot {
 	private String remark;
 	/**是否参加过社保*/
 	private boolean isSocialsecurity;
-	
+	/**其他关系内容*/
+	private String otherRelationship;
 	
 	/*constructors*/
 	public FamilyItem(){
@@ -351,7 +352,12 @@ public class FamilyItem extends AggregateRoot {
 	public void setIsSocialsecurity(boolean isS) {
 		this.isSocialsecurity = isS;
 	}
-	
+	public String getOtherRelationship() {
+		return otherRelationship;
+	}
+	public void setOtherRelationship(String otherRelationship) {
+		this.otherRelationship = otherRelationship;
+	}
 	/*public methods*/
 	/**
 	 * 标记转户状态

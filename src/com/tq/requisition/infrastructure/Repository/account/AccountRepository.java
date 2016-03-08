@@ -264,5 +264,33 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 		}		
 		return PageFormater.obtain(dtos, count);
 	}
+
+	@Override
+	public boolean existsByAccount(String account) {
+		final String _acc = account;
+		boolean r = doExists(new SpecificationExt<Account>(Account.class) {
+			@Override
+			public String getAbsHql() {
+				return "select count(1) from Account acc where acc.account=?";
+			}
+
+			@Override
+			public String getAbsSql() {
+				return "select count(1) from tb_account where account=?";
+			}
+
+			@Override
+			public Object[] getAbsParameters() {
+				return new Object[]{_acc};
+			}
+
+			@Override
+			public OperationType getAbsType() {
+				return OperationType.HQL;
+			}			
+		});
+		
+		return r;
+	}
 	
 }

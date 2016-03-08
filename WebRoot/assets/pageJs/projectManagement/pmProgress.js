@@ -5,12 +5,9 @@
 	url : "projectManagement/pmProgressList",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.val = queryPrName;
 		}
 		data.annouceQueue = $("#queryPrJD").val();
 		data.typeId = $("#queryProType").val();
@@ -22,11 +19,7 @@
 		return tempData;
 	}
 });
-var thisDate = new Date();
-for (var i = 2010; i <= thisDate.getFullYear(); i++) {
-	$("#daYinYearFirst").append('<option value="'+i+'">'+i+'</option>');
-	$("#daYinYearLast").append('<option value="'+i+'">'+i+'</option>');
-}
+
 $("#dataPageCount").change(function() {
 	tableData.setPageNum(parseInt($(this).val()));
 	tableData.refreshData();
@@ -126,6 +119,7 @@ function showInfo(dom) {
 	var address = tr.attr("address");
 	var announceName = tr.attr("announceName");
 	var proid = tr.attr("proid");
+	var proInfo = tr.data("data");
 	$("#proInfoName").html(proname);
 	$("#proInfoNum").html(approvalNumber);
 	$("#proInfoAddress").html(address);
@@ -151,6 +145,10 @@ function showInfo(dom) {
 		for (var i = 0; i < tempData.length; i++) {
 			var d = tempData[i];
 			d.date = d.date.substring(0, d.date.lastIndexOf("/"));
+			var startDate = proInfo.startDate || "";
+			if(startDate.substring(0, startDate.lastIndexOf("/")) == d.date){
+				d.isStart = "√";
+			}
 			countModel.removedLandArea += d.removedLandArea || 0;
 			countModel.removedBuildings += d.removedBuildings || 0;
 			countModel.rmovedHouses += d.rmovedHouses || 0;
@@ -585,6 +583,10 @@ function daYin(dom){
 				for (var l = 0; l < items.length; l++) {
 					var t = items[l];
 					t.date = t.date.substring(0, t.date.lastIndexOf("/"));
+					var startDate = d.startDate || "";
+					if(startDate.substring(0, startDate.lastIndexOf("/")) == t.date){
+						t.isStart = "√";
+					}
 					d.countModel.removedLandArea += t.removedLandArea || 0;
 					d.countModel.removedBuildings += t.removedBuildings || 0;
 					d.countModel.rmovedHouses += t.rmovedHouses || 0;
@@ -597,10 +599,10 @@ function daYin(dom){
 					d.countModel.yearLegalRemoved += t.yearLegalRemoved || 0;
 				}
 				var template = Handlebars.compile($("#daYinProYueBaoTemplate").html());
-				console.log(d);
 				var html = template(d);
 				win.sendDaYinHtml(html);
 			}
+			console.log(d);
 			win.printDom();
 		});
 	},"json");

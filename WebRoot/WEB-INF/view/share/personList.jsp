@@ -130,12 +130,9 @@ var selectPerson_tableData = $.generateData({
 	url : "projectManagement/listRemovedList",
 	firstFn : function(data) {
 		data.pageNum = 10;
-		var queryPrName =  $("#selectPerson_proName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#selectPerson_proName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.name = $("#selectPerson_name").val();
 		data.streetId = $("#selectPerson_queryStreet").val();

@@ -29,6 +29,9 @@ $("#addRemoveInfo").validate({
 		subData.address += $("[name='community'] option:selected",form).html();
 		//subData.address += $("[name='zu'] option:selected",form).html();
 		subData.address += "," + $("[name='other']",form).val();
+		
+		subData.suitPolicy = $("[name='suitPolicy']",form).val();
+		
 		$.post(sendUrl.removedInfo_add,{
 			entity:JSON.stringify(subData)
 		},function(data){

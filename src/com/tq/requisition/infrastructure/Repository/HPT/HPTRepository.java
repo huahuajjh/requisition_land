@@ -13,6 +13,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTReportOfLossInfo;
 import com.tq.requisition.domain.model.housePuraseTicket.HPTUseAndCash;
 import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 import com.tq.requisition.domain.model.housePuraseTicket.IHPTRepository;
+import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.domain.model.share.TicketState;
 import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
@@ -22,7 +23,11 @@ import com.tq.requisition.infrastructure.Specifications.hpt.HPTProvideTableSpeci
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryByIdNumSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryFmlProvideSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTUseCountSpecification;
+import com.tq.requisition.infrastructure.Specifications.hpt.HPTUseQuerySpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTUseTableSpecification;
+import com.tq.requisition.infrastructure.Specifications.hpt.HptUseTotalCountSpecification;
+import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlBasicInfoSpecification;
+import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlTotalCountSpecification;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.infrastructure.utils.PageHelper;
 import com.tq.requisition.presentation.dto.hpt.HPTDisplayDto;
@@ -31,6 +36,8 @@ import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTReceiveTableDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseTableDto;
+import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyBasicInfoDto;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
@@ -249,6 +256,21 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 			provider(hptProviderInfo);
 		}
 		
+	}
+
+	@Override
+	public PageFormater queryByPage(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel) {
+		int count = getTotalCount(new HptUseTotalCountSpecification(HousePuraseTicket.class, queryModel));
+		if(count==0){
+			return PageFormater.obtain(null, count);
+		}
+		
+		List<HPTDisplayDto> list = getAllByHqlJoin(
+				new HPTUseQuerySpecification(HPTDisplayDto.class, queryModel),PageHelper.getPageIndex(pageModel.pageIndex, pageModel.pageSize), //
+				pageModel.pageSize);
+				
+		return PageFormater.obtain(list, count);
 	}
 	
 }

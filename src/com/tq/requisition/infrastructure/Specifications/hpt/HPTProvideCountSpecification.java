@@ -27,9 +27,9 @@ public class HPTProvideCountSpecification extends Specification<HousePuraseTicke
 		StringBuilder sb = new StringBuilder();
 		sb.append("select count(1) from HousePuraseTicket t,FamilyItem i");		
 		sb.append(" where  t.fmlItemId=i.id and t.del=false and t.state=?");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and i.proId='"+queryModel.getProId()+"'");
+			sb.append(" and i.proName like '%"+queryModel.getProName()+"%'");
 		}
 		
 		if(queryModel.getIdNumber()!=null && !(queryModel.getIdNumber().trim().equals(""))){

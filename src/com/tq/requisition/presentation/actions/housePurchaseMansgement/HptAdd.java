@@ -18,17 +18,37 @@ import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.hpt.HPTImportAndExport;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
+import com.tq.requisition.presentation.dto.project.ProTypeDto;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
+import com.tq.requisition.presentation.dto.share.AddressDto;
+import com.tq.requisition.presentation.dto.share.HouseholdTypeDto;
+import com.tq.requisition.presentation.dto.share.RelationshipTypeDto;
 import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtServiceContract;
+import com.tq.requisition.presentation.serviceContract.proMgt.IProMgtServiceContract;
 import com.tq.requisition.presentation.serviceContract.rmHousehold.IFamilyItemServiceContract;
+import com.tq.requisition.presentation.serviceContract.rmHousehold.IFamilyMgtServiceContract;
+import com.tq.requisition.presentation.serviceContract.share.IShareTypeServiceContract;
 
 public class HptAdd extends BaseAction {
 
 	private IFamilyItemServiceContract familyItemServiceContract;
 	private IHPTMgtServiceContract hptMgtServiceContract;
+	private IShareTypeServiceContract shareTypeServiceContract;
 	
 	public HptAdd(){
 		this.familyItemServiceContract = getService("fmlItemService", IFamilyItemServiceContract.class);
 		this.hptMgtServiceContract = getService("hptService", IHPTMgtServiceContract.class);
+		this.shareTypeServiceContract = getService("shareTypeService", IShareTypeServiceContract.class);
+	}
+	
+	private List<HouseholdTypeDto> householdTypeDtos;
+	private List<RelationshipTypeDto> relationshipTypeDtos;
+	
+	public List<HouseholdTypeDto> getHouseholdTypeDtos() {
+		return householdTypeDtos;
+	}
+	public List<RelationshipTypeDto> getRelationshipTypeDtos() {
+		return relationshipTypeDtos;
 	}
 	
 	private String idNumber;
@@ -46,6 +66,8 @@ public class HptAdd extends BaseAction {
 	}
 	@Override
 	public String execute() throws Exception {
+		this.householdTypeDtos = this.shareTypeServiceContract.getAllHouseholdTypeList();
+		this.relationshipTypeDtos = this.shareTypeServiceContract.getAllRelationshipTypeList();
 		return SUCCESS;
 	}
 	
@@ -66,6 +88,15 @@ public class HptAdd extends BaseAction {
 		response().getWriter().write(stateJson);
 		return null;
 	}
+	
+	public String addFmlItem() throws IOException{
+		String stateJson = "";
+		FamilyItemDto dto = Serialization.toObject(dataJson, FamilyItemDto.class);
+		stateJson = this.familyItemServiceContract.addFmlItem(dto);
+		response().getWriter().write(stateJson);
+		return null;
+	}
+	
 	public String upFile() throws IOException{
 		InputStream fileInputStream = null;
 		IExcelInput excelInput = null;

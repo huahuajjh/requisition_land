@@ -17,6 +17,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseAndCashInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
+import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtServiceContract;
 
@@ -169,7 +170,6 @@ public class TestHPT {
 	@Test
 	public void provideTable() {
 		HPTFuzzyQueryModel queryModel = new HPTFuzzyQueryModel();
-		queryModel.setProId(null);
 		
 		PageModel pageModel = new PageModel();
 		pageModel.pageIndex = 1;
@@ -182,7 +182,6 @@ public class TestHPT {
 	@Test
 	public void useTable() {
 		HPTFuzzyQueryModel queryModel = new HPTFuzzyQueryModel();
-		queryModel.setProId(null);
 		
 		PageModel pageModel = new PageModel();
 		pageModel.pageIndex = 1;
@@ -195,6 +194,17 @@ public class TestHPT {
 	@Test
 	public void queryFml() {
 		String str = service.queryByFml("44444444444444444444");
+		System.out.println(str);
+	}
+	
+	@Test
+	public void queryHPT(){
+		PageModel pageModel = new PageModel();
+		pageModel.setPageIndex(1);
+		pageModel.setPageSize(30);
+		
+		HptUseAndCashQueryModel  queryModel = new HptUseAndCashQueryModel();
+		String str = service.queryByPage4Json(queryModel, pageModel);
 		System.out.println(str);
 	}
 }

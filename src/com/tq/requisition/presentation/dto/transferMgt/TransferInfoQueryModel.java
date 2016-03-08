@@ -12,7 +12,7 @@ import com.tq.requisition.infrastructure.utils.ThreeState;
  */
 public class TransferInfoQueryModel {
 	/**项目id*/
-	private UUID proId;
+	private String proName;
 	/**街道地址d*/
 	private UUID streetId;
 	/**社区地址id*/
@@ -25,12 +25,11 @@ public class TransferInfoQueryModel {
 	private UUID groupId;
 	
 	
-	/*getters and setters*/
-	public UUID getProId() {
-		return proId;
+	public String getProName() {
+		return proName;
 	}
-	public void setProId(UUID proId) {
-		this.proId = proId;
+	public void setProName(String proName) {
+		this.proName = proName;
 	}
 	public UUID getStreetId() {
 		return streetId;

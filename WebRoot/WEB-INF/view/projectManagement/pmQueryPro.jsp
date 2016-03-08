@@ -226,6 +226,8 @@
 								<th>下达限期腾地决定书</th>
 								<th>申请法院执行</th>
 								<th>依法实施强制腾地户数</th>
+								<th>是否为本月完成结算项目</th>
+								<th>本月新启动项目</th>
 							</tr>
 						</thead>
 						<tbody id="showProMonthProces">
@@ -263,13 +265,15 @@
 <script id="yueCountTemplate" type="text/x-handlebars-template">
 <tr class="text-primary">
 	<th>合计</th>
-        <td>{{this.removedLandArea}}</td>
-        <td>{{this.removedBuildings}}</td>
-        <td>{{this.removedLegalArea}}</td>
-        <td>{{this.movedPopulation}}</td>
-        <td>{{this.yearDeadlineFile}}</td>
-        <td>{{this.yearCourtExecute}}</td>
-		<td>{{this.yearLegalRemoved}}</td>
+    <td>{{this.removedLandArea}}</td>
+    <td>{{this.removedBuildings}}</td>
+    <td>{{this.removedLegalArea}}</td>
+    <td>{{this.movedPopulation}}</td>
+    <td>{{this.yearDeadlineFile}}</td>
+    <td>{{this.yearCourtExecute}}</td>
+	<td>{{this.yearLegalRemoved}}</td>
+	<td></td>
+	<td></td>
 </tr>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
@@ -285,9 +289,6 @@
 	<td>{{totalAddress}}</td>
 	<td>
 		<a class="label label-dark" onclick="showInfo(this)">查看</a>
-		{{#xydy totalPayMoney 0}}
-		<a class="label label-info" onclick="editProjectInfo(this);">编辑</a>
-		{{/xydy}}
 	</td>
 </tr>
 </script>
@@ -302,10 +303,12 @@
         <td>{{this.yearDeadlineFile}}</td>
         <td>{{this.yearCourtExecute}}</td>
 		<td>{{this.yearLegalRemoved}}</td>
+		<td>{{this.curMonthComplete}}</td>
+		<td>{{this.isStart}}</td>
     </tr>
 	<tr>
 		<td>备注:</td>
-		<td colspan="7">{{this.remark}}</td>
+		<td colspan="9">{{this.remark}}</td>
 	</tr>
 {{/each}}
 </script>

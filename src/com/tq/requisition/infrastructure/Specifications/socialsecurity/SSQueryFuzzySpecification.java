@@ -30,10 +30,12 @@ public class SSQueryFuzzySpecification extends Specification<SocialsecurityInfo>
 		List<Object> list = new ArrayList<Object>();
 		sb.append("select new com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityDto(s.id,f.proId,f.proName,f.name,f.idNumber,st.name,s.socialsecurityDate,f.id,s.serveArmyTime,s.endowmentInsuranceYear,s.medicalInsuranceMonth,s.joinWhichMedicalInsurance,s.community,s.prisonTime,s.socialsecurityTypeId)");
 		sb.append(" from SocialsecurityInfo s, FamilyItem f,SocialsecurityType st where s.fmlItemId=f.id and s.del=false and st.id=s.socialsecurityTypeId");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getCreateUId() != null && !queryModel.getCreateUId().equals("")){
+			sb.append(" and s.createUid = '"+queryModel.getCreateUId() +"'");
+		}
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId=?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like '%" + queryModel.getProName() + "%'");
 		}
 		if(queryModel.getCommunityId()!=null)
 		{

@@ -11,7 +11,7 @@ import java.util.UUID;
 public class ProQueryModel {
 	/* private fields */
 	/** 项目名称 */
-	private UUID proId;
+	private String proName;
 	/** 项目类型id */
 	private int type = 0;
 	/** 公告序列，从1开始，按照顺序 */
@@ -20,14 +20,17 @@ public class ProQueryModel {
 	private UUID streetId;
 	/** 社区id */
 	private UUID communityId;
+	
+	/**创建人的ID*/
+	private String createUId;
 
 	/* constructors */
 	public ProQueryModel() {
 	}
 
-	public ProQueryModel(UUID proId, int typeId, int annouceQueue,
+	public ProQueryModel(String proName, int typeId, int annouceQueue,
 			UUID streetId, UUID communityId) {
-		this.proId = proId;
+		this.proName = proName;
 		this.type = typeId;
 		this.annouceQueue = annouceQueue;
 		this.streetId = streetId;
@@ -35,9 +38,6 @@ public class ProQueryModel {
 	}
 
 	/* getters and setters */
-	public UUID getProId() {		
-		return proId;
-	}
 
 	public int getTypeId() {
 		return type;
@@ -53,10 +53,6 @@ public class ProQueryModel {
 
 	public UUID getCommunityId() {
 		return communityId;
-	}
-
-	public void setProId(UUID proId) {
-		this.proId = proId;
 	}
 
 	public void setTypeId(int typeId) {
@@ -76,6 +72,22 @@ public class ProQueryModel {
 
 	public void setCommunityId(UUID communityId) {
 		this.communityId = communityId;
+	}
+
+	public String getProName() {
+		return proName;
+	}
+
+	public void setProName(String proName) {
+		this.proName = proName;
+	}
+
+	public String getCreateUId() {
+		return createUId;
+	}
+
+	public void setCreateUId(String createUId) {
+		this.createUId = createUId;
 	}
 
 }

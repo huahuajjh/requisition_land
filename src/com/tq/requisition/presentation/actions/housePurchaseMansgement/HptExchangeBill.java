@@ -16,6 +16,7 @@ public class HptExchangeBill extends BaseAction {
 		this.hptMgtServiceContract = getService("hptService", IHPTMgtServiceContract.class);
 	}
 	
+	private String queryProName;
 	private int pageNum = 30;
 	private int pageIndex = 1;
 	private String proId = "";
@@ -41,6 +42,9 @@ public class HptExchangeBill extends BaseAction {
 		if(proId == null) return;
 		this.proId = proId;
 	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
+	}
 	
 	@Override
 	public String execute() throws Exception {
@@ -49,8 +53,8 @@ public class HptExchangeBill extends BaseAction {
 
 	public String list() throws IOException{
 		HPTFuzzyQueryModel hptFuzzyQueryModel = new HPTFuzzyQueryModel();
-		if(!proId.equals("")){
-			hptFuzzyQueryModel.setProId(UUID.fromString(proId));
+		if(queryProName != null && !queryProName.equals("")){
+			hptFuzzyQueryModel.setProName(queryProName);
 		}
 		hptFuzzyQueryModel.setName(name);
 		hptFuzzyQueryModel.setIdNumber(idNumber);

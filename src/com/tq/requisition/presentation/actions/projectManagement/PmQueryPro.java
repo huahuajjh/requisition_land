@@ -33,6 +33,7 @@ public class PmQueryPro extends BaseAction {
 	private int annouceQueue = 0;
 	private String streetId = "";
 	private String communityId = "";
+	private String queryProName = "";
 	//----修改的数据
 	/**项目编号*/
 	private String proId = "";
@@ -62,8 +63,8 @@ public class PmQueryPro extends BaseAction {
 		queryModel.setAnnouceQueue(annouceQueue);
 		if (!communityId.equals(""))
 			queryModel.setCommunityId(UUID.fromString(communityId));
-		if (!proId.equals(""))
-		queryModel.setProId(UUID.fromString(proId));
+		if (!queryProName.equals(""))
+			queryModel.setProName(queryProName);
 		if (!streetId.equals(""))
 			queryModel.setStreetId(UUID.fromString(streetId));
 		queryModel.setTypeId(typeId);
@@ -88,10 +89,6 @@ public class PmQueryPro extends BaseAction {
 		response().getWriter().write(dataJson);
 		return null;
 	}
-	public void setProMgtServiceContract(
-			IProMgtServiceContract proMgtServiceContract) {
-		this.proMgtServiceContract = proMgtServiceContract;
-	}
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}
@@ -115,5 +112,8 @@ public class PmQueryPro extends BaseAction {
 	}
 	public void setDataJson(String dataJson) {
 		this.dataJson = dataJson;
+	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
 	}
 }

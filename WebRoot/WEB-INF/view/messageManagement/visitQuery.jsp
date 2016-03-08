@@ -220,6 +220,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>信访途径</label>
+			<div class="form-control" >{{source}}</div>
+		</div>
+	</div>
 	<div class="col-md-12">
 		<div class="form-group">
 			<label>上访者的其他信息</label>
@@ -235,6 +241,7 @@
 </div>
 </script>
 <script id="editModalTemplate" type="text/x-handlebars-template">
+<div class="row">
 <div class="col-md-6">
 	<div class="form-group">
 		<label>上访项目</label>
@@ -266,6 +273,12 @@
 	</div>
 </div>
 <div class="col-md-6">
+	<div class="form-group">
+		<label>信访途径</label>
+		<input type="text" name="source" value="{{source}}" class="form-control" placeholder="请输入信访途径" maxlength="20">
+	</div>
+</div>
+<div class="col-md-6">
 	<div class="form-group" style="height: 72px;">
 		<label>上访凭证</label>
 		<div class="form-control-static"">
@@ -280,30 +293,37 @@
 		</div>
 	</div>
 </div>
-<div class="form-group">
-	<label>上访者的其他信息</label>
-	<textarea class="form-control" name="otherMsg" rows="3" maxlength="140" placeholder="请输入上访者的其他信息">{{otherMsg}}</textarea>
+<div class="col-md-12">
+	<div class="form-group">
+		<label>上访者的其他信息</label>
+		<textarea class="form-control" name="otherMsg" rows="3" maxlength="140" placeholder="请输入上访者的其他信息">{{otherMsg}}</textarea>
+	</div>
 </div>
-<div class="form-group">
-	<label>相关资料</label>
-	<div class="controls">
-		<div class="input-group upLoadFile" id="upLoadFile" style="width:100%;">
-			<input type="hidden" class="upFileHideVal" name="fileVal" value="{{visitMaterialPath}}">
-			<input class="form-control showUpFileName" type="text" disabled="" placeholder="请上传相关资料" value="{{visitMaterialPathName}}">
-			<span class="input-group-btn upFileOperation" style="width:210px;">
-				<button class="btn btn-default upFileSelectBtn" type="button" id="xzWJ">选择文件</button>
-				<input type="file" class="upFileVal" style="display:none;">
-				<button class="btn btn-default upFileUpBtn" type="button" id="scWJ">上传文件</button>
-				<span class="btn btn-link upFileLogin" style="display:none;cursor: auto;"><img src="assets/img/login.gif"></span>
-				<span class="btn btn-link upFileSuccess" style="display:none;cursor: auto;"><i class="fa fa-check text-success"></i></span>
-				<span class="btn btn-link upFileError" style="display:none;cursor: auto;"><i class="fa fa-times text-danger"></i></span>
-			</span>
+<div class="col-md-12">
+	<div class="form-group">
+		<label>相关资料</label>
+		<div class="controls">
+			<div class="input-group upLoadFile" id="upLoadFile" style="width:100%;">
+				<input type="hidden" class="upFileHideVal" name="fileVal" value="{{visitMaterialPath}}">
+				<input class="form-control showUpFileName" type="text" disabled="" placeholder="请上传相关资料" value="{{visitMaterialPathName}}">
+				<span class="input-group-btn upFileOperation" style="width:210px;">
+					<button class="btn btn-default upFileSelectBtn" type="button" id="xzWJ">选择文件</button>
+					<input type="file" class="upFileVal" style="display:none;">
+					<button class="btn btn-default upFileUpBtn" type="button" id="scWJ">上传文件</button>
+					<span class="btn btn-link upFileLogin" style="display:none;cursor: auto;"><img src="assets/img/login.gif"></span>
+					<span class="btn btn-link upFileSuccess" style="display:none;cursor: auto;"><i class="fa fa-check text-success"></i></span>
+					<span class="btn btn-link upFileError" style="display:none;cursor: auto;"><i class="fa fa-times text-danger"></i></span>
+				</span>
+			</div>
 		</div>
 	</div>
 </div>
-<div class="form-group">
-	<label>处理意见</label>
-	<textarea class="form-control" name="reasonMsg" placeholder="请输入处理意见" rows="5" maxlength="140">{{visitReason}}</textarea>
+<div class="col-md-12">
+	<div class="form-group">
+		<label>处理意见</label>
+		<textarea class="form-control" name="reasonMsg" placeholder="请输入处理意见" rows="5" maxlength="140">{{visitReason}}</textarea>
+	</div>
+</div>
 </div>
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">

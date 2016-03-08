@@ -29,10 +29,9 @@ public class TransferAddCountSpecification extends Specification<TransferHouseho
 		StringBuilder sb = new StringBuilder();
 		List<Object> list = new ArrayList<Object>();
 		sb.append("select count(1) from tb_family_item where is_transferd=0 ");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and pro_id=?");
-			list.add(queryModel.getProId().toString());
+			sb.append(" and pro_name like " + "'%" + queryModel.getProName() + "%'");
 		}
 		if(queryModel.getCommunityId()!=null)
 		{

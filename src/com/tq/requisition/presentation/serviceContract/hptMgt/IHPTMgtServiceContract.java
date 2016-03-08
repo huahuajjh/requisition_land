@@ -2,6 +2,8 @@ package com.tq.requisition.presentation.serviceContract.hptMgt;
 
 import java.util.List;
 
+import com.tq.requisition.infrastructure.utils.Formater;
+import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.hpt.HPTExchangeInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTImportAndExport;
@@ -11,6 +13,8 @@ import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseAndCashInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
+import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
@@ -148,4 +152,31 @@ public interface IHPTMgtServiceContract {
 	 * 		json
 	 */
 	String importHPT(List<HPTImportAndExport> list);
+	
+	/**
+	 * 根据查询model和分页model插叙结果集
+	 * @param queryModel 查询model
+	 * @param pageModel 分页model
+	 * @return
+	 */
+	String queryByPage4Json(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel);
+
+	/**
+	 * 根据查询model和分页model插叙结果集
+	 * @param queryModel 查询model
+	 * @param pageModel 分页model
+	 * @return
+	 */
+	PageFormater queryByPage4List(HptUseAndCashQueryModel queryModel,
+			PageModel pageModel);
+	
+	/**
+	 * 购房券的使用和兑现
+	 * @param dtos
+	 * 		使用信息
+	 * @return
+	 * 		json
+	 */
+	String use(List<HPTUseAndCashInfoDto> dtos);
 }

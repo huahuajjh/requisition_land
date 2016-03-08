@@ -20,9 +20,8 @@ var tableData = $.generateData({
 		if(queryName){
 			tempData.name = queryName;
 		}
-		var queryProData = $("#queryPrName").data("data");
-		if(queryProData && queryProData.proName == $("#queryPrName").val()){
-			tempData.proId = queryProData.id;
+		if($("#queryPrName").val()){
+			tempData.proName = $("#queryPrName").val()
 		}
 		tempData.indexPage = data.pageIndex;
 		tempData.indexSize = data.pageNum;
@@ -65,6 +64,9 @@ $("#editInfoModal").validate({
 		subData.visitMaterialPath = $("[name='fileVal']",form).val();
 		subData.visitReason = $("[name='reasonMsg']",form).val();
 		subData.img = $("#yuLanBtn").data("img");
+		
+		subData.source = $("[name='source']",form).val();
+		
 		$.post(sendUrl.visits_modify,{
 			visits:JSON.stringify(subData)
 		},function(d){

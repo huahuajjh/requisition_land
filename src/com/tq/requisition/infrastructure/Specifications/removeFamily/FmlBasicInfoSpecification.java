@@ -28,13 +28,12 @@ public class FmlBasicInfoSpecification extends Specification<Family>{
 	public IHqlExpression getHqlExpression() {
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
-		sb.append("select new com.tq.requisition.presentation.dto.rmHousehold.FamilyBasicInfoDto(f.headName,fi.idNumber,fi.proName,fi.address)");
+		sb.append("select new com.tq.requisition.presentation.dto.rmHousehold.FamilyBasicInfoDto(f.headName,fi.idNumber,fi.proName,fi.address,f.streetId,f.communityId,f.groupId,f.proId,fi.fmlId)");
 		sb.append(" from Family f,FamilyItem fi where f.headId=fi.id ");
 		List<Object> list = new ArrayList<Object>();
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId =?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like " + "'%"+queryModel.getProName() + "%'");
 		}
 		if(queryModel.getStreetId()!=null)
 		{

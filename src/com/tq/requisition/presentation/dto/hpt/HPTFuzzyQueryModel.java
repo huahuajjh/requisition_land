@@ -4,21 +4,13 @@ import java.util.UUID;
 
 public class HPTFuzzyQueryModel {
 	/**项目id*/
-	private UUID proId;
+	private String proName;
 	/**券号*/
 	private String ticketNumber;
 	/**身份证*/
 	private String idNumber;
 	/**姓名*/
 	private String name;
-
-	public UUID getProId() {
-		return proId;
-	}
-
-	public void setProId(UUID proId) {
-		this.proId = proId;
-	}
 
 	public String getTicketNumber() {
 		return ticketNumber;
@@ -42,6 +34,14 @@ public class HPTFuzzyQueryModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getProName() {
+		return proName;
+	}
+
+	public void setProName(String proName) {
+		this.proName = proName;
 	}
 	
 }

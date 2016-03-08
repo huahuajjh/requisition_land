@@ -25,6 +25,10 @@ import com.tq.requisition.presentation.serviceContract.sysManagement.IAccountSer
  * 账户相关操作实现类
  * @author jjh
  * @time 2015-12-23 16:22
+ * 
+ * 实现了检查账号是否存在的接口
+ * @author Bless
+ * @time 2016/3/3 9:54
  */
 public class AccountServiceImpl extends BaseApplication implements IAccountService{
 	/*private fields*/
@@ -76,8 +80,8 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 
 	@Override
 	public boolean checkAccountExists(String account) {
-		// TODO Auto-generated method stub
-		return false;
+		//Bless 2016/3/3 9:45
+		return accountRepository.existsByAccount(account);
 	}
 
 	@Override

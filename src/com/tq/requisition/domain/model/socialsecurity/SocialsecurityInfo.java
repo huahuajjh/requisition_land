@@ -41,6 +41,10 @@ public class SocialsecurityInfo extends AggregateRoot{
 	private String idNumber;
 	/**类型字符串*/
 	private String typeStr;
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
 	
 	/*getters and setters*/	
 	public UUID getOprUserId() {
@@ -100,6 +104,18 @@ public class SocialsecurityInfo extends AggregateRoot{
 	}
 	public int getServeArmyTime() {
 		return serveArmyTime;
+	}
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	public int getEndowmentInsuranceYear() {

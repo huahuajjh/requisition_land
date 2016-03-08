@@ -14,8 +14,8 @@ public class FamilyItemQueryModel {
 		/*private fields*/
 		/**身份证*/
 		private String idNumber;
-		/**项目id*/
-		private UUID proId;
+		/**项目名称*/
+		private String proName;
 		/**是否是独身子女枚举*/
 		private ThreeState isOnlyChild;
 		/**是否是半边户*/
@@ -34,6 +34,8 @@ public class FamilyItemQueryModel {
 		private String name;
 		/**户主姓名*/
 		private String headName;
+		/**创建人的ID*/
+		private String createUId;
 		
 		public String getIdNumber() {
 			return idNumber;
@@ -41,11 +43,11 @@ public class FamilyItemQueryModel {
 		public void setIdNumber(String idNumber) {
 			this.idNumber = idNumber;
 		}
-		public UUID getProId() {
-			return proId;
+		public String getProName() {
+			return proName;
 		}
-		public void setProId(UUID proId) {
-			this.proId = proId;
+		public void setProName(String proName) {
+			this.proName = proName;
 		}
 		public ThreeState getIsOnlyChild() {
 			return isOnlyChild;
@@ -103,6 +105,12 @@ public class FamilyItemQueryModel {
 		}
 		public void setHeadName(String headName) {
 			this.headName = headName;
+		}
+		public String getCreateUId() {
+			return createUId;
+		}
+		public void setCreateUId(String createUId) {
+			this.createUId = createUId;
 		}
 		
 }

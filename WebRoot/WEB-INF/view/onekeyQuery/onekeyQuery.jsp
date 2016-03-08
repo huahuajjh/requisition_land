@@ -115,7 +115,7 @@
 	</div>
 </div>
 
-<div class="panel">
+<div class="panel" style="display:none;">
 	<div class="panel-heading bk-bg-primary">
 		<h6>转户信息</h6>
 	</div>

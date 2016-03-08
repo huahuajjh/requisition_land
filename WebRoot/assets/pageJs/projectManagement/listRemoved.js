@@ -12,12 +12,9 @@ var tableData = $.generateData({
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.idNumber = $("#idNumber").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.huZhuName = $("#huZhuName").val();
 		data.name = $("#name").val();
@@ -189,6 +186,14 @@ function showFileItem(dom){
 	}
 	if(!fileItem || fileItem.length <= 0) return;
 	$.initShowImage(fileItem);
+}
+function showFileImage(dom){
+	var table = $(dom).closest("table");
+	var data = table.data("data");
+	var image = data.image;
+	if(image){
+		$.initShowImage([image]);
+	}
 }
 
 var tr = null;

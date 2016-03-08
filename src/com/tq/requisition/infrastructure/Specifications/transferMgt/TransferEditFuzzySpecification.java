@@ -34,10 +34,10 @@ public class TransferEditFuzzySpecification extends Specification<TransferHouseh
 		sb.append(" from TransferHouseholdInfo t,FamilyItem f,Project p ");
 		sb.append(" where t.fmlItemId=f.id and f.proId=p.id ");
 		
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId=?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like ?");
+			list.add("'%" + queryModel.getProName() + "%'");
 		}
 		if(queryModel.getStreetId()!=null)
 		{

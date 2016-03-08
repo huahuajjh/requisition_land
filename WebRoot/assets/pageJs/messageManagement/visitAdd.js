@@ -38,6 +38,9 @@ $("#addVisitForm").validate({
 		subData.visitMaterialPath = $("[name='fileVal']",form).val();
 		subData.proName = $("#proName").val();
 		subData.img = $("#yuLanBtn").data("img");
+		
+		subData.source = $("[name='source']",form).val();
+		
 		$.post(sendUrl.visits_add,{
 			visits:JSON.stringify(subData)
 		},function(data){

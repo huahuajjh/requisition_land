@@ -46,6 +46,7 @@ public class QueryRemoveInfo extends BaseAction {
 	private int pageNum = 30;
 	private int pageIndex = 1;
 
+	private String queryProName;
 	private String proId = "";
 	private String idNumber = null;
 	private String huZhuName = "";
@@ -92,8 +93,8 @@ public class QueryRemoveInfo extends BaseAction {
 		if(!zuId.equals("")){
 			familyQueryModel.setGroupId(UUID.fromString(zuId));
 		}
-		if(!proId.equals("")){
-			familyQueryModel.setProId(UUID.fromString(proId));
+		if(queryProName != null && !queryProName.equals("")){
+			familyQueryModel.setProName(queryProName);
 		}
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
@@ -178,14 +179,14 @@ public class QueryRemoveInfo extends BaseAction {
 		if(huZhuName == null) return;
 		this.huZhuName = huZhuName;
 	}
-
 	public void setZuId(String zuId) {
 		if(zuId == null) return;
 		this.zuId = zuId;
 	}
-
 	public void setDaYinIds(String daYinIds) {
 		this.daYinIds = daYinIds;
 	}
-	
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
+	}
 }

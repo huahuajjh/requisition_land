@@ -62,6 +62,8 @@ public class PmAddPro extends BaseAction{
 	
 	public String add() throws IOException{
 		NewProDto dto = Serialization.toObject(dataJson, NewProDto.class);
+		dto.setCreateDate(new Date());
+		dto.setCreateUid(userId().toString());
 		String stateJson = this.proMgtServiceContract.addPro(dto);
 		response().getWriter().write(stateJson);
 		return null;
@@ -106,8 +108,11 @@ public class PmAddPro extends BaseAction{
 					 return null;
 				 } else if(dtos.size() > 0){
 					 Date date = new SimpleDateFormat("yyyy/MM/dd").parse(year + "/" + month +"/01");
+					 Date createData = new Date();
 					 for (ProImportAndExportDto dto : dtos) {
 						 dto.setDate(date);
+						 dto.setCreateDate(createData);
+						 dto.setCreateUid(userId().toString());
 					}
 					 String str = proMgtServiceContract.addByFile(dtos);
 					 response().getWriter().write(str);

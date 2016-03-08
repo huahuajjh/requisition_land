@@ -25,9 +25,9 @@ public class SSQuery4AddCountSpecification extends Specification<SocialsecurityI
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select count(1) from tb_family_item where is_socialsecurity=0");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and pro_id='"+queryModel.getProId().toString()).append("'");
+			sb.append(" and pro_name like '%"+queryModel.getProName()).append("%'");
 		}
 		if(queryModel.getCommunityId()!=null)
 		{

@@ -6,10 +6,19 @@ import java.util.UUID;
 import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 public interface IFamilyItemRepository extends IRepository<FamilyItem>{
+	
+	/**
+	 * 录入拆迁户家庭人员信息
+	 * @param fid
+	 * @return
+	 */
+	FamilyItem addFamilyItem(FamilyItem item);
+	
 	/**
 	 * 模糊查询
 	 * @param queryModel

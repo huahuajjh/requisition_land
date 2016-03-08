@@ -202,6 +202,11 @@ public class ProjectRepository extends HbRepository<Project> implements
 		for (ProjectItem projectItem : list) {
 			Project pro = getByKey(Project.class, projectItem.getProId());
 			if(null==pro){continue;}
+			if(condition.getProCategory() != null && !condition.getProCategory().equals("")){
+				if(pro.getCategoryStr() == null || !pro.getCategoryStr().equals(condition.getProCategory())){
+					continue;
+				}
+			}
 			pro.setAnnouncements(getAnnouncementsByProId(pro.getId()));
 			pro.getItems().add(projectItem);
 			pro.toProTypeStr();

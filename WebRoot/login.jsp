@@ -122,7 +122,7 @@ footer {
 					rules : {
 						username : {
 							required : true,
-							minlength : 7
+							minlength : 3
 						},
 						password : {
 							required : true,
@@ -132,7 +132,7 @@ footer {
 					messages : {
 						username : {
 							required : "账号不能为空",
-							minlength : "不能少于5个字符"
+							minlength : "不能少于3个字符"
 						},
 						password : {
 							required : "密码不能为空",

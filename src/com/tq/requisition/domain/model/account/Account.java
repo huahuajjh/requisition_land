@@ -155,13 +155,13 @@ public class Account extends AggregateRoot{
 	 * 		账户操作异常 
 	 */
 	public void accountCheck() throws AccountOperationException {
-		if(pwd.length() <= 6)
+		if(pwd.length() <= 2)
 		{
-			throw new AccountOperationException("密码长度不能小于7");
+			throw new AccountOperationException("密码长度不能小于3");
 		}
-		if(account.length() <= 6)
+		if(account.length() <= 2)
 		{
-			throw new AccountOperationException("账户名长度不能小于7");
+			throw new AccountOperationException("账户名长度不能小于3");
 		}
 	}
 	
@@ -170,10 +170,10 @@ public class Account extends AggregateRoot{
 	}
 	
 	public void modify(Account temp) throws AccountOperationException {
+		this.account = temp.getAccount();
 		this.deptId = temp.getDeptId();
 		this.orgId = temp.getOrgId();
 		this.name = temp.getName();
-		this.pwd = temp.getPwd();
 		this.state = temp.getState();
 		this.roleId = temp.roleId;
 		accountCheck();

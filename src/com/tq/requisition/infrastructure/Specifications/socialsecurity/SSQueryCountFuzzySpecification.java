@@ -26,9 +26,12 @@ public class SSQueryCountFuzzySpecification extends Specification<Socialsecurity
 		StringBuilder sb = new StringBuilder();
 		sb.append("select count(1) from tb_socialsecurity_info t inner join tb_family_item i ");
 		sb.append(" where i.id=t.fml_item_id and is_del=0");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getCreateUId() != null && !queryModel.getCreateUId().equals("")){
+			sb.append(" and t.create_uId = '"+queryModel.getCreateUId() +"'");
+		}
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and i.pro_id='"+queryModel.getProId().toString()+"'");
+			sb.append(" and i.pro_name like '%"+queryModel.getProName()+"%'");
 		}
 		if(queryModel.getCommunityId()!=null)
 		{

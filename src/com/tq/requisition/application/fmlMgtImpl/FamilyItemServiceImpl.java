@@ -7,9 +7,11 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import com.tq.requisition.application.BaseApplication;
 import com.tq.requisition.autoMapper.FamilyItemMapper;
+import com.tq.requisition.autoMapper.FamilyMapper;
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 import com.tq.requisition.domain.model.familyMember.FamilyItem;
 import com.tq.requisition.domain.model.familyMember.IFamilyItemRepository;
+import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
@@ -92,7 +94,18 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 	
 	@Override
 	public String addFmlItem(FamilyItemDto dto) {
-		throw new NotImplementedException("未实现的方法");
+		try {
+			context().beginTransaction();
+			FamilyItem item = itemRepository.addFamilyItem(FamilyItemMapper.toModel(dto));
+			context().commit();
+			return toJson("成功", item, Formater.OperationResult.SUCCESS);
+		} catch (Exception e) {
+			context().rollback();
+			return toJson("失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+		}
+		finally{
+			context().close();
+		}
 	}
 	
 	@Override

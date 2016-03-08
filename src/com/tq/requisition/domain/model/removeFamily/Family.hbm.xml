@@ -32,6 +32,12 @@
 		<property name="proName" column="pro_name"  type="string" length="70"/>
 		<property name="groupId" column="group_id"  type="org.hibernate.type.UUIDCharType" length="70"/>
 		<property name="unionSuggestionPath" column="union_suggestion_path"  type="string" length="255"/>
+		<property name="image" column="image"  type="string" length="255"/>
+		
+		<!-- 创建人的ID -->
+		<property name="createUid" column="create_uId"  type="string"   />
+		<!-- 创建时间 -->
+		<property name="createDate" column="create_date"  type="date"  />
     </class>
 
 </hibernate-mapping>

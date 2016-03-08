@@ -26,7 +26,7 @@ public class HPTQueryFmlProvideSpecification extends Specification<HousePuraseTi
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select new com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto(");
-		sb.append(" fi.proName,fi.proId,h.id,fi.id,fi.name,fi.idNumber,h.ticketNumber,h.bonus,h.state,h.makeDate,fi.relationshipStr) ");
+		sb.append(" fi.proName,fi.proId,h.id,fi.id,fi.name,fi.idNumber,h.ticketNumber,h.bonus,h.state,h.makeDate,fi.relationshipStr,fi.otherRelationship) ");
 		sb.append(" from FamilyItem fi, Family f ,HousePuraseTicket h");
 		sb.append(" where h.fmlItemId=fi.id and h.del=false and f.id=fi.fmlId and fi.fmlId=?");
 		expression.setHql(sb.toString());

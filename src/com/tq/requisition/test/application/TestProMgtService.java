@@ -1,5 +1,6 @@
 package com.tq.requisition.test.application;
 
+import java.io.Console;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,9 @@ import com.tq.requisition.presentation.dto.project.AnnouncementDto;
 import com.tq.requisition.presentation.dto.project.ProExportCondition;
 import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
+import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.project.ProTypeDto;
+import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.proMgt.IProMgtServiceContract;
 
 public class TestProMgtService {
@@ -103,4 +106,13 @@ public class TestProMgtService {
 		System.out.println(json);
 	}
 	
+	@Test
+	public void getList(){
+		ProQueryModel queryModel = new ProQueryModel();
+		PageModel pageModel = new PageModel();
+		pageModel.setPageIndex(1);
+		pageModel.setPageSize(10);
+		String str = service.getProListFuzzy(queryModel, pageModel);
+		System.out.println(str);
+	}
 }

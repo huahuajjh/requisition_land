@@ -5,12 +5,9 @@ var tableData = $.generateData({
 	url : "projectManagement/pmQueryProList",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.annouceQueue = $("#queryPrJD").val();
 		data.typeId = $("#queryProType").val();
@@ -65,8 +62,8 @@ function showInfo(dom) {
 	$("#proInfoLQXM").html(data.sixForward);
 	$.post("projectManagement/pmProgressInfo", {
 		proId : data.id
-	}, function(data) {
-		var tempData = actionFormate(data, false) || [];
+	}, function(dt) {
+		var tempData = actionFormate(dt, false) || [];
 		var countModel = {
 				removedLandArea:0,
 				removedBuildings:0,
@@ -82,6 +79,10 @@ function showInfo(dom) {
 		for (var i = 0; i < tempData.length; i++) {
 			var d = tempData[i];
 			d.date = d.date.substring(0, d.date.lastIndexOf("/"));
+			var startDate = data.startDate || "";
+			if(startDate.substring(0, startDate.lastIndexOf("/")) == d.date){
+				d.isStart = "√";
+			}
 			countModel.removedLandArea += d.removedLandArea || 0;
 			countModel.removedBuildings += d.removedBuildings || 0;
 			countModel.rmovedHouses += d.rmovedHouses || 0;

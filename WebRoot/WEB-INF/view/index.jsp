@@ -7,14 +7,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <s:action name="leftAndTop" executeResult="true"></s:action> 
+<div id="showIndexData"></div>
+<script id="indexTemplate" type="text/x-handlebars-template">
 <div class="panel">
    <div class="panel-body">
        <div class="text-center" style="margin-top:30px;">
-           <h3 class="bk-margin-off"><strong>你好Admin，欢迎使用征地补偿安置管理系统</strong></h3>
-           <small>所属组织：征地办 &nbsp;&nbsp;&nbsp;&nbsp;部门：征地部 &nbsp;&nbsp;&nbsp;&nbsp;角色：管理员</small>
-           <p class="bk-margin-off-bottom">
-               上次登录时间：2011/11/11 11:11:11
-           </p>
+           <h3 class="bk-margin-off"><strong>你好<s:property value="userInfo.name" />，欢迎使用征地补偿安置管理系统</strong></h3>
+           <small>所属组织：{{orgName}} &nbsp;&nbsp;&nbsp;&nbsp;部门：{{deptName}}</small>
        </div>
     </div>
 </div>
@@ -28,19 +27,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <thead>
                     <tr>
                         <th>拆迁项目总数</th>
-                        <th>拆迁人口总数</th>
-                        <th>农业人口</th>
-                        <th>非农业人口</th>
-                        <th>独生子女</th>
+						<th>拆迁总面积</th>
+						<th>拆迁总栋数</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>235</td>
-                        <td>1,581,521</td>
-                        <td>1,515</td>
-                        <td>5,518</td>
-                        <td>5,518</td>
+                        <td>{{totalPros}}</td>
+						<td>{{totalArea}}</td>
+						<td>{{totalBuildings}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -58,28 +53,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <tr>
                         <th>拆迁户数</th>
                         <th>拆迁总人数</th>
-                        <th>农业户口人员</th>
-                        <th>城镇户口人员</th>
                         <th>独生子女</th>
                         <th>已转户</th>
                         <th>已纳入社保</th>
-                        <th>已补贴金额（元）</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>200</td>
-                        <td>1,581,521</td>
-                        <td>1,515</td>
-                        <td>5,518</td>
-                        <td>5,518</td>
-                        <td>5,518</td>
-                        <td>5,518</td>
-                        <td>5,518</td>
+                        <td>{{removeFmls}}</td>
+                        <td>{{totalRemovePopulation}}</td>
+                        <td>{{onlyChildCount}}</td>
+                        <td>{{transfered}}</td>
+                        <td>{{socialsecurity}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+</script>
 <s:include value="/WEB-INF/view/share/bottom.jsp"/>
+<script type="text/javascript">
+	$.getJSON(sendUrl.indexData_getIndexData,{
+		id:getCookie("login")
+	},function(data){
+		data = actionFormate(data, false);
+		var template = Handlebars.compile($("#indexTemplate").html());
+		var html = template(data);
+		$("#showIndexData").html(html);
+	});
+</script>

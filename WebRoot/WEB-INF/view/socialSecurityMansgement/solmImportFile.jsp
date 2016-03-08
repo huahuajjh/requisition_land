@@ -108,7 +108,7 @@
 </div>
 
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="errorItemTemplate" type="text/x-handlebars-template">
 {{#each this}}

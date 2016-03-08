@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import com.tq.requisition.infrastructure.utils.Formater.OperationResult;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.sysMgt.AccountDto;
@@ -144,6 +145,18 @@ public class AccountManagement extends BaseAction {
 	//冻结账户
 	public String disable(){
 		String optState = this.accountService.disableAccount(UUID.fromString(Id));
+		return null;
+	}
+	
+	//检查账号是否存在
+	public String existsAccount() throws IOException{
+		String stateJsonString = "";
+		if(account == null || account.equals("") || accountService.checkAccountExists(account)){
+			stateJsonString = toForMaterJson(OperationResult.ERROR,"账户名["+account+"]已存在");
+		} else {
+			stateJsonString = toForMaterJson(OperationResult.SUCCESS,"用户名不存在");
+		}
+		response().getWriter().write(stateJsonString);
 		return null;
 	}
 }

@@ -63,7 +63,7 @@ public class TestFml {
 				list,//
 				"pro name",//
 				null,//
-				"path");		
+				"path",null,null,null);		
 		
 		repository.context().beginTransaction();
 		Family f = repository.addFamily(fml);

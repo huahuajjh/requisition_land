@@ -28,7 +28,10 @@
 		<property name="community" column="community" type="string" />
 		<property name="prisonTime" column="prison_time" type="integer" />
 		<property name="isSocialsecurity" column="is_join_socialsecurity" type="boolean" />
-		
+		<!-- 创建人的ID -->
+		<property name="createUid" column="create_uId"  type="string"   />
+		<!-- 创建时间 -->
+		<property name="createDate" column="create_date"  type="date"  />
     </class>
 
 </hibernate-mapping>

@@ -42,6 +42,7 @@
 		<property name="tel" column="tel"  type="string"  length="120"/>
 		<property name="remark" column="remark"  type="string"  length="70"/>
 		<property name="isSocialsecurity" column="used_socialsecurity"  type="boolean"  />
+		<property name="otherRelationship" column="other_relationship"  type="string"  length="70"/>
 		
 		<!-- 性别枚举 -->
 		<property name="gender" length="10" not-null="true" column="gender">

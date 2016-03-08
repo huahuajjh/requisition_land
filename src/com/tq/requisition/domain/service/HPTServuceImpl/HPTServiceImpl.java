@@ -89,7 +89,7 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 
 	@Override
 	public void useOrCash(HPTUseAndCash useAndCashHPT) throws SpecifiedObjectDoesNotExistsException {
-		hptRepository.useOrCash(useAndCashHPT);
+			hptRepository.useOrCash(useAndCashHPT);
 	}
 
 	/**

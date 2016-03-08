@@ -67,6 +67,8 @@ public class FamilyItemDto {
 	private String remark;
 	/**是否参加过社保*/
 	private boolean userdSocialsecurity;
+	/**其他关系内容*/
+	private String otherRelationship;
 	
 	/*getters and setters*/
 	public UUID getId() {
@@ -257,6 +259,12 @@ public class FamilyItemDto {
 	}
 	public void setUserdSocialsecurity(boolean userdSocialsecurity) {
 		this.userdSocialsecurity = userdSocialsecurity;
+	}
+	public String getOtherRelationship() {
+		return otherRelationship;
+	}
+	public void setOtherRelationship(String otherRelationship) {
+		this.otherRelationship = otherRelationship;
 	}
 	
 	/*constructors*/

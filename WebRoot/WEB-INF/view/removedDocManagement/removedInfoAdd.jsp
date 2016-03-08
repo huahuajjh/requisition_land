@@ -111,6 +111,12 @@
 	    		<input type="text" name="other" maxlength="15" class="form-control" placeholder="请输入地址其他信息">
 	    	</div>
 	    </div>
+	   	<div class="form-group">
+	    	<label class="col-md-3 control-label">适用政策</label>
+	    	<div class="col-md-5">
+	    		<input type="text" name="suitPolicy" maxlength="15" class="form-control" placeholder="请输入适用政策">
+	    	</div>
+	    </div>
 	    <div class="form-group">
 	    	<div class="col-md-8">
 	    		<br>

@@ -49,7 +49,10 @@ public class FamilyMapper {
 				FamilyItemMapper.toModelList(dto.getItems()),//
 				dto.getProName(),//
 				dto.getGroupId(),
-				dto.getUnionSuggestionPath());
+				dto.getUnionSuggestionPath(),
+				dto.getImage(),
+				dto.getCreateUid(),
+				dto.getCreateDate());
 	}
 	
 	public static List<Family> toModelList(List<FamilyDto> dtos) {

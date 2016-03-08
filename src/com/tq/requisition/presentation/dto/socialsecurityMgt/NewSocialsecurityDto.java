@@ -39,6 +39,11 @@ public class NewSocialsecurityDto {
 	/**年龄段*/
 	private String ageRange;
 	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
+	
 	/*constructors*/
 	public NewSocialsecurityDto(){}
 	public NewSocialsecurityDto(UUID fmlItemId, Date socialsecurityDate,
@@ -141,5 +146,17 @@ public class NewSocialsecurityDto {
 	}
 	public void setAgeRange(String ageRange) {
 		this.ageRange = ageRange;
+	}
+	public String getCreateUid() {
+		return createUid;
+	}
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 }

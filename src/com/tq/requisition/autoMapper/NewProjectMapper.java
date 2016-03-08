@@ -26,6 +26,8 @@ public final class NewProjectMapper {
 		model.setCommunityId(dto.getCommunity());
 		model.setSixForward(dto.getSixForwardPro());
 		model.setCategoryStr(dto.getProCategory());
+		model.setCreateDate(dto.getCreateDate());
+		model.setCreateUid(dto.getCreateUid());
 		return model;
 	}
 }

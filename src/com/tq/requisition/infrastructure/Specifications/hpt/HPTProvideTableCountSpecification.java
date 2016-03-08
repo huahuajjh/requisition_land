@@ -28,9 +28,11 @@ public class HPTProvideTableCountSpecification extends Specification<HousePurase
 		sb.append("select count(1) from tb_ticket_provider pv ");
 		sb.append(" inner join tb_housepurchase_ticket h ");
 		sb.append(" inner join tb_family_item fi ");
-		sb.append(" where pv.ticket_id=h.id and h.fml_item_id=fi.id and pv.del=0 and h.del=0 and fi.pro_id=?");
+		sb.append(" where pv.ticket_id=h.id and h.fml_item_id=fi.id and pv.del=0 and h.del=0 ");
+		if(queryModel.getProName() != null){
+			sb.append("and fi.pro_name like '%" + queryModel.getProName() + "%'");
+		}
 		expression.setSql(sb.toString());
-		expression.setParameters(queryModel.getProId().toString());
 		expression.setType(OperationType.SQL);
 		return expression;
 	}

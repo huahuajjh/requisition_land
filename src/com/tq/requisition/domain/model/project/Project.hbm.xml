@@ -81,7 +81,10 @@
 		<property name="curMonthComplete" column="is_cur_month_complete"  type="string"  />
 		<!-- 是否为6前项目 -->
 		<property name="sixForward" column="six_forward"  type="string"  />
-
+		<!-- 创建人的ID -->
+		<property name="createUid" column="create_uId"  type="string"   />
+		<!-- 创建时间 -->
+		<property name="createDate" column="create_date"  type="date"  />
     </class>
 
 </hibernate-mapping>

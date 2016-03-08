@@ -33,11 +33,11 @@ public class TransferEditCountSpecification extends Specification<TransferHouseh
 		List<Object> list = new  ArrayList<Object>();
 		sb.append("select count(1) from tb_transfer_household_info t ");
 		sb.append("inner join tb_family_item f on f.id=t.fml_item_id");
-		if(queryModel.getProId()!=null)
-		{
-			sb.append(" inner join tb_project p on p.id=f.pro_id ");
-		}
 		sb.append(" where 1=1 ");
+		if(queryModel.getProName()!=null)
+		{
+			sb.append(" and f.pro_name like " + "'%" + queryModel.getProName() + "%'");
+		}
 		if(queryModel.getCommunityId()!=null)
 		{
 			sb.append(" and t.community_id=?");

@@ -70,7 +70,6 @@ public class TestTransferMgt {
 	public void queryBuFuzzy() {
 		TransferInfoQueryModel queryModel = new TransferInfoQueryModel();
 		queryModel.setCommunityId(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(null);
 		
 		PageModel pageModel = new PageModel();

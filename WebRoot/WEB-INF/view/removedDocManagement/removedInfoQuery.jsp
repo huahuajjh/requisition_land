@@ -18,15 +18,19 @@
 		<form action="" method="post">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="form-group">
+					<div class="form-group downImput">
 						<label>身份证</label>
-						<input id="idNumber" type="text" class="form-control" placeholder="输入身份证进行搜索" />
+						<input id="idNumber" type="text" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="form-group">
+					<div class="form-group downImput">
 						<label>姓名</label>
-						<input id="name" type="text" class="form-control" placeholder="输入身份证进行搜索" />
+						<input id="name" type="text" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="nameQueryPrDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -91,6 +95,7 @@
 				<thead>
 					<tr>
 						<th>姓名</th>
+						<th>适用政策</th>
 						<th>出生日期</th>
 						<th>身份证号</th>
 						<th>地址</th>
@@ -138,59 +143,21 @@
         <h4 class="modal-title">导出需要的数据</h4>
       </div>
       <div class="modal-body">
-      	<div class="row">
-      		<div class="col-md-12">
-      			<h4 class="bk-padding-top-10bk-docs-font-weight-300">基本信息</h4>
-      		</div>
-      		<div class="col-md-4">
-      			<div class="checkbox-custom checkbox-inline">
-					<input type="checkbox" checked value="0" name="colIndex"> 
-					<label>迁户人姓名</label>
-				</div>
-      		</div>
-      		<div class="col-md-4">
-      			<div class="checkbox-custom checkbox-inline">
-					<input type="checkbox" checked value="1" name="colIndex"> 
-					<label>迁户人身份证</label>
-				</div>
-      		</div>
-      		<div class="col-md-4">
-      			<div class="checkbox-custom checkbox-inline">
-					<input type="checkbox" checked value="2" name="colIndex"> 
-					<label>出生日期</label>
-				</div>
-      		</div>
-      		<div class="col-md-4">
-      			<div class="checkbox-custom checkbox-inline">
-					<input type="checkbox" checked value="3" name="colIndex"> 
-					<label>拆迁日期</label>
-				</div>
-      		</div>
-      		<div class="col-md-4">
-      			<div class="checkbox-custom checkbox-inline">
-					<input type="checkbox" checked value="4" name="colIndex"> 
-					<label>迁户人地址</label>
-				</div>
-      		</div>
-		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary" onclick="daoChu();">导出</button>
+			<iframe src="exportHTML/removedInfo.html" style="border: 0;width: 100%;height: 170px;" scrolling="no"></iframe>
       </div>
     </div>
   </div>
 </div>
-
-<form id="subDaoChu" action="removedDocManagement/removedInfoQueryDaoChu" method="post" target="list" style="display:none;">
-	<iframe name="list"></iframe>
-	<input type="hidden" name="daoChuAttrModel" id="daoChuAttrModel">
-	<input type="hidden" name="daoChuHead" id="daoChuHead">
- </form>
-
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
+</script>
+<script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{name}}</td>
+	<td>{{suitPolicy}}</td>
 	<td>{{birthday}}</td>
 	<td>{{idNumber}}</td>
 	<td>{{address}}</td>
@@ -252,6 +219,12 @@
 	<label class="col-md-3 control-label">地址其他信息</label>
 	<div class="col-md-5">
 		<input type="text" name="other" value="{{other}}" maxlength="15" class="form-control" placeholder="请输入地址其他信息">
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-md-3 control-label">适用政策</label>
+	<div class="col-md-5">
+		<input type="text" name="suitPolicy" value="{{suitPolicy}}" maxlength="15" class="form-control" placeholder="请输入适用政策">
 	</div>
 </div>
 </script>

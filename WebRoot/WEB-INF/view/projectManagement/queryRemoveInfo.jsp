@@ -292,8 +292,24 @@
 	   </div>
 	</div>
 </div>
+<div class="modal fade" id="phonePaiZhaoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+        <h4 class="modal-title">拍摄照片</h4>
+      </div>
+      <div class="modal-body" id="phonePaiZhaoBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{name}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
@@ -310,7 +326,6 @@
 	<td>{{fmlNumber}}</td>
 	<td>
 		<a class="label label-dark" onclick="showInfo(this);">查看</a> 
-		<a class="label label-info" onclick="editInfo(this);">编辑</a> 
 	</td>
 </tr>
 </script>
@@ -322,7 +337,7 @@
     			<td style="width: 230px;">姓名</td>
     			<td><strong>{{name}}</strong></td>
     			<td style="width: 150px;">与户主关系</td>
-				<td><strong>{{relationshipStr}}</strong></td>
+				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
     			<td>身份证号码</td>
@@ -414,7 +429,7 @@
 <script id="famitlyItemEntrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td><a href="javascript:;" onclick="showPersonInfo(this);" class="text-primary">{{name}}</a></td>
-	<td>{{relationshipStr}}</td>
+	<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	<td>
 		{{#dengYu gender "MALE"}}
 			男
@@ -479,16 +494,18 @@
 				<tr>
 					<td class="active text-right"><strong>户主姓名：</strong></td>
 					<td>{{headName}}</td>
-					<td class="active text-right"><strong>房子合法面积(平方米)：</strong></td>
+					<td class="active text-right"><strong>房屋合法面积(平方米)：</strong></td>
 					<td>{{houseLegalArea}}</td>
-					<td class="active text-right"><strong>房子违章面积(平方米)：</strong></td>
+					<td class="active text-right"><strong>房屋违章面积(平方米)：</strong></td>
 					<td>{{houseIllegalArea}}</td>
 				</tr>
 				<tr>
-					<td class="active text-right"><strong>房子照片：</strong></td>
+					<td class="active text-right"><strong>房屋照片：</strong></td>
 					<td><a href="javascript:;" id="showFileItem" class="text-primary">点击查看</a></td>
+					<td class="active text-right"><strong>高拍仪拍照</strong></td>
+					<td><a href="javascript:;" id="showImage" class="text-primary">点击查看</a></td>
 					<td class="active text-right"><strong>地址：</strong></td>
-					<td colspan="3">{{address}}</td>
+					<td>{{address}}</td>
 				</tr>
 				<tr>
 					<td colspan="6">
@@ -579,14 +596,14 @@
 	</div>
     <div class="col-md-6">
     	<div class="form-group">
-    		<label class="control-label">房子合法面积（平方米）</label>
-				<input type="text" name="houseLegalArea" maxlength="10" class="form-control" placeholder="请输入房子合法面积" value="{{houseLegalArea}}">
+    		<label class="control-label">房屋合法面积（平方米）</label>
+				<input type="text" name="houseLegalArea" maxlength="10" class="form-control" placeholder="请输入房屋合法面积" value="{{houseLegalArea}}">
     	</div>
     </div>
 	<div class="col-md-6">
     	<div class="form-group">
-    		<label class="control-label">房子违章面积（平方米）</label>
-				<input type="text" name="houseIllegalArea" maxlength="10" class="form-control" placeholder="请输入房子违章面积" value="{{houseIllegalArea}}">
+    		<label class="control-label">房屋违章面积（平方米）</label>
+				<input type="text" name="houseIllegalArea" maxlength="10" class="form-control" placeholder="请输入房屋违章面积" value="{{houseIllegalArea}}">
     	</div>
     </div>
     <div class="col-md-12">
@@ -636,7 +653,7 @@
     		<textarea class="form-control" rows="3" maxlength="140" name="remark" placeholder="请输入备注">{{remark}}</textarea>
     	</div>
     </div>
-<div class="col-md-12">
+<div class="col-md-8">
 	<div class="form-group">
 			<label class="control-label">联合会审附件</label>
 				<div class="controls">
@@ -661,14 +678,29 @@
 			</div>
 		</div>
    	</div>
+	<div class="col-md-4">
+    	<div class="form-group">
+    		<label class="control-label">高拍仪拍照</label>
+    		<div class="form-control-static"">
+				<input type="file" id="upFile" style="display:none;" accept="image/*" />
+				<a class="label label-primary" id="upBtn" onclick="upFileZhaoPian();">上传</a>
+				<a class="label label-primary" id="zhaoBtn" onclick="paiZhao();">拍照</a>
+				<a class="label label-success" id="yuLanBtn" style="display: none">预览</a>
+				<span class="label">
+					<i class="fa fa-check text-success" id="paiZhaoFileCheckState" style="display: none"></i>
+					<img src="assets/img/login.gif" id="paiZhaoFileLoginState" style="display: none">
+				</span>
+			</div>
+    	</div>
+    </div>
     <div class="col-md-12">
     	<div class="panel panel-default" style="margin: 30px 0;">
     		<div class="panel-heading">
-    			<h6 class="bk-margin-off">房子照片管理</h6>
+    			<h6 class="bk-margin-off">房屋照片管理</h6>
     		</div>
     		<div class="panel-body">
     			<div class="form-group">
-    				<label class="control-label">房子照片</label> <input type="hidden" name="img" />
+    				<label class="control-label">房屋照片</label> <input type="hidden" name="img" />
     				<div class="controls">
     					<div class="input-group upLoadFile" id="upLoadFile" style="width:100%;">
     						<input type="hidden" class="upFileHideVal" />
@@ -759,7 +791,7 @@
 	  				<tbody>
 						{{#each items}}
 	  					<tr>
-	  						<td>{{relationshipStr}}</td>
+	  						<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	  						<td>{{name}}</td>
 	  						<td>
 								{{#dengYu gender "MALE"}}

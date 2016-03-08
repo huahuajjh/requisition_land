@@ -11,24 +11,29 @@
 	</div>
 	<div class="panel-body">
 	    <div class="form-group">
-	    	<label class="col-md-4 control-label" for="text-input">上访者姓名<span class="text-danger">*</span></label>
+	    	<label class="col-md-4 control-label">上访者姓名<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
 	    		<input type="text" name="name" class="form-control" placeholder="请输入上访者姓名" maxlength="5" />
 	    	</div>
 	    </div>
 	    <div class="form-group">
-	    	<label class="col-md-4 control-label" for="text-input">上访者电话<span class="text-danger">*</span></label>
+	    	<label class="col-md-4 control-label">上访者电话<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
 	    		<input type="text" name="phone" class="form-control" placeholder="请输入上访者电话" maxlength="15" />
 	    	</div>
 	    </div>
 	    <div class="form-group">
-	    	<label class="col-md-4 control-label" for="text-input">上访者的住址<span class="text-danger">*</span></label>
+	    	<label class="col-md-4 control-label">上访者的住址<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
 	    		<input type="text" name="address" class="form-control" placeholder="请输入上访者的住址" maxlength="20" />
 	    	</div>
 	    </div>
-	    
+	   	<div class="form-group">
+	    	<label class="col-md-4 control-label">信访途径</label>
+	    	<div class="col-md-5">
+	    		<input type="text" name="source" class="form-control" placeholder="请输入信访途径" maxlength="20" />
+	    	</div>
+	    </div>
 		<div class="form-group">
 			<label class="col-md-4 control-label">选择上访项目<span class="text-danger">*</span></label>
 			<div class="col-md-5">
@@ -47,7 +52,7 @@
 	    	</div>
 	    </div>
 	    <div class="form-group">
-	    	<label class="col-md-4 control-label" for="text-input">上访者的其他信息</label>
+	    	<label class="col-md-4 control-label">上访者的其他信息</label>
 	    	<div class="col-md-5">
 	    		<textarea class="form-control" name="otherMsg" rows="3"  maxlength="140" placeholder="请输入上访者的其他信息"></textarea>
 	    	</div>

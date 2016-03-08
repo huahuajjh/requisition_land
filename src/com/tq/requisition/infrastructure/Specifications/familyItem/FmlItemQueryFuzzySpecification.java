@@ -28,76 +28,77 @@ public class FmlItemQueryFuzzySpecification extends Specification<FamilyItem>{
 		IHqlExpression expression = new HqlExpression();
 		List<Object> list = new ArrayList<Object>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("select * from tb_family_item where 1=1 ");
+		sb.append("select * from tb_family_item as fi,tb_family as f where fi.fml_id=f.id ");
+		
+		if(queryModel.getCreateUId() != null && !queryModel.getCreateUId().equals("")){
+			sb.append(" and f.create_uId='" + queryModel.getCreateUId() + "'");
+		}
 		//是否转户
 		if(queryModel.getIsTransfer() == ThreeState.YES)
 		{
-			sb.append(" and is_transferd=1");
+			sb.append(" and fi.is_transferd=1");
 		}
 		//是否转户
 		if(queryModel.getIsTransfer() == ThreeState.NO)
 		{
-			sb.append(" and is_transferd=0");
+			sb.append(" and fi.is_transferd=0");
 		}
 		//是否纳入社保
 		if(queryModel.getIsSSecurity()==ThreeState.YES)
 		{
-			sb.append(" and is_socialsecurity=1");
+			sb.append(" and fi.is_socialsecurity=1");
 		}
 		//是否纳入社保
 		if(queryModel.getIsSSecurity()==ThreeState.NO)
 		{
-			sb.append(" and is_socialsecurity=0");
+			sb.append(" and fi.is_socialsecurity=0");
 		}
-		//是否是半边户
 		if(queryModel.isHalf() == ThreeState.YES)
 		{
-			sb.append(" and is_half=1");
+			sb.append(" and fi.is_half=1");
 		}
-		//是否是半边户
 		if(queryModel.isHalf() == ThreeState.NO)
 		{
-			sb.append(" and is_half=0");
+			sb.append(" and fi.is_half=0");
 		}
-		if(queryModel.getStreetId()!=null)
+		if(queryModel.getCommunityId()!=null)
 		{
-			sb.append(" and street_id=?");
+			sb.append(" and fi.street_id=?");
 			list.add(queryModel.getStreetId().toString());
 		}
 		if(queryModel.getCommunityId()!=null)
 		{
-			sb.append(" and community_id=?");
+			sb.append(" and fi.community_id=?");
 			list.add(queryModel.getCommunityId().toString());
 		}
 		if(queryModel.getGroupId()!=null)
 		{
-			sb.append(" and group_id=?");
+			sb.append(" and fi.group_id=?");
 			list.add(queryModel.getGroupId().toString());
 		}
 		if(queryModel.getIdNumber()!=null)
 		{
-			sb.append(" and id_number=?");
+			sb.append(" and fi.id_number=?");
 			list.add(queryModel.getIdNumber());
 		}
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and pro_id=?");
-			list.add(queryModel.getProId().toString());
+			sb.append(" and fi.pro_name like " + "'%" + queryModel.getProName() + "%'");
 		}
 		if(null!=queryModel.getName() && !(queryModel.getName().trim().equals("")))
 		{
-			sb.append(" and name=?");
+			sb.append(" and fi.name=?");
 			list.add(queryModel.getName());
 		}
 		//独生子女
 		if(queryModel.getIsOnlyChild()==ThreeState.YES)
 		{
-			sb.append(" and only_child_number is not null");
+			sb.append(" and fi.only_child_number is not null");
 		}
 		//独生子女
 		if(queryModel.getIsOnlyChild()==ThreeState.NO)
 		{
-			sb.append(" and only_child_number is null");
+			sb.append(" and fi.only_child_number is null");
 		}
 		
 		//分页

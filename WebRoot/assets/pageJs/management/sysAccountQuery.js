@@ -53,7 +53,7 @@ function editAccount(dom) {
 	var dataOrgId = tr.attr("dataOrgId");
 	var dataRoleId = tr.attr("dataRoleId");
 	$("#editId").val(dataId);
-	$("#editAccount").html(dataAccount);
+	$("#editAccount").val(dataAccount).data("account",dataAccount);
 	$("#editName").val(dataName);
 	$("option[value='" + dataOrgId + "']", "#editOrgId").prop("selected", true);
 	$("option[value='" + dataRoleId + "']", "#editRoleId").prop("selected", true);
@@ -95,6 +95,11 @@ $("#editOrgId").change(
 		});
 $("#editAccountModal").validate({
 	rules : {
+		account : {
+			required : true,
+			minlength : 3,
+			maxlength : 15
+		},
 		name : {
 			required : true,
 			maxlength : 5
@@ -122,36 +127,68 @@ $("#editAccountModal").validate({
 		}
 	},
 	submitHandler : function(form) {
-		var subData = {};
-		var data = tr.data("data");
-//		/**账户id*/
-		subData.id = data.id;
-//		/**账户名*/
-		subData.account = data.account;
-//		/**账户密码*/
-		subData.pwd = data.pwd;
-//		/**姓名*/
-		subData.name = $("#editName").val();
-		if($("#editDeptId").val()){
-	//		/**账户所属部门id*/
-			subData.deptId = $("#editDeptId").val();
-	//		/**账号所属部门名称*/
-			subData.depName  = $("#editDeptId option:selected").html();
-		}
-//		/**账户所属组织id*/
-		subData.orgId   = $("#editOrgId").val();
-//		/**账号所属组织的名称*/
-		subData.orgName  = $("#editOrgId option:selected").html();
-//		/**账户角色id*/
-		subData.roleId = $("#editRoleId").val();
-//		/**账户角色名称*/
-		subData.roleName = $("#editRoleId option:selected").html();
-		$.post("management/sysAccountQueryEdit",{
-			dataJson:JSON.stringify(subData)
-		},function(data){
-			actionFormate(data, true,function(){
-				$("#editAccountModal").modal('hide');
+		var val = $("#editAccount").val();
+		var account = $("#editAccount").data("account");
+		existsAccount(val,account,function(){
+			var data = tr.data("data");
+//			/**账户名*/
+			data.account =  $("#editAccount").val();
+//			/**姓名*/
+			data.name = $("#editName").val();
+			if($("#editDeptId").val()){
+		//		/**账户所属部门id*/
+				data.deptId = $("#editDeptId").val();
+		//		/**账号所属部门名称*/
+				data.depName  = $("#editDeptId option:selected").html();
+			}
+//			/**账户所属组织id*/
+			data.orgId   = $("#editOrgId").val();
+//			/**账号所属组织的名称*/
+			data.orgName  = $("#editOrgId option:selected").html();
+//			/**账户角色id*/
+			data.roleId = $("#editRoleId").val();
+//			/**账户角色名称*/
+			data.roleName = $("#editRoleId option:selected").html();
+			$.post("management/sysAccountQueryEdit",{
+				dataJson:JSON.stringify(data)
+			},function(d){
+				actionFormate(d, true,function(){
+					$("#editAccountModal").modal('hide');
+					tr.remove();
+					var template = Handlebars.compile($("#entrytemplate").html());
+					var html = $(template(data));
+					html.data("data",data);
+					$("#dataTbody").prepend(html);
+				});
+			},"json");
+		},function(msg){
+			$("#editAccountModal").validate().showErrors({
+				"account" : msg
 			});
-		},"json");
+		});
 	}
 });
+$("#editAccount").blur(function(){
+	var val = $(this).val();
+	var account = $(this).data("account");
+	existsAccount(val,account,function(){},function(msg){
+		$("#editAccountModal").validate().showErrors({
+			"account" : msg
+		});
+	});
+});
+function existsAccount(account,oldAccount,suFn,erFn){
+	if(account == oldAccount){
+		suFn();
+		return;
+	}
+	$.post("management/sysAccountExistsAccount",{
+		account:account
+	},function(data){
+		actionFormate(data,false,function(){
+			suFn();
+		},function(type,msg,data){
+			erFn(msg);
+		});
+	},"json");
+}

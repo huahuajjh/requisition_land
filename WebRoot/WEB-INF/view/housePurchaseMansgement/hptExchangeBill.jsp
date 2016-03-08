@@ -129,10 +129,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{name}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>

@@ -39,6 +39,7 @@ public class TaQuery extends BaseAction {
 		return householdTypeDtos;
 	}
 	
+	private String queryProName;
 	private int pageNum = 30;
 	private int pageIndex = 1;
 	private String streetId  = "";
@@ -79,6 +80,9 @@ public class TaQuery extends BaseAction {
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
+	}
 
 	private String dataJson;
 	public void setDataJson(String dataJson) {
@@ -100,8 +104,8 @@ public class TaQuery extends BaseAction {
 		if(!streetId.equals("")){
 			queryModal.setStreetId(UUID.fromString(streetId));
 		}
-		if(!proId.equals("")){
-			queryModal.setProId(UUID.fromString(proId));
+		if(queryProName != null && !queryProName.equals("")){
+			queryModal.setProName(queryProName);
 		}
 		if(!zuId.equals("")){
 			queryModal.setGroupId(UUID.fromString(zuId));

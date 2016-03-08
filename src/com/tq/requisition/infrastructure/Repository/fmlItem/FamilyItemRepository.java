@@ -13,6 +13,7 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.familyItem.FmlItemQueryFuzzySpecification;
 import com.tq.requisition.infrastructure.Specifications.familyItem.FmlItemTotalItemCountSpecification;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
@@ -22,6 +23,12 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 		super(context);
 	}
 
+	@Override
+	public FamilyItem addFamilyItem(FamilyItem item) {
+		add(item);
+		return item;
+	}
+	
 	@Override
 	public PageFormater queryByFuzzy(FamilyItemQueryModel queryModel,
 			PageModel pageModel) {

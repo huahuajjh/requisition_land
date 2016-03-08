@@ -24,7 +24,14 @@ public class ProByMonthSpecification extends Specification<ProjectItem>{
 	@Override
 	public IHqlExpression getHqlExpression() {
 		IHqlExpression expression = new HqlExpression();
-		expression.setHql("from ProjectItem where date between ? and ?");
+		String hql = "from ProjectItem where ";
+		if(condition.getIsInstantAchieve() != null && condition.getIsInstantAchieve()){
+			hql += "curMonthComplete is not null and curMonthComplete <> '' and curMonthComplete <> '·ñ' and ";
+		} else if (condition.getIsInstantAchieve() != null && !condition.getIsInstantAchieve()) {
+			hql += "(curMonthComplete is null or curMonthComplete = '' or curMonthComplete = '·ñ') and ";
+		}
+		hql += "date between ? and ?";
+		expression.setHql(hql);
 		expression.setParameters(condition.getStartDate(),condition.getEndDate());
 		expression.setType(OperationType.HQL);
 		return expression;

@@ -29,4 +29,14 @@ public class TestAccountServiceImpl {
 		String str = service.getAccountList("huahuajjh", null, UUID.fromString("d8801dc7-8743-4431-8c1a-c51f665bff60"), UUID.fromString("c8a7381b-233d-439e-ad69-21935694d89b"), 1, 20);
 		System.out.println(str);
 	}
+	
+	@Test
+	public void existsByAccount(){
+//		Boolean state = service.checkAccountExists("admin1");
+//		if (state) {
+//			System.out.println("1");
+//		} else {
+//			System.out.println("0");
+//		}
+	}
 }

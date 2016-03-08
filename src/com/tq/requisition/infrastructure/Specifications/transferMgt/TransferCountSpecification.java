@@ -30,10 +30,9 @@ public class TransferCountSpecification extends Specification<TransferHouseholdI
 		List<Object> list = new ArrayList<Object>();
 		sb.append("select count(1) from tb_transfer_household_info t ");
 		sb.append(" inner join tb_family_item i	on t.fml_item_id = i.id where 1=1 ");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and i.pro_id=?");
-			list.add(queryModel.getProId().toString());
+			sb.append(" and i.pro_name like " + "'%" + queryModel.getProName() + "%'");
 		}
 		if(queryModel.getStreetId()!=null)
 		{

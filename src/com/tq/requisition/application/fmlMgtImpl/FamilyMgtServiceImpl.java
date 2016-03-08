@@ -23,6 +23,7 @@ import com.tq.requisition.domain.model.socialsecurityType.SocialsecurityType;
 import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyDto;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.rmHousehold.IFamilyMgtServiceContract;
@@ -63,7 +64,6 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 		try {
 			context().beginTransaction();
 			Family f = fmlRepository.addFamily(FamilyMapper.toModel(fml));
-			
 			context().commit();
 			return toJson("³É¹¦", f, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {

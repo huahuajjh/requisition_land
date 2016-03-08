@@ -183,11 +183,19 @@ public class ProImportAndExportDto {
 	private BigDecimal paidMoney = new BigDecimal(0);
 	/**项目分类id*/
 	private String categoryId;
+	
 	/**项目分类str*/
+	@InputColAnnotation(colCoord = 3)
+	@OutputColAnnotation(colCoord = 3)
 	private String categoryStr;
 	
 	/** 月度填报时间 */
 	private Date date;
+	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
 
 	/* public methods */
 	public Project toProject() {
@@ -229,6 +237,8 @@ public class ProImportAndExportDto {
 		model.setCategoryStr(proCategory);
 		model.setSixForward(sixForheadPro);
 		
+		model.setCreateDate(createDate);
+		model.setCreateUid(createUid);
 
 		// 项目月度		
 		ProjectItem item = new ProjectItem();
@@ -444,6 +454,14 @@ public class ProImportAndExportDto {
 
 	public void setNum(String num) {
 		this.num = num;
+	}
+
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 }

@@ -30,10 +30,9 @@ public class SSQuery4AddSpecification extends Specification<SocialsecurityInfo>{
 		List<Object> list = new ArrayList<Object>();
 		sb.append("select new com.tq.requisition.presentation.dto.socialsecurityMgt.Socialsecurity4AddDto(f.proId,f.id,f.proName,f.name,f.idNumber,f.birthday)");
 		sb.append(" from FamilyItem f where f.socialsecurity=false ");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId=?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like '%" + queryModel.getProName() +"%'");
 		}
 		if(queryModel.getCommunityId()!=null)
 		{

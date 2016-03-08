@@ -49,6 +49,7 @@ public class ListRemoved  extends BaseAction{
 	private int pageIndex = 1;
 	
 	private String proId = "";
+	private String queryProName = "";
 	private String idNumber = null;
 	private String huZhuName = null;
 	private String name = null;
@@ -86,8 +87,8 @@ public class ListRemoved  extends BaseAction{
 		if(!zu.equals("")){
 			queryModel.setGroupId(UUID.fromString(zu));
 		}
-		if(!proId.equals("")){
-			queryModel.setProId(UUID.fromString(proId));
+		if(queryProName != null && !queryProName.equals("")){
+			queryModel.setProName(queryProName);
 		}
 		queryModel.setHalf(ThreeState.ALL.obtainByInt(half));
 		queryModel.setIsOnlyChild(ThreeState.ALL.obtainByInt(isOnlyChild));
@@ -180,5 +181,8 @@ public class ListRemoved  extends BaseAction{
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
 	}
 }

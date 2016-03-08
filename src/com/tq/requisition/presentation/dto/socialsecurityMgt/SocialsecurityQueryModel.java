@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class SocialsecurityQueryModel {
 	/**项目id*/
-	private UUID proId;
+	private String proName;
 	/**街道地址id*/
 	private UUID streetId;
 	/**社区地址id*/
@@ -13,14 +13,10 @@ public class SocialsecurityQueryModel {
 	private UUID groupId;
 	/**身份证*/
 	private String idNumber;
+	/**创建人员信息*/
+	private String createUId;
 	
 	/*getters and setters*/
-	public UUID getProId() {
-		return proId;
-	}
-	public void setProId(UUID proId) {
-		this.proId = proId;
-	}
 	public UUID getStreetId() {
 		return streetId;
 	}
@@ -45,12 +41,24 @@ public class SocialsecurityQueryModel {
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
+	public String getProName() {
+		return proName;
+	}
+	public void setProName(String proName) {
+		this.proName = proName;
+	}
+	public String getCreateUId() {
+		return createUId;
+	}
+	public void setCreateUId(String createUId) {
+		this.createUId = createUId;
+	}
 	
 	/*constructors*/
 	public SocialsecurityQueryModel(){}
-	public SocialsecurityQueryModel(UUID proId, UUID streetId, UUID communityId) {
+	public SocialsecurityQueryModel(String proName, UUID streetId, UUID communityId) {
 		super();
-		this.proId = proId;
+		this.proName = proName;
 		this.streetId = streetId;
 		this.communityId = communityId;
 	}

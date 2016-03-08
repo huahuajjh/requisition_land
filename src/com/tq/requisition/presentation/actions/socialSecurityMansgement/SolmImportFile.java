@@ -74,6 +74,8 @@ public class SolmImportFile extends BaseAction {
 			//写入操作人员
 			dto.setOprUserId(userId());
 			dto.setOprDate(new Date());
+			dto.setCreateDate(new Date());
+			dto.setCreateUid(userId().toString());
 			stateJson = this.ssService.addSSInfo(dto);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");
@@ -108,6 +110,8 @@ public class SolmImportFile extends BaseAction {
 						 List<SocialsecurityInfo> dots = new ArrayList<>();
 						 for (SsImportAndExportDto item : items) {
 							item.setUserId(userId());
+							item.setCreateDate(new Date());
+							item.setCreateUid(userId().toString());
 							dots.add(item.toSocialsecurityInfo());
 						}
 						 stateJsonString = this.ssService.importSS(dots);

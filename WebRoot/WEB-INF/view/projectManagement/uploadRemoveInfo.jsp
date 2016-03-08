@@ -102,15 +102,15 @@
 			</div>
 			<div class="col-md-4 col-md-offset-2">
 				<div class="form-group">
-					<label class="control-label">房子合法面积（平方米）</label>
-						<input type="text" name="houseLegalArea" class="form-control" placeholder="请输入房子合法面积"
+					<label class="control-label">房屋合法面积（平方米）</label>
+						<input type="text" name="houseLegalArea" class="form-control" placeholder="请输入房屋合法面积"
 						maxlength="10" id="houseLegalArea" />
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label class="control-label">房子违章面积（平方米）</label>
-						<input type="text" name="houseIllegalArea" id="houseIllegalArea" class="form-control" placeholder="请输入房子合法面积" maxlength="10" />
+					<label class="control-label">房屋违章面积（平方米）</label>
+						<input type="text" name="houseIllegalArea" id="houseIllegalArea" class="form-control" placeholder="请输入房屋合法面积" maxlength="10" />
 				</div>
 			</div>
 			<div class="col-md-10 col-md-offset-2">
@@ -159,7 +159,7 @@
 						maxlength="140" name="bz" id="remark"></textarea>
 				</div>
 			</div>
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-5 col-md-offset-2">
 				<div class="form-group">
 					<label class="control-label">联合会审附件</label>
 					<div class="controls">
@@ -176,14 +176,29 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="control-label">高拍仪拍照</label>
+					<div class="form-control-static"">
+						<input type="file" id="upFile" style="display:none;" accept="image/*" />
+						<a class="label label-primary" id="upBtn" onclick="upFileZhaoPian();">上传</a>
+						<a class="label label-primary" id="zhaoBtn" onclick="paiZhao();">拍照</a>
+						<a class="label label-success" id="yuLanBtn" style="display: none">预览</a>
+						<span class="label">
+							<i class="fa fa-check text-success" id="paiZhaoFileCheckState" style="display: none"></i>
+							<img src="assets/img/login.gif" id="paiZhaoFileLoginState" style="display: none">
+						</span>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default" style="margin: 30px 0;">
 					<div class="panel-heading">
-						<h6 class="bk-margin-off">房子照片管理</h6>
+						<h6 class="bk-margin-off">房屋照片管理</h6>
 					</div>
 					<div class="panel-body">
 						<div class="form-group">
-							<label class="control-label">房子照片</label> <input type="hidden"
+							<label class="control-label">房屋照片</label> <input type="hidden"
 								name="img" />
 							<div class="controls">
 								<div class="input-group upLoadFile" id="upLoadFile"
@@ -229,6 +244,23 @@
 	</div>
 	</div>
 </form>
+
+<div class="modal fade" id="phonePaiZhaoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+        <h4 class="modal-title">拍摄照片</h4>
+      </div>
+      <div class="modal-body" id="phonePaiZhaoBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="showErrorModal">
 	<div class="modal-dialog">
@@ -308,7 +340,7 @@
             			<td style="width: 230px;">姓名</td>
             			<td><strong>{{name}}</strong></td>
             			<td style="width: 150px;">与户主关系</td>
-        				<td><strong>{{relationshipStr}}</strong></td>
+        				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
             		</tr>
             		<tr>
             			<td>身份证号码</td>
@@ -383,18 +415,37 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">与户主关系<span class="text-danger">*</span></label>
-			<select class="form-control" size="1" name="relationship">
-				<option value="">请选择与户主关系</option>
-				<s:iterator id="dto" value="relationshipTypeDtos">
-					<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-				</s:iterator>
-			</select>
+			<div class="controls">
+				<div class="input-group" style="width: 100%;">
+					<select class="form-control" size="1" name="relationship">
+						<option value="">请选择与户主关系</option>
+						<s:iterator id="dto" value="relationshipTypeDtos">
+							<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
+						</s:iterator>
+					</select>
+					<span class="input-group-btn" style="width:130px;">
+						<input type="text" class="form-control" value="{{otherRelationship}}"  name="otherRelationship" {{#dengYu relationshipStr '其他'}}{{else}}disabled{{/dengYu}} maxlength="10" />
+					</span>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">身份证<span class="text-danger">*</span></label>
-			<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入身份证" maxlength="20">
+			<div class="controls">
+				<div class="input-group" style="width: 100%;">
+					<select class="form-control" size="1" name="certificateType">
+						<option value="">请选择证件类型</option>
+						<option value="idNumber">身份证</option>
+						<option value="otherNumber">其他证件</option>
+					</select>
+					<span class="input-group-btn" style="width:130px;">
+						<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" {{#if certificateType}}{{else}}disabled{{/if}}>
+					</span>
+				</div>
+			</div>
+			<label id="idNumber-error" class="error" for="idNumber" style="display: none;"></label>
 		</div>
 	</div>
 	<div class="col-md-6">

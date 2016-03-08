@@ -37,6 +37,11 @@
 			class="com.tq.requisition.presentation.actions.management.AccountManagement"
 			method="reset">
 		</action>
+		<!-- 检查用户名是否存在 -->
+		<action name="sysAccountExistsAccount"
+			class="com.tq.requisition.presentation.actions.management.AccountManagement"
+			method="existsAccount">
+		</action>
 		
 		<action name="sysCreateAccount"
 			class="com.tq.requisition.presentation.actions.management.AccountManagement"

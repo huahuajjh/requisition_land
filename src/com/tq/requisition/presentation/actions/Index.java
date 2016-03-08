@@ -1,6 +1,7 @@
 package com.tq.requisition.presentation.actions;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.http.Cookie;
 
@@ -18,7 +19,9 @@ public class Index extends BaseAction {
 	private String newPassword;
 	private IUserService userService;
 	private IGetResService getResService;
-
+	
+	private  AccountSafeDto userInfo;
+	
 	public Index() {
 		userService = getService("userService", IUserService.class);
 		getResService = getService("getResService", IGetResService.class);
@@ -39,10 +42,14 @@ public class Index extends BaseAction {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public AccountSafeDto getUserInfo() {
+		return userInfo;
+	}
 
 	@Override
 	public String execute() throws Exception {
-		LoggerFactory.logger().error("Bless Login.");
+		userInfo = user();
 		return SUCCESS;
 	}
 
@@ -55,7 +62,8 @@ public class Index extends BaseAction {
 			Cookie cookie = new Cookie(LoginInterceptor.LOGIN, accountDto.getId().toString());
 			cookie.setPath("/requisition_land");
 			response().addCookie(cookie);
-			Cookie nameCookie = new Cookie(LoginInterceptor.LOGINNAME, accountDto.getName());
+			String name = URLEncoder.encode(accountDto.getName(),"UTF-8");
+			Cookie nameCookie = new Cookie(LoginInterceptor.LOGINNAME, name);
 			nameCookie.setPath("/requisition_land");
 			response().addCookie(nameCookie);
 			response().getWriter().write(SUCCESS);

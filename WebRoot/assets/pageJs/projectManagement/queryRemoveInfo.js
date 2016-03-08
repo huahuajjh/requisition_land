@@ -30,12 +30,9 @@ var tableData = $.generateData({
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.idNumber = $("#idNumber").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.huZhuName = $("#huZhuName").val();
 		data.streetId = $("#street").val();
@@ -90,6 +87,27 @@ $.dropDownInput({
 		$("#huZhuName").data("data",data);
 	}
 });
+$("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
+	if($(this).data("btnState") == true){
+		var imgData = $(this).data("imgData");
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		$.post("share/saveFile",{
+			baseSFFile:imgData
+		},function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				$("#yuLanBtn").attr("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},"json");
+	}
+});
+$("#phonePaiZhaoModal").modal({
+	show:false, 
+	keyboard:false,
+	backdrop:"static",
+});
 function showProInfo(id){
 	$.get("share/projectInfo",{
 		id:id
@@ -126,6 +144,12 @@ function showInfo(dom){
 		var fileItem = $(this).data("fileItem");
 		if(!fileItem || fileItem.length <= 0) return;
 		$.initShowImage(fileItem);
+	});
+	$("#showImage",rHtml).data("fileItem",data.image);
+	$("#showImage",rHtml).click(function(){
+		var fileItem = $(this).data("fileItem");
+		if(!fileItem) return;
+		$.initShowImage([fileItem]);
 	});
 	$("#familyInfo").html(rHtml);
 	$.post("projectManagement/pmProgressGet",{
@@ -180,6 +204,34 @@ function editInfo(dom){
 		}
 	}
 	$("#editStreet",rHtml).val(data.streetId);
+	if(data.image){
+		$("#yuLanBtn",rHtml).css("display","inline");
+		$("#yuLanBtn",rHtml).attr("img",data.image);
+	}
+	$("#yuLanBtn",rHtml).click(function(){
+		var img = $(this).attr("img");
+		if(!img) return;
+		$.initShowImage([img]);
+	});
+	$("#upFile",rHtml).change(function(){
+		var val = $(this).val();
+		if(!val) return;
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		submitFile(this,{
+			fileType:"EVIDENCE_FILE"
+		},"json",function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				data = data.substring(data.indexOf("/")+1);
+				$("#yuLanBtn").attr("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},function(e){
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		});
+	});
 	$("#editFamilyInfo").html(rHtml);
 	submitFileStyle("#upLoadFile","HOUSE_IMG",function(data){
 		actionFormate(data, true,function(type,msg,d){
@@ -278,6 +330,7 @@ $("#editFamilyInfoModal").validate({
 		subData.unionSuggestion = $("[name='unionSuggestion']",form).val();
 		subData.remark = $("[name='remark']",form).val();
 		subData.unionSuggestionPath = $("[name='unionSuggestionPath']",form).val();
+		subData.image = $("#yuLanBtn").attr("img");
 		subData.address = $("#editStreet option:selected").html() + $("#editCommunity option:selected").html() + $("#editZu option:selected").html();
 		var fileItems = "";
 		$("input[name='fileItem']","#fileItems").each(function(){
@@ -400,3 +453,12 @@ $("#addRemoveModal").validate({
 		});
 	}
 });
+function upFileZhaoPian(){
+	$("#upFile").click();
+}
+function paiZhao(){
+	$.get("share/photographs",function(html){
+		$("#phonePaiZhaoBody").html(html);
+		$("#phonePaiZhaoModal").modal("show");
+	});
+}

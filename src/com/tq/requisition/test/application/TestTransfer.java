@@ -27,7 +27,6 @@ public class TestTransfer {
 		TransferInfoQueryModel queryModel = new TransferInfoQueryModel();
 		queryModel.setCommunityId(null);
 		queryModel.setIsTransfered(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(null);
 		
 		PageModel pageModel = new PageModel();
@@ -42,7 +41,6 @@ public class TestTransfer {
 		TransferInfoQueryModel queryModel = new TransferInfoQueryModel();
 		queryModel.setCommunityId(null);
 		queryModel.setIsTransfered(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(UUID.fromString("7c7a8692-914f-44cc-b4c2-1b31971e61a4"));
 		
 		PageModel pageModel = new PageModel();
@@ -57,7 +55,6 @@ public class TestTransfer {
 		TransferInfoQueryModel queryModel = new TransferInfoQueryModel();
 		queryModel.setCommunityId(null);
 		queryModel.setIsTransfered(null);
-		queryModel.setProId(null);
 		queryModel.setStreetId(null);
 		
 		PageModel pageModel = new PageModel();

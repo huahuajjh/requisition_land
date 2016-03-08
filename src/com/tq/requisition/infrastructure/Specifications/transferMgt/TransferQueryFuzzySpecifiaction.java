@@ -31,10 +31,9 @@ public class TransferQueryFuzzySpecifiaction extends Specification<TransferHouse
 		sb.append(" from TransferHouseholdInfo t,FamilyItem f");//
 		sb.append(" where t.fmlItemId=f.id");
 		List<Object> list = new ArrayList<Object>();
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and f.proId=?");
-			list.add(queryModel.getProId());
+			sb.append(" and f.proName like " + "'%" + queryModel.getProName() + "%'");
 		}
 		if(queryModel.getStreetId()!=null)
 		{

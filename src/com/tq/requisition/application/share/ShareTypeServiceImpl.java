@@ -1,5 +1,6 @@
 package com.tq.requisition.application.share;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -88,6 +89,18 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 	@Override
 	public List<RelationshipTypeDto> getAllRelationshipTypeList() {
 		List<RelationshipType> list = relationshipTypeRepository.getAllType();
+		//排序顺序把“其他这个类型拍到最后”  by:Bless time:2016/3/5 16:43
+		List<RelationshipType> types = new ArrayList<RelationshipType>();
+		for (RelationshipType item : list) {
+			if(item.getName().equals("其他")){
+				types.add(item);
+			}
+		}
+		for (RelationshipType item : types) {
+			list.remove(item);
+		}
+		list.addAll(types);
+		//---------------------------------
 		return RelationshipTypeMapper.toDtoList(list);
 	}
 

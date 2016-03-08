@@ -39,12 +39,9 @@ var tableData = $.generateData({
 	url : "housePurchaseMansgement/hptIssueList",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+				data.queryProName = queryPrName;
 		}
 		var num = $("#queryQuanNum").val();
 		if(num){

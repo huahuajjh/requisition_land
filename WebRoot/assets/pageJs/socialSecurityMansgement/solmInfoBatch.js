@@ -11,12 +11,9 @@ var tableData = $.generateData({
 	url : "socialSecurityMansgement/solmInfoBatchList",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
-		var queryPrName =  $("#queryPrName");
-		if(queryPrName.data("data")){
-			var state = queryPrName.data("data").proName == queryPrName.val();
-			if(state){
-				data.proId = queryPrName.data("data").id;
-			}
+		var queryPrName =  $("#queryPrName").val();
+		if(queryPrName){
+			data.queryProName = queryPrName;
 		}
 		data.streetId = $("#street").val();
 		data.communityId = $("#community").val();
@@ -29,12 +26,9 @@ var tableData = $.generateData({
 			for (var i = 0; i < data.length; i++) {
 				var ageDuan = ageCalculate(data[i].birthday);
 				data[i].ageDuan = ageDuan;
-				
 			}
-			console.log(data);
 		});
 		$("#countArea").html(tempData.totalCount);
-		console.log(tempData);
 		return tempData;
 	}, domFn:function(dom){
 		initStreetAndCommunityAndClick(dom);

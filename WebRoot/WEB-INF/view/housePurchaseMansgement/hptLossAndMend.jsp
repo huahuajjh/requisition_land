@@ -45,7 +45,7 @@
 </div>
 
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
-    <li><a href="javascript:;">{{idNumber}}</a></li>
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="guaShiTemplate" type="text/x-handlebars-template">
 <div class="panel form-horizontal">

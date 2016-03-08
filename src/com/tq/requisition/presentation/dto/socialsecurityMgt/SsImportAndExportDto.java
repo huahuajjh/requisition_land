@@ -46,6 +46,11 @@ public class SsImportAndExportDto {
 	/**操作人id*/
 	private UUID userId;
 	
+	/**创建人的标识*/
+	private String createUid;
+	/**创建时间*/
+	private Date createDate;
+	
 	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
@@ -66,7 +71,8 @@ public class SsImportAndExportDto {
 		info.setSocialsecurityDate(new Date());
 		info.setServeArmyTime(serveArmyTime);
 		info.setIsSocialsecurity(getSS(isSocialsecurity));
-		
+		info.setCreateDate(createDate);
+		info.setCreateUid(createUid);
 		return info;
 	}
 	
@@ -77,5 +83,12 @@ public class SsImportAndExportDto {
 			return true;
 		}
 		return false;
+	}
+	
+	public void setCreateUid(String createUid) {
+		this.createUid = createUid;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 }

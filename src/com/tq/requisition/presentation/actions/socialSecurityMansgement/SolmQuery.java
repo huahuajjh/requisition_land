@@ -53,8 +53,8 @@ public class SolmQuery extends BaseAction {
 		if(!streetId.equals("")){
 			queryModal.setStreetId(UUID.fromString(streetId));
 		}
-		if(!proId.equals("")){
-			queryModal.setProId(UUID.fromString(proId));
+		if(queryProName !=null && !queryProName.equals("")){
+			queryModal.setProName(queryProName);
 		}
 		if(idNumber !=null && !idNumber.equals("")){
 			queryModal.setIdNumber(idNumber);
@@ -84,6 +84,7 @@ public class SolmQuery extends BaseAction {
 		return null;
 	}
 	
+	private String queryProName;
 	private int pageNum = 30;
 	private int pageIndex = 1;
 	private String streetId  = "";
@@ -119,6 +120,9 @@ public class SolmQuery extends BaseAction {
 	}
 	public void setZuId(String zuId) {
 		this.zuId = zuId;
+	}
+	public void setQueryProName(String queryProName) {
+		this.queryProName = queryProName;
 	}
 
 	private String dataJson;

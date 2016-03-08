@@ -30,9 +30,9 @@ public class HPTProvideTableSpecification extends Specification<HousePuraseTicke
 		sb.append(" fi.proId,fi.proName,fi.id,h.id,fi.name,fi.idNumber,pi.name,h.ticketNumber,pi.evidenceOfGetting,pi.gettingDate,h.bonus) ");
 		sb.append(" from HPTProviderInfo pi, HousePuraseTicket h,FamilyItem fi");
 		sb.append(" where h.fmlItemId=fi.id and pi.ticketId=h.id and h.del=false and h.state=?");
-		if(queryModel.getProId()!=null)
+		if(queryModel.getProName()!=null)
 		{
-			sb.append(" and fi.proId='"+queryModel.getProId()+"'");
+			sb.append(" and fi.proName like '%"+queryModel.getProName()+"%'");
 		}
 		if(queryModel.getIdNumber()!=null && !(queryModel.getIdNumber().trim().equals(""))){
 			sb.append(" and fi.idNumber='"+queryModel.getIdNumber()+"'");	

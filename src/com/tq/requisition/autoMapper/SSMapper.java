@@ -28,7 +28,8 @@ public class SSMapper {
 		info.setServeArmyTime(dto.getServeArmyTime());
 		info.setSocialsecurityTypeId(dto.getSocialsecurityTypeId());
 		info.setOprUserId(dto.getOprUserId());
-		
+		info.setCreateDate(dto.getCreateDate());
+		info.setCreateUid(dto.getCreateUid());
 		return info;		
 	}
 	

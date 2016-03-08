@@ -37,9 +37,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 
 	@Override
 	public List<AddressDto> getAddress() {
-		List<Address> list = addressRepository.getTopAddresses();
-		List<AddressDto> dtos = AddressMapper.toDtoList(list);
-		return dtos;
+			List<Address> list = addressRepository.getTopAddresses();
+			List<AddressDto> dtos = AddressMapper.toDtoList(list);
+			return dtos;
 	}
 
 	@Override
