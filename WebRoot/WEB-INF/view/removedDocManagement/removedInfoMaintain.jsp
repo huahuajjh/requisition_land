@@ -20,7 +20,7 @@
 				<div class="col-md-3">
 					<div class="form-group downImput">
 						<label>身份证</label>
-						<input id="idNumber" type="text" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" maxlength="15" />
+						<input id="idNumber" type="text" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" maxlength="20" />
 						<ul class="dropdown-menu" id="idNumberQueryPrDown">
 						</ul>
 					</div>
@@ -28,7 +28,7 @@
 				<div class="col-md-3">
 					<div class="form-group downImput">
 						<label>姓名</label>
-						<input id="name" type="text" class="form-control" placeholder="输入姓名" autocomplete="OFF"  maxlength="20" />
+						<input id="name" type="text" class="form-control" placeholder="输入姓名" autocomplete="OFF" maxlength="15" />
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>
@@ -63,6 +63,7 @@
 				<div class="col-md-12 text-right">
 				<hr>
 					<div class="btn-group">
+						<button type="button" class="btn btn-bg btn-success" onclick="$('#selectExportModal').modal('show');">导出已拆迁户台账</button>
 						<input type="button" class="btn btn-primary pull-left" value="查询" onclick="tableData.goPage(1); ">
 					</div>
 				</div>
@@ -99,7 +100,6 @@
 						<th>身份证号</th>
 						<th>地址</th>
 						<th>拆迁日期</th>
-						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody id="dataTbody">
@@ -147,35 +147,6 @@
     </div>
   </div>
 </div>
-
-<script id="logItemTemplate" type="text/x-handlebars-template">
-<table>
-	<tr>
-		<td class="text-right">迁户人姓名：</td>
-		<td>{{name}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">迁户人身份证：</td>
-		<td>{{idNumber}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">出生日期：</td>
-		<td>{{birthday}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">拆迁日期：</td>
-		<td>{{removeDate}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">迁户人地址：</td>
-		<td>{{address}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">适用政策：</td>
-		<td>{{fitPolicy}}</td>
-	</tr>
-</table>
-</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
@@ -190,17 +161,13 @@
 	<td>{{idNumber}}</td>
 	<td>{{address}}</td>
 	<td>{{removeDate}}</td>
-	<td>
-		<a class="label label-info" onclick="editInfo(this);">编辑</a>
-		<a class="label label-default" onclick="deleteInfo(this);">删除</a>
-	</td>
 </tr>
 </script>
 <script id="editModalTemplate" type="text/x-handlebars-template">
 <div class="form-group">
 	<label class="col-md-3 control-label">迁户人姓名<span class="text-danger">*</span></label>
 	<div class="col-md-5">
-		<input type="text" name="name" value="{{name}}" maxlength="15" class="form-control" placeholder="请输入迁户人姓名">
+		<input type="text" name="name" value="{{name}}" maxlength="5" class="form-control" placeholder="请输入迁户人姓名">
 	</div>
 </div>
 <div class="form-group">
@@ -257,4 +224,4 @@
 </div>
 </script>
 <script type="text/javascript" src="assets/pageJs/removedDocManagement/removedInfoDaoChu.js"></script>
-<script type="text/javascript" src="assets/pageJs/removedDocManagement/removedInfoQuery.js"></script>
+<script type="text/javascript" src="assets/pageJs/removedDocManagement/removedInfoMaintain.js"></script>

@@ -123,9 +123,12 @@ public class SolmInfoBatch extends BaseAction {
 			//写入操作人员
 			 System.out.println(dto);
 			List<NewSocialsecurityDto> dtos = new ArrayList<NewSocialsecurityDto>();
+			Date date = new Date();
 			for (NewSocialsecurityDto t : dto) {
 				t.setOprUserId(userId());
-				t.setOprDate(new Date());
+				t.setOprDate(date);
+				t.setCreateDate(date);
+				t.setCreateUid(userId().toString());
 				dtos.add(t);
 			}
 			 stateJson = this.socialsecurityMgtServiceContract.addBatch(dtos);

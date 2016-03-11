@@ -165,12 +165,13 @@ $("#sendDataBtn").click(function() {
 	} else if (datas.length <= 0) {
 		return;
 	} else {
-		console.log(datas);
 		$.post("housePurchaseMansgement/hptBatchUseAndCashProcessing",{
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true,function(){
-				operationLog("批量录入社保信息","批量录入社保信息");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(datas);
+				operationLog("批量兑付购房券信息","批量兑付购房券信息",logHtml);
 				tableData.refreshData();
 			 });
 		},"json");
@@ -203,6 +204,13 @@ function getData() {
 		//拍照
 		subData.image = $(".yuLanBtn",tr).data("img");
 
+		subData.resideName = data.name;
+		subData.resideIdNumber = data.idNumber;
+		subData.resideTicketNumber = data.ticketNumber;
+		subData.resideBonus = data.bonus;
+		subData.resideMakeTime = data.makeTime;
+		subData.usingTypeStr = $("[name='useType'] option:selected",tr).html();
+		
 		if (isChuLi == "true")
 			datas.push(subData);
 	});

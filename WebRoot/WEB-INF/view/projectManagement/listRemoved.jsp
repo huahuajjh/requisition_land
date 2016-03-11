@@ -53,7 +53,7 @@
 				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>姓名</label>
-						<input type="text" id="name" maxlength="5" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
+						<input type="text" id="name" maxlength="15" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>

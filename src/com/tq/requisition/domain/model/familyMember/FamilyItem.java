@@ -157,11 +157,6 @@ public class FamilyItem extends AggregateRoot {
 		this.householdId = item.getHouseholdId();
 		this.householdStr = item.getHouseholdStr();
 		this.name = item.getName();
-		this.socialsecurityTypeId = item.getSocialsecurityTypeId();
-		this.socialsecurityStr = item.getSocialsecurityStr();
-		this.socialsecurity = item.getSocialsecurity();
-		this.removed = item.getRemoved();
-		this.transfer = item.getTransfer();
 		this.currentEducationSituation = item.getCurrentEducationSituation();
 		this.educationLevel = item.getEducationLevel();
 		this.farmingTime = item.getFarmingTime();

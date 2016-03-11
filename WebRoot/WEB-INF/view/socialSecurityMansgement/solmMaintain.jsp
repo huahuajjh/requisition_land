@@ -149,6 +149,52 @@
     </div>
   </div>
 </div>
+
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">纳入社保时间：</td>
+		<td>{{ssDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">待遇标准：</td>
+		<td>{{ssTypeStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">所属社区：</td>
+		<td>{{community}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">参加何种医疗保险：</td>
+		<td>{{joinWhichMedicalInsurance}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">养老保险补缴年限：</td>
+		<td>{{endowmentInsuranceYear}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">医疗保险视同缴费月数：</td>
+		<td>{{medicalInsuranceMonth}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">服刑或劳动教养时间(月)：</td>
+		<td>{{prisonTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">军队服役时间(月)：</td>
+		<td>{{serveArmyTime}}</td>
+	</tr>
+</table>
+</script>
+
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

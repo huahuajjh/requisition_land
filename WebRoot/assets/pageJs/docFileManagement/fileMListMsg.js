@@ -54,6 +54,7 @@ var tableData = $.generateData({
 			}
 			queryData.typeIds = ids.join(",");
 		}
+		queryData.createId = getCookie("login");
 		data.fuzzy = JSON.stringify(queryData);
 	}, lastFn : function(data) {
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
@@ -93,6 +94,10 @@ $("#editInfoModal").submit(function(){
 		file:JSON.stringify(data)
 	},function(d){
 		actionFormate(d, true,function(type,msg,d){
+			var logTemplate = Handlebars.compile($("#logItemTemplate").html());
+			var logHtml = logTemplate(data);
+			operationLog("编辑档案文件","编辑档案文件",logHtml);
+			
 			tr.remove();
 			var template = Handlebars.compile($("#entrytemplate").html());
 			var html = $(template(data));
@@ -145,10 +150,10 @@ function editInfo(dom){
 	$("#selectBtn",html).data("data",{
 		title:data.typeStr
 	});
-	initEditDom();
+	initEditDom(html,data);
 	$("#editInfoModal").modal("show");
 }
-function initEditDom(){
+function initEditDom(dom,data){
 	summernoteDom("[data-plugin-summernote]");
 	$("#selectType").mSelect({
 		url:sendUrl.fileType_queryByPid,
@@ -189,6 +194,33 @@ function initEditDom(){
 			$("#fileItems").append(html);
 		});
 	});
+	if(data.img){
+		$("#yuLanBtn",dom).css("display","inline").data("img",data.img);
+	}
+	$("#yuLanBtn",dom).click(function(){
+		var img = $(this).data("img");
+		if(!img) return;
+		$.initShowImage([img]);
+	});
+	$("#upFile",dom).change(function(){
+		var val = $(this).val();
+		if(!val) return;
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		submitFile(this,{
+			fileType:"EVIDENCE_FILE"
+		},"json",function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				data = data.substring(data.indexOf("/")+1);
+				$("#yuLanBtn").data("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},function(e){
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		});
+	});
 }
 function removeFile(dom){
 	$(dom).closest(".form-control-static").remove();
@@ -213,6 +245,7 @@ function getData(){
 	});
 	data.filePath = fileValArr.join("|");
 	data.article = $("[data-plugin-summernote]").code();
+	data.img = $("#yuLanBtn").data("img");
 	return data;
 }
 function deleteInfo(dom){
@@ -227,3 +260,33 @@ function deleteInfo(dom){
 		});
 	},"json");
 }
+function upFileZhaoPian(){
+	$("#upFile").click();
+}
+function paiZhao(){
+	$.get("share/photographs",function(html){
+		$("#phonePaiZhaoBody").html(html);
+		$("#phonePaiZhaoModal").modal("show");
+	});
+}
+$("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
+	if($(this).data("btnState") == true){
+		var imgData = $(this).data("imgData");
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		$.post("share/saveFile",{
+			baseSFFile:imgData
+		},function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				$("#yuLanBtn").data("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},"json");
+	}
+});
+$("#phonePaiZhaoModal").modal({
+	show:false, 
+	keyboard:false,
+	backdrop:"static",
+});

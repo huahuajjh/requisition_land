@@ -20,7 +20,7 @@ function exportRemovedInfoExcel(){
 	}
 	var heads = [{
 		value:"已迁户系统数据格式",
-		colspan:4,
+		colspan:5,
 		rowspan:0,
 		x:0,
 		y:0
@@ -58,6 +58,20 @@ function getQianHuNameHead(x,y){
 		y:y + 1,
 		celData:[celData],
 		celKey:["name"]
+	};
+}
+function getZhengCeHead(x,y){
+	var celData = {
+		value:"适用政策",
+		colspan:0,
+		rowspan:0,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["policy"]
 	};
 }
 function getIdNumberHead(x,y){
@@ -122,15 +136,18 @@ function exportModol(){
 		fn:getQianHuNameHead
 	},{
 		id:"1",
-		fn:getIdNumberHead
+		fn:getZhengCeHead
 	},{
 		id:"2",
-		fn:getBirthdayHead
+		fn:getIdNumberHead
 	},{
 		id:"3",
-		fn:getRemoveDateHead
+		fn:getBirthdayHead
 	},{
 		id:"4",
+		fn:getRemoveDateHead
+	},{
+		id:"5",
 		fn:getAddressHead
 	}];
 }

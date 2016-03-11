@@ -23,7 +23,15 @@ public class HPTReportOfLossInfo extends Entity{
 	private UUID ticketId;
 	/**ÊÇ·ñÉ¾³ý*/
 	private boolean del;
+	/**±¸×¢*/
+	private String remark;
 	
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	/*getters and setters*/	
 	public Date getReportOfLossDate() {
 		return reportOfLossDate;

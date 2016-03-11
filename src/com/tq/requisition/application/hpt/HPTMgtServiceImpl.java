@@ -247,7 +247,7 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.addHPT(hpts);
 			context().commit();
-			return toJson("导入购房券信息成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("导入购房券信息成功", list, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
 			context().rollback();
 			return toJson("导入购房券信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);

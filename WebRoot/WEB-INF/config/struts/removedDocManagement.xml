@@ -25,5 +25,9 @@
 		    </result>  
 		</action>
 		
+		<action name="removedInfoMaintain" class="com.tq.requisition.presentation.actions.removedDocManagement.RemovedInfoMaintain">
+			<result name="success">../WEB-INF/view/removedDocManagement/removedInfoMaintain.jsp</result>
+		</action>
+		
 	</package>
 </struts>

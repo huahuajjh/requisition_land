@@ -25,7 +25,6 @@ var tableData = $.generateData({
 		}
 		tempData.indexPage = data.pageIndex;
 		tempData.indexSize = data.pageNum;
-		tempData.createId = getCookie("login");
 		data.fuzzy = JSON.stringify(tempData);
 	},
 	lastFn : function(data) {
@@ -67,14 +66,12 @@ $("#editInfoModal").validate({
 		subData.img = $("#yuLanBtn").data("img");
 		
 		subData.visitsWay = $("[name='visitsWay']",form).val();
-	
+		
 		$.post(sendUrl.visits_modify,{
 			visits:JSON.stringify(subData)
 		},function(d){
 			actionFormate(d, true,function(){
-				var template = Handlebars.compile($("#logItemTemplate").html());
-				var logHtml = template(subData);
-				operationLog("修改信访信息","修改信访信息",logHtml);
+				operationLog("修改上访上信息","修改上访上信息");
 				var tr = $('#editInfoModal').data("dom");
 				data.visitorName = subData.visitorName;
 				data.visitorTel = subData.visitorTel;

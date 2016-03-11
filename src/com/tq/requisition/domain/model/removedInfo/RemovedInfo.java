@@ -28,6 +28,12 @@ public class RemovedInfo extends AggregateRoot{
 	private Date removeDate;
 	/**是否删除*/
 	private boolean del;
+	/**创建人的ID*/
+	private String createId;
+	/**创建时间*/
+	private Date createDate;
+	/**适用政策*/
+	private String policy;
 	
 	public RemovedInfo(){
 		this.id = UUID.randomUUID();
@@ -89,7 +95,25 @@ public class RemovedInfo extends AggregateRoot{
 	public void setId(UUID id) {
 		this.id = id;
 	}
-	
+	public String getCreateId() {
+		return createId;
+	}
+	public void setCreateId(String createId) {
+		this.createId = createId;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public String getPolicy() {
+		return policy;
+	}
+	public void setPolicy(String policy) {
+		this.policy = policy;
+	}
+
 	/*public methods*/
 	public void validate() throws DomainException {
 		check(this.idNumber, "身份证不能为空");

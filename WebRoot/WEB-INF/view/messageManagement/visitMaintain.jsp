@@ -159,50 +159,6 @@
   </div>
 </div>
 
-<script id="logItemTemplate" type="text/x-handlebars-template">
-<table>
-	<tr>
-		<td class="text-right">上访者姓名：</td>
-		<td>{{visitorName}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">上访者电话：</td>
-		<td>{{visitorTel}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">上访者的住址：</td>
-		<td>{{visitorAddr}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">选择上访项目：</td>
-		<td>{{proName}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">上访时间：</td>
-		<td>{{visitTime}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">信访途径：</td>
-		<td>{{visitsWay}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">上访者的其他信息：</td>
-		<td>{{otherMsg}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">上访凭证：</td>
-		<td>{{img}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">相关资料：</td>
-		<td>{{visitMaterialPath}}</td>
-	</tr>
-	<tr>
-		<td class="text-right">处理意见：</td>
-		<td>{{visitReason}}</td>
-	</tr>
-</table>
-</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td><a href="javascript:;" class="bk-fg-primary" onclick="showInfo(this);">{{visitorName}}</a></td>
@@ -212,7 +168,6 @@
 	<td>{{visitorAddr}}</td>
 	<td>
 		<a class="label label-dark" onclick="showInfo(this);">查看</a>
-		<a class="label label-info" onclick="editInfo(this);">编辑</a>
 	</td>
 </tr>
 </script>
@@ -301,7 +256,7 @@
 <div class="col-md-6">
 	<div class="form-group">
 		<label>上访者姓名<span class="text-danger">*</span></label>
-		<input type="text" name="name" value="{{visitorName}}" class="form-control" placeholder="请输入上访者姓名" maxlength="15">
+		<input type="text" name="name" value="{{visitorName}}" class="form-control" placeholder="请输入上访者姓名" maxlength="5">
 	</div>
 </div>
 <div class="col-md-6">
@@ -373,4 +328,4 @@
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
 </script>
-<script type="text/javascript" src="assets/pageJs/messageManagement/visitQuery.js"></script>
+<script type="text/javascript" src="assets/pageJs/messageManagement/visitMaintain.js"></script>

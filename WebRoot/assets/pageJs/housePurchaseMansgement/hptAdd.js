@@ -64,7 +64,9 @@ $("#addHPT").validate({
         	dataJson:JSON.stringify(subData)
         },function(data){
         	actionFormate(data, true, function(type, msg, data) {
-        		operationLog("手工添加购房券信息","手工添加购房券信息");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(subData);
+        		operationLog("手工添加购房券信息","手工添加购房券信息",logHtml);
         		resestData();
     		});
         },"json");
@@ -116,8 +118,11 @@ $("#upLoadeFile").click(function(){
 	$("#errorBtn > span").html(0);
 	$("#bulletList").html();
 	submitFile($("#filePath")[0],{},"json",function(data){
-		actionFormate(data, true,function(){},function(type,msg,data){
-			operationLog("导入购房券信息","导入购房券信息");
+		actionFormate(data, true,function(type,msg,data){
+			var template = Handlebars.compile($("#logImportItemTemplate").html());
+			var logHtml = template(data);
+			operationLog("导入购房券信息","导入购房券信息",logHtml);
+		},function(type,msg,data){
 			if(data){
 				var template = Handlebars.compile($("#errorItemTemplate").html());
 				var html = $(template(data));
@@ -258,6 +263,9 @@ $("#personInfoModal").validate({
 				data.proName = huData.proName;
 				data.fmlId = huData.fmlId;
 				
+				data.headName = huData.name;
+				data.headIdNumber = huData.idNumber;
+				
 				var yiQianHus = [];
 				var yiQianHu = {};
 				yiQianHu.name = data.name;
@@ -270,13 +278,15 @@ $("#personInfoModal").validate({
 				
 				$.post("housePurchaseMansgement/hptAddAddFmlItem",{
 					dataJson:JSON.stringify(data)
-				},function(data){
-					actionFormate(data, true,function(){
+				},function(d){
+					actionFormate(d, true,function(){
 						$.post(sendUrl.removedInfo_addBatch,{
 							list:JSON.stringify(yiQianHus)
-						},function(data){
-							actionFormate(data, true,function(){
-								 operationLog("手工添加已拆迁户","手工添加已拆迁户");
+						},function(d){
+							actionFormate(d, true,function(){
+								var template = Handlebars.compile($("#logFmlItemTemplate").html());
+								var logHtml = template(data);
+								 operationLog("手工添加人员信息","手工添加人员信息",logHtml);
 							 });
 						},"json");
 						$("#selectedHuData").data("data",null).html("");

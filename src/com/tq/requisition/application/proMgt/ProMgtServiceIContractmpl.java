@@ -204,7 +204,7 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			projectRepository.addProByFile(pros);
 			context().commit();
-			return toJson("项目报表上传成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("项目报表上传成功", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
 			return toJson("项目报表转换异常-"+e.getMessage(), null, Formater.OperationResult.FAIL);

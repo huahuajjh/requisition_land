@@ -129,9 +129,7 @@ text-indent: 20px;
 <script id="listInfoTemplate" type="text/x-handlebars-template">
 <div class="message-title" style="margin-top: 0;">{{title}}</div>
 <div class="header">
-    <div class="from">
-        发布时间：{{createDate}}
-    </div>
+	发布时间：{{createDate}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高拍仪照片：<a href="javascript:;" class="text-primary" onclick="showImg('{{img}}');">点击查看</a>
 </div>
 <div class="content">
     {{{article}}}

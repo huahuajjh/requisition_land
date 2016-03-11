@@ -185,6 +185,7 @@ function inputMonthProces(dom) {
 	var proid = tr.attr("proid");
 	$("#addMonthProcesId").val(proid);
 	$("#addMonthProName").html(proname);
+	$('#yueBaoAddModal').data('proName',proname);
 	$('#yueBaoAddModal').modal('show');
 }
 function addAnnouncement(dom) {
@@ -240,6 +241,7 @@ function addAnnouncement(dom) {
 		});
 		initFormFile();
 		initFormAnnounceForm();
+		$('#announceAddInfoModal').data('proName',proname);
 		$('#announceAddInfoModal').modal('show');
 	},"json");
 }
@@ -384,13 +386,19 @@ $("#editYueBaoModal").validate({
 		subData.yearCourtExecute = $('[name="yearCourtExecute"]',form).val();
 		subData.yearLegalRemoved = $('[name="yearLegalRemoved"]',form).val();
 		subData.curMonthComplete = $('[name="isBenYueJieSuan"]:checked',form).val() == "true"?"是":"否";
+		subData.remark = $('[name="remark"]',form).val();
 		subData.proId = editData.proId;
 		subData.startDate = editData.startDate;
+		subData.proName = editProData.proName;
+		
 		$.post("projectManagement/pmProgressEditMouth",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,data) {
-				operationLog("修改项目月报","修改项目月报");
+				
+				var template = Handlebars.compile($("#logYueBaoItemTemplate").html());
+				var logHtml = template(subData);
+				operationLog("修改项目月报","修改项目月报",logHtml);
 				$(form).modal('hide');
 			});
 		},"json");
@@ -464,11 +472,16 @@ $("#yueBaoAddModal").validate({
 		subData.startDate = $('[name="startDate"]',form).val();
 		subData.curMonthComplete = $('[name="isBenYueJieSuan"]:checked',form).val() == "true"?"是":"否";
 		subData.remark = $('[name="remark"]',form).val();
+		subData.proName = $('#yueBaoAddModal').data('proName');
+		
 		$.post("projectManagement/pmProgressInputMouth",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,data) {
-				operationLog("录入项目月进度","录入项目月进度");
+				
+				var template = Handlebars.compile($("#logYueBaoItemTemplate").html());
+				var logHtml = template(subData);
+				operationLog("录入项目月进度","录入项目月进度",logHtml);
 				$(form).modal('hide');
 				tr.remove();
 				var template = Handlebars.compile($("#entrytemplate").html());
@@ -489,6 +502,14 @@ function initFormAnnounceForm(){
 				}
 			},
 			submitHandler : function(form) {
+				var logData = {};
+				logData.proName = $('#announceAddInfoModal').data('proName');
+				logData.announce = $('#addAnnounce > .tab-head .active').html();
+				logData.number = $("[name='number']",form).val();
+				logData.date = $("[name='date']",form).val();
+				logData.fdocVal = $("[name='fdocVal']",form).val();
+				var template = Handlebars.compile($("#logGongGaoItemTemplate").html());
+				var logHtml = template(logData);
 				$.post($(form).attr("action"),$(form).serialize(),function(data){
 					actionFormate(data, true, function(type,msg,data) {
 						var formId = "#" + $(form).attr("id");
@@ -501,9 +522,9 @@ function initFormAnnounceForm(){
 							var rHtml = $(html);
 							rHtml.data("data",data);
 							$("#dataTbody").prepend(rHtml);
-							operationLog("增加项目公告","增加项目公告");
+							operationLog("增加项目公告","增加项目公告",logHtml);
 						} else {
-							operationLog("修改项目公告","修改项目公告");
+							operationLog("修改项目公告","修改项目公告",logHtml);
 						}
 					});
 				},"json");

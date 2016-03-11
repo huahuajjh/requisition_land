@@ -17,5 +17,9 @@
 		<action name="visitQueryedit" method="edit" class="com.tq.requisition.presentation.actions.messageManagement.VisitQuery"></action>
 		<action name="visitQuerydelete" method="delete" class="com.tq.requisition.presentation.actions.messageManagement.VisitQuery"></action>
 		
+		<action name="visitMaintain" class="com.tq.requisition.presentation.actions.messageManagement.VisitMaintain">
+			<result name="success">../WEB-INF/view/messageManagement/visitMaintain.jsp</result>
+		</action>
+		
 	</package>
 </struts>

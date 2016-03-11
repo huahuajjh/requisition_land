@@ -18,6 +18,7 @@ public class HPTLossMapper {
 				dto.getOprDate(),
 				dto.getFmlItemId(),
 				dto.getTicketId());
+		model.setRemark(dto.getRemark());
 		return model;
 	}
 	

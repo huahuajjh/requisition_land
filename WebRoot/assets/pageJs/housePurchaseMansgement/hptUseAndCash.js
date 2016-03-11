@@ -103,11 +103,27 @@ $("#goufangQuanShiYong").validate({
 		subData.evidencePath = $("#goufangQuanShiYong [name='evidencePath']").val();
 		//拍照
 		subData.image = $("#yuLanBtn").data("img");
+		
+		var logData = {};
+		logData.resideName = data.name;
+		logData.resideIdNumber = data.idNumber;
+		logData.ticketNumber = data.ticketNumber;
+		logData.bonus = data.bonus;
+		logData.makeTime = data.makeTime;
+		logData.usingDate = subData.usingDate;
+		logData.usingType = $("#goufangQuanShiYong [name='type'] option:selected").html();;
+		logData.usingToWhere = subData.usingToWhere;
+		logData.situationExplain = subData.situationExplain;
+		logData.evidencePath = subData.evidencePath;
+		logData.image = subData.image;
+		
 		$.post("housePurchaseMansgement/hptUseAndCashAdd",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 	      	actionFormate(data, true, function(type, msg, data) {
-	      		operationLog("购房券的使用与兑现","购房券的使用与兑现");
+	    		var template = Handlebars.compile($("#logItemTemplate").html());
+	    		var logHtml = template(logData);
+	      		operationLog("购房券的使用与兑现","购房券的使用与兑现",logHtml);
 	      		$("#goufangQuanShiYong").html("");
     		});
 		},"json");

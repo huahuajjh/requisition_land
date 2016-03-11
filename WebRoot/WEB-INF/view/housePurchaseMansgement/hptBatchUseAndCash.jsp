@@ -208,6 +208,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>身份证</td>
+				<td>券号</td>
+				<td>补贴金额（万元）</td>
+				<td>制券时间</td>
+				<td>使用时间</td>
+				<td>使用类型</td>
+				<td>使用去向</td>
+				<td>情况说明</td>
+				<td>相关凭证</td>
+				<td>图片凭证</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+			<tr>
+				<td>{{resideName}}</td>
+				<td>{{resideIdNumber}}</td>
+				<td>{{resideTicketNumber}}</td>
+				<td>{{resideBonus}}</td>
+				<td>{{resideMakeTime}}</td>
+				<td>{{usingDate}}</td>
+				<td>{{usingTypeStr}}</td>
+				<td>{{usingToWhere}}</td>
+				<td>{{situationExplain}}</td>
+				<td>{{evidencePath}}</td>
+				<td>{{image}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

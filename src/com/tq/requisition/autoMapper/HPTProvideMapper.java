@@ -24,7 +24,8 @@ public class HPTProvideMapper {
 				dto.getName(),
 				dto.getIdNumber(),
 				dto.getGettingDate()
-				);		
+				);
+		model.setRemark(dto.getRemark());
 		return model;
 	}
 	

@@ -107,14 +107,12 @@ public class SolmImportFile extends BaseAction {
 				 } else {
 					 String stateJsonString = "";
 					 if(items.size() > 0 ){
-						 List<SocialsecurityInfo> dots = new ArrayList<>();
 						 for (SsImportAndExportDto item : items) {
-							item.setUserId(userId());
-							item.setCreateDate(new Date());
-							item.setCreateUid(userId().toString());
-							dots.add(item.toSocialsecurityInfo());
-						}
-						 stateJsonString = this.ssService.importSS(dots);
+								item.setUserId(userId());
+								item.setCreateDate(new Date());
+								item.setCreateUid(userId().toString());
+							}
+						 stateJsonString = this.ssService.importSS(items);
 					 } else {
 						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "文件中没有数据");
 					 }

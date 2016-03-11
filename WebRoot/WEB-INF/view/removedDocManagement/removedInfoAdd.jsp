@@ -62,7 +62,7 @@
 	    <div class="form-group">
 	    	<label class="col-md-3 control-label">迁户人姓名<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
-	    		<input type="text" name="name" maxlength="5" class="form-control" placeholder="请输入迁户人姓名">
+	    		<input type="text" name="name" maxlength="15" class="form-control" placeholder="请输入迁户人姓名">
 	    	</div>
 	    </div>
 	    <div class="form-group">
@@ -114,7 +114,7 @@
 	   	<div class="form-group">
 	    	<label class="col-md-3 control-label">适用政策</label>
 	    	<div class="col-md-5">
-	    		<input type="text" name="suitPolicy" maxlength="15" class="form-control" placeholder="请输入适用政策">
+	    		<input type="text" name="fitPolicy" maxlength="15" class="form-control" placeholder="请输入适用政策">
 	    	</div>
 	    </div>
 	    <div class="form-group">
@@ -144,6 +144,68 @@
 		</div>
 	</div>
 </div>
+
+<script id="logImportItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>迁户人姓名</td>
+				<td>适用政策</td>
+				<td>迁户人身份证</td>
+				<td>出生日期</td>
+				<td>拆迁日期</td>
+				<td>迁户人地址</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{fitPolicy}}</td>
+				<td>{{idNumber}}</td>
+				<td>{{birthDay}}</td>
+				<td>{{removeDate}}</td>
+				<td>{{address}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">迁户人姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">迁户人身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生日期：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">拆迁日期：</td>
+		<td>{{removeDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">迁户人地址：</td>
+		<td>{{address}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">适用政策：</td>
+		<td>{{fitPolicy}}</td>
+	</tr>
+</table>
+</script>
 <script id="errorItemTemplate" type="text/x-handlebars-template">
 {{#each this}}
 <li class="red">

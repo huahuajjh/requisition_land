@@ -262,6 +262,62 @@
 		</div>
 	</div>
 </form>
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">项目审批号：</td>
+		<td>{{approvalNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">项目名称：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">项目分类：</td>
+		<td>{{proCategory}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">项目地址：</td>
+		<td>{{address}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">项目类型：</td>
+		<td>{{proTypeStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">征地面积（亩）：</td>
+		<td>{{requisitionArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">应拆栋数：</td>
+		<td>{{shouldRemoveBuildings}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">应拆户数：</td>
+		<td>{{shouldRemoveHouses}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">应动迁人口：</td>
+		<td>{{shouldMovePopulation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">应拆总面积（合法）（平方米）：</td>
+		<td>{{shouldRemoveLegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">应拆总面积（违章）（平方米）：</td>
+		<td>{{shouldRemoveIllegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">项目应付补偿款（万元）：</td>
+		<td>{{shouldPayMoney}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">六前项目：</td>
+		<td>{{sixForward}}</td>
+	</tr>
+</table>
+</script>
 <script id="yueCountTemplate" type="text/x-handlebars-template">
 <tr class="text-primary">
 	<th>合计</th>

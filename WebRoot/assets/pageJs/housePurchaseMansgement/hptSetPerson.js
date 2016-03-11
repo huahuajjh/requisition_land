@@ -97,11 +97,22 @@ $("#showQueryDataArea").validate({
 		subData.idNumber = $("#showQueryDataArea [name='idNumber']").val();
 //		/**领用时间*/
 		subData.gettingDate = $("#showQueryDataArea [name='time']").val();
+		//领取备注
+		subData.remark = $("#showQueryDataArea [name='remark']").val();
+		
+		subData.resideName = data.name;
+		subData.resideIdNumber = data.idNumber;
+		subData.resideTicketNumber = data.ticketNumber;
+		subData.resideBonus = data.bonus;
+		subData.resideMakeTime = data.makeTime;
+		
 		$.post("housePurchaseMansgement/hptSetPersonAdd",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
-				operationLog("购房券个人发放","购房券个人发放");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(subData);
+				operationLog("购房券个人发放","购房券个人发放",logHtml);
 				$("#showQueryDataArea").html("");
 			});
 		},"json");

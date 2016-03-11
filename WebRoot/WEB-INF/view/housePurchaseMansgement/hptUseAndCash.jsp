@@ -64,6 +64,54 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{resideName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证号：</td>
+		<td>{{resideIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">券号：</td>
+		<td>{{ticketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">补贴金额（万元）：</td>
+		<td>{{bonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{makeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">使用时间：</td>
+		<td>{{usingDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">使用类型：</td>
+		<td>{{usingType}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">使用去向：</td>
+		<td>{{usingToWhere}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">情况说明：</td>
+		<td>{{situationExplain}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">相关凭证：</td>
+		<td>{{evidencePath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">图片凭证：</td>
+		<td>{{image}}</td>
+	</tr>
+</table>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

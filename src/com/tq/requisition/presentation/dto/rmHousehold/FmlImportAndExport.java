@@ -66,7 +66,7 @@ public class FmlImportAndExport {
 			item.setRelationshipStr(dto.getRelationshipStr());
 			item.setServeArmySituation(dto.getServeArmySituation());
 			item.setTel(dto.getTel());
-
+			item.setIsSocialsecurity(dto.isSocialsecurity());
 			items.add(item);
 		}
 		return items;

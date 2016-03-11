@@ -170,6 +170,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="modal fade" id="showProInfoModal">
   <div class="modal-dialog">
     <div class="modal-content" id="showProInfoArea">
@@ -184,6 +185,49 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+<table class="table table-hover table-bordered autoTbale">
+	<thead>
+		<tr>
+		    <td>姓名</td>
+		    <td>身份证</td>
+		    <td>待遇标准</td>
+		    <td>社保时间</td>
+		    <td>年龄段</td>
+		    <td>所属社区</td>
+		    <td>参加何种医疗保险</td>
+		    <td>养老保险补缴年限</td>
+		    <td>医疗保险视同缴费月数</td>
+		    <td>服刑或劳动教养时间(月)</td>
+		    <td>军队服役时间(月)</td>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each this}}
+		<tr>
+		    <td>{{name}}</td>
+		    <td>{{idNumber}}</td>
+		    <td>{{socialsecurityTypeStr}}</td>
+		    <td>{{socialsecurityDate}}</td>
+		    <td>{{ageRange}}</td>
+		    <td>{{community}}</td>
+		    <td>{{joinWhichMedicalInsurance}}</td>
+		    <td>{{endowmentInsuranceYear}}</td>
+		    <td>{{medicalInsuranceMonth}}</td>
+		    <td>{{prisonTime}}</td>
+		    <td>{{serveArmyTime}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+</div>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

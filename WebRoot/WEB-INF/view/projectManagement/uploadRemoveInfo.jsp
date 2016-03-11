@@ -322,6 +322,112 @@
 		</div>
 	</div>
 </form>
+
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<table>
+	<tr>
+		<td class="text-right">户主姓名：</td>
+		<td>{{headName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">选择所属项目：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋合法面积（平方米）：</td>
+		<td>{{houseLegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋违章面积（平方米）：</td>
+		<td>{{houseIllegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">所属地址：</td>
+		<td>{{address}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">批证及其他情况说明：</td>
+		<td>{{satuationDesc}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">拟定处理方案：</td>
+		<td>{{dealSolution}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联合会审意见：</td>
+		<td>{{unionSuggestion}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联合会审附件：</td>
+		<td>{{unionSuggestionPath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">高拍仪拍照：</td>
+		<td>{{image}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋照片管理：</td>
+		<td>{{houseImgPath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">家庭成员数：</td>
+		<td>{{fmlNumber}}</td>
+	</tr>
+</table>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>与户主关系</td>
+				<td>身份证</td>
+				<td>性别</td>
+				<td>户口性质</td>
+				<td>出生日期</td>
+				<td>文化程度</td>
+				<td>在读情况</td>
+				<td>从事农业劳动时间</td>
+				<td>服兵役/劳改/劳教情况及时间起止段</td>
+				<td>联系电话</td>
+				<td>独生子女证件号</td>
+				<td>是否半边户</td>
+				<td>是否参加过社会保险</td>
+				<td>备注</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each items}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+				<td>{{idNumber}}</td>
+				<td>{{genderStr}}</td>
+				<td>{{householdStr}}</td>
+				<td>{{birthday}}</td>
+				<td>{{educationLevel}}</td>
+				<td>{{currentEducationSituation}}</td>
+				<td>{{farmingTime}}</td>
+				<td>{{serveArmySituation}}</td>
+				<td>{{tel}}</td>
+				<td>{{onlyChildNumber}}</td>
+				<td>{{#if half}}是{{else}}否{{/if}}</td>
+				<td>{{#if userdSocialsecurity}}是{{else}}否{{/if}}</td>
+				<td>{{remark}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
 <script id="errorItemTemplate" type="text/x-handlebars-template">
 {{#each this}}
 <li class="red">
@@ -409,7 +515,7 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">姓名<span class="text-danger">*</span></label>
-			<input type="text" class="form-control" name="name" value="{{name}}" placeholder="请输入姓名" maxlength="5">
+			<input type="text" class="form-control" name="name" value="{{name}}" placeholder="请输入姓名" maxlength="15">
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -513,19 +619,17 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">是否半边户</label>
 			<div class="checkbox-custom form-control-static">
 				<input type="checkbox" name="half" {{#if half}}checked{{/if}}> 
-				<label></label>
+				<label>是否半边户</label>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">是否参加过社会保险</label>
 			<div class="checkbox-custom form-control-static">
 				<input type="checkbox" name="userdSocialsecurity" {{#if userdSocialsecurity}}checked{{/if}}> 
-				<label></label>
+				<label>是否参加过社会保险</label>
 			</div>
 		</div>
 	</div>

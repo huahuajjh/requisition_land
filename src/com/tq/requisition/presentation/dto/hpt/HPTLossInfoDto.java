@@ -16,6 +16,9 @@ public class HPTLossInfoDto {
 	private UUID fmlItemId;
 	/**¹ÒÊ§µÄ¹º·¿È¯*/
 	private UUID ticketId;
+	/**±¸×¢*/
+	private String remark;
+	
 	/**ÊÇ·ñÉ¾³ý*/
 	private boolean del;
 	
@@ -61,5 +64,11 @@ public class HPTLossInfoDto {
 	}
 	public void setDel(boolean del) {
 		this.del = del;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}	
 }

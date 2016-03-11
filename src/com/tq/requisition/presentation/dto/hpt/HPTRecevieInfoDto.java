@@ -24,7 +24,8 @@ public class HPTRecevieInfoDto {
 	private Date gettingDate;
 	/**ÊÇ·ñÉ¾³ý*/
 	private boolean del;
-	
+	/**±¸×¢*/
+	private String remark;
 	
 	public UUID getId() {
 		return id;
@@ -86,6 +87,13 @@ public class HPTRecevieInfoDto {
 	public void setDel(boolean del) {
 		this.del = del;
 	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
 	@Override
 	public String toString() {
 		return "HPTRecevieInfoDto [id=" + id + ", ticketId=" + ticketId

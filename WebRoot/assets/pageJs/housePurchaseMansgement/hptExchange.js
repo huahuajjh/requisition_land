@@ -124,12 +124,28 @@ $("#selectHPTList").validate({
 		housePuraseTicket.idNumber = data.idNumber;
 //		/** 姓名 */
 		housePuraseTicket.name = $("#selectHPTList [name='name']").val();
+		
+		var logData = {};
+		logData.resideName = data.name;
+		logData.resideIdNumber = data.idNumber;
+		logData.oldTicketNumber = data.ticketNumber;
+		logData.oldBonus = data.bonus;
+		logData.oldMakeTime = data.makeTime;
+		logData.newTicketNumber = housePuraseTicket.ticketNumber;
+		logData.newBonus = housePuraseTicket.bonus;
+		logData.newMakeTime = housePuraseTicket.makeDate;
+		logData.name = hptExchangeInfo.gettingUser;
+		logData.gettingDate = hptExchangeInfo.exchengeDate;
+		logData.evidenceOfGetting = hptExchangeInfo.evidencePath;
+		
 		$.post("housePurchaseMansgement/hptExchangeAdd",{
 			hptExchangeInfo:JSON.stringify(hptExchangeInfo),
 			housePuraseTicket:JSON.stringify(housePuraseTicket)
 		},function(data){
 			actionFormate(data, true,function(){
-				operationLog("购房券换发","购房券换发");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(logData);
+				operationLog("购房券换发","购房券换发",logHtml);
 				$("#selectHPTList").html("");
 			});
 		},"json");

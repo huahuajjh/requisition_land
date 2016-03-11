@@ -29,7 +29,9 @@
 		</div>
 	</div>
 </form>
-<form id="showQueryDataArea"></form>
+
+<form id="showQueryDataArea" onsubmit="return false;"></form>
+
 <div class="modal fade" id="showProInfoModal">
   <div class="modal-dialog">
     <div class="modal-content" id="showProInfoArea">
@@ -44,6 +46,78 @@
   </div>
 </div>
 
+<script id="logBQItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{resideName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证号：</td>
+		<td>{{resideIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">券号：</td>
+		<td>{{ticketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">补贴金额（万元）：</td>
+		<td>{{bonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{makeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">新的购房券券号：</td>
+		<td>{{newTicketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">新的购房券金额（万元）：</td>
+		<td>{{newBonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">新的购房券制券时间：</td>
+		<td>{{newMakeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券补失时间：</td>
+		<td>{{mendDate}}</td>
+	</tr>
+</table>
+</script>
+<script id="logGSItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{resideName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证号：</td>
+		<td>{{resideIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">券号：</td>
+		<td>{{ticketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">补贴金额（万元）：</td>
+		<td>{{bonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{makeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">挂失时间：</td>
+		<td>{{reportOfLossDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">挂失备注信息：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
@@ -98,7 +172,7 @@
         <div class="form-group">
         	<label class="col-md-4 control-label" for="text-input">挂失备注信息<span class="text-danger">*</span></label>
         	<div class="col-md-5">
-        		<textarea name="beiZhu"  placeholder="请输入挂失描述" class="form-control" rows="5" maxlength="140"></textarea>
+        		<textarea name="remark"  placeholder="请输入挂失描述" class="form-control" rows="5" maxlength="140"></textarea>
         	</div>
         </div>
         <hr>

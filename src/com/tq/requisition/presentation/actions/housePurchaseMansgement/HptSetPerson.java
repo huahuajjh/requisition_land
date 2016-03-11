@@ -43,7 +43,6 @@ public class HptSetPerson extends BaseAction {
 			HPTRecevieInfoDto dto = Serialization.toObject(dataJson, HPTRecevieInfoDto.class);
 			dto.setOprDate(new Date());
 			dto.setOprUserId(userId());
-			System.out.println(dto);
 			stateJson = this.hptMgtServiceContract.provide(dto);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");

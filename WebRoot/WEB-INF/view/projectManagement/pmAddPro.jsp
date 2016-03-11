@@ -87,7 +87,7 @@ color:#555;
 		<h6>手工添加项目信息</h6>
 	</div>
 	<div class="panel-body">
-		<form id="addProform" class="form-horizontal ">
+		<form id="addProform" class="form-horizontal " onsubmit="return false;">
 		<input type="hidden" name="addressVal" id="addressVal" />
 			<div class="form-group">
 				<label class="col-md-4 control-label">项目审批号<span class="text-danger">*</span></label>
@@ -208,7 +208,6 @@ color:#555;
 		</form>
 	</div>
 </div>
-
 <div class="modal fade" id="showErrorModal">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -227,6 +226,7 @@ color:#555;
 		</div>
 	</div>
 </div>
+
 <script id="addreddItemTemplate" type="text/x-handlebars-template">
 <span class="tag label label-primary">{{name}}<span data-role="remove" onclick="deleteAddressItem(this);"></span></span>
 </script>
@@ -237,5 +237,157 @@ color:#555;
 	<span class="description truncate">错误行数：在文件的 {{rowIndex}} 行,第 {{colVal}} 列</span>
 </li>
 {{/each}}
+</script>
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+        <td class="text-right">项目审批号：</td>
+        <td>{{approvalNumber}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">项目名称：</td>
+        <td>{{proName}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">项目分类：</td>
+        <td>{{proCategory}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">项目地址：</td>
+        <td>{{address}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">项目类型：</td>
+        <td>{{proTypeStr}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">征地面积（亩）：</td>
+        <td>{{requisitionArea}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">应拆栋数：</td>
+        <td>{{shouldRemoveBuildings}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">应拆户数：</td>
+        <td>{{shouldRemoveHouses}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">应动迁人口：</td>
+        <td>{{shouldMovePopulation}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">应拆总面积（合法）（平方米）：</td>
+        <td>{{shouldRemoveLegalArea}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">应拆总面积（违章）（平方米）：</td>
+        <td>{{shouldRemoveIllegalArea}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">项目应付补偿款（万元）：</td>
+        <td>{{shouldPayMoney}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">六前项目：</td>
+        <td>{{sixForwardPro}}</td>
+	</tr>
+</table>
+</script>
+<script id="logImportItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td colspan="29">月报时间：{{time}}</td>
+			</tr>
+			<tr>
+				<td rowspan="4">在拆项目名称</td>
+				<td rowspan="4">审批单号</td>
+				<td rowspan="4">项目分类</td>
+				<td colspan="2">项目类型（用√标识）</td>
+ 				<td rowspan="4">本月新启动项目<br>（用√标识）</td>
+				<td rowspan="4">是否为本月完成结算项目<br>（用√标识）</td>
+				<td rowspan="4">用地位置</td>
+				<td colspan="4">腾地情况</td>
+				<td colspan="8">拆除房屋情况</td>
+				<td colspan="4">拆迁安置人口情况</td>
+				<td rowspan="4">本年下达限期腾地决定书</td>
+				<td rowspan="4">本年申请法院执行</td>
+				<td rowspan="4">本年依法实施强制腾地户数</td>
+				<td rowspan="4">属“六前项目”请打√</td>
+				<td rowspan="4">备注</td>
+			</tr>
+			<tr>
+				<td rowspan="2">基础设施</td>
+				<td rowspan="2">其他</td>
+ 				<td rowspan="2">征地面积</td>
+				<td colspan="3">已腾地</td>
+				<td>应拆栋数（合法）</td>
+				<td colspan="3">已拆栋数  （合法）</td>
+				<td>应拆总面积（合法）</td>
+				<td colspan="3">已拆面积（合法）</td>
+				<td rowspan="2">应动迁人口（包括非农、半边户、独生子女）</td>
+				<td colspan="3">已动迁人口</td>
+			</tr>
+			<tr>
+ 				<td>累计</td>
+				<td>本月</td>
+				<td>本年</td>
+				<td>累计</td>
+				<td>累计</td>
+				<td>本月</td>
+				<td>本年</td>
+				<td>累计</td>
+				<td>累计</td>
+				<td>本月</td>
+				<td>本年</td>
+				<td>累计</td>
+				<td>本月</td>
+				<td>本年</td>	
+			</tr>
+		</thead>
+		<tbody>
+			{{#each list}}
+			<tr>
+				<td>{{proName}}</td>
+				<td>{{approvalNumber}}</td>
+				<td>{{proCategory}}</td>
+				<td>{{proTypeStrInfra}}</td>
+				<td>{{proTypeStrOther}}</td>
+				<td>{{newStart}}</td>
+				<td>{{curMonthComplete}}</td>
+				<td>{{totalAddress}}</td>
+				<td>{{requisitionArea}}</td>
+				<td>{{requisitionLandAreaTotal}}</td>
+				<td>{{removedLandArea}}</td>
+				<td>{{requisitionLandAreaYear}}</td>
+				<td>{{shouldRemoveBuildings}}</td>
+				<td>{{removedBuildingsLegalTotal}}</td>
+				<td>{{removedBuildings}}</td>
+				<td>{{removedBuildingsLegalYear}}</td>
+				<td>{{shouldRemoveLegalArea}}</td>
+				<td>{{removedAreaLegalTotal}}</td>
+				<td>{{removedLegalArea}}</td>
+				<td>{{removedAreaLegalYear}}</td>
+				<td>{{shouldMovePopulation}}</td>
+				<td>{{removedPopulationTotal}}</td>
+				<td>{{movedPopulation}}</td>
+				<td>{{removedPopulationYear}}</td>
+				<td>{{yearDeadlineFile}}</td>
+				<td>{{yearCourtExecute}}</td>
+				<td>{{yearLegalRemoved}}</td>
+				<td>{{sixForheadPro}}</td>
+				<td>{{remark}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
 </script>
 <script type="text/javascript" src="assets/pageJs/projectManagement/pmAddPro.js"></script>

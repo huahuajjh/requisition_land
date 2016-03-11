@@ -81,8 +81,8 @@ public class FmlItemImportAndExport {
 	public String getHouseholdStr() {
 		return householdStr;
 	}
-	public String isSocialsecurity() {
-		return socialsecurity;
+	public boolean isSocialsecurity() {
+		return socialsecurity != null && socialsecurity.equals("ÊÇ");
 	}
 	public String getEducationLevel() {
 		return educationLevel;

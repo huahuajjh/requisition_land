@@ -223,8 +223,7 @@ function editRemevedInfo(dom){
 $("#editPersonInfoModal").validate({
 	rules : {
 		name : {
-			required : true,
-			maxlength : 10
+			required : true
 		},
 		idNumber : {
 			required : true
@@ -265,7 +264,6 @@ $("#editPersonInfoModal").validate({
 			dataJson:dataJson
 		},function(data){
 			actionFormate(data,true,function(type,msg,data){
-				operationLog("修改拆迁户人员","修改拆迁户人员信息");
 				if(data.gender =="MALE"){
 					data.genderStr = "男";
 					data.genderVal = 0;
@@ -278,6 +276,9 @@ $("#editPersonInfoModal").validate({
 				var html = template(data);
 				var rHtml = $(html);
 				rHtml.data("data",data);
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(data);
+				operationLog("修改拆迁户人员","修改拆迁户人员信息",logHtml);
 				$("#dataTbody").prepend(rHtml);
 				$("#editPersonInfoModal").modal("hide");
 			});

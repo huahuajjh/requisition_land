@@ -23,7 +23,7 @@
 		<property name="oprUserId" column="opr_user_id" length="70" type="org.hibernate.type.UUIDCharType" not-null="true"  />
 		<property name="ownerId" column="owner_id" length="70" type="org.hibernate.type.UUIDCharType" not-null="true"  />
 		<property name="ticketId" column="ticket_id" length="70" type="org.hibernate.type.UUIDCharType" not-null="true"  />
-
+		<property name="remark" column="remark" length="100" type="string" />
     </class>
 
 </hibernate-mapping>

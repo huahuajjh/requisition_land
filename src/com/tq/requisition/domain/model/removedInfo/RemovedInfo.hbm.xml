@@ -23,6 +23,9 @@
 		<property name="streetId" column="street_id" type="org.hibernate.type.UUIDCharType"  length="70"/>
 		<property name="removeDate" column="removed_date" type="date"  not-null="true" />
 		<property name="del" column="is_del" type="boolean"  not-null="true" />
+		<property name="policy" column="fit_policy" type="string" />
+		<property name="createId" column="create_id" type="string" />
+		<property name="createDate" column="create_date" type="date"/>
     </class>
 
 </hibernate-mapping>

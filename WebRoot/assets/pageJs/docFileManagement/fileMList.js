@@ -3,6 +3,10 @@ showMenu();
 $("#searchBtn").click(function(){
 	queryByKeywords();
 });
+function showImg(img){
+	if(!img){return;}
+	$.initShowImage([img]);
+}
 function showMenu(){
 	$.get(sendUrl.fileType_getAll,function(data){
 		actionFormate(data, false, function(type, msg, datas) {

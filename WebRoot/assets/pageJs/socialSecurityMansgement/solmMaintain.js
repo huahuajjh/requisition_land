@@ -119,7 +119,6 @@ $("#editSolmModal").validate({
 				dataJson:JSON.stringify(subData)
 			},function(d){
 				actionFormate(d, true,function(type,msg,d){
-					operationLog("修改社保信息","修改社保信息");
 					tr.remove();
 					data.ssDate = subData.socialsecurityDate;
 					data.serveArmyTime = subData.serveArmyTime;
@@ -130,6 +129,11 @@ $("#editSolmModal").validate({
 					data.prisonTime = subData.prisonTime;
 					data.ssTypeId = subData.socialsecurityTypeId;
 					data.ssTypeStr =  $("[name='socialsecurityTypeId'] option:selected",form).html();
+					
+					var logTemplate =  Handlebars.compile($("#logItemTemplate").html());
+					var logHtml = logTemplate(data);
+					operationLog("修改社保信息","修改社保信息",logHtml);
+					
 					var template = Handlebars.compile($("#entrytemplate").html());
 					var html = template(data);
 					 var rHtml = $(html);

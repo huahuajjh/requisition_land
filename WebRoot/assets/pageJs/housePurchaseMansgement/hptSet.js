@@ -73,13 +73,24 @@ $("#lingQuModal").validate({
 			data.idNumber = $("#lingQuModal [name='idNumber']").val();
 //			/**领用时间*/
 			data.gettingDate = $("#lingQuModal [name='time']").val();
+			//领取备注
+			data.remark = $("#lingQuModal [name='remark']").val();
+			
+			data.resideName = item.name;
+			data.resideIdNumber = item.idNumber;
+			data.resideTicketNumber = item.ticketNumber;
+			data.resideBonus = item.bonus;
+			data.resideMakeTime = item.makeTime;
+			
 			datas.push(data);
 		}
 		$.post("housePurchaseMansgement/hptSetAdd",{
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
-				operationLog("购房券户发放","购房券户发放");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(datas);
+				operationLog("购房券户发放","购房券户发放",logHtml);
 				$("#lingQuModal").modal("hide");
 				$("#qDataArea").html("");
     		});

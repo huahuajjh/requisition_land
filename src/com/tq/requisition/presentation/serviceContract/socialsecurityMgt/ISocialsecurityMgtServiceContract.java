@@ -8,6 +8,7 @@ import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.NewSocialsecurityDto;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
+import com.tq.requisition.presentation.dto.socialsecurityMgt.SsImportAndExportDto;
 
 /**
  * 社保管理接口
@@ -97,5 +98,5 @@ public interface ISocialsecurityMgtServiceContract {
 	 * @return String
 	 * 		json
 	 */	
-	String importSS(List<SocialsecurityInfo> list);
+	String importSS(List<SsImportAndExportDto> items);
 }

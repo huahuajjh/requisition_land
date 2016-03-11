@@ -302,7 +302,11 @@ $("#editModal").validate({
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,rtData) {
-				operationLog("修改项目信息","修改项目信息");
+				
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(subData);
+				
+				operationLog("修改项目信息","修改项目信息",logHtml);
 				tr.remove();
 				var template = Handlebars.compile($("#entrytemplate").html());
 				var html = template(rtData);

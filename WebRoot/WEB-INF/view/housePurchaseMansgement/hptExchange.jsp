@@ -144,6 +144,54 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{resideName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证号：</td>
+		<td>{{resideIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">旧券号：</td>
+		<td>{{oldTicketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">旧券补贴金额（万元）：</td>
+		<td>{{oldBonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">旧券制券时间：</td>
+		<td>{{oldMakeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券券号：</td>
+		<td>{{newTicketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">补贴金额（万元）：</td>
+		<td>{{newBonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{newMakeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用人姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">换发时间：</td>
+		<td>{{gettingDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用凭证：</td>
+		<td>{{evidenceOfGetting}}</td>
+	</tr>
+</table>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
@@ -202,7 +250,7 @@
    		    <div class="col-md-4 col-md-offset-2">
    		        <div class="form-group">
    		            <label for="nf-email">领用人姓名<span class="text-danger">*</span></label>
-   		            <input type="text" class="form-control" name="name" placeholder="请输入领用人姓名" maxlength="5">
+   		            <input type="text" class="form-control" name="name" placeholder="请输入领用人姓名" maxlength="15">
    		        </div>
    		    </div>
    		    <div class="col-md-4" style="display:none;">

@@ -341,12 +341,14 @@ $("#editFamilyInfoModal").validate({
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			 actionFormate(data, true,function(type,msg,d){
-				 operationLog("修改拆迁户户信息","修改拆迁户户信息");
 				 tr.remove();
 				 var template = Handlebars.compile($("#entrytemplate").html());
 				 var html = template(d);
 				 var rHtml = $(html);
 				 rHtml.data("data",d);
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(d);
+				 operationLog("修改拆迁户户信息","修改拆迁户户信息",logHtml);
 				 $("#dataTbody").prepend(rHtml);
 				 $("#editFamilyInfoModal").modal("hide");
 			 });

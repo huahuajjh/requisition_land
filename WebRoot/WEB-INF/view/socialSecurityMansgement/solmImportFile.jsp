@@ -76,6 +76,7 @@
       	<div id="dataArea"></div>
 	</div>
 </form>
+
 <div class="modal fade" id="selectPerson">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -107,6 +108,115 @@
 	</div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证号：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">性别：</td>
+		<td>{{#dengYu gender "MALE"}}男{{else}}女{{/dengYu}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生日期：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">年龄段：</td>
+		<td>{{ageRange}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">纳入社保时间：</td>
+		<td>{{socialsecurityDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">待遇标准：</td>
+		<td>{{socialsecurityTypeStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">所属社区：</td>
+		<td>{{community}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">参加何种医疗保险：</td>
+		<td>{{joinWhichMedicalInsurance}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">养老保险补缴年限：</td>
+		<td>{{endowmentInsuranceYear}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">医疗保险视同缴费月数：</td>
+		<td>{{endowmentInsuranceYear}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">服刑或劳动教养时间(月)：</td>
+		<td>{{prisonTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">军队服役时间(月)：</td>
+		<td>{{serveArmyTime}}</td>
+	</tr>
+</table>
+</script>
+<script id="logImportItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>姓名</td>
+				<td>身份证号</td>
+				<td>性别</td>
+				<td>出生日期</td>
+				<td>年龄段</td>
+				<td>从事农业生产时间</td>
+				<td>服刑或劳动教养时间(月)</td>
+				<td>军队服役时间(月)</td>
+				<td>养老保险补缴年限</td>
+				<td>医疗保险视同缴费月数</td>
+				<td>参加何种医疗保险</td>
+				<td>是否参加过社会保险</td>
+				<td>所属社区</td>
+				<td>联系电话</td>
+				<td>待遇标准</td>
+				<td>征地名称</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{idNumber}}</td>
+				<td>{{gender}}</td>
+				<td>{{birthday}}</td>
+				<td>{{ageRange}}</td>
+				<td>{{farmingTime}}</td>
+				<td>{{prisonTime}}</td>
+				<td>{{serveArmyTime}}</td>
+				<td>{{endowmentInsuranceYear}}</td>
+				<td>{{medicalInsuranceMonth}}</td>
+				<td>{{joinWhichMedicalInsurance}}</td>
+				<td>{{isSocialsecurity}}</td>
+				<td>{{community}}</td>
+				<td>{{tel}}</td>
+				<td>{{type}}</td>
+				<td>{{proName}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

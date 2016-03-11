@@ -1,5 +1,7 @@
 package com.tq.requisition.application.socialsecurityMgt;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +23,7 @@ import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.NewSocialsecurityDto;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
+import com.tq.requisition.presentation.dto.socialsecurityMgt.SsImportAndExportDto;
 import com.tq.requisition.presentation.serviceContract.socialsecurityMgt.ISocialsecurityMgtServiceContract;
 
 /**
@@ -133,8 +136,12 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 	}
 	
 	@Override
-	public String importSS(List<SocialsecurityInfo> list) {
+	public String importSS(List<SsImportAndExportDto> items) {
 		try {
+			 List<SocialsecurityInfo> list = new ArrayList<>();
+			 for (SsImportAndExportDto item : items) {
+				list.add(item.toSocialsecurityInfo());
+			}
 			for (SocialsecurityInfo socialsecurityInfo : list) {
 				UUID itemId = itemRepository.getIdByIdNumber(socialsecurityInfo.getIdNumber());
 				if(null==itemId){return toJson("未查询到身份证["+socialsecurityInfo.getIdNumber()+"]的人员信息", null, Formater.OperationResult.FAIL);}
@@ -148,7 +155,7 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			context().beginTransaction();
 			ssService.addSSBatch(list);
 			context().commit();
-			return toJson("导入社保信息成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("导入社保信息成功", items, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
 			context().rollback();
 			return toJson("导入社保信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);

@@ -27,6 +27,9 @@ public class HPTProviderInfo extends Entity{
 	private String idNumber;
 	/**领用时间*/
 	private Date gettingDate;
+	/**备注*/
+	private String remark;
+	
 	/**是否删除*/
 	private boolean del;
 	
@@ -107,11 +110,16 @@ public class HPTProviderInfo extends Entity{
 	public boolean getDel() {
 		return del;
 	}
-
 	public void setDel(boolean del) {
 		this.del = del;
 	}
-
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
 	/*public methods*/
 	public void validate() {
 		

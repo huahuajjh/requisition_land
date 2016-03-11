@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.excel.util.ExcelFactory;
@@ -79,6 +80,11 @@ public class RemovedInfoAdd extends BaseAction {
 				 } else {
 					 String stateJsonString = "";
 					 if(dtos.size() > 0){
+						 Date date = new Date();
+						for (RemovedInfoImportAndExportDto dto : dtos) {
+							dto.setCreateDate(date);
+							dto.setCreateId(userId().toString());
+						}
 						 stateJsonString = this.removedInfoServiceContract.importRemovedInfo(dtos);
 					 } else {
 						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "文件中没有数据");

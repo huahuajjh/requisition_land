@@ -119,11 +119,23 @@ function guaShiForm(){
 	hptLossInfo.fmlItemId = data.fmlItemId;
 //	/**挂失的购房券*/
 	hptLossInfo.ticketId = data.hptId;
+	hptLossInfo.remark = $("#showQueryDataArea [name='remark']").val();
+	
+	var logData = {};
+	logData.resideName = data.name;
+	logData.resideIdNumber = data.idNumber;
+	logData.ticketNumber = data.ticketNumber;
+	logData.bonus = data.bonus;
+	logData.makeTime = data.makeTime;
+	logData.reportOfLossDate = hptLossInfo.reportOfLossDate;
+	logData.remark = hptLossInfo.remark;
 	$.post("housePurchaseMansgement/hptLossAndMendGuaShi",{
 		hptLossInfo:JSON.stringify(hptLossInfo)
 	},function(data){
 		actionFormate(data, true, function(type, msg, data) {
-			operationLog("购房券挂失","购房券挂失");
+			var template = Handlebars.compile($("#logGSItemTemplate").html());
+			var logHtml = template(logData);
+			operationLog("购房券挂失","购房券挂失",logHtml);
     		$("#showQueryDataArea").html("");
 		});
 	},"json");
@@ -150,12 +162,26 @@ function buShiForm(){
 	housePuraseTicket.idNumber = data.idNumber;
 //	/** 姓名 */
 	housePuraseTicket.name = data.name;
+	
+	var logData = {};
+	logData.resideName = data.name;
+	logData.resideIdNumber = data.idNumber;
+	logData.ticketNumber = data.ticketNumber;
+	logData.bonus = data.bonus;
+	logData.makeTime = data.makeTime;
+	logData.newTicketNumber = housePuraseTicket.ticketNumber;
+	logData.newBonus = housePuraseTicket.bonus;
+	logData.newMakeTime = housePuraseTicket.makeDate;
+	logData.mendDate = htpMendInfo.mendDate;
+
 	$.post("housePurchaseMansgement/hptLossAndMendBuShi",{
 		htpMendInfo:JSON.stringify(htpMendInfo),
 		housePuraseTicket:JSON.stringify(housePuraseTicket)
 	},function(data){
 		actionFormate(data, true, function(type, msg, data) {
-			operationLog("购房券补券","购房券补券");
+			var template = Handlebars.compile($("#logBQItemTemplate").html());
+			var logHtml = template(logData);
+			operationLog("购房券补券","购房券补券",logHtml);
     		$("#showQueryDataArea").html("");
 		});
 	},"json");

@@ -64,6 +64,50 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">购房券所属人姓名：</td>
+		<td>{{resideName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券所属人身份证：</td>
+		<td>{{resideIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券券号：</td>
+		<td>{{resideTicketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">补贴金额（万元）：</td>
+		<td>{{resideBonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{resideMakeTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用人姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用人身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用时间：</td>
+		<td>{{gettingDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领用凭证：</td>
+		<td>{{evidenceOfGetting}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">领取备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
@@ -106,7 +150,7 @@
 			<div class="col-md-4 col-md-offset-2">
 				<div class="form-group">
 					<label class="control-label">领用人姓名</label>
-					<input type="text" name="name" class="form-control" placeholder="请输入领取人姓名" maxlength="5" />
+					<input type="text" name="name" class="form-control" placeholder="请输入领取人姓名" maxlength="15" />
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -139,7 +183,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="form-group">
 					<label class="control-label">领取备注</label>
-					<textarea name="beiZhu" maxlength="140" class="form-control" rows="3" placeholder="请输入领取备注"></textarea>
+					<textarea name="remark" maxlength="50" class="form-control" rows="3" placeholder="请输入领取备注"></textarea>
 				</div>
 			</div>
 			<div class="col-md-12">

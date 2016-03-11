@@ -48,7 +48,7 @@
 				<div class="col-xs-3">
 					<div class="form-group downImput">
 						<label>户主姓名</label>
-						<input type="text" id="huZhuName" maxlength="5" class="form-control" placeholder="请输入要查询的户主姓名">
+						<input type="text" id="huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主姓名">
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>

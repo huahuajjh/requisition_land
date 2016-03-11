@@ -48,7 +48,7 @@
 				<div class="col-xs-3">
 					<div class="form-group downImput">
 						<label>户主姓名</label>
-						<input type="text" id="huZhuName" maxlength="5" class="form-control" placeholder="请输入要查询的户主姓名">
+						<input type="text" id="huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主姓名">
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>
@@ -299,6 +299,64 @@
     </div>
   </div>
 </div>
+
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">户主姓名：</td>
+		<td>{{headName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">选择所属项目：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋合法面积（平方米）：</td>
+		<td>{{houseLegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋违章面积（平方米）：</td>
+		<td>{{houseIllegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">所属地址：</td>
+		<td>{{address}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">批证及其他情况说明：</td>
+		<td>{{satuationDesc}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">拟定处理方案：</td>
+		<td>{{dealSolution}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联合会审意见：</td>
+		<td>{{unionSuggestion}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联合会审附件：</td>
+		<td>{{unionSuggestionPath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">高拍仪拍照：</td>
+		<td>{{image}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">房屋照片管理：</td>
+		<td>{{houseImgPath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">家庭成员数：</td>
+		<td>{{fmlNumber}}</td>
+	</tr>
+</table>
+</script>
+
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

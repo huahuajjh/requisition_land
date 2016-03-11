@@ -4,6 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.excludePattern" value="uploadFile"/>
+	<constant name="struts.multipart.maxSize" value="10485760"/>
 	<include file="../config/loginInterceptor.xml"></include>
 	
 	<package name="requisition_land" extends="loginInterceptor"  namespace="/">

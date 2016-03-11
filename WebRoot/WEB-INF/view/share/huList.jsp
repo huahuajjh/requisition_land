@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-md-4">
 				<div class="form-group downImput">
 					<label for="nf-email">户主名称</label>
-					<input type="text" id="selectHu_huZhuName" maxlength="5" class="form-control" placeholder="请输入要查询的户主名称">
+					<input type="text" id="selectHu_huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主名称">
 				</div>
 			</div>
 			<div class="col-md-4">

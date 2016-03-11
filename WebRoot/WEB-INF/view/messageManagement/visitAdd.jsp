@@ -13,7 +13,7 @@
 	    <div class="form-group">
 	    	<label class="col-md-4 control-label">上访者姓名<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
-	    		<input type="text" name="name" class="form-control" placeholder="请输入上访者姓名" maxlength="5" />
+	    		<input type="text" name="name" class="form-control" placeholder="请输入上访者姓名" maxlength="15" />
 	    	</div>
 	    </div>
 	    <div class="form-group">
@@ -26,12 +26,6 @@
 	    	<label class="col-md-4 control-label">上访者的住址<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
 	    		<input type="text" name="address" class="form-control" placeholder="请输入上访者的住址" maxlength="20" />
-	    	</div>
-	    </div>
-	   	<div class="form-group">
-	    	<label class="col-md-4 control-label">信访途径</label>
-	    	<div class="col-md-5">
-	    		<input type="text" name="source" class="form-control" placeholder="请输入信访途径" maxlength="20" />
 	    	</div>
 	    </div>
 		<div class="form-group">
@@ -49,6 +43,12 @@
 	    	<label class="col-md-4 control-label" for="disabled-input">上访时间<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
 	    		<input type="text" class="form-control" name="time" placeholder="____/__/__" data-plugin-datepicker="" data-plugin-masked-input="" data-input-mask="9999/99/99">
+	    	</div>
+	    </div>
+	   	<div class="form-group">
+	    	<label class="col-md-4 control-label">信访途径</label>
+	    	<div class="col-md-5">
+	    		<input type="text" name="source" class="form-control" placeholder="请输入信访途径" maxlength="20" />
 	    	</div>
 	    </div>
 	    <div class="form-group">
@@ -212,6 +212,50 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">上访者姓名：</td>
+		<td>{{visitorName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">上访者电话：</td>
+		<td>{{visitorTel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">上访者的住址：</td>
+		<td>{{visitorAddr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">选择上访项目：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">上访时间：</td>
+		<td>{{visitTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">信访途径：</td>
+		<td>{{visitsWay}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">上访者的其他信息：</td>
+		<td>{{otherMsg}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">上访凭证：</td>
+		<td>{{img}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">相关资料：</td>
+		<td>{{visitMaterialPath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">处理意见：</td>
+		<td>{{visitReason}}</td>
+	</tr>
+</table>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{proName}}</td>

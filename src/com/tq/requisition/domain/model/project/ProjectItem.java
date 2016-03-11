@@ -221,6 +221,7 @@ public class ProjectItem extends Entity {
 		this.yearDeadlineFile = item.getYearDeadlineFile();
 		this.yearLegalRemoved = item.getYearLegalRemoved();
 		this.curMonthComplete = item.getCurMonthComplete();
+		this.remark = item.getRemark();
 	}
 	
 	/**

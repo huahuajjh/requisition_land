@@ -75,6 +75,47 @@
   </div>
 </div>
 
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>购房券所属人姓名</td>
+				<td>购房券所属人身份证</td>
+				<td>购房券券号</td>
+				<td>补贴金额（万元）</td>
+				<td>制券时间</td>
+				<td>领用人姓名</td>
+				<td>领用人身份证</td>
+				<td>领用时间</td>
+				<td>领用凭证</td>
+				<td>领取备注</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+			<tr>
+				<td>{{resideName}}</td>
+				<td>{{resideIdNumber}}</td>
+				<td>{{resideTicketNumber}}</td>
+				<td>{{resideBonus}}</td>
+				<td>{{resideMakeTime}}</td>
+				<td>{{name}}</td>
+				<td>{{idNumber}}</td>
+				<td>{{gettingDate}}</td>
+				<td>{{evidenceOfGetting}}</td>
+				<td>{{remark}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
@@ -163,9 +204,6 @@
 			</tbody>
 		</table>
 		<div class="panel-footer">
-			<span>户主:</span>
-			<strong>{{huZhuName}}</strong>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<span>总共领取金额（万元）：</span>
 			<strong>{{money}}</strong>
 		</div>
@@ -174,7 +212,7 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">领用人姓名</label>
-			<input type="text" name="name" class="form-control" placeholder="请输入领取人姓名" maxlength="5" />
+			<input type="text" name="name" class="form-control" placeholder="请输入领取人姓名" maxlength="15" />
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -202,6 +240,12 @@
 					<img src="assets/img/login.gif" id="paiZhaoFileLoginState" style="display: none">
 				</span>
 			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<label class="control-label">领取备注</label>
+			<textarea name="remark" maxlength="50" class="form-control" rows="3" placeholder="请输入领取备注"></textarea>
 		</div>
 	</div>
 </div>

@@ -10,11 +10,11 @@
 		<!-- mysql驱动 -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- mysql连接字符串 -->
-		<property name="connection.url">jdbc:mysql://localhost:3306/db_requisition_land</property>
+		<property name="connection.url">jdbc:mysql://120.27.148.138:3306/db_requisition_land</property>
 		<!-- mysql数据库用户名 -->
 		<property name="connection.username">root</property>
 		<!-- mysql数据库密码 -->
-		<property name="connection.password">lsw</property>
+		<property name="connection.password">huahuajjh3</property>
 		<!-- mysql连接编码 -->
 		<property name="connection.characterEncoding">utf-8</property>
 		<!-- 关闭二级缓存 -->

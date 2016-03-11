@@ -70,6 +70,7 @@ $("#addProform").validate({
 		subData.shouldMovePopulation = $("[name='shouldMovePopulation']",form).val();//应动迁人口
 		subData.shouldPayMoney = $("[name='shouldPayMoney']",form).val();//项目应付补偿款
 		subData.proType = $("[name='proTypeCode']",form).val();//項目類型id
+		subData.proTypeStr = $("[name='proTypeCode'] option:selected",form).html();//項目類型文本
 		subData.sixForwardPro = $("[name='sixForwardPro']",form).val();//是否六前项目
 		var address = [];
 		var street = [];
@@ -96,11 +97,16 @@ $("#addProform").validate({
 		subData.address =  address.join(",");
 		subData.street = street.join(",");
 		subData.community = community.join(",");
+
 		$.post("projectManagement/pmAddProAdd",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function() {
-				operationLog("手工添加项目信息","手工添加项目信息");
+				
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(subData);
+				operationLog("手工添加项目信息","手工添加项目信息",logHtml);
+				
 				$(form)[0].reset();
 				$("#addressItems").empty();
 				$("#selectType").mSelect().init();
@@ -181,8 +187,14 @@ $("#upLoadeFile").click(function(){
 		year:$('#addYearSelect').val(),
 		month:$('#addMonthSelect').val(),
 	},"json",function(data){
-		actionFormate(data, true,function(){},function(type,msg,data){
-			operationLog("导入项目信息","导入项目信息");
+		actionFormate(data, true,function(type,msg,data){
+			var template = Handlebars.compile($("#logImportItemTemplate").html());
+			var html = template({
+				time:$('#addYearSelect').val() + "/" +$('#addMonthSelect').val() ,
+				list:data
+			});
+			operationLog("导入项目信息","导入项目信息",html);
+		},function(type,msg,data){
 			if(data){
 				var template = Handlebars.compile($("#errorItemTemplate").html());
 				var html = $(template(data));

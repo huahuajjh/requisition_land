@@ -458,8 +458,82 @@
   </div>
 </div>
 
-
-
+<script id="logGongGaoItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">所属项目名称：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">公告进度：</td>
+		<td>{{announce}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">公告文号：</td>
+		<td>{{number}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">公告时间：</td>
+		<td>{{date}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">公告批文：</td>
+		<td>{{fdocVal}}</td>
+	</tr>
+</table>
+</script>
+<script id="logYueBaoItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">所属项目名称：</td>
+		<td>{{proName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">选择录入的所属年/月：</td>
+		<td>{{date}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月拆除栋数(合法)：</td>
+		<td>{{removedBuildings}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月腾地数（亩）：</td>
+		<td>{{removedLandArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月拆除面积（合法）（平方米）：</td>
+		<td>{{removedLegalArea}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月动迁的人口：</td>
+		<td>{{movedPopulation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月下达期限腾地决定书：</td>
+		<td>{{yearDeadlineFile}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月申请法院执行数：</td>
+		<td>{{yearCourtExecute}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">本月实施强制户数：</td>
+		<td>{{yearLegalRemoved}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">启动时间：</td>
+		<td>{{startDate}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否为本月完成结算项目：</td>
+		<td>{{isBenYueJieSuan}}{{curMonthComplete}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
+</script>
 <script id="daYinProYueBaoTemplate" type="text/x-handlebars-template">
 <table class="table table-bordered">
 	<tbody>

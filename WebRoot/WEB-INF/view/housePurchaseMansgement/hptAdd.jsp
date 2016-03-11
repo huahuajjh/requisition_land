@@ -116,7 +116,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="control-label">姓名<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" name="name" placeholder="请输入姓名" maxlength="5">
+							<input type="text" class="form-control" name="name" placeholder="请输入姓名" maxlength="15">
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -288,6 +288,137 @@
   </div>
 </div>
 
+<script id="logImportItemTemplate" type="text/x-handlebars-template">
+<style type="text/css">
+.autoTbale td,.autoTbale th {
+	white-space: nowrap;
+}
+</style>
+<div style="overflow-x:auto;width: 100%;">
+	<table class="table table-hover table-bordered autoTbale">
+		<thead>
+			<tr>
+				<td>征拆项目</td>
+				<td>姓名</td>
+				<td>与户主关系</td>
+				<td>身份证</td>
+				<td>人口</td>
+				<td>票据号</td>
+				<td>补贴金额</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each this}}
+			<tr>
+				<td>{{proName}}</td>
+				<td>{{name}}</td>
+				<td>{{relationship}}</td>
+				<td>{{idNumber}}</td>
+				<td>{{fmlNumber}}</td>
+				<td>{{ticketNumber}}</td>
+				<td>{{money}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
+</script>
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券金额（万元）：</td>
+		<td>{{bonus}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">购房券券号：</td>
+		<td>{{ticketNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">制券时间：</td>
+		<td>{{makeDate}}</td>
+	</tr>
+</table>
+</script>
+<script id="logFmlItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">户主姓名：</td>
+		<td>{{headName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户主身份证：</td>
+		<td>{{headIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">人员姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">与户主关系：</td>
+		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">性别：</td>
+		<td>{{genderStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户口性质：</td>
+		<td>{{householdStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生日期：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">文化程度：</td>
+		<td>{{educationLevel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">在读情况：</td>
+		<td>{{currentEducationSituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">从事农业劳动时间：</td>
+		<td>{{farmingTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">服兵役/劳改/劳教情况及时间起止段：</td>
+		<td>{{serveArmySituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联系电话：</td>
+		<td>{{tel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">独生子女证件号：</td>
+		<td>{{onlyChildNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否半边户：</td>
+		<td>{{#if half}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否参加过社会保险：</td>
+		<td>{{#if userdSocialsecurity}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
+</script>
 <script id="queryDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{name}}-{{idNumber}}</a></li>
 </script>

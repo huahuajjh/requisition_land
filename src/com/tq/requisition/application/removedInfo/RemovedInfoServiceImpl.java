@@ -110,7 +110,7 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.addBatch(infos);
 			context().commit();
-			return toJson("导入已迁户信息成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("导入已迁户信息成功", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
 			return toJson("导入已迁户信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);

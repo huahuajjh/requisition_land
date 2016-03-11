@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-md-3">
 					<div class="form-group downImput">
 						<label>姓名</label>
-						<input id="queryName" type="text" maxlength="5" class="form-control" placeholder="输入姓名进行搜索" autocomplete="OFF" />
+						<input id="queryName" type="text" maxlength="15" class="form-control" placeholder="输入姓名进行搜索" autocomplete="OFF" />
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>

@@ -39,13 +39,16 @@ $("#addVisitForm").validate({
 		subData.proName = $("#proName").val();
 		subData.img = $("#yuLanBtn").data("img");
 		
-		subData.source = $("[name='source']",form).val();
+		subData.visitsWay = $("[name='source']",form).val();
+		subData.createId = getCookie("login");
 		
 		$.post(sendUrl.visits_add,{
 			visits:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true,function(){
-				operationLog("添加上访上信息","添加上访上信息");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(subData);
+				operationLog("添加信访信息","添加信访信息",logHtml);
 				$("#addVisitForm")[0].reset();
 				$("#proData").data("data",null);
 				$("#yuLanBtn,#paiZhaoFileCheckState").css("display","none");

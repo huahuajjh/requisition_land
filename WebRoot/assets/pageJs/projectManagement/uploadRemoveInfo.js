@@ -275,11 +275,12 @@ function initDom(){
 							list:JSON.stringify(yiQianHus)
 						},function(data){
 							actionFormate(data, true,function(){
-								 operationLog("手工添加已拆迁户","手工添加已拆迁户");
 								 resestData();
 							 });
 						},"json");
-					operationLog("手工添加拆迁户","手工添加拆迁户");
+					var template = Handlebars.compile($("#logItemTemplate").html());
+					var logHtml = template(removeInfo);
+					operationLog("手工添加拆迁户","手工添加拆迁户",logHtml);
 				 });
 			},"json");
 		}
@@ -301,10 +302,12 @@ function initDom(){
 		$("#bulletList").html();
 		submitFile($("#filePath")[0],{},"json",function(data){
 			actionFormate(data, true,function(type,msg,data){
-				operationLog("导入拆迁户","导入拆迁户信息");
-				if(data){
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(data[0]);
+				operationLog("导入拆迁户","导入拆迁户信息",logHtml);
+				if(data && data[1]){
 					$.post(sendUrl.removedInfo_addBatch,{
-						list:JSON.stringify(data)
+						list:JSON.stringify(data[1])
 					},function(data){
 						actionFormate(data, true);
 					},"json");

@@ -146,7 +146,7 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 			context().beginTransaction();
 			fmlRepository.addFamily(dto);
 			context().commit();
-			return toJson("上传拆迁户信息成功", toRemovedInfos(dto.getItems()), Formater.OperationResult.SUCCESS);
+			return toJson("上传拆迁户信息成功", new Object[]{dto,toRemovedInfos(dto.getItems())}, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
 			return toJson("上传拆迁户信息失败", null, Formater.OperationResult.FAIL);

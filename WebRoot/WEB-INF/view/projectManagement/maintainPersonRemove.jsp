@@ -53,7 +53,7 @@
 				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>姓名</label>
-						<input type="text" id="name" maxlength="5" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
+						<input type="text" id="name" maxlength="15" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>
@@ -263,6 +263,72 @@
     </div>
   </div>
 </div>
+
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">与户主关系：</td>
+		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">性别：</td>
+		<td>{{genderStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户口性质：</td>
+		<td>{{householdStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生日期：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">文化程度：</td>
+		<td>{{educationLevel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">在读情况：</td>
+		<td>{{currentEducationSituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">从事农业劳动时间：</td>
+		<td>{{farmingTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">服兵役/劳改/劳教情况及时间起止段：</td>
+		<td>{{serveArmySituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联系电话：</td>
+		<td>{{tel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">独生子女证件号：</td>
+		<td>{{onlyChildNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否半边户：</td>
+		<td>{{#if half}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否参加过社会保险：</td>
+		<td>{{#if isSocialsecurity}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
+</script>
+
 <script id="showHuInfoEntrytemplate" type="text/x-handlebars-template">
 <table class="table table-striped">
 	<tbody>
@@ -649,7 +715,7 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">姓名<span class="text-danger">*</span></label>
-			<input type="text" class="form-control" name="name" value="{{name}}" placeholder="请输入姓名" maxlength="5">
+			<input type="text" class="form-control" name="name" value="{{name}}" placeholder="请输入姓名" maxlength="15">
 		</div>
 	</div>
 	<div class="col-md-6">

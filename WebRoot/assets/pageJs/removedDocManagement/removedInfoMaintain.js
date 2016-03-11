@@ -28,7 +28,6 @@ var tableData = $.generateData({
 //		if(zu){
 //			queryEntity.groupId = zu;
 //		}
-		queryEntity.createId = getCookie("login");
 		data.queryEntity = JSON.stringify(queryEntity);
 	},
 	lastFn : function(data) {
@@ -64,7 +63,8 @@ $("#editInfoModal").validate({
 		name: {
 		    required: true
 		}, idNumber:{
-			required: true
+			required: true,
+			minlength:18
 		}, birthday:{
 			required: true
 		}, removeDate:{
@@ -99,9 +99,7 @@ $("#editInfoModal").validate({
 			entity:JSON.stringify(subData)
 		},function(d){
 			actionFormate(d, true,function(){
-				var template = Handlebars.compile($("#logItemTemplate").html());
-				var logHtml = template(subData);
-				 operationLog("编辑已拆迁户","编辑已拆迁户",logHtml);
+				 operationLog("编辑已拆迁户","编辑已拆迁户");
 				 tr.remove();
 				 data.name = subData.name;
 				 data.idNumber = subData.idNumber;
@@ -110,7 +108,6 @@ $("#editInfoModal").validate({
 				 data.streetId = subData.streetId;
 				 data.communityId = subData.communityId;
 				 data.address = subData.address;
-				 data.fitPolicy = subData.fitPolicy;
 				var template = Handlebars.compile($("#entrytemplate").html());
 				var html = $(template(data));
 				html.data("data",data);

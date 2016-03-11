@@ -21,7 +21,7 @@
 		<property name="reportOfLossDate" column="loss_date"  type="date" not-null="true" />
 		<property name="ticketId" column="ticket_id"  type="org.hibernate.type.UUIDCharType" length="70" not-null="true"  />
 		<property name="del" column="is_del"  type="boolean" not-null="true" />
-
+		<property name="remark" column="remark" length="255" type="string" />
     </class>
 
 </hibernate-mapping>

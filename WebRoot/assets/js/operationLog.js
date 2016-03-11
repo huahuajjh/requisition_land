@@ -1,4 +1,4 @@
-function operationLog(action,content){
+function operationLog(action,content,data){
 	var subData = {};
 	$("#menuLeftArea > li").each(function(){
 		var _This = $(this);
@@ -11,6 +11,7 @@ function operationLog(action,content){
 	subData.content = content;
 	subData.accountId = getCookie("login");
 	subData.name = getCookie("loginName");
+	subData.data=data;
 	$.post(sendUrl.operationRecordWS_addRecord,{
 		record:JSON.stringify(subData)
 	},function(){});

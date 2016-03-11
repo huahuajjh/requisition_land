@@ -30,6 +30,7 @@ public class ProItemMapper {
 		item.setStartDate(dto.getStartDate());
 		item.setPaidMoney(dto.getPaidMoney());
 		item.setCurMonthComplete(dto.getCurMonthComplete());
+		item.setRemovedLegalArea(dto.getRemovedLegalArea());
 		return item;
 	}
 	

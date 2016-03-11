@@ -46,6 +46,18 @@ var record = {
 		name:"Admin",
 		moudleId:"51d4ebf1-e491-41eb-92a9-a5274f7df831"
 	};
+function showLogInfo(id){
+	$.getJSON(sendUrl.operationRecordWS_queryData,{
+		id:id
+	},function(data){
+		var html = actionFormate(data, false) || "";
+		console.log(data);
+		var template = Handlebars.compile($("#logEntrytemplate").html());
+		var h = template(html);
+		$("#logDataInfo").html(h);
+		$('#showInfoModal').modal('show');
+	});
+}
 //$.post("http://192.168.1.5:8080/requisition-land-ws/operationRecordWS/addRecord",{
 //	record: JSON.stringify(record)
 //},function(text){

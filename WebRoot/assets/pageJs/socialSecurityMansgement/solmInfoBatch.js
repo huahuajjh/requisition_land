@@ -129,7 +129,9 @@ $("#sendDataBtn").click(function() {
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true,function(){
-				operationLog("批量录入社保信息","批量录入社保信息");
+				var template = Handlebars.compile($("#logItemTemplate").html());
+				var logHtml = template(datas);
+				operationLog("批量录入社保信息","批量录入社保信息",logHtml);
 				tableData.refreshData();
 			 });
 		},"json");
@@ -171,8 +173,11 @@ function getData() {
 		var sbType = $("[name='sbType']", tr).val();
 		var data = tr.data("data");
 		var subData = {};
+		subData.name = data.name;
+		subData.idNumber = data.idNumber;
 		subData.socialsecurityDate = time;
 		subData.socialsecurityTypeId = sbType;
+		subData.socialsecurityTypeStr = $("[name='sbType'] option:selected", tr).html();
 		subData.fmlItemId = data.fmlItemId;
 		subData.community = $("[name='community']",tr).val();
 		subData.serveArmyTime = $("[name='serveArmyTime']",tr).val() || 0;

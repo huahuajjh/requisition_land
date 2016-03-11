@@ -45,9 +45,16 @@ $("#addTalmportForm").validate({
 			subData.ageRange = data.ageDuan;
 			$.post("socialSecurityMansgement/solmImportFileAdd",{
 				dataJson:JSON.stringify(subData)
-			},function(data){
-				 actionFormate(data, true,function(){
-					 operationLog("录入社保信息","录入社保信息");
+			},function(d){
+				 actionFormate(d, true,function(){
+					 subData.name = data.name;
+					 subData.idNumber = data.idNumber;
+					 subData.gender = data.gender;
+					 subData.birthday = data.birthday;
+					 subData.socialsecurityTypeStr = $("#newType option:selected").html();
+					 var template = Handlebars.compile($("#logItemTemplate").html());
+					 var logHtml = template(subData);
+					 operationLog("录入社保信息","录入社保信息",logHtml);
 					 resestForm();
 				 });
 			},"json");
@@ -190,8 +197,11 @@ $("#upLoadeFile").click(function(){
 	$("#errorBtn > span").html(0);
 	$("#bulletList").html();
 	submitFile($("#filePath")[0],{},"json",function(data){
-		actionFormate(data, true,function(){},function(type,msg,data){
-			operationLog("导入社保信息","导入社保信息");
+		actionFormate(data, true,function(type,msg,data){
+			var template = Handlebars.compile($("#logImportItemTemplate").html());
+			var logHtml = template(data);
+			operationLog("导入社保信息","导入社保信息",logHtml);
+		},function(type,msg,data){
 			if(data){
 				var template = Handlebars.compile($("#errorItemTemplate").html());
 				var html = $(template(data));

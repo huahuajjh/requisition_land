@@ -72,6 +72,7 @@
 						<th>操作</th>
 						<th>操作模块</th>
 						<th>操作时间</th>
+						<th>操作数据</th>
 					</tr>
 				</thead>
 				<tbody id="dataTbody">
@@ -87,6 +88,28 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="showInfoModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title bk-fg-primary">查看详细操作</h4>
+			</div>
+			<div class="modal-body" id="logDataInfo">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script id="logEntrytemplate" type="text/x-handlebars-template">
+{{{this}}}
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{name}}</td>
@@ -94,6 +117,7 @@
 	<td>{{action}}</td>
 	<td>{{moudle}}</td>
 	<td>{{time}}</td>
+	<td><a class="label label-dark" href="javascript:;" onclick="showLogInfo('{{id}}');">点击查看</a></td>
 </tr>
 </script>
 <script id="optionItemTemplate" type="text/x-handlebars-template">

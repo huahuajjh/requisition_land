@@ -23,6 +23,19 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-md-3 control-label" for="text-input">高拍仪拍照：</label>
+                <div class="col-md-5">
+						<input type="file" id="upFile" style="display:none;" accept="image/*" />
+						<a class="label label-primary" id="upBtn" onclick="upFileZhaoPian();">上传</a>
+						<a class="label label-primary" id="zhaoBtn" onclick="paiZhao();">拍照</a>
+						<a class="label label-success" id="yuLanBtn" style="display: none">预览</a>
+						<span class="label">
+							<i class="fa fa-check text-success" id="paiZhaoFileCheckState" style="display: none"></i>
+							<img src="assets/img/login.gif" id="paiZhaoFileLoginState" style="display: none">
+						</span>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-md-3 control-label" for="text-input">附件：（<a href="javascript:;" class="text-primary" onclick="$('#upLoadeFileModal').modal('show');">添加附件</a>）</label>
                 <div class="col-md-5" id="fileItems">
                 </div>
@@ -37,6 +50,23 @@
             </div>
         </form>
     </div>
+</div>
+
+<div class="modal fade" id="phonePaiZhaoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+        <h4 class="modal-title">拍摄照片</h4>
+      </div>
+      <div class="modal-body" id="phonePaiZhaoBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="upLoadeFileModal">
@@ -64,6 +94,31 @@
     </div>
   </div>
 </div>
+
+<script id="logItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">档案文件标题：</td>
+		<td>{{title}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">档案文件类型：</td>
+		<td>{{typeStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">高拍仪拍照：</td>
+		<td>{{img}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">附件：</td>
+		<td>{{filePath}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">内容：</td>
+		<td>{{{article}}}</td>
+	</tr>
+</table>
+</script>
 <script id="fileItemTemplate" type="text/x-handlebars-template">
 <div class="form-control-static">
 	<div class="row">
