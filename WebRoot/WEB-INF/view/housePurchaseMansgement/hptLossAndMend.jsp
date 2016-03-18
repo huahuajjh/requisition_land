@@ -32,6 +32,23 @@
 
 <form id="showQueryDataArea" onsubmit="return false;"></form>
 
+<form class="modal fade" id="operationModal" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">购房券操作</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</form>
+
 <div class="modal fade" id="showProInfoModal">
   <div class="modal-dialog">
     <div class="modal-content" id="showProInfoArea">
@@ -121,145 +138,144 @@
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
-<script id="guaShiTemplate" type="text/x-handlebars-template">
-<div class="panel form-horizontal">
-	<div class="panel-heading bk-bg-primary">
-		<div class="row">
-			<div class="col-xs-5 text-left bk-vcenter">
-				<h6>购房券挂失</h6>
-			</div>
+<script id="tableItemTemplate" type="text/x-handlebars-template">
+<div class="panel">
+   <div class="panel-heading bk-bg-primary">
+   	<div class="row">
+   		<div class="col-xs-5 text-left bk-vcenter">
+   			<h6>购房券挂失/补券</h6>
+   		</div>
+   	</div>
+   </div>
+   <div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>身份证</th>
+						<th>补贴金额（万元）</th>
+						<th>购房券券号</th>
+						<th>购房券状态</th>
+						<th>购房券操作</th>
+					</tr>
+				</thead>
+				<tbody id="dataItems">
+				</tbody>
+			</table>
 		</div>
-	</div>
-	<div class="panel-body">
-        <div class="panel panel-default">
-            <div class="panel-heading">购房券信息</div>
-            <table class="table table-bordered">
-            	<tbody>
-            		<tr>
-            			<td class="active">姓名</td>
-            			<td>{{name}}</td>
-            			<td class="active">身份证号</td>
-            			<td>{{idNumber}}</td>
-            		</tr>
-            		<tr>
-            			<td class="active">券号</td>
-            			<td>{{ticketNumber}}</td>
-            			<td class="active">补贴金额（万元）</td>
-            			<td>{{bonus}}</td>
-            		</tr>
-            		<tr>
-            			<td class="active">制券时间</td>
-            			<td>{{makeTime}}</td>
-            			<td class="active">购房券状态</td>
-            			<td>{{ticketName}}</td>
-            		</tr>
-            		<tr>
-            			<td class="active">所属项目</td>
-            			<td colspan="3">
-							<a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a>
-						</td>
-            		</tr>
-            	</tbody>
-            </table>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">挂失时间<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<input type="text" name="time" class="form-control" placeholder="____/__/__"
-        			data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" />
-        	</div>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">挂失备注信息<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<textarea name="remark"  placeholder="请输入挂失描述" class="form-control" rows="5" maxlength="140"></textarea>
-        	</div>
-        </div>
-        <hr>
-		<div class="form-group">
-        	<div class="col-md-9">
-        		<button type="submit" class="btn btn-primary button-next pull-right">挂失</button>
-        	</div>
-        </div>
-        
-	</div>
+   </div>
+</div>
+</script>
+<script id="dataItemTemplate" type="text/x-handlebars-template">
+<tr>
+	<td>{{name}}</td>
+	<td>{{idNumber}}</td>
+	<td>{{bonus}}</td>
+	<td>{{ticketNumber}}</td>
+	<td>{{ticketName}}</td>
+	<td>
+		{{#dengYu ticketState "RECEIVED"}}
+			<a href="javascript:;" class="label label-primary" onclick="guaShi(this);">挂失</a>
+		{{/dengYu}}
+		{{#dengYu ticketState "LOSSOFREPORT"}}
+			<a href="javascript:;" class="label label-primary" onclick="buShi(this);">补券</a>
+		{{/dengYu}}
+	</td>
+</tr>
+</script>
+<script id="guaShiTemplate" type="text/x-handlebars-template">
+<div class="panel panel-default">
+    <div class="panel-heading">购房券信息</div>
+    <table class="table table-bordered">
+    	<tbody>
+    		<tr>
+    			<td class="active">姓名</td>
+    			<td>{{name}}</td>
+    			<td class="active">身份证号</td>
+    			<td>{{idNumber}}</td>
+    		</tr>
+    		<tr>
+    			<td class="active">券号</td>
+    			<td>{{ticketNumber}}</td>
+    			<td class="active">补贴金额（万元）</td>
+    			<td>{{bonus}}</td>
+    		</tr>
+    		<tr>
+    			<td class="active">制券时间</td>
+    			<td>{{makeTime}}</td>
+    			<td class="active">购房券状态</td>
+    			<td>{{ticketName}}</td>
+    		</tr>
+    		<tr>
+    			<td class="active">所属项目</td>
+    			<td colspan="3">
+					<a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a>
+				</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+<div class="form-group">
+	<label class="control-label" for="text-input">挂失时间<span class="text-danger">*</span></label>
+		<input type="text" name="time" class="form-control" placeholder="____/__/__"
+			data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" />
+</div>
+<div class="form-group">
+	<label class="control-label" for="text-input">挂失备注信息<span class="text-danger">*</span></label>
+	<textarea name="remark"  placeholder="请输入挂失描述" class="form-control" rows="5" maxlength="140"></textarea>
 </div>
 </script>
 <script id="buShiTemplate" type="text/x-handlebars-template">
-<div class="panel form-horizontal">
-	<div class="panel-heading bk-bg-primary">
-		<div class="row">
-			<div class="col-xs-5 text-left bk-vcenter">
-				<h6>购房券补券</h6>
-			</div>
-		</div>
-	</div>
-	<div class="panel-body">
-        <div class="panel panel-default">
-            <div class="panel-heading">购房券信息</div>
-            <table class="table table-bordered">
-            	<tbody>
-            		<tr>
-            			<td class="active">姓名</td>
-            			<td>{{name}}</td>
-            			<td class="active">身份证号</td>
-            			<td>{{idNumber}}</td>
-            		</tr>
-            		<tr>
-            			<td class="active">券号</td>
-            			<td>{{ticketNumber}}</td>
-            			<td class="active">补贴金额（万元）</td>
-            			<td>{{bonus}}</td>
-            		</tr>
-            		<tr>
-            			<td class="active">制券时间</td>
-            			<td>{{makeTime}}</td>
-            			<td class="active">购房券状态</td>
-            			<td>{{ticketName}}</td>
-            		</tr>
-            		<tr>
-            				<td class="active">所属项目</td>
-            				<td colspan="3">
-								<a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a>
-							</td>
-            		</tr>
-            	</tbody>
-            </table>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">购房券券号<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<input type="text" name="quanNum" class="form-control" placeholder="请输入购房券券号" />
-        	</div>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">购房券金额（万元）<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<input type="text" class="form-control" name="money" placeholder="请输入购房券金额（万元）" >
-        	</div>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">购房券制券时间<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<input type="text" name="time" class="form-control" placeholder="____/__/__"
-        			 data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" >
-        	</div>
-        </div>
-        <div class="form-group">
-        	<label class="col-md-4 control-label" for="text-input">购房券补失时间<span class="text-danger">*</span></label>
-        	<div class="col-md-5">
-        		<input type="text" class="form-control" name="buShiTime" placeholder="____/__/__"
-        			 data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" >
-        	</div>
-        </div>
-        <hr>
-        <div class="form-group">
-			<div class="col-md-9">
-        <button type="submit" class="btn btn-primary button-next pull-right">补券</button>
-        	</div>
-        </div>
-	  </div>
-   </div>
+  <div class="panel panel-default">
+      <div class="panel-heading">购房券信息</div>
+      <table class="table table-bordered">
+      	<tbody>
+      		<tr>
+      			<td class="active">姓名</td>
+      			<td>{{name}}</td>
+      			<td class="active">身份证号</td>
+      			<td>{{idNumber}}</td>
+      		</tr>
+      		<tr>
+      			<td class="active">券号</td>
+      			<td>{{ticketNumber}}</td>
+      			<td class="active">补贴金额（万元）</td>
+      			<td>{{bonus}}</td>
+      		</tr>
+      		<tr>
+      			<td class="active">制券时间</td>
+      			<td>{{makeTime}}</td>
+      			<td class="active">购房券状态</td>
+      			<td>{{ticketName}}</td>
+      		</tr>
+      		<tr>
+      				<td class="active">所属项目</td>
+      				<td colspan="3">
+							<a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a>
+						</td>
+      		</tr>
+      	</tbody>
+      </table>
+  </div>
+  <div class="form-group">
+  	<label class="control-label" for="text-input">购房券券号<span class="text-danger">*</span></label>
+  		<input type="text" name="quanNum" class="form-control" placeholder="请输入购房券券号" />
+  </div>
+  <div class="form-group">
+  	<label class="control-label" for="text-input">购房券金额（万元）<span class="text-danger">*</span></label>
+  		<input type="text" class="form-control" name="money" placeholder="请输入购房券金额（万元）" >
+  </div>
+  <div class="form-group">
+  	<label class="control-label" for="text-input">购房券制券时间<span class="text-danger">*</span></label>
+  		<input type="text" name="time" class="form-control" placeholder="____/__/__"
+  			 data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" >
+  </div>
+  <div class="form-group">
+  	<label class="control-label" for="text-input">购房券补失时间<span class="text-danger">*</span></label>
+  		<input type="text" class="form-control" name="buShiTime" placeholder="____/__/__"
+  			 data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" >
+  </div>
 </div>
 </script>
 <script type="text/javascript" src="assets/pageJs/housePurchaseMansgement/hptLossAndMend.js"></script>

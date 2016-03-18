@@ -73,6 +73,8 @@ public class HptLossAndMend extends BaseAction {
 			hptMendInfoDto.setOprDate(new Date());
 			hptMendInfoDto.setOprUserId(userId());
 			HousePuraseTicketDto housePuraseTicketDto = Serialization.toObject(housePuraseTicket, HousePuraseTicketDto.class);
+			housePuraseTicketDto.setCreateDate(new Date());
+			housePuraseTicketDto.setCreateUId(userId().toString());
 			stateJson = this.hptMgtServiceContract.mend(hptMendInfoDto,housePuraseTicketDto);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.excel.util.ExcelFactory;
@@ -18,27 +19,28 @@ import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.hpt.HPTImportAndExport;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
-import com.tq.requisition.presentation.dto.project.ProTypeDto;
+import com.tq.requisition.presentation.dto.hpt.PersonAndHPTDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
-import com.tq.requisition.presentation.dto.share.AddressDto;
 import com.tq.requisition.presentation.dto.share.HouseholdTypeDto;
 import com.tq.requisition.presentation.dto.share.RelationshipTypeDto;
+import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtFmlItemServiceContract;
 import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtServiceContract;
-import com.tq.requisition.presentation.serviceContract.proMgt.IProMgtServiceContract;
 import com.tq.requisition.presentation.serviceContract.rmHousehold.IFamilyItemServiceContract;
-import com.tq.requisition.presentation.serviceContract.rmHousehold.IFamilyMgtServiceContract;
 import com.tq.requisition.presentation.serviceContract.share.IShareTypeServiceContract;
 
+@SuppressWarnings("serial")
 public class HptAdd extends BaseAction {
 
 	private IFamilyItemServiceContract familyItemServiceContract;
 	private IHPTMgtServiceContract hptMgtServiceContract;
 	private IShareTypeServiceContract shareTypeServiceContract;
+	private IHPTMgtFmlItemServiceContract htpMgtFmlItemServiceContract;
 	
 	public HptAdd(){
 		this.familyItemServiceContract = getService("fmlItemService", IFamilyItemServiceContract.class);
 		this.hptMgtServiceContract = getService("hptService", IHPTMgtServiceContract.class);
 		this.shareTypeServiceContract = getService("shareTypeService", IShareTypeServiceContract.class);
+		this.htpMgtFmlItemServiceContract = getService("hptFmlItemService", IHPTMgtFmlItemServiceContract.class);
 	}
 	
 	private List<HouseholdTypeDto> householdTypeDtos;
@@ -72,7 +74,7 @@ public class HptAdd extends BaseAction {
 	}
 	
 	public String get() throws IOException{
-		String jsonState = this.familyItemServiceContract.queryByIdNumberAndName(idNumber, name);
+		String jsonState = this.familyItemServiceContract.queryByIdNumber(idNumber);
 		response().getWriter().write(jsonState);
 		return null;
 	}
@@ -81,6 +83,8 @@ public class HptAdd extends BaseAction {
 		String stateJson = "";
 		try {
 			HousePuraseTicketDto dto = Serialization.toObject(dataJson, HousePuraseTicketDto.class);
+			dto.setCreateDate(new Date());
+			dto.setCreateUId(userId().toString());
 			stateJson = this.hptMgtServiceContract.add(dto);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");
@@ -93,6 +97,16 @@ public class HptAdd extends BaseAction {
 		String stateJson = "";
 		FamilyItemDto dto = Serialization.toObject(dataJson, FamilyItemDto.class);
 		stateJson = this.familyItemServiceContract.addFmlItem(dto);
+		response().getWriter().write(stateJson);
+		return null;
+	}
+	
+	public String addFmlItemAndHpt() throws IOException{
+		String stateJson = "";
+		PersonAndHPTDto dto = Serialization.toObject(dataJson, PersonAndHPTDto.class);
+		dto.setCreateDate(new Date());
+		dto.setCreateUId(userId().toString());
+		stateJson = this.htpMgtFmlItemServiceContract.add(dto);
 		response().getWriter().write(stateJson);
 		return null;
 	}
@@ -120,6 +134,11 @@ public class HptAdd extends BaseAction {
 				 } else {
 					 String stateJsonString = "";
 					 if(items.size() > 0 ){
+						 Date nowDate = new Date();
+						 for (HPTImportAndExport dto : items) {
+							dto.setCreateDate(nowDate);
+							dto.setCreateUId(userId().toString());
+						}
 						 stateJsonString = this.hptMgtServiceContract.importHPT(items);
 					 } else {
 						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "文件中没有数据");

@@ -22,6 +22,8 @@
 		<property name="del" column="is_del" length="50" type="boolean" not-null="true"  />
 		<property name="name" column="name" length="50" type="string" not-null="true"  />
 		<property name="fmlItemId" column="fml_item_id" length="70" type="org.hibernate.type.UUIDCharType" not-null="true"  />
+		<property name="createUId" column="create_uId" length="70" type="string" />
+		<property name="createDate" column="create_date" type="date" />
 		
 		<!-- 购房券状态枚举 -->
 		<property name="state" length="30" not-null="true" column="ticket_state_id">

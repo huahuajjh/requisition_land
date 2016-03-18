@@ -12,11 +12,20 @@ $("#queryData").validate({
 	}, submitHandler:function(form){
 		$.post("housePurchaseMansgement/hptSetPersonGet",$("#queryData").serialize(),function(data){
 			actionFormate(data, true,function(type,msg,datas){
-				datas.ticketName = toTicketStr(datas.ticketState);
-				datas.ticketIndex = toTicketNumber(datas.ticketState);
+				datas = datas || [];
 				var template = Handlebars.compile($("#entrytemplate").html());
-				var html = template(datas);
+				var html = template();
 				var rHtml = $(html);
+				for (var i = 0; i < datas.length; i++) {
+					var data = datas[i];
+					data.isCheck = data.ticketState == "NORMAL";
+					data.ticketName = toTicketStr(data.ticketState);
+					data.ticketIndex = toTicketNumber(data.ticketState);
+					var t = Handlebars.compile($("#dataItemTemplate").html());
+					var h = $(t(data));
+					h.data("data",data);
+					$("#dataItems",rHtml).append(h);
+				}
 				$('[data-plugin-datepicker]',rHtml).each(function() {
 					var $this = $(this), opts = {};
 					$this.themePluginDatePicker(opts);
@@ -83,35 +92,55 @@ $("#showQueryDataArea").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
+		
 		var data = $("#showQueryDataArea").data("data");
-		var subData = {};
-//		/**购房券id*/
-		subData.ticketId = data.hptId;
-//		/**购房券所有者*/
-		subData.ownerId = data.fmlItemId;
-//		/**领取凭证*/
-		subData.evidenceOfGetting = $("#yuLanBtn").data("img");
-//		/**领用人姓名*/
-		subData.name = $("#showQueryDataArea [name='name']").val();
-//		/**领用人身份证*/
-		subData.idNumber = $("#showQueryDataArea [name='idNumber']").val();
-//		/**领用时间*/
-		subData.gettingDate = $("#showQueryDataArea [name='time']").val();
-		//领取备注
-		subData.remark = $("#showQueryDataArea [name='remark']").val();
 		
-		subData.resideName = data.name;
-		subData.resideIdNumber = data.idNumber;
-		subData.resideTicketNumber = data.ticketNumber;
-		subData.resideBonus = data.bonus;
-		subData.resideMakeTime = data.makeTime;
+		var datas = [];
+		$("#dataItems [name='check']:checked").each(function(){
+			var data = $(this).closest("tr").data("data");
+			
+			var subData = {};
+//			/**购房券id*/
+			subData.ticketId = data.hptId;
+//			/**购房券所有者*/
+			subData.ownerId = data.fmlItemId;
+//			/**领取凭证*/
+			subData.evidenceOfGetting = $("#yuLanBtn").data("img");
+//			/**领用人姓名*/
+			subData.name = $("#showQueryDataArea [name='name']").val();
+//			/**领用人身份证*/
+			subData.idNumber = $("#showQueryDataArea [name='idNumber']").val();
+//			/**领用时间*/
+			subData.gettingDate = $("#showQueryDataArea [name='time']").val();
+			//领取备注
+			subData.remark = $("#showQueryDataArea [name='remark']").val();
+			
+			subData.resideName = data.name;
+			subData.resideIdNumber = data.idNumber;
+			subData.resideTicketNumber = data.ticketNumber;
+			subData.resideBonus = data.bonus;
+			subData.resideMakeTime = data.makeTime;
+			
+			datas.push(subData);
+		});
+		if(datas.length <= 0){
+			$("#subBtn").popover({
+				content : "请选择需要发放的购房券",
+				placement : "left"
+			});
+			$("#subBtn").popover("show");
+			setTimeout(function() {
+				$("#subBtn").popover("destroy");
+			}, 1000);
+			return;
+		}
 		
-		$.post("housePurchaseMansgement/hptSetPersonAdd",{
-			dataJson:JSON.stringify(subData)
+		$.post("housePurchaseMansgement/hptSetAdd",{
+			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
 				var template = Handlebars.compile($("#logItemTemplate").html());
-				var logHtml = template(subData);
+				var logHtml = template(datas);
 				operationLog("购房券个人发放","购房券个人发放",logHtml);
 				$("#showQueryDataArea").html("");
 			});

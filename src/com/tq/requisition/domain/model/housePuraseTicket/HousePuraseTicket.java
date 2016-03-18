@@ -30,6 +30,10 @@ public class HousePuraseTicket extends AggregateRoot {
 	private boolean del;
 	/** 姓名 */
 	private String name;
+	/**创建人ID*/
+	private String createUId;
+	/**创建时间*/
+	private Date createDate;
 
 	/* constructors */
 	public HousePuraseTicket() {
@@ -123,6 +127,22 @@ public class HousePuraseTicket extends AggregateRoot {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCreateUId() {
+		return createUId;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateUId(String createUId) {
+		this.createUId = createUId;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	/* public methods */

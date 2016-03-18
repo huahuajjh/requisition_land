@@ -35,3 +35,4 @@ sendUrl.removedInfo_addBatch = sendUrl.url + "removedInfo/addBatch";
 sendUrl.fmlItem_idnumberExists = sendUrl.url + "fmlItem/idnumberExists";
 sendUrl.indexData_getIndexData = sendUrl.url + "indexData/getIndexData";
 sendUrl.operationRecordWS_queryData = sendUrl.url + "operationRecordWS/queryData";
+sendUrl.statistics_getData = sendUrl.url + "statistics/getData";

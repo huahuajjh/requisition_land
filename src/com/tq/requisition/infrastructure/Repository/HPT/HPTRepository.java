@@ -58,7 +58,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 			throw new NullPointerException("新增的购房券信息为空");
 		}
 		//检测重复添加
-		boolean r = exists(new SpecificationExt<HousePuraseTicket>(HousePuraseTicket.class) {
+		int count = getTotalCount(new SpecificationExt<HousePuraseTicket>(HousePuraseTicket.class) {
 
 			@Override
 			public String getAbsHql() {
@@ -81,7 +81,30 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 				return OperationType.SQL;
 			}
 		});
-		if(r){throw new DomainException("已经为该人员添加了购房券");}
+		boolean state = exists(new SpecificationExt<HousePuraseTicket>(HousePuraseTicket.class) {
+
+			@Override
+			public String getAbsHql() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getAbsSql() {
+				return "select count(1) from tb_housepurchase_ticket where is_del=0 and id_number=? and ticket_number=?";
+			}
+
+			@Override
+			public Object[] getAbsParameters() {
+				return new Object[]{hpt.getIdNumber(),hpt.getTicketNumber().trim()};
+			}
+
+			@Override
+			public OperationType getAbsType() {
+				return OperationType.SQL;
+			}
+		});
+		if(count >= 2 || state){throw new DomainException("已经为该人员添加了购房券");}
 		add(hpt);
 	}
 
@@ -221,13 +244,13 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public HPTDisplayDto queryByIdnumber(String idNumber) {
-		List<HPTDisplayDto> list = getAllByHqlJoin(new HPTQueryByIdNumSpecification(HousePuraseTicket.class, idNumber), 0, 1);
+	public List<HPTDisplayDto> queryByIdnumber(String idNumber) {
+		List<HPTDisplayDto> list = getAllByHqlJoin(new HPTQueryByIdNumSpecification(HousePuraseTicket.class, idNumber), 0, 10);
 		if(null == list || list.size()==0)
 		{
 			throw new NullPointerException("未查询到购房券信息");
 		}
-		return list.get(0);
+		return list;
 		
 	}
 	
@@ -237,7 +260,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 		//根据户主身份证查询户主信息
 		
 		List<HPTDisplayFmlDto> list = getAllByHqlJoin(
-				new HPTQueryFmlProvideSpecification(HousePuraseTicket.class, fmlId),-1,-1);
+				new HPTQueryFmlProvideSpecification(HousePuraseTicket.class, fmlId),0,999);
 		
 		return list;
 		

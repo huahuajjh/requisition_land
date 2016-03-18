@@ -114,7 +114,7 @@ public interface IHPTRepository extends IRepository<HousePuraseTicket>{
 	 * @return
 	 * 		购房券和人员信息model
 	 */
-	HPTDisplayDto queryByIdnumber(String idNumber);
+	List<HPTDisplayDto> queryByIdnumber(String idNumber);
 
 	/**
 	 * 根据查询model查询购房券和人员信息

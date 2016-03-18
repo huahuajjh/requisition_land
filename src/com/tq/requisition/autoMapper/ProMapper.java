@@ -50,6 +50,8 @@ public class ProMapper {
 		model.setSixForward(dto.getSixForward());
 		model.setCategoryId(dto.getCategoryId());
 		model.setCategoryStr(dto.getCategoryStr());
+		model.setMoneyUnit(dto.getMoneyUnit());
+		model.setOtherMoneyUnit(dto.getOtherMoneyUnit());
 //		model.setCurMonthComplete(dto.getCurMonthComplete());		
 		return model;
 	}

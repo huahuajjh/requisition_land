@@ -1,10 +1,10 @@
 $("#queryBtn").click(function(){
-	var data = $("#queryVal").data("data");
-	if(!data) return;
+	var personData = $("#queryVal").data("data");
+	if(!personData) return;
 	$.get(sendUrl.onekeyQuery_getInfo,{
-		id:data.id
-	},function(data){
-		actionFormate(data, true,function(type,msg,data){
+		id:personData.id
+	},function(d){
+		actionFormate(d, true,function(type,msg,data){
 			if(data.unionSuggestionPath){
 				var path = data.unionSuggestionPath;
 				data.unionSuggestionPathName = path.substring(0,path.indexOf("/"));
@@ -33,6 +33,20 @@ $("#queryBtn").click(function(){
 				if(!fileItem || fileItem.length <= 0) return;
 				$.initShowImage(fileItem);
 			});
+			
+			$.get(sendUrl.fmlItem_getHptInfo,{
+				id:personData.id
+			},function(d){
+				var tempData = actionFormate(d, false) || {};
+				var template = Handlebars.compile($("#gouFangQuanMsgTemplate").html());
+				if(tempData.evidencePath){
+					var path = tempData.evidencePath;
+					tempData.evidencePathName = path.substring(0,path.indexOf("/"));
+					tempData.evidencePathVal = path.substring(path.indexOf("/") + 1);
+				}
+				var html = template(tempData);
+				$("#showHPTArea").html(html);
+			},"json");
 		});
 	},"json");
 });

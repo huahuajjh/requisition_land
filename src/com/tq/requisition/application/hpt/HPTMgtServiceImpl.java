@@ -184,7 +184,7 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	@Override
 	public String queryByIdNumber(String idNumber) {
 		try {
-			HPTDisplayDto dto = hptRepository.queryByIdnumber(idNumber);
+			List<HPTDisplayDto> dto = hptRepository.queryByIdnumber(idNumber);
 			return toJson("查询成功", dto, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			return toJson("查询失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
@@ -232,23 +232,35 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 		if(null==list || list.size()==0){
 			return toJson("待导入的列表为空", null, Formater.OperationResult.FAIL);
 		}
-		List<HousePuraseTicket> hpts = new ArrayList<HousePuraseTicket>();		
-		for (HPTImportAndExport hptImportAndExport : list) {
-			UUID fmlItemId = itemRepository.getIdByIdNumber(hptImportAndExport.getIdNumber());
-			if(null==fmlItemId){
-				return toJson("根据身份证号["+hptImportAndExport.getIdNumber()+"]未查询到人员信息", null, Formater.OperationResult.FAIL);
-				
-			}
-			
-			hptImportAndExport.setFmlItemId(fmlItemId);
-			hpts.add(hptImportAndExport.toHPT());
-		}
+		List<HPTImportAndExport>  notExistHPT = new ArrayList<HPTImportAndExport>();
+		List<HPTImportAndExport>  errorHPT = new ArrayList<HPTImportAndExport>();
+		List<HPTImportAndExport>  successHPT = new ArrayList<HPTImportAndExport>();
 		try {
 			context().beginTransaction();
-			hptService.addHPT(hpts);
+			for (HPTImportAndExport hptImportAndExport : list) {
+				FamilyItem fmlItem = null;
+				try {
+					fmlItem = itemRepository.queryByIdNumber(hptImportAndExport.getIdNumber());
+				} catch (SpecifiedObjectDoesNotExistsException e) {
+				}
+				if(null==fmlItem){
+					notExistHPT.add(hptImportAndExport);
+					continue;
+				}
+				
+				hptImportAndExport.setFmlItemId(fmlItem.getId());
+				HousePuraseTicket hpt = hptImportAndExport.toHPT();
+				
+				try {
+					hptService.addHPT(hpt);
+					successHPT.add(hptImportAndExport);
+				} catch (DomainException e) {
+					errorHPT.add(hptImportAndExport);
+				}
+			}
 			context().commit();
-			return toJson("导入购房券信息成功", list, Formater.OperationResult.SUCCESS);
-		} catch (DomainException e) {
+			return toJson("导入购房券信息<br>不存在的人员有："+notExistHPT.size() + "人<br>重复导入的购房券有：" + errorHPT.size() + "张<br>成功导入的购房券：" + successHPT.size() + "张", new Object[]{notExistHPT,errorHPT,successHPT}, Formater.OperationResult.SUCCESS);
+		} catch (Exception e) {
 			context().rollback();
 			return toJson("导入购房券信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}finally{

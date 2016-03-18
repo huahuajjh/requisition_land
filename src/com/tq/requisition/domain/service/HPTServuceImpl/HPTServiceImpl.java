@@ -43,8 +43,8 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 	@Override
 	public void addHPT(HousePuraseTicket hpt) throws DomainException {
 		//将新增的购房券中姓名与身份证到拆迁户信息中查询，如果不匹配则不操作，返回消息给调用者
-		boolean r = familyItemRepository.existsByIdNumAndName(hpt.getIdNumber(), hpt.getName()); 
-		if(!r)
+		FamilyItem fi = familyItemRepository.queryByIdNumber(hpt.getIdNumber()); 
+		if(fi == null)
 		{
 			throw new DomainException("新增失败，未查询到对应的拆迁人员信息");
 		}

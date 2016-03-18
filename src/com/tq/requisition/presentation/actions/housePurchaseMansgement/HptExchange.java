@@ -49,8 +49,10 @@ public class HptExchange extends BaseAction {
 			HPTExchangeInfoDto hptExchangeInfoDto = Serialization.toObject(hptExchangeInfo, HPTExchangeInfoDto.class);
 			hptExchangeInfoDto.setOprDate(new Date());
 			hptExchangeInfoDto.setOprUserId(userId());
-			HousePuraseTicketDto HousePuraseTicketDtoDto = Serialization.toObject(housePuraseTicket, HousePuraseTicketDto.class);
-			stateJson = this.hptMgtServiceContract.exchange(hptExchangeInfoDto, HousePuraseTicketDtoDto);
+			HousePuraseTicketDto housePuraseTicketDtoDto = Serialization.toObject(housePuraseTicket, HousePuraseTicketDto.class);
+			housePuraseTicketDtoDto.setCreateDate(new Date());
+			housePuraseTicketDtoDto.setCreateUId(userId().toString());
+			stateJson = this.hptMgtServiceContract.exchange(hptExchangeInfoDto, housePuraseTicketDtoDto);
 		} catch (Exception e) {
 			stateJson = toForMaterJson(OperationResult.ERROR,"数据格式不正确");
 		}

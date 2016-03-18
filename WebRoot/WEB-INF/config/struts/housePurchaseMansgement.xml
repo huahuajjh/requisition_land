@@ -13,6 +13,7 @@
 		<action name="hptAddAdd" method="add" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		<action name="hptAddUpFile" method="upFile" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		<action name="hptAddAddFmlItem" method="addFmlItem" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
+		<action name="hptAddAddFmlItemAndHpt" method="addFmlItemAndHpt" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptAdd"></action>
 		
 		<!--  购房券换发 -->
 		<action name="hptExchange" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptExchange">

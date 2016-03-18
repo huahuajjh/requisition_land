@@ -80,6 +80,10 @@ public class ProjectDto {
 	private String sixForward;
 	/**项目类型名称*/
 	private String proTypeStr;
+	/**出资单位*/
+	private String moneyUnit;
+	/**其他出资单位*/
+	private String otherMoneyUnit;
 	/**项目item集合*/
 	private List<ProItemDto> items;
 
@@ -378,6 +382,22 @@ public class ProjectDto {
 
 	public void setSixForward(String sixForward) {
 		this.sixForward = sixForward;
+	}
+
+	public String getMoneyUnit() {
+		return moneyUnit;
+	}
+
+	public void setMoneyUnit(String moneyUnit) {
+		this.moneyUnit = moneyUnit;
+	}
+
+	public String getOtherMoneyUnit() {
+		return otherMoneyUnit;
+	}
+
+	public void setOtherMoneyUnit(String otherMoneyUnit) {
+		this.otherMoneyUnit = otherMoneyUnit;
 	}
 
 	/* constructors */

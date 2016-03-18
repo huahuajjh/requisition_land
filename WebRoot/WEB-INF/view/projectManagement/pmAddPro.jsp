@@ -102,6 +102,18 @@ color:#555;
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-md-4 control-label">国土局出资(单位名称)<span class="text-danger">*</span></label>
+				<div class="col-md-5">
+					<input type="text" name="moneyUnit" class="form-control" placeholder="请输入国土局出资(单位名称)" maxlength="20">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label">其他单位出资(单位名称)<span class="text-danger">*</span></label>
+				<div class="col-md-5">
+					<input type="text" name="otherMoneyUnit" class="form-control" placeholder="请输入其他单位出资(单位名称)" maxlength="20">
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-md-4 control-label">项目分类<span class="text-danger">*</span></label>
 				<div class="col-md-5">
 					<select name="proCategory" class="form-control" size="1">
@@ -249,6 +261,14 @@ color:#555;
         <td>{{proName}}</td>
 	</tr>
 	<tr>
+        <td class="text-right">国土局出资(单位名称)：</td>
+        <td>{{moneyUnit}}</td>
+	</tr>
+	<tr>
+        <td class="text-right">其他单位出资(单位名称)：</td>
+        <td>{{otherMoneyUnit}}</td>
+	</tr>
+	<tr>
         <td class="text-right">项目分类：</td>
         <td>{{proCategory}}</td>
 	</tr>
@@ -304,11 +324,13 @@ color:#555;
 	<table class="table table-hover table-bordered autoTbale">
 		<thead>
 			<tr>
-				<td colspan="29">月报时间：{{time}}</td>
+				<td colspan="30">月报时间：{{time}}</td>
 			</tr>
 			<tr>
 				<td rowspan="4">在拆项目名称</td>
 				<td rowspan="4">审批单号</td>
+				<td rowspan="4">国土局出资(单位名称)</td>
+				<td rowspan="4">其他单位出资(单位名称)</td>
 				<td rowspan="4">项目分类</td>
 				<td colspan="2">项目类型（用√标识）</td>
  				<td rowspan="4">本月新启动项目<br>（用√标识）</td>
@@ -357,6 +379,8 @@ color:#555;
 			<tr>
 				<td>{{proName}}</td>
 				<td>{{approvalNumber}}</td>
+				<td>{{moneyUnit}}</td>
+				<td>{{otherMoneyUnit}}</td>
 				<td>{{proCategory}}</td>
 				<td>{{proTypeStrInfra}}</td>
 				<td>{{proTypeStrOther}}</td>

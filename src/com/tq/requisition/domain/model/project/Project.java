@@ -86,6 +86,10 @@ public class Project extends AggregateRoot{
 	private String curMonthComplete;
 	/**是否6前项目*/
 	private String sixForward;
+	/**出资单位*/
+	private String moneyUnit;
+	/**其他出资单位*/
+	private String otherMoneyUnit;
 	/**公告集合-为导出服务*/
 	private List<Announcement> announcements;
 	/**项目item集合*/
@@ -350,6 +354,18 @@ public class Project extends AggregateRoot{
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+	public String getMoneyUnit() {
+		return moneyUnit;
+	}
+	public void setMoneyUnit(String moneyUnit) {
+		this.moneyUnit = moneyUnit;
+	}
+	public String getOtherMoneyUnit() {
+		return otherMoneyUnit;
+	}
+	public void setOtherMoneyUnit(String otherMoneyUnit) {
+		this.otherMoneyUnit = otherMoneyUnit;
+	}
 	
 	/*constructors*/
 	public Project(){
@@ -460,6 +476,8 @@ public class Project extends AggregateRoot{
 		this.categoryStr = pro.getCategoryStr();
 		this.setStreetId(pro.getStreetId());
 		this.setCommunityId(pro.getCommunityId());
+		this.setMoneyUnit(pro.getMoneyUnit());
+		this.setOtherMoneyUnit(pro.getOtherMoneyUnit());
 	}
 	
 	public void modify4Import(Project pro) {

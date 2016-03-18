@@ -34,54 +34,26 @@ $("#queryData").validate({
 			ticketNumber:ticketNumber
 		},function(data){
 			actionFormate(data, true,function(type,msg,datas){
-				datas.ticketName = toTicketStr(datas.ticketState);
-				datas.ticketIndex = toTicketNumber(datas.ticketState);
+				datas = datas || [];
 				var template = Handlebars.compile($("#entrytemplate").html());
-				var html = template(datas);
+				var html = template();
 				var rHtml = $(html);
-				$('[data-plugin-datepicker]',rHtml).each(function() {
-					var $this = $(this), opts = {};
-					$this.themePluginDatePicker(opts);
-				});
-				$('[data-plugin-masked-input]',rHtml).each(function() {
-					var $this = $(this), opts = {};
-
-					var pluginOptions = $this.data('plugin-options');
-					if (pluginOptions)
-						opts = pluginOptions;
-					$this.themePluginMaskedInput(opts);
-				});
-				$("#yuLanBtn",rHtml).click(function(){
-					var img = $(this).data("img");
-					if(!img) return;
-					$.initShowImage([img]);
-				});
-				$("#upFile",rHtml).change(function(){
-					var val = $(this).val();
-					if(!val) return;
-					$("#paiZhaoFileLoginState").css("display","inline");
-					$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-					submitFile(this,{
-						fileType:"EVIDENCE_FILE"
-					},"json",function(data){
-						actionFormate(data, true, function(type, msg, data) {
-							data = data.substring(data.indexOf("/")+1);
-							$("#yuLanBtn").data("img",data);
-						});
-						$("#paiZhaoFileLoginState").css("display","none");
-						$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
-					},function(e){
-						$("#paiZhaoFileLoginState").css("display","none");
-						$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
-					});
-				});
-				$("#selectHPTList").data("data",datas);
+				for (var i = 0; i < datas.length; i++) {
+					var data = datas[i];
+					data.isCheck = data.ticketState == "RECEIVED";
+					data.ticketName = toTicketStr(data.ticketState);
+					data.ticketIndex = toTicketNumber(data.ticketState);
+					var t = Handlebars.compile($("#dataItemTemplate").html());
+					var h = $(t(data));
+					h.data("data",data);
+					$("#dataItems",rHtml).append(h);
+				}
 				$("#selectHPTList").html(rHtml);
 			});
 		},"json");
     }
 });
-$("#selectHPTList").validate({
+$("#huanFaModal").validate({
 	rules: {
 		quanNum: {
 			required: true
@@ -97,25 +69,25 @@ $("#selectHPTList").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
-		var data = $("#selectHPTList").data("data");
+		var data = $("#huanFaModal").data("data");
 		var hptExchangeInfo = {};
 //		/**所有者id*/
 		hptExchangeInfo.ownerId = data.fmlItemId;
 //		/**换发日期*/
-		hptExchangeInfo.exchengeDate = $("#selectHPTList [name='time']").val();
+		hptExchangeInfo.exchengeDate = $("#huanFaModal [name='time']").val();
 //		/**领用证明*/
 		hptExchangeInfo.evidencePath = $("#yuLanBtn").data("img");
 //		/**老券id*/
 		hptExchangeInfo.oldTicketId = data.hptId;
 //		/**领用人*/
-		hptExchangeInfo.gettingUser = $("#selectHPTList [name='name']").val();
+		hptExchangeInfo.gettingUser = $("#huanFaModal [name='name']").val();
 		var housePuraseTicket = {};
 //		/** 补贴金额 */
-		housePuraseTicket.bonus = $("#selectHPTList [name='quanNewMoney']").val();
+		housePuraseTicket.bonus = $("#huanFaModal [name='quanNewMoney']").val();
 //		/** 制券日期 */
-		housePuraseTicket.makeDate = $("#selectHPTList [name='zTime']").val();
+		housePuraseTicket.makeDate = $("#huanFaModal [name='zTime']").val();
 //		/** 券号 */
-		housePuraseTicket.ticketNumber = $("#selectHPTList [name='quanNum']").val();
+		housePuraseTicket.ticketNumber = $("#huanFaModal [name='quanNum']").val();
 //		/** 购房券状态 */
 		housePuraseTicket.state = data.ticketIndex;
 //		/** 购房券所有者id */
@@ -123,7 +95,7 @@ $("#selectHPTList").validate({
 //		/** 购房券所有者身份证 */
 		housePuraseTicket.idNumber = data.idNumber;
 //		/** 姓名 */
-		housePuraseTicket.name = $("#selectHPTList [name='name']").val();
+		housePuraseTicket.name = $("#huanFaModal [name='name']").val();
 		
 		var logData = {};
 		logData.resideName = data.name;
@@ -146,7 +118,9 @@ $("#selectHPTList").validate({
 				var template = Handlebars.compile($("#logItemTemplate").html());
 				var logHtml = template(logData);
 				operationLog("购房券换发","购房券换发",logHtml);
-				$("#selectHPTList").html("");
+				var tr = $("#huanFaModal").data("tr");
+				$("a",tr).remove();
+				$("#huanFaModal").modal("hide");
 			});
 		},"json");
     }
@@ -173,6 +147,53 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		},"json");
 	}
 });
+function showHFModal(td){
+	var tr = $(td).closest("tr");
+	var data = tr.data("data");
+	var template = Handlebars.compile($("#modalDataTemplate").html());
+	var html = template(data);
+	var rHtml = $(html);
+	$('[data-plugin-datepicker]',rHtml).each(function() {
+		var $this = $(this), opts = {};
+		$this.themePluginDatePicker(opts);
+	});
+	$('[data-plugin-masked-input]',rHtml).each(function() {
+		var $this = $(this), opts = {};
+
+		var pluginOptions = $this.data('plugin-options');
+		if (pluginOptions)
+			opts = pluginOptions;
+		$this.themePluginMaskedInput(opts);
+	});
+	$("#yuLanBtn",rHtml).click(function(){
+		var img = $(this).data("img");
+		if(!img) return;
+		$.initShowImage([img]);
+	});
+	$("#upFile",rHtml).change(function(){
+		var val = $(this).val();
+		if(!val) return;
+		$("#paiZhaoFileLoginState").css("display","inline");
+		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
+		submitFile(this,{
+			fileType:"EVIDENCE_FILE"
+		},"json",function(data){
+			actionFormate(data, true, function(type, msg, data) {
+				data = data.substring(data.indexOf("/")+1);
+				$("#yuLanBtn").data("img",data);
+			});
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		},function(e){
+			$("#paiZhaoFileLoginState").css("display","none");
+			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","inline");
+		});
+	});
+	$("#huanFaModal .modal-body").html(rHtml);
+	$("#huanFaModal").data("tr",tr);
+	$("#huanFaModal").data("data",data);
+	$("#huanFaModal").modal("show");
+}
 function showProInfo(id){
 	$.get("share/projectInfo",{
 		id:id

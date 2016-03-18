@@ -65,6 +65,7 @@
 </div>
 
 <script id="logItemTemplate" type="text/x-handlebars-template">
+{{#each this}}
 <table>
 	<tr>
 		<td class="text-right">购房券所属人姓名：</td>
@@ -107,6 +108,7 @@
 		<td>{{remark}}</td>
 	</tr>
 </table>
+{{/each}}
 </script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
@@ -117,32 +119,19 @@
 		<h6>购房券个人发放</h6>
 	</div>
 	<div class="panel-body">
-		<div class="panel panel-default">
-			<div class="panel-heading">购房券信息</div>
+		<div class="table-responsive">
 			<table class="table table-bordered">
-				<tbody>
+				<thead>
 					<tr>
-						<td class="active">姓名</td>
-						<td>{{name}}</td>
-						<td class="active">身份证号</td>
-						<td>{{idNumber}}</td>
+						<th></th>
+						<th>姓名</th>
+						<th>身份证</th>
+						<th>补贴金额（万元）</th>
+						<th>购房券券号</th>
+						<th>购房券状态</th>
 					</tr>
-					<tr>
-						<td class="active">券号</td>
-						<td>{{ticketNumber}}</td>
-						<td class="active">补贴金额（万元）</td>
-						<td>{{bonus}}</td>
-					</tr>
-					<tr>
-						<td class="active">制券时间</td>
-						<td>{{makeTime}}</td>
-						<td class="active">购房券状态</td>
-						<td>{{ticketName}}</td>
-					</tr>
-					<tr>
-						<td class="active">所属项目</td>
-						<td colspan="3"><a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a></td>
-					</tr>
+				</thead>
+				<tbody id="dataItems">
 				</tbody>
 			</table>
 		</div>
@@ -190,10 +179,28 @@
 				<hr>
 			</div>
 			<div class="col-md-8 col-md-offset-2">
-				<button type="submit" class="btn btn-primary button-next pull-right">保存</button>
+				<button type="submit" class="btn btn-primary button-next pull-right" id="subBtn">保存</button>
 			</div>
 		</div>
 	</div>
 </div>
+</script>
+<script id="dataItemTemplate" type="text/x-handlebars-template">
+<tr>
+	<td>
+		<div class="checkbox-custom">
+			{{#if isCheck}}
+			<input type="checkbox" name="check"> <label></label>
+			{{else}}
+			<input type="checkbox" disabled> <label></label>
+			{{/if}}
+		</div>
+	</td>
+	<td>{{name}}</td>
+	<td>{{idNumber}}</td>
+	<td>{{bonus}}</td>
+	<td>{{ticketNumber}}</td>
+	<td>{{ticketName}}</td>
+</tr>
 </script>
 <script type="text/javascript" src="assets/pageJs/housePurchaseMansgement/hptSetPerson.js"></script>

@@ -96,6 +96,34 @@ function getShenPiDanHaoHead(x,y){
 		celKey:["approvalNumber"]
 	};
 }
+function getMoneyUnitHead(x,y){
+	var celData = {
+		value:"国土局出资(单位名称)",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["moneyUnit"]
+	};
+}
+function getOtherMoneyUnitHead(x,y){
+	var celData = {
+		value:"其他单位出资(单位名称)",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["otherMoneyUnit"]
+	};
+}
 function getXiangMuFenLeiHead(x,y){
 	var celData = {
 		value:"项目分类",
@@ -503,51 +531,57 @@ function exportModol(){
 		fn:getShenPiDanHaoHead
 	},{
 		id:"4",
-		fn:getXiangMuFenLeiHead
+		fn:getMoneyUnitHead
 	},{
 		id:"5",
-		fn:getXiangMuLeiXingHead
+		fn:getOtherMoneyUnitHead
 	},{
 		id:"6",
-		fn:getShiFouBenYueQiDongHead
+		fn:getXiangMuFenLeiHead
 	},{
 		id:"7",
-		fn:getShiFouBenYueWanChengJieSuanHead
+		fn:getXiangMuLeiXingHead
 	},{
 		id:"8",
-		fn:getYongDiWeiZhiHead
+		fn:getShiFouBenYueQiDongHead
 	},{
 		id:"9",
-		fn:getYiGongGaoHead
+		fn:getShiFouBenYueWanChengJieSuanHead
 	},{
 		id:"10",
-		fn:getErGongGaoHead
+		fn:getYongDiWeiZhiHead
 	},{
 		id:"11",
-		fn:getSanGongGaoHead
+		fn:getYiGongGaoHead
 	},{
 		id:"12",
-		fn:getTengDiQingKuangHead
+		fn:getErGongGaoHead
 	},{
 		id:"13",
-		fn:getChaiChuFngWuQingKuangHead
+		fn:getSanGongGaoHead
 	},{
 		id:"14",
-		fn:getAnZhiQingKuangHead
+		fn:getTengDiQingKuangHead
 	},{
 		id:"15",
-		fn:getXiaDaTengDiShuHead
+		fn:getChaiChuFngWuQingKuangHead
 	},{
 		id:"16",
-		fn:getShenQingFaYuanZhiXingHead
+		fn:getAnZhiQingKuangHead
 	},{
 		id:"17",
-		fn:getYiFaQiangZhiTengDiHead
+		fn:getXiaDaTengDiShuHead
 	},{
 		id:"18",
-		fn:getLiuQianXingMuHead
+		fn:getShenQingFaYuanZhiXingHead
 	},{
 		id:"19",
+		fn:getYiFaQiangZhiTengDiHead
+	},{
+		id:"20",
+		fn:getLiuQianXingMuHead
+	},{
+		id:"21",
 		fn:getBeiZhuHead
 	}];
 }

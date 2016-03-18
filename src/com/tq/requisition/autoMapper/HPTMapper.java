@@ -23,6 +23,8 @@ public class HPTMapper {
 		model.setState(dto.getState());
 		model.setDel(dto.getDel());
 		model.setTicketNumber(dto.getTicketNumber());
+		model.setCreateDate(dto.getCreateDate());
+		model.setCreateUId(dto.getCreateUId());
 		return model;
 	}
 	

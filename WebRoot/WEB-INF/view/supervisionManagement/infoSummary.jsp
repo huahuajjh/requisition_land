@@ -406,10 +406,8 @@
 			</tbody>
 		</table>
 		<h3>购房券信息</h3>
-		<table class="table table-bordered">
-			<tbody class="goufangquanInfoArea">
-			</tbody>
-		</table>
+		<div class="goufangquanInfoArea">
+		</div>
 	</td>
 </tr>
 </script>
@@ -447,48 +445,54 @@
 </tr>
 </script>
 <script id="gouFangQuanMsgTemplate" type="text/x-handlebars-template">
-<tr>
-	<td class="active" style="width: 160px;">购房券状态</td>
-	<td>{{ticketState}}</td>
-	<td class="active" style="width: 150px;">制券日期</td>
-	<td>{{makeDate}}</td>
-</tr>
-<tr>
-	<td class="active">补贴金额（万元）</td>
-	<td>{{bonus}}</td>
-	<td class="active">券号</td>
-	<td>{{ticketNumber}}</td>
-</tr>
-<tr>
-	<td class="active">领券时间</td>
-	<td>{{gettingDate}}</td>
-	<td class="active">领用凭证</td>
-	<td>{{#if evidence}}<a class="text-primary" href="javascript:;" onclick="$.initShowImage(['{{evidence}}']);">点击查看</a>{{/if}}</td>
-</tr>
-<tr>
-	<td class="active">领用人姓名</td>
-	<td>{{name}}</td>
-	<td class="active">领用身份证</td>
-	<td>{{idNumber}}</td>
-</tr>
-<tr>
-	<td class="active">使用时间</td>
-	<td>{{useDate}}</td>
-	<td class="active">使用类型</td>
-	<td>{{useType}}</td>
-</tr>
-<tr>
-	<td class="active">使用去向</td>
-	<td>{{useToWhere}}</td>
-	<td class="active">情况说明</td>
-	<td>{{explain}}</td>
-</tr>
-<tr>
-	<td class="active">购房券使用凭证</td>
-	<td colspan="3">
-		{{#if evidencePathVal}}<a target="_blank" href="{{evidencePathVal}}" class="text-primary">点击下载</a>{{/if}}
-	</td>
-</tr>
+{{#each this}}
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td class="active" style="width: 160px;">购房券状态</td>
+			<td>{{ticketState}}</td>
+			<td class="active" style="width: 150px;">制券日期</td>
+			<td>{{makeDate}}</td>
+		</tr>
+		<tr>
+			<td class="active">补贴金额（万元）</td>
+			<td>{{bonus}}</td>
+			<td class="active">券号</td>
+			<td>{{ticketNumber}}</td>
+		</tr>
+		<tr>
+			<td class="active">领券时间</td>
+			<td>{{gettingDate}}</td>
+			<td class="active">领用凭证</td>
+			<td>{{#if evidence}}<a class="text-primary" href="javascript:;" onclick="$.initShowImage(['{{evidence}}']);">点击查看</a>{{/if}}</td>
+		</tr>
+		<tr>
+			<td class="active">领用人姓名</td>
+			<td>{{name}}</td>
+			<td class="active">领用身份证</td>
+			<td>{{idNumber}}</td>
+		</tr>
+		<tr>
+			<td class="active">使用时间</td>
+			<td>{{useDate}}</td>
+			<td class="active">使用类型</td>
+			<td>{{useType}}</td>
+		</tr>
+		<tr>
+			<td class="active">使用去向</td>
+			<td>{{useToWhere}}</td>
+			<td class="active">情况说明</td>
+			<td>{{explain}}</td>
+		</tr>
+		<tr>
+			<td class="active">购房券使用凭证</td>
+			<td colspan="3">
+				{{#if evidencePathVal}}<a target="_blank" href="{{evidencePathVal}}" class="text-primary">点击下载</a>{{/if}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+{{/each}}
 </script>
 <script id="announceInfoTemplate" type="text/x-handlebars-template">
 {{#each this}}

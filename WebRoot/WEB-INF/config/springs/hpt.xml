@@ -24,4 +24,11 @@
 			<constructor-arg index="2" ref="hptDomainService"/>
 			<constructor-arg index="3" ref="fmlItemRepository"/>
 		</bean>
+		
+				<!-- 购房券管理契约服务(应用层) -->
+		<bean id="hptFmlItemService" class="com.tq.requisition.application.hpt.HPTMgtFmlItemServiceImpl">
+			<constructor-arg index="0" ref="hbRepositoryContext"/>
+			<constructor-arg index="1" ref="hptRepository"/>
+			<constructor-arg index="2" ref="fmlItemRepository"/>
+		</bean>
 </beans>

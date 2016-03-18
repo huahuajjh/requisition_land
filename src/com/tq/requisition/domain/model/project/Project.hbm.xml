@@ -85,6 +85,10 @@
 		<property name="createUid" column="create_uId"  type="string"   />
 		<!-- 创建时间 -->
 		<property name="createDate" column="create_date"  type="date"  />
+		<!-- 出资单位 -->
+		<property name="moneyUnit" column="money_unit"  type="string"  />
+		<!-- 其他出资单位 -->
+		<property name="otherMoneyUnit" column="other_money_unit"  type="string"  />
     </class>
 
 </hibernate-mapping>

@@ -31,7 +31,7 @@ public class HPTImportAndExport {
 	private String relationship;
 
 	/** 身份证 */
-	@InputColAnnotation(colCoord = 4,only=true,required = true,onlyErrorMsg = "[身份证]只能唯一",requiredErrorMsg = "[身份证]不可为空")
+	@InputColAnnotation(colCoord = 4,required = true,requiredErrorMsg = "[身份证]不可为空")
 	private String idNumber;
 
 	/** 人口 */
@@ -48,6 +48,11 @@ public class HPTImportAndExport {
 
 	/**所有者id*/
 	private UUID fmlItemId;
+	
+	/**创建人ID*/
+	private String createUId;
+	/**创建时间*/
+	private Date createDate;
 
 	public HousePuraseTicket toHPT() {
 		HousePuraseTicket hpt = new HousePuraseTicket();
@@ -57,7 +62,8 @@ public class HPTImportAndExport {
 		hpt.setMakeDate(new Date());
 		hpt.setName(name);
 		hpt.setTicketNumber(ticketNumber);
-
+		hpt.setCreateDate(createDate);
+		hpt.setCreateUId(createUId);
 		return hpt;
 	}
 
@@ -132,6 +138,20 @@ public class HPTImportAndExport {
 	public void setFmlItemId(UUID fmlItemId) {
 		this.fmlItemId = fmlItemId;
 	}
-	
-	
+
+	public String getCreateUId() {
+		return createUId;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateUId(String createUId) {
+		this.createUId = createUId;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }
