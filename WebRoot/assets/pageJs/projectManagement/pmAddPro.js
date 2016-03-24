@@ -8,12 +8,6 @@ $("#addProform").validate({
 			required : true,
 			maxlength : 20
 		},
-		moneyUnit:{
-			required : true
-		},
-		otherMoneyUnit:{
-			required : true
-		},
 		proTypeCode : {
 			required : true
 		},proCategory:{
@@ -78,8 +72,6 @@ $("#addProform").validate({
 		subData.proType = $("[name='proTypeCode']",form).val();//項目類型id
 		subData.proTypeStr = $("[name='proTypeCode'] option:selected",form).html();//項目類型文本
 		subData.sixForwardPro = $("[name='sixForwardPro']",form).val();//是否六前项目
-		subData.moneyUnit = $("[name='moneyUnit']",form).val();//出资单位
-		subData.otherMoneyUnit = $("[name='otherMoneyUnit']",form).val();//其他出资单位
 		
 		var address = [];
 		var street = [];

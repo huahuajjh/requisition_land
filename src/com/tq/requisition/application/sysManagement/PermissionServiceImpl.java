@@ -27,9 +27,7 @@ public class PermissionServiceImpl extends BaseApplication implements IPermissio
 
 	@Override
 	public void assignRes4Role(UUID rid, UUID... resIds)  throws InvalidOperationException{
-		context().beginTransaction();
 		pmsService.assignRes4Role(rid, resIds);
-		context().commit();
 	}
 
 	@Override

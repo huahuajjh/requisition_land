@@ -160,5 +160,14 @@ public interface IProMgtServiceContract {
 	 * @return String
 	 * 		json
 	 */
-	String getPro4Print(String uuids);	
+	String getPro4Print(String uuids);
+	
+	/**
+	 * 修改指定项目的出资单位
+	 * @param id 所属项目
+	 * @param moneyUnit 国土局出资
+	 * @param otherMoneyUnit 其他出资单位
+	 * @return
+	 */
+	String editMoneyUnit(UUID id,String moneyUnit,String otherMoneyUnit);
 }

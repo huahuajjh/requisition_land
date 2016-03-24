@@ -35,8 +35,8 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="form-group downImput">
-						<label>身份证</label>
-						<input type="text" id="idNumber"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证" autocomplete="OFF">
+						<label>身份证件</label>
+						<input type="text" id="idNumber"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证件" autocomplete="OFF">
 						<ul class="dropdown-menu" id="idNumberQueryPrDown">
 						</ul>
 					</div>
@@ -106,7 +106,7 @@
 			<thead>
 				<tr>
 					<th>姓名</th>
-					<th>身份证</th>
+					<th>身份证件</th>
 					<th>所属拆迁项目</th>
 					<th>
 						是否需要纳入社保
@@ -196,7 +196,7 @@
 	<thead>
 		<tr>
 		    <td>姓名</td>
-		    <td>身份证</td>
+		    <td>身份证件</td>
 		    <td>待遇标准</td>
 		    <td>社保时间</td>
 		    <td>年龄段</td>

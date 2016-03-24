@@ -54,6 +54,7 @@ public class PermissionService implements IPermissionService{
 	@Override
 	public void assignRole4User(UUID id, UUID... rIds)
 			throws InvalidOperationException {
+		repositoryContext.beginTransaction();
 		if(rIds==null)
 		{
 			throw new NullPointerException("角色id数组为null，rIds=null");
@@ -72,6 +73,7 @@ public class PermissionService implements IPermissionService{
 	@Override
 	public void assignRes4Role(UUID rid, UUID... resIds)
 			throws InvalidOperationException {
+		repositoryContext.beginTransaction();
 		if(resIds==null)
 		{
 			throw new NullPointerException("角色id数组为null，rIds=null");
@@ -82,7 +84,8 @@ public class PermissionService implements IPermissionService{
 		//为角色分配新的资源
 		for (int i = 0; i < resIds.length; i++) {
 			resRoleRepository.assignRes4Role(rid, resIds[i]);
-		}		
+		}
+		repositoryContext.commit();
 	}
 	
 	@Override

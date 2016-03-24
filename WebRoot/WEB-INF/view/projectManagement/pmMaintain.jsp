@@ -481,18 +481,6 @@
 			<label id="sixPro-error" class="error" for="sixPro" style="display: none;"></label>
 		</div>
 	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<label class="control-label">国土局出资(单位名称)<span class="text-danger">*</span></label>
-				<input type="text" class="form-control" placeholder="国土局出资(单位名称)" value="{{moneyUnit}}" name="moneyUnit" maxlength="20">
-		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<label class="control-label">其他单位出资(单位名称)<span class="text-danger">*</span></label>
-				<input type="text" class="form-control" placeholder="其他单位出资(单位名称)" value="{{otherMoneyUnit}}" name="otherMoneyUnit" maxlength="20">
-		</div>
-	</div>
 </div>
 </script>
 <script id="announceInfoTemplate" type="text/x-handlebars-template">

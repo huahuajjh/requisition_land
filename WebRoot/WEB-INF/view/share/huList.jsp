@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<th>户主姓名</th>
 						<th>所属项目</th>
-						<th>身份证</th>
+						<th>身份证件</th>
 						<th>地址</th>
 						<th>操作</th>
 					</tr>

@@ -33,8 +33,8 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group downImput">
-						<label>身份证</label>
-						<input type="text" id="idNumber" class="form-control" placeholder="请输入身份证" maxlength="20" autocomplete="OFF" />
+						<label>身份证件</label>
+						<input type="text" id="idNumber" class="form-control" placeholder="请输入身份证件" maxlength="20" autocomplete="OFF" />
 						<ul class="dropdown-menu" id="idNumberQueryPrDown">
 						</ul>
 					</div>
@@ -405,7 +405,7 @@
 				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
-    			<td>身份证号码</td>
+    			<td>身份证件号码</td>
     			<td><strong>{{idNumber}}</strong></td>
     			<td>出生日期</td>
 				<td><strong>{{birthday}}</strong></td>
@@ -557,7 +557,7 @@
 				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
-    			<td>身份证号码</td>
+    			<td>身份证件号码</td>
     			<td><strong>{{idNumber}}</strong></td>
     			<td>出生日期</td>
 				<td><strong>{{birthday}}</strong></td>
@@ -659,8 +659,8 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">身份证<span class="text-danger">*</span></label>
-			<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入身份证" maxlength="20">
+			<label class="control-label">身份证件<span class="text-danger">*</span></label>
+			<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入身份证件" maxlength="20">
 		</div>
 	</div>
 	<div class="col-md-6">

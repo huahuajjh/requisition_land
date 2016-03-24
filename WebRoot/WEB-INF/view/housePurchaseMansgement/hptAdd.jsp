@@ -72,9 +72,9 @@
 	</div>
 	<div class="panel-body">
 			<div class="form-group">
-	        	<label class="col-md-3 control-label">请输入姓名或身份证进行查询</label>
+	        	<label class="col-md-3 control-label">请输入姓名或身份证件进行查询</label>
 	         	<div class="col-md-5 downImput">
-	             	<input type="text" id="idNumberOrName"  class="form-control" placeholder="请输入需要录入人的身份证" />
+	             	<input type="text" id="idNumberOrName"  class="form-control" placeholder="请输入需要录入人的身份证件" />
 	             	<ul class="dropdown-menu" id="queryDown"></ul>
 	        	</div>
 	      	</div>
@@ -139,12 +139,12 @@
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label">身份证<span class="text-danger">*</span></label>
+							<label class="control-label">身份证件<span class="text-danger">*</span></label>
 							<div class="controls">
 								<div class="input-group" style="width: 100%;">
 									<select class="form-control" size="1" name="certificateType">
 										<option value="">请选择证件类型</option>
-										<option value="idNumber">身份证</option>
+										<option value="idNumber">身份证件</option>
 										<option value="otherNumber">其他证件</option>
 									</select>
 									<span class="input-group-btn" style="width:130px;">
@@ -336,7 +336,7 @@
 	所属项目：<a href="javascript:;" class="text-primary" onclick="showProInfo('{{proId}}')">{{proName}}</a>
 </div>
 <div class="form-group">
-	身份证：{{idNumber}}
+	身份证件：{{idNumber}}
 </div>
 <div class="form-group">
 	与户主关系：{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}
@@ -402,12 +402,12 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">身份证<span class="text-danger">*</span></label>
+			<label class="control-label">身份证件<span class="text-danger">*</span></label>
 			<div class="controls">
 				<div class="input-group" style="width: 100%;">
 					<select class="form-control" size="1" name="certificateType">
 						<option value="">请选择证件类型</option>
-						<option value="idNumber">身份证</option>
+						<option value="idNumber">身份证件</option>
 						<option value="otherNumber">其他证件</option>
 					</select>
 					<span class="input-group-btn" style="width:130px;">
@@ -563,7 +563,7 @@
 						<th>征拆项目</th>
 						<th>姓名</th>
 						<th>与户主关系</th>
-						<th>身份证</th>
+						<th>身份证件</th>
 						<th>票据号</th>
 						<th>补贴金额</th>
 						<th style="width: 200px;">操作</th>
@@ -582,7 +582,7 @@
 						<th>征拆项目</th>
 						<th>姓名</th>
 						<th>与户主关系</th>
-						<th>身份证</th>
+						<th>身份证件</th>
 						<th>票据号</th>
 						<th>补贴金额</th>
 					</tr>
@@ -608,7 +608,7 @@
 				<td>征拆项目</td>
 				<td>姓名</td>
 				<td>与户主关系</td>
-				<td>身份证</td>
+				<td>身份证件</td>
 				<td>人口</td>
 				<td>票据号</td>
 				<td>补贴金额</td>
@@ -637,7 +637,7 @@
 		<td>{{name}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">身份证：</td>
+		<td class="text-right">身份证件：</td>
 		<td>{{idNumber}}</td>
 	</tr>
 	<tr>
@@ -661,7 +661,7 @@
 		<td>{{headName}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">户主身份证：</td>
+		<td class="text-right">户主身份证件：</td>
 		<td>{{headIdNumber}}</td>
 	</tr>
 	<tr>
@@ -673,7 +673,7 @@
 		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">身份证：</td>
+		<td class="text-right">身份证件：</td>
 		<td>{{idNumber}}</td>
 	</tr>
 	<tr>
@@ -733,7 +733,7 @@
 		<td>{{headName}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">户主身份证：</td>
+		<td class="text-right">户主身份证件：</td>
 		<td>{{headIdNumber}}</td>
 	</tr>
 	<tr>
@@ -745,7 +745,7 @@
 		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">身份证：</td>
+		<td class="text-right">身份证件：</td>
 		<td>{{idNumber}}</td>
 	</tr>
 	<tr>
@@ -827,7 +827,7 @@
 	</div>
 </div>
 <div class="form-group">
-	<label class="col-md-3 control-label">身份证</label>
+	<label class="col-md-3 control-label">身份证件</label>
 	<div class="col-md-5">
 		<div class="form-control-static" >{{idNumber}}</div>
 	</div>

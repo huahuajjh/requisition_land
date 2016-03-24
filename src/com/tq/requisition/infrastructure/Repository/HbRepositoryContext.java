@@ -43,7 +43,6 @@ public class HbRepositoryContext extends RepositoryContext implements
 //				session().flush();
 				session().getTransaction().commit();
 				super.commited(true);
-				System.out.println("-------------------------------------------commit-------------------------------------------");
 				return;
 			} catch (Exception e) {
 				LoggerFactory.logger().debug(this.getClass().getName(),
@@ -55,7 +54,6 @@ public class HbRepositoryContext extends RepositoryContext implements
 				{
 					session().close();
 				}
-				System.out.println("-------------------------------------------finally close-------------------------------------------");
 			}
 		}
 	}
@@ -90,7 +88,6 @@ public class HbRepositoryContext extends RepositoryContext implements
 	@Override
 	protected void doBegintransaction() {
 		session().beginTransaction();		
-		System.out.println("-------------------------------------------begin transaction-------------------------------------------");		
 	}
 	
 	@Override

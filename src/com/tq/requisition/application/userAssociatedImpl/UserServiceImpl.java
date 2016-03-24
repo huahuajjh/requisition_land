@@ -32,7 +32,8 @@ public class UserServiceImpl implements IUserService{
 	 */
 	@Override
 	public boolean login(String account, String pwd) {
-		return accountRepository.login(account, pwd);
+		boolean state = accountRepository.login(account, pwd);
+		return state;
 	}
 	
 	/**
@@ -45,7 +46,7 @@ public class UserServiceImpl implements IUserService{
 		try {
 			accountRepository.context().beginTransaction();
 			accountRepository.changePwd(uId, oldPwd, newPwd);
-			accountRepository.context().commit();			
+			accountRepository.context().commit();
 			return Serialization.toJson(Formater.obtain("–ﬁ∏ƒ√‹¬Î≥…π¶", null, Formater.OperationResult.SUCCESS)); 
 		} catch (DomainException e) {
 			return Serialization.toJson(Formater.obtain("–ﬁ∏ƒ√‹¬Î ß∞‹-"+e.getMessage(), null, Formater.OperationResult.FAIL));
@@ -62,7 +63,6 @@ public class UserServiceImpl implements IUserService{
 			dto.setId(UUID.fromString(ConfigFileUtil.readByKey("adminId")));
 			return dto;
 		}
-		
 		Account acc = accountRepository.login4session(account, pwd);
 		if(null == acc){return null;}
 		return AccountSafeMapper.toDto(acc);

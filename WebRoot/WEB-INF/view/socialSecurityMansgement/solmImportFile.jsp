@@ -57,11 +57,11 @@
 	</div>
 	<div class="panel-body">
 		<div class="form-group">
-        	<label class="col-md-3 control-label">身份证</label>
+        	<label class="col-md-3 control-label">身份证件</label>
          	<div class="col-md-5">
              	<div class="controls">
 					<div class="input-group downImput" style="width: 100%;">
-						<input id="idNumber" class="form-control"  type="text" placeholder="请输入需要录入人的身份证" maxlength="20" autocomplete="OFF" />
+						<input id="idNumber" class="form-control"  type="text" placeholder="请输入需要录入人的身份证件" maxlength="20" autocomplete="OFF" />
 						<span class="input-group-btn" style="width: 100px;">
 							<button class="btn btn-default" id="idNumberBtn" type="button"><i class="fa fa-search"></i> 获取</button>
 							<button type="button" class="btn btn-default" onclick="$('#selectPerson').modal('show');">选择人员</button>
@@ -115,7 +115,7 @@
 		<td>{{name}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">身份证号：</td>
+		<td class="text-right">身份证件号：</td>
 		<td>{{idNumber}}</td>
 	</tr>
 	<tr>
@@ -175,7 +175,7 @@
 		<thead>
 			<tr>
 				<td>姓名</td>
-				<td>身份证号</td>
+				<td>身份证件号</td>
 				<td>性别</td>
 				<td>出生日期</td>
 				<td>年龄段</td>
@@ -236,7 +236,7 @@
 			<tr>
 				<td class="active">姓名</td>
 				<td>{{name}}</td>
-				<td class="active">身份证号</td>
+				<td class="active">身份证件号</td>
 				<td>{{idNumber}}</td>
 			</tr>
 			<tr>

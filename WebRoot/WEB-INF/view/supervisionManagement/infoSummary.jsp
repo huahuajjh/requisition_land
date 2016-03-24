@@ -368,7 +368,7 @@
     				<th>与户主关系</th>
     				<th>性别</th>
     				<th>出生日期</th>
-    				<th>身份证</th>
+    				<th>身份证件</th>
     				<th>户口性质</th>
     				<th>半边户</th>
     				<th>独生子女证号</th>
@@ -469,7 +469,7 @@
 		<tr>
 			<td class="active">领用人姓名</td>
 			<td>{{name}}</td>
-			<td class="active">领用身份证</td>
+			<td class="active">领用身份证件</td>
 			<td>{{idNumber}}</td>
 		</tr>
 		<tr>

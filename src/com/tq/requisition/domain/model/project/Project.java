@@ -476,8 +476,6 @@ public class Project extends AggregateRoot{
 		this.categoryStr = pro.getCategoryStr();
 		this.setStreetId(pro.getStreetId());
 		this.setCommunityId(pro.getCommunityId());
-		this.setMoneyUnit(pro.getMoneyUnit());
-		this.setOtherMoneyUnit(pro.getOtherMoneyUnit());
 	}
 	
 	public void modify4Import(Project pro) {

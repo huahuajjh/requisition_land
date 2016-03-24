@@ -267,4 +267,22 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		return toJson("获取打印信息成功", list, Formater.OperationResult.SUCCESS);
 	}
 
+	@Override
+	public String editMoneyUnit(UUID id, String moneyUnit, String otherMoneyUnit) {
+		context().beginTransaction();
+		try {
+			Project pro = projectRepository.getByKey(Project.class, id);
+			pro.setMoneyUnit(moneyUnit);
+			pro.setOtherMoneyUnit(otherMoneyUnit);
+			projectRepository.update(pro);
+			context().commit();
+			return toJson("录入项目出资单位信息成功", pro, Formater.OperationResult.SUCCESS);
+		} catch (Exception e) {
+			return toJson("录入项目出资单位信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+		}
+		finally{
+			context().close();
+		}
+	}
+
 }

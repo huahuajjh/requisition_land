@@ -19,8 +19,8 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="nf-email">身份证</label> <input type="text"
-							class="form-control" placeholder="请输入户主身份证" />
+						<label for="nf-email">身份证件</label> <input type="text"
+							class="form-control" placeholder="请输入户主身份证件" />
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -231,7 +231,7 @@
 									<td>小明</td>
 									<td class="active text-right"><strong>与户主关系：</strong></td>
 									<td>户主</td>
-									<td class="active text-right"><strong>身份证号码：</strong></td>
+									<td class="active text-right"><strong>身份证件号码：</strong></td>
 									<td>748523666999888888</td>
 								</tr>
 								<tr>

@@ -221,11 +221,10 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 				return OperationType.SQL;
 			}
 		});
-	
 		if(null == list || list.size()==0)
 		{
 			throw new NullPointerException("用户名或者密码错误");
-		}		
+		}
 		return list.get(0);
 	}
 	

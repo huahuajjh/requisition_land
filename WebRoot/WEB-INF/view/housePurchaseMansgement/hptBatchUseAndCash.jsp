@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<thead>
 				<tr>
 					<th>姓名</th>
-					<th>身份证</th>
+					<th>身份证件</th>
 					<th>所属拆迁项目</th>
 					<th>券号</th>
 					<th>补贴金额（万元）</th>
@@ -219,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<thead>
 			<tr>
 				<td>姓名</td>
-				<td>身份证</td>
+				<td>身份证件</td>
 				<td>券号</td>
 				<td>补贴金额（万元）</td>
 				<td>制券时间</td>

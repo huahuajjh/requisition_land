@@ -13,9 +13,9 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-6">
-				<label>请输入姓名或身份证进行查询</label>
+				<label>请输入姓名或身份证件进行查询</label>
 				<div class="input-group downImput" style="width: 100%;">
-					<input class="form-control" id="queryVal" type="text" placeholder="请输入姓名或身份证" maxlength="20" autocomplete="OFF" />
+					<input class="form-control" id="queryVal" type="text" placeholder="请输入姓名或身份证件" maxlength="20" autocomplete="OFF" />
 					<span class="input-group-btn" style="width: 57px;">
 						<button class="btn btn-default" type="button" id="queryBtn">查询</button>
 					</span>
@@ -101,7 +101,7 @@
            			<td><strong>{{#dengYu gender 0}}男{{else}}女{{/dengYu}}</strong></td>
            		</tr>
            		<tr>
-           			<td>身份证号码</td>
+           			<td>身份证件号码</td>
        				<td><strong>{{idNumber}}</strong></td>
            			<td>独生子女证件号</td>
        				<td><strong>{{onlyChildNumber}}</strong></td>
@@ -200,7 +200,7 @@
 				<tr>
 					<td class="active">领用人姓名</td>
 					<td>{{name}}</td>
-					<td class="active">领用身份证</td>
+					<td class="active">领用身份证件</td>
 					<td>{{idNumber}}</td>
 				</tr>
 				<tr>

@@ -7,9 +7,13 @@
 
 <hibernate-configuration>
 	<session-factory name="hb_foo">
-	
+		
+		<property name="connection.autoReconnect">true</property> 
+        <property name="connection.autoReconnectForPools">true</property> 
+        <property name="connection.is-connection-validation-required">true</property> 
+		
 		<!--C3P0配置 http://blog.csdn.net/mercenarylin/article/details/21605223 -->
-        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
         <property name="hibernate.c3p0.max_size">20</property>
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.timeout">120</property>
@@ -21,7 +25,7 @@
         <property name="c3p0.idleConnectionTestPeriod">18000</property>
         <property name="c3p0.maxIdleTime">25000</property>
         <property name="c3p0.idle_test_period">120</property>
-	
+
 		<!-- mysql驱动 -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- mysql连接字符串 -->
@@ -35,7 +39,7 @@
 		<!-- 关闭二级缓存 -->
 		<property name="cache.use_second_level_cache">false</property>
 		<!-- 设置current session -->
-		<!-- <property name="current_session_context_class">thread</property> -->
+		<!-- <property name="current_session_context_class">thread</property>  -->
 		<!-- 设置hibernate语句到了50条发送 -->
 		<property name="hibernate.jdbc.batch_size">50</property>
 

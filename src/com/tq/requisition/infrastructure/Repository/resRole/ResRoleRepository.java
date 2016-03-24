@@ -81,7 +81,6 @@ public class ResRoleRepository  extends HbRepository<ResRole> implements IResRol
 				return OperationType.SQL;
 			}
 		});
-		System.out.println(r);
 		if(r)
 		{
 			throw new DataAlreadyExistsException("为该角色指定资源已经存在");

@@ -41,8 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-3">
 					<div class="form-group downImput">
-						<label>身份证</label>
-						<input id="queryIdNumber" type="text" maxlength="20" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" />
+						<label>身份证件</label>
+						<input id="queryIdNumber" type="text" maxlength="20" class="form-control" placeholder="输入身份证件进行搜索" autocomplete="OFF" />
 						<ul class="dropdown-menu" id="idNumberQueryPrDown">
 						</ul>
 					</div>
@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<thead>
 					<tr>
 						<th><span class="jHead">姓名</span></th>
-						<th><span class="jHead">身份证</span></th>
+						<th><span class="jHead">身份证件</span></th>
 						<th><span class="jHead">所属项目</span></th>
 						<th><span class="jHead">券号</span></th>
 						<th><span class="jHead">面额</span></th>

@@ -28,8 +28,6 @@ public final class NewProjectMapper {
 		model.setCategoryStr(dto.getProCategory());
 		model.setCreateDate(dto.getCreateDate());
 		model.setCreateUid(dto.getCreateUid());
-		model.setMoneyUnit(dto.getMoneyUnit());
-		model.setOtherMoneyUnit(dto.getOtherMoneyUnit());
 		return model;
 	}
 }

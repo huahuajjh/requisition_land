@@ -2361,6 +2361,7 @@ select {
 	-moz-appearance: none;
 	appearance: none;
 	cursor: pointer;
+	height: 34px !important;
 }
 
 select[disabled] {

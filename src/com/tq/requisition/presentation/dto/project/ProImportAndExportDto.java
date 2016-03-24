@@ -32,136 +32,128 @@ public class ProImportAndExportDto {
 	@InputColAnnotation(colCoord = 2,isAbandonRowspanData = true)
 	@OutputColAnnotation(colCoord = 2)
 	private String approvalNumber;
-	/**国土局出资单位*/
-	@InputColAnnotation(colCoord = 3,required = true, requiredErrorMsg = "[国土局出资单位]不可为空")
-	@OutputColAnnotation(colCoord = 3)
-	private String moneyUnit;
-	/**其他出资单位*/
-	@InputColAnnotation(colCoord = 4,required = true, requiredErrorMsg = "[其他出资单位]不可为空")
-	@OutputColAnnotation(colCoord = 4)
-	private String otherMoneyUnit;
 	/** 项目类型 */
-	@InputColAnnotation(colCoord = 5)
-	@OutputColAnnotation(colCoord = 5)
+	@InputColAnnotation(colCoord = 3)
+	@OutputColAnnotation(colCoord = 3)
 	private String proCategory;
 	/** 项目类型名称-基础设施 */
-	@InputColAnnotation(colCoord = 6)
-	@OutputColAnnotation(colCoord = 6)
+	@InputColAnnotation(colCoord = 4)
+	@OutputColAnnotation(colCoord = 4)
 	private String proTypeStrInfra;
 	/** 项目类型名称-其他 */
-	@InputColAnnotation(colCoord = 7)
-	@OutputColAnnotation(colCoord = 7)
+	@InputColAnnotation(colCoord = 5)
+	@OutputColAnnotation(colCoord = 5)
 	private String proTypeStrOther;
 	/** 本月新启动项目 */
-	@InputColAnnotation(colCoord = 8)
-	@OutputColAnnotation(colCoord = 8)
+	@InputColAnnotation(colCoord = 6)
+	@OutputColAnnotation(colCoord = 6)
 	private String newStart;
 	/** 是否为本月完成结算项目 */
-	@InputColAnnotation(colCoord = 9)
-	@OutputColAnnotation(colCoord = 9)
+	@InputColAnnotation(colCoord = 7)
+	@OutputColAnnotation(colCoord = 7)
 	private String curMonthComplete;
 	/** 项目全地址 */
-	@InputColAnnotation(colCoord = 10)
-	@OutputColAnnotation(colCoord = 10)
+	@InputColAnnotation(colCoord = 8)
+	@OutputColAnnotation(colCoord = 8)
 	private String totalAddress;
 	
 	/** 公告1 */
-	@OutputColAnnotation(colCoord = 11)
+	@OutputColAnnotation(colCoord = 9)
 	private Date announce1;
 	/** 公告2 */
-	@OutputColAnnotation(colCoord = 12)
+	@OutputColAnnotation(colCoord = 10)
 	private Date announce2;
 	/** 公告3 */
-	@OutputColAnnotation(colCoord = 13)
+	@OutputColAnnotation(colCoord = 11)
 	private Date announce3;
 
 	/** 征地面积 */
-	@InputColAnnotation(colCoord = 11, required = true, converErrorMsg = "类型错误，[征地面积]是小数类型", requiredErrorMsg = "[征地面积]不可为空")
-	@OutputColAnnotation(colCoord = 14)
+	@InputColAnnotation(colCoord = 9, required = true, converErrorMsg = "类型错误，[征地面积]是小数类型", requiredErrorMsg = "[征地面积]不可为空")
+	@OutputColAnnotation(colCoord = 12)
 	private float requisitionArea;
 	/** 累计已腾地 */
-	@InputColAnnotation(colCoord = 12, converErrorMsg = "类型错误，[累计已腾地]是小数类型")
-	@OutputColAnnotation(colCoord = 15)
+	@InputColAnnotation(colCoord = 10, converErrorMsg = "类型错误，[累计已腾地]是小数类型")
+	@OutputColAnnotation(colCoord = 13)
 	private float requisitionLandAreaTotal;
 	/** 本月已腾地 */
-	@InputColAnnotation(colCoord = 13, converErrorMsg = "类型错误，[本月已腾地]是小数类型")
-	@OutputColAnnotation(colCoord = 16)
+	@InputColAnnotation(colCoord = 11, converErrorMsg = "类型错误，[本月已腾地]是小数类型")
+	@OutputColAnnotation(colCoord = 14)
 	private float removedLandArea;
 	/** 本年已腾地 */
-	@InputColAnnotation(colCoord = 14, converErrorMsg = "类型错误，[本年已腾地]是小数类型")
-	@OutputColAnnotation(colCoord = 17)
+	@InputColAnnotation(colCoord = 12, converErrorMsg = "类型错误，[本年已腾地]是小数类型")
+	@OutputColAnnotation(colCoord = 15)
 	private float requisitionLandAreaYear;
 	
 	/** 应拆栋数 */
-	@InputColAnnotation(colCoord = 15, required = true, converErrorMsg = "类型错误，[应拆栋数]是整数类型", requiredErrorMsg = "[应拆栋数]不可为空")
-	@OutputColAnnotation(colCoord = 18)
+	@InputColAnnotation(colCoord = 13, required = true, converErrorMsg = "类型错误，[应拆栋数]是整数类型", requiredErrorMsg = "[应拆栋数]不可为空")
+	@OutputColAnnotation(colCoord = 16)
 	private int shouldRemoveBuildings;
 	/** 累计已拆合法栋数 */
-	@InputColAnnotation(colCoord = 16, converErrorMsg = "类型错误，[累计已拆合法栋数]是整数类型")
-	@OutputColAnnotation(colCoord = 19)
+	@InputColAnnotation(colCoord = 14, converErrorMsg = "类型错误，[累计已拆合法栋数]是整数类型")
+	@OutputColAnnotation(colCoord = 17)
 	private int removedBuildingsLegalTotal;
 	/** 本月已拆栋数 */
-	@InputColAnnotation(colCoord = 17, converErrorMsg = "类型错误，[本月已拆栋数]是整数类型")
-	@OutputColAnnotation(colCoord = 20)
+	@InputColAnnotation(colCoord = 15, converErrorMsg = "类型错误，[本月已拆栋数]是整数类型")
+	@OutputColAnnotation(colCoord = 18)
 	private int removedBuildings;
 	/** 本年已拆合法栋数 */
-	@InputColAnnotation(colCoord = 18, converErrorMsg = "类型错误，[本年已拆合法栋数]是整数类型")
-	@OutputColAnnotation(colCoord = 21)
+	@InputColAnnotation(colCoord = 16, converErrorMsg = "类型错误，[本年已拆合法栋数]是整数类型")
+	@OutputColAnnotation(colCoord = 19)
 	private int removedBuildingsLegalYear;
 	
 	/** 应拆合法总面积 */
-	@InputColAnnotation(colCoord = 19, required = true, converErrorMsg = "类型错误，[应拆合法总面积]是小数类型", requiredErrorMsg = "[应拆合法总面积]不可为空")
-	@OutputColAnnotation(colCoord = 22)
+	@InputColAnnotation(colCoord = 17, required = true, converErrorMsg = "类型错误，[应拆合法总面积]是小数类型", requiredErrorMsg = "[应拆合法总面积]不可为空")
+	@OutputColAnnotation(colCoord = 20)
 	private float shouldRemoveLegalArea;
 	/** 累计已拆合法面积 */
-	@InputColAnnotation(colCoord = 20, converErrorMsg = "类型错误，[累计已拆合法面积]是小数类型")
-	@OutputColAnnotation(colCoord = 23)
+	@InputColAnnotation(colCoord = 18, converErrorMsg = "类型错误，[累计已拆合法面积]是小数类型")
+	@OutputColAnnotation(colCoord = 21)
 	private float removedAreaLegalTotal;
 	/** 本月已拆合法面积 */
-	@InputColAnnotation(colCoord = 21, converErrorMsg = "类型错误，[本月已拆合法面积]是小数类型")
-	@OutputColAnnotation(colCoord = 24)
+	@InputColAnnotation(colCoord = 19, converErrorMsg = "类型错误，[本月已拆合法面积]是小数类型")
+	@OutputColAnnotation(colCoord = 22)
 	private float removedLegalArea;
 	/** 本年已拆合法面积 */
-	@InputColAnnotation(colCoord = 22, converErrorMsg = "类型错误，[本年已拆合法面积]是小数类型")
-	@OutputColAnnotation(colCoord = 25)
+	@InputColAnnotation(colCoord = 20, converErrorMsg = "类型错误，[本年已拆合法面积]是小数类型")
+	@OutputColAnnotation(colCoord = 23)
 	private float removedAreaLegalYear;
 	
 	/** 应动迁人口 */
-	@InputColAnnotation(colCoord = 23, required = true, converErrorMsg = "类型错误，[应动迁人口]是整数类型", requiredErrorMsg = "[应动迁人口]不可为空")
-	@OutputColAnnotation(colCoord = 26)
+	@InputColAnnotation(colCoord = 21, required = true, converErrorMsg = "类型错误，[应动迁人口]是整数类型", requiredErrorMsg = "[应动迁人口]不可为空")
+	@OutputColAnnotation(colCoord = 24)
 	private int shouldMovePopulation;
 	/** 累计已迁人口 */
-	@InputColAnnotation(colCoord = 24, converErrorMsg = "类型错误，[累计已迁人口]是整数类型")
-	@OutputColAnnotation(colCoord = 27)
+	@InputColAnnotation(colCoord = 22, converErrorMsg = "类型错误，[累计已迁人口]是整数类型")
+	@OutputColAnnotation(colCoord = 25)
 	private int removedPopulationTotal;
 	/** 本月已动迁人口 */
-	@InputColAnnotation(colCoord = 25, converErrorMsg = "类型错误，[本月已动迁人口]整数类型")
-	@OutputColAnnotation(colCoord = 28)
+	@InputColAnnotation(colCoord = 23, converErrorMsg = "类型错误，[本月已动迁人口]整数类型")
+	@OutputColAnnotation(colCoord = 26)
 	private int movedPopulation;
 	/** 本年已迁人口 */
-	@InputColAnnotation(colCoord = 26, converErrorMsg = "类型错误，[本年已迁人口]是整数类型")
-	@OutputColAnnotation(colCoord = 29)
+	@InputColAnnotation(colCoord = 24, converErrorMsg = "类型错误，[本年已迁人口]是整数类型")
+	@OutputColAnnotation(colCoord = 27)
 	private int removedPopulationYear;
 	
 	/** 本年下达限期腾地决定书 */
-	@InputColAnnotation(colCoord = 27, converErrorMsg = "类型错误，[本年下达限期腾地决定书]整数类型")
-	@OutputColAnnotation(colCoord = 30)
+	@InputColAnnotation(colCoord = 25, converErrorMsg = "类型错误，[本年下达限期腾地决定书]整数类型")
+	@OutputColAnnotation(colCoord = 28)
 	private int yearDeadlineFile;
 	/** 本年申请法院执行 */
-	@InputColAnnotation(colCoord = 28, converErrorMsg = "类型错误，[本年申请法院执行]整数类型")
-	@OutputColAnnotation(colCoord = 31)
+	@InputColAnnotation(colCoord = 26, converErrorMsg = "类型错误，[本年申请法院执行]整数类型")
+	@OutputColAnnotation(colCoord = 29)
 	private int yearCourtExecute;
 	/** 本年依法实施强制腾地户数 */
-	@InputColAnnotation(colCoord = 29, converErrorMsg = "类型错误，[本年依法实施强制腾地户数]整数类型")
-	@OutputColAnnotation(colCoord = 32)
+	@InputColAnnotation(colCoord = 27, converErrorMsg = "类型错误，[本年依法实施强制腾地户数]整数类型")
+	@OutputColAnnotation(colCoord = 30)
 	private int yearLegalRemoved;
 	/** 是否“六前项目” */
-	@InputColAnnotation(colCoord = 30)
-	@OutputColAnnotation(colCoord = 33)
+	@InputColAnnotation(colCoord = 28)
+	@OutputColAnnotation(colCoord = 31)
 	private String sixForheadPro;
 	/** 备注 */
-	@InputColAnnotation(colCoord = 31)
-	@OutputColAnnotation(colCoord = 34)
+	@InputColAnnotation(colCoord = 29)
+	@OutputColAnnotation(colCoord = 32)
 	private String remark;
 	
 	
@@ -211,8 +203,6 @@ public class ProImportAndExportDto {
 		Project model = new Project();
 		model.setProName(proName);
 		model.setApprovalNumber(approvalNumber);
-		model.setMoneyUnit(moneyUnit);
-		model.setOtherMoneyUnit(otherMoneyUnit);
 		model.setRequisitionArea(requisitionArea);
 		model.setShouldRemoveBuildings(shouldRemoveBuildings);
 		model.setShouldRemoveHouses(shouldRemoveHouses);
@@ -338,8 +328,6 @@ public class ProImportAndExportDto {
 			ProImportAndExportDto dto = new ProImportAndExportDto();
 			dto.proName = project.getProName();
 			dto.approvalNumber = project.getApprovalNumber();
-			dto.moneyUnit = project.getMoneyUnit();
-			dto.otherMoneyUnit = project.getOtherMoneyUnit();
 			dto.requisitionArea = project.getRequisitionArea();
 			dto.shouldRemoveBuildings = project.getShouldRemoveBuildings();
 			dto.shouldRemoveHouses = project.getShouldRemoveHouses();
@@ -475,13 +463,4 @@ public class ProImportAndExportDto {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-
-	public void setMoneyUnit(String moneyUnit) {
-		this.moneyUnit = moneyUnit;
-	}
-
-	public void setOtherMoneyUnit(String otherMoneyUnit) {
-		this.otherMoneyUnit = otherMoneyUnit;
-	}
-	
 }

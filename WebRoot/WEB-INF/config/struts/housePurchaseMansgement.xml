@@ -80,6 +80,13 @@
 		<action name="hptBatchUseAndCashList" method="list" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptBatchUseAndCash"></action>
 		<action name="hptBatchUseAndCashProcessing" method="processing" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptBatchUseAndCash"></action>
 		
+		<!-- 设置项目出资单位 -->
+		<action name="hptProjectMoneyUnit" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptProjectMoneyUnit">
+			<result name="success">../WEB-INF/view/housePurchaseMansgement/hptProjectMoneyUnit.jsp</result>
+		</action>
+		<action name="hptProjectMoneyUnitGet" method="get" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptProjectMoneyUnit"></action>
+		<action name="hptProjectMoneyUnitEdit" method="edit" class="com.tq.requisition.presentation.actions.housePurchaseMansgement.HptProjectMoneyUnit"></action>
+		
 	</package>
 </struts>
 		

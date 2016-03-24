@@ -201,8 +201,8 @@
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
-							<label class="control-label" for="text-input">身份证</label>
-							<input type="text" name="idNumber"  class="form-control"  placeholder="请输入身份证" maxlength="18" />
+							<label class="control-label" for="text-input">身份证件</label>
+							<input type="text" name="idNumber"  class="form-control"  placeholder="请输入身份证件" maxlength="18" />
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -385,7 +385,7 @@
 				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
     		</tr>
     		<tr>
-    			<td>身份证号码</td>
+    			<td>身份证件号码</td>
     			<td><strong>{{idNumber}}</strong></td>
     			<td>出生日期</td>
 				<td><strong>{{birthday}}</strong></td>

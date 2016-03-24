@@ -27,8 +27,8 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="form-group downImput">
-						<label>身份证</label>
-						<input type="text"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证" id="idNumber" autocomplete="OFF">
+						<label>身份证件</label>
+						<input type="text"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证件" id="idNumber" autocomplete="OFF">
 						<ul class="dropdown-menu" id="idNumberQueryPrDown">
 						</ul>
 					</div>
@@ -98,7 +98,7 @@
 				<thead>
 					<th>所属项目</th>
 					<th>姓名</th>
-					<th>身份证号</th>
+					<th>身份证件号</th>
 					<th>是否社保</th>
 					<th>待遇标准</th>
 					<th>社保时间</th>
@@ -172,7 +172,7 @@
 	</div>
 </div>
 <div class="form-group">
-	<label class="col-md-4 control-label">身份证</label>
+	<label class="col-md-4 control-label">身份证件</label>
 	<div class="col-md-5">
  		<div class="form-control-static">{{idNumber}}</div>
 	</div>

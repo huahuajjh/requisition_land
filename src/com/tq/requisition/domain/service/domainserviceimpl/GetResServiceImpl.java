@@ -133,7 +133,6 @@ public class GetResServiceImpl implements IGetResService {
 				return OperationType.SQL;
 			}
 		});
-		
 		return ress;
 	}
 	

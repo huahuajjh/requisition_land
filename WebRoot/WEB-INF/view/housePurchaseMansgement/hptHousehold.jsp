@@ -19,8 +19,8 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">
-						<label for="nf-email">身份证</label> <input type="text"
-							class="form-control" placeholder="请输入户主身份证" />
+						<label for="nf-email">身份证件</label> <input type="text"
+							class="form-control" placeholder="请输入户主身份证件" />
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -194,7 +194,7 @@
 			<tr>
 				<th>姓名</th>
 				<th>与户主关系</th>
-				<th>身份证</th>
+				<th>身份证件</th>
 				<th>出生日期</th>
 				<th>性别</th>
 				<th>户口性质</th>

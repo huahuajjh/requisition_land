@@ -62,6 +62,7 @@ public class HibernateUtils {
 	 * @return Session SessionÊµÀý
 	 */
 	public static Session session() {
+		
 		Session session = SESSION_THREAD_LOCAL;
 		if(session == null)
 		{

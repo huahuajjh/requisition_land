@@ -16,8 +16,8 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group downImput">
-					<label>持有人身份证</label>
-					<input type="text" name="idNumber" id="idNumber" class="form-control" placeholder="请输入要查询的持有人身份证"  maxlength="20" autocomplete="OFF" />
+					<label>持有人身份证件</label>
+					<input type="text" name="idNumber" id="idNumber" class="form-control" placeholder="请输入要查询的持有人身份证件"  maxlength="20" autocomplete="OFF" />
 					<ul class="dropdown-menu" id="idNumberQueryPrDown">
 					</ul>
 				</div>
@@ -89,7 +89,7 @@
 			<tr>
 				<td class="active">姓名</td>
 				<td>{{name}}</td>
-				<td class="active">身份证号</td>
+				<td class="active">身份证件号</td>
 				<td>{{idNumber}}</td>
 			</tr>
 			<tr>
@@ -189,7 +189,7 @@
 		<td>{{resideName}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">身份证号：</td>
+		<td class="text-right">身份证件号：</td>
 		<td>{{resideIdNumber}}</td>
 	</tr>
 	<tr>
@@ -244,7 +244,7 @@
 				<thead>
 					<tr>
 						<th>姓名</th>
-						<th>身份证</th>
+						<th>身份证件</th>
 						<th>补贴金额（万元）</th>
 						<th>购房券券号</th>
 						<th>购房券状态</th>

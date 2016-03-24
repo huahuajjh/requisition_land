@@ -389,7 +389,7 @@
 			<tr>
 				<td>姓名</td>
 				<td>与户主关系</td>
-				<td>身份证</td>
+				<td>身份证件</td>
 				<td>性别</td>
 				<td>户口性质</td>
 				<td>出生日期</td>
@@ -449,7 +449,7 @@
         				<td><strong>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</strong></td>
             		</tr>
             		<tr>
-            			<td>身份证号码</td>
+            			<td>身份证件号码</td>
             			<td><strong>{{idNumber}}</strong></td>
             			<td>出生日期</td>
         				<td><strong>{{birthday}}</strong></td>
@@ -538,7 +538,7 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">身份证<span class="text-danger">*</span></label>
+			<label class="control-label">身份证件<span class="text-danger">*</span></label>
 			<div class="controls">
 				<div class="input-group" style="width: 100%;">
 					<select class="form-control" size="1" name="certificateType">
@@ -547,7 +547,7 @@
 						<option value="otherNumber">其他证件</option>
 					</select>
 					<span class="input-group-btn" style="width:130px;">
-						<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" {{#if certificateType}}{{else}}disabled{{/if}}>
+						<input style="height: 32px;" type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" {{#if certificateType}}{{else}}disabled{{/if}}>
 					</span>
 				</div>
 			</div>

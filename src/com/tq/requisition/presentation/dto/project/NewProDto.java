@@ -39,10 +39,6 @@ public class NewProDto {
 	private String proCategory;
 	/**是否属于六前项目*/
 	private String sixForwardPro;
-	/**出资单位*/
-	private String moneyUnit;
-	/**其他出资单位*/
-	private String otherMoneyUnit;
 	
 	/**创建人的标识*/
 	private String createUid;
@@ -174,18 +170,6 @@ public class NewProDto {
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
-	}
-	public String getMoneyUnit() {
-		return moneyUnit;
-	}
-	public void setMoneyUnit(String moneyUnit) {
-		this.moneyUnit = moneyUnit;
-	}
-	public String getOtherMoneyUnit() {
-		return otherMoneyUnit;
-	}
-	public void setOtherMoneyUnit(String otherMoneyUnit) {
-		this.otherMoneyUnit = otherMoneyUnit;
 	}
 	
 	/*public methods*/

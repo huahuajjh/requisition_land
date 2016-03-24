@@ -80,7 +80,7 @@ public class ProjectDto {
 	private String sixForward;
 	/**项目类型名称*/
 	private String proTypeStr;
-	/**出资单位*/
+	/**国土局出资单位*/
 	private String moneyUnit;
 	/**其他出资单位*/
 	private String otherMoneyUnit;
@@ -388,12 +388,12 @@ public class ProjectDto {
 		return moneyUnit;
 	}
 
-	public void setMoneyUnit(String moneyUnit) {
-		this.moneyUnit = moneyUnit;
-	}
-
 	public String getOtherMoneyUnit() {
 		return otherMoneyUnit;
+	}
+
+	public void setMoneyUnit(String moneyUnit) {
+		this.moneyUnit = moneyUnit;
 	}
 
 	public void setOtherMoneyUnit(String otherMoneyUnit) {
