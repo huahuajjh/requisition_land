@@ -8,41 +8,32 @@
 <hibernate-configuration>
 	<session-factory name="hb_foo">
 		
-		<property name="connection.autoReconnect">true</property> 
-        <property name="connection.autoReconnectForPools">true</property> 
-        <property name="connection.is-connection-validation-required">true</property> 
-		
-		<!--C3P0配置 http://blog.csdn.net/mercenarylin/article/details/21605223 -->
-		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-        <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.min_size">5</property>
-        <property name="hibernate.c3p0.timeout">120</property>
-        <property name="automaticTestTable">Test</property>
-        <property name="hibernate.c3p0.max_statements">100</property>
-        <property name="hibernate.c3p0.idle_test_period">120</property>
-        <property name="hibernate.c3p0.acquire_increment">1</property>
-        <property name="c3p0.testConnectionOnCheckout">true</property>
-        <property name="c3p0.idleConnectionTestPeriod">18000</property>
-        <property name="c3p0.maxIdleTime">25000</property>
-        <property name="c3p0.idle_test_period">120</property>
 
 		<!-- mysql驱动 -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- mysql连接字符串 -->
-		<property name="connection.url">jdbc:mysql://120.27.148.138:3306/db_requisition_land</property>
+		<property name="connection.url">jdbc:mysql:///db_requisition_land</property>
 		<!-- mysql数据库用户名 -->
 		<property name="connection.username">root</property>
 		<!-- mysql数据库密码 -->
-		<property name="connection.password">huahuajjh3</property>
+		<property name="connection.password">lsw</property>
 		<!-- mysql连接编码 -->
 		<property name="connection.characterEncoding">utf-8</property>
 		<!-- 关闭二级缓存 -->
 		<property name="cache.use_second_level_cache">false</property>
 		<!-- 设置current session -->
-		<!-- <property name="current_session_context_class">thread</property>  -->
-		<!-- 设置hibernate语句到了50条发送 -->
-		<property name="hibernate.jdbc.batch_size">50</property>
+		<!-- <property name="current_session_context_class">thread</property>-->
 
+		<!--C3P0配置 http://blog.csdn.net/mercenarylin/article/details/21605223 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="hibernate.c3p0.validate">true</property>
+        
 		<!-- 实体mapping -->
 		<!-- 账户hbm -->
 		<mapping resource="com/tq/requisition/domain/model/account/Account.hbm.xml" />

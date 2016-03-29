@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<option value="0">所有进度</option>
 					<option value="1">一公告</option>
 					<option value="2">二公告</option>
-					<option value="3">三公共</option>
+					<option value="3">三公告</option>
 				</select>
 			</div>
 		</div>

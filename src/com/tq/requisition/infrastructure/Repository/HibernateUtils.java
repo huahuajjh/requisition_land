@@ -17,9 +17,9 @@ import com.tq.requisition.infrastructure.log.LoggerFactory;
  * @time 2015-12-17 13:04
  */
 public class HibernateUtils {
-	private static Session SESSION_THREAD_LOCAL = null; 
+	private static ThreadLocal<Session> SESSION_THREAD_LOCAL = null; 
 	private static SessionFactory FACTORY;
-	
+
 	private HibernateUtils() {
 	}
 
@@ -61,26 +61,42 @@ public class HibernateUtils {
 	 * 
 	 * @return Session SessionÊµÀý
 	 */
-	public static Session session() {
-		
-		Session session = SESSION_THREAD_LOCAL;
+	public static Session session() {	
+		if(SESSION_THREAD_LOCAL == null){
+			SESSION_THREAD_LOCAL = new ThreadLocal<>();
+		}
+		Session session = SESSION_THREAD_LOCAL.get();		
 		if(session == null)
 		{
-			SESSION_THREAD_LOCAL = FACTORY.openSession();
-			session = SESSION_THREAD_LOCAL;			
+			SESSION_THREAD_LOCAL.set(FACTORY.openSession());
+			session = SESSION_THREAD_LOCAL.get();
 		}
 		if(!(session.isOpen()))
 		{
-			SESSION_THREAD_LOCAL = FACTORY.openSession();
+			SESSION_THREAD_LOCAL.set(FACTORY.openSession());
 		}
-		return SESSION_THREAD_LOCAL;
+		
+		int retry = 30;
+		for (int i = 0; i < retry; i++) {
+			try {
+				SESSION_THREAD_LOCAL.get().createSQLQuery("select 1").list();
+				break;
+			} catch (Exception e) {
+				SESSION_THREAD_LOCAL.set(FACTORY.openSession());
+			}
+		}
+		
+		return SESSION_THREAD_LOCAL.get();
 	}
 	
 	/**
 	 * ¹Ø±Õsession
 	 */
 	public static void closeSession() {
-		Session session = SESSION_THREAD_LOCAL;
+		if(SESSION_THREAD_LOCAL == null){
+			return;
+		}
+		Session session = SESSION_THREAD_LOCAL.get();
 		try  
         {  
             if (session != null && session.isOpen())  
