@@ -52,8 +52,11 @@ public class FmlTotalCountSpecification extends Specification<Family>{
 			list.add(queryModel.getGroupId().toString());
 		}
 		if(null!=queryModel.getName() && !(queryModel.getName().trim().equals(""))){
-			sb.append(" and head_name=?");
-			list.add(queryModel.getName());
+			sb.append(" and head_name like '%" + queryModel.getName() + "%'");
+		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and address like " + "'%" + queryModel.getAddress() + "%'");
 		}
 		expression.setSql(sb.toString());
 		expression.setType(OperationType.SQL);

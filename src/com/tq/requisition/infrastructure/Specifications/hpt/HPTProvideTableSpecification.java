@@ -39,7 +39,7 @@ public class HPTProvideTableSpecification extends Specification<HousePuraseTicke
 		}
 		if(queryModel.getName()!=null && !(queryModel.getName().trim().equals("")))
 		{
-			sb.append(" and fi.name='"+queryModel.getName()+"'");
+			sb.append(" and fi.name like '%"+queryModel.getName()+"%'");
 		}
 		if(queryModel.getTicketNumber()!=null && !(queryModel.getTicketNumber().trim().equals(""))){
 			sb.append(" and h.ticketNumber='"+queryModel.getTicketNumber()+"'");

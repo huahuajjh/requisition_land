@@ -36,6 +36,8 @@ public class FamilyItemQueryModel {
 		private String headName;
 		/**创建人的ID*/
 		private String createUId;
+		/**地址*/
+		private String address;
 		
 		public String getIdNumber() {
 			return idNumber;
@@ -111,6 +113,12 @@ public class FamilyItemQueryModel {
 		}
 		public void setCreateUId(String createUId) {
 			this.createUId = createUId;
+		}
+		public String getAddress() {
+			return address;
+		}
+		public void setAddress(String address) {
+			this.address = address;
 		}
 		
 }

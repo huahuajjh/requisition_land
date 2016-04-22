@@ -54,6 +54,10 @@ public class ProFuzzyQuerySpecification extends Specification<Project>{
 		{
 			sb.append(" and community_id='"+queryModel.getCommunityId().toString()).append("'");
 		}
+		if(queryModel.getAddress() != null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and total_address like '%"+queryModel.getAddress() + "%'");
+		}
 		sb.append(" limit ").append(PageHelper.getPageIndex(pageModel.pageIndex, pageModel.pageSize)).append(","+pageModel.pageSize);
 		
 		expression.setSql(sb.toString());

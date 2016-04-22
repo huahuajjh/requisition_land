@@ -222,6 +222,20 @@ function getYiGongGaoHead(x,y){
 		celKey:["announce1"]
 	};
 }
+function getYiGongGaoNumberHead(x,y){
+	var celData = {
+		value:"一公告文号",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["announce1Number"]
+	};
+}
 function getErGongGaoHead(x,y){
 	var celData = {
 		value:"二公告",
@@ -236,6 +250,20 @@ function getErGongGaoHead(x,y){
 		celKey:["announce2"]
 	};
 }
+function getErGongGaoNumberHead(x,y){
+	var celData = {
+		value:"二公告文号",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["announce2Number"]
+	};
+}
 function getSanGongGaoHead(x,y){
 	var celData = {
 		value:"三公告",
@@ -248,6 +276,20 @@ function getSanGongGaoHead(x,y){
 		y:y + 1,
 		celData:[celData],
 		celKey:["announce3"]
+	};
+}
+function getSanGongGaoNumberHead(x,y){
+	var celData = {
+		value:"三公告文号",
+		colspan:0,
+		rowspan:3,
+		x:x,
+		y:y
+	};
+	return {
+		y:y + 1,
+		celData:[celData],
+		celKey:["announce3Number"]
 	};
 }
 function getTengDiQingKuangHead(x,y){
@@ -555,33 +597,42 @@ function exportModol(){
 		fn:getYiGongGaoHead
 	},{
 		id:"12",
-		fn:getErGongGaoHead
+		fn:getYiGongGaoNumberHead
 	},{
 		id:"13",
-		fn:getSanGongGaoHead
+		fn:getErGongGaoHead
 	},{
 		id:"14",
-		fn:getTengDiQingKuangHead
+		fn:getErGongGaoNumberHead
 	},{
 		id:"15",
-		fn:getChaiChuFngWuQingKuangHead
+		fn:getSanGongGaoHead
 	},{
 		id:"16",
-		fn:getAnZhiQingKuangHead
+		fn:getSanGongGaoNumberHead
 	},{
 		id:"17",
-		fn:getXiaDaTengDiShuHead
+		fn:getTengDiQingKuangHead
 	},{
 		id:"18",
-		fn:getShenQingFaYuanZhiXingHead
+		fn:getChaiChuFngWuQingKuangHead
 	},{
 		id:"19",
-		fn:getYiFaQiangZhiTengDiHead
+		fn:getAnZhiQingKuangHead
 	},{
 		id:"20",
-		fn:getLiuQianXingMuHead
+		fn:getXiaDaTengDiShuHead
 	},{
 		id:"21",
+		fn:getShenQingFaYuanZhiXingHead
+	},{
+		id:"22",
+		fn:getYiFaQiangZhiTengDiHead
+	},{
+		id:"23",
+		fn:getLiuQianXingMuHead
+	},{
+		id:"24",
 		fn:getBeiZhuHead
 	}];
 }

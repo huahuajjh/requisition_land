@@ -58,6 +58,7 @@ public class SolmMaintain extends BaseAction {
 		if(zuId !=null && !zuId.equals("")){
 			queryModal.setGroupId(UUID.fromString(zuId));
 		}
+		queryModal.setAddress(address);
 		queryModal.setCreateUId(userId().toString());
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
@@ -74,7 +75,11 @@ public class SolmMaintain extends BaseAction {
 	private String communityId  = "";
 	private String idNumber;
 	private String zuId;
+	private String address;
 	
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}

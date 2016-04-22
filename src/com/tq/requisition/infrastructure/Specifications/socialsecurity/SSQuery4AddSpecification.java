@@ -52,6 +52,10 @@ public class SSQuery4AddSpecification extends Specification<SocialsecurityInfo>{
 		{
 			sb.append(" and idNumber='"+queryModel.getIdNumber().toString()).append("'");
 		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		Object[] objects = new Object[list.size()];
 		for (int i = 0; i < list.size(); i++) {
 			objects[i] = list.get(i);

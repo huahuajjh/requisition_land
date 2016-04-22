@@ -47,6 +47,10 @@ public class SSQueryCountFuzzySpecification extends Specification<Socialsecurity
 		if(queryModel.getIdNumber()!=null && !(queryModel.getIdNumber().trim().equals(""))){
 			sb.append(" and i.id_number='"+queryModel.getIdNumber()+"'");
 		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and i.address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		expression.setSql(sb.toString());
 		expression.setType(OperationType.SQL);
 		return expression;

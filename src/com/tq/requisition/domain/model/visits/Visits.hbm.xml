@@ -22,7 +22,7 @@
 		<property name="visitorTel" column="tel" type="string" length="12" />
 		<property name="visitProId" column="visit_pro_id" type="string"  length="70" not-null="true" />
 		<property name="del" column="is_del" type="boolean"  not-null="true" />
-		<property name="proName" column="visit_pro_name" type="string"  length="70" not-null="true" />
+		<property name="proName" column="visit_pro_name" type="string"  length="200" not-null="true" />
 		<property name="visitReason" column="visit_reason" type="string"  />
 		<property name="visitTime" column="visit_date" type="date"  not-null="true"/>
     </class>

@@ -53,8 +53,7 @@ public class PmProgress extends BaseAction {
 	private int pageIndex = 1;
 	private int typeId = 0;
 	private int annouceQueue = 0;
-	private String streetId;
-	private String communityId;
+	private String address;
 	// --------
 	private String val;// 模糊查询项目名称
 	// ---------
@@ -92,15 +91,9 @@ public class PmProgress extends BaseAction {
 		ProQueryModel queryModel = new ProQueryModel();
 		queryModel.setAnnouceQueue(annouceQueue);
 		queryModel.setCreateUId(userId().toString());
-		if (!communityId.equals(""))
-			queryModel.setCommunityId(UUID.fromString(communityId));
-		if (val != null && !val.equals("")) {
-			queryModel.setProName(val);
-		}
-		if (!streetId.equals(""))
-			queryModel.setStreetId(UUID.fromString(streetId));
 		queryModel.setTypeId(typeId);
-		System.out.println(queryModel.toString());
+		queryModel.setAddress(address);
+		queryModel.setProName(val);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -165,10 +158,10 @@ public class PmProgress extends BaseAction {
 		dto.setDate(date);
 		dto.setDocPath(fdocVal);
 		dto.setId(UUID.randomUUID());
-		dto.setName(ANNVALS[sequence]);
+		dto.setName(ANNVALS[sequence-1]);
 		dto.setNumber(number);
 		dto.setProId(UUID.fromString(proId));
-		dto.setSequence(sequence + 1);
+		dto.setSequence(sequence);
 		String stateJson = this.proMgtServiceContract.addAnnouncement(dto);
 		response().getWriter().write(stateJson);
 		return null;
@@ -182,7 +175,7 @@ public class PmProgress extends BaseAction {
 		dto.setDate(date);
 		dto.setDocPath(fdocVal);
 		dto.setId(UUID.randomUUID());
-		dto.setName(ANNVALS[sequence]);
+		dto.setName(ANNVALS[sequence-1]);
 		dto.setNumber(number);
 		dto.setProId(UUID.fromString(proId));
 		dto.setSequence(sequence);
@@ -201,19 +194,22 @@ public class PmProgress extends BaseAction {
 
 	public String daoChu() throws ParseException, IOException {
 		List<ExcelColData> colDatas = new ArrayList<>();
-		ExcelColData[] colDataArr =  Serialization.toObject(daoChuHead, ExcelColData[].class);
+		ExcelColData[] colDataArr = Serialization.toObject(daoChuHead,
+				ExcelColData[].class);
 		for (ExcelColData excelColData : colDataArr) {
 			colDatas.add(excelColData);
 		}
 		List<ColAttrVal> colAttrVals = new ArrayList<>();
-		ColAttrVal[] cAttrValsArr =  Serialization.toObject(daoChuAttrModel, ColAttrVal[].class);
+		ColAttrVal[] cAttrValsArr = Serialization.toObject(daoChuAttrModel,
+				ColAttrVal[].class);
 		for (ColAttrVal cVal : cAttrValsArr) {
 			colAttrVals.add(cVal);
 		}
-		ProExportCondition data = Serialization.toObject(this.daYinData, ProExportCondition.class);
+		ProExportCondition data = Serialization.toObject(this.daYinData,
+				ProExportCondition.class);
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract
 				.exportProByDate(data);
-		for (int i = 0;dtos !=null && i < dtos.size(); i++) {
+		for (int i = 0; dtos != null && i < dtos.size(); i++) {
 			dtos.get(i).setNum("=row()");
 		}
 		int proTemplateRowIndex = Integer.parseInt(ConfigFileUtil
@@ -226,7 +222,8 @@ public class PmProgress extends BaseAction {
 			excelOutput.setColVal(1, 0, "填报时间：", 0, 23);
 			excelOutput.setColVal(1, 24, "单位：亩、栋、平方米、人、万元", 0, 8);
 			excelOutput.writeDatas(colDatas);
-			excelOutput.writeDatas(ProImportAndExportDto.class, dtos, colAttrVals, proTemplateRowIndex);
+			excelOutput.writeDatas(ProImportAndExportDto.class, dtos,
+					colAttrVals, proTemplateRowIndex);
 			downloadChineseFileName = "project";
 			this.outputStream = excelOutput.getInputStream();
 			return SUCCESS;
@@ -257,14 +254,6 @@ public class PmProgress extends BaseAction {
 
 	public void setAnnouceQueue(int annouceQueue) {
 		this.annouceQueue = annouceQueue;
-	}
-
-	public void setStreetId(String streetId) {
-		this.streetId = streetId;
-	}
-
-	public void setCommunityId(String communityId) {
-		this.communityId = communityId;
 	}
 
 	public void setVal(String val) {
@@ -332,5 +321,9 @@ public class PmProgress extends BaseAction {
 	public void setDaYinData(String daYinData) {
 		this.daYinData = daYinData;
 	}
-	
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 }

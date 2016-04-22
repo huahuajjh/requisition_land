@@ -19,6 +19,7 @@ var tableData = $.generateData({
 		data.communityId = $("#community").val();
 		data.zuId = $("#zu").val();
 		data.idNumber = $("#idNumber").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false);
@@ -45,6 +46,21 @@ $.dropDownInput({
 	}
 });
 $.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 3
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
+});
+$.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
 	url : "projectManagement/pmProgressNames",
@@ -53,24 +69,6 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
-	}
-});
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
 	}
 });
 $("#editIsSheBao [name='isSheBao']").change(function(){
@@ -89,9 +87,7 @@ $('#editSolmModal').modal({
 });
 $("#editSolmModal").validate({
 	rules: {
-		socialsecurityTypeId:{
-			required : true
-		}, socialsecurityDate:{
+		socialsecurityDate:{
 			required : true
 		}, prisonTime:{
 			digits:true
@@ -108,7 +104,6 @@ $("#editSolmModal").validate({
 			subData.id = data.id;
 			subData.fmlItemId = data.fmlItemId;
 			subData.socialsecurityDate = $("[name='socialsecurityDate']",form).val();
-			subData.socialsecurityTypeId = $("[name='socialsecurityTypeId']",form).val();
 			subData.serveArmyTime = $("[name='serveArmyTime']",form).val() || 0;
 			subData.endowmentInsuranceYear = $("[name='endowmentInsuranceYear']",form).val() || 0;
 			subData.medicalInsuranceMonth = $("[name='medicalInsuranceMonth']",form).val() || 0;
@@ -127,8 +122,6 @@ $("#editSolmModal").validate({
 					data.joinWhichMedicalInsurance = subData.joinWhichMedicalInsurance;
 					data.community = subData.community;
 					data.prisonTime = subData.prisonTime;
-					data.ssTypeId = subData.socialsecurityTypeId;
-					data.ssTypeStr =  $("[name='socialsecurityTypeId'] option:selected",form).html();
 					
 					var logTemplate =  Handlebars.compile($("#logItemTemplate").html());
 					var logHtml = logTemplate(data);
@@ -159,7 +152,6 @@ function editData(dom){
 	var template = Handlebars.compile($("#editDataTemplate").html());
 	var html = template(data);
 	var rHtml = $(html);
-	$("[name='socialsecurityTypeId']",rHtml).val(data.ssTypeId);
 	initDom(rHtml);
 	$("#editInfoArea").html(rHtml);
 	$("#editSolmModal").modal("show");

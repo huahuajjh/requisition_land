@@ -11,8 +11,7 @@
 		}
 		data.annouceQueue = $("#queryPrJD").val();
 		data.typeId = $("#queryProType").val();
-		data.streetId = $("#street").val();
-		data.communityId = $("#community").val();
+		data.address = $("#queryAddressName").val();
 	}, lastFn : function(data) {
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
 		$("#countArea").html(tempData.totalCount);
@@ -67,37 +66,20 @@ $("#removedBuildings").keyup(function(){
 	var data = tr.data("data");
 	var percentage = parseInt(num / data.shouldRemoveBuildings * 10000) * 1.00 / 100;
 	var requisitionArea = parseInt((data.requisitionArea*percentage / 100 * 10000000)) / 10000000;
-	$("#removedLandArea").val(requisitionArea);
-	var shouldRemoveLegalArea = parseInt((data.shouldRemoveLegalArea*percentage / 100 * 10000000)) / 10000000;
-	$("#removedLegalArea").val(shouldRemoveLegalArea);
-	var shouldMovePopulation = parseInt(data.shouldMovePopulation*percentage / 100);
-	$("#movedPopulation").val(shouldMovePopulation);
+	if(requisitionArea){
+		requisitionArea = requisitionArea.toFixed(2);
+	}
+	$("#removedLandArea").val(requisitionArea || "");
 });
 $('#announceAddInfoModal,#yueBaoAddModal').modal({
 	backdrop : "static",
 	keyboard : false,
 	show : false
 });
-initTime();
-function initTime() {
-	var d = new Date();
-	var year = d.getFullYear();
-	for (var i = year - 1; i < year+2; i++) {
-		$("#proYBYear").append(
-				'<option value="' + i + '" ' + (i==year?"selected":"") +'>' + i + '</option>');
-	}
-	$("option[value='" + (d.getMonth() + 1) + "']", "#proYBy").prop("selected",
-			true);
-}
 $("#yueBaoAddModal").on(
 		'hidden.bs.modal',
 		function(e) {
 			$("#yueBaoAddModal")[0].reset();
-			var d = new Date();
-			$("option[value='" + d.getFullYear() + "']", "#proYBYear").prop(
-					"selected", true);
-			$("option[value='" + (d.getMonth() + 1) + "']", "#proYBy").prop(
-					"selected", true);
 		});
 $.dropDownInput({
 	inputId : "#queryPrName",
@@ -108,6 +90,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 1
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 // 查看详细
@@ -197,6 +194,9 @@ function addAnnouncement(dom) {
 		proId : proid
 	}, function(data) {
 		var tempData = actionFormate(data, false);
+		tempData.sort(function(a,b){
+			return a.sequence - b.sequence;
+		});
 		$("#addAnnouncementContent").empty();
 		if (tempData.length > 0) {
 			var template = Handlebars.compile($("#AddAnnounceInfoTemplateOne")
@@ -208,13 +208,13 @@ function addAnnouncement(dom) {
 					models.fileName = docPath.substring(0,docPath.indexOf("/"));
 					models.filePath = docPath.substring(docPath.indexOf("/") + 1);
 				}
-				models.index = i;
+				models.index = i + 1;
 				var html = template(models);
 				$("#addAnnouncementContent").append(html);
 			}
 		}
 		if (tempData.length < 3) {
-			var index = tempData.length;
+			var index = tempData.length + 1;
 			var template = Handlebars.compile($("#AddAnnounceInfoTemplateTwo")
 					.html());
 			var html = template({
@@ -460,7 +460,8 @@ $("#yueBaoAddModal").validate({
 	},
 	submitHandler : function(form) {
 		var subData = {};
-		subData.date = $("[name='year']",form).val()+"/" + $("[name='month']",form).val() +"/01";
+		var time = $("[name='time']",form).val();
+		subData.date = time.split("/")[0] +"/" + time.split("/")[1] +"/01";
 		subData.removedLandArea = $('[name="removedLandArea"]',form).val();
 		subData.removedBuildings = $('[name="removedBuildings"]',form).val();
 		subData.removedLegalArea = $('[name="removedLegalArea"]',form).val();

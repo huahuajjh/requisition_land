@@ -10,7 +10,9 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTUseAndCash;
 import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
+import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto;
+import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
  * 购房券管理领域服务
@@ -77,4 +79,13 @@ public interface IHPTService {
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public List<HPTDisplayFmlDto> queryByFml(String idNumber) throws SpecifiedObjectDoesNotExistsException;
+	
+	/**
+	 * 根据项目ID获取未发放的购房券信息
+	 * @param proId
+	 * 		项目编号
+	 * @return
+	 * @throws SpecifiedObjectDoesNotExistsException
+	 */
+	public PageFormater queryNotByPro(String proName, PageModel pageModel) throws SpecifiedObjectDoesNotExistsException;
 }

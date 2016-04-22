@@ -135,10 +135,6 @@
 		<td>{{socialsecurityDate}}</td>
 	</tr>
 	<tr>
-		<td class="text-right">待遇标准：</td>
-		<td>{{socialsecurityTypeStr}}</td>
-	</tr>
-	<tr>
 		<td class="text-right">所属社区：</td>
 		<td>{{community}}</td>
 	</tr>
@@ -188,7 +184,6 @@
 				<td>是否参加过社会保险</td>
 				<td>所属社区</td>
 				<td>联系电话</td>
-				<td>待遇标准</td>
 				<td>征地名称</td>
 			</tr>
 		</thead>
@@ -209,7 +204,6 @@
 				<td>{{isSocialsecurity}}</td>
 				<td>{{community}}</td>
 				<td>{{tel}}</td>
-				<td>{{type}}</td>
 				<td>{{proName}}</td>
 			</tr>
 			{{/each}}
@@ -255,7 +249,7 @@
 				<td class="active">联系电话</td>
 				<td>{{tel}}</td>
 				<td class="active">是否参加过社会保险</td>
-				<td>{{#if socialsecurity}}<i class="fa fa-check text-success"></i>{{else}}<i class="fa fa-times text-danger"></i>{{/if}}</td>
+				<td>{{#if isSocialsecurity}}<i class="fa fa-check text-success"></i>{{else}}<i class="fa fa-times text-danger"></i>{{/if}}</td>
 			</tr>
 			<tr>
 				<td class="active">户口类型</td>
@@ -289,17 +283,6 @@
 	<label class="col-md-4 control-label">纳入社保时间<span class="text-danger">*</span></label>
  	<div class="col-md-5">
      	<input type="text" id="time" class="form-control" disabled placeholder="____/__/__" data-plugin-datepicker="" data-plugin-masked-input="" data-input-mask="9999/99/99">
-	</div>
-</div>
-<div class="form-group">
-	<label class="col-md-4 control-label">待遇标准<span class="text-danger">*</span></label>
- 	<div class="col-md-5">
-     	<select class="form-control" id="newType" disabled>
-			<option value="">请选择待遇标准</option>
-			<s:iterator id="dto" value="socialsecurityTypeDtos">
-				<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-			</s:iterator>
-		</select>
 	</div>
 </div>
 <div class="form-group">

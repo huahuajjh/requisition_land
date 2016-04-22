@@ -8,11 +8,7 @@ $("#addRemoveInfo").validate({
 			required: true
 		}, removeDate:{
 			required: true
-		}, street:{
-			required: true
-		}, community:{
-			required: true
-		}, zu:{
+		}, address:{
 			required: true
 		}
 	},  submitHandler:function(form){
@@ -24,10 +20,7 @@ $("#addRemoveInfo").validate({
 		subData.streetId = $("[name='street']",form).val();
 		subData.communityId = $("[name='community']",form).val();
 		//subData.groupId = $("[name='zu']",form).val();
-		subData.address = $("[name='street'] option:selected",form).html();
-		subData.address += $("[name='community'] option:selected",form).html();
-		//subData.address += $("[name='zu'] option:selected",form).html();
-		subData.address += "," + $("[name='other']",form).val();
+		subData.address = $("[name='address']",form).val();
 		
 		subData.fitPolicy = $("[name='fitPolicy']",form).val();
 		subData.createId = getCookie("login");
@@ -43,24 +36,6 @@ $("#addRemoveInfo").validate({
 			});
 		},"json");
     }
-});
-//new bindingSelect({
-//	masterSelect:"#community",
-//	childSelect:"#zu",
-//	childDefalueVal:"请选择组",
-//	url:"share/address",
-//	afterFn:function(data){
-//		return actionFormate(data, false);
-//	}
-//});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"请选择社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
 });
 $("#filePath").change(function(){
 	var val = $(this).val();

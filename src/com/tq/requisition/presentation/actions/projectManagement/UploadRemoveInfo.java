@@ -128,7 +128,7 @@ public class UploadRemoveInfo extends BaseAction {
 					 if(dtos.size() > 0){
 						 stateJsonString = this.familyMgtServiceContract.importFml(dtos.get(0));
 					 } else {
-						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "文件中没有数据");
+						 stateJsonString = toForMaterJson(OperationResult.FAIL, "文件中没有数据");
 					 }
 					 response().getWriter().write(stateJsonString);
 				 }

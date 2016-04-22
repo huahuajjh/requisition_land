@@ -45,6 +45,10 @@ public class SSQuery4AddCountSpecification extends Specification<SocialsecurityI
 		{
 			sb.append(" and id_number='"+queryModel.getIdNumber().toString()).append("'");
 		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		expression.setSql(sb.toString());
 		expression.setType(OperationType.SQL);
 		return expression;

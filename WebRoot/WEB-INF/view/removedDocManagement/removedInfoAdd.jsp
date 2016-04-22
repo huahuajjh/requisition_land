@@ -84,31 +84,9 @@
 	    	</div>
 	    </div>
 	    <div class="form-group">
-	    	<label class="col-md-3 control-label">迁户人地址<span class="text-danger">*</span></label>
-	    	<div class="col-md-8">
-	    		<div class="input-daterange input-group">
-					<span class="input-group-addon">镇(街道)</span>
-					<select id="street" name="street" class="form-control" size="1">
-						<option value="">请选择街道</option>
-						<s:iterator id="dto" value="addressDtos">
-							<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-						</s:iterator>
-					</select>
-					<span class="input-group-addon">村（社区）</span>
-					<select id="community" name="community" class="form-control" size="1">
-						<option value="">请选择社区</option>
-					</select>
-					<span class="input-group-addon" style="display:none">组</span>
-					<select id="zu" name="zu" class="form-control" size="1" style="display:none">
-						<option value="">请选择组</option>
-					</select>
-				</div>
-	    	</div>
-	    </div>
-	    <div class="form-group">
-	    	<label class="col-md-3 control-label">地址其他信息</label>
+	    	<label class="col-md-3 control-label">地址<span class="text-danger">*</span></label>
 	    	<div class="col-md-5">
-	    		<input type="text" name="other" maxlength="15" class="form-control" placeholder="请输入地址其他信息">
+	    		<input type="text" name="address" maxlength="60" class="form-control" placeholder="请输入地址">
 	    	</div>
 	    </div>
 	   	<div class="form-group">

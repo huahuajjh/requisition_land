@@ -146,10 +146,10 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 				UUID itemId = itemRepository.getIdByIdNumber(socialsecurityInfo.getIdNumber());
 				if(null==itemId){return toJson("未查询到身份证["+socialsecurityInfo.getIdNumber()+"]的人员信息", null, Formater.OperationResult.FAIL);}
 				
-				UUID typeId = typeRepository.getIdByName(socialsecurityInfo.getTypeStr());
-				if(null==typeId){return toJson("未查询到社保待遇["+socialsecurityInfo.getTypeStr()+"]的id信息", null, Formater.OperationResult.FAIL);}
-				
-				socialsecurityInfo.setSocialsecurityTypeId(typeId);
+//				UUID typeId = typeRepository.getIdByName(socialsecurityInfo.getTypeStr());
+//				if(null==typeId){return toJson("未查询到社保待遇["+socialsecurityInfo.getTypeStr()+"]的id信息", null, Formater.OperationResult.FAIL);}
+//				
+				//socialsecurityInfo.setSocialsecurityTypeId(typeId);
 				socialsecurityInfo.setFmlItemId(itemId);
 			}
 			context().beginTransaction();

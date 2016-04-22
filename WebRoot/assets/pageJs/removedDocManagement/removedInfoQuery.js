@@ -12,6 +12,7 @@ var tableData = $.generateData({
 		var name = $("#name").val();
 		var street = $("#street").val();
 		var community = $("#community").val();
+		var address = $("#queryAddressName").val();
 		//var zu = $("#zu").val();
 		if(idNumber){
 			queryEntity.idNumber = idNumber;
@@ -25,6 +26,9 @@ var tableData = $.generateData({
 		if(community){
 			queryEntity.communityId = community;
 		}
+		if(address){
+			queryEntity.address = address;
+		}
 //		if(zu){
 //			queryEntity.groupId = zu;
 //		}
@@ -35,24 +39,6 @@ var tableData = $.generateData({
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
 		$("#countArea").html(tempData.totalCount);
 		return tempData;
-	}
-});
-//new bindingSelect({
-//	masterSelect:"#community",
-//	childSelect:"#zu",
-//	childDefalueVal:"所有组",
-//	url:"share/address",
-//	afterFn:function(data){
-//		return actionFormate(data, false);
-//	}
-//});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
 	}
 });
 $("#dataPageCount").change(function() {
@@ -69,11 +55,7 @@ $("#editInfoModal").validate({
 			required: true
 		}, removeDate:{
 			required: true
-		}, streetId:{
-			required: true
-		}, communityId:{
-			required: true
-		}, groupId:{
+		}, other:{
 			required: true
 		}
 	},  submitHandler:function(form){
@@ -85,13 +67,8 @@ $("#editInfoModal").validate({
 		subData.idNumber = $("[name='idNumber']",form).val();
 		subData.birthday = $("[name='birthday']",form).val();
 		subData.removeDate = $("[name='removeDate']",form).val();
-		subData.streetId = $("[name='streetId']",form).val();
-		subData.communityId = $("[name='communityId']",form).val();
-		//subData.groupId = $("[name='groupId']",form).val();
-		subData.address = $("[name='streetId'] option:selected",form).html();
-		subData.address += $("[name='communityId'] option:selected",form).html();
 		//	subData.address += $("[name='groupId'] option:selected",form).html();
-		subData.address += "," + $("[name='other']",form).val();
+		subData.address = $("[name='other']",form).val();
 		
 		subData.fitPolicy = $("[name='fitPolicy']",form).val();
 		
@@ -135,6 +112,21 @@ $.dropDownInput({
 	}
 });
 $.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 5
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
+});
+$.dropDownInput({
 	inputId : "#idNumber",
 	dropDownId : "#idNumberQueryPrDown",
 	url : sendUrl.onekeyQuery_getFuzzy,
@@ -164,10 +156,7 @@ function deleteInfo(dom){
 function editInfo(dom){
 	var data = $(dom).closest("tr").data("data");
 	var address = data.address;
-	if(address.indexOf(",") > -1){
-		var addressArr = address.split(",");
-		data.other = addressArr[1]; 
-	}
+	data.other = address; 
 	var template = Handlebars.compile($("#editModalTemplate").html());
 	var html = $(template(data));
 	$("#infoDataBody").html(html);
@@ -183,27 +172,6 @@ function editInfo(dom){
 		var $this = $(this), opts = {};
 		$this.themePluginDatePicker(opts);
 	});
-//	new bindingSelect({
-//		masterSelect:$("[name='communityId']",html),
-//		childSelect:$("[name='groupId']",html),
-//		childDefalueVal:"请选择组",
-//		url:"share/address",
-//		childVal:data.groupId,
-//		afterFn:function(data){
-//			return actionFormate(data, false);
-//		}
-//	});
-	new bindingSelect({
-		masterSelect:$("[name='streetId']",html),
-		childSelect:$("[name='communityId']",html),
-		childDefalueVal:"请选择社区",
-		url:"share/address",
-		childVal:data.communityId,
-		afterFn:function(data){
-			return actionFormate(data, false);
-		}
-	});
-	$("[name='streetId']",html).val(data.streetId).change();
 	$('#editInfoModal').data("data",data);
 	$('#editInfoModal').data("dom",$(dom).closest("tr"));
 	$('#editInfoModal').modal('show');

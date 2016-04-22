@@ -51,6 +51,7 @@ public class MaintainPersonRemove extends BaseAction {
 	private String streetId  = "";
 	private String communityId  = "";
 	private String zu  = "";
+	private String address;
 	
 	@Override
 	public String execute() throws Exception {
@@ -82,6 +83,7 @@ public class MaintainPersonRemove extends BaseAction {
 		queryModel.setIsOnlyChild(ThreeState.ALL.obtainByInt(isOnlyChild));
 		queryModel.setIsSSecurity(ThreeState.ALL.obtainByInt(isSSecurity));
 		queryModel.setIsTransfer(ThreeState.ALL.obtainByInt(isTransfer));
+		queryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -143,5 +145,8 @@ public class MaintainPersonRemove extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

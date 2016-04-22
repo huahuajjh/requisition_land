@@ -42,6 +42,12 @@ public class RemovedInfoRepository extends HbRepository<RemovedInfo> implements 
 	public void delRemovedInfo(UUID id) {
 		removeBySql("delete from tb_removed_info where id=?", id.toString());
 	}
+	
+
+	@Override
+	public void deleteByIdNum(String idNum) {
+		removeBySql("delete from tb_removed_info where id_number=?", idNum);
+	}
 
 	@Override
 	public PageFormater queryByPage(RemovedInfoQueryModel queryModel,

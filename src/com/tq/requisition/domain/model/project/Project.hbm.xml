@@ -16,9 +16,9 @@
         	<generator class="assigned"></generator>
         </id>
         <!-- 项目名称 -->
-		<property name="proName" length="50" column="pro_name"  type="string" not-null="true" unique="true" />
+		<property name="proName" length="200" column="pro_name"  type="string" not-null="true" unique="true" />
 		<!-- 项目审批号 -->
-		<property name="approvalNumber" length="50" column="approval_number"  type="string" />
+		<property name="approvalNumber" length="200" column="approval_number"  type="string" />
 		<!-- 项目征地面积 -->
 		<property name="requisitionArea" column="requisition_area"  type="float" not-null="true" />
 		<!-- 应拆栋数 -->

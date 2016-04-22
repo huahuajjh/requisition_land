@@ -94,7 +94,7 @@
 						<button class="btn btn-bg btn-primary" onclick="showHuKouType();">管理</button>
 					</td>
 				</tr>
-				<tr>
+				<tr style="display:none;">
 					<td><div class="form-control-static">社保类型</div></td>
 					<td>
 						<select class="form-control" id="sheBaoType">
@@ -138,7 +138,7 @@
 	</div>
 </div>
 
-<div class="panel">
+<div class="panel" style="display: none;">
 	<div class="panel-heading bk-bg-primary">
 		<div class="panel-heading">
 			<div class="row">
@@ -287,7 +287,7 @@
     	<i class="fa"></i> <span>{{title}}</span>
     </span>
     &nbsp;&nbsp;
-	<a href="javascript:;" class="text-primary" onclick="addPolicyType(this);" ><i class="fa fa-plus"></i> 新增地址</a>
+	<a href="javascript:;" class="text-primary" onclick="addPolicyType(this);" ><i class="fa fa-plus"></i> 新增类型</a>
 	&nbsp;&nbsp;
 	<a href="javascript:;" class="text-success" onclick="editPolicyType(this);"><i class="fa fa-edit"></i> 编辑</a>
 	&nbsp;&nbsp;

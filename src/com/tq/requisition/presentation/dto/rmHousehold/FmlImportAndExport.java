@@ -39,7 +39,17 @@ public class FmlImportAndExport {
 	public Family toFamily(List<FmlItemImportAndExport> list) {
 		items = list;
 		Family fml = new Family();
-		fml.setAddress(town+"-"+contry+"-"+group);
+		String address = "";
+		if(town != null && !town.equals("null")){
+			address += town;
+		}
+		if(contry != null && !contry.equals("null")){
+			address += contry;
+		}
+		if(group != null && !group.equals("null")){
+			address += group;
+		}
+		fml.setAddress(address);
 		fml.setFmlNumber(list.size());
 		fml.setHeadName(headName);
 		fml.setProName(proName);
@@ -51,7 +61,17 @@ public class FmlImportAndExport {
 		List<FamilyItem> items = new ArrayList<FamilyItem>();
 		for (FmlItemImportAndExport dto : list) {
 			FamilyItem item = new FamilyItem();
-			item.setAddress(town+"-"+contry+"-"+group);
+			String address = "";
+			if(town != null && !town.equals("null")){
+				address += town;
+			}
+			if(contry != null && !contry.equals("null")){
+				address += contry;
+			}
+			if(group != null && !group.equals("null")){
+				address += group;
+			}
+			item.setAddress(address);
 			item.setBirthday(dto.getBirthday());
 			item.setCurrentEducationSituation(dto.getCurrentEducationSituation());
 			item.setEducationLevel(dto.getEducationLevel());
@@ -67,6 +87,7 @@ public class FmlImportAndExport {
 			item.setServeArmySituation(dto.getServeArmySituation());
 			item.setTel(dto.getTel());
 			item.setIsSocialsecurity(dto.isSocialsecurity());
+			item.setRemark(dto.getRemark());
 			items.add(item);
 		}
 		return items;

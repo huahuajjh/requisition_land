@@ -143,8 +143,9 @@ public class AccountManagement extends BaseAction {
 	}
 	
 	//∂≥Ω·’Àªß
-	public String disable(){
+	public String disable() throws IOException{
 		String optState = this.accountService.disableAccount(UUID.fromString(Id));
+		response().getWriter().write(optState);
 		return null;
 	}
 	

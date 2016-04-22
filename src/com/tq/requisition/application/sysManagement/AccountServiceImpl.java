@@ -86,8 +86,16 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 
 	@Override
 	public String disableAccount(UUID id) {
-		// TODO Auto-generated method stub
-		return "";
+		try {
+			context().beginTransaction();
+			Account acc = accountRepository.getByKey(Account.class, id);
+			acc.setState(1);
+			accountRepository.updateAccount(acc);
+			context().commit();
+			return toJson("更新账户成功", null, Formater.OperationResult.SUCCESS);
+		} catch (AccountOperationException e) {
+			return toJson("更新账户失败-"+e.getMessage(),null, Formater.OperationResult.FAIL);
+		}
 	}
 
 	@Override

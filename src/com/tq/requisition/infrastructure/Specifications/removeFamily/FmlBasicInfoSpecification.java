@@ -51,8 +51,7 @@ public class FmlBasicInfoSpecification extends Specification<Family>{
 			list.add(queryModel.getGroupId());
 		}
 		if(null!=queryModel.getName() && !(queryModel.getName().trim().equals(""))){
-			sb.append(" and f.headName=?");
-			list.add(queryModel.getName());
+			sb.append(" and f.headName like '%" + queryModel.getName() + "%'");
 		}
 		
 		expression.setHql(sb.toString());

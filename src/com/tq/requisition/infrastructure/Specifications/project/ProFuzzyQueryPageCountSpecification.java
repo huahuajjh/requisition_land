@@ -50,7 +50,10 @@ public class ProFuzzyQueryPageCountSpecification extends Specification<Project>{
 		{
 			sb.append(" and community_id='"+queryModel.getCommunityId().toString()).append("'");
 		}
-		
+		if(queryModel.getAddress() != null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and total_address like '%"+queryModel.getAddress() + "%'");
+		}
 		expression.setSql(sb.toString());
 		expression.setParameters();
 		expression.setType(OperationType.SQL);

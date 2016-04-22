@@ -62,6 +62,7 @@ public class SolmQuery extends BaseAction {
 		if(zuId !=null && !zuId.equals("")){
 			queryModal.setGroupId(UUID.fromString(zuId));
 		}
+		queryModal.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -93,6 +94,7 @@ public class SolmQuery extends BaseAction {
 	private int isTransfered;
 	private String idNumber;
 	private String zuId;
+	private String address;
 	public void setIsTransfered(int isTransfered) {
 		if(isTransfered < 0 || isTransfered> 2) return;
 		this.isTransfered = isTransfered;
@@ -123,6 +125,9 @@ public class SolmQuery extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	private String dataJson;

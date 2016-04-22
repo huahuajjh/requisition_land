@@ -36,3 +36,4 @@ sendUrl.fmlItem_idnumberExists = sendUrl.url + "fmlItem/idnumberExists";
 sendUrl.indexData_getIndexData = sendUrl.url + "indexData/getIndexData";
 sendUrl.operationRecordWS_queryData = sendUrl.url + "operationRecordWS/queryData";
 sendUrl.statistics_getData = sendUrl.url + "statistics/getData";
+sendUrl.addrProvider_getAddr = sendUrl.url + "addrProvider/getAddr";//1：项目地址，2：拆迁户地址，3：拆迁人员地址，4：信访人员地址，5：已迁户地址

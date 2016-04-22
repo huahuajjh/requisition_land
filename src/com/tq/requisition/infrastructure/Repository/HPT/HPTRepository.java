@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 import com.tq.requisition.domain.Specification.SpecificationExt;
 import com.tq.requisition.domain.Specification.expression.OperationType;
+import com.tq.requisition.domain.model.familyMember.FamilyItem;
 import com.tq.requisition.domain.model.housePuraseTicket.HPTExchangeInfo;
 import com.tq.requisition.domain.model.housePuraseTicket.HPTMendInfo;
 import com.tq.requisition.domain.model.housePuraseTicket.HPTProviderInfo;
@@ -21,6 +22,8 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTProvideCountSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTProvideTableSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryByIdNumSpecification;
+import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryFmlItemProvideCountSpecification;
+import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryFmlItemProvideSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTQueryFmlProvideSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTUseCountSpecification;
 import com.tq.requisition.infrastructure.Specifications.hpt.HPTUseQuerySpecification;
@@ -267,6 +270,20 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	}
 	
 	@Override
+	public PageFormater queryNotFmlByFmlItem(String proName, PageModel pageModel) {
+		
+		int count = getTotalCount(new HPTQueryFmlItemProvideCountSpecification(HousePuraseTicket.class, proName));
+		if(count <= 0){
+			return PageFormater.obtain(null, 0);
+		}
+		List<HPTDisplayFmlDto> list = getAllByHqlJoin(
+				new HPTQueryFmlItemProvideSpecification(HousePuraseTicket.class, proName),
+				PageHelper.getPageIndex(pageModel.pageIndex, pageModel.pageSize), //
+				pageModel.pageSize);
+		return PageFormater.obtain(list, count);
+	}
+	
+	@Override
 	public HPTDisplayDto queryByIdnumberAndTicketNum(HPTQueryModel queryModel) {
 		// TODO Auto-generated method stub
 		return null;
@@ -294,6 +311,16 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 				pageModel.pageSize);
 				
 		return PageFormater.obtain(list, count);
+	}
+
+	@Override
+	public List<HPTReceiveTableDto> getHPTReceiveTableDtoAll(String proName) {
+		HPTFuzzyQueryModel queryModel = new HPTFuzzyQueryModel();
+		queryModel.setProName(proName);
+		return getAllByHqlJoin(//
+				new HPTProvideTableSpecification(HousePuraseTicket.class, queryModel),//
+				PageHelper.getPageIndex(1, 20000),//
+				20000);
 	}
 	
 }

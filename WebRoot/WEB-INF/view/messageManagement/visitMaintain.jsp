@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<div class="row">
+		<form class="row" onsubmit="return false;">
 			<div class="col-md-4">
 				<div class="form-group">
 					<label>手机号码</label>
@@ -40,10 +40,11 @@
 			<div class="col-md-12 text-right">
 				<hr>
 				<div class="btn-group">
+					<button type="reset" class="bk-margin-5 btn btn-link" >重置</button>
 					<button type="button" class="btn btn-primary pull-right" onclick="tableData.goPage(1); ">查询</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 

@@ -81,10 +81,13 @@ public class FmlItemTotalItemCountSpecification extends Specification<FamilyItem
 		{
 			sb.append(" and fi.pro_name like " + "'%" + queryModel.getProName() + "%'");
 		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and fi.address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		if(null!=queryModel.getName() && !(queryModel.getName().trim().equals("")))
 		{
-			sb.append(" and fi.name=?");
-			list.add(queryModel.getName());
+			sb.append(" and fi.name like '%" + queryModel.getName() + "%'");
 		}
 		//¶ÀÉú×ÓÅ®
 		if(queryModel.getIsOnlyChild()==ThreeState.YES)

@@ -28,8 +28,8 @@ public class SSQueryFuzzySpecification extends Specification<SocialsecurityInfo>
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
 		List<Object> list = new ArrayList<Object>();
-		sb.append("select new com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityDto(s.id,f.proId,f.proName,f.name,f.idNumber,st.name,s.socialsecurityDate,f.id,s.serveArmyTime,s.endowmentInsuranceYear,s.medicalInsuranceMonth,s.joinWhichMedicalInsurance,s.community,s.prisonTime,s.socialsecurityTypeId)");
-		sb.append(" from SocialsecurityInfo s, FamilyItem f,SocialsecurityType st where s.fmlItemId=f.id and s.del=false and st.id=s.socialsecurityTypeId");
+		sb.append("select new com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityDto(s.id,f.proId,f.proName,f.name,f.idNumber,'',s.socialsecurityDate,f.id,s.serveArmyTime,s.endowmentInsuranceYear,s.medicalInsuranceMonth,s.joinWhichMedicalInsurance,s.community,s.prisonTime,s.socialsecurityTypeId)");
+		sb.append(" from SocialsecurityInfo s, FamilyItem f where s.fmlItemId=f.id and s.del=false ");
 		if(queryModel.getCreateUId() != null && !queryModel.getCreateUId().equals("")){
 			sb.append(" and s.createUid = '"+queryModel.getCreateUId() +"'");
 		}
@@ -57,7 +57,10 @@ public class SSQueryFuzzySpecification extends Specification<SocialsecurityInfo>
 		if(queryModel.getIdNumber()!=null && !(queryModel.getIdNumber().trim().equals(""))){
 			sb.append(" and f.idNumber='"+queryModel.getIdNumber()+"'");
 		}
-		
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and f.address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		expression.setHql(sb.toString());
 		expression.setParameters(objects);
 		expression.setType(OperationType.HQL);

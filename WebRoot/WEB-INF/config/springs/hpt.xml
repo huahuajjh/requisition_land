@@ -30,5 +30,6 @@
 			<constructor-arg index="0" ref="hbRepositoryContext"/>
 			<constructor-arg index="1" ref="hptRepository"/>
 			<constructor-arg index="2" ref="fmlItemRepository"/>
+			<constructor-arg index="3" ref="fmlRepository"/>
 		</bean>
 </beans>

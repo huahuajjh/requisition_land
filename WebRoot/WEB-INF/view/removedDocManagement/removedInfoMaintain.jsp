@@ -17,7 +17,7 @@
 	<div class="panel-body">
 		<form action="" method="post">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="form-group downImput">
 						<label>身份证</label>
 						<input id="idNumber" type="text" class="form-control" placeholder="输入身份证进行搜索" autocomplete="OFF" maxlength="20" />
@@ -25,7 +25,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="form-group downImput">
 						<label>姓名</label>
 						<input id="name" type="text" class="form-control" placeholder="输入姓名" autocomplete="OFF" maxlength="15" />
@@ -33,38 +33,20 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="form-group">
-						<label>镇(街道)</label>
-						<select id="street" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="form-group">
-						<label>村（社区）</label>
-						<select id="community" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2" style="display:none;">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+				<div class="col-md-4">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12 text-right">
 				<hr>
 					<div class="btn-group">
+						<button type="reset" class="bk-margin-5 btn btn-link" >重置</button>
 						<button type="button" class="btn btn-bg btn-success" onclick="$('#selectExportModal').modal('show');">导出已拆迁户台账</button>
-						<input type="button" class="btn btn-primary pull-left" value="查询" onclick="tableData.goPage(1); ">
+						<input type="button" class="btn btn-primary" value="查询" onclick="tableData.goPage(1); ">
 					</div>
 				</div>
 			</div>
@@ -147,6 +129,9 @@
     </div>
   </div>
 </div>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>

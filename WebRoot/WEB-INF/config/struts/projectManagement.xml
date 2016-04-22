@@ -93,6 +93,7 @@
 			</result>
 		</action>
 		<action name="maintainRemoveList" method="list" class="com.tq.requisition.presentation.actions.projectManagement.MaintainRemove"></action>
+		<action name="maintainRemoveDelete" method="delete" class="com.tq.requisition.presentation.actions.projectManagement.MaintainRemove"></action>
 		
 		<!--  录入拆迁户信息 -->
 		<action name="uploadRemoveInfo" class="com.tq.requisition.presentation.actions.projectManagement.UploadRemoveInfo">

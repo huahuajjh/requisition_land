@@ -53,6 +53,12 @@ public interface IRemovedInfoServiceContract {
 	String delInfo(UUID id);
 	
 	/**
+	 * 根据指定的身份证删除人员信息
+	 * @param idNumber
+	 */
+	void delInfo(String idNumber);
+	
+	/**
 	 * 根据查询model和分页model插叙结果集
 	 * @param queryModel
 	 * 		查询model

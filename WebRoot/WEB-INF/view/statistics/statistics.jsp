@@ -31,7 +31,7 @@
 						<button type="button" class="btn btn-primary" style="width: 100%;" onclick="tableData.goPage(1); ">查询</button>
 					</span>
 					<span class="input-group-btn" style="width: 80px;">
-						<button type="button" class="btn btn-success"  style="width: 100%;" onclick="$('#selectExportModal').modal('show');">导出</button>
+						<button type="button" class="btn btn-success"  style="width: 100%;" onclick="showDaoChuWin()">导出</button>
 					</span>
 				</div>
 			</div>
@@ -39,33 +39,38 @@
 	</form>
 	<hr>
 	<div class="panel-body">
-		<div style="overflow-x:auto;width: 100%;">
-			<table class="table table-striped table-bordered bootstrap-datatable datatable autoTbale">
+	<div style="width: 100%;overflow: hidden;" id="tableHead">
+	<table class="table table-striped table-bordered bootstrap-datatable datatable autoTbale " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-bottom: 0 !important;">
 				<thead>
 					<tr>
-						<th rowspan="2">项目</th>
-						<th colspan="3">合计</th>
-						<th colspan="3">已领凭证</th>
-						<th colspan="3">未领凭证</th>
-						<th colspan="4">资金来源</th>
+						<th rowspan="2" style="width: 300px">项目</th>
+						<th colspan="3"  style="width: 300px">合计</th>
+						<th colspan="3"  style="width: 300px">已领凭证</th>
+						<th colspan="3"  style="width: 300px">未领凭证</th>
+						<th colspan="4"  style="width: 1000px">资金来源</th>
 					</tr>
 					<tr>
-						<th>户数</th>
-						<th>人数</th>
-						<th>金额</th>
-						<th>户数</th>
-						<th>人数</th>
-						<th>金额</th>
-						<th>户数</th>
-						<th>人数</th>
-						<th>金额</th>
-						<th>资金来源</th>
-						<th>国土局出资单位计算规则</th>
-						<th>其他出资单位名称</th>
-						<th>其他出资单位计算规则</th>
+						<th style="width: 100px">户数</th>
+						<th style="width: 100px">人数</th>
+						<th style="width: 100px">金额</th>
+						<th style="width: 100px">户数</th>
+						<th style="width: 100px">人数</th>
+						<th style="width: 100px">金额</th>
+						<th style="width: 100px">户数</th>
+						<th style="width: 100px">人数</th>
+						<th style="width: 100px">金额</th>
+						<th style="width: 250px">资金来源</th>
+						<th style="width: 250px">国土局出资单位计算规则</th>
+						<th style="width: 250px">其他出资单位名称</th>
+						<th style="width: 250px">其他出资单位计算规则</th>
 					</tr>
 				</thead>
-				<tbody id="dataTbody"></tbody>
+				</table>
+				</div>
+		<div style="overflow-x:auto;width: 100%; max-height: 500px" id="tableBody">
+			<table class="table table-striped table-bordered bootstrap-datatable datatable autoTbale " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-top: 0 !important;">
+				<tbody id="dataTbody">
+				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="14">
@@ -94,20 +99,20 @@
 
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
-	<td>{{proName}}</td>
-	<td>{{totalFmlCount}}</td>
-	<td>{{totalFmlItems}}</td>
-	<td>{{totalAmount}}</td>
-	<td>{{rcdFmlCount}}</td>
-	<td>{{rcdFmlItems}}</td>
-	<td>{{rcdAmount}}</td>
-	<td>{{nrcdFmlCount}}</td>
-	<td>{{nrcdFmlItems}}</td>
-	<td>{{nrcdAmount}}</td>
-	<td>{{moneyUnit}}</td>
-	<td>{{{moneyUnitMsg}}}</td>
-	<td>{{otherMoneyUnit}}</td>
-	<td>{{{otherMoneyUnitMsg}}}</td>
+	<td style="width: 300px">{{proName}}</td>
+	<td style="width: 100px">{{totalFmlCount}}</td>
+	<td style="width: 100px">{{totalFmlItems}}</td>
+	<td style="width: 100px">{{totalAmount}}</td>
+	<td style="width: 100px">{{rcdFmlCount}}</td>
+	<td style="width: 100px">{{rcdFmlItems}}</td>
+	<td style="width: 100px">{{rcdAmount}}</td>
+	<td style="width: 100px">{{nrcdFmlCount}}</td>
+	<td style="width: 100px">{{nrcdFmlItems}}</td>
+	<td style="width: 100px">{{nrcdAmount}}</td>
+	<td style="width: 250px">{{moneyUnit}}</td>
+	<td style="width: 250px">{{{moneyUnitMsg}}}</td>
+	<td style="width: 250px">{{otherMoneyUnit}}</td>
+	<td style="width: 250px">{{{otherMoneyUnitMsg}}}</td>
 </tr>
 </script>
 <script id="algorithmTemplate" type="text/x-handlebars-template">

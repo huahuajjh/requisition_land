@@ -16,6 +16,8 @@ public class SocialsecurityQueryModel {
 	/**创建人员信息*/
 	private String createUId;
 	
+	private String address;
+	
 	/*getters and setters*/
 	public UUID getStreetId() {
 		return streetId;
@@ -54,6 +56,12 @@ public class SocialsecurityQueryModel {
 		this.createUId = createUId;
 	}
 	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	/*constructors*/
 	public SocialsecurityQueryModel(){}
 	public SocialsecurityQueryModel(String proName, UUID streetId, UUID communityId) {

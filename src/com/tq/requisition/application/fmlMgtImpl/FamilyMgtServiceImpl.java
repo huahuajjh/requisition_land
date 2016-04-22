@@ -119,11 +119,11 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 	public String importFml(Family dto) {
 		if(null==dto)
 		{
-			return toJson("上传的拆迁户数据为空", null, Formater.OperationResult.SUCCESS);
+			return toJson("上传的拆迁户数据为空", null, Formater.OperationResult.FAIL);
 		}
 		UUID proId = projectRepository.getIdByName(dto.getProName());
 		if(proId==null){
-			return toJson("未查询到拆迁户所属项目-["+dto.getProName()+"]", null, Formater.OperationResult.SUCCESS);
+			return toJson("未查询到拆迁户所属项目-["+dto.getProName()+"]", null, Formater.OperationResult.FAIL);
 		}
 		
 		//检测是否有户主
@@ -149,7 +149,7 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 			return toJson("上传拆迁户信息成功", new Object[]{dto,toRemovedInfos(dto.getItems())}, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("上传拆迁户信息失败", null, Formater.OperationResult.FAIL);
+			return toJson(e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

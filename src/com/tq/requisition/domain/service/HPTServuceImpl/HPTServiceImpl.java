@@ -1,6 +1,7 @@
 package com.tq.requisition.domain.service.HPTServuceImpl;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 import com.tq.requisition.domain.model.familyMember.FamilyItem;
@@ -16,7 +17,10 @@ import com.tq.requisition.domain.service.BaseDomainService;
 import com.tq.requisition.domain.service.idomainservice.IHPTService;
 import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
+import com.tq.requisition.infrastructure.utils.Formater;
+import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto;
+import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
  * 购房券管理领域服务接口
@@ -101,7 +105,13 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 	public List<HPTDisplayFmlDto> queryByFml(String idNumber) throws SpecifiedObjectDoesNotExistsException {
 		FamilyItem item = familyItemRepository.queryByIdNumber(idNumber);
 		if(null == item){throw new NullPointerException("未查询到户主信息");}
-		return hptRepository.queryFmlByFmlId(item.getFmlId());		
+		return hptRepository.queryFmlByFmlId(item.getFmlId());
+	}
+
+	@Override
+	public PageFormater queryNotByPro(String proName, PageModel pageModel)
+			throws SpecifiedObjectDoesNotExistsException {
+		return hptRepository.queryNotFmlByFmlItem(proName, pageModel);
 	}
 		
 }

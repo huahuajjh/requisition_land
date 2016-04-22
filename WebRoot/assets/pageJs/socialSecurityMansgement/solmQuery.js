@@ -19,6 +19,7 @@ var tableData = $.generateData({
 		data.communityId = $("#community").val();
 		data.zuId = $("#zu").val();
 		data.idNumber = $("#idNumber").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false);
@@ -45,6 +46,21 @@ $.dropDownInput({
 	}
 });
 $.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 3
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
+});
+$.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
 	url : "projectManagement/pmProgressNames",
@@ -53,24 +69,6 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
-	}
-});
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
 	}
 });
 $("#editIsSheBao [name='isSheBao']").change(function(){

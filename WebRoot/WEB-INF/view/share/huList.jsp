@@ -11,34 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="panel-body">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="form-group">
-					<label>镇(街道)</label>
-					<select id="selectHu_queryStreet" class="form-control" size="1">
-						<option value="">所有街道</option>
-						<s:iterator id="dto" value="addressDtos">
-							<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-						</s:iterator>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<label>村（社区）</label>
-					<select id="selectHu_queryCommunity" class="form-control" size="1">
-						<option value="">所有社区</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<label>组</label>
-					<select id="selectHu_queryZu" class="form-control" size="1">
-						<option value="">所有组</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<div class="form-group downImput">
 					<label>项目名称</label>
 					<input type="text" id="selectHu_proName" maxlength="20" class="form-control" placeholder="请输入要查询的项目名称">
@@ -46,10 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<div class="form-group downImput">
 					<label for="nf-email">户主名称</label>
 					<input type="text" id="selectHu_huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主名称">
+					<ul class="dropdown-menu" id="selectHu_nameQueryPrDown"></ul>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="form-group downImput">
+					<label>地址</label>
+					<input type="text" id="selectHu_address" maxlength="60" class="form-control" placeholder="请输入要查询的地址">
+					<ul class="dropdown-menu" id="selectHu_queryAddressDown"></ul>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -84,6 +65,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script id="selectHu_queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
 </script>
+<script id="selectHu_nameQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
+</script>
+<script id="selectHu_queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="selectHu_entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{name}}</td>
@@ -105,22 +92,31 @@ $.dropDownInput({
 		$("#selectHu_proName").data("data",data);
 	}
 });
-new bindingSelect({
-	masterSelect:"#selectHu_queryCommunity",
-	childSelect:"#selectHu_queryZu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
+$.dropDownInput({
+	inputId : "#selectHu_address",
+	dropDownId : "#selectHu_queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#selectHu_queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 3
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
-new bindingSelect({
-	masterSelect:"#selectHu_queryStreet",
-	childSelect:"#selectHu_queryCommunity",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
+$.dropDownInput({
+	inputId : "#selectHu_huZhuName",
+	dropDownId : "#selectHu_nameQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"name",
+	templateId : "#selectHu_nameQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 var selectHu_tableData = $.generateData({
@@ -135,9 +131,7 @@ var selectHu_tableData = $.generateData({
 				data.queryProName = queryPrName;
 		}
 		data.huZhuName = $("#selectHu_huZhuName").val();
-		data.streetId = $("#selectHu_queryStreet").val();
-		data.communityId = $("#selectHu_queryCommunity").val();
-		data.zuId = $("#selectHu_queryZu").val();
+		data.address = $("#selectPerson_address").val();
 	}, lastFn : function(data) {
 		return actionFormate(data, false) || {datas:[],totalCount:0};
 	}

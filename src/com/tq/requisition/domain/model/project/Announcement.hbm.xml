@@ -18,7 +18,7 @@
         <!-- 公告时间 -->
 		<property name="date" length="50" column="announce_date"  type="date" not-null="true" />
 		<!-- 文号 -->
-		<property name="number" column="announce_number"  length="70" type="string" />
+		<property name="number" column="announce_number"  length="200" type="string" />
 		<!-- 公告文件路径 -->
 		<property name="docPath" column="file_path" length="120"  type="string" unique="true"/>
 		<!-- 项目id -->

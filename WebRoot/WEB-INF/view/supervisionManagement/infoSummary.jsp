@@ -59,30 +59,18 @@
 							</select>
 						</div>
 					</div>
-					<div class="col-md-2">
-						<div class="form-group">
-							<label>镇(街道)</label>
-							<select id="queryProStreet" class="form-control" size="1">
-								<option value="">所有街道</option>
-								<s:iterator id="dto" value="addressDtos">
-									<option value="<s:property value='#dto.getId()' />">
-										<s:property value='#dto.getName()' />
-									</option>
-								</s:iterator>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-group">
-							<label>村（社区）</label>
-							<select id="queryProCommunity" class="form-control" size="1">
-								<option value="">所有社区</option>
-							</select>
+					<div class="col-md-4">
+						<div class="form-group downImput">
+							<label>地址</label>
+							<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+							<ul class="dropdown-menu" id="queryAddressDown">
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-12">
 						<hr>
 						<input type="button" class="btn btn-primary pull-right" value="查询" onclick="queryProtableData.goPage(1); ">
+						<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 					</div>
 				</div>
 			</form>
@@ -422,24 +410,22 @@
 <tr>
 	<td class="active" style="width: 200px;">纳入社保日期</td>
 	<td>{{socialsecurityDate}}</td>
-	<td class="active" style="width: 200px;">社保类型</td>
-	<td>{{typeStr}}</td>
-</tr>
-<tr>
 	<td class="active">军队服役时间(月)</td>
 	<td>{{serveArmyTime}}</td>
+</tr>
+<tr>
 	<td class="active">养老保险补缴年限</td>
 	<td>{{endowmentInsuranceYear}}</td>
-</tr>
-<tr>
 	<td class="active">医疗保险视同缴费月数</td>
 	<td>{{medicalInsuranceMonth}}</td>
-	<td class="active">参加何种医疗保险</td>
-	<td>{{joinWhichMedicalInsurance}}</td>
 </tr>
 <tr>
+	<td class="active">参加何种医疗保险</td>
+	<td>{{joinWhichMedicalInsurance}}</td>
 	<td class="active">所属社区</td>
 	<td>{{community}}</td>
+</tr>
+<tr>
 	<td class="active">服刑或劳动教养时间(月)</td>
 	<td>{{prisonTime}}</td>
 </tr>
@@ -540,5 +526,8 @@
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script type="text/javascript" src="assets/pageJs/supervisionManagement/infoSummary.js"></script>

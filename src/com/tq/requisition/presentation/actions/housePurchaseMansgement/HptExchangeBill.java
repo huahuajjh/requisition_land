@@ -23,6 +23,7 @@ public class HptExchangeBill extends BaseAction {
 	private String num;
 	private String idNumber;
 	private String name;
+	private String huIdNumber;
 	public void setNum(String num) {
 		this.num = num;
 	}
@@ -45,6 +46,9 @@ public class HptExchangeBill extends BaseAction {
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
 	}
+	public void setHuIdNumber(String huIdNumber) {
+		this.huIdNumber = huIdNumber;
+	}
 	
 	@Override
 	public String execute() throws Exception {
@@ -56,6 +60,7 @@ public class HptExchangeBill extends BaseAction {
 		if(queryProName != null && !queryProName.equals("")){
 			hptFuzzyQueryModel.setProName(queryProName);
 		}
+		hptFuzzyQueryModel.setHuIdNumber(huIdNumber);
 		hptFuzzyQueryModel.setName(name);
 		hptFuzzyQueryModel.setIdNumber(idNumber);
 		hptFuzzyQueryModel.setTicketNumber(num);

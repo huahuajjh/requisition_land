@@ -45,7 +45,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>户主姓名</label>
 						<input type="text" id="huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主姓名">
@@ -53,37 +53,19 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>镇(街道)</label>
-						<select id="street" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>村（社区）</label>
-						<select id="community"  class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+				<div class="col-md-5">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<hr>
 					<div class="btn-group pull-right">
 						<input type="button" onclick="tableData.goPage(1); " class="btn btn-primary pull-right" value="查询">
+						<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 					</div>
 				</div>
 			</div>
@@ -118,7 +100,7 @@
 						<th>所属项目</th>
 						<th>地址</th>
 						<th>人口数</th>
-						<th>操作</th>
+						<th style="width: 280px;">操作</th>
 					</tr>
 				</thead>
 				<tbody id="dataTbody">
@@ -256,6 +238,32 @@
 		</div>
 	</div>
 </form>
+<div class="modal fade" id="personMsgModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title bk-fg-primary">人员管理信息</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>与户主关系</th>
+							<th>操作</th>                                        
+						</tr>
+					</thead>   
+					<tbody id="personMsgArea">
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="modal fade" id="showProInfoModal">
   <div class="modal-dialog">
     <div class="modal-content" id="showProInfoArea">
@@ -299,7 +307,220 @@
     </div>
   </div>
 </div>
+<form class="modal fade" id="personInfoModal" data-backdrop="static" onsubmit="return false;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title bk-fg-primary">添加人员信息</h4>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="submit" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</form>
 
+<script id="itemOperationTemplate" type="text/x-handlebars-template">
+	<tr>
+		<td><a href="javascript:;" onclick="showPersonInfo(this);" class="text-primary">{{name}}</a></td>
+		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+		<td>
+			{{#dengYu relationshipStr '户主'}}
+			{{else}}
+			<a class="label label-default" onclick="deleteFMLItem(this);">删除家庭成员<a>
+			{{/dengYu}}
+		</td>
+	</tr>
+</script>
+<script id="itemDeleteLogTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">人员姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">人员身份证：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">地址：</td>
+		<td>{{address}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生时间：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户口类型：</td>
+		<td>{{householdStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">与户主关系：</td>
+		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">性别：</td>
+		<td>{{#dengYu gender "MALE"}}男{{else}}女{{/dengYu}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">文化程度：</td>
+		<td>{{educationLevel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">在读情况：</td>
+		<td>{{currentEducationSituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">从事农业劳动时间：</td>
+		<td>{{farmingTime}}</td>
+	</tr>
+</table>
+</script>
+<script id="addFMLPersonTemplate" type="text/x-handlebars-template">
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<div class="form-control-static">户主姓名:<strong>&nbsp;&nbsp;&nbsp;&nbsp;{{headName}}</strong></div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<hr/>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">姓名<span class="text-danger">*</span></label>
+			<input type="text" class="form-control" name="name" placeholder="请输入姓名" maxlength="15" value="{{name}}">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">与户主关系<span class="text-danger">*</span></label>
+			<div class="controls">
+				<div class="input-group" style="width: 100%;">
+					<select class="form-control" size="1" name="relationship">
+						<option value="">请选择与户主关系</option>
+						<s:iterator id="dto" value="relationshipTypeDtos">
+							<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
+						</s:iterator>
+					</select>
+					<span class="input-group-btn" style="width:130px;">
+						<input type="text" class="form-control"  name="otherRelationship" disabled maxlength="10" placeholder="请输入与户主关系" />
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">身份证件<span class="text-danger">*</span></label>
+			<div class="controls">
+				<div class="input-group" style="width: 100%;">
+					<select class="form-control" size="1" name="certificateType">
+						<option value="">请选择证件类型</option>
+						<option value="idNumber">身份证件</option>
+						<option value="otherNumber">其他证件</option>
+					</select>
+					<span class="input-group-btn" style="width:170px;">
+						<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" disabled>
+					</span>
+				</div>
+			</div>
+			<label id="idNumber-error" class="error" for="idNumber" style="display: none;"></label>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">性别<span class="text-danger">*</span></label>
+			<select name="gender" class="form-control" size="1">
+				<option value="">请选择性别</option>
+				<option value="0">男</option>
+				<option value="1">女</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">户口性质<span class="text-danger">*</span></label>
+			<select name="householdId" class="form-control" size="1">
+				<option value="">请选择户口性质</option>
+				<s:iterator id="dto" value="householdTypeDtos">
+					<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
+				</s:iterator>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">出生日期<span class="text-danger">*</span></label>
+			<input type="text" name="birthday" class="form-control" placeholder="____/__/__" maxlength="18" data-plugin-masked-input data-plugin-datepicker data-plugin-datepicker-nottoday data-input-mask="9999/99/99"/>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">文化程度</label>
+			<input type="text" name="educationLevel" class="form-control" placeholder="请输入文化程度" maxlength="10">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">在读情况</label>
+			<input type="text" name="currentEducationSituation"  class="form-control" placeholder="请输入在读情况" maxlength="30">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">从事农业劳动时间</label>
+			<input type="text" name="farmingTime" class="form-control" placeholder="请输入从事农业劳动时间">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">服兵役/劳改/劳教情况及时间起止段</label>
+				<input type="text" name="serveArmySituation" class="form-control" placeholder="请输入服兵役/劳改/劳教情况及时间起止段"  />
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">联系电话</label>
+			<input type="text" name="tel" class="form-control" placeholder="请输入联系电话" maxlength="15">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">独生子女证件号</label>
+			<input type="text" name="onlyChildNumber" class="form-control" placeholder="请输入独生子女证件号" maxlength="20">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">是否半边户</label>
+			<div class="checkbox-custom form-control-static">
+				<input type="checkbox" name="half"> 
+				<label></label>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="control-label">是否参加过社会保险</label>
+			<div class="checkbox-custom form-control-static">
+				<input type="checkbox" name="userdSocialsecurity"> 
+				<label></label>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<label class="control-label">备注</label>
+			<textarea name="remark" rows="3" class="form-control" placeholder="请输入备注" maxlength="140"></textarea>
+		</div>
+	</div>
+</div>
+</script>
 <script id="logItemTemplate" type="text/x-handlebars-template">
 <table>
 	<tr>
@@ -371,6 +592,8 @@
 	<td>
 		<a class="label label-dark" onclick="showInfo(this);">查看</a> 
 		<a class="label label-info" onclick="editInfo(this);">编辑</a> 
+		<a class="label label-success" onclick="showAddFMLAndHPTModal(this);">增加家庭成员</a>
+		<a class="label label-default" onclick="showItemList(this);">管理家庭成员<a> 
 	</td>
 </tr>
 </script>
@@ -625,6 +848,9 @@
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
 </script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="editFamilyInfoTemplate" type="text/x-handlebars-template">
 <div class="row">
 	<div class="col-md-6">
@@ -648,29 +874,13 @@
 	<div class="col-md-6">
     	<div class="form-group">
     		<label class="control-label">房屋违章面积（平方米）</label>
-				<input type="text" name="houseIllegalArea" maxlength="10" class="form-control" placeholder="请输入房屋违章面积" value="{{houseIllegalArea}}">
+			<input type="text" name="houseIllegalArea" maxlength="10" class="form-control" placeholder="请输入房屋违章面积" value="{{houseIllegalArea}}">
     	</div>
     </div>
     <div class="col-md-12">
     	<div class="form-group">
     		<label class="control-label">所属地址<span class="text-danger">*</span></label>
-    		<div class="input-daterange input-group">
-    			<span class="input-group-addon">镇(街道)</span>
-				<select id="editStreet" name="streetId" class="form-control" size="1">
-    				<option value="">请选择街道</option>
-    				<s:iterator id="dto" value="addressDtos">
-    					<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-    				</s:iterator>
-    			</select>
-				<span class="input-group-addon">村（社区）</span>
-				<select id="editCommunity" name="communityId" class="form-control" size="1">
-    				<option value="0">请选择社区</option>
-    			</select>
-				<span class="input-group-addon">组</span>
-				<select id="editZu" name="zuId" class="form-control" size="1">
-    				<option value="0">请选择组</option>
-    			</select>
-    		</div>
+    		<input type="text" name="address" maxlength="60" class="form-control" placeholder="请输入所属地址" value="{{address}}">
     	</div>
     </div>
     <div class="col-md-6">
@@ -885,5 +1095,77 @@
 		拆迁科（区征地办）复核人：
 	</div>
 </div>
+</script>
+<script id="logFmlItemTemplate" type="text/x-handlebars-template">
+<table>
+	<tr>
+		<td class="text-right">户主姓名：</td>
+		<td>{{headName}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户主身份证件：</td>
+		<td>{{headIdNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">人员姓名：</td>
+		<td>{{name}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">与户主关系：</td>
+		<td>{{relationshipStr}}{{#if otherRelationship}}-{{otherRelationship}}{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">身份证件：</td>
+		<td>{{idNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">性别：</td>
+		<td>{{genderStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">户口性质：</td>
+		<td>{{householdStr}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">出生日期：</td>
+		<td>{{birthday}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">文化程度：</td>
+		<td>{{educationLevel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">在读情况：</td>
+		<td>{{currentEducationSituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">从事农业劳动时间：</td>
+		<td>{{farmingTime}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">服兵役/劳改/劳教情况及时间起止段：</td>
+		<td>{{serveArmySituation}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">联系电话：</td>
+		<td>{{tel}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">独生子女证件号：</td>
+		<td>{{onlyChildNumber}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否半边户：</td>
+		<td>{{#if half}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">是否参加过社会保险：</td>
+		<td>{{#if userdSocialsecurity}}是{{else}}否{{/if}}</td>
+	</tr>
+	<tr>
+		<td class="text-right">备注：</td>
+		<td>{{remark}}</td>
+	</tr>
+</table>
 </script>
 <script type="text/javascript" src="assets/pageJs/projectManagement/maintainRemove.js"></script>

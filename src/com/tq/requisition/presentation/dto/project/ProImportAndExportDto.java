@@ -60,12 +60,15 @@ public class ProImportAndExportDto {
 	/** 公告1 */
 	@OutputColAnnotation(colCoord = 9)
 	private Date announce1;
+	private String announce1Number;
 	/** 公告2 */
 	@OutputColAnnotation(colCoord = 10)
 	private Date announce2;
+	private String announce2Number;
 	/** 公告3 */
 	@OutputColAnnotation(colCoord = 11)
 	private Date announce3;
+	private String announce3Number;
 
 	/** 征地面积 */
 	@InputColAnnotation(colCoord = 9, required = true, converErrorMsg = "类型错误，[征地面积]是小数类型", requiredErrorMsg = "[征地面积]不可为空")
@@ -211,7 +214,9 @@ public class ProImportAndExportDto {
 		model.setShouldMovePopulation(shouldMovePopulation);
 		model.setShouldPayMoney(shouldPayMoney);
 		model.setTotalPayMoney(totalPayMoney);
-		model.setStartDate(startDate);
+		if(curMonthComplete != null && (curMonthComplete.trim().equals("√") || curMonthComplete.trim().equals("是"))){
+			model.setStartDate(date);
+		}
 		model.setProType(getProType());
 		// model.setProTypeStr(proTypeStr);
 		model.setTotalAddress(totalAddress);
@@ -235,7 +240,11 @@ public class ProImportAndExportDto {
 		
 		model.setCurMonthComplete(curMonthComplete);
 		model.setCategoryStr(proCategory);
-		model.setSixForward(sixForheadPro);
+		if(sixForheadPro != null && (sixForheadPro.trim().equals("√") || sixForheadPro.trim().equals("是"))){
+			model.setSixForward("是");
+		} else {
+			model.setSixForward(sixForheadPro);
+		}
 		
 		model.setCreateDate(createDate);
 		model.setCreateUid(createUid);
@@ -257,7 +266,11 @@ public class ProImportAndExportDto {
 		item.setNewStart(false);
 		item.setProId(model.getId());
 		item.setStartDate(startDate);
-		item.setCurMonthComplete(curMonthComplete);
+		if(curMonthComplete != null && (curMonthComplete.trim().equals("√") || curMonthComplete.trim().equals("是"))){
+			item.setCurMonthComplete("是");
+		} else {
+			item.setCurMonthComplete(curMonthComplete);
+		}
 		
 		model.getItems().add(item);
 		return model;
@@ -389,14 +402,17 @@ public class ProImportAndExportDto {
 			switch (announcement.getSequence()) {
 			case 1:
 				dto.announce1 = announcement.getDate();
+				dto.announce1Number = announcement.getNumber();
 				break;
 
 			case 2:
 				dto.announce2 = announcement.getDate();
+				dto.announce2Number = announcement.getNumber();
 				break;
 
 			default:
 				dto.announce3 = announcement.getDate();
+				dto.announce3Number = announcement.getNumber();
 				break;
 			}
 		}

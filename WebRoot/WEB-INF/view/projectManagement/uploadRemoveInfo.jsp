@@ -113,22 +113,10 @@
 						<input type="text" name="houseIllegalArea" id="houseIllegalArea" class="form-control" placeholder="请输入房屋合法面积" maxlength="10" />
 				</div>
 			</div>
-			<div class="col-md-10 col-md-offset-2">
+			<div class="col-md-8 col-md-offset-2">
 				<div class="form-group">
 					<label class="control-label">所属地址<span class="text-danger">*</span></label>
-					<div class="input-daterange input-group">
-						<span class="input-group-addon">镇(街道)</span> <select id="street"
-							name="street" class="form-control" size="1">
-							<option value="">请选择街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select> <span class="input-group-addon">村（社区）</span> <select id="community"
-							name="community" class="form-control" size="1"><option value="">请选择社区</option>
-						</select><span class="input-group-addon">组</span> <select id="zu"
-							name="zu" class="form-control" size="1"><option value="">请选择组</option>
-						</select>
-					</div>
+					<input type="text" name="address" id="address" class="form-control" placeholder="请输入所属地址" maxlength="60" >
 				</div>
 			</div>
 			<div class="col-md-4 col-md-offset-2">
@@ -546,7 +534,7 @@
 						<option value="idNumber">身份证</option>
 						<option value="otherNumber">其他证件</option>
 					</select>
-					<span class="input-group-btn" style="width:130px;">
+					<span class="input-group-btn" style="width:170px;">
 						<input style="height: 32px;" type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" {{#if certificateType}}{{else}}disabled{{/if}}>
 					</span>
 				</div>

@@ -29,5 +29,7 @@
 		<bean id="fmlItemService" class="com.tq.requisition.application.fmlMgtImpl.FamilyItemServiceImpl">
 			<constructor-arg index="0" ref="hbRepositoryContext"/>
 			<constructor-arg index="1" ref="fmlItemRepository"/>
+			<constructor-arg index="2" ref="removedInfoRepository"/>
+			<constructor-arg index="3" ref="fmlRepository"/>
 		</bean>
 </beans>

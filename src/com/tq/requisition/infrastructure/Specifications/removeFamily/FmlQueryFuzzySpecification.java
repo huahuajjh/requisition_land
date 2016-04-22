@@ -56,10 +56,12 @@ public class FmlQueryFuzzySpecification extends Specification<Family>{
 			list.add(queryModel.getGroupId().toString());
 		}
 		if(null!=queryModel.getName() && !(queryModel.getName().trim().equals(""))){
-			sb.append(" and head_name=?");
-			list.add(queryModel.getName());
+			sb.append(" and head_name like '%" + queryModel.getName() + "%'");
 		}
-		
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and address like " + "'%" + queryModel.getAddress() + "%'");
+		}
 		sb.append(" limit ?,?");
 		list.add(PageHelper.getPageIndex(pageModel.pageIndex, pageModel.pageSize));
 		list.add(pageModel.pageSize);

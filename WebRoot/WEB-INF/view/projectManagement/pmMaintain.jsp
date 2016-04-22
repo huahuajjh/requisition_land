@@ -33,7 +33,7 @@
 				<div class="col-md-3">
 					<div class="form-group downImput">
 						<label for="nf-email">项目名称</label>
-						<input type="text" id="queryPrName" maxlength="20" class="form-control" placeholder="请输入要查询的项目名称" autocomplete="OFF" />
+						<input type="text" id="queryPrName" maxlength="100" class="form-control" placeholder="请输入要查询的项目名称" autocomplete="OFF" />
 						<ul class="dropdown-menu" id="queryPrDown">
 						</ul>
 					</div>
@@ -60,32 +60,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">镇(街道)</label>
-						<select id="street"
-							name="select" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property
-										value='#dto.getName()' />
-								</option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">村（社区）</label> <select id="community"
-							name="select" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
+				<div class="col-md-4">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="60" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<hr>
 					<input type="button" class="btn btn-primary pull-right" value="查询"
 						onclick="tableData.goPage(1); " />
+					<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 				</div>
 			</div>
 		</form>
@@ -122,7 +109,7 @@
 						<th>应拆栋数</th>
 						<th>应拆户数</th>
 						<th>项目地址</th>
-						<th>操作</th>
+						<th style="width: 120px;">操作</th>
 					</tr>
 				</thead>
 				<tbody id="dataTbody">
@@ -377,13 +364,13 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">项目审批号<span class="text-danger">*</span></label>
-			<input type="text" name="approvalNumber" value="{{approvalNumber}}" class="form-control" placeholder="请输入项目审批号" maxlength="20">
+			<input type="text" name="approvalNumber" value="{{approvalNumber}}" class="form-control" placeholder="请输入项目审批号" maxlength="100">
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label class="control-label">项目名称<span class="text-danger">*</span></label>
-			<input type="text" name="proName" class="form-control" value="{{proName}}" placeholder="请输入项目名称" maxlength="20">
+			<input type="text" name="proName" class="form-control" value="{{proName}}" placeholder="请输入项目名称" maxlength="100">
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -399,17 +386,8 @@
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label" for="email-input">项目地址</label>
-				<div id="selectType">
-            		<div class="bootstrap-tagsinput" id="addressItems" style="min-height: 34px;width: 100%;margin-bottom: 0;">
-            		</div>
-            	</div>
-		</div>
-	</div>
-	<div class="col-md-6">
-		<div class="form-group">
-			<label class="control-label">项目地址其他信息</label>
-			<input type="text" name="otherAddress" class="form-control" placeholder="请输入项目地址其他信息" maxlength="30">
+			<label class="control-label">项目地址<span class="text-danger">*</span></label>
+			<input type="text" name="otherAddress" class="form-control" placeholder="请输入项目地址其他信息" maxlength="60" value="{{totalAddress}}">
 		</div>
 	</div>
 	<div class="col-md-6">
@@ -495,6 +473,9 @@
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script id="addreddItemTemplate" type="text/x-handlebars-template">
 <span class="tag label label-primary">{{name}}<span data-role="remove" onclick="deleteFileIItem(this);"></span></span>

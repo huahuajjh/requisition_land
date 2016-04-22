@@ -29,7 +29,7 @@
 		<property name="communityId" column="community_id" type="org.hibernate.type.UUIDCharType" length="70"/>
 		<property name="fmlId" column="fml_id" type="org.hibernate.type.UUIDCharType" length="70"/>
 		<property name="proId" column="pro_id" type="org.hibernate.type.UUIDCharType" length="70"/>
-		<property name="proName" column="pro_name"  type="string" length="70"/>
+		<property name="proName" column="pro_name"  type="string" length="200"/>
 		<property name="removed" column="is_removed"  type="boolean" not-null="true"/>
 		<property name="socialsecurity" column="is_socialsecurity"  type="boolean" not-null="true"/>
 		<property name="transfer" column="is_transferd"  type="boolean" not-null="true"/>

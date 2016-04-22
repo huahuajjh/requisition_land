@@ -31,6 +31,7 @@ public class PmMaintain extends BaseAction {
 	private String streetId = "";
 	private String communityId = "";
 	private String queryProName = "";
+	private String address;
 	
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
@@ -52,6 +53,9 @@ public class PmMaintain extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	/**“≥√Ê∂‘œÛ*/
@@ -83,6 +87,7 @@ public class PmMaintain extends BaseAction {
 		if (!streetId.equals(""))
 			queryModel.setStreetId(UUID.fromString(streetId));
 		queryModel.setTypeId(typeId);
+		queryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);

@@ -5,6 +5,20 @@ setProListModal("#selectProInfoModal",function(data){
 	}
 });
 $.dropDownInput({
+	inputId : "#huIdNumber",
+	dropDownId : "#huIdNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#huIdNumber").data("data",data);
+	}
+});
+$.dropDownInput({
 	inputId : "#queryIdNumber",
 	dropDownId : "#idNumberQueryPrDown",
 	url : sendUrl.onekeyQuery_getFuzzy,
@@ -55,6 +69,7 @@ var tableData = $.generateData({
 		if(name){
 			data.name = name;
 		}
+		data.huIdNumber = $("#huIdNumber").val();
 	}, lastFn : function(data) {
 		var tempData = actionFormate(data, false);
 		$("#countArea").html(tempData.totalCount);

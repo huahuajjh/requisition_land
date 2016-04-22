@@ -21,6 +21,9 @@ public class ProQueryModel {
 	/** 社区id */
 	private UUID communityId;
 	
+	/**模糊查询地址*/
+	private String address;
+	
 	/**创建人的ID*/
 	private String createUId;
 
@@ -88,6 +91,14 @@ public class ProQueryModel {
 
 	public void setCreateUId(String createUId) {
 		this.createUId = createUId;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

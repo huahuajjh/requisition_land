@@ -37,7 +37,7 @@ public class HPTProvideCountSpecification extends Specification<HousePuraseTicke
 		}
 		if(queryModel.getName()!=null && !(queryModel.getName().trim().equals("")))
 		{
-			sb.append(" and i.name='"+queryModel.getName()+"'");
+			sb.append(" and i.name like '%"+queryModel.getName()+"%'");
 		}
 		if(queryModel.getTicketNumber()!=null && !(queryModel.getTicketNumber().trim().equals(""))){
 			sb.append(" and t.ticketNumber='"+queryModel.getTicketNumber()+"'");

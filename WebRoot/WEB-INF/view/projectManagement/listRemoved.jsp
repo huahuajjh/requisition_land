@@ -58,7 +58,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
 						<label>独生子女</label>
 						<select id="isDSZN"  class="form-control" size="1">
@@ -68,7 +68,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
 						<label>半边户</label>
 						<select id="isBBH" class="form-control" size="1">
@@ -78,17 +78,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="form-group">
-						<label>是否转户</label>
-						<select id="isZH" class="form-control" size="1">
-							<option value="2">全部</option>
-							<option value="1">是</option>
-							<option value="0">否</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
 						<label>是否纳入社保</label>
 						<select id="isNRSB" class="form-control" size="1">
@@ -99,36 +89,18 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="form-group">
-						<label>镇(街道)</label> 
-						<select id="street" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label>村（社区）</label>
-						<select id="community" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<hr>
 					<div class="btn-group pull-right">
 						<input type="button" onclick="tableData.goPage(1); " class="btn btn-primary pull-right" value="查询">
+						<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 					</div>
 				</div>
 			</div>
@@ -760,6 +732,9 @@
 </script>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script type="text/javascript" src="assets/js/showProListModal.js"></script>
 <script type="text/javascript" src="assets/js/select.js"></script>

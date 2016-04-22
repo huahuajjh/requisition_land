@@ -190,7 +190,7 @@
 		$('#addRoleModal')[0].reset();
 	});
 
-	function deleteRole(id) {
+	function deleteRole(dom,id) {
 		if (!confirm("确定要删除吗？"))
 			return;
 		$.post("management/sysRoleManageRemove", {

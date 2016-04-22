@@ -42,7 +42,7 @@ public class UserQueryByPageSpecification extends Specification<Account>{
 		sb.append("select a.id,a.account,a.name,a.dept_id,d.dept_name,a.org_id,o.org_name,a.role_id,r.role_name,a.state");
 		sb.append(" from tb_account a left join tb_dept d on a.dept_id=d.id");
 		sb.append(" left join tb_org o on a.org_id=o.id");
-		sb.append(" left join tb_role r on a.role_id=r.id where 1=1 ");
+		sb.append(" left join tb_role r on a.role_id=r.id where a.state='3' ");
 		
 		if(userName!=null && ! userName.trim().equals(""))
 		{

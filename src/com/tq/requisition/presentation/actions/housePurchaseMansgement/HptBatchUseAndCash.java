@@ -42,6 +42,7 @@ public class HptBatchUseAndCash extends BaseAction {
 		HptUseAndCashQueryModel queryModel = new HptUseAndCashQueryModel();
 		queryModel.setName(name);
 		queryModel.setProName(queryProName);
+		queryModel.setIdNumber(idNumber);
 		if(!streetId.equals("")){
 			queryModel.setStreetId(UUID.fromString(streetId));
 		}
@@ -51,6 +52,7 @@ public class HptBatchUseAndCash extends BaseAction {
 		if(!zu.equals("")){
 			queryModel.setGroupId(UUID.fromString(zu));
 		}
+		queryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -81,6 +83,8 @@ public class HptBatchUseAndCash extends BaseAction {
 	private String streetId  = "";
 	private String communityId  = "";
 	private String zu  = "";
+	private String address;
+	private String idNumber;
 	
 	private String dataJson;
 
@@ -107,5 +111,11 @@ public class HptBatchUseAndCash extends BaseAction {
 	}
 	public void setDataJson(String dataJson) {
 		this.dataJson = dataJson;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 }

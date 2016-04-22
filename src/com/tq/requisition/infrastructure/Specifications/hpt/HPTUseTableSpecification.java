@@ -34,6 +34,9 @@ public class HPTUseTableSpecification extends Specification<HousePuraseTicket>{
 		{
 			sb.append(" and fi.proName like '%"+queryModel.getProName()+"%'");
 		}
+		if(queryModel.getHuFmlId() != null){
+			sb.append(" and (fi.id ='" + queryModel.getHuFmlId().toString() + "' or fi.fmlId = '"+queryModel.getHuFmlId().toString()+"')");
+		}
 		if(queryModel.getTicketNumber()!=null){
 			sb.append(" and h.ticketNumber='"+queryModel.getTicketNumber()+"'");
 		}
@@ -43,7 +46,7 @@ public class HPTUseTableSpecification extends Specification<HousePuraseTicket>{
 		}
 		if(queryModel.getName()!=null && !(queryModel.getName().trim().equals("")))
 		{
-			sb.append(" and fi.name='"+queryModel.getName()+"'");
+			sb.append(" and fi.name like '%"+queryModel.getName()+"%'");
 		}
 		expression.setParameters(TicketState.CASHED,TicketState.USED);
 		expression.setHql(sb.toString());

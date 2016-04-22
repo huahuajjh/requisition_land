@@ -159,6 +159,38 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 	}
 	
 	@Override
+	public List<FamilyItem> queryItemsByProName(final String proName) {
+		List<FamilyItem> list = getAll(new SpecificationExt<FamilyItem>(FamilyItem.class) {
+
+			@Override
+			public String getAbsHql() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getAbsSql() {
+				return "select * from tb_family_item where pro_name=?";
+			}
+
+			@Override
+			public Object[] getAbsParameters() {
+				return new Object[]{proName};
+			}
+
+			@Override
+			public OperationType getAbsType() {
+				return OperationType.SQL;
+			}
+		});
+		if(null==list||list.size()==0)
+		{
+			return null;
+		}
+		return list;
+	}
+	
+	@Override
 	public FamilyItem queryByIdNumberAndName(final String idNumber,final String name) {
 		List<FamilyItem> items = getAll(new SpecificationExt<FamilyItem>(FamilyItem.class) {
 

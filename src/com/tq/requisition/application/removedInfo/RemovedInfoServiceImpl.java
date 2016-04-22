@@ -84,6 +84,11 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			return toJson("É¾³ýÊý¾ÝÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
+	
+	@Override
+	public void delInfo(String idNumber) {
+		removedInfoRepository.deleteByIdNum(idNumber);
+	}
 
 	@Override
 	public String queryByPage4Json(RemovedInfoQueryModel queryModel,
@@ -127,5 +132,5 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 		}
 		return removedInfoRepository.queryByModel(queryModel);
 	}
-
+	
 }

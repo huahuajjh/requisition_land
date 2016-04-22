@@ -1,6 +1,7 @@
 package com.tq.requisition.presentation.serviceContract.hptMgt;
 
 import com.tq.requisition.presentation.dto.hpt.PersonAndHPTDto;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 
 /**
  * 购房券和人员的服务契约
@@ -18,4 +19,11 @@ public interface IHPTMgtFmlItemServiceContract {
 	 * 		json
 	 */
 	String add(PersonAndHPTDto personAndHPTDto);
+	
+	/**
+	 * 增加家庭成员
+	 * @param dto
+	 * @return
+	 */
+	String add(FamilyItemDto dto);
 }

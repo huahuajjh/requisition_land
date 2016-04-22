@@ -1,4 +1,18 @@
 $.dropDownInput({
+	inputId : "#idNumber",
+	dropDownId : "#idNumberQueryPrDown",
+	url : sendUrl.onekeyQuery_getFuzzy,
+	urlType:"get",
+	valName:"fuzzy",
+	selectVal:"idNumber",
+	templateId : "#idNumberQueryPrDownTemplate",
+	lastFn:function(data){
+		return actionFormate(data,false);
+	},itemClick:function(data){
+		$("#idNumber").data("data",data);
+	}
+});
+$.dropDownInput({
 	inputId : "#name",
 	dropDownId : "#nameQueryPrDown",
 	url : sendUrl.onekeyQuery_getFuzzy,
@@ -10,6 +24,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#name").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 3
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 setProListModal("#selectProInfoModal",function(data){
@@ -29,25 +58,6 @@ $.dropDownInput({
 		$("#queryPrName").data("data",data);
 	}
 });
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-
 var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
@@ -60,6 +70,8 @@ var tableData = $.generateData({
 		data.communityId = $("#community").val();
 		data.name = $("#name").val();
 		data.zu = $("#zu").val();
+		data.address = $("#queryAddressName").val();
+		data.idNumber = $("#idNumber").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false,function(type,msg,d){
@@ -130,7 +142,10 @@ var tableData = $.generateData({
 		});
 	}
 });
-
+$("#dataPageCount").change(function() {
+	tableData.setPageNum(parseInt($(this).val()));
+	tableData.refreshData();
+});
 $("#isChuLi input[type='radio']").change(function() {
 	var thisVal = $(this).val();
 	var thisCheck = $(this).prop("checked");

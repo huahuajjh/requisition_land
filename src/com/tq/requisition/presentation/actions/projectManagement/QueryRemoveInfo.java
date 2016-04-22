@@ -53,6 +53,7 @@ public class QueryRemoveInfo extends BaseAction {
 	private String streetId = "";
 	private String communityId = "";
 	private String zuId = "";
+	private String address;
 
 	private String dataJson = "";
 	private String id = "";
@@ -96,6 +97,7 @@ public class QueryRemoveInfo extends BaseAction {
 		if(queryProName != null && !queryProName.equals("")){
 			familyQueryModel.setProName(queryProName);
 		}
+		familyQueryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -188,5 +190,8 @@ public class QueryRemoveInfo extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

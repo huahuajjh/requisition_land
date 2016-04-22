@@ -60,32 +60,19 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">镇(街道)</label>
-						<select id="street"
-							name="select" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property
-										value='#dto.getName()' />
-								</option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">村（社区）</label> <select id="community"
-							name="select" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
+				<div class="col-md-4">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="60" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<hr>
 					<input type="button" class="btn btn-primary pull-right" value="查询"
 						onclick="tableData.goPage(1); " />
+					<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 				</div>
 			</div>
 		</form>
@@ -439,5 +426,8 @@
 </script>
 <script id="addreddItemTemplate" type="text/x-handlebars-template">
 <span class="tag label label-primary">{{name}}<span data-role="remove" onclick="deleteFileIItem(this);"></span></span>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script src="assets/pageJs/projectManagement/pmQueryPro.js"></script>

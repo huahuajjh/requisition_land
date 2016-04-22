@@ -147,7 +147,7 @@
 										<option value="idNumber">身份证件</option>
 										<option value="otherNumber">其他证件</option>
 									</select>
-									<span class="input-group-btn" style="width:130px;">
+									<span class="input-group-btn" style="width:170px;">
 										<input type="text" name="idNumber" class="form-control" placeholder="请输入证件号码" maxlength="20" disabled>
 									</span>
 								</div>
@@ -410,7 +410,7 @@
 						<option value="idNumber">身份证件</option>
 						<option value="otherNumber">其他证件</option>
 					</select>
-					<span class="input-group-btn" style="width:130px;">
+					<span class="input-group-btn" style="width:170px;">
 						<input type="text" name="idNumber" value="{{idNumber}}" class="form-control" placeholder="请输入证件号码" maxlength="20" disabled>
 					</span>
 				</div>

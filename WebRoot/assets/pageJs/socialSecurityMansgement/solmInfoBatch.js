@@ -19,6 +19,7 @@ var tableData = $.generateData({
 		data.communityId = $("#community").val();
 		data.idNumber = $("#idNumber").val();
 		data.zuId = $("#zu").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false,function(type,msg,d){
@@ -66,6 +67,21 @@ $.dropDownInput({
 	}
 });
 $.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 3
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
+});
+$.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
 	url : "projectManagement/pmProgressNames",
@@ -74,24 +90,6 @@ $.dropDownInput({
 		return actionFormate(data, false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
-	}
-});
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
 	}
 });
 $("#selectAll").change(function() {
@@ -107,10 +105,6 @@ $("#isSheBao input[type='radio']").change(function() {
 $("#time").change(function() {
 	var thisVal = $(this).val();
 	$("#dataTbody input[name='time']:not(:disabled)").val(thisVal);
-});
-$("#sbType").change(function() {
-	var thisVal = $(this).val();
-	$("#dataTbody select[name='sbType']:not(:disabled) option[value='"+ thisVal + "']").prop("selected", true);
 });
 $("#sendDataBtn").click(function() {
 	var datas = getData();
@@ -170,14 +164,11 @@ function getData() {
 		var tr = $(this).closest("tr");
 		var isSheBao = $(this).val();
 		var time = $("[name='time']", tr).val();
-		var sbType = $("[name='sbType']", tr).val();
 		var data = tr.data("data");
 		var subData = {};
 		subData.name = data.name;
 		subData.idNumber = data.idNumber;
 		subData.socialsecurityDate = time;
-		subData.socialsecurityTypeId = sbType;
-		subData.socialsecurityTypeStr = $("[name='sbType'] option:selected", tr).html();
 		subData.fmlItemId = data.fmlItemId;
 		subData.community = $("[name='community']",tr).val();
 		subData.serveArmyTime = $("[name='serveArmyTime']",tr).val() || 0;
@@ -202,11 +193,6 @@ function isPassValidate() {
 		var time = $("[name='time']", tr);
 		if (!time.val()){
 			time.addClass("errorBorder");
-			state = false;
-		}
-		var sbType = $("[name='sbType']", tr);
-		if (!sbType.val()){
-			sbType.addClass("errorBorder");
 			state = false;
 		}
 		//判断是否数字

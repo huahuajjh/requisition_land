@@ -21,7 +21,7 @@
 		<h6>查询条件</h6>
 	</div>
 	<div class="panel-body">
-		<div class="container" style="width:100%">
+		<form class="container" style="width:100%" onsubmit="return false;">
 			<div class="row">
 				<div class="col-xs-3">
 					<div class="form-group downImput">
@@ -33,7 +33,7 @@
 						<ul class="dropdown-menu" id="queryPrDown" style="display: none;"></ul>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>身份证件</label>
 						<input type="text" id="idNumber"  maxlength="20" class="form-control" placeholder="请输入要查询的身份证件" autocomplete="OFF">
@@ -41,31 +41,12 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>街道</label>
-						<select id="street"  class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>社区</label>
-						<select id="community" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+				<div class="col-md-5">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -73,11 +54,12 @@
 			<div class="row" style="text-align:right;margin-top:10px">
 				<div class="col-xs-12">
 					<div class="huge blue ui buttons">
+						<button type="reset" class="bk-margin-5 btn btn-link" >重置</button>
 						<button class="btn btn-bg btn-primary" onclick="tableData.goPage(1); ">查询</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 <!--查询条件-->
@@ -126,15 +108,6 @@
 								</div>
 							</div>
 						</form>
-					</th>
-					<th>
-						待遇标准<span class="text-danger">*</span>
-						<select class="form-control" size="1" style="width: 140px;" id="sbType">
-							<option value="">请选择待遇标准</option>
-							<s:iterator id="dto" value="socialsecurityTypeDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
 					</th>
 					<th>
 						社保时间<span class="text-danger">*</span>
@@ -197,7 +170,6 @@
 		<tr>
 		    <td>姓名</td>
 		    <td>身份证件</td>
-		    <td>待遇标准</td>
 		    <td>社保时间</td>
 		    <td>年龄段</td>
 		    <td>所属社区</td>
@@ -231,6 +203,9 @@
 <script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>
@@ -261,14 +236,6 @@
 				</div>
 			</div>
 		</form>
-	</td>
-	<td>
-		<select name="sbType" class="form-control" size="1" style="width: 140px;" disabled>
-			<option value="">请选择待遇标准</option>
-			<s:iterator id="dto" value="socialsecurityTypeDtos">
-				<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-			</s:iterator>
-		</select>
 	</td>
 	<td>
 		<input type="text" name="time" class="form-control" disabled data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" placeholder="____/__/__" style="width: 140px;">

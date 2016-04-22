@@ -1,12 +1,10 @@
 $("#addProform").validate({
 	rules : {
 		approvalNumber : {
-			required : true,
-			maxlength : 20
+			required : true
 		},
 		proName : {
-			required : true,
-			maxlength : 20
+			required : true
 		},
 		proTypeCode : {
 			required : true
@@ -55,6 +53,8 @@ $("#addProform").validate({
 			min : 0
 		},sixForwardPro:{
 			required : true
+		},addressOrder:{
+			required : true
 		}
 	},
 	submitHandler : function(form) {
@@ -72,32 +72,9 @@ $("#addProform").validate({
 		subData.proType = $("[name='proTypeCode']",form).val();//項目類型id
 		subData.proTypeStr = $("[name='proTypeCode'] option:selected",form).html();//項目類型文本
 		subData.sixForwardPro = $("[name='sixForwardPro']",form).val();//是否六前项目
-		
-		var address = [];
-		var street = [];
-		var community = [];
-		$("> .tag","#addressItems").each(function(){
-			var datas = $(this).data("datas");
-			var addressVal = "";
-			for (var i = 0; i < datas.length; i++) {
-				var d = datas[i];
-				if(i == 0){
-					addressVal = addressVal + d.name;
-					street.push(d.id);
-				} else if(i == 1){
-					addressVal = addressVal + d.name;
-					community.push(d.id);
-				}
-			}
-			address.push(addressVal);
-		});
+	
 		var addressOrder = $('[name="addressOrder"]',form).val();
-		if(addressOrder){
-			address.push(addressOrder);
-		}
-		subData.address =  address.join(",");
-		subData.street = street.join(",");
-		subData.community = community.join(",");
+		subData.address =  addressOrder;
 
 		$.post("projectManagement/pmAddProAdd",{
 			dataJson:JSON.stringify(subData)
@@ -109,64 +86,10 @@ $("#addProform").validate({
 				operationLog("手工添加项目信息","手工添加项目信息",logHtml);
 				
 				$(form)[0].reset();
-				$("#addressItems").empty();
-				$("#selectType").mSelect().init();
 			});
 		},"json");
 	}
 });
-$("#selectType").mSelect({
-	url:"share/address",
-	onAfterRequest:function(data){
-		return actionFormate(data, false,function(type,msg,data){
-			for (var i = 0; i < data.length; i++) {
-				var d = data[i];
-				$("> .tag","#addressItems").each(function(){
-					if($(this).data("data").id == d.id){
-						d.isDisabled = true;
-					}
-				});
-			}
-		});
-	}, onClickItem:function(data,state){
-		var datas = $("#selectType").mSelect().getDatas();
-		var tempState = false;
-		if(!state){
-			tempState = true;
-		} else if(datas.length > 1){
-			tempState = true;
-		}
-		if(tempState){
-			var nameArr = [];
-			for (var i = 0; i < datas.length; i++) {
-				var d = datas[i];
-				nameArr.push(d.name);
-			}
-			$("#selectType").mSelect().hide();
-			$("#selectType").mSelect().init();
-			var tempData = $.extend({}, data);
-			tempData.name = nameArr.join("");
-			var template = Handlebars.compile($("#addreddItemTemplate").html());
-			var html = $(template(tempData));
-			html.data("data",data);
-			html.data("datas",datas);
-			$("> span",html).click(deleteAddressItem);
-			$("#addressItems").append(html);
-			return false;
-		}
-	}
-});
-$("#addressItems").click(function(){
-	$("#selectType").mSelect().toggleShow();
-});
-function addYear(){
-	var date = new Date();
-    var year = date.getFullYear() - 1;
-	for (var i = year; i < year + 3; i++) {
-		$("#addYearSelect").append('<option value="'+i+'">'+i+'</option>');
-	}
-}
-addYear();
 function deleteAddressItem(event){
 	$(this).closest(".tag").remove();
 	event.stopPropagation();
@@ -184,14 +107,17 @@ $("#upLoadeFile").click(function(){
 	$("span",this).html("正在上传");
 	$("#errorBtn > span").html(0);
 	$("#bulletList").html("");
+	var time = $("#time").val();
+	var year = time.split("/")[0];
+	var month = time.split("/")[1];
 	submitFile($("#filePath")[0],{
-		year:$('#addYearSelect').val(),
-		month:$('#addMonthSelect').val(),
+		year:year,
+		month:month,
 	},"json",function(data){
 		actionFormate(data, true,function(type,msg,data){
 			var template = Handlebars.compile($("#logImportItemTemplate").html());
 			var html = template({
-				time:$('#addYearSelect').val() + "/" +$('#addMonthSelect').val() ,
+				time: year + "/" +month ,
 				list:data
 			});
 			operationLog("导入项目信息","导入项目信息",html);

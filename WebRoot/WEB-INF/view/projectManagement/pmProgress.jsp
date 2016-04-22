@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="form-group">
-						<label for="nf-password">项目类型</label> <select name="select"
+						<label>项目类型</label> <select name="select"
 							id="queryProType" class="form-control" size="1">
 							<option value="0">所有项目类型</option>
 							<s:iterator id="dto" value="proTypeDtos">
@@ -40,7 +40,7 @@
 				</div>
 				<div class="col-md-2">
 					<div class="form-group">
-						<label for="nf-password">项目进度</label> <select name="select"
+						<label>项目进度</label> <select name="select"
 							id="queryPrJD" class="form-control" size="1">
 							<option value="0">所有进度</option>
 							<option value="1">一公告</option>
@@ -49,25 +49,12 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">镇(街道)</label> <select id="street"
-							name="select" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />">
-									<s:property value='#dto.getName()' />
-								</option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label for="nf-password">村（社区）</label> <select id="community"
-							name="select" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
+				<div class="col-md-4">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="60" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -76,6 +63,7 @@
 						onclick="tableData.goPage(1); " >查询</button>
 				<button type="button" class="btn btn-default pull-right" 
 						onclick="$('#selectExportModal').modal('show');">导出选中的项目月台账</button>
+				<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 				</div>
 			</div>
 		</form>
@@ -234,25 +222,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="control-label" for="text-input">选择录入的所属年/月<span class="text-danger">*</span></label>
-							<div class="input-daterange input-group">
-								<select id="proYBYear" class="form-control" name="year"></select>
-								<span class="input-group-addon"> 年 </span>
-								<select id="proYBy" class="form-control" name="month">
-									<option value="01">1</option>
-									<option value="02">2</option>
-									<option value="03">3</option>
-									<option value="04">4</option>
-									<option value="05">5</option>
-									<option value="06">6</option>
-									<option value="07">7</option>
-									<option value="08">8</option>
-									<option value="09">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-								</select>
-								<span class="input-group-addon">月</span>
-							</div>
+							<input type="text" name="time" class="form-control" placeholder="____/__/__" data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99">
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -347,12 +317,12 @@
 				</h4>
 				<div id="addAnnounce">
 					<div class="tab-head bk-margin-5 btn-group btn-group-justified">
-						<button type="button"  toggle="#announce0"
+						<button type="button"  toggle="#announce1"
 							class="btn btn-default pull-left" style="width: 33.3%">
 							一公告</button>
-						<button type="button" toggle="#announce1" class="btn btn-default pull-left"
+						<button type="button" toggle="#announce2" class="btn btn-default pull-left"
 							style="width: 33.3%">二公告</button>
-						<button type="button"  toggle="#announce2" class="btn btn-default pull-left"
+						<button type="button"  toggle="#announce3" class="btn btn-default pull-left"
 							style="width: 33.3%">三公告</button>
 					</div>
 					<div class="tab-content" style="margin-top: 20px;" id="addAnnouncementContent">
@@ -452,7 +422,7 @@
         <h4 class="modal-title">导出需要的数据</h4>
       </div>
       <div class="modal-body">
-      	<iframe src="exportHTML/project.html" style="border: 0;width: 100%;height: 570px;" scrolling="no"></iframe>
+      	<iframe src="exportHTML/project.html" style="border: 0;width: 100%;height: 600px;" scrolling="no"></iframe>
       </div>
     </div>
   </div>
@@ -772,7 +742,7 @@
 		<input type="hidden" name="sequence" value="{{sequence}}" />
 		<div class="form-group">
 			<label>公告文号</label>
-			<input type="text" name="number" value="{{number}}" class="form-control" placeholder="请输入公告文号" maxlength="20">
+			<input type="text" name="number" value="{{number}}" class="form-control" placeholder="请输入公告文号" maxlength="100">
 		</div>
 		<div class="form-group">
 			<label>公告时间<span class="text-danger">*</span></label>
@@ -807,7 +777,7 @@
 		<input type="hidden" name="proId" value="{{proId}}">
 		<div class="form-group">
 			<label>公告文号</label> 
-			<input type="text" name="number" class="form-control" placeholder="请输入公告文号" maxlength="20" />
+			<input type="text" name="number" class="form-control" placeholder="请输入公告文号" maxlength="100" />
 		</div>
 		<div class="form-group">
 			<label>公告时间<span class="text-danger">*</span></label>
@@ -841,5 +811,8 @@
 </script>
 <script id="daYinTableTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script type="text/javascript" src="assets/pageJs/projectManagement/pmProgress.js"></script>

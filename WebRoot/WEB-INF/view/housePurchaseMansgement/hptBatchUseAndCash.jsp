@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,8 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .autoTbale td,.autoTbale th {
 	white-space: nowrap;
 }
-.errorBorder{
-    border: 1px solid red !important;
+
+.errorBorder {
+	border: 1px solid red !important;
 }
 </style>
 <!--查询条件-->
@@ -19,51 +22,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h6>查询条件</h6>
 	</div>
 	<div class="panel-body">
-		<div class="container" style="width:100%">
+		<form class="container" style="width:100%" onsubmit="return false;">
 			<div class="row">
-				<div class="col-xs-3">
+				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>项目名称</label>
 						<div class="input-group" style="width: 100%;">
-							<input type="text" id="queryPrName" maxlength="20" class="form-control" placeholder="请输入要查询的项目名称" autocomplete="OFF" />
-							<span class="input-group-btn" style="width:81px;"><button class="btn btn-default" type="button" onclick="$('#selectProInfoModal').modal('show');">选择项目</button></span>
-						 </div>
+							<input type="text" id="queryPrName" maxlength="20"
+								class="form-control" placeholder="请输入要查询的项目名称"
+								autocomplete="OFF" /> <span class="input-group-btn"
+								style="width:81px;"><button class="btn btn-default"
+									type="button" onclick="$('#selectProInfoModal').modal('show');">选择项目</button></span>
+						</div>
 						<ul class="dropdown-menu" id="queryPrDown" style="display: none;"></ul>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-xs-4">
 					<div class="form-group downImput">
-						<label>姓名</label>
-						<input type="text" id="name"  maxlength="20" class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
+						<label>姓名</label> <input type="text" id="name" maxlength="20"
+							class="form-control" placeholder="请输入要查询的姓名" autocomplete="OFF">
 						<ul class="dropdown-menu" id="nameQueryPrDown">
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>街道</label>
-						<select id="street"  class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
+				<div class="col-md-4">
+					<div class="form-group downImput">
+						<label>户主身份证件</label> <input type="text" name="idNumber"
+							id="idNumber" class="form-control" placeholder="请输入要查询的户主身份证件"
+							maxlength="20" autocomplete="OFF" />
+						<ul class="dropdown-menu" id="idNumberQueryPrDown">
+						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>社区</label>
-						<select id="community" class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-xs-2">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+				<div class="col-md-6">
+					<div class="form-group downImput">
+						<label>地址</label> <input type="text" id="queryAddressName"
+							maxlength="20" class="form-control" placeholder="请输入要查询的地址"
+							autocomplete="OFF" />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -71,11 +68,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="row" style="text-align:right;margin-top:10px">
 				<div class="col-xs-12">
 					<div class="huge blue ui buttons">
-						<button class="btn btn-bg btn-primary" onclick="tableData.goPage(1); ">查询</button>
+						<button type="reset" class="bk-margin-5 btn btn-link">重置</button>
+						<button class="btn btn-bg btn-primary"
+							onclick="tableData.goPage(1); ">查询</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 <!--查询条件-->
@@ -87,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h6>查询结果</h6>
 			</div>
 			<div class="col-xs-7 bk-vcenter text-right">
-					每页显示<select class="select_top" id="dataPageCount">
+				每页显示<select class="select_top" id="dataPageCount">
 					<option value="10">10</option>
 					<option value="20">20</option>
 					<option selected="" value="30">30</option>
@@ -99,113 +98,109 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="panel-body">
 		<div style="overflow-x:auto;width: 100%;">
-		<table class="table table-hover table-bordered autoTbale">
-			<thead>
-				<tr>
-					<th>姓名</th>
-					<th>身份证件</th>
-					<th>所属拆迁项目</th>
-					<th>券号</th>
-					<th>补贴金额（万元）</th>
-					<th>制券时间</th>
-					<th>购房券状态</th>
-					<th>
-						是否需要处理
-						<form class="form-control-static" id="isChuLi" style="width: 120px;">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="radio-custom radio-inline">
-										<input type="radio" name="isSheBao" value="true">
-										<label>全部是</label>
+			<table class="table table-hover table-bordered autoTbale">
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>身份证件</th>
+						<th>所属拆迁项目</th>
+						<th>券号</th>
+						<th>补贴金额（万元）</th>
+						<th>制券时间</th>
+						<th>购房券状态</th>
+						<th>是否需要处理
+							<form class="form-control-static" id="isChuLi"
+								style="width: 120px;">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="radio-custom radio-inline">
+											<input type="radio" name="isSheBao" value="true"> <label>全部是</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="radio-custom radio-inline">
+											<input type="radio" name="isSheBao" value="false"> <label>全部否</label>
+										</div>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="radio-custom radio-inline">
-										<input type="radio" name="isSheBao" value="false">
-										<label>全部否</label>
-									</div>
-								</div>
+							</form>
+						</th>
+						<th>使用时间<span class="text-danger">*</span>
+							<div style="width: 140px;">
+								<input type="text" id="time" class="form-control"
+									data-plugin-datepicker data-plugin-masked-input
+									data-input-mask="9999/99/99" placeholder="____/__/__">
 							</div>
-						</form>
-					</th>
-					<th>
-						使用时间<span class="text-danger">*</span>
-						<div style="width: 140px;">
-							<input type="text" id="time" class="form-control" data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99" placeholder="____/__/__">
-						</div>
-					</th>
-					<th>
-						使用类型<span class="text-danger">*</span>
-						<select class="form-control" size="1" style="width: 140px;" id="useType">
-					    	<option value="">请选择使用类型</option>
-					    	<option value="0">使用</option>
-					    	<option value="1">兑现</option>
+						</th>
+						<th>使用类型<span class="text-danger">*</span> <select
+							class="form-control" size="1" style="width: 140px;" id="useType">
+								<option value="">请选择使用类型</option>
+								<option value="0">使用</option>
+								<option value="1">兑现</option>
 						</select>
-					</th>
-					<th>
-						使用去向
-						<div style="width: 200px;">
-							<input type="text" class="form-control" id="useExplain"  placeholder="请输入使用去向" maxlength="140">
-						</div>
-					</th>
-					<th>
-						情况说明
-						<div style="width: 200px;">
-							<input type="text" class="form-control" id="situationExplain"  placeholder="请输入情况说明" maxlength="140">
-						</div>
-					</th>
-					<th>相关凭证</th>
-					<th>图片凭证</th>
-				</tr>
-			</thead>
-			<tbody id="dataTbody">
-			</tbody>
-		 	<tfoot>
-				<tr>
-					<td colspan="14">
-						<div class="row"></div>
-						<div class="pull-left">
-							<button id="sendDataBtn" type="button" class="bk-margin-5 btn btn-primary btn-sm">批量处理选中的信息</button>
-						</div>
-						<div class="bk-margin-5 btn-group pull-right" id="pageArea">
-						</div>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
+						</th>
+						<th>使用去向
+							<div style="width: 200px;">
+								<input type="text" class="form-control" id="useExplain"
+									placeholder="请输入使用去向" maxlength="140">
+							</div>
+						</th>
+						<th>情况说明
+							<div style="width: 200px;">
+								<input type="text" class="form-control" id="situationExplain"
+									placeholder="请输入情况说明" maxlength="140">
+							</div>
+						</th>
+						<th>相关凭证</th>
+						<th>图片凭证</th>
+					</tr>
+				</thead>
+				<tbody id="dataTbody">
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="14">
+							<div class="row"></div>
+							<div class="pull-left">
+								<button id="sendDataBtn" type="button"
+									class="bk-margin-5 btn btn-primary btn-sm">批量处理选中的信息</button>
+							</div>
+							<div class="bk-margin-5 btn-group pull-right" id="pageArea">
+							</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
 		</div>
 	</div>
 </div>
 
 <div class="modal fade" id="selectProInfoModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    </div>
-  </div>
+	<div class="modal-dialog">
+		<div class="modal-content"></div>
+	</div>
 </div>
 
 <div class="modal fade" id="showProInfoModal">
-  <div class="modal-dialog">
-    <div class="modal-content" id="showProInfoArea">
-    </div>
-  </div>
+	<div class="modal-dialog">
+		<div class="modal-content" id="showProInfoArea"></div>
+	</div>
 </div>
 
 <div class="modal fade" id="phonePaiZhaoModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
 					aria-hidden="true">&times;</button>
-        <h4 class="modal-title">拍摄照片</h4>
-      </div>
-      <div class="modal-body" id="phonePaiZhaoBody">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-      </div>
-    </div>
-  </div>
+				<h4 class="modal-title">拍摄照片</h4>
+			</div>
+			<div class="modal-body" id="phonePaiZhaoBody"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script id="logItemTemplate" type="text/x-handlebars-template">
@@ -251,11 +246,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 </div>
 </script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="nameQueryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="idNumberQueryPrDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{idNumber}}-{{name}}</a></li>
 </script>
 <script id="entrytemplate" type="text/x-handlebars-template">
 <tr>
@@ -351,4 +352,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</td>
 </tr>
 </script>
-<script type="text/javascript" src="assets/pageJs/housePurchaseMansgement/hptBatchUseAndCash.js"></script>
+<script type="text/javascript"
+	src="assets/pageJs/housePurchaseMansgement/hptBatchUseAndCash.js"></script>

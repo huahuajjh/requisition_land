@@ -94,7 +94,10 @@
 					startDate:$("#startDate").val(),
 					endDate:$("#endDate").val()
 				},function(data){
-					var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
+					var tempData = actionFormate(data, false);
+					if(!tempData || !tempData.datas || !tempData.datas.length){
+						tempData = {datas:[],totalCount:0};
+					}
 					var template = Handlebars.compile($("#algorithmTemplate").html());
 					for (var i = 0; i < tempData.datas.length; i++) {
 						var d = tempData.datas[i];
@@ -138,9 +141,11 @@
 			var month = date.getMonth();
 			var day = date.getDate();
 			var dateStr = year + "-" + month + "-" + day;
-			$("#startDate,#endDate").val(dateStr);
 			initPageDom();
-			$("#startDate,#endDate").val(dateStr);
+			function setTime(){
+				$("#startDate").val(window.parent.getParentStartDate());
+				$("#endDate").val(window.parent.getParentEndDate());
+			}
 		</script>
   </body>
 </html>

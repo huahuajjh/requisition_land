@@ -34,6 +34,8 @@ public class PmQueryPro extends BaseAction {
 	private String streetId = "";
 	private String communityId = "";
 	private String queryProName = "";
+	private String address;
+	
 	//----修改的数据
 	/**项目编号*/
 	private String proId = "";
@@ -68,6 +70,7 @@ public class PmQueryPro extends BaseAction {
 		if (!streetId.equals(""))
 			queryModel.setStreetId(UUID.fromString(streetId));
 		queryModel.setTypeId(typeId);
+		queryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
@@ -115,5 +118,8 @@ public class PmQueryPro extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

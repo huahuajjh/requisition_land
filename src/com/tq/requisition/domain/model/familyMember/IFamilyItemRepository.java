@@ -72,6 +72,14 @@ public interface IFamilyItemRepository extends IRepository<FamilyItem>{
 	List<FamilyItem> queryItemsByFmlId(UUID fmlId);
 	
 	/**
+	 * 根据项目ID获取人员列表
+	 * @param proId
+	 * 		项目ID
+	 * @return
+	 */
+	List<FamilyItem> queryItemsByProName(String proName);
+	
+	/**
 	 * 根据身份证和姓名查询拆迁人员信息
 	 * @param idNumber
 	 * 		身份证

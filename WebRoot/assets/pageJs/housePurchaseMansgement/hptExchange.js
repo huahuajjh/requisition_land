@@ -40,7 +40,7 @@ $("#queryData").validate({
 				var rHtml = $(html);
 				for (var i = 0; i < datas.length; i++) {
 					var data = datas[i];
-					data.isCheck = data.ticketState == "RECEIVED"; //|| data.ticketState == "NORMAL";
+					data.isCheck = data.ticketState == "RECEIVED" || data.ticketState == "NORMAL";
 					data.ticketName = toTicketStr(data.ticketState);
 					data.ticketIndex = toTicketNumber(data.ticketState);
 					var t = Handlebars.compile($("#dataItemTemplate").html());

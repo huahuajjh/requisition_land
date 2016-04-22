@@ -96,7 +96,7 @@ public class HptAdd extends BaseAction {
 	public String addFmlItem() throws IOException{
 		String stateJson = "";
 		FamilyItemDto dto = Serialization.toObject(dataJson, FamilyItemDto.class);
-		stateJson = this.familyItemServiceContract.addFmlItem(dto);
+		stateJson = this.htpMgtFmlItemServiceContract.add(dto);
 		response().getWriter().write(stateJson);
 		return null;
 	}

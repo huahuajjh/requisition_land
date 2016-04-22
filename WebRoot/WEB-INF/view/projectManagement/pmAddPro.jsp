@@ -44,24 +44,8 @@ color:#555;
 		<div class="input-group" style="width:100%;">
 			<div class="form-control" id="fileName"></div>
 			<div class="input-group-btn" style=" width: 520px;">
-				<div class="form-control bk-bg-default" style="width:37px;">年</div>
-				<select class="form-control" size="1" style="width:70px;" id="addYearSelect">
-				</select>
-				<div class="form-control bk-bg-default" style="width:37px;">月</div>
-				<select class="form-control" size="1" style="width:70px;" id="addMonthSelect">
-					<option value="01">01</option>
-					<option value="02">02</option>
-					<option value="03">03</option>
-					<option value="04">04</option>
-					<option value="05">05</option>
-					<option value="06">06</option>
-					<option value="07">07</option>
-					<option value="08">08</option>
-					<option value="09">09</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				</select>
+				<div class="form-control bk-bg-default" style="width:50px;">时间</div>
+				<input type="text" id="time" class="form-control" style="width:130px;" placeholder="____/__/__" data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99">
 				<button type="button" class="btn btn-default btn-primary fileBtn">
 					<input type="file"  id="filePath"/>
 					<i class="fa fa-folder-open"></i> 浏览
@@ -92,13 +76,13 @@ color:#555;
 			<div class="form-group">
 				<label class="col-md-4 control-label">项目审批号<span class="text-danger">*</span></label>
 				<div class="col-md-5">
-					<input type="text" name="approvalNumber" class="form-control" placeholder="请输入项目审批号" maxlength="20" />
+					<input type="text" name="approvalNumber" class="form-control" placeholder="请输入项目审批号" maxlength="100" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-4 control-label">项目名称<span class="text-danger">*</span></label>
 				<div class="col-md-5">
-					<input type="text" name="proName" class="form-control" placeholder="请输入项目名称" maxlength="20">
+					<input type="text" name="proName" class="form-control" placeholder="请输入项目名称" maxlength="100">
 				</div>
 			</div>
 			<div class="form-group">
@@ -113,18 +97,9 @@ color:#555;
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-4 control-label">项目地址</label>
+				<label class="col-md-4 control-label">项目地址<span class="text-danger">*</span></label>
 				<div class="col-md-5">
-					<div id="selectType">
-                		<div class="bootstrap-tagsinput" id="addressItems" style="min-height: 34px;width: 100%;margin-bottom: 0;">
-                		</div>
-                	</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-4 control-label">项目地址其他信息</label>
-				<div class="col-md-5">
-					<input type="text" name="addressOrder" class="form-control" placeholder="请输入项目地址其他信息" maxlength="30">
+					<input type="text" name="addressOrder" class="form-control" placeholder="请输入项目地址其他信息" maxlength="60">
 				</div>
 			</div>
 			<div class="form-group">

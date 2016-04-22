@@ -11,8 +11,7 @@ var queryProtableData = $.generateData({
 		}
 		data.annouceQueue = $("#queryPrJD").val();
 		data.typeId = $("#queryProType").val();
-		data.streetId = $("#queryProStreet").val();
-		data.communityId = $("#queryProCommunity").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
@@ -33,6 +32,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 1
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 new bindingSelect({

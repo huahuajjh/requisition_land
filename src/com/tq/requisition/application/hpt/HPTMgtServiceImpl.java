@@ -29,6 +29,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTImportAndExport;
 import com.tq.requisition.presentation.dto.hpt.HPTLossInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTMendInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
+import com.tq.requisition.presentation.dto.hpt.HPTReceiveTableDto;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseAndCashInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
@@ -182,6 +183,16 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	}
 
 	@Override
+	public String queryNotByProId(String proName, PageModel pageModel) {
+		 try {
+			 PageFormater list = hptService.queryNotByPro(proName,pageModel);
+			 return toJson("查询成功", list, Formater.OperationResult.SUCCESS);
+		} catch (Exception e) {
+			return toJson("查询失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+		}
+	}
+	
+	@Override
 	public String queryByIdNumber(String idNumber) {
 		try {
 			List<HPTDisplayDto> dto = hptRepository.queryByIdnumber(idNumber);
@@ -204,6 +215,18 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	@Override
 	public String queryUseTable(HPTFuzzyQueryModel queryModel,PageModel pageModel) {
 		try {
+			if(queryModel.getHuIdNumber()!=null && !queryModel.getHuIdNumber().equals("")){
+				try {
+					FamilyItem item = itemRepository.queryByIdNumber(queryModel.getHuIdNumber());
+					if(item != null && item.getFmlId() != null){
+						queryModel.setHuFmlId(item.getFmlId());
+					} else if(item != null){
+						queryModel.setHuFmlId(item.getId());
+					}					
+				} catch (Exception e) {
+					queryModel.setHuFmlId(UUID.randomUUID());
+				}
+			}
 			PageFormater page = hptRepository.queryUseTable(queryModel, pageModel);
 			return toJsonByPage(page, "查询兑付台账成功", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
@@ -277,6 +300,18 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	@Override
 	public PageFormater queryByPage4List(HptUseAndCashQueryModel queryModel,
 			PageModel pageModel) {
+		try {
+			if(queryModel.getIdNumber() != null && !queryModel.getIdNumber().equals("")){
+				FamilyItem item = itemRepository.queryByIdNumber(queryModel.getIdNumber());
+				if(item != null && item.getFmlId() != null){
+					queryModel.setFmlItemId(item.getFmlId());
+				} else if(item != null){
+					queryModel.setFmlItemId(item.getId());
+				}
+			}
+		} catch (SpecifiedObjectDoesNotExistsException e) {
+			return PageFormater.obtain(null, 0);
+		}
 		return hptRepository.queryByPage(queryModel, pageModel);
 	}
 
@@ -294,4 +329,8 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 		}
 	}
 
+	@Override
+	public List<HPTReceiveTableDto> getHPTReceiveTableDtoAll(String proName) {
+		return hptRepository.getHPTReceiveTableDtoAll(proName);
+	}
 }

@@ -45,7 +45,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-3">
+				<div class="col-xs-4">
 					<div class="form-group downImput">
 						<label>户主姓名</label>
 						<input type="text" id="huZhuName" maxlength="15" class="form-control" placeholder="请输入要查询的户主姓名">
@@ -53,37 +53,19 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>镇(街道)</label>
-						<select id="street" class="form-control" size="1">
-							<option value="">所有街道</option>
-							<s:iterator id="dto" value="addressDtos">
-								<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-							</s:iterator>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>村（社区）</label>
-						<select id="community"  class="form-control" size="1">
-							<option value="">所有社区</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div class="form-group">
-						<label>组</label>
-						<select id="zu" class="form-control" size="1">
-							<option value="">所有组</option>
-						</select>
+				<div class="col-md-5">
+					<div class="form-group downImput">
+						<label>地址</label>
+						<input type="text" id="queryAddressName" maxlength="20" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+						<ul class="dropdown-menu" id="queryAddressDown">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-12">
 					<hr>
 					<div class="btn-group pull-right">
 						<input type="button" onclick="tableData.goPage(1); " class="btn btn-primary pull-right" value="查询">
+						<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 					</div>
 				</div>
 			</div>
@@ -579,6 +561,9 @@
 </script>
 <script id="queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
+</script>
+<script id="queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
 </script>
 <script id="editFamilyInfoTemplate" type="text/x-handlebars-template">
 <div class="row">

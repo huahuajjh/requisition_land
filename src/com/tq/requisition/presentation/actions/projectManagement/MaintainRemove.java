@@ -47,8 +47,13 @@ public class MaintainRemove  extends BaseAction {
 	private String streetId = "";
 	private String communityId = "";
 	private String zuId = "";
-
+	private String address;
+	private String id;
 	
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public MaintainRemove() {
 		this.addressServiceContract = getService("addressService",
 				IAddressServiceContract.class);
@@ -87,11 +92,18 @@ public class MaintainRemove  extends BaseAction {
 		if(queryProName != null && !queryProName.equals("")){
 			familyQueryModel.setProName(queryProName);
 		}
+		familyQueryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);
 		String stateJson = this.familyMgtServiceContract.queryFmlByFuzzy(familyQueryModel, pageModel);
 		response().getWriter().write(stateJson);
+		return null;
+	}
+	
+	public String delete() throws IOException{
+		String state = familyItemServiceContract.deleteFmlItem(UUID.fromString(id));
+		response().getWriter().write(state);
 		return null;
 	}
 	
@@ -130,5 +142,8 @@ public class MaintainRemove  extends BaseAction {
 	}
 	public void setQueryProName(String queryProName) {
 		this.queryProName = queryProName;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

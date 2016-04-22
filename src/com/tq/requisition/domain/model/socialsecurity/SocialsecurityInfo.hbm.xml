@@ -18,7 +18,7 @@
 		<property name="oprDate" column="opr_date" type="date" not-null="true" />
 		<property name="oprUserId" column="opr_user_id"  length="70" type="org.hibernate.type.UUIDCharType" not-null="true" />
 		<property name="socialsecurityDate" column="socialsecurity_date" type="date"  not-null="true" />
-		<property name="socialsecurityTypeId" column="socialsecurity_type_id" length="70" type="org.hibernate.type.UUIDCharType"  not-null="true" />
+		<property name="socialsecurityTypeId" column="socialsecurity_type_id" length="70" type="org.hibernate.type.UUIDCharType" />
 		<property name="fmlItemId" column="fml_item_id" type="org.hibernate.type.UUIDCharType" length="70" not-null="true"/>
 		<property name="del" column="is_del" type="boolean"  not-null="true"/>
 		<property name="serveArmyTime" column="serve_army_time" type="integer" />

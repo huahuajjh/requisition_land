@@ -30,7 +30,10 @@ public class HptUseTotalCountSpecification extends Specification<HousePuraseTick
 		sb.append("select count(1) from HousePuraseTicket h,FamilyItem fi ");
 		sb.append(" where h.fmlItemId=fi.id and h.del=false and h.state=? ");
 		if(queryModel.getName() != null && !queryModel.getName().equals("")){
-			sb.append(" and fi.name='" + queryModel.getName() +"'");
+			sb.append(" and fi.name like '%" + queryModel.getName() +"%'");
+		}
+		if(queryModel.getFmlItemId() != null){
+			sb.append(" and (fi.id ='" + queryModel.getFmlItemId().toString() + "' or fi.fmlId = '"+queryModel.getFmlItemId().toString()+"')");
 		}
 		if(queryModel.getStreetId() != null){
 			sb.append(" and fi.streetId='" + queryModel.getStreetId().toString() + "'");
@@ -43,6 +46,10 @@ public class HptUseTotalCountSpecification extends Specification<HousePuraseTick
 		}
 		if(queryModel.getProName() !=null && !queryModel.getProName().equals("")){
 			sb.append(" and fi.proName like '%" + queryModel.getProName() +"%' ");
+		}
+		if(queryModel.getAddress()!=null && !queryModel.getAddress().equals(""))
+		{
+			sb.append(" and fi.address like " + "'%" + queryModel.getAddress() + "%'");
 		}
 		expression.setHql(sb.toString());
 		expression.setParameters(TicketState.RECEIVED);

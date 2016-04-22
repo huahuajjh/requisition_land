@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.UUID;
 
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
+import com.tq.requisition.domain.Specification.Specification;
+import com.tq.requisition.domain.Specification.expression.IHqlExpression;
+import com.tq.requisition.domain.Specification.expression.OperationType;
 import com.tq.requisition.domain.model.familyMember.FamilyItem;
 import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.domain.model.removeFamily.IFamilyRepository;
 import com.tq.requisition.infrastructure.Repository.HbRepository;
+import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 import com.tq.requisition.infrastructure.Specifications.removeFamily.Fml4PrintSpecification;
 import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlBasicInfoSpecification;
 import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlQueryFuzzySpecification;
@@ -33,11 +37,24 @@ public class FamilyRepository extends HbRepository<Family> implements IFamilyRep
 	public Family addFamily(Family fml) {
 		if(fml.getItems()!=null)
 		{
-			for (FamilyItem item : fml.getItems()) {
+			for (final FamilyItem item : fml.getItems()) {
 				item.setFmlId(fml.getId());
 				if(item.getRelationshipStr().equals("户主"))
 				{
 					fml.setHeadId(item.getId());
+				}
+				int count = getTotalCount(new Specification<Family>(Family.class) {
+					@Override
+					public IHqlExpression getHqlExpression() {
+						IHqlExpression expression = new HqlExpression();
+						String sqlStr = "select count(1) from tb_family_item where id_number = '" + item.getIdNumber() + "'";
+						expression.setSql(sqlStr);
+						expression.setType(OperationType.SQL);
+						return expression;
+					}
+				});
+				if(count > 0){
+					throw new NullPointerException("失败-身份证[" + item.getIdNumber() + "]已经存在");
 				}
 				add(item);
 			}

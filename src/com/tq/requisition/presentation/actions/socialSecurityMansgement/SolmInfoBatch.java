@@ -42,6 +42,11 @@ public class SolmInfoBatch extends BaseAction {
 	private String proId = "";
 	private String idNumber;
 	private String zuId;
+	private String address;
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}
@@ -108,6 +113,7 @@ public class SolmInfoBatch extends BaseAction {
 		if(idNumber != null && !idNumber.equals("")){
 			queryModal.setIdNumber(idNumber);
 		}
+		queryModal.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
 		pageModel.setPageSize(pageNum);

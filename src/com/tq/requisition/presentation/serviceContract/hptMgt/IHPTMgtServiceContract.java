@@ -1,6 +1,7 @@
 package com.tq.requisition.presentation.serviceContract.hptMgt;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.PageFormater;
@@ -10,6 +11,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTImportAndExport;
 import com.tq.requisition.presentation.dto.hpt.HPTLossInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTMendInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTQueryModel;
+import com.tq.requisition.presentation.dto.hpt.HPTReceiveTableDto;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HPTUseAndCashInfoDto;
 import com.tq.requisition.presentation.dto.hpt.HousePuraseTicketDto;
@@ -110,6 +112,14 @@ public interface IHPTMgtServiceContract {
 	String queryByFml(String idNumber);
 	
 	/**
+	 * 根据项目的名称获取未发放购房券
+	 * @param proName
+	 * 		项目名称
+	 * @return
+	 */
+	String queryNotByProId(String proName,PageModel pageModel);
+	
+	/**
 	 * 查询单人的购房券信息
 	 * @param idNumber
 	 * 		身份证
@@ -179,4 +189,12 @@ public interface IHPTMgtServiceContract {
 	 * 		json
 	 */
 	String use(List<HPTUseAndCashInfoDto> dtos);
+	
+	/**
+	 * 获取所有的发放台账数据
+	 * @param proName
+	 * 		项目名称
+	 * @return
+	 */
+	List<HPTReceiveTableDto> getHPTReceiveTableDtoAll(String proName);
 }

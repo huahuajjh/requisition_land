@@ -29,7 +29,7 @@
 		<property name="unionSuggestion" column="union_suggestion"  type="string" length="200"/>
 		<property name="remark" column="remark"  type="string" length="70"/>
 		<property name="houseImgPath" column="house_img_path"  type="string" length="250"/>
-		<property name="proName" column="pro_name"  type="string" length="70"/>
+		<property name="proName" column="pro_name"  type="string" length="200"/>
 		<property name="groupId" column="group_id"  type="org.hibernate.type.UUIDCharType" length="70"/>
 		<property name="unionSuggestionPath" column="union_suggestion_path"  type="string" length="255"/>
 		<property name="image" column="image"  type="string" length="255"/>

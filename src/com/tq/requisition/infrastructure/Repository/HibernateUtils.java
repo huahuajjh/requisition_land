@@ -75,17 +75,12 @@ public class HibernateUtils {
 		{
 			SESSION_THREAD_LOCAL.set(FACTORY.openSession());
 		}
-		
-		int retry = 30;
-		for (int i = 0; i < retry; i++) {
-			try {
-				SESSION_THREAD_LOCAL.get().createSQLQuery("select 1").list();
-				break;
-			} catch (Exception e) {
-				SESSION_THREAD_LOCAL.set(FACTORY.openSession());
-			}
-		}
-		
+//		try {
+//			SESSION_THREAD_LOCAL.get().createSQLQuery("select 1").list();
+//		} catch (Exception e) {
+//			SESSION_THREAD_LOCAL.get().close();
+//			SESSION_THREAD_LOCAL.set(FACTORY.openSession());
+//		}
 		return SESSION_THREAD_LOCAL.get();
 	}
 	

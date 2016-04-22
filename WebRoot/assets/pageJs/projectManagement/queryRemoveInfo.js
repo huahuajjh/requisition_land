@@ -4,24 +4,6 @@ setProListModal("#selectProInfoModal",function(data){
 		$("#queryPrName").val(data.proName);
 	}
 });
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
 var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
@@ -38,6 +20,7 @@ var tableData = $.generateData({
 		data.streetId = $("#street").val();
 		data.communityId = $("#community").val();
 		data.zuId = $("#zu").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false);
@@ -71,6 +54,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 2
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 $.dropDownInput({

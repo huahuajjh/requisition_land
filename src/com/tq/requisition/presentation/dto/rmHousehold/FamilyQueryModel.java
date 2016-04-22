@@ -23,6 +23,8 @@ public class FamilyQueryModel {
 	private String name;
 	/**创建用户*/
 	private String createUId;
+	
+	private String address;
 		
 	/*getters and setters*/
  	public String getIdNumber() {
@@ -66,6 +68,12 @@ public class FamilyQueryModel {
 	}
 	public void setCreateUId(String createUId) {
 		this.createUId = createUId;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }

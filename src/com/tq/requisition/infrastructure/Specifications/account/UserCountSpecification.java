@@ -30,7 +30,7 @@ public class UserCountSpecification extends Specification<Account>{
 	@Override
 	public IHqlExpression getHqlExpression() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("select count(1) from tb_account where 1=1 ");
+		sb.append("select count(1) from tb_account where state='3' ");
 		if(userName!=null && !userName.trim().equals(""))
 		{
 			sb.append(" and account='").append(userName+"'");

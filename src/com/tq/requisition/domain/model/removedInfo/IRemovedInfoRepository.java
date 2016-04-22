@@ -66,5 +66,11 @@ public interface IRemovedInfoRepository extends IRepository<RemovedInfo>{
 	 * 		已迁户集合
 	 */
 	List<RemovedInfo> queryByModel(RemovedInfoQueryModel queryModel);
+	
+	/**
+	 * 根据指定的身份证删除
+	 * @param idNum 身份证
+	 */
+	void deleteByIdNum(String idNum);
 }
 

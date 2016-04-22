@@ -11,8 +11,7 @@ var tableData = $.generateData({
 		}
 		data.annouceQueue = $("#queryPrJD").val();
 		data.typeId = $("#queryProType").val();
-		data.streetId = $("#street").val();
-		data.communityId = $("#community").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
@@ -155,6 +154,21 @@ $.dropDownInput({
 		$("#queryPrName").data("data",data);
 	}
 });
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 1
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
+});
 var editCommunityId = "";
 var tr = null;
 function editProjectInfo(dom){
@@ -165,33 +179,6 @@ function editProjectInfo(dom){
 	initDom(html);
 	$("[name='proTypeStr']",html).val(data.categoryStr);
 	$("[name='sixPro'][value='"+data.sixForward+"']",html).prop("checked",true);
-	var addressArr = (data.totalAddress || "").split(",");
-	var streetIdArr = (data.streetId || "").split(",");
-	var communityIdArr = (data.communityId || "").split(",");
-	if(addressArr.length > streetIdArr.length){
-		$('[name="otherAddress"]',html).val(addressArr[addressArr.length - 1]);
-	}
-	for (var i = 0; i < streetIdArr.length; i++) {
-		var streetIdData =streetIdArr[i];
-		var addressDataArr = [];
-		addressDataArr.push({
-			id:streetIdData,
-			name:""
-		});
-		if(communityIdArr.length > 0 && communityIdArr.length > i){
-			addressDataArr.push({
-				id:communityIdArr[i],
-				name:addressArr[i]
-			});
-		}
-		var t = Handlebars.compile($("#addreddItemTemplate").html());
-		var tempData = addressDataArr[addressDataArr.length-1];
-		var h = $(t(tempData));
-		h.data("data",tempData);
-		h.data("datas",addressDataArr);
-		$("> span",h).click(deleteAddressItem);
-		$("#addressItems",html).append(h);
-	}
 	$('[name="proType"] > option[value="'+data.proType+'"]',html).prop("selected",true);
 	$("#editProInfoArea").html(html);
 	$('#editModal').modal('show');
@@ -199,12 +186,10 @@ function editProjectInfo(dom){
 $("#editModal").validate({
 	rules : {
 		approvalNumber : {
-			required : true,
-			maxlength : 20
+			required : true
 		},
 		proName : {
-			required : true,
-			maxlength : 20
+			required : true
 		},
 		proType : {
 			required : true
@@ -273,32 +258,8 @@ $("#editModal").validate({
 		subData.proTypeStr = $("[name='proType'] > option:selected",form).html();//項目類型文本
 		subData.sixForward = $("[name='sixPro']:checked",form).val();//是否六前项目
 		
-		var address = [];
-		var street = [];
-		var community = [];
-		$("> .tag","#addressItems").each(function(){
-			var datas = $(this).data("datas");
-			var addressVal = "";
-			var d = datas[0];
-			if(d){
-				addressVal = addressVal + d.name;
-				street.push(d.id);
-			} 
-			d = datas[1];
-			if(d){
-				addressVal = addressVal + d.name;
-				community.push(d.id);
-			}
-			console.log(street.length);
-			address.push(addressVal);
-		});
 		var addressOrder = $('[name="otherAddress"]',form).val();
-		if(addressOrder){
-			address.push(addressOrder);
-		}
-		subData.address =  address.join(",");//项目地址
-		subData.streetId = street.join(",");//街道地址id组合
-		subData.communityId = community.join(",");//社区地址id组合
+		subData.address =  addressOrder;//项目地址
 		$.post("projectManagement/pmQueryProEdit",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
@@ -319,50 +280,6 @@ $("#editModal").validate({
 	}
 });
 function initDom(dom){
-	$("#selectType",dom).mSelect({
-		url:"share/address",
-		onAfterRequest:function(data){
-			return actionFormate(data, false,function(type,msg,data){
-				for (var i = 0; i < data.length; i++) {
-					var d = data[i];
-					$("> .tag","#addressItems").each(function(){
-						if($(this).data("data").id == d.id){
-							d.isDisabled = true;
-						}
-					});
-				}
-			});
-		}, onClickItem:function(data,state){
-			var datas = $("#selectType").mSelect().getDatas();
-			var tempState = false;
-			if(!state){
-				tempState = true;
-			} else if(datas.length > 1){
-				tempState = true;
-			}
-			if(tempState){
-				var nameArr = [];
-				for (var i = 0; i < datas.length; i++) {
-					var d = datas[i];
-					nameArr.push(d.name);
-				}
-				$("#selectType").mSelect().hide();
-				$("#selectType").mSelect().init();
-				var tempData = $.extend({}, data);
-				tempData.name = nameArr.join("");
-				var template = Handlebars.compile($("#addreddItemTemplate").html());
-				var html = $(template(tempData));
-				html.data("data",data);
-				html.data("datas",datas);
-				$("> span",html).click(deleteAddressItem);
-				$("#addressItems").append(html);
-				return false;
-			}
-		}
-	});
-	$("#addressItems",dom).click(function(){
-		$("#selectType").mSelect().toggleShow();
-	});
 }
 function deleteFileIItem(event){
 	$(this).closest(".tag").remove();

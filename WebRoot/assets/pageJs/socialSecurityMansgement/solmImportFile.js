@@ -35,7 +35,6 @@ $("#addTalmportForm").validate({
 			var data = $("#dataArea").data("data");
 			subData.fmlItemId = data.id;
 			subData.socialsecurityDate = $("#time").val();
-			subData.socialsecurityTypeId = $("#newType").val();
 			subData.community = $("[name='community']",form).val();
 			subData.serveArmyTime = $("[name='serveArmyTime']",form).val() || 0;
 			subData.endowmentInsuranceYear = $("[name='endowmentInsuranceYear']",form).val() || 0;
@@ -51,7 +50,6 @@ $("#addTalmportForm").validate({
 					 subData.idNumber = data.idNumber;
 					 subData.gender = data.gender;
 					 subData.birthday = data.birthday;
-					 subData.socialsecurityTypeStr = $("#newType option:selected").html();
 					 var template = Handlebars.compile($("#logItemTemplate").html());
 					 var logHtml = template(subData);
 					 operationLog("录入社保信息","录入社保信息",logHtml);
@@ -165,17 +163,7 @@ function isPassValidate() {
 				$("#time").popover("destroy");
 			}, 1000);
 		}
-		if (!$("#newType").val()) {
-			$("#newType").popover({
-				content : "请选择纳入社保类型",
-				placement : "left"
-			});
-			$("#newType").popover("show");
-			setTimeout(function() {
-				$("#newType").popover("destroy");
-			}, 1000);
-		}
-		if(!$("#newType").val() || !$("#time").val()){
+		if(!$("#time").val()){
 			return false;
 		}
 	}

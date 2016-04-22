@@ -7,24 +7,6 @@ if(mainHtml){
 	initDom();
 }
 function initDom(){
-	new bindingSelect({
-		masterSelect:"#community",
-		childSelect:"#zu",
-		childDefalueVal:"请选择组",
-		url:"share/address",
-		afterFn:function(data){
-			return actionFormate(data, false);
-		}
-	});
-	new bindingSelect({
-		masterSelect:"#street",
-		childSelect:"#community",
-		childDefalueVal:"请选择社区",
-		url:"share/address",
-		afterFn:function(data){
-			return actionFormate(data, false);
-		}
-	});
 	$("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		if($(this).data("btnState") == true){
 			var imgData = $(this).data("imgData");
@@ -157,6 +139,9 @@ function initDom(){
 	});
 	$("#addForm").validate({
 		rules : {
+			address:{
+				required : true
+			},
 			houseLegalArea : {
 				number : true,
 				maxlength : 10,
@@ -166,15 +151,6 @@ function initDom(){
 				number : true,
 				maxlength : 10,
 				min : 0
-			},
-			street : {
-				required : true
-			},
-			community : {
-				required : true
-			},
-			zu : {
-				required : true
 			},
 			pzqksm : {
 				maxlength : 140
@@ -219,9 +195,7 @@ function initDom(){
 			var removeInfo = {};
 			removeInfo.headName = getHuZhuMing();
 			removeInfo.proId = proData.id;
-			removeInfo.streetId = $("#street").val();
-			removeInfo.communityId = $("#community").val();
-			removeInfo.address= addreddQuanMing();
+			removeInfo.address= $("#address").val();
 			removeInfo.fmlNumber = parseInt($("> .row","#familyItems").size());
 			if($("#houseLegalArea").val()){
 				removeInfo.houseLegalArea = parseFloat($("#houseLegalArea").val());
@@ -234,7 +208,6 @@ function initDom(){
 			removeInfo.unionSuggestion = $("#unionSuggestion").val();
 			removeInfo.remark = $("#remark").val();
 			removeInfo.proName = proData.proName;
-			removeInfo.groupId = $("#zu").val();
 			removeInfo.unionSuggestionPath = $("#lianheVal").val();
 			removeInfo.image = $("#yuLanBtn").attr("img");
 			var fileItems = "";
@@ -247,10 +220,7 @@ function initDom(){
 			var yiQianHus = [];
 			$("> .row", "#familyItems").each(function(){
 				var item = JSON.parse($(this).attr("data"));
-				item.streetId = $("#street").val();
-				item.communityId = $("#community").val();
-				item.groupId = $("#zu").val();
-				item.address = addreddQuanMing();
+				item.address = $("#address").val();
 				item.proId = proData.id;
 				item.proName = proData.proName;
 				if(item.relationshipStr == "户主"){
@@ -262,8 +232,6 @@ function initDom(){
 				yiQianHu.idNumber = item.idNumber;
 				yiQianHu.birthday = item.birthday;
 				yiQianHu.address = item.address;
-				yiQianHu.streetId = item.streetId;
-				yiQianHu.communityId = item.communityId;
 				yiQianHus.push(yiQianHu);
 
 			});
@@ -358,12 +326,6 @@ function resestData() {
 	$("#yuLanBtn,#paiZhaoFileCheckState").css("display","none");
 	$("#yuLanBtn").attr("img","");
 	initFamilyNum();
-}
-function addreddQuanMing(){
-	var street = $("#street option:selected").html();
-	var community = $("#community option:selected").html();
-	var zu = $("#zu option:selected").html();
-	return street+ community + zu;
 }
 function deleteFileItem(dom){
 	$(dom).closest("li").remove();

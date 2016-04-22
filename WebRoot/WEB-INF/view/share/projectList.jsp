@@ -43,23 +43,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</select>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>镇(街道)</label>
-				<select id="selectQueryPro_street" class="form-control" size="1">
-					<option value="">所有街道</option>
-					<s:iterator id="dto" value="addressDtos">
-						<option value="<s:property value='#dto.getId()' />"><s:property value='#dto.getName()' /></option>
-					</s:iterator>
-				</select>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>村（社区）</label>
-				<select id="selectQueryPro_community" class="form-control" size="1">
-					<option value="">所有社区</option>
-				</select>
+		<div class="col-md-8">
+			<div class="form-group downImput">
+				<label>地址</label>
+				<input type="text" id="selectQueryPro_queryAddressName" maxlength="60" class="form-control" placeholder="请输入要查询的地址" autocomplete="OFF"  />
+				<ul class="dropdown-menu" id="selectQueryPro_queryAddressDown">
+				</ul>
 			</div>
 		</div>
 		<div class="col-md-4">
@@ -96,6 +85,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script id="selectQueryPro_queryPrDownTemplate" type="text/x-handlebars-template">
     <li><a href="javascript:;">{{proName}}</a></li>
 </script>
+<script id="selectQueryPro_queryAddressDownTemplate" type="text/x-handlebars-template">
+    <li><a href="javascript:;">{{this}}</a></li>
+</script>
 <script id="selectQueryPro_entrytemplate" type="text/x-handlebars-template">
 <tr>
 	<td>{{proName}}</td>
@@ -117,19 +109,20 @@ $.dropDownInput({
 		$("#selectQueryPro_name").data("data",data);
 	}
 });
-$("#selectQueryPro_street").change( function() {
-	var thisVal = $(this).val();
-	$("#selectQueryPro_community").empty();
-	$("#selectQueryPro_community").append('<option value="">所有社区</option>');
-	if (!thisVal) return;
-	$.post("share/address", {
-		id : thisVal
-	}, function(data) {
-		var datas = actionFormate(data,false);
-		for ( var d in datas) {
-			$("#selectQueryPro_community").append( '<option value="' + datas[d].id + '">' + datas[d].name + '</option>');
-		}
-	}, "json");
+$.dropDownInput({
+	inputId : "#selectQueryPro_queryAddressName",
+	dropDownId : "#selectQueryPro_queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#selectQueryPro_queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 1
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
+	}
 });
 var selectQueryPro_tableData = $.generateData({
 	pageArea : "#selectQueryPro_pageArea",
@@ -144,8 +137,7 @@ var selectQueryPro_tableData = $.generateData({
 		}
 		data.annouceQueue = $("#selectQueryPro_jd").val();
 		data.typeId = $("#selectQueryPro_type").val();
-		data.streetId = $("#selectQueryPro_street").val();
-		data.communityId = $("#selectQueryPro_community").val();
+		data.address = $("#selectQueryPro_queryAddressName").val();
 	}, lastFn : function(data) {
 		return actionFormate(data, false) || {datas:[],totalCount:0};
 	}

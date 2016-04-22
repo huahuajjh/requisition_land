@@ -12,6 +12,7 @@ var tableData = $.generateData({
 		var name = $("#name").val();
 		var street = $("#street").val();
 		var community = $("#community").val();
+		var address = $("#queryAddressName").val();
 		//var zu = $("#zu").val();
 		if(idNumber){
 			queryEntity.idNumber = idNumber;
@@ -25,6 +26,9 @@ var tableData = $.generateData({
 		if(community){
 			queryEntity.communityId = community;
 		}
+		if(address){
+			queryEntity.address = address;
+		}
 //		if(zu){
 //			queryEntity.groupId = zu;
 //		}
@@ -34,24 +38,6 @@ var tableData = $.generateData({
 		var tempData = actionFormate(data, false) || {datas:[],totalCount:0};
 		$("#countArea").html(tempData.totalCount);
 		return tempData;
-	}
-});
-//new bindingSelect({
-//	masterSelect:"#community",
-//	childSelect:"#zu",
-//	childDefalueVal:"所有组",
-//	url:"share/address",
-//	afterFn:function(data){
-//		return actionFormate(data, false);
-//	}
-//});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
 	}
 });
 $("#dataPageCount").change(function() {
@@ -129,6 +115,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#name").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 5
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 $.dropDownInput({

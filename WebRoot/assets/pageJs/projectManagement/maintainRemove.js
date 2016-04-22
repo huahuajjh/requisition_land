@@ -4,24 +4,6 @@ setProListModal("#selectProInfoModal",function(data){
 		$("#queryPrName").val(data.proName);
 	}
 });
-new bindingSelect({
-	masterSelect:"#community",
-	childSelect:"#zu",
-	childDefalueVal:"所有组",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
-new bindingSelect({
-	masterSelect:"#street",
-	childSelect:"#community",
-	childDefalueVal:"所有社区",
-	url:"share/address",
-	afterFn:function(data){
-		return actionFormate(data, false);
-	}
-});
 var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
@@ -38,6 +20,7 @@ var tableData = $.generateData({
 		data.streetId = $("#street").val();
 		data.communityId = $("#community").val();
 		data.zuId = $("#zu").val();
+		data.address = $("#queryAddressName").val();
 	},
 	lastFn : function(data) {
 		var tempData = actionFormate(data, false);
@@ -71,6 +54,21 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
+	}
+});
+$.dropDownInput({
+	inputId : "#queryAddressName",
+	dropDownId : "#queryAddressDown",
+	url : sendUrl.addrProvider_getAddr,
+	templateId : "#queryAddressDownTemplate",
+	valName:"fuzzy",
+	selectVal:"this",
+	urlType:"get",
+	firstFn:function(data){
+		data.code = 2
+	},
+	lastFn:function(data){
+		return actionFormate(data,false);
 	}
 });
 $.dropDownInput({
@@ -203,7 +201,6 @@ function editInfo(dom){
 			$("#fileItems",rHtml).append(h);
 		}
 	}
-	$("#editStreet",rHtml).val(data.streetId);
 	if(data.image){
 		$("#yuLanBtn",rHtml).css("display","inline");
 		$("#yuLanBtn",rHtml).attr("img",data.image);
@@ -247,27 +244,6 @@ function editInfo(dom){
 	submitFileStyle("#lHshFJDom","EVIDENCE_FILE",function(data){
 		return actionFormate(data, true);
 	});
-	new bindingSelect({
-		masterSelect:"#editCommunity",
-		childSelect:"#editZu",
-		childDefalueVal:"请选择组",
-		childVal:data.groupId,
-		url:"share/address",
-		afterFn:function(data){
-			return actionFormate(data, false);
-		}
-	});
-	new bindingSelect({
-		masterSelect:"#editStreet",
-		childSelect:"#editCommunity",
-		childDefalueVal:"请选择社区",
-		childVal:data.communityId,
-		url:"share/address",
-		afterFn:function(data){
-			return actionFormate(data, false);
-		}
-	});
-	$("#editStreet",rHtml).change();
 	$("#editFamilyInfoModal").modal("show");
 }
 function showPersonInfo(dom){
@@ -331,7 +307,7 @@ $("#editFamilyInfoModal").validate({
 		subData.remark = $("[name='remark']",form).val();
 		subData.unionSuggestionPath = $("[name='unionSuggestionPath']",form).val();
 		subData.image = $("#yuLanBtn").attr("img");
-		subData.address = $("#editStreet option:selected").html() + $("#editCommunity option:selected").html() + $("#editZu option:selected").html();
+		subData.address = $("[name='address']",form).val();
 		var fileItems = "";
 		$("input[name='fileItem']","#fileItems").each(function(){
 			fileItems = fileItems + $(this).val() + "|";
@@ -463,4 +439,204 @@ function paiZhao(){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
+}
+function showAddFMLAndHPTModal(td){
+	var tr = $(td).closest("tr");
+	var data = tr.data("data");
+	var template = Handlebars.compile($("#addFMLPersonTemplate").html());
+	var html = $(template(data));
+	$('[data-plugin-masked-input]',html).each(function() {
+		var $this = $(this), opts = {};
+		var pluginOptions = $this.data('plugin-options');
+		if (pluginOptions)
+			opts = pluginOptions;
+		$this.themePluginMaskedInput(opts);
+	});
+	$('[data-plugin-datepicker]',html).each(function() {
+		var $this = $(this), opts = {};
+		$this.themePluginDatePicker(opts);
+	});
+	$("[name='relationship'] option",html).each(function(){
+		if($(this).html() == "户主"){
+			$(this).remove();
+		}
+	});
+	$("[name='relationship']",html).change(function(){
+		var val = $("option:selected",this).html();
+		if(val == "其他"){
+			$('[name="otherRelationship"]',html).prop("disabled",false);
+		} else{
+			$('[name="otherRelationship"]',html).prop("disabled",true).val("");
+		}
+	});
+	$("[name='certificateType']",html).change(function(){
+		 var val = $(this).val();
+		 if(val){
+			 $('[name="idNumber"]',html).prop("disabled",false);
+		 } else {
+			 $('[name="idNumber"]',html).prop("disabled",true).val("");
+		 }
+	});
+	$('[name="idNumber"]',html).blur(function(){
+		var val = $(this).val();
+		if(val){
+			var certificateTypeVal = $('[name="certificateType"]',html).val();
+			if(certificateTypeVal == "idNumber"){
+				if(!IdCardValidate(val)){
+					$(html).validate().showErrors({
+						"idNumber" : "输入的身份证格式不正确"
+					});
+					return;
+				}
+				$("[name='birthday']",html).val(getDataByIdCard(val));
+				var sex = maleOrFemalByIdCard(val);
+				$("[name='gender']",html).val(sex=="male"?0:1);
+			}
+			$.getJSON(sendUrl.fmlItem_idnumberExists,{
+				idnumber:val
+			},function(data){
+				actionFormate(data, false,function(type,msg,data){},function(type,msg,data){
+					$(html).validate().showErrors({
+						"idNumber" : msg
+					});
+				});
+			});
+		}
+	});
+	$("#personInfoModal .modal-body").html(html);
+	$("#personInfoModal").data("data",data);
+	$("#personInfoModal").modal("show");
+}
+$("#personInfoModal").validate({
+	rules:{
+		name:{
+			required : true
+		},relationship:{
+			required : true
+		},idNumber:{
+			required : true
+		},birthday:{
+			required : true
+		},gender:{
+			required : true
+		}, householdId:{
+			required : true
+		},certificateType:{
+			required : true
+		}
+	}, submitHandler:function(form){
+		var huData = $("#personInfoModal").data("data");
+		$.getJSON(sendUrl.fmlItem_idnumberExists,{
+			idnumber:$("[name='idNumber']",form).val()
+		},function(d){
+			actionFormate(d, false,function(){
+				var data = {};
+				data.name = $("[name='name']",form).val();
+				data.idNumber = $("[name='idNumber']",form).val();
+				data.birthday = $("[name='birthday']",form).val();
+				
+				data.gender =  $("[name='gender']",form).val();
+				data.genderStr =  $("[name='gender'] option:selected",form).html();
+				if($("[name='onlyChildNumber']",form).val()){
+					data.onlyChildNumber = $("[name='onlyChildNumber']",form).val();
+				}
+				data.half = $("[name='half']",form).prop("checked");
+				
+				data.relationshipId = $("[name='relationship']",form).val();
+				data.relationshipStr = $("[name='relationship'] option:selected",form).html();
+
+				data.householdId = $("[name='householdId']",form).val();
+				data.householdStr = $("[name='householdId'] option:selected",form).html();
+
+				data.educationLevel = $("[name='educationLevel']",form).val();
+				data.currentEducationSituation = $("[name='currentEducationSituation']",form).val();
+				data.farmingTime = $("[name='farmingTime']",form).val();
+				data.serveArmySituation = $("[name='serveArmySituation']",form).val();
+				data.tel = $("[name='tel']",form).val();
+				data.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
+				data.remark = $("[name='remark']",form).val();
+				
+				data.certificateType = $("[name='certificateType']",form).val();
+				
+				data.otherRelationship = $("[name='otherRelationship']",form).val();
+				
+				data.streetId = huData.streetId;
+				data.communityId = huData.communityId;
+				data.groupId = huData.groupId;
+				data.address = huData.address;
+				data.proId = huData.proId;
+				data.proName = huData.proName;
+				data.fmlId = huData.id;
+				
+				data.headName = huData.name;
+				data.headIdNumber = huData.idNumber;
+				
+				var yiQianHus = [];
+				var yiQianHu = {};
+				yiQianHu.name = data.name;
+				yiQianHu.idNumber = data.idNumber;
+				yiQianHu.birthday = data.birthday;
+				yiQianHu.address = data.address;
+				yiQianHu.streetId = data.streetId;
+				yiQianHu.communityId = data.communityId;
+				yiQianHus.push(yiQianHu);
+				$.post("housePurchaseMansgement/hptAddAddFmlItem",{
+					dataJson:JSON.stringify(data)
+				},function(d){
+					actionFormate(d, true,function(){
+						$.post(sendUrl.removedInfo_addBatch,{
+							list:JSON.stringify(yiQianHus)
+						},function(d){
+							actionFormate(d, true,function(){
+								var template = Handlebars.compile($("#logFmlItemTemplate").html());
+								var logHtml = template(data);
+								 operationLog("手工添加人员信息","手工添加人员信息",logHtml);
+							 });
+						},"json");
+						$("#personInfoModal").modal("hide");
+					});
+				},"json");
+			},function(type,msg,data){
+				$("#personInfoModal").validate().showErrors({
+					"idNumber" : msg
+				});
+			});
+		});
+	}
+});
+function showItemList(dom){
+	var tr = $(dom).closest("tr");
+	var data = tr.data("data");
+	$.post("projectManagement/queryRemoveInfoGetRemoveInfos",{
+		id:data.id
+	},function(data){
+		 actionFormate(data,false,function(type,msg,d){
+			 	d = d || [];
+			 	$("#personMsgArea").html("");
+			 	for (var i = 0; i < d.length; i++) {
+			 		var t = d[i];
+			 		var template = Handlebars.compile($("#itemOperationTemplate").html());
+					var html = $(template(t));
+					html.data("data",t);
+					$("#personMsgArea").append(html);
+				}
+		 });
+	},"json");
+	$("#personMsgModal").modal("show");
+}
+function deleteFMLItem(dom){
+	if(confirm("确定要删除该成员吗?")){
+		var tr = $(dom).closest("tr");
+		var data = tr.data("data");
+		$.post("projectManagement/maintainRemoveDelete",{
+			id:data.id
+		},function(d){
+			 actionFormate(d,true,function(type,msg,d){
+					var template = Handlebars.compile($("#itemDeleteLogTemplate").html());
+					var logHtml = template(data);
+					operationLog("删除人员信息","删除人员信息",logHtml);
+					tr.remove();
+			 });
+		},"json");
+	}
 }
