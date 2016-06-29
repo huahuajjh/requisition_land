@@ -18,6 +18,10 @@
 	height: 15px;
 	display: block;
 }
+
+#dataTbody td {
+	height: 35px;
+}
 </style>
 <div class="panel">
 	<div class="panel-heading bk-bg-primary">

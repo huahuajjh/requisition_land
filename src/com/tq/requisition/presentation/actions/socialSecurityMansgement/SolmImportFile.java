@@ -98,8 +98,7 @@ public class SolmImportFile extends BaseAction {
 				}
 			});
 			 try {
-				 int rowIndex = Integer.parseInt(ConfigFileUtil.readByKey("socialSecurityRowIndex"));
-				 List<SsImportAndExportDto> items =  excelInput.getDatas(SsImportAndExportDto.class, rowIndex);
+				 List<SsImportAndExportDto> items =  excelInput.getDatas(SsImportAndExportDto.class, 2);
 				if(errors.size() > 0){
 					 String str = toForMaterJson(OperationResult.ERROR, "上传错误，请按错误按钮查看详细错误", errors.toArray());
 					 response().getWriter().write(str);
@@ -139,10 +138,14 @@ public class SolmImportFile extends BaseAction {
 	}
     private File file ;  
     private String fileFileName ;
+    private String fileContentType;
 	public void setFile(File file) {
 		this.file = file;
 	}
 	public void setFileFileName(String fileFileName) {
 		this.fileFileName = fileFileName;
+	}
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
 	}
 }

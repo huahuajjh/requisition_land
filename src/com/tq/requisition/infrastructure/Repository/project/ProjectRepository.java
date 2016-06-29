@@ -180,12 +180,12 @@ public class ProjectRepository extends HbRepository<Project> implements
 			throw new DomainException("项目名称[" + model.getProName() + "]已经存在");
 		}
 
-		boolean r1 = exists(new ProExistsByApprovalNumSpecification(
-				Project.class, model.getApprovalNumber()));
-		if (r1) {
-			throw new DomainException("项目审批号[" + model.getApprovalNumber()
-					+ "]已经存在");
-		}
+//		boolean r1 = exists(new ProExistsByApprovalNumSpecification(
+//				Project.class, model.getApprovalNumber()));
+//		if (r1) {
+//			throw new DomainException("项目审批号[" + model.getApprovalNumber()
+//					+ "]已经存在");
+//		}
 
 		add(model);
 	}

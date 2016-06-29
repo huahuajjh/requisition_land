@@ -33,7 +33,7 @@ footer {
     <![endif]-->
 </head>
 <body>
-	<form id="loginForm" class="container-fluid content" method="post" action="share/login">
+	<form id="loginForm" class="container-fluid content" method="post" action="share/login.do">
 		<div class="row">
 			<!-- Main Page -->
 			<div class="body-login">
@@ -46,7 +46,7 @@ footer {
 							</h2>
 						</div>
 						<div class="panel-body">
-							<form action="index.html" method="post">
+							<form method="post">
 								<div class="form-group">
 									<label>用户名</label>
 									<div class="input-group input-group-icon">
@@ -156,7 +156,7 @@ footer {
 										}else{
 											delCookie(password);
 										}
-										location.href = "index";
+										location.href = "index.do";
 									} else {
 										$(form).validate().showErrors({
 											"password" : "密码错误"

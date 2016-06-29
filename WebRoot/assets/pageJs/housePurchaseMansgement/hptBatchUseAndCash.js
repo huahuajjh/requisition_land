@@ -50,7 +50,7 @@ setProListModal("#selectProInfoModal",function(data){
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -62,7 +62,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "housePurchaseMansgement/hptBatchUseAndCashList",
+	url : "housePurchaseMansgement/hptBatchUseAndCashList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.queryProName =  $("#queryPrName").val();
@@ -180,7 +180,7 @@ $("#sendDataBtn").click(function() {
 	} else if (datas.length <= 0) {
 		return;
 	} else {
-		$.post("housePurchaseMansgement/hptBatchUseAndCashProcessing",{
+		$.post("housePurchaseMansgement/hptBatchUseAndCashProcessing.do",{
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true,function(){
@@ -258,7 +258,7 @@ function upFileZhaoPian(dom){
 function paiZhao(dom){
 	var par = $(dom).parent();
 	$("#phonePaiZhaoModal").data("dom",par);
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
@@ -277,7 +277,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$(".paiZhaoFileLoginState",par).css("display","inline");
 		$(".zhaoBtn,.yuLanBtn,.paiZhaoFileCheckState,.upBtn",par).css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {

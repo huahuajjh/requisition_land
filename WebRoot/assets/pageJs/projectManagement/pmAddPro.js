@@ -1,7 +1,7 @@
 $("#addProform").validate({
 	rules : {
 		approvalNumber : {
-			required : true
+			//required : true
 		},
 		proName : {
 			required : true
@@ -76,7 +76,7 @@ $("#addProform").validate({
 		var addressOrder = $('[name="addressOrder"]',form).val();
 		subData.address =  addressOrder;
 
-		$.post("projectManagement/pmAddProAdd",{
+		$.post("projectManagement/pmAddProAdd.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function() {
@@ -98,6 +98,9 @@ $("#filePath").change(function(){
 	var val = $(this).val();
 	var pos=val.lastIndexOf("\\");
 	$("#fileName").html(val.substring(pos+1));
+});
+$("#upFile").click(function(){
+	$("#filePath").click();
 });
 $("#upLoadeFile").click(function(){
 	var filePath = $("#filePath").val();
@@ -136,5 +139,5 @@ $("#upLoadeFile").click(function(){
 		$("#filePath").prop("disabled",false);
 		$("#upLoadeFile").prop("disabled",false);
 		$("span","#upLoadeFile").html("上传");
-	},"projectManagement/pmAddProUpFile");
+	},"projectManagement/pmAddProUpFile.do");
 });

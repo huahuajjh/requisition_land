@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 $.dropDownInput({
 	inputId : "#selectHu_proName",
 	dropDownId : "#selectHu_proNameDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#selectHu_queryPrDownTemplate",
 	lastFn : function(data) {
 		return actionFormate(data, false);
@@ -119,23 +119,26 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	}
 });
-var selectHu_tableData = $.generateData({
-	pageArea : "#selectHu_pageArea",
-	dataAreaId : "#selectHu_entrytemplate",
-	dataArea : "#selectHu_dataTbody",
-	url : "share/huListList",
-	firstFn : function(data) {
-		data.pageNum = 10;
-		var queryPrName =  $("#selectHu_proName").val();
-		if(queryPrName){
-				data.queryProName = queryPrName;
+var selectHu_tableData = null;
+setTimeout(function(){
+	selectHu_tableData = $.generateData({
+		pageArea : "#selectHu_pageArea",
+		dataAreaId : "#selectHu_entrytemplate",
+		dataArea : "#selectHu_dataTbody",
+		url : "share/huListList.do",
+		firstFn : function(data) {
+			data.pageNum = 10;
+			var queryPrName =  $("#selectHu_proName").val();
+			if(queryPrName){
+					data.queryProName = queryPrName;
+			}
+			data.huZhuName = $("#selectHu_huZhuName").val();
+			data.address = $("#selectPerson_address").val();
+		}, lastFn : function(data) {
+			return actionFormate(data, false) || {datas:[],totalCount:0};
 		}
-		data.huZhuName = $("#selectHu_huZhuName").val();
-		data.address = $("#selectPerson_address").val();
-	}, lastFn : function(data) {
-		return actionFormate(data, false) || {datas:[],totalCount:0};
-	}
-});
+	});
+}, 500);
 function selectHu_selectInfo(dom){
 	var tr = $(dom).closest("tr");
 	var data = tr.data("data");

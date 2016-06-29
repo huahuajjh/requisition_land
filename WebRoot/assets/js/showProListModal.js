@@ -1,5 +1,5 @@
 function setProListModal(id,fn){
-	$.get("share/projectList",function(html){
+	$.get("share/projectList.do",function(html){
 		$(".modal-content",id).html(html);
 	});
 	$(id).on('show.bs.modal', function (e) {
@@ -13,7 +13,7 @@ function setProListModal(id,fn){
 	});
 }
 function setPersonListModal(id,fn){
-	$.get("share/personList",function(html){
+	$.get("share/personList.do",function(html){
 		$(".modal-content",id).html(html);
 	});
 	$(id).on('show.bs.modal', function (e) {
@@ -27,7 +27,7 @@ function setPersonListModal(id,fn){
 	});
 }
 function setHuListModal(id,fn){
-	$.get("share/huList",function(html){
+	$.get("share/huList.do",function(html){
 		$(".modal-content",id).html(html);
 	});
 	$(id).on('show.bs.modal', function (e) {

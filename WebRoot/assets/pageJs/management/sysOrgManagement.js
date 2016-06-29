@@ -9,7 +9,7 @@ $('#addOrgModal').on('hidden.bs.modal', function(e) {
 
 // 刷新数据
 function restOrgData() {
-	$.post("management/sysOrgManagementList", function(data) {
+	$.post("management/sysOrgManagementList.do", function(data) {
 		var datas = actionFormate(data,false);
 		var template = Handlebars.compile($("#entryOrgTemplate").html());
 		var html = template(datas);
@@ -26,7 +26,7 @@ function deleteData(dom) {
 		return;
 	}
 	var id = tr.attr("id");
-	$.post("management/sysOrgManagementDelete", {
+	$.post("management/sysOrgManagementDelete.do", {
 		id : id
 	}, function(data) {
 		actionFormate(data, true, function() {
@@ -53,7 +53,7 @@ function editData(dom) {
 function initCurRow(id) {
 	$("#addDeptOrgid").val(id);
 	$("#deptModal").modal('show');
-	$.post("management/sysDeptManagementList", {
+	$.post("management/sysDeptManagementList.do", {
 		orgId : id
 	}, function(data) {
 		var datas = actionFormate(data, false);
@@ -73,7 +73,7 @@ function delCurRow(dom) {
 	if (!confirm("确定要删除该部门吗？"))
 		return;
 	var tr = $(dom).closest("tr");
-	$.post("management/sysDeptManagementDelete", {
+	$.post("management/sysDeptManagementDelete.do", {
 		id : tr.attr("dataId")
 	}, function(data) {
 		actionFormate(data, true, function() {
@@ -116,7 +116,7 @@ function saveCurRow(dom) {
 			$(dom).popover('hide');
 		}, 1000)
 	}
-	$.post("management/sysDeptManagementEdit", {
+	$.post("management/sysDeptManagementEdit.do", {
 		id : tr.attr("dataId"),
 		name : input.val(),
 		orgId : tr.attr("orgId")
@@ -143,7 +143,7 @@ $("#addDeptForm").validate({
 		}
 	},
 	submitHandler : function(form) {
-		$.post("management/sysDeptManagementAdd", $(form).serialize(),
+		$.post("management/sysDeptManagementAdd.do", $(form).serialize(),
 			function(data) {
 				actionFormate(data, true, function() {
 					$(form)[0].reset();

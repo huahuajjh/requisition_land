@@ -29,7 +29,7 @@ public class HPTProvideTableSpecification extends Specification<HousePuraseTicke
 		sb.append("select new com.tq.requisition.presentation.dto.hpt.HPTReceiveTableDto(");
 		sb.append(" fi.proId,fi.proName,fi.id,h.id,fi.name,fi.idNumber,pi.name,h.ticketNumber,pi.evidenceOfGetting,pi.gettingDate,h.bonus) ");
 		sb.append(" from HPTProviderInfo pi, HousePuraseTicket h,FamilyItem fi");
-		sb.append(" where h.fmlItemId=fi.id and pi.ticketId=h.id and h.del=false and h.state=?");
+		sb.append(" where h.fmlItemId=fi.id and pi.ticketId=h.id and h.del=false and (h.state=? or h.state=? or h.state=?)");
 		if(queryModel.getProName()!=null)
 		{
 			sb.append(" and fi.proName like '%"+queryModel.getProName()+"%'");
@@ -45,7 +45,7 @@ public class HPTProvideTableSpecification extends Specification<HousePuraseTicke
 			sb.append(" and h.ticketNumber='"+queryModel.getTicketNumber()+"'");
 		}
 		expression.setHql(sb.toString());
-		expression.setParameters(TicketState.RECEIVED);
+		expression.setParameters(TicketState.RECEIVED,TicketState.USED,TicketState.CASHED);
 		expression.setType(OperationType.HQL);
 		return expression;
 	}

@@ -264,7 +264,7 @@ function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
@@ -274,7 +274,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {

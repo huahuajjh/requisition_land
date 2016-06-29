@@ -97,7 +97,7 @@ $("#editInfoModal").validate({
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -117,7 +117,7 @@ function deleteInfo(dom){
 	if(!confirm("确定要删除？")) return;
 	var tr = $(dom).closest("tr");
 	var data = tr.data("data");
-	$.post("messageManagement/visitQuerydelete",{
+	$.post("messageManagement/visitQuerydelete.do",{
 		id:data.id
 	},function(data){
 		actionFormate(data, true,function(){
@@ -198,7 +198,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -213,7 +213,7 @@ function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});

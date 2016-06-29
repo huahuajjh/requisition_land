@@ -8,7 +8,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "socialSecurityMansgement/solmMaintainList",
+	url : "socialSecurityMansgement/solmMaintainList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -63,7 +63,7 @@ $.dropDownInput({
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -110,7 +110,7 @@ $("#editSolmModal").validate({
 			subData.joinWhichMedicalInsurance = $("[name='joinWhichMedicalInsurance']",form).val();
 			subData.community = $("[name='community']",form).val();
 			subData.prisonTime = $("[name='prisonTime']",form).val() || 0;
-			$.post("socialSecurityMansgement/solmQueryEdit",{
+			$.post("socialSecurityMansgement/solmQueryEdit.do",{
 				dataJson:JSON.stringify(subData)
 			},function(d){
 				actionFormate(d, true,function(type,msg,d){
@@ -139,7 +139,7 @@ $("#editSolmModal").validate({
 });
 var tr = null;
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);

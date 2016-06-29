@@ -20,6 +20,9 @@ $.dropDownInput({
 		$("#idNumberOrName").data("data",data);
 	}
 });
+$("#upFileExl").click(function(){
+	$("#filePath").click();
+});
 setPersonListModal("#selectPerson",function(data){
 	if(data){
 		$("#name").val(data.name);
@@ -30,7 +33,7 @@ setPersonListModal("#selectPerson",function(data){
 $("#idNumberBtn").click(function() {
 	var data = $("#idNumberOrName").data("data");
 	if(!data) return;
-	$.post("housePurchaseMansgement/hptAddGet", {
+	$.post("housePurchaseMansgement/hptAddGet.do", {
 		idNumber : data.idNumber,
 		name : data.name
 	}, function(data) {
@@ -60,7 +63,7 @@ $("#addHPT").validate({
         subData.fmlItemId = data.id;//购房券所有者id
         subData.idNumber = data.idNumber;//持有者身份证
         subData.name = data.name;//持有者姓名
-        $.post("housePurchaseMansgement/hptAddAdd",{
+        $.post("housePurchaseMansgement/hptAddAdd.do",{
         	dataJson:JSON.stringify(subData)
         },function(data){
         	actionFormate(data, true, function(type, msg, data) {
@@ -95,7 +98,7 @@ function resestData(){
 	$("#showinfo").html("");
 }
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);
@@ -160,7 +163,7 @@ $("#upLoadeFile").click(function(){
 		$("#filePath").prop("disabled",false);
 		$("#upLoadeFile").prop("disabled",false);
 		$("span","#upLoadeFile").html("上传");
-	},"housePurchaseMansgement/hptAddUpFile");
+	},"housePurchaseMansgement/hptAddUpFile.do");
 });
 setHuListModal("#selectHuPerson",function(data){
 	var id = $("#selectHuPerson").data("id");
@@ -304,7 +307,7 @@ $("#personInfoModal").validate({
 				yiQianHu.communityId = data.communityId;
 				yiQianHus.push(yiQianHu);
 				
-				$.post("housePurchaseMansgement/hptAddAddFmlItem",{
+				$.post("housePurchaseMansgement/hptAddAddFmlItem.do",{
 					dataJson:JSON.stringify(data)
 				},function(d){
 					actionFormate(d, true,function(){
@@ -444,7 +447,7 @@ $("#personHPTInfoModal").validate({
 				yiQianHu.streetId = data.streetId;
 				yiQianHu.communityId = data.communityId;
 				yiQianHus.push(yiQianHu);
-				$.post("housePurchaseMansgement/hptAddAddFmlItemAndHpt",{
+				$.post("housePurchaseMansgement/hptAddAddFmlItemAndHpt.do",{
 					dataJson:JSON.stringify(data)
 				},function(d){
 					actionFormate(d, true,function(){
@@ -560,7 +563,7 @@ function showAddFMLAndHPTModal(td){
 function showAddHPTModal(td){
 	var tr = $(td).closest("tr");
 	var trData = tr.data("data");
-	$.post("housePurchaseMansgement/hptAddGet", {
+	$.post("housePurchaseMansgement/hptAddGet.do", {
 		idNumber : trData.idNumber
 	}, function(data) {
 		actionFormate(data, false, function(type, msg, data) {
@@ -605,7 +608,7 @@ $("#htpInfoModal").validate({
         subData.fmlItemId = data.id;//购房券所有者id
         subData.idNumber = data.idNumber;//持有者身份证
         subData.name = data.name;//持有者姓名
-        $.post("housePurchaseMansgement/hptAddAdd",{
+        $.post("housePurchaseMansgement/hptAddAdd.do",{
         	dataJson:JSON.stringify(subData)
         },function(data){
         	actionFormate(data, true, function(type, msg, data) {

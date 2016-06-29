@@ -9,6 +9,14 @@ import java.util.UUID;
  */
 public class FamilyQueryModel {
 	/*private fields*/
+	/**项目ID*/
+	private UUID proId;
+	public UUID getProId() {
+		return proId;
+	}
+	public void setProId(UUID proId) {
+		this.proId = proId;
+	}
 	/**身份证号*/
 	private String idNumber;
 	/**项目id*/

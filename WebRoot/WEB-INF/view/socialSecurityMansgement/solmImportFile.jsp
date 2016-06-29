@@ -33,8 +33,8 @@
 		<div class="input-group" style="width:100%;">
 			<div class="form-control" id="fileName"></div>
 			<div class="input-group-btn" style=" width: 300px;">
-				<button type="button" class="btn btn-default btn-primary fileBtn">
-					<input type="file" id="filePath">
+				<input type="file" id="filePath" style="display:none;">
+				<button type="button" class="btn btn-default btn-primary fileBtn" id="upFileExl">
 					<i class="fa fa-folder-open"></i> 浏览
 				</button>
 				<button type="button" class="btn btn-default btn-success" id="upLoadeFile">

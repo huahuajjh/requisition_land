@@ -87,9 +87,9 @@
 			</div>
 			<div class="col-xs-7 bk-vcenter text-right">
 				每页显示<select class="select_top" id="dataPageCount">
-					<option value="10">10</option>
+					<option selected value="10">10</option>
 					<option value="20">20</option>
-					<option selected="" value="30">30</option>
+					<option value="30">30</option>
 					<option value="40">40</option>
 					<option value="50">50</option>
 				</select>条数据,总共有<span id="countArea">0</span>条数据。
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<div style="overflow-x:auto;width: 100%;">
+		<div style="overflow-x:auto;width: 100%; overflow-y: auto;height: 600px;">
 			<table class="table table-hover table-bordered autoTbale">
 				<thead>
 					<tr>

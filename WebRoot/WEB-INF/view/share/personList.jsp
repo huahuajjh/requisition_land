@@ -111,7 +111,7 @@ $.dropDownInput({
 $.dropDownInput({
 	inputId : "#selectPerson_proName",
 	dropDownId : "#selectPerson_proNameDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#selectPerson_queryPrDownTemplate",
 	lastFn : function(data) {
 		return actionFormate(data, false);
@@ -119,23 +119,26 @@ $.dropDownInput({
 		$("#selectPerson_proName").data("data",data);
 	}
 });
-var selectPerson_tableData = $.generateData({
-	pageArea : "#selectPerson_pageArea",
-	dataAreaId : "#selectPerson_entrytemplate",
-	dataArea : "#selectPerson_dataTbody",
-	url : "projectManagement/listRemovedList",
-	firstFn : function(data) {
-		data.pageNum = 10;
-		var queryPrName =  $("#selectPerson_proName").val();
-		if(queryPrName){
-			data.queryProName = queryPrName;
+var selectPerson_tableData = null;
+setTimeout(function(){
+	selectPerson_tableData = $.generateData({
+		pageArea : "#selectPerson_pageArea",
+		dataAreaId : "#selectPerson_entrytemplate",
+		dataArea : "#selectPerson_dataTbody",
+		url : "projectManagement/listRemovedList.do",
+		firstFn : function(data) {
+			data.pageNum = 10;
+			var queryPrName =  $("#selectPerson_proName").val();
+			if(queryPrName){
+				data.queryProName = queryPrName;
+			}
+			data.name = $("#selectPerson_name").val();
+			data.address = $("#selectPerson_address").val();
+		}, lastFn : function(data) {
+			return actionFormate(data, false) || {datas:[],totalCount:0};
 		}
-		data.name = $("#selectPerson_name").val();
-		data.address = $("#selectPerson_address").val();
-	}, lastFn : function(data) {
-		return actionFormate(data, false) || {datas:[],totalCount:0};
-	}
-});
+	});
+}, 500);
 function selectPerson_selectInfo(dom){
 	var tr = $(dom).closest("tr");
 	var data = tr.data("data");

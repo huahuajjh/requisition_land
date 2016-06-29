@@ -15,6 +15,7 @@ import com.excel.util.intefaces.IExcelOutput;
 import com.excel.util.model.ColAttrVal;
 import com.excel.util.model.ExcelColData;
 import com.tq.requisition.infrastructure.utils.ConfigFileUtil;
+import com.tq.requisition.infrastructure.utils.ProExcelHead;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
@@ -193,18 +194,9 @@ public class PmProgress extends BaseAction {
 	}
 
 	public String daoChu() throws ParseException, IOException {
-		List<ExcelColData> colDatas = new ArrayList<>();
-		ExcelColData[] colDataArr = Serialization.toObject(daoChuHead,
-				ExcelColData[].class);
-		for (ExcelColData excelColData : colDataArr) {
-			colDatas.add(excelColData);
-		}
-		List<ColAttrVal> colAttrVals = new ArrayList<>();
-		ColAttrVal[] cAttrValsArr = Serialization.toObject(daoChuAttrModel,
-				ColAttrVal[].class);
-		for (ColAttrVal cVal : cAttrValsArr) {
-			colAttrVals.add(cVal);
-		}
+		int[] ids = Serialization.toObject(daoChuAttrModel, int[].class);
+		List<ExcelColData> colDatas = ProExcelHead.getExcelColDatas(ids);
+		List<ColAttrVal> colAttrVals = ProExcelHead.getkeys(ids);
 		ProExportCondition data = Serialization.toObject(this.daYinData,
 				ProExportCondition.class);
 		List<ProImportAndExportDto> dtos = this.proMgtServiceContract

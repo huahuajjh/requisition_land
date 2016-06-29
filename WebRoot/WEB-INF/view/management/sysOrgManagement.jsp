@@ -36,7 +36,7 @@
 
 <!--新增单位弹出层-->
 <form class="modal fade" id="addOrgModal"
-	action="management/sysOrgManagementAdd">
+	action="management/sysOrgManagementAdd.do">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -70,7 +70,7 @@
 <!--新增单位弹出层-->
 
 <!--编辑单位弹出层-->
-<form class="modal fade" id="editOrgModal" action="management/sysOrgManagementEdit">
+<form class="modal fade" id="editOrgModal" action="management/sysOrgManagementEdit.do">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">

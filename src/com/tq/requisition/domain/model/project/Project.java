@@ -511,7 +511,7 @@ public class Project extends AggregateRoot{
 	public void toProTypeStr() {
 		switch (proType) {
 		case 1:
-			this.proTypeStr="基础设施项目";
+			this.proTypeStr="基础设施";
 			break;
 			
 		case 2:

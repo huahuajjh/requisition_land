@@ -2,7 +2,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/pmMaintainList",
+	url : "projectManagement/pmMaintainList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -59,7 +59,7 @@ function showInfo(dom) {
 	$("#startDate").html(data.startDate);
 	$("#proInfoFL").html(data.categoryStr);
 	$("#proInfoLQXM").html(data.sixForward);
-	$.post("projectManagement/pmProgressInfo", {
+	$.post("projectManagement/pmProgressInfo.do", {
 		proId : data.id
 	}, function(dt) {
 		var tempData = actionFormate(dt, false) || [];
@@ -101,7 +101,7 @@ function showInfo(dom) {
 		$("#yurBaoHejiArea").html(html);
 		$('#showYueBaoModal').modal('show');
 	},"json");
-	$.post("projectManagement/pmProgressGetAnnouncement", {
+	$.post("projectManagement/pmProgressGetAnnouncement.do", {
 		proId : data.id
 	}, function(data) {
 		var tempData = actionFormate(data, false);
@@ -146,7 +146,7 @@ $("#communityEdit").change(function(){
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -186,7 +186,7 @@ function editProjectInfo(dom){
 $("#editModal").validate({
 	rules : {
 		approvalNumber : {
-			required : true
+			//required : true
 		},
 		proName : {
 			required : true
@@ -260,7 +260,7 @@ $("#editModal").validate({
 		
 		var addressOrder = $('[name="otherAddress"]',form).val();
 		subData.address =  addressOrder;//项目地址
-		$.post("projectManagement/pmQueryProEdit",{
+		$.post("projectManagement/pmQueryProEdit.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,rtData) {

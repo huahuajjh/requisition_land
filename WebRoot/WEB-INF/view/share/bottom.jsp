@@ -148,7 +148,7 @@
 						equalTo:"#newPassword"
 					}
 				}, submitHandler : function(form) {
-					$.post("editPassword",$(form).serialize(),function(data){
+					$.post("editPassword.do",$(form).serialize(),function(data){
 						actionFormate(data, true,function(type,msg,datas){
 							$("#editUserPassword").modal("hide");
 						});
@@ -203,7 +203,7 @@
 	
 	function initPageLoad() {
 		//初始化数据
-		$.post("getRes",function(data){
+		$.post("getRes.do",function(data){
 			actionFormate(data, false,function(type,msg,datas){
 				var menuData = [];
 				initMenuData(null,datas,menuData);

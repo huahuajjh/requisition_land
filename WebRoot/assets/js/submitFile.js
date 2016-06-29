@@ -5,7 +5,7 @@ function submitFile(fileDom,datas, dataType, successFn, errorFn,url) {
 		fd.append(i, datas[i]);
 	}
 	$.ajax({
-		url : url || "share/updateFile",
+		url : url || "share/updateFile.do",
 		type : "post",
 		data : fd,
 		dataType : dataType,

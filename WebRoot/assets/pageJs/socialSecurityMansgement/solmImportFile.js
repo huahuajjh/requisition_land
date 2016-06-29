@@ -4,11 +4,14 @@ setPersonListModal("#selectPerson",function(data){
 		initDom(data);
 	}
 });
+$("#upFileExl").click(function(){
+	$("#filePath").click();
+});
 $("#idNumberBtn").click(function() {
 	var idNumber = $("#idNumber").val();
 	if (!idNumber)
 		return;
-	$.post("transferAccountManagement/taImportFileGet", {
+	$.post("transferAccountManagement/taImportFileGet.do", {
 		idNumber : idNumber
 	}, function(data) {
 		actionFormate(data, true,
@@ -42,7 +45,7 @@ $("#addTalmportForm").validate({
 			subData.joinWhichMedicalInsurance = $("[name='joinWhichMedicalInsurance']",form).val();
 			subData.prisonTime = $("[name='prisonTime']",form).val() || 0;
 			subData.ageRange = data.ageDuan;
-			$.post("socialSecurityMansgement/solmImportFileAdd",{
+			$.post("socialSecurityMansgement/solmImportFileAdd.do",{
 				dataJson:JSON.stringify(subData)
 			},function(d){
 				 actionFormate(d, true,function(){
@@ -123,7 +126,7 @@ function initDom(data){
 	});
 }
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);
@@ -204,5 +207,5 @@ $("#upLoadeFile").click(function(){
 		$("#filePath").prop("disabled",false);
 		$("#upLoadeFile").prop("disabled",false);
 		$("span","#upLoadeFile").html("上传");
-	},"socialSecurityMansgement/solmImportFileUpFile");
+	},"socialSecurityMansgement/solmImportFileUpFile.do");
 });

@@ -8,7 +8,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/maintainRemoveList",
+	url : "projectManagement/maintainRemoveList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.idNumber = $("#idNumber").val();
@@ -48,7 +48,7 @@ $('#editFamilyInfoModal').modal({
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -90,7 +90,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -107,7 +107,7 @@ $("#phonePaiZhaoModal").modal({
 	backdrop:"static",
 });
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);
@@ -150,7 +150,7 @@ function showInfo(dom){
 		$.initShowImage([fileItem]);
 	});
 	$("#familyInfo").html(rHtml);
-	$.post("projectManagement/pmProgressGet",{
+	$.post("projectManagement/pmProgressGet.do",{
 		proId:data.proId
 	},function(data){
 		actionFormate(data,false,function(type,msg,d){
@@ -159,7 +159,7 @@ function showInfo(dom){
 			$("#proInfoShow").html(html);
 		});
 	},"json")
-	$.post("projectManagement/queryRemoveInfoGetRemoveInfos",{
+	$.post("projectManagement/queryRemoveInfoGetRemoveInfos.do",{
 		id:data.id
 	},function(data){
 		 actionFormate(data,false,function(type,msg,d){
@@ -313,7 +313,7 @@ $("#editFamilyInfoModal").validate({
 			fileItems = fileItems + $(this).val() + "|";
 		});
 		subData.houseImgPath = fileItems.substring(0, fileItems.length - 1);
-		$.post("projectManagement/queryRemoveInfoEdit",{
+		$.post("projectManagement/queryRemoveInfoEdit.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			 actionFormate(data, true,function(type,msg,d){
@@ -349,7 +349,7 @@ function daYin(dom){
 		return;
 	}
 	var idsVal = JSON.stringify(ids).replace("[","").replace("]","").replace(/["]/g,"'");
-	$.post("projectManagement/queryRemoveInfoDaYin",{
+	$.post("projectManagement/queryRemoveInfoDaYin.do",{
 		daYinIds:idsVal
 	},function(data){
 		actionFormate(data, true, function(type,msg,data) {
@@ -417,7 +417,7 @@ $("#addRemoveModal").validate({
 		familyItem.proId = data.proId;
 		familyItem.fmlId = data.id;
 		familyItem.proName = data.proName;
-		$.post("projectManagement/uploadRemoveInfoAdd",{
+		$.post("projectManagement/uploadRemoveInfoAdd.do",{
 			dataJson:JSON.stringify(familyItem)
 		},function(data){
 			 actionFormate(data, true,function(type,msg,d){
@@ -435,7 +435,7 @@ function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
@@ -580,7 +580,7 @@ $("#personInfoModal").validate({
 				yiQianHu.streetId = data.streetId;
 				yiQianHu.communityId = data.communityId;
 				yiQianHus.push(yiQianHu);
-				$.post("housePurchaseMansgement/hptAddAddFmlItem",{
+				$.post("housePurchaseMansgement/hptAddAddFmlItem.do",{
 					dataJson:JSON.stringify(data)
 				},function(d){
 					actionFormate(d, true,function(){
@@ -607,7 +607,7 @@ $("#personInfoModal").validate({
 function showItemList(dom){
 	var tr = $(dom).closest("tr");
 	var data = tr.data("data");
-	$.post("projectManagement/queryRemoveInfoGetRemoveInfos",{
+	$.post("projectManagement/queryRemoveInfoGetRemoveInfos.do",{
 		id:data.id
 	},function(data){
 		 actionFormate(data,false,function(type,msg,d){
@@ -628,7 +628,7 @@ function deleteFMLItem(dom){
 	if(confirm("确定要删除该成员吗?")){
 		var tr = $(dom).closest("tr");
 		var data = tr.data("data");
-		$.post("projectManagement/maintainRemoveDelete",{
+		$.post("projectManagement/maintainRemoveDelete.do",{
 			id:data.id
 		},function(d){
 			 actionFormate(d,true,function(type,msg,d){

@@ -1,6 +1,13 @@
 submitFileStyle("#upLoadFile","POLICY_FILE",function(data){
 		return actionFormate(data, true);
 });
+setProListModal("#showProInfoModal",function(data){
+	if(data){
+		$("#proName").attr("proId",data.id);
+		$("#proName").attr("proName",data.proName);
+		$("#proName").val(data.proName);
+	}
+});
 $("#addVisitForm").validate({
 	rules: {
 		name: {
@@ -60,7 +67,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/pmQueryProList",
+	url : "projectManagement/pmQueryProList.do",
 	firstFn : function(data) {
 		data.pageNum = 10;
 		var queryPrName =  $("#queryPrName");
@@ -84,28 +91,13 @@ var tableData = $.generateData({
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn : function(data) {
 		return actionFormate(data, false);
 	},itemClick:function(data){
 		$("#queryPrName").data("data",data);
 	}
-});
-$("#proStreet").change(function() {
-	var thisVal = $(this).val();
-	$("#proCommunity").empty();
-	$("#proCommunity").append('<option value="">所有社区</option>');
-	if (!thisVal)
-		return;
-	$.post("share/address", {
-		id : thisVal
-	}, function(data) {
-		var datas = actionFormate(data, false);
-		for ( var d in datas) {
-			$("#proCommunity").append('<option value="' + datas[d].id + '">' + datas[d].name + '</option>');
-		}
-	}, "json");
 });
 $("#upFile").change(function(){
 	var val = $(this).val();
@@ -136,7 +128,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -156,7 +148,7 @@ function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});

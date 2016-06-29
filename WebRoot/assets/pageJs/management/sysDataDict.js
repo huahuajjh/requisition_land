@@ -34,7 +34,7 @@ $("#addAddressModal").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
-		$.post("management/sysDataDictaddAddress",$(form).serialize(),function(data){
+		$.post("management/sysDataDictaddAddress.do",$(form).serialize(),function(data){
 			actionFormate(data, true,function(type,msg,d){
 				var dom = $("#addAddressModal").data("dom");
 				if(dom){
@@ -78,7 +78,7 @@ $("#editAddressModal").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
-		$.post("management/sysDataDicteditAddress",$(form).serialize(),function(data){
+		$.post("management/sysDataDicteditAddress.do",$(form).serialize(),function(data){
 			actionFormate(data, true,function(type,msg,d){
 				var dom = $("#editAddressModal").data("dom");
 				dom.data("data",d);
@@ -127,7 +127,7 @@ function treeItemClick(e){
     e.stopPropagation();
 }
 function showAddress(){
-	$.post("management/sysDataDictgetAddress",function(data){
+	$.post("management/sysDataDictgetAddress.do",function(data){
 		actionFormate(data, false,function(type,msg,d){
 			var addressArr = [];
 			initTreeDatas(null,addressArr,d);
@@ -208,7 +208,7 @@ function deleteAddress(dom){
 		var id = $(this).data("data").id;
 		arr.push(id);
 	});
-	$.post("management/sysDataDictdeleteAddress",{
+	$.post("management/sysDataDictdeleteAddress.do",{
 		ids:JSON.stringify(arr)
 	},function(data){
 		actionFormate(data, true,function(type,msg,d){
@@ -352,13 +352,13 @@ function deleteDictData(dom){
 	},"json");
 }
 function loginHuKouType(){
-	setTypes("management/sysDataDictgetAllHouseholdType","#householdType");
+	setTypes("management/sysDataDictgetAllHouseholdType.do","#householdType");
 }
 function loginSheBaoType(){
-	setTypes("management/sysDataDictgetAllSocialsecurityType","#sheBaoType");
+	setTypes("management/sysDataDictgetAllSocialsecurityType.do","#sheBaoType");
 }
 function loginHuZhuType(){
-	setTypes("management/sysDataDictgetAllRelationshipType","#huZhuType");
+	setTypes("management/sysDataDictgetAllRelationshipType.do","#huZhuType");
 }
 function setTypes(url,dom){
 	$.get(url,function(data){
@@ -376,9 +376,9 @@ function showHuKouType(){
 	$("#addDictName").val("");
 	$("#dictModalTitle").html("管理户口性质");
 	$("#dictBody")
-	.attr("addUrl","management/sysDataDictaddHouseholdType")
-	.attr("saveUrl","management/sysDataDicteditHouseholdType")
-	.attr("deleteUrl","management/sysDataDictdeleteHouseholdType");
+	.attr("addUrl","management/sysDataDictaddHouseholdType.do")
+	.attr("saveUrl","management/sysDataDicteditHouseholdType.do")
+	.attr("deleteUrl","management/sysDataDictdeleteHouseholdType.do");
 	$("#dictColName").html("户口性质名称");
 	$("#dictDataArea").html("");
 	var d = $("#householdType").data("data");
@@ -416,9 +416,9 @@ function showHuZhuType(){
 	$("#addDictName").val("");
 	$("#dictModalTitle").html("与户主关系类型");
 	$("#dictBody")
-	.attr("addUrl","management/sysDataDictaddRelationshipType")
-	.attr("saveUrl","management/sysDataDicteditRelationshipType")
-	.attr("deleteUrl","management/sysDataDictdeleteRelationshipType");
+	.attr("addUrl","management/sysDataDictaddRelationshipType.do")
+	.attr("saveUrl","management/sysDataDicteditRelationshipType.do")
+	.attr("deleteUrl","management/sysDataDictdeleteRelationshipType.do");
 	$("#dictColName").html("与户主关系名称");
 	$("#dictDataArea").html("");
 	var d = $("#huZhuType").data("data");

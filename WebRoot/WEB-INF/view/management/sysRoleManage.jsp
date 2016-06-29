@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<form>
+		<form onsubmit="return false;">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -101,7 +101,7 @@
 </div>
 
 <form class="modal fade form-horizontal" id="addRoleModal"
-	action="management/sysRoleManageAdd">
+	action="management/sysRoleManageAdd.do">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -127,7 +127,7 @@
 </form>
 
 <form class="modal fade form-horizontal" id="editRoleModal"
-	action="management/sysRoleManageEdit">
+	action="management/sysRoleManageEdit.do">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -166,7 +166,7 @@
 		pageArea : "#pageArea",
 		dataAreaId : "#entrytemplate",
 		dataArea : "#dataTbody",
-		url : "management/sysRoleManageList",
+		url : "management/sysRoleManageList.do",
 		firstFn : function(data) {
 			data.pageNum = $("#dataPageCount").val();
 			data.roleName = $("#role").val();
@@ -193,7 +193,7 @@
 	function deleteRole(dom,id) {
 		if (!confirm("确定要删除吗？"))
 			return;
-		$.post("management/sysRoleManageRemove", {
+		$.post("management/sysRoleManageRemove.do", {
 			id : id
 		}, function(data) {
 			actionFormate(data, true, function() {

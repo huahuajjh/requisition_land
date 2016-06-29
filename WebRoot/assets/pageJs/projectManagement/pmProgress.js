@@ -2,7 +2,7 @@
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/pmProgressList",
+	url : "projectManagement/pmProgressList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -32,7 +32,7 @@ $("#street").change( function() {
 	$("#community").empty();
 	$("#community").append('<option value="">所有社区</option>');
 	if (!thisVal) return;
-	$.post("share/address", {
+	$.post("share/address.do", {
 		id : thisVal
 	}, function(data) {
 		var datas = actionFormate(data,false);
@@ -84,7 +84,7 @@ $("#yueBaoAddModal").on(
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -122,7 +122,7 @@ function showInfo(dom) {
 	$("#proInfoAddress").html(address);
 	$("#proInfoType").html(protype);
 	$("#announceName").html(announceName);
-	$.post("projectManagement/pmProgressInfo", {
+	$.post("projectManagement/pmProgressInfo.do", {
 		proId : proid
 	}, function(data) {
 		var tempData = actionFormate(data, false) || [];
@@ -190,7 +190,7 @@ function addAnnouncement(dom) {
 	var proname = tr.attr("proname");
 	var proid = tr.attr("proid");
 	$("#addAnnouncementNmae").html(proname);
-	$.post("projectManagement/pmProgressGetAnnouncement", {
+	$.post("projectManagement/pmProgressGetAnnouncement.do", {
 		proId : proid
 	}, function(data) {
 		var tempData = actionFormate(data, false);
@@ -255,7 +255,7 @@ function initFormFile(){
 function yueBaoManage(dom){
 	var tr = $(dom).closest("tr");
 	var dataV = tr.data("data");
-	$.post("projectManagement/pmProgressInfo", {
+	$.post("projectManagement/pmProgressInfo.do", {
 		proId : dataV.id
 	}, function(data) {
 		var tempData = actionFormate(data, false)||[];
@@ -290,7 +290,7 @@ function showAnnouncementInfo(dom){
 	var proname = tr.attr("proname");
 	var proid = tr.attr("proid");
 	$("#announceInfoName").html(proname);
-	$.post("projectManagement/pmProgressGetAnnouncement",{proId:proid},function(data){
+	$.post("projectManagement/pmProgressGetAnnouncement.do",{proId:proid},function(data){
 		var tempData = actionFormate(data, false);
 		for ( var d in tempData) {
 			var t = tempData[d];
@@ -391,7 +391,7 @@ $("#editYueBaoModal").validate({
 		subData.startDate = editData.startDate;
 		subData.proName = editProData.proName;
 		
-		$.post("projectManagement/pmProgressEditMouth",{
+		$.post("projectManagement/pmProgressEditMouth.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,data) {
@@ -475,7 +475,7 @@ $("#yueBaoAddModal").validate({
 		subData.remark = $('[name="remark"]',form).val();
 		subData.proName = $('#yueBaoAddModal').data('proName');
 		
-		$.post("projectManagement/pmProgressInputMouth",{
+		$.post("projectManagement/pmProgressInputMouth.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,data) {
@@ -564,7 +564,7 @@ function daYin(dom){
 		}, 1000);
 		return;
 	}
-	$.post("projectManagement/pmProgressDaYin",{
+	$.post("projectManagement/pmProgressDaYin.do",{
 		daYinIds:JSON.stringify(dataId).replace("[","").replace("]","").replace(/["]/g,"'")
 	},function(data){
 		actionFormate(data, true, function(type,msg,data) {

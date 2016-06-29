@@ -363,7 +363,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="form-group">
-			<label class="control-label">项目审批号<span class="text-danger">*</span></label>
+			<label class="control-label">项目审批号</label>
 			<input type="text" name="approvalNumber" value="{{approvalNumber}}" class="form-control" placeholder="请输入项目审批号" maxlength="100">
 		</div>
 	</div>

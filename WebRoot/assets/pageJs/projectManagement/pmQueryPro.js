@@ -2,7 +2,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/pmQueryProList",
+	url : "projectManagement/pmQueryProList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -59,7 +59,7 @@ function showInfo(dom) {
 	$("#startDate").html(data.startDate);
 	$("#proInfoFL").html(data.categoryStr);
 	$("#proInfoLQXM").html(data.sixForward);
-	$.post("projectManagement/pmProgressInfo", {
+	$.post("projectManagement/pmProgressInfo.do", {
 		proId : data.id
 	}, function(dt) {
 		var tempData = actionFormate(dt, false) || [];
@@ -101,7 +101,7 @@ function showInfo(dom) {
 		$("#yurBaoHejiArea").html(html);
 		$('#showYueBaoModal').modal('show');
 	},"json");
-	$.post("projectManagement/pmProgressGetAnnouncement", {
+	$.post("projectManagement/pmProgressGetAnnouncement.do", {
 		proId : data.id
 	}, function(data) {
 		var tempData = actionFormate(data, false);
@@ -146,7 +146,7 @@ $("#communityEdit").change(function(){
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -312,7 +312,7 @@ $("#editModal").validate({
 		subData.address =  address.join(",");//项目地址
 		subData.streetId = street.join(",");//街道地址id组合
 		subData.communityId = community.join(",");//社区地址id组合
-		$.post("projectManagement/pmQueryProEdit",{
+		$.post("projectManagement/pmQueryProEdit.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true, function(type,msg,rtData) {

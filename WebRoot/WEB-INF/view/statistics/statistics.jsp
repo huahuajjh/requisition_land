@@ -40,7 +40,7 @@
 	<hr>
 	<div class="panel-body">
 	<div style="width: 100%;overflow: hidden;" id="tableHead">
-	<table class="table table-striped table-bordered bootstrap-datatable datatable autoTbale " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-bottom: 0 !important;">
+	<table class="table table-striped table-bordered bootstrap-datatable datatable " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-bottom: 0 !important;">
 				<thead>
 					<tr>
 						<th rowspan="2" style="width: 300px">项目</th>
@@ -68,7 +68,7 @@
 				</table>
 				</div>
 		<div style="overflow-x:auto;width: 100%; max-height: 500px" id="tableBody">
-			<table class="table table-striped table-bordered bootstrap-datatable datatable autoTbale " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-top: 0 !important;">
+			<table class="table table-striped table-bordered bootstrap-datatable datatable " style="margin-top: 14px !important;width: 2200px;table-layout:fixed;margin-top: 0 !important;">
 				<tbody id="dataTbody">
 				</tbody>
 				<tfoot>

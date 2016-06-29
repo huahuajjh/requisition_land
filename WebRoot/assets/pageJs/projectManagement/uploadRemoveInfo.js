@@ -12,7 +12,7 @@ function initDom(){
 			var imgData = $(this).data("imgData");
 			$("#paiZhaoFileLoginState").css("display","inline");
 			$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-			$.post("share/saveFile",{
+			$.post("share/saveFile.do",{
 				baseSFFile:imgData
 			},function(data){
 				actionFormate(data, true, function(type, msg, data) {
@@ -235,7 +235,7 @@ function initDom(){
 				yiQianHus.push(yiQianHu);
 
 			});
-			$.post("projectManagement/uploadRemoveInfoAdd",{
+			$.post("projectManagement/uploadRemoveInfoAdd.do",{
 				dataJson:JSON.stringify(removeInfo)
 			},function(data){
 				 actionFormate(data, true,function(){
@@ -295,7 +295,7 @@ function initDom(){
 			$("#filePath").prop("disabled",false);
 			$("#upLoadeFile").prop("disabled",false);
 			$("span","#upLoadeFile").html("上传");
-		},"projectManagement/uploadRemoveInfoUpFile");
+		},"projectManagement/uploadRemoveInfoUpFile.do");
 	});
 }
 setProListModal("#showProInfoModal",function(data){
@@ -305,11 +305,14 @@ setProListModal("#showProInfoModal",function(data){
 		$("#proName").html(data.proName);
 	}
 });
+$("#upFileExl").click(function(){
+	$("#filePath").click();
+});
 function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});

@@ -36,7 +36,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "housePurchaseMansgement/hptIssueList",
+	url : "housePurchaseMansgement/hptIssueList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -68,7 +68,7 @@ $("#dataPageCount").change(function() {
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -77,7 +77,7 @@ $.dropDownInput({
 	}
 });
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);

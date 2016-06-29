@@ -102,7 +102,7 @@ function upFileZhaoPian(){
 	$("#upFile").click();
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
@@ -112,7 +112,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -150,7 +150,8 @@ function getData(){
 		typeIds.push(d.id);
 	}
 	data.fileTypeId = typeIds.join(",");
-	data.typeStr = $("#selectBtn").data("data").title;
+	var d = $("#selectBtn").data("data") || {};
+	data.typeStr = d.title;
 	var fileValArr = [];
 	$("#fileItems > .form-control-static").each(function(){
 		var data = $(this).data("data");

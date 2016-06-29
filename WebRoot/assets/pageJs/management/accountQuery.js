@@ -4,7 +4,7 @@ $("#organization").change(function() {
 	$("#department").append('<option value="">«Î—°‘Ò≤ø√≈</option>');
 	if (!thisVal)
 		return;
-	$.post("management/sysDeptManagementList", {
+	$.post("management/sysDeptManagementList.do", {
 		orgId : thisVal
 	}, function(data) {
 		actionFormate(data, false,function(type,msg,datas){

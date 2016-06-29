@@ -390,7 +390,7 @@ public class ProImportAndExportDto {
 	}
 
 	private static void setProType(ProImportAndExportDto dto, String typeName) {
-		if (typeName.equals("基础设施")) {
+		if (typeName.trim().equals("基础设施")) {
 			dto.proTypeStrInfra = "√";
 			return;
 		}

@@ -36,6 +36,11 @@ public class FmlTotalCountSpecification extends Specification<Family>{
 		{
 			sb.append(" and pro_name like " + "'%" + queryModel.getProName() +"%'");
 		}
+		if(queryModel.getProId() != null)
+		{
+			sb.append(" and pro_id = ?");
+			list.add(queryModel.getProId().toString());
+		}
 		if(queryModel.getStreetId()!=null)
 		{
 			sb.append(" and street_id=?");

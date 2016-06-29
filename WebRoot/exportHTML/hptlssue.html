@@ -69,7 +69,7 @@ html,body {
 	<div class="text-right">
 		<button type="button" class="btn btn-primary" onclick="daoChu();">导出</button>
 	</div>
-	<form id="subDaoChu" action="../housePurchaseMansgement/hptIssueDaoChu"
+	<form id="subDaoChu" action="../housePurchaseMansgement/hptIssueDaoChu.do"
 		method="post" style="display:none;">
 		<input type="hidden" name="daYinData" id="daYinData"> <input
 			type="hidden" name="daoChuAttrModel" id="daoChuAttrModel"> <input
@@ -90,7 +90,7 @@ html,body {
 	$.dropDownInput({
 		inputId : "#queryPrName",
 		dropDownId : "#queryPrDown",
-		url : "../projectManagement/pmProgressNames",
+		url : "../projectManagement/pmProgressNames.do",
 		templateId : "#queryPrDownTemplate",
 		lastFn:function(data){
 			return actionFormate(data,false);

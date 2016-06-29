@@ -5,7 +5,7 @@
 			$("#department").append('<option value="">请选择部门</option>');
 			if (!thisVal)
 				return;
-			$.post("management/sysDeptManagementList", {
+			$.post("management/sysDeptManagementList.do", {
 				orgId : thisVal
 			}, function(data) {
 				var datas = actionFormate(data, false);
@@ -19,7 +19,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "management/sysAccountQueryList",
+	url : "management/sysAccountQueryList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.account = $("#username").val();
@@ -63,13 +63,13 @@ function editAccount(dom) {
 }
 function reset(id){
 	if(!confirm("确定要重置密码？")) return;
-	$.post("management/sysAccountQueryReset",{id:id},function(data){
+	$.post("management/sysAccountQueryReset.do",{id:id},function(data){
 		 actionFormate(data, true);
 	},"json");
 }
 function disable(id){
 	if(!confirm("确定要冻结用户？")) return;
-	$.post("management/sysAccountQueryDisable",{id:id},function(data){
+	$.post("management/sysAccountQueryDisable.do",{id:id},function(data){
 		 actionFormate(data, true);
 		 tableData.refreshData();
 	},"json");
@@ -81,7 +81,7 @@ $("#editOrgId").change(
 			$("#editDeptId").append('<option value="">请选择部门</option>');
 			if (!thisVal)
 				return;
-			$.post("management/sysDeptManagementList", {
+			$.post("management/sysDeptManagementList.do", {
 				orgId : thisVal
 			}, function(data) {
 				var datas = actionFormate(data, false);
@@ -149,7 +149,7 @@ $("#editAccountModal").validate({
 			data.roleId = $("#editRoleId").val();
 //			/**账户角色名称*/
 			data.roleName = $("#editRoleId option:selected").html();
-			$.post("management/sysAccountQueryEdit",{
+			$.post("management/sysAccountQueryEdit.do",{
 				dataJson:JSON.stringify(data)
 			},function(d){
 				actionFormate(d, true,function(){
@@ -182,7 +182,7 @@ function existsAccount(account,oldAccount,suFn,erFn){
 		suFn();
 		return;
 	}
-	$.post("management/sysAccountExistsAccount",{
+	$.post("management/sysAccountExistsAccount.do",{
 		account:account
 	},function(data){
 		actionFormate(data,false,function(){

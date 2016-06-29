@@ -8,7 +8,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "projectManagement/maintainPersonRemoveList",
+	url : "projectManagement/maintainPersonRemoveList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		data.idNumber = $("#idNumber").val();
@@ -57,7 +57,7 @@ $("#dataPageCount").change(function() {
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -109,7 +109,7 @@ $.dropDownInput({
 	}
 });
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);
@@ -122,7 +122,7 @@ function showRemovedInfo(dom){
 	var template = Handlebars.compile($("#showInfoTemplate").html());
 	var html = template(data);
 	$("#showPersonInfo").html(html);
-	$.post("projectManagement/pmProgressGet",{
+	$.post("projectManagement/pmProgressGet.do",{
 		proId:data.proId
 	},function(data){
 		actionFormate(data,false,function(type,msg,d){
@@ -131,7 +131,7 @@ function showRemovedInfo(dom){
 			$("#proInfoShow").html(html);
 		});
 	},"json");
-	$.post("projectManagement/listRemovedGet",{
+	$.post("projectManagement/listRemovedGet.do",{
 		id:data.fmlId
 	},function(data){
 		 actionFormate(data,false,function(type,msg,d){
@@ -258,7 +258,7 @@ $("#editPersonInfoModal").validate({
 		subData.remark = $("[name='remark']",form).val();
 		subData.userdSocialsecurity = $("[name='userdSocialsecurity']",form).prop("checked");
 		var dataJson = JSON.stringify(subData);
-		$.post("projectManagement/listRemovedEdit",{
+		$.post("projectManagement/listRemovedEdit.do",{
 			dataJson:dataJson
 		},function(data){
 			actionFormate(data,true,function(type,msg,data){

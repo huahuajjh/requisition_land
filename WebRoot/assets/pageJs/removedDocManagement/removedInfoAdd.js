@@ -42,6 +42,9 @@ $("#filePath").change(function(){
 	var pos=val.lastIndexOf("\\");
 	$("#fileName").html(val.substring(pos+1));
 });
+$("#upFileExl").click(function(){
+	$("#filePath").click();
+});
 $("#upLoadeFile").click(function(){
 	var filePath = $("#filePath").val();
 	if(!filePath){
@@ -72,5 +75,5 @@ $("#upLoadeFile").click(function(){
 		$("#filePath").prop("disabled",false);
 		$("#upLoadeFile").prop("disabled",false);
 		$("span","#upLoadeFile").html("上传");
-	},"removedDocManagement/removedInfoAddUpFile");
+	},"removedDocManagement/removedInfoAddUpFile.do");
 });

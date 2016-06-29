@@ -2,7 +2,7 @@ var queryProtableData = $.generateData({
 	pageArea : "#queryProPageArea",
 	dataAreaId : "#queryProEntrytemplate",
 	dataArea : "#queryProDataTbody",
-	url : "projectManagement/pmQueryProList",
+	url : "projectManagement/pmQueryProList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#queryProDataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -26,7 +26,7 @@ $("#queryProDataPageCount").change(function() {
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -53,7 +53,7 @@ new bindingSelect({
 	masterSelect:"#queryProStreet",
 	childSelect:"#queryProCommunity",
 	childDefalueVal:"所有社区",
-	url:"share/address",
+	url:"share/address.do",
 	afterFn:function(data){
 		return actionFormate(data, false);
 	}
@@ -68,7 +68,7 @@ function showProInfoMsg(dom){
 	$("#showProInfoModal").modal("show");
 }
 function initProDom(data){
-	$.post("projectManagement/pmProgressInfo", {
+	$.post("projectManagement/pmProgressInfo.do", {
 		proId : data.id
 	}, function(dt) {
 		var tempData = actionFormate(dt, false) || [];
@@ -109,7 +109,7 @@ function initProDom(data){
 		html = template(countModel);
 		$("#proYurBaoHejiArea").html(html);
 	},"json");
-	$.post("projectManagement/pmProgressGetAnnouncement", {
+	$.post("projectManagement/pmProgressGetAnnouncement.do", {
 		proId : data.id
 	}, function(data) {
 		var tempData = actionFormate(data, false);
@@ -128,7 +128,7 @@ function initProDom(data){
 		pageArea : "#huPageArea",
 		dataAreaId : "#huEntrytemplate",
 		dataArea : "#huDataTbody",
-		url : "projectManagement/queryRemoveInfoList",
+		url : "projectManagement/queryRemoveInfoList.do",
 		firstFn : function(d) {
 			d.pageNum = 10;
 			d.proId = data.id;
@@ -265,7 +265,7 @@ function showAnnouncementInfo(dom){
 	var proname = data.proName;
 	var proid = data.id;
 	$("#announceInfoName").html(proname);
-	$.post("projectManagement/pmProgressGetAnnouncement",{proId:proid},function(data){
+	$.post("projectManagement/pmProgressGetAnnouncement.do",{proId:proid},function(data){
 		var tempData = actionFormate(data, false);
 		for ( var d in tempData) {
 			var t = tempData[d];

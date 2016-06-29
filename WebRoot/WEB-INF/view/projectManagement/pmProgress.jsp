@@ -736,7 +736,7 @@
 {{/each}}
 </script>
 <script id="AddAnnounceInfoTemplateOne" type="text/x-handlebars-template">
-	<form class="tab-pane" id="announce{{index}}" action="projectManagement/pmProgressEditAnnouncement" onsubmit="return false;">
+	<form class="tab-pane" id="announce{{index}}" action="projectManagement/pmProgressEditAnnouncement.do" onsubmit="return false;">
 		<input type="hidden" name="id" value="{{id}}">
 		<input type="hidden" name="proId" value="{{proId}}">
 		<input type="hidden" name="sequence" value="{{sequence}}" />
@@ -772,7 +772,7 @@
 	</form>
 </script>
 <script id="AddAnnounceInfoTemplateTwo" type="text/x-handlebars-template">
-	<form class="tab-pane active addAnno" id="announce{{index}}" action="projectManagement/pmProgressAddAnnouncement" onsubmit="return false;">
+	<form class="tab-pane active addAnno" id="announce{{index}}" action="projectManagement/pmProgressAddAnnouncement.do" onsubmit="return false;">
 		<input type="hidden" name="sequence" value="{{index}}" />
 		<input type="hidden" name="proId" value="{{proId}}">
 		<div class="form-group">

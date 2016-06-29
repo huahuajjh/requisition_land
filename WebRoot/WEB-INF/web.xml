@@ -3,6 +3,25 @@
 <web-app>
 	<!-- structs2的启动配置项，启动时StrutsPrepareAndExecuteFilter的init方法会读取成一个javabean -->
 	<!-- StrutsPrepareAndExecuteFilter是一个控制器-controller，老版本的控制器不同 -->
+	<servlet>
+		<!--给survlet起个名字，可以是任意的 -->
+		<servlet-name>solm</servlet-name>
+		<!--servlet的路径（包名+类名) -->
+		<servlet-class>com.tq.requisition.presentation.actions.socialSecurityMansgement.SolmUpFile</servlet-class>
+		<init-param>
+			<param-name>filepath</param-name>
+			<param-value>uploadFile</param-value>
+		</init-param>
+		<init-param>
+			<param-name>temppath</param-name>
+			<param-value>temp</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>solm</servlet-name>
+		<!-- 这是在浏览器中输入的访问该survlet的url，任意的 -->
+		<url-pattern>/solm.file</url-pattern>
+	</servlet-mapping>
 	<filter>
 		<filter-name>structs2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -13,7 +32,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>structs2</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 	<error-page>
 		<error-code>404</error-code>

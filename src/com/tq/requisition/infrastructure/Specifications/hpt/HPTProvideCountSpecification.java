@@ -26,7 +26,7 @@ public class HPTProvideCountSpecification extends Specification<HousePuraseTicke
 		IHqlExpression expression = new HqlExpression();
 		StringBuilder sb = new StringBuilder();
 		sb.append("select count(1) from HousePuraseTicket t,FamilyItem i");		
-		sb.append(" where  t.fmlItemId=i.id and t.del=false and t.state=?");
+		sb.append(" where  t.fmlItemId=i.id and t.del=false and (t.state=? or t.state=? or t.state=?)");
 		if(queryModel.getProName()!=null)
 		{
 			sb.append(" and i.proName like '%"+queryModel.getProName()+"%'");
@@ -43,7 +43,7 @@ public class HPTProvideCountSpecification extends Specification<HousePuraseTicke
 			sb.append(" and t.ticketNumber='"+queryModel.getTicketNumber()+"'");
 		}
 		expression.setHql(sb.toString());
-		expression.setParameters(TicketState.RECEIVED);
+		expression.setParameters(TicketState.RECEIVED,TicketState.USED,TicketState.CASHED);
 		expression.setType(OperationType.HQL);
 		return expression;
 	}

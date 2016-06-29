@@ -8,7 +8,7 @@ var tableData = $.generateData({
 	pageArea : "#pageArea",
 	dataAreaId : "#entrytemplate",
 	dataArea : "#dataTbody",
-	url : "socialSecurityMansgement/solmInfoBatchList",
+	url : "socialSecurityMansgement/solmInfoBatchList.do",
 	firstFn : function(data) {
 		data.pageNum = $("#dataPageCount").val();
 		var queryPrName =  $("#queryPrName").val();
@@ -84,7 +84,7 @@ $.dropDownInput({
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn : function(data) {
 		return actionFormate(data, false);
@@ -119,7 +119,7 @@ $("#sendDataBtn").click(function() {
 	} else if (datas.length <= 0) {
 		return;
 	} else {
-		$.post("socialSecurityMansgement/solmInfoBatchAdd",{
+		$.post("socialSecurityMansgement/solmInfoBatchAdd.do",{
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true,function(){

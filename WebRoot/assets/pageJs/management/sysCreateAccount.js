@@ -56,7 +56,7 @@
 		subData.roleId = $("#personForm [name='roleId']").val();
 //		/**账户角色名称*/
 		subData.roleName = $("#personForm [name='roleId'] option:selected").html();
-		$.post("management/sysAccountQueryAdd",{
+		$.post("management/sysAccountQueryAdd.do",{
 			dataJson:JSON.stringify(subData)
 		},function(data){
 			actionFormate(data, true,function(){
@@ -70,7 +70,7 @@ $("#organization").change( function() {
 	$("#department").empty();
 	$("#department").append('<option value="">请选择部门</option>');
 	if (!thisVal) return;
-	$.post("management/sysDeptManagementList", {
+	$.post("management/sysDeptManagementList.do", {
 		orgId : thisVal
 	}, function(data) {
 		var datas = actionFormate(data,false);

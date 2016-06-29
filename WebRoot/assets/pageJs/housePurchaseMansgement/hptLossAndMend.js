@@ -24,7 +24,7 @@ $("#queryData").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
-		$.post("housePurchaseMansgement/hptLossAndMendGet",$("#queryData").serialize(),function(data){
+		$.post("housePurchaseMansgement/hptLossAndMendGet.do",$("#queryData").serialize(),function(data){
 			actionFormate(data, false,function(type,msg,datas){
 				
 				datas = datas || [];
@@ -70,7 +70,7 @@ $('#operationModal').validate({
 	}
 });
 function showProInfo(id){
-	$.get("share/projectInfo",{
+	$.get("share/projectInfo.do",{
 		id:id
 	},function(html){
 		$("#showProInfoArea").html(html);
@@ -143,7 +143,7 @@ function guaShiForm(){
 	logData.makeTime = data.makeTime;
 	logData.reportOfLossDate = hptLossInfo.reportOfLossDate;
 	logData.remark = hptLossInfo.remark;
-	$.post("housePurchaseMansgement/hptLossAndMendGuaShi",{
+	$.post("housePurchaseMansgement/hptLossAndMendGuaShi.do",{
 		hptLossInfo:JSON.stringify(hptLossInfo)
 	},function(data){
 		actionFormate(data, true, function(type, msg, data) {
@@ -190,7 +190,7 @@ function buShiForm(){
 	logData.newMakeTime = housePuraseTicket.makeDate;
 	logData.mendDate = htpMendInfo.mendDate;
 
-	$.post("housePurchaseMansgement/hptLossAndMendBuShi",{
+	$.post("housePurchaseMansgement/hptLossAndMendBuShi.do",{
 		htpMendInfo:JSON.stringify(htpMendInfo),
 		housePuraseTicket:JSON.stringify(housePuraseTicket)
 	},function(data){

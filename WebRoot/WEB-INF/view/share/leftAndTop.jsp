@@ -68,7 +68,7 @@
 			</form>-->
 				<!--一键查询-->
 				<ul class="nav nav-pills">
-				  <li role="presentation"><a href="index">主页</a></li>
+				  <li role="presentation"><a href="index.do">主页</a></li>
 				</ul>
 			</div>
 		</div>

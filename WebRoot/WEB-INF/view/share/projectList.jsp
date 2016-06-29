@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 $.dropDownInput({
 	inputId : "#selectQueryPro_name",
 	dropDownId : "#selectQueryPro_nameDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#selectQueryPro_queryPrDownTemplate",
 	lastFn : function(data) {
 		return actionFormate(data, false);
@@ -124,24 +124,27 @@ $.dropDownInput({
 		return actionFormate(data,false);
 	}
 });
-var selectQueryPro_tableData = $.generateData({
-	pageArea : "#selectQueryPro_pageArea",
-	dataAreaId : "#selectQueryPro_entrytemplate",
-	dataArea : "#selectQueryPro_dataTbody",
-	url : "projectManagement/pmQueryProList",
-	firstFn : function(data) {
-		data.pageNum = 10;
-		var queryPrName =  $("#selectQueryPro_name").val();
-		if(queryPrName){
-			data.queryProName = queryPrName;
+var selectQueryPro_tableData = null;
+setTimeout(function(){
+	selectQueryPro_tableData = $.generateData({
+		pageArea : "#selectQueryPro_pageArea",
+		dataAreaId : "#selectQueryPro_entrytemplate",
+		dataArea : "#selectQueryPro_dataTbody",
+		url : "projectManagement/pmQueryProList.do",
+		firstFn : function(data) {
+			data.pageNum = 10;
+			var queryPrName =  $("#selectQueryPro_name").val();
+			if(queryPrName){
+				data.queryProName = queryPrName;
+			}
+			data.annouceQueue = $("#selectQueryPro_jd").val();
+			data.typeId = $("#selectQueryPro_type").val();
+			data.address = $("#selectQueryPro_queryAddressName").val();
+		}, lastFn : function(data) {
+			return actionFormate(data, false) || {datas:[],totalCount:0};
 		}
-		data.annouceQueue = $("#selectQueryPro_jd").val();
-		data.typeId = $("#selectQueryPro_type").val();
-		data.address = $("#selectQueryPro_queryAddressName").val();
-	}, lastFn : function(data) {
-		return actionFormate(data, false) || {datas:[],totalCount:0};
-	}
-});
+	});
+}, 500);
 function selectQueryPro_selectProInfo(dom){
 	var tr = $(dom).closest("tr");
 	var data = tr.data("data");

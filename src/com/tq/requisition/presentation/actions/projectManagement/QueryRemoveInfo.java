@@ -85,6 +85,9 @@ public class QueryRemoveInfo extends BaseAction {
 		FamilyQueryModel familyQueryModel = new FamilyQueryModel();
 		familyQueryModel.setIdNumber(idNumber);
 		familyQueryModel.setName(huZhuName);
+		if(proId != null && !proId.equals("")){
+			familyQueryModel.setProId(UUID.fromString(proId));
+		}
 		if(!streetId.equals("")){
 			familyQueryModel.setStreetId(UUID.fromString(streetId));
 		}

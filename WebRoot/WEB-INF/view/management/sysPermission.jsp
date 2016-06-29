@@ -259,7 +259,7 @@
 		pageArea : "#pageArea",
 		dataAreaId : "#entrytemplate",
 		dataArea : "#dataTbody",
-		url : "management/sysPermissionList",
+		url : "management/sysPermissionList.do",
 		firstFn : function(data) {
 			data.pageNum = $("#dataPageCount").val();
 			data.roleName = $("#role").val();
@@ -298,7 +298,7 @@
 				obj[checkQXIds[i]] = true;
 			}
 		}
-		$.post("management/sysPermissionPMS",{
+		$.post("management/sysPermissionPMS.do",{
 			id : id,
 			pmsIds:newArr.toString()
 		},function(data){
@@ -309,7 +309,7 @@
 	}
 	
 	function initPermission(id) {
-		$.post("management/sysPermissionGetPMS", {
+		$.post("management/sysPermissionGetPMS.do", {
 			id : id
 		}, function(data) {
 			 $("#hiddenId").val(id);

@@ -46,8 +46,8 @@ color:#555;
 			<div class="input-group-btn" style=" width: 520px;">
 				<div class="form-control bk-bg-default" style="width:50px;">时间</div>
 				<input type="text" id="time" class="form-control" style="width:130px;" placeholder="____/__/__" data-plugin-datepicker data-plugin-masked-input data-input-mask="9999/99/99">
-				<button type="button" class="btn btn-default btn-primary fileBtn">
-					<input type="file"  id="filePath"/>
+				<input type="file"  id="filePath" style="display:none" />
+				<button type="button" class="btn btn-default btn-primary fileBtn" id="upFile">
 					<i class="fa fa-folder-open"></i> 浏览
 				</button>
 				<button type="button" class="btn btn-default btn-success" id="upLoadeFile">
@@ -74,7 +74,7 @@ color:#555;
 		<form id="addProform" class="form-horizontal " onsubmit="return false;">
 		<input type="hidden" name="addressVal" id="addressVal" />
 			<div class="form-group">
-				<label class="col-md-4 control-label">项目审批号<span class="text-danger">*</span></label>
+				<label class="col-md-4 control-label">项目审批号</label>
 				<div class="col-md-5">
 					<input type="text" name="approvalNumber" class="form-control" placeholder="请输入项目审批号" maxlength="100" />
 				</div>
@@ -84,6 +84,7 @@ color:#555;
 				<div class="col-md-5">
 					<input type="text" name="proName" class="form-control" placeholder="请输入项目名称" maxlength="100">
 				</div>
+				<p class="text-primary col-md-8 col-md-offset-4">项目名称只能用简体中文,符号只能用中文符号,英文字母需要用正规的英文字母</p>
 			</div>
 			<div class="form-group">
 				<label class="col-md-4 control-label">项目分类<span class="text-danger">*</span></label>

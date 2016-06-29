@@ -8,7 +8,7 @@ setProListModal("#selectProInfoModal",function(data){
 $.dropDownInput({
 	inputId : "#queryPrName",
 	dropDownId : "#queryPrDown",
-	url : "projectManagement/pmProgressNames",
+	url : "projectManagement/pmProgressNames.do",
 	templateId : "#queryPrDownTemplate",
 	lastFn:function(data){
 		return actionFormate(data,false);
@@ -30,7 +30,7 @@ $("#queryBtn").click(function(){
 		}, 1000);
 		return;
 	}
-	$.post("housePurchaseMansgement/hptProjectMoneyUnitGet",{
+	$.post("housePurchaseMansgement/hptProjectMoneyUnitGet.do",{
 		proId:data.id
 	},function(d){
 		actionFormate(d,true,function(type,msg,data){
@@ -57,7 +57,7 @@ $("#dataArea").validate({
 		data.moneyUnit = moneyUnit;
 		data.otherMoneyUnit = otherMoneyUnit;
 		
-		$.post("housePurchaseMansgement/hptProjectMoneyUnitEdit",{
+		$.post("housePurchaseMansgement/hptProjectMoneyUnitEdit.do",{
 			proId:data.id,
 			moneyUnit:moneyUnit,
 			otherMoneyUnit:otherMoneyUnit

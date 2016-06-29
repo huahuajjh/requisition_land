@@ -10,7 +10,7 @@ $("#queryData").validate({
 			required: true
 		}
 	}, submitHandler:function(form){
-		$.post("housePurchaseMansgement/hptSetPersonGet",$("#queryData").serialize(),function(data){
+		$.post("housePurchaseMansgement/hptSetPersonGet.do",$("#queryData").serialize(),function(data){
 			actionFormate(data, true,function(type,msg,datas){
 				datas = datas || [];
 				var template = Handlebars.compile($("#entrytemplate").html());
@@ -135,7 +135,7 @@ $("#showQueryDataArea").validate({
 			return;
 		}
 		
-		$.post("housePurchaseMansgement/hptSetAdd",{
+		$.post("housePurchaseMansgement/hptSetAdd.do",{
 			dataJson:JSON.stringify(datas)
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -157,7 +157,7 @@ $("#phonePaiZhaoModal").on("hidden.bs.modal",function(){
 		var imgData = $(this).data("imgData");
 		$("#paiZhaoFileLoginState").css("display","inline");
 		$("#zhaoBtn,#yuLanBtn,#paiZhaoFileCheckState,#upBtn").css("display","none");
-		$.post("share/saveFile",{
+		$.post("share/saveFile.do",{
 			baseSFFile:imgData
 		},function(data){
 			actionFormate(data, true, function(type, msg, data) {
@@ -177,7 +177,7 @@ function showProInfo(id){
 	});
 }
 function paiZhao(){
-	$.get("share/photographs",function(html){
+	$.get("share/photographs.do",function(html){
 		$("#phonePaiZhaoBody").html(html);
 		$("#phonePaiZhaoModal").modal("show");
 	});
