@@ -8,7 +8,7 @@
 		<alias>mysql</alias>
 		
 		<!-- 数据库连接Url 120.27.148.138:3306 -->
-		<driver-url>jdbc:mysql://120.27.148.138:3306/db_requisition_land</driver-url>
+		<driver-url>jdbc:mysql:///test_rdb</driver-url>
 		
 		<!-- JDBC驱动名称 -->
 		<driver-class>com.mysql.jdbc.Driver</driver-class>
@@ -16,7 +16,7 @@
 		<!-- 数据库连接帐号 -->
 		<driver-properties>
 		 <property name="user" value="root" />
-		 <property name="password" value="huahuajjh3" />
+		 <property name="password" value="lsw" />
 		 <property name="autoReconnect" value="true"/>
 		 <property name="useUnicode" value="true"/>
 		 <property name="characterEncoding" value="utf-8"/>
