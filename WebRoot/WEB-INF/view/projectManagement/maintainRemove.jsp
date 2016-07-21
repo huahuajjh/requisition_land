@@ -886,7 +886,7 @@
     <div class="col-md-6">
     	<div class="form-group">
     		<label class="control-label">批证及其他情况说明</label>
-    		<textarea class="form-control" rows="3" name = "satuationDesc" maxlength="140"
+    		<textarea class="form-control" rows="3" name = "satuationDesc" maxlength="500"
     			placeholder="请输入批证及其他情况说明">{{satuationDesc}}</textarea>
     	</div>
     </div>

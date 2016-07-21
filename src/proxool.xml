@@ -8,7 +8,7 @@
 		<alias>mysql</alias>
 		
 		<!-- 数据库连接Url 120.27.148.138:3306 -->
-		<driver-url>jdbc:mysql:///test_rdb</driver-url>
+		<driver-url>jdbc:mysql:///db_requisition_land</driver-url>
 		
 		<!-- JDBC驱动名称 -->
 		<driver-class>com.mysql.jdbc.Driver</driver-class>

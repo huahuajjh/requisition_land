@@ -276,7 +276,7 @@ $("#editFamilyInfoModal").validate({
 			required : true
 		},
 		satuationDesc : {
-			maxlength : 140
+			maxlength : 500
 		},
 		dealSolution : {
 			maxlength : 140

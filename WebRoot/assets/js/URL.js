@@ -1,5 +1,5 @@
 var sendUrl = {};
-sendUrl.url = "http://120.27.148.138:8080/requisition-land-ws/";
+sendUrl.url = "http://120.24.237.10:8080/requisition-land-ws/";
 sendUrl.res_getAllRes = sendUrl.url +"res/getAllRes";
 sendUrl.operationRecordWS_queryPage = sendUrl.url + "operationRecordWS/queryPage";
 sendUrl.fmlItem_getItems = sendUrl.url + "fmlItem/getItems";

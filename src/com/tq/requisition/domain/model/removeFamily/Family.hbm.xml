@@ -24,7 +24,7 @@
 		<property name="fmlNumber" column="family_number" length="2" type="integer" />
 		<property name="houseLegalArea" column="house_legal_area"  type="float" />
 		<property name="houseIllegalArea" column="house_illegal_area"  type="float"/>
-		<property name="satuationDesc" column="situation_desc"  type="string" length="200"/>
+		<property name="satuationDesc" column="situation_desc"  type="string" length="1000"/>
 		<property name="dealSolution" column="deal_solution"  type="string" length="200"/>
 		<property name="unionSuggestion" column="union_suggestion"  type="string" length="200"/>
 		<property name="remark" column="remark"  type="string" length="70"/>

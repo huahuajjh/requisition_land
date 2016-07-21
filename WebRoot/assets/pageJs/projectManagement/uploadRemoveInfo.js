@@ -153,7 +153,7 @@ function initDom(){
 				min : 0
 			},
 			pzqksm : {
-				maxlength : 140
+				maxlength : 500
 			},
 			ndclfa : {
 				maxlength : 140

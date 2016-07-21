@@ -123,7 +123,7 @@
 				<div class="form-group">
 					<label class="control-label">批证及其他情况说明</label>
 					<textarea class="form-control" rows="3" placeholder="请输入批证及其他情况说明"
-						maxlength="140" name=“pzqksm” id="satuationDesc"></textarea>
+						maxlength="500" name=“pzqksm” id="satuationDesc"></textarea>
 				</div>
 			</div>
 			<div class="col-md-4">
