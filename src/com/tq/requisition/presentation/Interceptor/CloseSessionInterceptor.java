@@ -1,7 +1,5 @@
 package com.tq.requisition.presentation.Interceptor;
 
-import java.io.Console;
-
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.tq.requisition.infrastructure.Repository.HibernateUtils;

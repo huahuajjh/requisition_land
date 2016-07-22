@@ -1,7 +1,5 @@
-.settings
 bin
 *.class
 classes
-.classpath
 *.bat
 /test/
