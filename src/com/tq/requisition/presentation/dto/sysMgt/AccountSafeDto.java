@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.sysMgt;
+ï»¿package com.tq.requisition.presentation.dto.sysMgt;
 
 import java.util.UUID;
 
@@ -6,27 +6,27 @@ import com.tq.requisition.domain.model.share.AccountState;
 
 public class AccountSafeDto {
 	/*private fields*/
-	/**ÕË»§id*/
+	/**è´¦æˆ·id*/
 	private UUID id;
-	/**ÕË»§Ãû*/
+	/**è´¦æˆ·å*/
 	private String account;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**ÕË»§ËùÊô²¿ÃÅid*/
+	/**è´¦æˆ·æ‰€å±éƒ¨é—¨id*/
 	private UUID deptId;
-	/**ÕËºÅËùÊô²¿ÃÅÃû³Æ*/
+	/**è´¦å·æ‰€å±éƒ¨é—¨åç§°*/
 	private String depName;
-	/**ÕË»§ËùÊô×éÖ¯id*/
+	/**è´¦æˆ·æ‰€å±ç»„ç»‡id*/
 	private UUID orgId;
-	/**ÕËºÅËùÊô×éÖ¯µÄÃû³Æ*/
+	/**è´¦å·æ‰€å±ç»„ç»‡çš„åç§°*/
 	private String orgName;
-	/**ÕË»§½ÇÉ«id*/
+	/**è´¦æˆ·è§’è‰²id*/
 	private UUID roleId;
-	/**ÕË»§½ÇÉ«Ãû³Æ*/
+	/**è´¦æˆ·è§’è‰²åç§°*/
 	private String roleName;
-	/**ÕË»§×´Ì¬*/
+	/**è´¦æˆ·çŠ¶æ€*/
 	private AccountState state;
-	/**ÕË»§×´Ì¬×Ö·û´®*/
+	/**è´¦æˆ·çŠ¶æ€å­—ç¬¦ä¸²*/
 	private String stateStr;
 	
 	/*construtors*/

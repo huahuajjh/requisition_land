@@ -1,17 +1,17 @@
 package com.tq.requisition.domain.model.share;
 
 /**
- * ÕËºÅ×´Ì¬
+ * è´¦å·çŠ¶æ€
  * @author jjh
  * @time 2015-12-18 19:24 
  */
 public enum AccountState {
-	/**Ëø¶¨*/
-	LOCKED(1,"ÒÑËø¶¨"),
-	/**½ûÓÃ*/
-	DISABLE(2,"ÒÑ½ûÓÃ"),
-	/**ÆôÓÃ*/
-	ENABLE(3,"Õı³£");
+	/**é”å®š*/
+	LOCKED(1,"å·²é”å®š"),
+	/**ç¦ç”¨*/
+	DISABLE(2,"å·²ç¦ç”¨"),
+	/**å¯ç”¨*/
+	ENABLE(3,"æ­£å¸¸");
 	
 	/*private fields*/
 	private int value;
@@ -25,7 +25,7 @@ public enum AccountState {
 	}
 		
 	/**
-	 * ·µ»ØÃ¶¾ÙµÄintÖµ
+	 * è¿”å›æšä¸¾çš„intå€¼
 	 * @return
 	 */
 	public int toValue()
@@ -34,11 +34,11 @@ public enum AccountState {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾ÙÀàĞÍ
+	 * é€šè¿‡intå€¼è·å–æšä¸¾ç±»å‹
 	 * @param v
-	 * 		int²ÎÊı
+	 * 		intå‚æ•°
 	 * @return
-	 * 		Ã¶¾Ù
+	 * 		æšä¸¾
 	 */
 	public AccountState obtainByInt(int v) {
 		
@@ -50,20 +50,20 @@ public enum AccountState {
 		case 3:
 			return ENABLE;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨£¬×îĞ¡ÖµÎª1£¬×î´óÖµÎª3");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®šï¼Œæœ€å°å€¼ä¸º1ï¼Œæœ€å¤§å€¼ä¸º3");
 		}
 	}
 
 	public String toStr(int v) {
 		switch (v) {
 		case 1:
-			return "ÒÑËø¶¨";
+			return "å·²é”å®š";
 		case 2:
-			return "ÒÑ½ûÓÃ";
+			return "å·²ç¦ç”¨";
 		case 3:
-			return "Õı³£";
+			return "æ­£å¸¸";
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨£¬×îĞ¡ÖµÎª1£¬×î´óÖµÎª3");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®šï¼Œæœ€å°å€¼ä¸º1ï¼Œæœ€å¤§å€¼ä¸º3");
 		}
 	}
 	

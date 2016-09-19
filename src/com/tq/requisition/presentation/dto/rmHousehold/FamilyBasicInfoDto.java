@@ -1,39 +1,39 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.UUID;
 
 /**
- * ÓÃÓÚ²éÑ¯»§»ù±¾ĞÅÏ¢
+ * ç”¨äºæŸ¥è¯¢æˆ·åŸºæœ¬ä¿¡æ¯
  * @author jjh
  * 	@time 2016-01-21 18:06
  *
  */
 public class FamilyBasicInfoDto {
-	/**»§Ö÷ĞÕÃû*/
+	/**æˆ·ä¸»å§“å*/
 	private String name;
 	
-	/**»§Ö÷Éí·İÖ¤*/
+	/**æˆ·ä¸»èº«ä»½è¯*/
 	private String idNumber;
 	
-	/**ËùÊôÏîÄ¿*/
+	/**æ‰€å±é¡¹ç›®*/
 	private String proName;
 	
-	/**µØÖ·*/
+	/**åœ°å€*/
 	private String address;
 	
-	/**Õò(½ÖµÀ)*/
+	/**é•‡(è¡—é“)*/
 	private UUID streetId;
 	
-	/**´å£¨ÉçÇø£©*/
+	/**æ‘ï¼ˆç¤¾åŒºï¼‰*/
 	private UUID communityId;
 	
-	/**×é*/
+	/**ç»„*/
 	private UUID groupId;
 	
-	/**ÏîÄ¿ID*/
+	/**é¡¹ç›®ID*/
 	private UUID proId;
 	
-	/**»§ID*/
+	/**æˆ·ID*/
 	private UUID fmlId;
 	
 	/*constructors*/

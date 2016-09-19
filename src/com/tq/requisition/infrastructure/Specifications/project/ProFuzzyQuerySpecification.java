@@ -10,7 +10,7 @@ import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * 规约，项目多条件模糊查询规约条件
+ * 瑙勭害锛岄」鐩鏉′欢妯＄硦鏌ヨ瑙勭害鏉′欢
  * 
  * @author jjh
  * @time 2015-12-28 2:00

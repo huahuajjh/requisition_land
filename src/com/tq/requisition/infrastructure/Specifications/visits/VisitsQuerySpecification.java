@@ -10,7 +10,7 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.visits.VisitsQueryModel;
 
 /**
- * ¸ù¾İ²éÑ¯model²éÑ¯¼¯ºÏ£¬¹æÔ¼
+ * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢é›†åˆï¼Œè§„çº¦
  * @author jjh
  * @time 2016-01-13 15:59
  *

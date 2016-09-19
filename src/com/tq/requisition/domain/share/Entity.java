@@ -3,7 +3,7 @@ package com.tq.requisition.domain.share;
 import java.util.UUID;
 
 /**
- * ÊµÌå³éÏóÀà
+ * å®ä½“æŠ½è±¡ç±»
  * @author jjh
  * @time 2015-12-19 18:48 
  */
@@ -11,7 +11,7 @@ public abstract class Entity implements IEntity{
 	protected UUID id;
 	
 	/**
-	 * »ñÈ¡Ò»¸öid
+	 * è·å–ä¸€ä¸ªid
 	 * @return UUID
 	 * 		UUID
 	 */
@@ -21,7 +21,7 @@ public abstract class Entity implements IEntity{
 	}
 
 	/**
-	 * ÉèÖÃÒ»¸öid
+	 * è®¾ç½®ä¸€ä¸ªid
 	 * @param id
 	 * 		UUID
 	 */

@@ -1,22 +1,22 @@
-package com.tq.requisition.presentation.dto.transferMgt;
+ï»¿package com.tq.requisition.presentation.dto.transferMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 public class EditQueryTransferDto {
-	/**×ª»§ĞÅÏ¢id*/
+	/**è½¬æˆ·ä¿¡æ¯id*/
 	private UUID id;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍid*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹id*/
 	private UUID householdTypeId;
-	/**×ª»§ºóµÄ½ÖµÀµØÖ·id*/
+	/**è½¬æˆ·åçš„è¡—é“åœ°å€id*/
 	private UUID streetId;
-	/**×ª»§ºóµÄÉçÇøµØÖ·id*/
+	/**è½¬æˆ·åçš„ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**×ª»§ÈÕÆÚ*/
+	/**è½¬æˆ·æ—¥æœŸ*/
 	private Date transferDate;
 	
 	public String getName() {

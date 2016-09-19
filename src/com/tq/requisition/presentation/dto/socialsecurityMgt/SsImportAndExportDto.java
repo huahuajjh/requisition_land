@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.dto.socialsecurityMgt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -7,83 +7,83 @@ import com.excel.util.annotation.InputColAnnotation;
 import com.tq.requisition.domain.model.socialsecurity.SocialsecurityInfo;
 
 /**
- * Éç±£µ¼Èëµ¼³ömodel
+ * ç¤¾ä¿å¯¼å…¥å¯¼å‡ºmodel
  * 
  * @author jjh
  * @time 2016-01-16 15:16
  */
 public class SsImportAndExportDto {
 
-	/** ĞÕÃû */
+	/** å§“å */
 	@InputColAnnotation(colCoord = 0)
 	private String name;
 
-	/** Éí·İÖ¤ºÅ */
-	@InputColAnnotation(colCoord = 1, only = true, required = true, onlyErrorMsg = "[Éí·İÖ¤ºÅ]Ö»ÄÜÎ¨Ò»", requiredErrorMsg = "[Éí·İÖ¤ºÅ]²»¿ÉÎª¿Õ")
+	/** èº«ä»½è¯å· */
+	@InputColAnnotation(colCoord = 1, only = true, required = true, onlyErrorMsg = "[èº«ä»½è¯å·]åªèƒ½å”¯ä¸€", requiredErrorMsg = "[èº«ä»½è¯å·]ä¸å¯ä¸ºç©º")
 	private String idNumber;
 
-	/** ĞÔ±ğ */
+	/** æ€§åˆ« */
 	@InputColAnnotation(colCoord = 2)
 	private String gender;
 
-	/** ³öÉúÈÕÆÚ */
+	/** å‡ºç”Ÿæ—¥æœŸ */
 	@InputColAnnotation(colCoord = 3)
 	private String birthday;
 
-	/** ÄêÁä¶Î */
+	/** å¹´é¾„æ®µ */
 	@InputColAnnotation(colCoord = 4)
 	private String ageRange;
 
-	/** ´ÓÊÂÅ©ÒµÉú²úÊ±¼ä */
+	/** ä»äº‹å†œä¸šç”Ÿäº§æ—¶é—´ */
 	@InputColAnnotation(colCoord = 5)
 	private String farmingTime;
 
-	/** ·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ) */
-	@InputColAnnotation(colCoord = 6, converErrorMsg = "ÀàĞÍ´íÎó£¬[·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ)]ÊÇÕûÊı")
+	/** æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ) */
+	@InputColAnnotation(colCoord = 6, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ)]æ˜¯æ•´æ•°")
 	private int prisonTime;
 
-	/** ¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ) */
-	@InputColAnnotation(colCoord = 7, converErrorMsg = "ÀàĞÍ´íÎó£¬[¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ)]ÊÇÕûÊı")
+	/** å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ) */
+	@InputColAnnotation(colCoord = 7, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ)]æ˜¯æ•´æ•°")
 	private int serveArmyTime;
 
-	/** ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ */
-	@InputColAnnotation(colCoord = 8, converErrorMsg = "ÀàĞÍ´íÎó£¬[ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ]ÊÇÕûÊı")
+	/** å…»è€ä¿é™©è¡¥ç¼´å¹´é™ */
+	@InputColAnnotation(colCoord = 8, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[å…»è€ä¿é™©è¡¥ç¼´å¹´é™]æ˜¯æ•´æ•°")
 	private int endowmentInsuranceYear;
 
-	/** Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı */
-	@InputColAnnotation(colCoord = 9, converErrorMsg = "ÀàĞÍ´íÎó£¬[Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı]ÊÇÕûÊı")
+	/** åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•° */
+	@InputColAnnotation(colCoord = 9, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•°]æ˜¯æ•´æ•°")
 	private int medicalInsuranceMonth;
 
-	/** ²Î¼ÓºÎÖÖÒ½ÁÆ±£ÏÕ */
+	/** å‚åŠ ä½•ç§åŒ»ç–—ä¿é™© */
 	@InputColAnnotation(colCoord = 10)
 	private String joinWhichMedicalInsurance;
 
-	/** ÊÇ·ñ²Î¼Ó¹ıÉç±£ */
+	/** æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿ */
 	@InputColAnnotation(colCoord = 11)
 	private String isSocialsecurity;
 
-	/** ËùÊôÉçÇø */
+	/** æ‰€å±ç¤¾åŒº */
 	@InputColAnnotation(colCoord = 12)
 	private String community;
 
-	/** ÁªÏµµç»° */
+	/** è”ç³»ç”µè¯ */
 	@InputColAnnotation(colCoord = 13)
 	private String tel;
 
-	/** ´ıÓö±ê×¼ */
-	// @InputColAnnotation(colCoord=14,required=true,requiredErrorMsg="[´ıÓö±ê×¼]²»¿ÉÎª¿Õ")
+	/** å¾…é‡æ ‡å‡† */
+	// @InputColAnnotation(colCoord=14,required=true,requiredErrorMsg="[å¾…é‡æ ‡å‡†]ä¸å¯ä¸ºç©º")
 	private String type;
 
-	/** Õ÷µØÃû³Æ */
+	/** å¾åœ°åç§° */
 	@InputColAnnotation(colCoord = 14)
 	private String proName;
 
-	/** ²Ù×÷ÈËid */
+	/** æ“ä½œäººid */
 	private UUID userId;
 
-	/** ´´½¨ÈËµÄ±êÊ¶ */
+	/** åˆ›å»ºäººçš„æ ‡è¯† */
 	private String createUid;
-	/** ´´½¨Ê±¼ä */
+	/** åˆ›å»ºæ—¶é—´ */
 	private Date createDate;
 
 	public void setUserId(UUID userId) {
@@ -112,7 +112,7 @@ public class SsImportAndExportDto {
 	}
 
 	private boolean getSS(String ss) {
-		if (ss != null && ss.trim().equals("ÊÇ")) {
+		if (ss != null && ss.trim().equals("æ˜¯")) {
 			return true;
 		}
 		return false;

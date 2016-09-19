@@ -6,31 +6,31 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * ¹º·¿È¯·¢·ÅÊµÌåÉÏÏÂÎÄ
+ * è´­æˆ¿åˆ¸å‘æ”¾å®ä½“ä¸Šä¸‹æ–‡
  * @author jjh
  * @time 2015-12-18 18:40
  */
 public class HPTProviderInfo extends Entity{
-	/**¹º·¿È¯id*/
+	/**è´­æˆ¿åˆ¸id*/
 	private UUID ticketId;
-	/**¹º·¿È¯ËùÓĞÕß*/
+	/**è´­æˆ¿åˆ¸æ‰€æœ‰è€…*/
 	private UUID ownerId;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**ÁìÈ¡Æ¾Ö¤*/
+	/**é¢†å–å‡­è¯*/
 	private String evidenceOfGetting;
-	/**ÁìÓÃÈËĞÕÃû*/
+	/**é¢†ç”¨äººå§“å*/
 	private String name;
-	/**ÁìÓÃÈËÉí·İÖ¤*/
+	/**é¢†ç”¨äººèº«ä»½è¯*/
 	private String idNumber;
-	/**ÁìÓÃÊ±¼ä*/
+	/**é¢†ç”¨æ—¶é—´*/
 	private Date gettingDate;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
 	
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	/*constructors*/

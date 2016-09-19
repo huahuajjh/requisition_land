@@ -46,7 +46,7 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 		FamilyItem i = getByKey(FamilyItem.class, item.getId());
 		if(null==i)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½Ö¸¶¨µÄ²ğÇ¨»§ÈËÔ±ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯");
 		}
 		i.modify(item);
 		update(i);
@@ -86,7 +86,7 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 		});
 		if(item==null || item.size()<=0)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("Î´²éÑ¯µ½¸ÃÉí·İÖ¤ºÍĞÕÃû¶ÔÓ¦µÄ¼ÇÂ¼");
+			throw new SpecifiedObjectDoesNotExistsException("æœªæŸ¥è¯¢åˆ°è¯¥èº«ä»½è¯å’Œå§“åå¯¹åº”çš„è®°å½•");
 		}
 		return item.get(0);
 	}
@@ -127,7 +127,7 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 	
 	@Override
 	public List<FamilyItem> queryItemsByFmlId(final UUID fmlId) {
-		if(null==fmlId){throw new NullPointerException("²ğÇ¨»§idÎª¿Õ");}
+		if(null==fmlId){throw new NullPointerException("æ‹†è¿æˆ·idä¸ºç©º");}
 		List<FamilyItem> list = getAll(new SpecificationExt<FamilyItem>(FamilyItem.class) {
 
 			@Override
@@ -217,7 +217,7 @@ public class FamilyItemRepository extends HbRepository<FamilyItem> implements IF
 		});
 		if(items==null || items.size()==0)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½¶ÔÓ¦µÄ²ğÇ¨ÈËÔ±ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°å¯¹åº”çš„æ‹†è¿äººå‘˜ä¿¡æ¯");
 		}
 		return items.get(0);
 	}

@@ -4,17 +4,17 @@ import com.tq.requisition.domain.model.role.Role;
 import com.tq.requisition.presentation.dto.sysMgt.RoleDto;
 
 /**
- * role¾ÛºÏ¸ùÓëdto×ª»»Àà,´ËÀà²»ÄÜ±»¼Ì³Ğ
+ * roleèšåˆæ ¹ä¸dtoè½¬æ¢ç±»,æ­¤ç±»ä¸èƒ½è¢«ç»§æ‰¿
  * @author jjh
  * @time 2015-12-24 9:43
  */
 public final class RoleMapper {
 	/**
-	 * role dto×ªroleÁìÓòÊµÌå
+	 * role dtoè½¬roleé¢†åŸŸå®ä½“
 	 * @param RoleDto
-	 * 		´ı×ª»»µÄrole dto
+	 * 		å¾…è½¬æ¢çš„role dto
 	 * @return role
-	 * 		·µ»ØroleÁìÓòÊµÌå
+	 * 		è¿”å›roleé¢†åŸŸå®ä½“
 	 */
 	public static Role dto2Model(RoleDto dto){		
 		Role role = new Role();
@@ -25,11 +25,11 @@ public final class RoleMapper {
 	}
 	
 	/**
-	 * roleÁìÓòÊµÌå×ªrole dto
+	 * roleé¢†åŸŸå®ä½“è½¬role dto
 	 * @param Role
-	 * 		´ı×ª»»µÄrole
+	 * 		å¾…è½¬æ¢çš„role
 	 * @return RoleDto
-	 * 		·µ»ØRoleDto
+	 * 		è¿”å›RoleDto
 	 */
 	public static RoleDto model2Dto(Role model){
 		return new RoleDto(model.getRoleName(),model.getId());

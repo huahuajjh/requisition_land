@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,20 +6,20 @@ import java.util.UUID;
 public class HPTLossInfoDto {
 	/**id*/
 	private UUID id;
-	/**¹ÒÊ§ÈÕÆÚ*/
+	/**æŒ‚å¤±æ—¥æœŸ*/
 	private Date reportOfLossDate;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**¹ÒÊ§ÈË*/
+	/**æŒ‚å¤±äºº*/
 	private UUID fmlItemId;
-	/**¹ÒÊ§µÄ¹º·¿È¯*/
+	/**æŒ‚å¤±çš„è´­æˆ¿åˆ¸*/
 	private UUID ticketId;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
 	
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	

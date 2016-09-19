@@ -1,45 +1,45 @@
-package com.tq.requisition.presentation.dto.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.dto.socialsecurityMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * Ìá¹©²éÑ¯Éç±£ĞÅÏ¢¼¯ºÏÊı¾İµÄdtoÕ¹Ê¾
+ * æä¾›æŸ¥è¯¢ç¤¾ä¿ä¿¡æ¯é›†åˆæ•°æ®çš„dtoå±•ç¤º
  * @author jjh
  * @time 2015-12-31 21:18
  *
  */
 public class SocialsecurityDto {
-	/**Éç±£Êı¾İid*/
+	/**ç¤¾ä¿æ•°æ®id*/
 	private UUID id;
-	/**ËùÊôÏîÄ¿id*/
+	/**æ‰€å±é¡¹ç›®id*/
 	private UUID proId;
-	/**ËùÊôÏîÄ¿Ãû³Æ*/
+	/**æ‰€å±é¡¹ç›®åç§°*/
 	private String proName;
-	/**Éç±£ÈËĞÕÃû*/
+	/**ç¤¾ä¿äººå§“å*/
 	private String name;
-	/**Éç±£ÈËÉí·İÖ¤*/
+	/**ç¤¾ä¿äººèº«ä»½è¯*/
 	private String idNumber;
-	/**Éç±£ÀàĞÍÃû³Æ*/
+	/**ç¤¾ä¿ç±»å‹åç§°*/
 	private String ssTypeStr;
-	/**ÄÉÈëÉç±£Ê±¼ä*/
+	/**çº³å…¥ç¤¾ä¿æ—¶é—´*/
 	private Date ssDate;
-	/**²ğÇ¨ÈËÔ±id*/
+	/**æ‹†è¿äººå‘˜id*/
 	private UUID fmlItemId;
 	
-	/**¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ)*/
+	/**å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ)*/
 	private Integer serveArmyTime;
-	/**ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ*/
+	/**å…»è€ä¿é™©è¡¥ç¼´å¹´é™*/
 	private Integer endowmentInsuranceYear;
-	/**Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı*/
+	/**åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•°*/
 	private Integer medicalInsuranceMonth;
-	/**²Î¼ÓºÎÖÖÒ½ÁÆ±£ÏÕ*/
+	/**å‚åŠ ä½•ç§åŒ»ç–—ä¿é™©*/
 	private String joinWhichMedicalInsurance;
-	/**ËùÊôÉçÇø*/
+	/**æ‰€å±ç¤¾åŒº*/
 	private String community;
-	/**·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ)*/
+	/**æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ)*/
 	private Integer prisonTime;
-	/**Éç±£ÀàĞÍid*/
+	/**ç¤¾ä¿ç±»å‹id*/
 	private UUID ssTypeId;
 	
 	

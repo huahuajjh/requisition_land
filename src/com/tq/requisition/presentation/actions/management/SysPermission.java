@@ -65,7 +65,7 @@ public class SysPermission extends BaseAction {
 	}
 
 	/**
-	 * »ñÈ¡½ÇÉ«ÁĞ±í
+	 * è·å–è§’è‰²åˆ—è¡¨
 	 * @throws IOException
 	 */
 	public String list() throws IOException {
@@ -75,7 +75,7 @@ public class SysPermission extends BaseAction {
 		return null;
 	}
 	/**
-	 * ¸ù¾İ½ÇÉ«ID»ñÈ¡½ÇÉ«µÄÊÚÈ¨ĞÅÏ¢
+	 * æ ¹æ®è§’è‰²IDè·å–è§’è‰²çš„æˆæƒä¿¡æ¯
 	 * @throws IOException
 	 */
 	public String getPMS() throws IOException{
@@ -85,7 +85,7 @@ public class SysPermission extends BaseAction {
 	}
 	
 	/**
-	 * ¸ù¾İ½ÇÉ«±àºÅĞ´Èë½ÇÉ«µÄÊÚÈ¨ĞÅÏ¢
+	 * æ ¹æ®è§’è‰²ç¼–å·å†™å…¥è§’è‰²çš„æˆæƒä¿¡æ¯
 	 * @throws IOException 
 	 */
 	public String pms() throws IOException{
@@ -99,7 +99,7 @@ public class SysPermission extends BaseAction {
 		UUID[] pmsUUIDs = pmsIdList.toArray(new UUID[pmsIdList.size()]);
 		//String pmsString = this.permissionService.assignResForRole(UUID.fromString(id),pmsUUIDs);
 		permissionService.assignRes4Role(UUID.fromString(id),pmsUUIDs);
-		response().getWriter().write(Serialization.toJson(Formater.obtain("³É¹¦", null, Formater.OperationResult.SUCCESS)));
+		response().getWriter().write(Serialization.toJson(Formater.obtain("æˆåŠŸ", null, Formater.OperationResult.SUCCESS)));
 		return null;
 	}
 }

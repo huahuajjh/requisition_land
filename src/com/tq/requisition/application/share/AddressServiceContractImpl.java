@@ -29,9 +29,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 		try {
 			List<Address> list = addressRepository.getChildrenAddressByPid(nodeId);
 			List<AddressDto> dtos = AddressMapper.toDtoList(list);
-			return toJson("获取地址集合成功", dtos, Formater.OperationResult.SUCCESS);
+			return toJson("鑾峰彇鍦板潃闆嗗悎鎴愬姛", dtos, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("获取地址集合失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鑾峰彇鍦板潃闆嗗悎澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -49,9 +49,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 		try {
 			addressRepository.addAddress(address);
 			context().commit();
-			return toJson("新增地址成功", AddressMapper.toDto(address), Formater.OperationResult.SUCCESS);
+			return toJson("鏂板鍦板潃鎴愬姛", AddressMapper.toDto(address), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("新增地址失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鏂板鍦板潃澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}finally{
 		}
 	}
@@ -66,9 +66,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 			address.setTitle(ads.getName());
 			addressRepository.update(address);
 			context().commit();
-			return toJson("修改地址成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("淇敼鍦板潃鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("修改地址失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("淇敼鍦板潃澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -80,9 +80,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 				addressRepository.executeUpdate(new AddressDelSpecification(Address.class, uuid));
 			}
 			context().commit();
-			return toJson("删除成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鍒犻櫎鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("删除失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鍒犻櫎澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}		
 	}
 	
@@ -90,9 +90,9 @@ public class AddressServiceContractImpl extends BaseApplication implements IAddr
 	public String getAllAddresses() {
 		List<Address> list = addressRepository.getAllAddresses();
 		if(null==list){
-			return toJson("未获取到地址列表", null, Formater.OperationResult.FAIL);
+			return toJson("鏈幏鍙栧埌鍦板潃鍒楄〃", null, Formater.OperationResult.FAIL);
 		}
-		return toJson("获取地址列表成功", AddressMapper.toDtoList(list), Formater.OperationResult.SUCCESS);
+		return toJson("鑾峰彇鍦板潃鍒楄〃鎴愬姛", AddressMapper.toDtoList(list), Formater.OperationResult.SUCCESS);
 	}
 
 }

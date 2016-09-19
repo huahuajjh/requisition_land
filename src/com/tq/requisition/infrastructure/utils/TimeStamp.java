@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class TimeStamp {
 	/**
-	 * Ê±¼ä´Á×ª»»³ÉÈÕÆÚ¸ñÊ½×Ö·û´®
+	 * æ—¶é—´æˆ³è½¬æ¢æˆæ—¥æœŸæ ¼å¼å­—ç¬¦ä¸²
 	 * 
 	 * @param seconds
-	 *            ¾«È·µ½ÃëµÄ×Ö·û´®
+	 *            ç²¾ç¡®åˆ°ç§’çš„å­—ç¬¦ä¸²
 	 * @param formatStr
 	 * @return
 	 */
@@ -27,12 +27,12 @@ public class TimeStamp {
 	}
 
 	/**
-	 * ÈÕÆÚ¸ñÊ½×Ö·û´®×ª»»³ÉÊ±¼ä´Á
+	 * æ—¥æœŸæ ¼å¼å­—ç¬¦ä¸²è½¬æ¢æˆæ—¶é—´æˆ³
 	 * 
 	 * @param date
-	 *            ×Ö·û´®ÈÕÆÚ
+	 *            å­—ç¬¦ä¸²æ—¥æœŸ
 	 * @param format
-	 *            Èç£ºyyyy-MM-dd HH:mm:ss
+	 *            å¦‚ï¼šyyyy-MM-dd HH:mm:ss
 	 * @return
 	 */
 	public static String date2TimeStamp(String date_str, String format) {
@@ -46,7 +46,7 @@ public class TimeStamp {
 	}
 
 	/**
-	 * È¡µÃµ±Ç°Ê±¼ä´Á£¨¾«È·µ½Ãë£©
+	 * å–å¾—å½“å‰æ—¶é—´æˆ³ï¼ˆç²¾ç¡®åˆ°ç§’ï¼‰
 	 * 
 	 * @return
 	 */
@@ -57,7 +57,7 @@ public class TimeStamp {
 	}
 	
 	/**
-	 * È¡µÃµ±Ç°Ê±¼ä´Á£¨¾«È·µ½Ãë£©
+	 * å–å¾—å½“å‰æ—¶é—´æˆ³ï¼ˆç²¾ç¡®åˆ°ç§’ï¼‰
 	 * 
 	 * @return
 	 */

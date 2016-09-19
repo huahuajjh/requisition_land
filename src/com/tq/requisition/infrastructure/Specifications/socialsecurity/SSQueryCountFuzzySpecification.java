@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
 
 /**
- * ¸ù¾İ²éÑ¯model²éÑ¯Éç±£ĞÅÏ¢×Ü¼ÇÂ¼Êı£¬¹æÔ¼
+ * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢ç¤¾ä¿ä¿¡æ¯æ€»è®°å½•æ•°ï¼Œè§„çº¦
  * @author jjh
  * @time 2015-12-31 20:26
  */

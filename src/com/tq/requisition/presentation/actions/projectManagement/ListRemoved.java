@@ -116,7 +116,7 @@ public class ListRemoved  extends BaseAction{
 			FamilyItemDto familyItem = Serialization.toObject(dataJson, FamilyItemDto.class);
 			stateJson = this.familyItemServiceContract.editFmlItem(familyItem);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR," ˝æ›∏Ò Ω≤ª’˝»∑");
+			stateJson = toForMaterJson(OperationResult.ERROR,"Êï∞ÊçÆÊ†ºÂºè‰∏çÊ≠£Á°Æ");
 		}
 		response().getWriter().write(stateJson);
 		return null;

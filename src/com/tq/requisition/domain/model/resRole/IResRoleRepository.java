@@ -6,43 +6,43 @@ import java.util.UUID;
 import com.tq.requisition.domain.IRepository.IRepository;
 
 /**
- * ½ÇÉ«×ÊÔ´²Ö´¢½Ó¿Ú
+ * è§’è‰²èµ„æºä»“å‚¨æ¥å£
  * 
  * @author jjh
  * @time 2015-12-21 21:19
  */
 public interface IResRoleRepository extends IRepository<ResRole> {
 	/**
-	 * ¸ù¾İ½ÇÉ«ID»ñÈ¡½ÇÉ«×ÊÔ´ID
+	 * æ ¹æ®è§’è‰²IDè·å–è§’è‰²èµ„æºID
 	 * 
 	 * @param roldIds
-	 *            ½ÇÉ«Id¼¯ºÏ
-	 * @return ×ÊÔ´ID¼¯ºÏ
+	 *            è§’è‰²Idé›†åˆ
+	 * @return èµ„æºIDé›†åˆ
 	 */
 	List<UUID> getResIdsByRoleIds(UUID... roldIds);
 	
 	/**
-	 * ÒÆ³ıÖ¸¶¨½ÇÉ«idÏÂµÄËùÓĞÈ¨ÏŞ×ÊÔ´£¬¸Ã·½·¨½ö½ö±ê¼ÇÉ¾³ı±ê¼ÇÎªtrue
+	 * ç§»é™¤æŒ‡å®šè§’è‰²idä¸‹çš„æ‰€æœ‰æƒé™èµ„æºï¼Œè¯¥æ–¹æ³•ä»…ä»…æ ‡è®°åˆ é™¤æ ‡è®°ä¸ºtrue
 	 * @param rId
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @return int
-	 * 		Ó°ÏìĞĞÊı£¬-1±íÊ¾Î´ÕÒµ½¶ÔÓ¦µÄrid
+	 * 		å½±å“è¡Œæ•°ï¼Œ-1è¡¨ç¤ºæœªæ‰¾åˆ°å¯¹åº”çš„rid
 	 */
 	int removeAllPermissionByRId(UUID rId);
 
 	/**
-	 * ÎªÖ¸¶¨µÄ½ÇÉ«·ÖÅä×ÊÔ´
+	 * ä¸ºæŒ‡å®šçš„è§’è‰²åˆ†é…èµ„æº
 	 * @param rid
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @param resId
-	 * 		×ÊÔ´id
+	 * 		èµ„æºid
 	 */
 	void assignRes4Role(UUID rid,UUID resId);
 	
 	/**
-	 * ¸ù“ş½ÇÉ«id«@È¡ÙYÔ´id¼¯ºÏ
+	 * æ ¹æ“šè§’è‰²idç²å–è³‡æºidé›†åˆ
 	 * @param rid
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @return
 	 */
 	public List<UUID> getResourcesByRid(UUID rid);

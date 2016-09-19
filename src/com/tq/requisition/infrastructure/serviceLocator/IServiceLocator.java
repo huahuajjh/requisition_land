@@ -2,30 +2,30 @@ package com.tq.requisition.infrastructure.serviceLocator;
 
 /*
  * @description
- * 		·şÎñ¶¨Î»Æ÷½Ó¿Ú£¬¸Ã½Ó¿Ú¶¨ÒåÁË»ñÈ¡·şÎñ¹æÔò
+ * 		æœåŠ¡å®šä½å™¨æ¥å£ï¼Œè¯¥æ¥å£å®šä¹‰äº†è·å–æœåŠ¡è§„åˆ™
  * @author jjh
  * @time 2015-12-14 23:22
  */
 public interface IServiceLocator {
 	/**
 	 * @description
-	 * 		¸ù¾İ·şÎñÀàĞÍ²ÎÊı£¬»ñÈ¡Ò»¸ö·şÎñÊµÀı
+	 * 		æ ¹æ®æœåŠ¡ç±»å‹å‚æ•°ï¼Œè·å–ä¸€ä¸ªæœåŠ¡å®ä¾‹
 	 * @param serviceType
-	 * 		·şÎñÀàĞÍ²ÎÊı
+	 * 		æœåŠ¡ç±»å‹å‚æ•°
 	 * @return  TService
-	 * 		·şÎñÀàĞÍ
+	 * 		æœåŠ¡ç±»å‹
 	 */
 	<TService> TService getService(Class<TService> serviceType);
 	
 	/*
 	 * @description
-	 * 		¸ù¾İ·şÎñÀàĞÍ²ÎÊı£¬»ñÈ¡Ò»¸ö·şÎñÊµÀı
+	 * 		æ ¹æ®æœåŠ¡ç±»å‹å‚æ•°ï¼Œè·å–ä¸€ä¸ªæœåŠ¡å®ä¾‹
 	 * @param serviceType
-	 * 		·şÎñÀàĞÍ²ÎÊı
+	 * 		æœåŠ¡ç±»å‹å‚æ•°
 	 * @param springId
-	 * 		 ÅäÖÃbean½Úµãid
+	 * 		 é…ç½®beanèŠ‚ç‚¹id
 	 * @return  TService
-	 * 		·şÎñÀàĞÍ
+	 * 		æœåŠ¡ç±»å‹
 	 */
 	<TService> TService getService(String springId,Class<TService> serviceType);
 

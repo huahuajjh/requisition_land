@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 账户模糊分页查询规约
+ * 璐︽埛妯＄硦鍒嗛〉鏌ヨ瑙勭害
  * @author jjh
  * @time 2015-12-26 21:14
  */

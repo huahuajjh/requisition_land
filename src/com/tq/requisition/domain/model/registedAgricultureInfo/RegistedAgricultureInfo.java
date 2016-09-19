@@ -6,34 +6,34 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ÔÚ¼®Å©ÒµÈË¿Ú¾ÛºÏ¸ù
+ * åœ¨ç±å†œä¸šäººå£èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 18:44
  */
 public class RegistedAgricultureInfo extends AggregateRoot{
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤ºÅ*/
+	/**èº«ä»½è¯å·*/
 	private String idNumber;
-	/**µØÖ·*/
+	/**åœ°å€*/
 	private String address;
-	/**ÊÇ·ñ²ğÇ¨*/
+	/**æ˜¯å¦æ‹†è¿*/
 	private boolean isRemove;
-	/**ÊÇ·ñ°²ÖÃ*/
+	/**æ˜¯å¦å®‰ç½®*/
 	private boolean isSetting;
-	/**ÊÇ·ñ×ª»§*/
+	/**æ˜¯å¦è½¬æˆ·*/
 	private boolean isTransfer;
-	/**ÊÇ·ñÉç±£*/
+	/**æ˜¯å¦ç¤¾ä¿*/
 	private boolean isSocialSecurity;
-	/**ÊÊÓÃÕş²ß*/
+	/**é€‚ç”¨æ”¿ç­–*/
 	private UUID policyStateId;
-	/**ÈËÔ±×´Ì¬*/
+	/**äººå‘˜çŠ¶æ€*/
 	private UUID userStateId;
-	/**Ê¹ÓÃÕş²ß×Ö·û´®*/
+	/**ä½¿ç”¨æ”¿ç­–å­—ç¬¦ä¸²*/
 	private String policyStr;
-	/**ÈËÔ±×´Ì¬×Ö·û´®*/
+	/**äººå‘˜çŠ¶æ€å­—ç¬¦ä¸²*/
 	private String userStateStr;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	public RegistedAgricultureInfo(){
@@ -42,16 +42,16 @@ public class RegistedAgricultureInfo extends AggregateRoot{
 	}
 	
 	/**
-	 * ×Ö¶Î¼ì²é
+	 * å­—æ®µæ£€æŸ¥
 	 * @throws DomainException
-	 * 		Òì³£
+	 * 		å¼‚å¸¸
 	 */
 	public void check() throws DomainException {
-		check(name, "ĞÕÃû²»ÄÜÎª¿Õ");
-		check(idNumber, "Éí·İÖ¤²»ÄÜÎª¿Õ");
-		check(address,"µØÖ·²»ÄÜÎª¿Õ");
-		check(policyStr,"ÊÊÓÃÕş²ß²»ÄÜÎª¿Õ");
-		check(userStateStr,"ÈËÔ±×´Ì¬²»ÄÜÎª¿Õ");
+		check(name, "å§“åä¸èƒ½ä¸ºç©º");
+		check(idNumber, "èº«ä»½è¯ä¸èƒ½ä¸ºç©º");
+		check(address,"åœ°å€ä¸èƒ½ä¸ºç©º");
+		check(policyStr,"é€‚ç”¨æ”¿ç­–ä¸èƒ½ä¸ºç©º");
+		check(userStateStr,"äººå‘˜çŠ¶æ€ä¸èƒ½ä¸ºç©º");
 	}
 
 	public String getName() {

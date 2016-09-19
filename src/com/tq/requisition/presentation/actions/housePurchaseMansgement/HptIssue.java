@@ -128,7 +128,7 @@ private IHPTMgtServiceContract hptMgtServiceContract;
 		this.daYinData = daYinData;
 	}
 
-	// Êä³öÎÄ¼şÁ÷
+	// è¾“å‡ºæ–‡ä»¶æµ
 	private InputStream outputStream;
 	private String downloadChineseFileName;
 	public InputStream getOutputStream() {

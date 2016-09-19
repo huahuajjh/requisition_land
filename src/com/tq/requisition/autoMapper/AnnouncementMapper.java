@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.project.Announcement;
 import com.tq.requisition.presentation.dto.project.AnnouncementDto;
 
 /**
- * ÏîÄ¿¹«¸ædtoÓëÁìÓòÄ£ĞÍµÄ×ª»»
+ * é¡¹ç›®å…¬å‘Šdtoä¸é¢†åŸŸæ¨¡å‹çš„è½¬æ¢
  * @author jjh
  * @time 2015-12-28 1:47
  */
@@ -21,13 +21,13 @@ public class AnnouncementMapper {
 		String name = ""; 
 		switch (model.getSequence()) {
 		case 1:
-			name="Ò»¹«¸æ";
+			name="ä¸€å…¬å‘Š";
 			break;
 		case 2:
-			name="¶ş¹«¸æ";
+			name="äºŒå…¬å‘Š";
 			break;
 		case 3:
-			name="Èı¹«¸æ";
+			name="ä¸‰å…¬å‘Š";
 			break;
 
 		default:

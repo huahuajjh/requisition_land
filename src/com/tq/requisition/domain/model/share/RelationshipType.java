@@ -1,14 +1,14 @@
 package com.tq.requisition.domain.model.share;
 
 public enum RelationshipType {
-	/**¶ù×Ó*/
-	SON(0,"¶ù×Ó"),
-	/**Å®¶ù*/
-	DAUGHTER(1,"Å®¶ù"),
-	/**ÆŞ×Ó*/
-	WIFE(2,"ÆŞ×Ó"),
-	/**ÕÉ·ò*/
-	HUSBAND(3,"ÕÉ·ò");
+	/**å„¿å­*/
+	SON(0,"å„¿å­"),
+	/**å¥³å„¿*/
+	DAUGHTER(1,"å¥³å„¿"),
+	/**å¦»å­*/
+	WIFE(2,"å¦»å­"),
+	/**ä¸ˆå¤«*/
+	HUSBAND(3,"ä¸ˆå¤«");
 	
 	
 	/*private fields*/
@@ -27,7 +27,7 @@ public enum RelationshipType {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾Ù
+	 * é€šè¿‡intå€¼è·å–æšä¸¾
 	 * @param v
 	 * @return
 	 */
@@ -42,12 +42,12 @@ public enum RelationshipType {
 		case 3:
 			return RelationshipType.HUSBAND;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨,×îĞ¡ÖµÎª0£¬×î´óÖµÎª3");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š,æœ€å°å€¼ä¸º0ï¼Œæœ€å¤§å€¼ä¸º3");
 		}
 	}
 	
 	/**
-	 * »ñÈ¡Ã¶¾ÙÖµµÃString
+	 * è·å–æšä¸¾å€¼å¾—String
 	 * @return
 	 */
 	public String toStr() {

@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+ï»¿package com.tq.requisition.test.application;
 
 import java.io.Console;
 import java.math.BigDecimal;
@@ -100,7 +100,7 @@ public class TestProMgtService {
 		dto.setNewStart(false);
 		dto.setProId(UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
 		dto.setStartDate(new Date());
-		dto.setCurMonthComplete("ÊÇ");
+		dto.setCurMonthComplete("æ˜¯");
 		
 		String json = service.addProItem(dto, UUID.fromString("cfaa1d65-6ea5-49f7-8c74-d24cd85cda78"));
 		System.out.println(json);

@@ -1,33 +1,33 @@
-package com.tq.requisition.presentation.dto.registedAgr;
+ï»¿package com.tq.requisition.presentation.dto.registedAgr;
 
 import java.util.UUID;
 
 public class RegistedAgricultureInfoDto {
 	/**id*/
 	private UUID id;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤ºÅ*/
+	/**èº«ä»½è¯å·*/
 	private String idNumber;
-	/**µØÖ·*/
+	/**åœ°å€*/
 	private String address;
-	/**ÊÇ·ñ²ğÇ¨*/
+	/**æ˜¯å¦æ‹†è¿*/
 	private boolean isRemove;
-	/**ÊÇ·ñ°²ÖÃ*/
+	/**æ˜¯å¦å®‰ç½®*/
 	private boolean isSetting;
-	/**ÊÇ·ñ×ª»§*/
+	/**æ˜¯å¦è½¬æˆ·*/
 	private boolean isTransfer;
-	/**ÊÇ·ñÉç±£*/
+	/**æ˜¯å¦ç¤¾ä¿*/
 	private boolean isSocialSecurity;
-	/**ÊÊÓÃÕş²ß*/
+	/**é€‚ç”¨æ”¿ç­–*/
 	private UUID policyStateId;
-	/**ÈËÔ±×´Ì¬*/
+	/**äººå‘˜çŠ¶æ€*/
 	private UUID userStateId;
-	/**Ê¹ÓÃÕş²ß×Ö·û´®*/
+	/**ä½¿ç”¨æ”¿ç­–å­—ç¬¦ä¸²*/
 	private String policyStr;
-	/**ÈËÔ±×´Ì¬×Ö·û´®*/
+	/**äººå‘˜çŠ¶æ€å­—ç¬¦ä¸²*/
 	private String userStateStr;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	public String getName() {

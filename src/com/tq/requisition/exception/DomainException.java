@@ -1,7 +1,7 @@
 package com.tq.requisition.exception;
 
 /**
- * 领域操作异常父类
+ * 棰嗗煙鎿嶄綔寮傚父鐖剁被
  * @author jjh
  * @time 2015-12-23 14:08
  */

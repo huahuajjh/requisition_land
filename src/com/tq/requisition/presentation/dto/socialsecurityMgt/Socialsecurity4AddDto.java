@@ -1,10 +1,10 @@
-package com.tq.requisition.presentation.dto.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.dto.socialsecurityMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * ĞÂÔöÇ°²éÑ¯model
+ * æ–°å¢å‰æŸ¥è¯¢model
  * @author jjh
  * @time 2015-01-04 20:42
  *
@@ -16,21 +16,21 @@ public class Socialsecurity4AddDto {
 	private String name;
 	private String idNumber;
 	private boolean del;
-	/**¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ)*/
+	/**å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ)*/
 	private Integer serveArmyTime;
-	/**ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ*/
+	/**å…»è€ä¿é™©è¡¥ç¼´å¹´é™*/
 	private Integer endowmentInsuranceYear;
-	/**Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı*/
+	/**åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•°*/
 	private Integer medicalInsuranceMonth;
-	/**²Î¼ÓºÎÖÖÒ½ÁÆ±£ÏÕ*/
+	/**å‚åŠ ä½•ç§åŒ»ç–—ä¿é™©*/
 	private String joinWhichMedicalInsurance;
-	/**ËùÊôÉçÇø*/
+	/**æ‰€å±ç¤¾åŒº*/
 	private String community;
-	/**·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ)*/
+	/**æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ)*/
 	private Integer prisonTime;
-	/**ÊÇ·ñ²Î¼Ó¹ıÉç±£*/
+	/**æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿*/
 	private Boolean isSocialsecurity;
-	/**³öÉúÄêÔÂ*/
+	/**å‡ºç”Ÿå¹´æœˆ*/
 	private Date birthday;
 
 	public UUID getProId() {

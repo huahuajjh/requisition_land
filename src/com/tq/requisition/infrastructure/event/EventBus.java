@@ -8,12 +8,12 @@ import java.util.Map;
 import org.springframework.scheduling.annotation.Async;
 
 /**
- * ÊÂ¼ş¾ÛºÏÆ÷
+ * äº‹ä»¶èšåˆå™¨
  * @author jjh
  * @time 2015-12-16 12:57
  */
 public class EventBus implements IEventBus{
-	/**ÒÔÊÂ¼şÀàĞÍÎªkey,ÊÂ¼ş´¦ÀíÆ÷¼¯ºÏÎªvalueµÄmap¶ÔÏó*/
+	/**ä»¥äº‹ä»¶ç±»å‹ä¸ºkey,äº‹ä»¶å¤„ç†å™¨é›†åˆä¸ºvalueçš„mapå¯¹è±¡*/
 	private final Map<Class<IEvent>, List<Object>> eventMap = new HashMap<>();
 	
 	@Async

@@ -7,32 +7,32 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ÒÑÇ¨»§¾ÛºÏ¸ù
+ * å·²è¿æˆ·èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 19:05
  */
 public class RemovedInfo extends AggregateRoot{
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤ºÅ*/
+	/**èº«ä»½è¯å·*/
 	private String idNumber;
-	/**³öÉúÄêÔÂ*/
+	/**å‡ºç”Ÿå¹´æœˆ*/
 	private Date birthday;
-	/**µØÖ·*/
+	/**åœ°å€*/
 	private String address;
-	/**½ÖµÀĞÅÏ¢µØÖ·*/
+	/**è¡—é“ä¿¡æ¯åœ°å€*/
 	private UUID streetId;
-	/**½ÖµÀĞÅÏ¢µØÖ·*/
+	/**è¡—é“ä¿¡æ¯åœ°å€*/
 	private UUID communityId;
-	/**²ğÇ¨ÈÕÆÚ*/
+	/**æ‹†è¿æ—¥æœŸ*/
 	private Date removeDate;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**´´½¨ÈËµÄID*/
+	/**åˆ›å»ºäººçš„ID*/
 	private String createId;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
-	/**ÊÊÓÃÕş²ß*/
+	/**é€‚ç”¨æ”¿ç­–*/
 	private String policy;
 	
 	public RemovedInfo(){
@@ -116,10 +116,10 @@ public class RemovedInfo extends AggregateRoot{
 
 	/*public methods*/
 	public void validate() throws DomainException {
-		check(this.idNumber, "Éí·İÖ¤²»ÄÜÎª¿Õ");
-		check(this.name, "ĞÕÃû²»ÄÜÎª¿Õ");
-		check(this.birthday, "³öÉúÈÕÆÚ²»ÄÜÎª¿Õ");
-		check(this.removeDate, "²ğÇ¨ÈÕÆÚ²»ÄÜÎª¿Õ");
+		check(this.idNumber, "èº«ä»½è¯ä¸èƒ½ä¸ºç©º");
+		check(this.name, "å§“åä¸èƒ½ä¸ºç©º");
+		check(this.birthday, "å‡ºç”Ÿæ—¥æœŸä¸èƒ½ä¸ºç©º");
+		check(this.removeDate, "æ‹†è¿æ—¥æœŸä¸èƒ½ä¸ºç©º");
 	}
 	
 	public void modify(RemovedInfo entity) {

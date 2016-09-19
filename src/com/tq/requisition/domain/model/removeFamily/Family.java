@@ -10,58 +10,58 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.InvalidOperationException;
 
 /**
- * ²ğÇ¨»§¾ÛºÏ¸ù
+ * æ‹†è¿æˆ·èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 13:25
  */
 public class Family extends AggregateRoot{
 	/*private fields*/
-	/**»§Ö÷*/
+	/**æˆ·ä¸»*/
 	private String headName;
-	/**ËùÊôÏîÄ¿id*/
+	/**æ‰€å±é¡¹ç›®id*/
 	private UUID proId;
-	/**»§Ö÷id*/
+	/**æˆ·ä¸»id*/
 	private UUID headId;
-	/**½ÖµÀid*/
+	/**è¡—é“id*/
 	private UUID streetId;
-	/**ÉçÇøid*/
+	/**ç¤¾åŒºid*/
 	private UUID communityId;
-	/**µØÖ·È«Ãû³Æ*/
+	/**åœ°å€å…¨åç§°*/
 	private String address;
-	/**¼ÒÍ¥ÈËÊı*/
+	/**å®¶åº­äººæ•°*/
 	private Integer fmlNumber;
-	/**·¿ÎİºÏ·¨Ãæ»ı*/
+	/**æˆ¿å±‹åˆæ³•é¢ç§¯*/
 	private float houseLegalArea;
-	/**·¿ÎİÎ¥ÕÂÃæ»ı*/
+	/**æˆ¿å±‹è¿ç« é¢ç§¯*/
 	private float houseIllegalArea;
-	/**ÅúÖ¤¼°ÆäËûÇé¿öËµÃ÷*/
+	/**æ‰¹è¯åŠå…¶ä»–æƒ…å†µè¯´æ˜*/
 	private String satuationDesc;
-	/**Äâ¶¨´¦Àí·½°¸*/
+	/**æ‹Ÿå®šå¤„ç†æ–¹æ¡ˆ*/
 	private String dealSolution;
-	/**ÁªºÏ»áÉóÒâ¼û*/
+	/**è”åˆä¼šå®¡æ„è§*/
 	private String unionSuggestion;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
-	/**·¿ÎİÍ¼Æ¬µØÖ·*/
+	/**æˆ¿å±‹å›¾ç‰‡åœ°å€*/
 	private String houseImgPath;
-	/**ËùÊôÏîÄ¿Ãû³Æ*/
+	/**æ‰€å±é¡¹ç›®åç§°*/
 	private String proName;
-	/**×éµØÖ·id*/
+	/**ç»„åœ°å€id*/
 	private UUID groupId;
-	/**ÁªºÏ»áÉóÒâ¼ûÎÄ¼şÂ·¾¶*/
+	/**è”åˆä¼šå®¡æ„è§æ–‡ä»¶è·¯å¾„*/
 	private String unionSuggestionPath;
-	/**¸ßÅÄÒÇÅÄÕÕ*/
+	/**é«˜æ‹ä»ªæ‹ç…§*/
 	private String image;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
-	//·Ç³Ö¾Ã»¯×Ö¶Î
-	/**»§Ö÷Éí·İÖ¤*/
+	//éæŒä¹…åŒ–å­—æ®µ
+	/**æˆ·ä¸»èº«ä»½è¯*/
 	private String idNumber;
-	/**¼ÒÍ¥³ÉÔ±¼¯ºÏ*/
+	/**å®¶åº­æˆå‘˜é›†åˆ*/
 	private List<FamilyItem> items = new ArrayList<FamilyItem>();
 
 	/*constructors*/
@@ -132,7 +132,7 @@ public class Family extends AggregateRoot{
 	public void validate() {
 		if(headName==null || headName.trim().equals(""))
 		{
-			throw new NullPointerException("»§ĞÅÏ¢¶à¸ö×Ö¶ÎÎª¿Õ");
+			throw new NullPointerException("æˆ·ä¿¡æ¯å¤šä¸ªå­—æ®µä¸ºç©º");
 		}		
 	}
 
@@ -279,12 +279,12 @@ public class Family extends AggregateRoot{
 	}
 	/*public methods*/
 	/**
-	 * ĞÂÔöÊı¾İÑéÖ¤
+	 * æ–°å¢æ•°æ®éªŒè¯
 	 */
 	public void validateByAdd() {
 		if(this.items==null)
 		{
-			throw new InvalidOperationException("ĞÂÔöÊı¾İÎŞ²ğÇ¨»§³ÉÔ±ĞÅÏ¢");
+			throw new InvalidOperationException("æ–°å¢æ•°æ®æ— æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯");
 		}
 	}
 

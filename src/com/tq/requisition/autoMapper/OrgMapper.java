@@ -26,7 +26,7 @@ public class OrgMapper {
 	public static List<Organization> toModelList(List<OrgDto> dtoList) {		
 		if(dtoList == null)
 		{
-			throw new NullPointerException("组织dto集合对象为null");
+			throw new NullPointerException("缁勭粐dto闆嗗悎瀵硅薄涓簄ull");
 		}
 		
 		List<Organization> orgList = new ArrayList<Organization>();
@@ -40,7 +40,7 @@ public class OrgMapper {
 	public static List<OrgDto> toDtoList(List<Organization> orgList) {
 		if(orgList == null)
 		{
-			throw new NullPointerException("组织集合对象为null");
+			throw new NullPointerException("缁勭粐闆嗗悎瀵硅薄涓簄ull");
 		}
 		List<OrgDto> dtoList = new ArrayList<>();
 		for (Organization organization : orgList) {

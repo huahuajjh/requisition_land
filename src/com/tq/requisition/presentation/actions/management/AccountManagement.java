@@ -24,16 +24,16 @@ public class AccountManagement extends BaseAction {
 				IAccountService.class);
 	}
 
-	// Êı¾İ»ñÈ¡/²Ù×÷¶ÔÏó
+	// æ•°æ®è·å–/æ“ä½œå¯¹è±¡
 	private IOrgMgtService orgService;
 	private IRoleService roleService;
 	private IAccountService accountService;
 
-	// JspÒ³Ãæ»ñÈ¡Êı¾İ
+	// Jspé¡µé¢è·å–æ•°æ®
 	private List<OrgDto> orgDtoList;
 	private List<RoleDto> roleDtoList;
 
-	// Ç°¶Î´«ÈëÊı¾İ
+	// å‰æ®µä¼ å…¥æ•°æ®
 	private String account = "";
 	private String name = "";
 	private String orgId = "";
@@ -110,7 +110,7 @@ public class AccountManagement extends BaseAction {
 		return SUCCESS;
 	}
 
-	// »ñÈ¡ÓÃ»§ÁĞ±í
+	// è·å–ç”¨æˆ·åˆ—è¡¨
 	public String list() throws IOException {
 		UUID orgKeyId = orgId.equals("") ? null : UUID.fromString(orgId);
 		UUID depKeyId = deptId.equals("") ? null : UUID.fromString(deptId);
@@ -119,7 +119,7 @@ public class AccountManagement extends BaseAction {
 		return null;
 	}
 
-	// ĞÂÔöÓÃ»§
+	// æ–°å¢ç”¨æˆ·
 	public String add() throws IOException {
 		AccountDto dto = Serialization.toObject(dataJson, AccountDto.class);
 		String optState = this.accountService.createAccount(dto);
@@ -127,7 +127,7 @@ public class AccountManagement extends BaseAction {
 		return null;
 	}
 	
-	//ĞŞ¸ÄÓÃ»§ÏêÏ¸ĞÅÏ¢
+	//ä¿®æ”¹ç”¨æˆ·è¯¦ç»†ä¿¡æ¯
 	public String edit() throws IOException{
 		AccountDto dto = Serialization.toObject(dataJson, AccountDto.class);
 		String optState = this.accountService.updateAccount(dto);
@@ -135,27 +135,27 @@ public class AccountManagement extends BaseAction {
 		return null;
 	}
 	
-	//ÖØÖÃÓÃ»§ÃÜÂë
+	//é‡ç½®ç”¨æˆ·å¯†ç 
 	public String reset() throws IOException{
 		String optState = this.accountService.resetAccountPassword(UUID.fromString(Id));
 		response().getWriter().write(optState);
 		return null;
 	}
 	
-	//¶³½áÕË»§
+	//å†»ç»“è´¦æˆ·
 	public String disable() throws IOException{
 		String optState = this.accountService.disableAccount(UUID.fromString(Id));
 		response().getWriter().write(optState);
 		return null;
 	}
 	
-	//¼ì²éÕËºÅÊÇ·ñ´æÔÚ
+	//æ£€æŸ¥è´¦å·æ˜¯å¦å­˜åœ¨
 	public String existsAccount() throws IOException{
 		String stateJsonString = "";
 		if(account == null || account.equals("") || accountService.checkAccountExists(account)){
-			stateJsonString = toForMaterJson(OperationResult.ERROR,"ÕË»§Ãû["+account+"]ÒÑ´æÔÚ");
+			stateJsonString = toForMaterJson(OperationResult.ERROR,"è´¦æˆ·å["+account+"]å·²å­˜åœ¨");
 		} else {
-			stateJsonString = toForMaterJson(OperationResult.SUCCESS,"ÓÃ»§Ãû²»´æÔÚ");
+			stateJsonString = toForMaterJson(OperationResult.SUCCESS,"ç”¨æˆ·åä¸å­˜åœ¨");
 		}
 		response().getWriter().write(stateJsonString);
 		return null;

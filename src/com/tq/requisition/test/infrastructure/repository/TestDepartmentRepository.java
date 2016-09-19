@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+ï»¿package com.tq.requisition.test.infrastructure.repository;
 
 import java.util.UUID;
 
@@ -22,7 +22,7 @@ public class TestDepartmentRepository {
 	public void addDept() {
 		Department d = new Department();
 		d.setDel(false);
-		d.setDeptName("×éÖ¯²¿");
+		d.setDeptName("ç»„ç»‡éƒ¨");
 		d.setId(UUID.randomUUID());
 		d.setOrgId(UUID.fromString("1597ef9d-cdc1-4838-a058-5917ebf232ef"));
 		deptRepository.add(d);

@@ -7,54 +7,54 @@ import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ßB„ÓµØÖ·‚}ƒ¦½å¿Ú
+ * é€£å‹•åœ°å€å€‰å„²è—‰å£
  * @author jjh
- * @time 2015-12-27 23£º20
+ * @time 2015-12-27 23ï¼š20
  */
 public interface IAddressRepository extends IRepository<Address>{
 	/**
-	 * ¸ù¾İ¸¸id»ñÈ¡×Ó½ÚµãµØÖ·¼¯ºÏ
+	 * æ ¹æ®çˆ¶idè·å–å­èŠ‚ç‚¹åœ°å€é›†åˆ
 	 * @param pid
-	 * 		¸¸id
+	 * 		çˆ¶id
 	 * @return List<Address>
-	 * 		×Ó½Úµã¼¯ºÏ
+	 * 		å­èŠ‚ç‚¹é›†åˆ
 	 */
 	List<Address> getChildrenAddressByPid(UUID pid);
 	
 	/**
-	 * »ñÈ¡ËùÓĞ¶¥¼¶µØÖ·½Úµã
+	 * è·å–æ‰€æœ‰é¡¶çº§åœ°å€èŠ‚ç‚¹
 	 * @return List<Address>
-	 * 		¶¥¼¶µØÖ·½Úµã¼¯ºÏÊı¾İ
+	 * 		é¡¶çº§åœ°å€èŠ‚ç‚¹é›†åˆæ•°æ®
 	 */
 	List<Address> getTopAddresses();
 	
 	/**
-	 * É¾³ıÖ¸¶¨idµÄµØÖ·
+	 * åˆ é™¤æŒ‡å®šidçš„åœ°å€
 	 * @param id
-	 * 		µØÖ·id
+	 * 		åœ°å€id
 	 */
 	void deleteAddressById(UUID... ids);
 	
 	/**
-	 * ĞŞ¸ÄµØÖ·
+	 * ä¿®æ”¹åœ°å€
 	 * @param address
-	 * 		µØÖ·ÊµÌå
+	 * 		åœ°å€å®ä½“
 	 */
 	void editAddress(Address address);
 	
 	/**
-	 * ĞÂÔöµØÖ·ĞÅÏ¢
+	 * æ–°å¢åœ°å€ä¿¡æ¯
 	 * @param address
-	 * 		´ıĞÂÔöµÄµØÖ·ĞÅÏ¢ÊµÌå
+	 * 		å¾…æ–°å¢çš„åœ°å€ä¿¡æ¯å®ä½“
 	 * @return Address
-	 * 		·µ»ØĞÂÔöºóµÄµØÖ·ĞÅÏ¢ÊµÌå
+	 * 		è¿”å›æ–°å¢åçš„åœ°å€ä¿¡æ¯å®ä½“
 	 */
 	Address addAddress(Address address) throws DomainException;	
 	
 	/**
-	 * »ñÈ¡ËùÓĞµØÖ·ÁĞ±í
+	 * è·å–æ‰€æœ‰åœ°å€åˆ—è¡¨
 	 * @return List<Address>
-	 * 		µØÖ·¼¯ºÏ
+	 * 		åœ°å€é›†åˆ
 	 */
 	List<Address> getAllAddresses();
 }

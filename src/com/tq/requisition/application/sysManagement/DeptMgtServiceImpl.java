@@ -16,7 +16,7 @@ import com.tq.requisition.presentation.dto.sysMgt.DeptDto;
 import com.tq.requisition.presentation.serviceContract.sysManagement.IDeptMgtService;
 
 /**
- * 部门管理业务
+ * 閮ㄩ棬绠＄悊涓氬姟
  * @author jjh
  * @time 2015-12-24 16:39
  * @version 1.0
@@ -54,23 +54,23 @@ public class DeptMgtServiceImpl extends BaseApplication implements IDeptMgtServi
 	@Override
 	public String getDeptDtoListByOrgIdToJson(UUID orgId) {
 		List<Department> deptList = deptRepository.getDeptByOrgId(orgId);
-		return toJson("获取部门列表成功", DeptMapper.toDtolList(deptList), Formater.OperationResult.SUCCESS);
+		return toJson("鑾峰彇閮ㄩ棬鍒楄〃鎴愬姛", DeptMapper.toDtolList(deptList), Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
 	public String edit(DeptDto dept) {
 		if(dept == null)
 		{
-			throw new NullPointerException("部门dto为null");
+			throw new NullPointerException("閮ㄩ棬dto涓簄ull");
 		}
 		try {
 			context().beginTransaction();
 			deptRepository.modifyDept(DeptMapper.toModel(dept));
 			context().commit();
-			return toJson("修改部门成功",null, Formater.OperationResult.SUCCESS); 
+			return toJson("淇敼閮ㄩ棬鎴愬姛",null, Formater.OperationResult.SUCCESS); 
 		} catch (DomainException e) {
 			e.printStackTrace();
-			return toJson("修改部门失败-"+e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("淇敼閮ㄩ棬澶辫触-"+e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -78,15 +78,15 @@ public class DeptMgtServiceImpl extends BaseApplication implements IDeptMgtServi
 	public String delete(UUID id) {
 		if(id == null)
 		{
-			throw new NullPointerException("部门id为null");
+			throw new NullPointerException("閮ㄩ棬id涓簄ull");
 		}
 		try {
 			context().beginTransaction();
 			deptRemoveService.removeDept(id);
 			context().commit();
-			return toJson("删除部门成功", null, Formater.OperationResult.SUCCESS);			
+			return toJson("鍒犻櫎閮ㄩ棬鎴愬姛", null, Formater.OperationResult.SUCCESS);			
 		} catch (Exception e) {
-			return toJson("删除部门失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鍒犻櫎閮ㄩ棬澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -94,16 +94,16 @@ public class DeptMgtServiceImpl extends BaseApplication implements IDeptMgtServi
 	public String createDept(DeptDto dto) {
 		if(dto == null)
 		{
-			throw new NullPointerException("待新增的dto对象为null");
+			throw new NullPointerException("寰呮柊澧炵殑dto瀵硅薄涓簄ull");
 		}
 		Department dept;
 		try {
 			context().beginTransaction();
 			dept = deptRepository.createDept(DeptMapper.toModel(dto));
 			context().commit();
-			return toJson("创建部门成功", DeptMapper.toDto(dept), Formater.OperationResult.SUCCESS);
+			return toJson("鍒涘缓閮ㄩ棬鎴愬姛", DeptMapper.toDto(dept), Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("创建部门失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鍒涘缓閮ㄩ棬澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		
 	}

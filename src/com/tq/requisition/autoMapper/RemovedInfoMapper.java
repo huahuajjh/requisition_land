@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.removedInfo.RemovedInfo;
 import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoDto;
 
 /**
- * 已迁户档案对象mapper
+ * 宸茶縼鎴锋。妗堝璞apper
  * @author jjh
  * @time 2016-01-12 20:24
  *

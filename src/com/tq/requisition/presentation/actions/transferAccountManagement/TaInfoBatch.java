@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.transferAccountManagement;
+锘縫ackage com.tq.requisition.presentation.actions.transferAccountManagement;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,7 +116,7 @@ public class TaInfoBatch extends BaseAction{
 	public String add() throws IOException{
 		String stateJson = "";
 		NewAndEditTransferHouseholdInfoDto[] dto = Serialization.toObject(dataJson, NewAndEditTransferHouseholdInfoDto[].class);
-		//写入操作人员
+		//鍐欏叆鎿嶄綔浜哄憳
 		 System.out.println(dto);
 		List<NewAndEditTransferHouseholdInfoDto> dtos = new ArrayList<NewAndEditTransferHouseholdInfoDto>();
 		for (int i = 0; i < dto.length; i++) {

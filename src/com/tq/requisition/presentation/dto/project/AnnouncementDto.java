@@ -1,23 +1,23 @@
-package com.tq.requisition.presentation.dto.project;
+锘縫ackage com.tq.requisition.presentation.dto.project;
 
 import java.util.Date;
 import java.util.UUID;
 
 public class AnnouncementDto {
 	/*private fields*/
-	/**文号*/
+	/**鏂囧彿*/
 	private String number;
-	/**公告文件路径*/
+	/**鍏憡鏂囦欢璺緞*/
 	private String docPath;
-	/**公告日期*/
+	/**鍏憡鏃ユ湡*/
 	private Date date;
-	/**公告名称*/
+	/**鍏憡鍚嶇О*/
 	private String name;
-	/**项目id*/
+	/**椤圭洰id*/
 	private UUID proId;
-	/**公告序列*/
+	/**鍏憡搴忓垪*/
 	private int sequence;
-	/**公告id*/
+	/**鍏憡id*/
 	private UUID id;
 	
 	/*getters and setters*/

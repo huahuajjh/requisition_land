@@ -7,44 +7,44 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * ÏîÄ¿ÔÂ¶ÈÊµÌå
+ * é¡¹ç›®æœˆåº¦å®ä½“
  * 
  * @author jjh
  * @time 2015-12-18 13:00
  */
 public class ProjectItem extends Entity {
 	/*private fields*/
-	/** ÔÂ¶ÈÌî±¨Ê±¼ä */
+	/** æœˆåº¦å¡«æŠ¥æ—¶é—´ */
 	private Date date;
-	/** ±¾ÔÂÒÑÌÚµØ */
+	/** æœ¬æœˆå·²è…¾åœ° */
 	private float removedLandArea;
-	/** ±¾ÔÂÒÑ²ğ¶°Êı */
+	/** æœ¬æœˆå·²æ‹†æ ‹æ•° */
 	private int removedBuildings;
-	/** ±¾ÔÂÒÑÇ¨»§Êı */
+	/** æœ¬æœˆå·²è¿æˆ·æ•° */
 	private int rmovedHouses;
-	/** ±¾ÔÂÒÑ²ğºÏ·¨Ãæ»ı */
+	/** æœ¬æœˆå·²æ‹†åˆæ³•é¢ç§¯ */
 	private float removedLegalArea;
-	/** ±¾ÔÂÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** æœ¬æœˆå·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedIllegalArea;
-	/** ±¾ÔÂÒÑ¶¯Ç¨ÈË¿Ú */
+	/** æœ¬æœˆå·²åŠ¨è¿äººå£ */
 	private int movedPopulation;
-	/** ±¾ÔÂÒÑ¸¶Åâ³¥¿î */
+	/** æœ¬æœˆå·²ä»˜èµ”å¿æ¬¾ */
 	private BigDecimal paidMoney;
-	/** ±¾ÄêÏÂ´ïÏŞÆÚÌÚµØ¾ö¶¨Êé */
+	/** æœ¬å¹´ä¸‹è¾¾é™æœŸè…¾åœ°å†³å®šä¹¦ */
 	private int yearDeadlineFile;
-	/** ±¾ÄêÉêÇë·¨ÔºÖ´ĞĞ */
+	/** æœ¬å¹´ç”³è¯·æ³•é™¢æ‰§è¡Œ */
 	private int yearCourtExecute;
-	/** ±¾ÄêÒÀ·¨ÊµÊ©Ç¿ÖÆÌÚµØ»§Êı */
+	/** æœ¬å¹´ä¾æ³•å®æ–½å¼ºåˆ¶è…¾åœ°æˆ·æ•° */
 	private int yearLegalRemoved;
-	/** ±¸×¢ */
+	/** å¤‡æ³¨ */
 	private String remark;
-	/** ±¾ÔÂĞÂÆô¶¯ */
+	/** æœ¬æœˆæ–°å¯åŠ¨ */
 	private boolean newStart;
-	/** í—Ä¿id */
+	/** é …ç›®id */
 	private UUID proId;
-	/** ÏîÄ¿Æô¶¯Ê±¼ä */
+	/** é¡¹ç›®å¯åŠ¨æ—¶é—´ */
 	private Date startDate;
-	/** ÊÇ·ñ±¾ÔÂÍê³ÉÏîÄ¿ */
+	/** æ˜¯å¦æœ¬æœˆå®Œæˆé¡¹ç›® */
 	private String curMonthComplete;
 	
 	/*getters and setters*/
@@ -225,7 +225,7 @@ public class ProjectItem extends Entity {
 	}
 	
 	/**
-	 * ÑéÖ¤
+	 * éªŒè¯
 	 */
 	public void validate() {
 	}

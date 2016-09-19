@@ -6,7 +6,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 
 /**
- * 查询规约，根据查询model返回分页数据条件
+ * 鏌ヨ瑙勭害锛屾牴鎹煡璇odel杩斿洖鍒嗛〉鏁版嵁鏉′欢
  * @author jjh
  * @time 2015-01-02 23:07
  */

@@ -6,28 +6,28 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * »»È¯ĞÅÏ¢ÊµÌå
+ * æ¢åˆ¸ä¿¡æ¯å®ä½“
  * @author jjh
  * @time 2015-12-18 16:53
  */
 public class HPTExchangeInfo extends Entity{
-	/**ËùÓĞÕßid*/
+	/**æ‰€æœ‰è€…id*/
 	private UUID ownerId;
-	/**²Ù×÷ÈËid*/
+	/**æ“ä½œäººid*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**»»·¢ÈÕÆÚ*/
+	/**æ¢å‘æ—¥æœŸ*/
 	private Date exchengeDate;
-	/**ĞÂÈ¯id*/
+	/**æ–°åˆ¸id*/
 	private UUID newTicketId;
-	/**ÁìÓÃÖ¤Ã÷*/
+	/**é¢†ç”¨è¯æ˜*/
 	private String evidencePath;
-	/**ÀÏÈ¯id*/
+	/**è€åˆ¸id*/
 	private UUID oldTicketId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**ÁìÓÃÈË*/
+	/**é¢†ç”¨äºº*/
 	private String gettingUser;
 	
 	/*constructors*/

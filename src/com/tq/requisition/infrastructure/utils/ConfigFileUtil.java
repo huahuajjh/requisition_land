@@ -7,7 +7,7 @@ import java.util.Properties;
 import com.tq.requisition.infrastructure.log.LoggerFactory;
 
 /**
- * ¶ÁÈ¡propertiesÅäÖÃÎÄ¼ş
+ * è¯»å–propertiesé…ç½®æ–‡ä»¶
  * @author jjh
  * @time 2015-01-09 21:54
  *
@@ -34,18 +34,18 @@ public final class ConfigFileUtil {
 	}
 	
 	/**
-	 * ¶ÁÈ¡Ö¸¶¨keyµÄvalueÖµ
+	 * è¯»å–æŒ‡å®škeyçš„valueå€¼
 	 * @param key
-	 * 		Ö¸¶¨µÄkeyÖµ
+	 * 		æŒ‡å®šçš„keyå€¼
 	 * @return String
-	 * 		valueÖµ
+	 * 		valueå€¼
 	 */
 	public static String readByKey(String key) {
 		return p.getProperty(key);
 	}
 	
 	/**
-	 * ²åÈë¼üÖµ¶Ô
+	 * æ’å…¥é”®å€¼å¯¹
 	 * @param key 		
 	 * @param value
 	 */

@@ -8,9 +8,9 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
 
 /**
- * ¸ù¾İ²éÑ¯model²éÑ¯´ıĞÂÔöÉç±£Êı¾İµÄ²ğÇ¨ÈËÔ±×ÜĞĞÊı
+ * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢å¾…æ–°å¢ç¤¾ä¿æ•°æ®çš„æ‹†è¿äººå‘˜æ€»è¡Œæ•°
  * @author jjh
- * @time 2015-01-04 20£º33
+ * @time 2015-01-04 20ï¼š33
  */
 public class SSQuery4AddCountSpecification extends Specification<SocialsecurityInfo>{
 	private SocialsecurityQueryModel queryModel;

@@ -51,7 +51,7 @@ public class HptUseAndCash extends BaseAction {
 			dto.setOprUserId(userId());;
 			stateJson = this.hptMgtServiceContract.use(dto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR,"Êı¾İ¸ñÊ½²»ÕıÈ·");
+			stateJson = toForMaterJson(OperationResult.ERROR,"æ•°æ®æ ¼å¼ä¸æ­£ç¡®");
 		}
 		response().getWriter().write(stateJson);
 	}

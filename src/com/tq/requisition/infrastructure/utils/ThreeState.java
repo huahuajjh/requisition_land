@@ -1,14 +1,14 @@
 package com.tq.requisition.infrastructure.utils;
 
 /**
- * ×´Ì¬Ã¶¾ÙÖµ£¬yes,no,allÈıÖÖ×´Ì¬
+ * çŠ¶æ€æšä¸¾å€¼ï¼Œyes,no,allä¸‰ç§çŠ¶æ€
  * @author jjh
  * @time 2015-12-30 15:30
  */
 public enum ThreeState {
-	NO(0,"·ñ"),
-	YES(1,"ÊÇ"),
-	ALL(2,"È«²¿");
+	NO(0,"å¦"),
+	YES(1,"æ˜¯"),
+	ALL(2,"å…¨éƒ¨");
 	
 	/*private fields*/
 	private int value;
@@ -22,7 +22,7 @@ public enum ThreeState {
 	}
 		
 	/**
-	 * ·µ»ØÃ¶¾ÙµÄintÖµ
+	 * è¿”å›æšä¸¾çš„intå€¼
 	 * @return
 	 */
 	public int toValue()
@@ -31,11 +31,11 @@ public enum ThreeState {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾ÙÀàĞÍ
+	 * é€šè¿‡intå€¼è·å–æšä¸¾ç±»å‹
 	 * @param v
-	 * 		int²ÎÊı
+	 * 		intå‚æ•°
 	 * @return
-	 * 		Ã¶¾Ù
+	 * 		æšä¸¾
 	 */
 	public ThreeState obtainByInt(int v) {
 		
@@ -47,7 +47,7 @@ public enum ThreeState {
 		case 2:
 			return ALL;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š");
 		}
 	}
 

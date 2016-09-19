@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,29 +6,29 @@ import java.util.UUID;
 import com.tq.requisition.domain.model.share.TicketState;
 
 public class HPTDisplayFmlDto {
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private UUID proId;
-	/**¹º·¿È¯id*/
+	/**è´­æˆ¿åˆ¸id*/
 	private UUID hptId;
-	/**²ğÇ¨»§ÈËÔ±id*/
+	/**æ‹†è¿æˆ·äººå‘˜id*/
 	private UUID fmlItemId;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**È¯ºÅ*/
+	/**åˆ¸å·*/
 	private String ticketNumber;
-	/**½ğ¶î*/
+	/**é‡‘é¢*/
 	private float bonus;
-	/**¹º·¿È¯×´Ì¬*/
+	/**è´­æˆ¿åˆ¸çŠ¶æ€*/
 	private TicketState ticketState;
-	/**ÖÆÈ¯ÈÕÆÚ*/
+	/**åˆ¶åˆ¸æ—¥æœŸ*/
 	private Date makeTime;
-	/**Óë»§Ö÷¹ØÏµ*/
+	/**ä¸æˆ·ä¸»å…³ç³»*/
 	private String relationship;
-	/**Óë»§Ö÷¹ØÏµ*/
+	/**ä¸æˆ·ä¸»å…³ç³»*/
 	private String otherRelationship;
 	
 	public String getProName() {

@@ -1,12 +1,24 @@
-package com.tq.requisition.presentation.actions.projectManagement;
+Ôªøpackage com.tq.requisition.presentation.actions.projectManagement;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.excel.util.ExcelFactory;
+import com.excel.util.intefaces.IExcelOutput;
+import com.excel.util.model.ColAttrVal;
+import com.excel.util.model.ExcelColData;
 import com.tq.requisition.infrastructure.utils.Formater.OperationResult;
+import com.tq.requisition.infrastructure.utils.ConfigFileUtil;
+import com.tq.requisition.infrastructure.utils.ProExcelHead;
 import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.actions.BaseAction;
+import com.tq.requisition.presentation.dto.project.ProImportAndExportDto;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedExportCondition;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyAndItem;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
@@ -59,6 +71,30 @@ public class QueryRemoveInfo extends BaseAction {
 	private String id = "";
 
 	private String daYinIds;
+	
+	private InputStream outputStream;
+	private String downloadChineseFileName;
+	public InputStream getOutputStream() {
+		return outputStream;
+	}
+	public String getDownloadChineseFileName() {
+		return downloadChineseFileName;
+	}	
+	
+	private String daoChuHead;
+	public void setDaoChuHead(String daoChuHead) {
+		this.daoChuHead = daoChuHead;
+	}
+	
+	private String daYinData;
+	public void setDaYinData(String daYinData) {
+		this.daYinData = daYinData;
+	}
+	
+	private String daoChuAttrModel;
+	public void setDaoChuAttrModel(String daoChuAttrModel) {
+		this.daoChuAttrModel = daoChuAttrModel;
+	}
 
 	public QueryRemoveInfo() {
 		this.addressServiceContract = getService("addressService",
@@ -122,6 +158,42 @@ public class QueryRemoveInfo extends BaseAction {
 		response().getWriter().write(stateJson);
 		return null;
 	}
+	
+	public String daoChu() throws ParseException, IOException {
+		List<ExcelColData> colDatas = new ArrayList<>();
+		ExcelColData[] colDataArr =  Serialization.toObject(daoChuHead, ExcelColData[].class);
+		for (ExcelColData excelColData : colDataArr) {
+			colDatas.add(excelColData);
+		}
+		List<ColAttrVal> colAttrVals = new ArrayList<>();
+		ColAttrVal[] cAttrValsArr =  Serialization.toObject(daoChuAttrModel, ColAttrVal[].class);
+		for (ColAttrVal cVal : cAttrValsArr) {
+			colAttrVals.add(cVal);
+		}
+		RemovedExportCondition data = Serialization.toObject(this.daYinData, RemovedExportCondition.class);
+		List<FamilyAndItem> dtos = this.familyMgtServiceContract
+				.exportByDate(data);
+		InputStream inputStream = null;
+		IExcelOutput excelOutput = null;
+		try {
+			excelOutput = ExcelFactory.getExcelOutput();
+			excelOutput.writeDatas(colDatas);
+			excelOutput.writeDatas(FamilyAndItem.class, dtos, colAttrVals, 1);
+			downloadChineseFileName = "removed";
+			this.outputStream = excelOutput.getInputStream();
+			return SUCCESS;
+		} catch (IllegalArgumentException e) {
+		} catch (IllegalAccessException e) {
+		} finally {
+			if (inputStream != null) {
+				inputStream.close();
+			}
+			if (excelOutput != null) {
+				excelOutput.close();
+			}
+		}
+		return null;
+	}
 
 	public String addRemoveInfo() throws IOException {
 		String stateJson = "";
@@ -129,7 +201,7 @@ public class QueryRemoveInfo extends BaseAction {
 			FamilyItemDto familyItem = Serialization.toObject(dataJson, FamilyItemDto.class);
 //			stateJson = this.familyItemServiceContract.(familyItem);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR," ˝æ›∏Ò Ω≤ª’˝»∑");
+			stateJson = toForMaterJson(OperationResult.ERROR,"Êï∞ÊçÆÊ†ºÂºè‰∏çÊ≠£Á°Æ");
 		}
 		response().getWriter().write(stateJson);
 		return null;

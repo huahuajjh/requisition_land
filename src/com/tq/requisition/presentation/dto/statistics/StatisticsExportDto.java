@@ -1,56 +1,56 @@
-package com.tq.requisition.presentation.dto.statistics;
+ï»¿package com.tq.requisition.presentation.dto.statistics;
 
 public class StatisticsExportDto {
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
 	
-	//ºÏ¼Æ
-	/**»§Êı*/
+	//åˆè®¡
+	/**æˆ·æ•°*/
 	private int totalFmlCount;
-	/**ÈËÊı*/
+	/**äººæ•°*/
 	private int totalFmlItems;
-	/**½ğ¶î*/
+	/**é‡‘é¢*/
 	private float totalAmount;
 	
-	//ÒÑÁìÆ¾Ö¤
-	/**»§Êı*/
+	//å·²é¢†å‡­è¯
+	/**æˆ·æ•°*/
 	private int rcdFmlCount;
-	/**ÈËÊı*/
+	/**äººæ•°*/
 	private int rcdFmlItems;
-	/**½ğ¶î*/
+	/**é‡‘é¢*/
 	private float rcdAmount;
 	
-	//Î´ÁìÆ¾Ö¤	
-	/**»§Êı*/
+	//æœªé¢†å‡­è¯	
+	/**æˆ·æ•°*/
 	private int nrcdFmlCount;
-	/**ÈËÊı*/
+	/**äººæ•°*/
 	private int nrcdFmlItems;
-	/**½ğ¶î*/
+	/**é‡‘é¢*/
 	private float nrcdAmount;
 	
-	/**¹úÍÁ¾Ö³ö×Êµ¥Î»Ãû³Æ*/
+	/**å›½åœŸå±€å‡ºèµ„å•ä½åç§°*/
 	private String moneyUnit;
-	/**ÆäËû³ö×Êµ¥Î»Ãû³Æ*/
+	/**å…¶ä»–å‡ºèµ„å•ä½åç§°*/
 	private String otherMoneyUnit;
 	
-	//¹úÍÁ¾Ö³ö×Ê
+	//å›½åœŸå±€å‡ºèµ„
 	private float landBureauAmount;
-	//·Ç¹úÍÁ¾Ö³ö×Ê
+	//éå›½åœŸå±€å‡ºèµ„
 	private float nLandBureauAmount;
 	
-	//¹úÍÁ¾Ö³ö×ÊĞÅÏ¢
+	//å›½åœŸå±€å‡ºèµ„ä¿¡æ¯
 	private String landBureauAmountMsg;
 	private String nLandBureauAmountMsg;
 	
-	//¶ÀÉú×ÓÅ®Êı
+	//ç‹¬ç”Ÿå­å¥³æ•°
 	private int onlyChildCount;
-	//°ë±ß»§ÈËÊı
+	//åŠè¾¹æˆ·äººæ•°
 	private int halfCount;
-	//¸öÈË²¹Ìù±ê×¼
+	//ä¸ªäººè¡¥è´´æ ‡å‡†
 	private float personalSubsidyStd;
-	//·Ç¹úÍÁ¾Ö³ö×Ê¼ÆËã±ê×¼
+	//éå›½åœŸå±€å‡ºèµ„è®¡ç®—æ ‡å‡†
 	private int nonLrbStd;
-	//ÈË¿Ú×ÜÊı
+	//äººå£æ€»æ•°
 	private int totalPopu;
 	
 	public String getProName() {

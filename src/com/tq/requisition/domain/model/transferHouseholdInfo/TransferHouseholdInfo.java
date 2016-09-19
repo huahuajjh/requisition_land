@@ -6,33 +6,33 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ×ª»§ĞÅÏ¢ÉÏÏÂÎÄ
+ * è½¬æˆ·ä¿¡æ¯ä¸Šä¸‹æ–‡
  * @author jjh
  * @time 2015-12-18 16:39
  */
 public class TransferHouseholdInfo extends AggregateRoot{
 	/*private fields*/	
-	/**²Ù×÷ÈËid*/
+	/**æ“ä½œäººid*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**×ª»§½ÖµÀµØÖ·id*/
+	/**è½¬æˆ·è¡—é“åœ°å€id*/
 	private UUID streetId;
-	/**×ª»§ÉçÇøµØÖ·id*/
+	/**è½¬æˆ·ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**×ª»§È«µØÖ·*/
+	/**è½¬æˆ·å…¨åœ°å€*/
 	private String address;
-	/**×ª»§ÈÕÆÚ*/
+	/**è½¬æˆ·æ—¥æœŸ*/
 	private Date transferDate;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍid*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹id*/
 	private UUID houseHoldTypeId;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍ*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹*/
 	private String houseHoldTypeStr;
-	/**×ª»§ÈËid*/
+	/**è½¬æˆ·äººid*/
 	private UUID fmlItemId;
-	/**ÊÇ·ñÆôÓÃ*/
+	/**æ˜¯å¦å¯ç”¨*/
 	private boolean del;
-	/**×éid*/
+	/**ç»„id*/
 	private UUID groupId;
 		
 	/*getters and setters*/

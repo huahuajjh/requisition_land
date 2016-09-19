@@ -1,11 +1,11 @@
-package com.tq.requisition.presentation.dto.visits;
+ï»¿package com.tq.requisition.presentation.dto.visits;
 
 import java.util.UUID;
 
 public class VisitsQueryModel {
-	/**À´·ÃÕßµç»°*/
+	/**æ¥è®¿è€…ç”µè¯*/
 	private String tel;
-	/**ÉÏ·ÃÏîÄ¿id*/
+	/**ä¸Šè®¿é¡¹ç›®id*/
 	private UUID proId;
 
 	public String getTel() {

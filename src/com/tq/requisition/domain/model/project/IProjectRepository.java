@@ -12,116 +12,116 @@ import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÏîÄ¿²Ö´¢½Ó¿Ú
+ * é¡¹ç›®ä»“å‚¨æ¥å£
  * 
  * @author jjh
  * @time 2015-12-27 20:47
  */
 public interface IProjectRepository extends IRepository<Project> {
 	/**
-	 * ĞÂÔöÏîÄ¿
+	 * æ–°å¢é¡¹ç›®
 	 * @param model
-	 * 		ÏîÄ¿model
+	 * 		é¡¹ç›®model
 	 */
 	void addPro(Project model) throws DomainException;
 	
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡¹«¸æ¼¯ºÏ
+	 * æ ¹æ®é¡¹ç›®idè·å–å…¬å‘Šé›†åˆ
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 * @return List<Announcement>
-	 * 		¹«¸æ¼¯ºÏ
+	 * 		å…¬å‘Šé›†åˆ
 	 */
 	List<Announcement> getAnnouncementsByProId(UUID proId);
 	
 	/**
-	 * ÏîÄ¿¶àÌõ¼şÄ£ºı²éÑ¯
+	 * é¡¹ç›®å¤šæ¡ä»¶æ¨¡ç³ŠæŸ¥è¯¢
 	 * @param queryModel
-	 * 		²éÑ¯Ìõ¼şmodel
+	 * 		æŸ¥è¯¢æ¡ä»¶model
 	 * @param pageModel
-	 * 		²éÑ¯·ÖÒ³²ÎÊımodel
+	 * 		æŸ¥è¯¢åˆ†é¡µå‚æ•°model
 	 * @return PageFormater
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 */
 	PageFormater getProjectsByFuzzy(ProQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿Ä£ºıÃû²éÑ¯ÏîÄ¿Ãû¼¯ºÏ
+	 * æ ¹æ®é¡¹ç›®æ¨¡ç³ŠåæŸ¥è¯¢é¡¹ç›®åé›†åˆ
 	 * @param fuzzyName
-	 * 		ÏîÄ¿Ä£ºıÃû
+	 * 		é¡¹ç›®æ¨¡ç³Šå
 	 * @return
 	 */
 	List<ProNameDto> getProNameByFuzzy(String fuzzyName);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡ÏîÄ¿ÔÂ¶È¼¯ºÏÊı¾İ
+	 * æ ¹æ®é¡¹ç›®idè·å–é¡¹ç›®æœˆåº¦é›†åˆæ•°æ®
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 * @return List<ProjectItem>
-	 * 		ÏîÄ¿ÔÂ¶ÈĞÅÏ¢¼¯ºÏ
+	 * 		é¡¹ç›®æœˆåº¦ä¿¡æ¯é›†åˆ
 	 */
 	List<ProjectItem> getProjectItemsByProId(UUID proId);
 	
 	/**
-	 * ÎªÖ¸¶¨µÄÏîÄ¿ĞÂÔöÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+	 * ä¸ºæŒ‡å®šçš„é¡¹ç›®æ–°å¢é¡¹ç›®æœˆåº¦ä¿¡æ¯
 	 * @param item
-	 * 		ÏîÄ¿ÔÂ¶ÈĞÅÏ¢ÊµÌå
+	 * 		é¡¹ç›®æœˆåº¦ä¿¡æ¯å®ä½“
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 */
 	Project addProItem(ProjectItem item,UUID proId) throws DomainException;
 
 	/**
-	 * ĞÂÔö¹«¸æ
+	 * æ–°å¢å…¬å‘Š
 	 * @param announcement
 	 * @return
 	 */
 	public Project addAnnouncement(Announcement announcement);
 	
 	/**
-	 * µ¼ÈëÎÄ¼ş£¬ĞÂÔöÏîÄ¿
+	 * å¯¼å…¥æ–‡ä»¶ï¼Œæ–°å¢é¡¹ç›®
 	 * @param list
-	 * 		ÏîÄ¿¼¯ºÏ
+	 * 		é¡¹ç›®é›†åˆ
 	 */
 	public void addProByFile(List<Project> list) throws DomainException;
 	
 	/**
-	 * ¸ù¾İÔÂ·İµ¼³öÏîÄ¿±¨±í
+	 * æ ¹æ®æœˆä»½å¯¼å‡ºé¡¹ç›®æŠ¥è¡¨
 	 * @param date
-	 * 		É¸Ñ¡µÄÔÂ·İ
+	 * 		ç­›é€‰çš„æœˆä»½
 	 * @return List<Project>
-	 * 		ÏîÄ¿¼¯ºÏ
+	 * 		é¡¹ç›®é›†åˆ
 	 */
 	public List<Project> exportByMonth(ProExportCondition condition);
 	
 	/**
-	 * ĞŞ¸Ä¹«¸æ
+	 * ä¿®æ”¹å…¬å‘Š
 	 * @param model
-	 * 		¹«¸æÊµÌå
+	 * 		å…¬å‘Šå®ä½“
 	 */
 	public void editAnnouncement(Announcement model);
 	
 	/**
-	 * ±à¼­
+	 * ç¼–è¾‘
 	 * @param item
 	 */
 	public void editProItem(ProjectItem item);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿id¼¯ºÏ»ñÈ¡ÏîÄ¿¼¯ºÏ
+	 * æ ¹æ®é¡¹ç›®idé›†åˆè·å–é¡¹ç›®é›†åˆ
 	 * @param uuids
-	 * 		ÏîÄ¿id¼¯ºÏ
+	 * 		é¡¹ç›®idé›†åˆ
 	 * @return List<Project>
-	 * 		ÏîÄ¿¼¯ºÏ
+	 * 		é¡¹ç›®é›†åˆ
 	 */
 	public List<Project> getProjects4Print(String uuids);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿Ãû³Æ»ñÈ¡id
+	 * æ ¹æ®é¡¹ç›®åç§°è·å–id
 	 * @param name
-	 * 		ÏîÄ¿Ãû
+	 * 		é¡¹ç›®å
 	 * @return UUID
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 */
 	public UUID getIdByName(String name);
 	

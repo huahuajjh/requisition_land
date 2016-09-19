@@ -22,6 +22,8 @@ import com.tq.requisition.domain.model.socialsecurityType.ISocialsecurityTypeRep
 import com.tq.requisition.domain.model.socialsecurityType.SocialsecurityType;
 import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedExportCondition;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyAndItem;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
@@ -65,10 +67,10 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 			context().beginTransaction();
 			Family f = fmlRepository.addFamily(FamilyMapper.toModel(fml));
 			context().commit();
-			return toJson("³É¹¦", f, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", f, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -86,9 +88,9 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 	public String queryFmlByFuzzy(FamilyQueryModel queryModel,
 			PageModel pageModel) {
 		try {
-			return toJsonByPage(queryFmlsList(queryModel, pageModel), "³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(queryFmlsList(queryModel, pageModel), "æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -100,10 +102,10 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 			f.setId(fml.getId());
 			Family r = fmlRepository.editFamily(f);
 			context().commit();
-			return toJson("³É¹¦", r, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", r, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -112,32 +114,32 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 
 	@Override
 	public String deleteFml(UUID id) {
-		throw new NotImplementedException("Î´ÊµÏÖµÄ·½·¨");
+		throw new NotImplementedException("æœªå®ç°çš„æ–¹æ³•");
 	}
 
 	@Override
 	public String importFml(Family dto) {
 		if(null==dto)
 		{
-			return toJson("ÉÏ´«µÄ²ğÇ¨»§Êı¾İÎª¿Õ", null, Formater.OperationResult.FAIL);
+			return toJson("ä¸Šä¼ çš„æ‹†è¿æˆ·æ•°æ®ä¸ºç©º", null, Formater.OperationResult.FAIL);
 		}
 		UUID proId = projectRepository.getIdByName(dto.getProName());
 		if(proId==null){
-			return toJson("Î´²éÑ¯µ½²ğÇ¨»§ËùÊôÏîÄ¿-["+dto.getProName()+"]", null, Formater.OperationResult.FAIL);
+			return toJson("æœªæŸ¥è¯¢åˆ°æ‹†è¿æˆ·æ‰€å±é¡¹ç›®-["+dto.getProName()+"]", null, Formater.OperationResult.FAIL);
 		}
 		
-		//¼ì²âÊÇ·ñÓĞ»§Ö÷
+		//æ£€æµ‹æ˜¯å¦æœ‰æˆ·ä¸»
 		boolean hasHouselead = hasHouselead(dto);
 		if(!hasHouselead){
-			return toJson("ÔÚ[Óë»§Ö÷¹ØÏµ]×Ö¶ÎÖĞ,±ØĞëÖ¸¶¨Ò»¸ö[»§Ö÷]", null, Formater.OperationResult.FAIL);
+			return toJson("åœ¨[ä¸æˆ·ä¸»å…³ç³»]å­—æ®µä¸­,å¿…é¡»æŒ‡å®šä¸€ä¸ª[æˆ·ä¸»]", null, Formater.OperationResult.FAIL);
 		}
 		
 		dto.setProId(proId);
 		for (FamilyItem item : dto.getItems()) {
 			item.setProId(proId);
-			//¸ù¾İµ¼ÈëµÄÉç±£Ãû³Æ²éÑ¯Éç±£id
+			//æ ¹æ®å¯¼å…¥çš„ç¤¾ä¿åç§°æŸ¥è¯¢ç¤¾ä¿id
 			UUID sid = socialsecurityTypeRepository.getIdByName(item.getSocialsecurityStr());
-			//¸ù¾İµ¼ÈëµÄ¹ØÏµÃû³Æ²éÑ¯¹ØÏµid
+			//æ ¹æ®å¯¼å…¥çš„å…³ç³»åç§°æŸ¥è¯¢å…³ç³»id
 			UUID rid = relationshipTypeRepository.getIdByName(item.getRelationshipStr());
 			item.setSocialsecurityTypeId(sid);
 			item.setRelationshipId(rid);
@@ -146,7 +148,7 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 			context().beginTransaction();
 			fmlRepository.addFamily(dto);
 			context().commit();
-			return toJson("ÉÏ´«²ğÇ¨»§ĞÅÏ¢³É¹¦", new Object[]{dto,toRemovedInfos(dto.getItems())}, Formater.OperationResult.SUCCESS);
+			return toJson("ä¸Šä¼ æ‹†è¿æˆ·ä¿¡æ¯æˆåŠŸ", new Object[]{dto,toRemovedInfos(dto.getItems())}, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
 			return toJson(e.getMessage(), null, Formater.OperationResult.FAIL);
@@ -160,53 +162,71 @@ public class FamilyMgtServiceImpl extends BaseApplication implements IFamilyMgtS
 	@Override
 	public String getFml4Print(String uuids) {
 		if(null==uuids || uuids.trim().equals("")){
-			return toJson("»ñÈ¡²ğÇ¨»§´òÓ¡ĞÅÏ¢Ê§°Ü-Î´²éÑ¯µ½»§ĞÅÏ¢", null, Formater.OperationResult.FAIL);
+			return toJson("è·å–æ‹†è¿æˆ·æ‰“å°ä¿¡æ¯å¤±è´¥-æœªæŸ¥è¯¢åˆ°æˆ·ä¿¡æ¯", null, Formater.OperationResult.FAIL);
 		}
 		
 		List<Family> fmls = fmlRepository.getFml4Print(uuids);
-		if(null==fmls){return toJson("»ñÈ¡²ğÇ¨»§´òÓ¡ĞÅÏ¢Ê§°Ü-Î´²éÑ¯µ½»§ĞÅÏ¢", null, Formater.OperationResult.FAIL); }
+		if(null==fmls){return toJson("è·å–æ‹†è¿æˆ·æ‰“å°ä¿¡æ¯å¤±è´¥-æœªæŸ¥è¯¢åˆ°æˆ·ä¿¡æ¯", null, Formater.OperationResult.FAIL); }
 		
 		for (Family family : fmls) {
 			List<FamilyItem> items = fmlItemRepository.queryItemsByFmlId(family.getId());
 			family.setItems(items);
 		}
 				
-		return toJson("²éÑ¯´òÓ¡ĞÅÏ¢³É¹¦", fmls, Formater.OperationResult.SUCCESS);
+		return toJson("æŸ¥è¯¢æ‰“å°ä¿¡æ¯æˆåŠŸ", fmls, Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
 	public String getFmlByItemId(UUID id) {
 		Family fml = fmlRepository.getByKey(Family.class, id);
-		if(null==fml){return toJson("Î´²éÑ¯µ½»§ĞÅÏ¢", null, Formater.OperationResult.FAIL);}
+		if(null==fml){return toJson("æœªæŸ¥è¯¢åˆ°æˆ·ä¿¡æ¯", null, Formater.OperationResult.FAIL);}
 		
 		List<FamilyItem> list = fmlItemRepository.queryItemsByFmlId(id);
-		if(null==list || list.size()==0){return toJson("Î´²éÑ¯µ½²ğÇ¨ÈËÔ±ĞÅÏ¢", null, Formater.OperationResult.FAIL);}
+		if(null==list || list.size()==0){return toJson("æœªæŸ¥è¯¢åˆ°æ‹†è¿äººå‘˜ä¿¡æ¯", null, Formater.OperationResult.FAIL);}
 		
 		fml.setItems(list);
-		return toJson("²éÑ¯²ğÇ¨»§³É¹¦", fml, Formater.OperationResult.SUCCESS);
+		return toJson("æŸ¥è¯¢æ‹†è¿æˆ·æˆåŠŸ", fml, Formater.OperationResult.SUCCESS);
 	}
 	
 	@Override
 	public String getFml4HPT(FamilyQueryModel queryModel, PageModel pageModel) {
 		PageFormater page = fmlRepository.getFmlBasicInfo(queryModel, pageModel);
-		return toJsonByPage(page, "»ñÈ¡²ğÇ¨»§ĞÅÏ¢³É¹¦", Formater.OperationResult.SUCCESS);
+		return toJsonByPage(page, "è·å–æ‹†è¿æˆ·ä¿¡æ¯æˆåŠŸ", Formater.OperationResult.SUCCESS);
 	}
 
 	private boolean hasHouselead(Family fml)
 	{
 		for (FamilyItem item : fml.getItems()) {
-			if(item.getRelationshipStr().trim().equals("»§Ö÷")){
+			if(item.getRelationshipStr().trim().equals("æˆ·ä¸»")){
 				return true;
 			}
 		}
 		return false;
 	}
-
+	
 	private List<RemovedInfo> toRemovedInfos(List<FamilyItem> items){
 		List<RemovedInfo> infos = new ArrayList<RemovedInfo>();
 		for (FamilyItem familyItem : items) {
 			infos.add(familyItem.toRemovedInfo());
 		}
 		return infos;
+	}
+
+	@Override
+	public List<FamilyAndItem> exportByDate(RemovedExportCondition query) {
+		List<Family> listData = this.fmlRepository.exportByDate(query);
+		if(listData == null || listData.size() <= 0) return new ArrayList<FamilyAndItem>();
+		List<FamilyAndItem> datas = new ArrayList<FamilyAndItem>();
+		for(int i = 0; i<listData.size();i++) {
+			Family family = listData.get(i);
+			List<FamilyItem> list = fmlItemRepository.queryItemsByFmlId(family.getId());
+			if(list != null && list.size() > 0) {
+				for(int l = 0; l < list.size(); l++){
+					FamilyItem item = list.get(l);
+					datas.add(FamilyAndItem.ToModel(family, item));
+				}
+			}
+		}
+		return datas;
 	}
 }

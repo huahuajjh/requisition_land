@@ -1,15 +1,15 @@
-package com.tq.requisition.presentation.dto.share;
+ï»¿package com.tq.requisition.presentation.dto.share;
 
 import java.util.UUID;
 
 /**
- * »§¿ÚĞÔÖÊ¾ÛºÏ¸ù£¬Î¬»¤»§¿ÚÀàĞÍÊı¾İ×ÖµäÉÏÏÂÎÄ
+ * æˆ·å£æ€§è´¨èšåˆæ ¹ï¼Œç»´æŠ¤æˆ·å£ç±»å‹æ•°æ®å­—å…¸ä¸Šä¸‹æ–‡
  * @author jjh
  * @time 2015-12-18 16:37
  */
 public class HouseholdTypeDto{
 	private UUID id;
-	/**ÀàĞÍÃû³Æ*/
+	/**ç±»å‹åç§°*/
 	private String name;
 	
 	/*constructors*/

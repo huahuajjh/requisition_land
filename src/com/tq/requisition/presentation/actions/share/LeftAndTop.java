@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.share;
+﻿package com.tq.requisition.presentation.actions.share;
 
 import com.tq.requisition.presentation.actions.BaseAction;
 import com.tq.requisition.presentation.dto.sysMgt.AccountSafeDto;

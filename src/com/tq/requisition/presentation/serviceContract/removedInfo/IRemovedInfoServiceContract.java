@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.removedInfo;
+ï»¿package com.tq.requisition.presentation.serviceContract.removedInfo;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,89 +11,89 @@ import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÒÑÇ¨»§µµ°¸·şÎñÆõÔ¼ 
+ * å·²è¿æˆ·æ¡£æ¡ˆæœåŠ¡å¥‘çº¦ 
  * @author jjh
  * @time 2016 01-12 12:57
  */
 public interface IRemovedInfoServiceContract {
 	/**
-	 * ĞÂÔöÒÑÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * æ–°å¢å·²è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @param dto
-	 * 		ÒÑÇ¨»§ÈËÔ±ĞÅÏ¢dto
+	 * 		å·²è¿æˆ·äººå‘˜ä¿¡æ¯dto
 	 * @return String
-	 * 		·µ»Ø Formater ĞòÁĞ»¯ String ¶ÔÏó
+	 * 		è¿”å› Formater åºåˆ—åŒ– String å¯¹è±¡
 	 */
 	String addInfo(RemovedInfoDto dto);
 	
 	/**
-	 * ÅúÁ¿ĞÂÔöÒÑÇ¨»§ÈËÔ±ĞÅÏ¢¼¯ºÏ
+	 * æ‰¹é‡æ–°å¢å·²è¿æˆ·äººå‘˜ä¿¡æ¯é›†åˆ
 	 * @param list
-	 * 		ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢¼¯ºÏ
+	 * 		åœ¨ç±å†œä¸šäººå£ä¿¡æ¯é›†åˆ
 	 * @return String
-	 * 		·µ»Ø Formater ĞòÁĞ»¯ String ¶ÔÏó
+	 * 		è¿”å› Formater åºåˆ—åŒ– String å¯¹è±¡
 	 */
 	String addBatch(List<RemovedInfoDto> list);
 	
 	/**
-	 * ±à¼­Ö¸¶¨ÒÑÇ¨»§ÈËÔ±¶ÔÏó
+	 * ç¼–è¾‘æŒ‡å®šå·²è¿æˆ·äººå‘˜å¯¹è±¡
 	 * @param dto
-	 * 		´ı±à¼­µÄdto
+	 * 		å¾…ç¼–è¾‘çš„dto
 	 * @return String
-	 * 		·µ»Ø Formater ĞòÁĞ»¯ String ¶ÔÏó
+	 * 		è¿”å› Formater åºåˆ—åŒ– String å¯¹è±¡
 	 */
 	String editInfo(RemovedInfoDto dto);
 	
 	/**
-	 * ¸ù¾İidÉ¾ÒÑÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®idåˆ å·²è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @param id
 	 * 		id
 	 * @return String
-	 * 		·µ»Ø Formater ĞòÁĞ»¯ String ¶ÔÏó
+	 * 		è¿”å› Formater åºåˆ—åŒ– String å¯¹è±¡
 	 */
 	String delInfo(UUID id);
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄÉí·İÖ¤É¾³ıÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®æŒ‡å®šçš„èº«ä»½è¯åˆ é™¤äººå‘˜ä¿¡æ¯
 	 * @param idNumber
 	 */
 	void delInfo(String idNumber);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²åĞğ½á¹û¼¯
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæ’å™ç»“æœé›†
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return String
 	 * 		List<RemovedInfoDto>
 	 */
 	String queryByPage4Json(RemovedInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²åĞğ½á¹û¼¯
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæ’å™ç»“æœé›†
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return List<RemovedInfoDto>
-	 * 		·µ»Ø List<RemovedInfoDto> ½á¹û¼¯ºÏ
+	 * 		è¿”å› List<RemovedInfoDto> ç»“æœé›†åˆ
 	 */
 	PageFormater queryByPage4List(RemovedInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * µ¼ÈëÒÑÇ¨»§ÁĞ±í
+	 * å¯¼å…¥å·²è¿æˆ·åˆ—è¡¨
 	 * @param list
-	 * 		ÒÑÇ¨»§µ¼Èëµ¼³ömodel
+	 * 		å·²è¿æˆ·å¯¼å…¥å¯¼å‡ºmodel
 	 * @return String
 	 * 		json
 	 */
 	String importRemovedInfo(List<RemovedInfoImportAndExportDto> list);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelµ¼³öÒÑÇ¨»§ÁĞ±í
+	 * æ ¹æ®æŸ¥è¯¢modelå¯¼å‡ºå·²è¿æˆ·åˆ—è¡¨
 	 * @param queryModel
-	 * 		²éÑ¯model
-	 * @return ÒÑÇ¨»§ÁĞ±í
+	 * 		æŸ¥è¯¢model
+	 * @return å·²è¿æˆ·åˆ—è¡¨
 	 */
 	List<RemovedInfo> exportByQueryModel(RemovedInfoQueryModel queryModel);
 }

@@ -4,7 +4,7 @@ import com.tq.requisition.domain.model.project.Project;
 import com.tq.requisition.presentation.dto.project.NewProDto;
 
 /**
- * í—Ä¿dtoÅcmodelÓ³Éä
+ * é …ç›®dtoèˆ‡modelæ˜ å°„
  * @author jjh
  * @time 2015-12-27 22:32
  */

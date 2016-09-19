@@ -1,7 +1,7 @@
 package com.tq.requisition.autoMapper;
 
 /**
- * dtoÓëÊµÌå×ª»»½Ó¿Ú
+ * dtoä¸å®ä½“è½¬æ¢æ¥å£
  * @author jjh
  * @time 2015-12-23 18:11
  */

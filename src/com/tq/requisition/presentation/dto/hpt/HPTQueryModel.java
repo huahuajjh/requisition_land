@@ -1,9 +1,9 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 public class HPTQueryModel {
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**È¯ºÅ*/
+	/**åˆ¸å·*/
 	private String ticketNumber;
 	
 	/*constructors*/

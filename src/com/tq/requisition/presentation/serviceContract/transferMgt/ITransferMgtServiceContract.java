@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.transferMgt;
+ï»¿package com.tq.requisition.presentation.serviceContract.transferMgt;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,106 +9,106 @@ import com.tq.requisition.presentation.dto.transferMgt.NewAndEditTransferHouseho
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * ×ª»§¹ÜÀíÒµÎñ½Ó¿ÚÆõÔ¼
+ * è½¬æˆ·ç®¡ç†ä¸šåŠ¡æ¥å£å¥‘çº¦
  * @author jjh
  * @time 2015-12-30 17:07
  *
  */
 public interface ITransferMgtServiceContract {
 	/**
-	 * ĞÂÔö×ª»§ĞÅÏ¢
+	 * æ–°å¢è½¬æˆ·ä¿¡æ¯
 	 * @param dto
-	 * 		×ª»§ĞÅÏ¢dto
+	 * 		è½¬æˆ·ä¿¡æ¯dto
 	 * @return
 	 */
 	String addTransferInfo(NewAndEditTransferHouseholdInfoDto dto);
 	
 	/**
-	 * ÅúÁ¿´¦Àí×ª»§ĞÅÏ¢
+	 * æ‰¹é‡å¤„ç†è½¬æˆ·ä¿¡æ¯
 	 * @param list
-	 * 		×ª»§ĞÅÏ¢dto¼¯ºÏ
+	 * 		è½¬æˆ·ä¿¡æ¯dtoé›†åˆ
 	 * @return
 	 */
 	String addBatchTransferInfo(List<NewAndEditTransferHouseholdInfoDto> list);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯model»ñÈ¡×ª»§ĞÅÏ¢ÁĞ±í£¬·µ»Øjson¸ñÊ½
+	 * æ ¹æ®æŸ¥è¯¢modelè·å–è½¬æˆ·ä¿¡æ¯åˆ—è¡¨ï¼Œè¿”å›jsonæ ¼å¼
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	String queryJsonByFuzzy(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯model»ñÈ¡×ª»§ĞÅÏ¢¼¯ºÏ
+	 * æ ¹æ®æŸ¥è¯¢modelè·å–è½¬æˆ·ä¿¡æ¯é›†åˆ
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 	·ÖÒ³model
+	 * 	åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryListByFuzzy(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ÅúÁ¿±à¼­×ª»§ĞÅÏ¢Ê±²éÑ¯µÄ½Ó¿Ú£¬ÓÃÓÚÅúÁ¿±à¼­µÄ²éÑ¯¡£
+	 * æ‰¹é‡ç¼–è¾‘è½¬æˆ·ä¿¡æ¯æ—¶æŸ¥è¯¢çš„æ¥å£ï¼Œç”¨äºæ‰¹é‡ç¼–è¾‘çš„æŸ¥è¯¢ã€‚
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 //	PageFormater queryListByFuzzy4Edit(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ÅúÁ¿±à¼­Ç°µÄ²éÑ¯²Ù×÷£¬·µ»Øjson×Ö·û´®	
+	 * æ‰¹é‡ç¼–è¾‘å‰çš„æŸ¥è¯¢æ“ä½œï¼Œè¿”å›jsonå­—ç¬¦ä¸²	
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 //	String queryByFuzzy4Edit(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ÅúÁ¿¸üĞÂ×ª»§¼¯ºÏĞÅÏ¢
+	 * æ‰¹é‡æ›´æ–°è½¬æˆ·é›†åˆä¿¡æ¯
 	 * @param list
-	 * 		´ı¸üĞÂµÄ×ª»§¼¯ºÏ
+	 * 		å¾…æ›´æ–°çš„è½¬æˆ·é›†åˆ
 	 * @return
 	 */
 //	String editBatchTransferInfo(List<NewAndEditTransferHouseholdInfoDto> list);
 	
 	/**
-	 * ĞÂÔöÊ±²éÑ¯api
+	 * æ–°å¢æ—¶æŸ¥è¯¢api
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryList4AddByFuzzy(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ĞÂÔöÊ±²éÑ¯api
+	 * æ–°å¢æ—¶æŸ¥è¯¢api
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	String query4AddByFuzzy(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ÅúÁ¿É¾³ıµ½»ØÊÕÕ¾
+	 * æ‰¹é‡åˆ é™¤åˆ°å›æ”¶ç«™
 	 * @param uuids
-	 * 		´ıÉ¾³ıµÄidÊı×é
+	 * 		å¾…åˆ é™¤çš„idæ•°ç»„
 	 * @return
 	 */
 	String deleteBatch(UUID... uuids);
 
 	/**
-	 * ±à¼­×ª»§ĞÅÏ¢
+	 * ç¼–è¾‘è½¬æˆ·ä¿¡æ¯
 	 * @param dto
 	 * 		dto
 	 * @return

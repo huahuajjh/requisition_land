@@ -23,7 +23,7 @@ import com.tq.requisition.presentation.dto.transferMgt.TransferInfoDto4Table;
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * ×ª»§¹ÜÀí½Ó¿ÚÊµÏÖ
+ * è½¬æˆ·ç®¡ç†æ¥å£å®ç°
  * @author jjh
  * @time 2015-12-30 23:38
  */
@@ -37,9 +37,9 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 	public void addTransferInfo(final TransferHouseholdInfo entity) throws DomainException {
 		if(entity==null)
 		{
-			throw new NullPointerException("ĞÂÔö×ª»§ĞÅÏ¢Îª¿Õ");
+			throw new NullPointerException("æ–°å¢è½¬æˆ·ä¿¡æ¯ä¸ºç©º");
 		}
-		//¼ì²âÊÇ·ñÒÑ¾­×ª¹ı»§ÁË
+		//æ£€æµ‹æ˜¯å¦å·²ç»è½¬è¿‡æˆ·äº†
 		boolean r = exists(new SpecificationExt<TransferHouseholdInfo>(TransferHouseholdInfo.class) {
 
 			@Override
@@ -55,7 +55,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 
 			@Override
 			public Object[] getAbsParameters() {
-				if(entity.getFmlItemId()==null){throw new NullPointerException("³ÉÔ±idÎª¿Õ");}
+				if(entity.getFmlItemId()==null){throw new NullPointerException("æˆå‘˜idä¸ºç©º");}
 				return new Object[]{entity.getFmlItemId().toString()};
 			}
 
@@ -65,7 +65,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 			}
 		});
 		if(r){
-			throw new DomainException("¸ÃÓÃ»§ÒÑ¾­×ª¹ı»§ÁË");
+			throw new DomainException("è¯¥ç”¨æˆ·å·²ç»è½¬è¿‡æˆ·äº†");
 		}
 		add(entity);
 	}
@@ -74,7 +74,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 	public void addBatch(List<TransferHouseholdInfo> list) throws DomainException {
 		if(list==null)
 		{
-			throw new NullPointerException("ĞÂÔö×ª»§ĞÅÏ¢¼¯ºÏÎª¿Õ");
+			throw new NullPointerException("æ–°å¢è½¬æˆ·ä¿¡æ¯é›†åˆä¸ºç©º");
 		}
 		for (TransferHouseholdInfo transferHouseholdInfo : list) {
 			addTransferInfo(transferHouseholdInfo);
@@ -86,12 +86,12 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 	public void editTransferInfo(TransferHouseholdInfo entity) throws SpecifiedObjectDoesNotExistsException {
 		if(entity==null)
 		{
-			throw new NullPointerException("´ıĞŞ¸ÄµÄ×ª»§ĞÅÏ¢Îª¿Õ£¬Î´²éÑ¯µ½¸Ã¼ÇÂ¼");
+			throw new NullPointerException("å¾…ä¿®æ”¹çš„è½¬æˆ·ä¿¡æ¯ä¸ºç©ºï¼ŒæœªæŸ¥è¯¢åˆ°è¯¥è®°å½•");
 		}
 		TransferHouseholdInfo t = getByKey(TransferHouseholdInfo.class, entity.getId());
 		if(t==null)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("Ö¸¶¨±à¼­µÄÊı¾İ²»´æÔÚ");
+			throw new SpecifiedObjectDoesNotExistsException("æŒ‡å®šç¼–è¾‘çš„æ•°æ®ä¸å­˜åœ¨");
 		}
 		t.modify(entity);
 		update(t);
@@ -101,7 +101,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 	public void editBact(List<TransferHouseholdInfo> list) throws SpecifiedObjectDoesNotExistsException {
 		if(list==null)
 		{
-			throw new NullPointerException("´ı±à¼­µÄ×ª»§ĞÅÏ¢¼¯ºÏÎª¿Õ");
+			throw new NullPointerException("å¾…ç¼–è¾‘çš„è½¬æˆ·ä¿¡æ¯é›†åˆä¸ºç©º");
 		}
 		for (TransferHouseholdInfo transferHouseholdInfo : list) {
 			editTransferInfo(transferHouseholdInfo);
@@ -112,7 +112,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 	public void deleteBact(UUID... uuids) {
 		if(uuids==null)
 		{
-			throw new NullPointerException("´ıÉ¾³ıµÄ¶ÔÏóid²»´æÔÚ");
+			throw new NullPointerException("å¾…åˆ é™¤çš„å¯¹è±¡idä¸å­˜åœ¨");
 		}
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < uuids.length; i++) {
@@ -153,7 +153,7 @@ public class TransferMgtRepository extends HbRepository<TransferHouseholdInfo> i
 			PageModel pageModel) {
 		int count = getTotalCount(new TransferAddCountSpecification(TransferHouseholdInfo.class, queryModel));
 		
-		//Èç¹ûÎ´²éÑ¯µ½¼ÇÂ¼ÔòÖ±½ÓÍË³ö
+		//å¦‚æœæœªæŸ¥è¯¢åˆ°è®°å½•åˆ™ç›´æ¥é€€å‡º
 		if(count==0){
 			return PageFormater.obtain(null, count);
 		}

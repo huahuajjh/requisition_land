@@ -4,25 +4,25 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * ±íÃ÷ÊµÏÖ¸Ã½Ó¿ÚÀàĞÍÊÇÒ»ÖÖÊÂ¼ş
+ * è¡¨æ˜å®ç°è¯¥æ¥å£ç±»å‹æ˜¯ä¸€ç§äº‹ä»¶
  * @author jjh
  * @time 2015-12-16 12:46
  */
 public interface IEvent {
 	/**
 	 * @description
-	 * 		»ñÈ¡»òÉèÖÃÒ»¸öÊÂ¼şid
+	 * 		è·å–æˆ–è®¾ç½®ä¸€ä¸ªäº‹ä»¶id
 	 * @return UUID
-	 * 		·µ»ØÒ»¸öUUIDÀàĞÍÊı¾İ
+	 * 		è¿”å›ä¸€ä¸ªUUIDç±»å‹æ•°æ®
 	 */
 	UUID getUUID();
 	void setUUID(UUID uuid);
 	
 	/**
 	 * @description
-	 * 		»ñÈ¡»òÉèÖÃÒ»¸öÊ±¼ä´Á
+	 * 		è·å–æˆ–è®¾ç½®ä¸€ä¸ªæ—¶é—´æˆ³
 	 * @return UUID
-	 * 		·µ»ØÒ»¸öÈÕÆÚÀàĞÍµÄÊ±¼ä´Á
+	 * 		è¿”å›ä¸€ä¸ªæ—¥æœŸç±»å‹çš„æ—¶é—´æˆ³
 	 */
 	Date getTimeStamp();
 	void setDate(Date timeStamp);

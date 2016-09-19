@@ -6,29 +6,29 @@ import com.tq.requisition.domain.model.transferHouseholdInfo.TransferHouseholdIn
 import com.tq.requisition.exception.DomainException;
 
 /**
- * 转户管理业务接口服务
+ * 杞埛绠＄悊涓氬姟鎺ュ彛鏈嶅姟
  * @author jjh
  * @time 2015-12-30 19:00
  */
 public interface ITransferMgtService {
 	/**
-	 * 新增转户信息，该服务涉及拆迁户人员信息变动，是关于拆迁户人员仓储和转户信息仓储共同完成的业务过程
+	 * 鏂板杞埛淇℃伅锛岃鏈嶅姟娑夊強鎷嗚縼鎴蜂汉鍛樹俊鎭彉鍔紝鏄叧浜庢媶杩佹埛浜哄憳浠撳偍鍜岃浆鎴蜂俊鎭粨鍌ㄥ叡鍚屽畬鎴愮殑涓氬姟杩囩▼
 	 * @param model
-	 * 		待新增的转户信息实体
+	 * 		寰呮柊澧炵殑杞埛淇℃伅瀹炰綋
 	 */
 	void addTransferInfo(TransferHouseholdInfo model) throws DomainException ;
 	
 	/**
-	 * 批量新增转户信息，该服务涉及拆迁户人员信息更新，由拆迁户人员仓储和转户仓储共同完成该业务
+	 * 鎵归噺鏂板杞埛淇℃伅锛岃鏈嶅姟娑夊強鎷嗚縼鎴蜂汉鍛樹俊鎭洿鏂帮紝鐢辨媶杩佹埛浜哄憳浠撳偍鍜岃浆鎴蜂粨鍌ㄥ叡鍚屽畬鎴愯涓氬姟
 	 * @param list
-	 * 		待新增的数据集合
+	 * 		寰呮柊澧炵殑鏁版嵁闆嗗悎
 	 */
 	void addBatchTransferInfo(List<TransferHouseholdInfo> list) throws DomainException ;
 	
 	/**
-	 * 批量更新转户信息，该服务涉及拆迁户人员信息更新，由拆迁户人员仓储和转户仓储共同完成该业务
+	 * 鎵归噺鏇存柊杞埛淇℃伅锛岃鏈嶅姟娑夊強鎷嗚縼鎴蜂汉鍛樹俊鎭洿鏂帮紝鐢辨媶杩佹埛浜哄憳浠撳偍鍜岃浆鎴蜂粨鍌ㄥ叡鍚屽畬鎴愯涓氬姟
 	 * @param list
-	 * 		待更新的数据集合
+	 * 		寰呮洿鏂扮殑鏁版嵁闆嗗悎
 	 */
 	void editBatchTransferInfo(List<TransferHouseholdInfo> list);
 	

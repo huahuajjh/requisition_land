@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.removedDocManagement;
+ï»¿package com.tq.requisition.presentation.actions.removedDocManagement;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -144,7 +144,7 @@ public class RemovedInfoQuery extends BaseAction {
 		this.daoChuHead = daoChuHead;
 	}
 
-	// Êä³öÎÄ¼şÁ÷
+	// è¾“å‡ºæ–‡ä»¶æµ
 	private InputStream outputStream;
 	private String downloadChineseFileName;
 	public InputStream getOutputStream() {

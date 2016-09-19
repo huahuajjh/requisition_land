@@ -6,20 +6,20 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * ¹«¸æÊµÌå
+ * å…¬å‘Šå®ä½“
  * @author jjh
  * @time 2015-12-14 12:52
  */
 public class Announcement extends Entity{
-	/**ÎÄºÅ*/
+	/**æ–‡å·*/
 	private String number;
-	/**¹«¸æÎÄ¼şÂ·¾¶*/
+	/**å…¬å‘Šæ–‡ä»¶è·¯å¾„*/
 	private String docPath;
-	/**¹«¸æÈÕÆÚ*/
+	/**å…¬å‘Šæ—¥æœŸ*/
 	private Date date;
-	/**¹«¸æĞòÁĞ-1£¬2£¬3*/
+	/**å…¬å‘Šåºåˆ—-1ï¼Œ2ï¼Œ3*/
 	private int sequence;
-	/**¹«¸æĞòÁĞ-ÏîÄ¿id*/
+	/**å…¬å‘Šåºåˆ—-é¡¹ç›®id*/
 	private UUID proId;
 	
 	public String getNumber() {
@@ -79,9 +79,9 @@ public class Announcement extends Entity{
 	}
 
 	/**
-	 * ±à¼­
+	 * ç¼–è¾‘
 	 * @param model
-	 * 		¹«¸æmodel
+	 * 		å…¬å‘Šmodel
 	 */
 	public void modify(Announcement model) {
 		this.date = model.getDate();
@@ -91,7 +91,7 @@ public class Announcement extends Entity{
 	}
 	
 	/**
-	 * ÑéÖ¤
+	 * éªŒè¯
 	 */
 	public void validate() {
 		

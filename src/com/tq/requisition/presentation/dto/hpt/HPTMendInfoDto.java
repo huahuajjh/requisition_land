@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,17 +6,17 @@ import java.util.UUID;
 public class HPTMendInfoDto {
 	/**id*/
 	private UUID id;
-	/**²¹È¯ÈÕÆÚ*/
+	/**è¡¥åˆ¸æ—¥æœŸ*/
 	private Date mendDate;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**²¹È¯ÈË*/
+	/**è¡¥åˆ¸äºº*/
 	private UUID onwerId;
-	/**ÕÒ²¹µÄ¹º·¿È¯*/
+	/**æ‰¾è¡¥çš„è´­æˆ¿åˆ¸*/
 	private UUID ticketId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	public UUID getId() {

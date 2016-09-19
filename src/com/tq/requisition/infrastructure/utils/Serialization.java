@@ -13,7 +13,7 @@ import com.tq.requisition.domain.model.share.UseType;
 
 
 /**
- * ¸ÃÀàÌá¹©ĞòÁĞ»¯ºÍ·´ĞòÁĞ»¯·şÎñ
+ * è¯¥ç±»æä¾›åºåˆ—åŒ–å’Œååºåˆ—åŒ–æœåŠ¡
  * @author JJh
  * @time 2015-06-05 12:05
  * @lastmodify 2015-06-05 12:05
@@ -32,28 +32,28 @@ public final class Serialization {
 	}
 	
 	/**
-	 * ½«javabeanĞòÁĞ»¯³Éjson×Ö·û´®
-	 * @param obj - ´ıĞòÁĞ»¯µÄjava¶ÔÏó£¬¸Ã¶ÔÏó·ûºÏjavabean¹æ·¶
-	 * @return String - json×Ö·û´® 
+	 * å°†javabeanåºåˆ—åŒ–æˆjsonå­—ç¬¦ä¸²
+	 * @param obj - å¾…åºåˆ—åŒ–çš„javaå¯¹è±¡ï¼Œè¯¥å¯¹è±¡ç¬¦åˆjavabeanè§„èŒƒ
+	 * @return String - jsonå­—ç¬¦ä¸² 
 	 */
 	public static String toJson(Object obj) {
 		return gson.toJson(obj);
 	}
 	
 	/**
-	 * ½«json×Ö·û´®ĞòÁĞ»¯³Éjava¶ÔÏó
-	 * @param jsonString - json×Ö·û´®
-	 * @return T - ÀàĞÍ²ÎÊı,ĞòÁĞ»¯Ö®ºóµÄÄ¿±êÀàĞÍ²ÎÊı
+	 * å°†jsonå­—ç¬¦ä¸²åºåˆ—åŒ–æˆjavaå¯¹è±¡
+	 * @param jsonString - jsonå­—ç¬¦ä¸²
+	 * @return T - ç±»å‹å‚æ•°,åºåˆ—åŒ–ä¹‹åçš„ç›®æ ‡ç±»å‹å‚æ•°
 	 */
 	public static <T> T toObject(String jsonString,Class<T> clazz) {
 		return gson.fromJson(jsonString, clazz);		
 	}
 	
 	/**
-	 * ½«jsonÊı×é¶ÔÏóµÄ×Ö·û´®×ª»»Îªjava¼¯ºÏ¶ÔÏó
-	 * @param jsonString - jsonÊı×é×Ö·û´®
-	 * @param clazz - java¼¯ºÏ¶ÔÏóµÄClass
-	 * @return T - ¼¯ºÏÀàĞÍ²ÎÊı 
+	 * å°†jsonæ•°ç»„å¯¹è±¡çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºjavaé›†åˆå¯¹è±¡
+	 * @param jsonString - jsonæ•°ç»„å­—ç¬¦ä¸²
+	 * @param clazz - javaé›†åˆå¯¹è±¡çš„Class
+	 * @return T - é›†åˆç±»å‹å‚æ•° 
 	 */
 	public static <T> List<T> toList(String jsonString,T clazz) {
 		Type type = new TypeToken<List<T>>(){}.getType();

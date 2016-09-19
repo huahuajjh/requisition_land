@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -7,51 +7,51 @@ import com.excel.util.annotation.InputColAnnotation;
 import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 
 /**
- * µ¼Èëµ¼³ö¹º·¿È¯ĞÅÏ¢model
+ * å¯¼å…¥å¯¼å‡ºè´­æˆ¿åˆ¸ä¿¡æ¯model
  * 
  * @author jjh
  * @time 2016-21-05
  * 
  */
 public class HPTImportAndExport {
-	/** ĞòÁĞ */
+	/** åºåˆ— */
 	@InputColAnnotation(colCoord = 0)
 	private String num;
 
-	/** ÏîÄ¿Ãû³Æ */
+	/** é¡¹ç›®åç§° */
 	@InputColAnnotation(colCoord = 1)
 	private String proName;
 
-	/** ĞÕÃû */
+	/** å§“å */
 	@InputColAnnotation(colCoord = 2)
 	private String name;
 
-	/** Óë»§Ö÷¹ØÏµ */
+	/** ä¸æˆ·ä¸»å…³ç³» */
 	@InputColAnnotation(colCoord = 3)
 	private String relationship;
 
-	/** Éí·İÖ¤ */
-	@InputColAnnotation(colCoord = 4,required = true,requiredErrorMsg = "[Éí·İÖ¤]²»¿ÉÎª¿Õ")
+	/** èº«ä»½è¯ */
+	@InputColAnnotation(colCoord = 4,required = true,requiredErrorMsg = "[èº«ä»½è¯]ä¸å¯ä¸ºç©º")
 	private String idNumber;
 
-	/** ÈË¿Ú */
-	@InputColAnnotation(colCoord = 5,converErrorMsg = "ÀàĞÍ´íÎó£¬[ÈË¿Ú]ÊÇÕûÊı")
+	/** äººå£ */
+	@InputColAnnotation(colCoord = 5,converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[äººå£]æ˜¯æ•´æ•°")
 	private int fmlNumber;
 
-	/** È¯ºÅ */
-	@InputColAnnotation(colCoord = 6,only=true,required = true,onlyErrorMsg = "[È¯ºÅ]Ö»ÄÜÎ¨Ò»",requiredErrorMsg = "[È¯ºÅ]²»¿ÉÎª¿Õ")
+	/** åˆ¸å· */
+	@InputColAnnotation(colCoord = 6,only=true,required = true,onlyErrorMsg = "[åˆ¸å·]åªèƒ½å”¯ä¸€",requiredErrorMsg = "[åˆ¸å·]ä¸å¯ä¸ºç©º")
 	private String ticketNumber;
 
-	/** ½ğ¶î */
-	@InputColAnnotation(colCoord = 7,required = true,converErrorMsg="ÀàĞÍ´íÎó£¬[²¹Ìù½ğ¶î]ÊÇĞ¡ÊıÀàĞÍ",requiredErrorMsg = "[½ğ¶î]²»¿ÉÎª¿Õ")
+	/** é‡‘é¢ */
+	@InputColAnnotation(colCoord = 7,required = true,converErrorMsg="ç±»å‹é”™è¯¯ï¼Œ[è¡¥è´´é‡‘é¢]æ˜¯å°æ•°ç±»å‹",requiredErrorMsg = "[é‡‘é¢]ä¸å¯ä¸ºç©º")
 	private float money;
 
-	/**ËùÓĞÕßid*/
+	/**æ‰€æœ‰è€…id*/
 	private UUID fmlItemId;
 	
-	/**´´½¨ÈËID*/
+	/**åˆ›å»ºäººID*/
 	private String createUId;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 
 	public HousePuraseTicket toHPT() {

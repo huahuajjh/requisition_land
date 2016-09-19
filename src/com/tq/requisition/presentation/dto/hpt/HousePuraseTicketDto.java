@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.tq.requisition.domain.model.share.TicketState;
 
 /**
- * ¹º·¿È¯dto
+ * è´­æˆ¿åˆ¸dto
  * 
  * @author jjh
  * @time 2015-01-02 17:32
@@ -14,25 +14,25 @@ import com.tq.requisition.domain.model.share.TicketState;
 public class HousePuraseTicketDto{
 	/** id */
 	private UUID id;
-	/** ²¹Ìù½ğ¶î */
+	/** è¡¥è´´é‡‘é¢ */
 	private float bonus;
-	/** ÖÆÈ¯ÈÕÆÚ */
+	/** åˆ¶åˆ¸æ—¥æœŸ */
 	private Date makeDate;
-	/** È¯ºÅ */
+	/** åˆ¸å· */
 	private String ticketNumber;
-	/** ¹º·¿È¯×´Ì¬ */
+	/** è´­æˆ¿åˆ¸çŠ¶æ€ */
 	private TicketState state;
-	/** ¹º·¿È¯ËùÓĞÕßid */
+	/** è´­æˆ¿åˆ¸æ‰€æœ‰è€…id */
 	private UUID fmlItemId;
-	/** ¹º·¿È¯ËùÓĞÕßÉí·İÖ¤ */
+	/** è´­æˆ¿åˆ¸æ‰€æœ‰è€…èº«ä»½è¯ */
 	private String idNumber;
-	/** ÊÇ·ñÉ¾³ı */
+	/** æ˜¯å¦åˆ é™¤ */
 	private boolean del;
-	/** ĞÕÃû */
+	/** å§“å */
 	private String name;
-	/**´´½¨ÈËID*/
+	/**åˆ›å»ºäººID*/
 	private String createUId;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 
 	/* constructors */

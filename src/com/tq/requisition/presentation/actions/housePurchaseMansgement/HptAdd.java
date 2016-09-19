@@ -87,7 +87,7 @@ public class HptAdd extends BaseAction {
 			dto.setCreateUId(userId().toString());
 			stateJson = this.hptMgtServiceContract.add(dto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR,"Êı¾İ¸ñÊ½²»ÕıÈ·");
+			stateJson = toForMaterJson(OperationResult.ERROR,"æ•°æ®æ ¼å¼ä¸æ­£ç¡®");
 		}
 		response().getWriter().write(stateJson);
 		return null;
@@ -128,7 +128,7 @@ public class HptAdd extends BaseAction {
 				 int rowIndex = Integer.parseInt(ConfigFileUtil.readByKey("housePurchaseRowIndex"));
 				 List<HPTImportAndExport> items =  excelInput.getDatas(HPTImportAndExport.class, rowIndex);
 				if(errors.size() > 0){
-					 String str = toForMaterJson(OperationResult.ERROR, "ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+					 String str = toForMaterJson(OperationResult.ERROR, "ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 					 response().getWriter().write(str);
 					 return null;
 				 } else {
@@ -141,17 +141,17 @@ public class HptAdd extends BaseAction {
 						}
 						 stateJsonString = this.hptMgtServiceContract.importHPT(items);
 					 } else {
-						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "ÎÄ¼şÖĞÃ»ÓĞÊı¾İ");
+						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "æ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®");
 					 }
 					 response().getWriter().write(stateJsonString);
 				 }
 			} catch (InstantiationException | NoSuchMethodException
 					| ConvertErrorException e) {
-				String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÁĞ±í´íÎó");
+				String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelåˆ—è¡¨é”™è¯¯");
 				 response().getWriter().write(str);
 			}
 		} catch (IOException e) {
-			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 			 response().getWriter().write(str);
 		} finally{
 			file.delete();

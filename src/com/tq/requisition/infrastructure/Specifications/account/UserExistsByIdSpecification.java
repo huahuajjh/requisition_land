@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据账户id检测账户是否存在的规约实现
+ * 鏍规嵁璐︽埛id妫�娴嬭处鎴锋槸鍚﹀瓨鍦ㄧ殑瑙勭害瀹炵幇
  * @author jjh
  * @time 2015-12-20 23:30
  */

@@ -13,13 +13,13 @@ import com.tq.requisition.domain.model.resource.Resource;
 public interface IAuthorizeService {
 
 	/**
-	 * »ñÈ¡ÓÃ»§ËùÓµÓĞµÄ×ÊÔ´
+	 * è·å–ç”¨æˆ·æ‰€æ‹¥æœ‰çš„èµ„æº
 	 * 
 	 * @param userId
-	 *            ÓÃ»§DI
+	 *            ç”¨æˆ·DI
 	 * @param hierarchy
-	 *            ×ÊÔ´²ã¼¶
-	 * @return ×ÊÔ´¼¯ºÏ
+	 *            èµ„æºå±‚çº§
+	 * @return èµ„æºé›†åˆ
 	 */
 	List<Resource> getResourceByUserId(UUID userId, int hierarchy);
 }

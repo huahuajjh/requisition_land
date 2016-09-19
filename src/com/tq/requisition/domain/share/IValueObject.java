@@ -1,7 +1,7 @@
 package com.tq.requisition.domain.share;
 
 /**
- * Öµ¶ÔÏó½Ó¿Ú
+ * å€¼å¯¹è±¡æ¥å£
  * @author jjh
  * @time 2015-12-18 11:02
  */

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.share;
+锘縫ackage com.tq.requisition.presentation.actions.share;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -8,14 +8,14 @@ import com.tq.requisition.presentation.serviceContract.share.IAddressServiceCont
 
 public class Address extends BaseAction {
 
-	/**地址操作*/
+	/**鍦板潃鎿嶄綔*/
 	private IAddressServiceContract addressServiceContract;
 	
 	public Address(){
 		this.addressServiceContract = getService("addressService", IAddressServiceContract.class);
 	}
 	
-	/**提交地址*/
+	/**鎻愪氦鍦板潃*/
 	private String id;
 	
 	public void setId(String id) {

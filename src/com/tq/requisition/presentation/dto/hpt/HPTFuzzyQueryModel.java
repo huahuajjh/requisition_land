@@ -1,19 +1,19 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.UUID;
 
 public class HPTFuzzyQueryModel {
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private String proName;
-	/**È¯ºÅ*/
+	/**åˆ¸å·*/
 	private String ticketNumber;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**»§Ö÷µÄÉí·İÖ¤*/
+	/**æˆ·ä¸»çš„èº«ä»½è¯*/
 	private String huIdNumber;
-	/**»§Ö÷µÄID*/
+	/**æˆ·ä¸»çš„ID*/
 	private UUID huFmlId;
 
 	public String getTicketNumber() {

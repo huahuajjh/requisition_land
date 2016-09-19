@@ -19,7 +19,7 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.removedInfo.IRemovedInfoServiceContract;
 
 /**
- * ÒÑÇ¨»§µµ°¸·şÎñÊµÏÖ
+ * å·²è¿æˆ·æ¡£æ¡ˆæœåŠ¡å®ç°
  * @author jjh
  * @time 2016 01-12 12:57
  */
@@ -38,9 +38,9 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.addRemovedInfo(RemovedInfoMapper.toModel(dto));
 			context().commit();
-			return toJson("ĞÂÔöÒÑÇ¨»§µµ°¸³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢å·²è¿æˆ·æ¡£æ¡ˆæˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("ĞÂÔöÒÑÇ¨»§µµ°¸Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢å·²è¿æˆ·æ¡£æ¡ˆå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		
 	}
@@ -51,10 +51,10 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.addBatch(RemovedInfoMapper.toModelList(list));
 			context().commit();
-			return toJson("ĞÂÔöÒÑÇ¨»§µµ°¸³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢å·²è¿æˆ·æ¡£æ¡ˆæˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
 			context().rollback();
-			return toJson("ĞÂÔöÒÑÇ¨»§µµ°¸Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢å·²è¿æˆ·æ¡£æ¡ˆå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -67,9 +67,9 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.editRemovedInfo(RemovedInfoMapper.toModel(dto));
 			context().commit();
-			return toJson("±à¼­Êı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("±à¼­Êı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -79,9 +79,9 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.delRemovedInfo(id);
 			context().commit();
-			return toJson("É¾³ıÊı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("åˆ é™¤æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("É¾³ıÊı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 	@Override
 	public String queryByPage4Json(RemovedInfoQueryModel queryModel,
 			PageModel pageModel) {
-		return toJsonByPage(queryByPage4List(queryModel, pageModel), "²éÑ¯³É¹¦", Formater.OperationResult.SUCCESS);
+		return toJsonByPage(queryByPage4List(queryModel, pageModel), "æŸ¥è¯¢æˆåŠŸ", Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 	@Override
 	public String importRemovedInfo(List<RemovedInfoImportAndExportDto> list) {
 		if(null==list || list.size()==0){
-			return toJson("ÒÑÇ¨»§ÁĞ±íÎª¿Õ", null, Formater.OperationResult.FAIL);
+			return toJson("å·²è¿æˆ·åˆ—è¡¨ä¸ºç©º", null, Formater.OperationResult.FAIL);
 		}
 		List<RemovedInfo> infos = new ArrayList<RemovedInfo>();
 		for (RemovedInfoImportAndExportDto removedInfoImportAndExportDto : list) {
@@ -115,10 +115,10 @@ public class RemovedInfoServiceImpl extends BaseApplication implements IRemovedI
 			context().beginTransaction();
 			removedInfoRepository.addBatch(infos);
 			context().commit();
-			return toJson("µ¼ÈëÒÑÇ¨»§ĞÅÏ¢³É¹¦", list, Formater.OperationResult.SUCCESS);
+			return toJson("å¯¼å…¥å·²è¿æˆ·ä¿¡æ¯æˆåŠŸ", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("µ¼ÈëÒÑÇ¨»§ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¯¼å…¥å·²è¿æˆ·ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

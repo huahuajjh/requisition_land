@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.socialSecurityMansgement;
+ï»¿package com.tq.requisition.presentation.actions.socialSecurityMansgement;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -71,14 +71,14 @@ public class SolmImportFile extends BaseAction {
 		String stateJson = "";
 		try {
 			NewSocialsecurityDto dto = Serialization.toObject(dataJson, NewSocialsecurityDto.class);
-			//Ğ´Èë²Ù×÷ÈËÔ±
+			//å†™å…¥æ“ä½œäººå‘˜
 			dto.setOprUserId(userId());
 			dto.setOprDate(new Date());
 			dto.setCreateDate(new Date());
 			dto.setCreateUid(userId().toString());
 			stateJson = this.ssService.addSSInfo(dto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR,"Êı¾İ¸ñÊ½²»ÕıÈ·");
+			stateJson = toForMaterJson(OperationResult.ERROR,"æ•°æ®æ ¼å¼ä¸æ­£ç¡®");
 		}
 		response().getWriter().write(stateJson);
 		return null;
@@ -100,7 +100,7 @@ public class SolmImportFile extends BaseAction {
 			 try {
 				 List<SsImportAndExportDto> items =  excelInput.getDatas(SsImportAndExportDto.class, 2);
 				if(errors.size() > 0){
-					 String str = toForMaterJson(OperationResult.ERROR, "ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+					 String str = toForMaterJson(OperationResult.ERROR, "ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 					 response().getWriter().write(str);
 					 return null;
 				 } else {
@@ -113,17 +113,17 @@ public class SolmImportFile extends BaseAction {
 							}
 						 stateJsonString = this.ssService.importSS(items);
 					 } else {
-						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "ÎÄ¼şÖĞÃ»ÓĞÊı¾İ");
+						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "æ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®");
 					 }
 					 response().getWriter().write(stateJsonString);
 				 }
 			} catch (InstantiationException | NoSuchMethodException
 					| ConvertErrorException e) {
-				String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÁĞ±í´íÎó");
+				String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelåˆ—è¡¨é”™è¯¯");
 				 response().getWriter().write(str);
 			}
 		} catch (IOException e) {
-			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 			 response().getWriter().write(str);
 		} finally{
 			file.delete();

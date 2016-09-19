@@ -65,9 +65,9 @@ public class GetResServiceImpl extends BaseApplication implements IGetResService
 	@Override
 	public String getResByUserIdJson(UUID uid) {
 		try {
-			return toJson("≥…π¶", getResByUserId(uid), Formater.OperationResult.SUCCESS);
+			return toJson("ÊàêÂäü", getResByUserId(uid), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson(" ß∞‹-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("Â§±Ë¥•-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	

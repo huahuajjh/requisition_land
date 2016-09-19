@@ -17,7 +17,7 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.accountRole.ExistsUserAndRoleSpecification;
 
 /**
- * ½ÇÉ«ÓÃ»§¹ØÏµ²Ö´¢ÊµÏÖ
+ * è§’è‰²ç”¨æˆ·å…³ç³»ä»“å‚¨å®ç°
  * @author jjh
  * @time 2015-12-21 17:33
  */
@@ -44,7 +44,7 @@ public class RoleAccountRepository  extends HbRepository<RoleAccount> implements
 		boolean r = exists(new ExistsUserAndRoleSpecification(RoleAccount.class,uid,rId));
 		if(r)
 		{
-			throw new InvalidOperationException("¸ÃÕË»§¶ÔÓ¦µÄ½ÇÉ«¹ØÏµÒÑ¾­´æÔÚ£¬²»ÄÜÖØ¸´Ìí¼Ó");
+			throw new InvalidOperationException("è¯¥è´¦æˆ·å¯¹åº”çš„è§’è‰²å…³ç³»å·²ç»å­˜åœ¨ï¼Œä¸èƒ½é‡å¤æ·»åŠ ");
 		}
 		RoleAccount ra = RoleAccount.obtain(uid, rId);
 		add(ra);		
@@ -55,7 +55,7 @@ public class RoleAccountRepository  extends HbRepository<RoleAccount> implements
 		boolean r = exists(new ExistsUserAndRoleSpecification(RoleAccount.class,uid,rId));
 		if(!r)
 		{
-			throw new InvalidOperationException("¸ÃÕË»§¶ÔÓ¦µÄ½ÇÉ«¹ØÏµ²»´æÔÚ");
+			throw new InvalidOperationException("è¯¥è´¦æˆ·å¯¹åº”çš„è§’è‰²å…³ç³»ä¸å­˜åœ¨");
 		}
 		List<RoleAccount> list = getAll(new SpecificationExt<RoleAccount>(RoleAccount.class) {
 
@@ -83,7 +83,7 @@ public class RoleAccountRepository  extends HbRepository<RoleAccount> implements
 		
 		if(list==null)
 		{
-			throw new NullPointerException("Î´²éÑ¯³öÕË»§Óë½ÇÉ«µÄ¶ÔÓ¦¹ØÏµ£¬null");
+			throw new NullPointerException("æœªæŸ¥è¯¢å‡ºè´¦æˆ·ä¸è§’è‰²çš„å¯¹åº”å…³ç³»ï¼Œnull");
 		}
 		RoleAccount ra = list.get(0);
 		removeByKey(RoleAccount.class, ra.getId());
@@ -94,7 +94,7 @@ public class RoleAccountRepository  extends HbRepository<RoleAccount> implements
 		executeUpdate(new SpecificationExt<RoleAccount>(RoleAccount.class) {
 			@Override
 			public String getAbsHql() {
-				throw new NotImplementedException("Î´Ê¹ÓÃhql±í´ïÊ½£¬´ıÊµÏÖµÄ·½·¨getAbsHql()");
+				throw new NotImplementedException("æœªä½¿ç”¨hqlè¡¨è¾¾å¼ï¼Œå¾…å®ç°çš„æ–¹æ³•getAbsHql()");
 			}
 			@Override
 			public String getAbsSql() {

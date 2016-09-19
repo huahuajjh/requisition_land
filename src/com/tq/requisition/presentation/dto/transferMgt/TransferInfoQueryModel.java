@@ -1,27 +1,27 @@
-package com.tq.requisition.presentation.dto.transferMgt;
+ï»¿package com.tq.requisition.presentation.dto.transferMgt;
 
 import java.util.UUID;
 
 import com.tq.requisition.infrastructure.utils.ThreeState;
 
 /**
- * ×ª»§ĞÅÏ¢²éÑ¯model
+ * è½¬æˆ·ä¿¡æ¯æŸ¥è¯¢model
  * @author jjh
  * @time 2015-12-30 17:13
  *
  */
 public class TransferInfoQueryModel {
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private String proName;
-	/**½ÖµÀµØÖ·d*/
+	/**è¡—é“åœ°å€d*/
 	private UUID streetId;
-	/**ÉçÇøµØÖ·id*/
+	/**ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**ÊÇ·ñ×ª»§*/
+	/**æ˜¯å¦è½¬æˆ·*/
 	private ThreeState isTransfered;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**×éid*/
+	/**ç»„id*/
 	private UUID groupId;
 	
 	

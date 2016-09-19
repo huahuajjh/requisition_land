@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据条件获取账户总记录数规约
+ * 鏍规嵁鏉′欢鑾峰彇璐︽埛鎬昏褰曟暟瑙勭害
  * @author jjh
  *	@time 2015-01-07 17:30
  */

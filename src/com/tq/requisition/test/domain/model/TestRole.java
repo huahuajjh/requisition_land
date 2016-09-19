@@ -1,4 +1,4 @@
-package com.tq.requisition.test.domain.model;
+﻿package com.tq.requisition.test.domain.model;
 
 import org.junit.Test;
 

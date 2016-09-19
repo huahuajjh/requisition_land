@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.transferAccountManagement;
+锘縫ackage com.tq.requisition.presentation.actions.transferAccountManagement;
 
 import java.io.IOException;
 import java.util.Date;
@@ -50,7 +50,7 @@ public class TaImportFile extends BaseAction {
 	public String add() throws IOException{
 		String stateJson = "";
 		NewAndEditTransferHouseholdInfoDto dto = Serialization.toObject(dataJson, NewAndEditTransferHouseholdInfoDto.class);
-		//写入操作人员
+		//鍐欏叆鎿嶄綔浜哄憳
 		dto.setOprUserId(userId());
 		dto.setOprDate(new Date());
 		stateJson = this.transferMgtServiceContract.addTransferInfo(dto);

@@ -253,20 +253,20 @@
 						<div class="form-group">
 							<label class="control-label">本月下达期限腾地决定书<span class="text-danger">*</span></label> <input
 								type="text" maxlength="10" name="yearDeadlineFile" class="form-control" placeholder="请输入本月下达期限腾地决定书"
-								value="">
+								value="0">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="control-label">本月申请法院执行数<span class="text-danger">*</span></label> <input
 								type="text" maxlength="10" name="yearCourtExecute" class="form-control" placeholder="请输入本月申请法院执行数"
-								value="">
+								value="0">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="control-label">本月实施强制户数<span class="text-danger">*</span></label> <input type="text"
-								class="form-control" maxlength="10" name="yearLegalRemoved" placeholder="请输入本月实施强制户数" value="">
+								class="form-control" maxlength="10" name="yearLegalRemoved" placeholder="请输入本月实施强制户数" value="0">
 						</div>
 					</div>
 					<div class="col-md-6" id="isSee">

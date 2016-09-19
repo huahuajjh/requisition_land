@@ -5,7 +5,7 @@ import com.tq.requisition.domain.Specification.expression.OperationType;
 import com.tq.requisition.exception.ValidationNullException;
 
 /**
- * hqlÓï¾ä±í´ïÊ½
+ * hqlè¯­å¥è¡¨è¾¾å¼
  * @author jjh
  * @time 2015-12-17 16:20
  *
@@ -18,9 +18,9 @@ public final class HqlExpression extends IHqlExpression{
 	private OperationType type;
 	
 	/**
-	 * ÉèÖÃsql±í´ïÊ½
+	 * è®¾ç½®sqlè¡¨è¾¾å¼
 	 * @param _hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	@Override
 	public void setSql(String sql) {		
@@ -28,38 +28,38 @@ public final class HqlExpression extends IHqlExpression{
 	}
 	
 	/**
-	 * »ñÈ¡hql±í´ïÊ½
+	 * è·å–hqlè¡¨è¾¾å¼
 	 * @return
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	@Override
 	public String getSql() {
 		if(sqlQuery == null)
 		{
-			throw new ValidationNullException("ÉèÖÃµÄsql±í´ïÊ½Îª¿Õ£¬ÇëÖ¸¶¨·µ»Ø²Ù×÷±í´ïÊ½ÀàĞÍ£¬Ä¬ÈÏSQLÀàĞÍ");
+			throw new ValidationNullException("è®¾ç½®çš„sqlè¡¨è¾¾å¼ä¸ºç©ºï¼Œè¯·æŒ‡å®šè¿”å›æ“ä½œè¡¨è¾¾å¼ç±»å‹ï¼Œé»˜è®¤SQLç±»å‹");
 		}
 		return sqlQuery;
 	}
 	
 	/**
-	 * ÉèÖÃhql±í´ïÊ½
+	 * è®¾ç½®hqlè¡¨è¾¾å¼
 	 * @param hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	public void setHql(String hql) {
 		hqlQuery = hql;
 	}
 	
 	/**
-	 * »ñÈ¡hql±í´ïÊ½
+	 * è·å–hqlè¡¨è¾¾å¼
 	 * @param hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	@Override
 	public String getHql() {
 		if(hqlQuery == null)
 		{
-			throw new ValidationNullException("ÉèÖÃµÄhql±í´ïÊ½Îª¿Õ£¬ÇëÖ¸¶¨·µ»Ø²Ù×÷±í´ïÊ½ÀàĞÍ£¬Ä¬ÈÏSQLÀàĞÍ");
+			throw new ValidationNullException("è®¾ç½®çš„hqlè¡¨è¾¾å¼ä¸ºç©ºï¼Œè¯·æŒ‡å®šè¿”å›æ“ä½œè¡¨è¾¾å¼ç±»å‹ï¼Œé»˜è®¤SQLç±»å‹");
 		}
 		return hqlQuery;
 	}

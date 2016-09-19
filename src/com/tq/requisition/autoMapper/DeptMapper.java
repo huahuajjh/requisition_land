@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.department.Department;
 import com.tq.requisition.presentation.dto.sysMgt.DeptDto;
 
 /**
- * Department¾ÛºÏ¸ùÓëDeotDto×ª»»Àà,´ËÀà²»ÄÜ±»¼Ì³Ğ
+ * Departmentèšåˆæ ¹ä¸DeotDtoè½¬æ¢ç±»,æ­¤ç±»ä¸èƒ½è¢«ç»§æ‰¿
  * @author jjh
  * @time 2015-12-24 17:11
  */
@@ -30,7 +30,7 @@ public class DeptMapper {
 	public static List<Department> toModelList(List<DeptDto> dtoList) {
 		if(dtoList == null)
 		{
-			throw new NullPointerException("´ı×ª»»µÄdto¼¯ºÏÎªnull");
+			throw new NullPointerException("å¾…è½¬æ¢çš„dtoé›†åˆä¸ºnull");
 		}
 		List<Department> deptList = new ArrayList<Department>();
 		for (DeptDto deptDto : dtoList) {
@@ -42,7 +42,7 @@ public class DeptMapper {
 	public static List<DeptDto> toDtolList(List<Department> deptList) {
 		if(deptList == null)
 		{
-			throw new NullPointerException("´ı×ª»»µÄdept¼¯ºÏÎªnull");
+			throw new NullPointerException("å¾…è½¬æ¢çš„depté›†åˆä¸ºnull");
 		}
 		List<DeptDto> dtoList = new ArrayList<DeptDto>();
 		for (Department department : deptList) {

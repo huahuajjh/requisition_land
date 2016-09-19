@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.proMgt;
+ï»¿package com.tq.requisition.presentation.serviceContract.proMgt;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,159 +14,159 @@ import com.tq.requisition.presentation.dto.project.ProjectDto;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÏîÄ¿¹ÜÀíÆõÔ¼½Ó¿Ú£¬ÓÃÓÚÏîÄ¿µÄcurd
+ * é¡¹ç›®ç®¡ç†å¥‘çº¦æ¥å£ï¼Œç”¨äºé¡¹ç›®çš„curd
  * @author jjh
  * @time 2015-12-27 16:16
  *
  */
 public interface IProMgtServiceContract {
 	/**
-	 * ĞÂÔöí—Ä¿
+	 * æ–°å¢é¡¹ç›®
 	 * @param dto
-	 * 		ĞÂÔöí—Ä¿dto
+	 * 		æ–°å¢é¡¹ç›®dto
 	 * @return
 	 */
 	String addPro(NewProDto dto);	
 	
 	/**
-	 * «@È¡í—Ä¿îĞÍ
+	 * è·å–é¡¹ç›®ç±»å‹
 	 * @return
 	 */
 	List<ProTypeDto> getProType();
 	
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡¹«¸æ
+	 * æ ¹æ®é¡¹ç›®idè·å–å…¬å‘Š
 	 * @param proId
 	 * @return
 	 */
 	String getAnnounce(UUID proId);
 	
 	/**
-	 * Ä£ºı²éÑ¯ÏîÄ¿
+	 * æ¨¡ç³ŠæŸ¥è¯¢é¡¹ç›®
 	 * @param query
-	 * 		Ä£ºı²éÑ¯Ä£ĞÍ
+	 * 		æ¨¡ç³ŠæŸ¥è¯¢æ¨¡å‹
 	 * @param page
-	 * 		·ÖÒ³Ä£ĞÍ
+	 * 		åˆ†é¡µæ¨¡å‹
 	 * @return
 	 */
 	String getProListFuzzy(ProQueryModel query,PageModel page);
 	
 	/**
-	 * ±à¼­ÏîÄ¿
+	 * ç¼–è¾‘é¡¹ç›®
 	 * @param dto
-	 * 		´ı±à¼­µÄÏîÄ¿dto
+	 * 		å¾…ç¼–è¾‘çš„é¡¹ç›®dto
 	 * @return
 	 */
 	String editPro(ProjectDto dto);
 	
 	/**
-	 * É¾³ıÏîÄ¿
+	 * åˆ é™¤é¡¹ç›®
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 * @return
 	 */
 	String deletePro(UUID proId);
 	
 	/**
-	 * ¸ù¾İÄ£ºıÏîÄ¿Ãû³Æ×Ö·û´®»ñÈ¡ÏîÄ¿Ãû³Æ¼¯ºÏ
+	 * æ ¹æ®æ¨¡ç³Šé¡¹ç›®åç§°å­—ç¬¦ä¸²è·å–é¡¹ç›®åç§°é›†åˆ
 	 * @param fuzzyName
-	 * 		Ä£ºıÏîÄ¿Ãû³Æ
+	 * 		æ¨¡ç³Šé¡¹ç›®åç§°
 	 * @return
 	 */
 	String getProNameListFuzzy(String fuzzyName);
 	
 	/**
-	 * ÎªÖ¸¶¨µÄÏîÄ¿Ìí¼ÓÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+	 * ä¸ºæŒ‡å®šçš„é¡¹ç›®æ·»åŠ é¡¹ç›®æœˆåº¦ä¿¡æ¯
 	 * @param dto
-	 * 		ÏîÄ¿ÔÂ¶Èdto
+	 * 		é¡¹ç›®æœˆåº¦dto
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 * @return
 	 */
 	String addProItem(ProItemDto dto,UUID proId);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡¸ÃÏîÄ¿ÏÂµÄÔÂ¶È½ø¶ÈĞÅÏ¢
+	 * æ ¹æ®é¡¹ç›®idè·å–è¯¥é¡¹ç›®ä¸‹çš„æœˆåº¦è¿›åº¦ä¿¡æ¯
 	 * @param proId
-	 * 		ÏîÄ¿id
+	 * 		é¡¹ç›®id
 	 * @return
 	 */
 	String getProItemsByProId(UUID proId);
 	
 	/**
-	 * ĞÂÔö¹«¸æ
+	 * æ–°å¢å…¬å‘Š
 	 * @param dto
-	 * 		´ıĞÂÔöµÄ¹«¸æ
+	 * 		å¾…æ–°å¢çš„å…¬å‘Š
 	 * @return
-	 * 		·µ»ØĞÂÔöºóµÄ¹«¸æÊµÌåÊı¾İ
+	 * 		è¿”å›æ–°å¢åçš„å…¬å‘Šå®ä½“æ•°æ®
 	 */
 	String addAnnouncement(AnnouncementDto dto);
 
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡ÏîÄ¿ĞÅÏ¢
+	 * æ ¹æ®é¡¹ç›®idè·å–é¡¹ç›®ä¿¡æ¯
 	 * @param id
 	 * @return
 	 */
 	String getProById(UUID id);
 
 	/**
-	 * ¸ù¾İÏîÄ¿id»ñÈ¡ÏîÄ¿ĞÅÏ¢
+	 * æ ¹æ®é¡¹ç›®idè·å–é¡¹ç›®ä¿¡æ¯
 	 * @param id
 	 * @return
 	 */
 	ProjectDto getById4Entity(UUID id);
 	
 	/**
-	 * µ¼ÈëÏîÄ¿ĞÅÏ¢
+	 * å¯¼å…¥é¡¹ç›®ä¿¡æ¯
 	 * @param list
-	 * 		ÏîÄ¿dto¼¯ºÏ
+	 * 		é¡¹ç›®dtoé›†åˆ
 	 * @return String
-	 * 		jsonÏûÏ¢
+	 * 		jsonæ¶ˆæ¯
 	 */
 	String addByFile(List<ProImportAndExportDto> list);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelµ¼³öÏîÄ¿±¨±í
+	 * æ ¹æ®æŸ¥è¯¢modelå¯¼å‡ºé¡¹ç›®æŠ¥è¡¨
 	 * @param condition
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @return List<ProImportAndExportDto>
-	 * 		ÏîÄ¿µ¼Èëµ¼³ömodel
+	 * 		é¡¹ç›®å¯¼å…¥å¯¼å‡ºmodel
 	 * 
 	 */
 	List<ProImportAndExportDto> exportProByDate(ProExportCondition condition);
 	
 	/**
-	 * ±à¼­¹«¸æ
+	 * ç¼–è¾‘å…¬å‘Š
 	 * @param dto
-	 * 		¹«¸æÊµÌådto
+	 * 		å…¬å‘Šå®ä½“dto
 	 * @return String
 	 * 		json
 	 */
 	String editAnnouncement(AnnouncementDto dto);
 	
 	/**
-	 * ±à¼­ÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+	 * ç¼–è¾‘é¡¹ç›®æœˆåº¦ä¿¡æ¯
 	 * @param dto
-	 * 		ÏîÄ¿ÔÂ¶ÈÊµÌå
+	 * 		é¡¹ç›®æœˆåº¦å®ä½“
 	 * @return String
 	 * 		json
 	 */
 	String editProItem(ProItemDto dto);
 	
 	/**
-	 * ÎªÏîÄ¿´òÓ¡Ìá¹©½Ó¿Ú£¬¸ù¾İÏîÄ¿id¼¯ºÏ»ñÈ¡ÏîÄ¿¼¯ºÏ
+	 * ä¸ºé¡¹ç›®æ‰“å°æä¾›æ¥å£ï¼Œæ ¹æ®é¡¹ç›®idé›†åˆè·å–é¡¹ç›®é›†åˆ
 	 * @param uuids
-	 * 		ÏîÄ¿id¼¯ºÏ
+	 * 		é¡¹ç›®idé›†åˆ
 	 * @return String
 	 * 		json
 	 */
 	String getPro4Print(String uuids);
 	
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨ÏîÄ¿µÄ³ö×Êµ¥Î»
-	 * @param id ËùÊôÏîÄ¿
-	 * @param moneyUnit ¹úÍÁ¾Ö³ö×Ê
-	 * @param otherMoneyUnit ÆäËû³ö×Êµ¥Î»
+	 * ä¿®æ”¹æŒ‡å®šé¡¹ç›®çš„å‡ºèµ„å•ä½
+	 * @param id æ‰€å±é¡¹ç›®
+	 * @param moneyUnit å›½åœŸå±€å‡ºèµ„
+	 * @param otherMoneyUnit å…¶ä»–å‡ºèµ„å•ä½
 	 * @return
 	 */
 	String editMoneyUnit(UUID id,String moneyUnit,String otherMoneyUnit);

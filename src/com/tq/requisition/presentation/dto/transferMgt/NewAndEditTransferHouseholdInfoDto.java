@@ -1,35 +1,35 @@
-package com.tq.requisition.presentation.dto.transferMgt;
+ï»¿package com.tq.requisition.presentation.dto.transferMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * ĞÂÔö×ª»§ĞÅÏ¢dto
+ * æ–°å¢è½¬æˆ·ä¿¡æ¯dto
  * @author jjh
  * @time 2015-12-18 16:39
  */
 public class NewAndEditTransferHouseholdInfoDto{
 	/*private fields*/	
 	private UUID id;
-	/**²Ù×÷ÈËid*/
+	/**æ“ä½œäººid*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**×ª»§½ÖµÀµØÖ·id*/
+	/**è½¬æˆ·è¡—é“åœ°å€id*/
 	private UUID streetId;
-	/**×ª»§ÉçÇøµØÖ·id*/
+	/**è½¬æˆ·ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**×ª»§È«µØÖ·*/
+	/**è½¬æˆ·å…¨åœ°å€*/
 	private String address;
-	/**×ª»§ÈÕÆÚ*/
+	/**è½¬æˆ·æ—¥æœŸ*/
 	private Date transferDate;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍid*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹id*/
 	private UUID houseHoldTypeId;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍ×Ö·û´®*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹å­—ç¬¦ä¸²*/
 	private String houseHoldTypeStr;
-	/**×ª»§ÈËid*/
+	/**è½¬æˆ·äººid*/
 	private UUID fmlItemId;
-	/**½Mid*/
+	/**ç»„id*/
 	private UUID groupId;
 	
 	/*getters and setters*/

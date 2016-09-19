@@ -1,12 +1,12 @@
 package com.tq.requisition.domain.model.share;
 
 /**
- * 资源类型
+ * 璧勬簮绫诲瀷
  * @author jjh
  * @time 2015-12-18 23:58
  */
 public enum ResourceType {
-	/**菜单*/
+	/**鑿滃崟*/
 	MENU,
 	
 }

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.removedinfo;
+ï»¿package com.tq.requisition.presentation.dto.removedinfo;
 
 import java.util.Date;
 
@@ -7,39 +7,39 @@ import com.excel.util.annotation.OutputColAnnotation;
 import com.tq.requisition.domain.model.removedInfo.RemovedInfo;
 
 public class RemovedInfoImportAndExportDto {
-	/**Ç¨»§ÈËĞÕÃû*/
-	@InputColAnnotation(colCoord = 0, required = true,requiredErrorMsg="[Ç¨»§ÈËĞÕÃû]²»¿ÉÎª¿Õ")
+	/**è¿æˆ·äººå§“å*/
+	@InputColAnnotation(colCoord = 0, required = true,requiredErrorMsg="[è¿æˆ·äººå§“å]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 0)
 	private String name;
 
-	/**²ğÇ¨»§ÊÊÓÃÕş²ß*/
+	/**æ‹†è¿æˆ·é€‚ç”¨æ”¿ç­–*/
 	@InputColAnnotation(colCoord = 1)
 	@OutputColAnnotation(colCoord = 1)
 	private String fitPolicy;
 	
-	/**Ç¨»§ÈËÉí·İÖ¤*/
-	@InputColAnnotation(colCoord = 2, required = true,requiredErrorMsg="[Ç¨»§ÈËÉí·İÖ¤]²»¿ÉÎª¿Õ")
+	/**è¿æˆ·äººèº«ä»½è¯*/
+	@InputColAnnotation(colCoord = 2, required = true,requiredErrorMsg="[è¿æˆ·äººèº«ä»½è¯]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 2)
 	private String idNumber;
 	
-	/**³öÉúÈÕÆÚ*/
-	@InputColAnnotation(colCoord = 3, required = true,requiredErrorMsg="[³öÉúÈÕÆÚ]²»¿ÉÎª¿Õ",converErrorMsg = "ÀàĞÍ´íÎó£¬[³öÉúÈÕÆÚ]ÊÇÊ±¼äÀàĞÍ")
+	/**å‡ºç”Ÿæ—¥æœŸ*/
+	@InputColAnnotation(colCoord = 3, required = true,requiredErrorMsg="[å‡ºç”Ÿæ—¥æœŸ]ä¸å¯ä¸ºç©º",converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[å‡ºç”Ÿæ—¥æœŸ]æ˜¯æ—¶é—´ç±»å‹")
 	@OutputColAnnotation(colCoord = 3)
 	private Date birthDay;
 	
-	/**²ğÇ¨ÈÕÆÚ*/
-	@InputColAnnotation(colCoord = 4, required = true,requiredErrorMsg="[²ğÇ¨ÈÕÆÚ]²»¿ÉÎª¿Õ",converErrorMsg = "ÀàĞÍ´íÎó£¬[²ğÇ¨ÈÕÆÚ]ÊÇÊ±¼äÀàĞÍ")
+	/**æ‹†è¿æ—¥æœŸ*/
+	@InputColAnnotation(colCoord = 4, required = true,requiredErrorMsg="[æ‹†è¿æ—¥æœŸ]ä¸å¯ä¸ºç©º",converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æ‹†è¿æ—¥æœŸ]æ˜¯æ—¶é—´ç±»å‹")
 	@OutputColAnnotation(colCoord = 4)
 	private Date removeDate;
 	
 	@InputColAnnotation(colCoord = 5, required = false)
 	@OutputColAnnotation(colCoord = 5)
-	/**Ç¨»§ÈËµØÖ·*/
+	/**è¿æˆ·äººåœ°å€*/
 	private String address;
 	
-	/**´´½¨ÈËID*/
+	/**åˆ›å»ºäººID*/
 	private String createId;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
 	public void setCreateId(String createId) {

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.sysManagement;
+ï»¿package com.tq.requisition.presentation.serviceContract.sysManagement;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.tq.requisition.presentation.dto.sysMgt.DeptDto;
 
 /**
- * ²¿ÃÅÆõÔ¼½Ó¿Ú
+ * éƒ¨é—¨å¥‘çº¦æ¥å£
  * 
  * @author Bless
  * @version 1.0
@@ -14,45 +14,45 @@ import com.tq.requisition.presentation.dto.sysMgt.DeptDto;
  */
 public interface IDeptMgtService {
 	/**
-	 * ĞÂÔö²¿ÃÅ
+	 * æ–°å¢éƒ¨é—¨
 	 * @param dto
-	 * 		´ıĞÂÔöµÄ²¿ÃÅdto
+	 * 		å¾…æ–°å¢çš„éƒ¨é—¨dto
 	 * @return
-	 * 		jsonÏûÏ¢{DeptDto}
+	 * 		jsonæ¶ˆæ¯{DeptDto}
 	 */
 	String createDept(DeptDto dto);
 	
 	/**
-	 * ĞŞ¸Ä²¿ÃÅ
+	 * ä¿®æ”¹éƒ¨é—¨
 	 * 
 	 * @param dept
-	 *            ´ıĞŞ¸ÄµÄ²¿ÃÅÊµÌåDTO
+	 *            å¾…ä¿®æ”¹çš„éƒ¨é—¨å®ä½“DTO
 	 */
 	String edit(DeptDto dept);
 
 	/**
-	 * ¸ù¾İIDÀ´É¾³ı²¿ÃÅ
+	 * æ ¹æ®IDæ¥åˆ é™¤éƒ¨é—¨
 	 * 
 	 * @param id
-	 *            ²¿ÃÅ±êÊ¶
+	 *            éƒ¨é—¨æ ‡è¯†
 	 */
 	String delete(UUID id);
 	
 	/**
-	 * ¸ù¾İ×éÖ¯ID»ñÈ¡²¿ÃÅÁĞ±í
+	 * æ ¹æ®ç»„ç»‡IDè·å–éƒ¨é—¨åˆ—è¡¨
 	 * 
 	 * @param orgId
-	 *            ×éÖ¯ID
-	 * @return ²¿ÃÅÁĞ±í
+	 *            ç»„ç»‡ID
+	 * @return éƒ¨é—¨åˆ—è¡¨
 	 */
 	List<DeptDto> getDeptDtoListByOrgId(UUID orgId);
 	
 	/**
-	 * ¸ù¾İ×éÖ¯ID»ñÈ¡²¿ÃÅÁĞ±í
+	 * æ ¹æ®ç»„ç»‡IDè·å–éƒ¨é—¨åˆ—è¡¨
 	 * 
 	 * @param orgId
-	 *            ×éÖ¯ID
-	 * @return ²¿ÃÅJsonÁĞ±í
+	 *            ç»„ç»‡ID
+	 * @return éƒ¨é—¨Jsonåˆ—è¡¨
 	 */
 	String getDeptDtoListByOrgIdToJson(UUID orgId);
 }

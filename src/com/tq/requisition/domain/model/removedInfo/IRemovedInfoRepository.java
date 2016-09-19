@@ -10,66 +10,66 @@ import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÒÑÇ¨»§¾ÛºÏ¸ù²Ö´¢½Ó¿Ú
+ * å·²è¿æˆ·èšåˆæ ¹ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-30 22:46
  */
 public interface IRemovedInfoRepository extends IRepository<RemovedInfo>{
 	/**
-	 * ĞÂÔöÒÑÇ¨ÈËÔ±µµ°¸ĞÅÏ¢
+	 * æ–°å¢å·²è¿äººå‘˜æ¡£æ¡ˆä¿¡æ¯
 	 * @param entity
-	 * 		²ğÇ¨ÈËÔ±µµ°¸ĞÅÏ¢ÊµÌå
+	 * 		æ‹†è¿äººå‘˜æ¡£æ¡ˆä¿¡æ¯å®ä½“
 	 * @return
-	 * 		·µ»ØÒÑ²ğÇ¨ÈËÔ±µµ°¸ĞÅÏ¢ÊµÌå
+	 * 		è¿”å›å·²æ‹†è¿äººå‘˜æ¡£æ¡ˆä¿¡æ¯å®ä½“
 	 */
 	RemovedInfo addRemovedInfo(RemovedInfo entity) throws DomainException ;
 
 	/**
-	 * ÅúÁ¿ĞÂÔöÒÑÇ¨»§ÈËÔ±¼¯ºÏĞÅÏ¢
+	 * æ‰¹é‡æ–°å¢å·²è¿æˆ·äººå‘˜é›†åˆä¿¡æ¯
 	 * @param list
-	 * 		ÒÑÇ¨»§ÈËÔ±¼¯ºÏĞÅÏ¢
+	 * 		å·²è¿æˆ·äººå‘˜é›†åˆä¿¡æ¯
 	 */
 	void addBatch(List<RemovedInfo> list) throws DomainException;
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨idÉ¾³ıµÄ²ğÇ¨ÈËÔ±µµ°¸ĞÅÏ¢
+	 * æ ¹æ®æŒ‡å®šidåˆ é™¤çš„æ‹†è¿äººå‘˜æ¡£æ¡ˆä¿¡æ¯
 	 * @param id
-	 * 		ÈËÔ±id
+	 * 		äººå‘˜id
 	 */
 	void delRemovedInfo(UUID id);
 	
 	/**
-	 * ²éÑ¯ÒÑÇ¨»§µµ°¸
+	 * æŸ¥è¯¢å·²è¿æˆ·æ¡£æ¡ˆ
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
-	 * 		ÒÑÇ¨»§µµ°¸¼¯ºÏ
+	 * 		å·²è¿æˆ·æ¡£æ¡ˆé›†åˆ
 	 */
 	PageFormater queryByPage(RemovedInfoQueryModel queryModel, PageModel pageModel);
 	
 	/**
-	 * ±à¼­ÒÑÇ¨»§µµ°¸ĞÅÏ¢
+	 * ç¼–è¾‘å·²è¿æˆ·æ¡£æ¡ˆä¿¡æ¯
 	 * @param entity
-	 * 		´ı±à¼­µÄÒÑÇ¨»§µµ°¸ÊµÌå
+	 * 		å¾…ç¼–è¾‘çš„å·²è¿æˆ·æ¡£æ¡ˆå®ä½“
 	 * @return
-	 * 		·µ»Ø±»±à¼­ºóµÄµµ°¸ÊµÌå
+	 * 		è¿”å›è¢«ç¼–è¾‘åçš„æ¡£æ¡ˆå®ä½“
 	 */
 	RemovedInfo editRemovedInfo(RemovedInfo entity) throws DomainException ;
 	
 	/**
-	 * ¸ù¾İ²éÑ¯model²éÑ¯ÒÑÇ¨»§¼¯ºÏ
+	 * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢å·²è¿æˆ·é›†åˆ
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @return List<RemovedInfo>
-	 * 		ÒÑÇ¨»§¼¯ºÏ
+	 * 		å·²è¿æˆ·é›†åˆ
 	 */
 	List<RemovedInfo> queryByModel(RemovedInfoQueryModel queryModel);
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄÉí·İÖ¤É¾³ı
-	 * @param idNum Éí·İÖ¤
+	 * æ ¹æ®æŒ‡å®šçš„èº«ä»½è¯åˆ é™¤
+	 * @param idNum èº«ä»½è¯
 	 */
 	void deleteByIdNum(String idNum);
 }

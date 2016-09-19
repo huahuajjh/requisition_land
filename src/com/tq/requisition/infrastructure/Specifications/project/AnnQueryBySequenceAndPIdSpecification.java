@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.project.Announcement;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 规约，根据序列和项目id查询
+ * 瑙勭害锛屾牴鎹簭鍒楀拰椤圭洰id鏌ヨ
  * @author jjh
  * @time 2016-01-25 19::45
  *

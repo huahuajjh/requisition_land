@@ -4,32 +4,32 @@ import com.tq.requisition.domain.Specification.expression.IHqlExpression;
 import com.tq.requisition.domain.Specification.expression.OperationType;
 
 /**
- * ¹æÔ¼³éÏóÀ©Õ¹Àà£¬ÊµÏÖÄäÃû¹æÔ¼£¬Èç¹û¹æÔ¼²¢²»¸´ÔÓ£¬¿ÉÒÔÊµÀı»¯¸Ã³éÏóÀà¡£
+ * è§„çº¦æŠ½è±¡æ‰©å±•ç±»ï¼Œå®ç°åŒ¿åè§„çº¦ï¼Œå¦‚æœè§„çº¦å¹¶ä¸å¤æ‚ï¼Œå¯ä»¥å®ä¾‹åŒ–è¯¥æŠ½è±¡ç±»ã€‚
  * @author jjh
  * @param <T>
- * 		Âú×ã¹æÔ¼µÄ¶ÔÏó
+ * 		æ»¡è¶³è§„çº¦çš„å¯¹è±¡
  * @date 2015-12-21 22:39
  *
  */
 public abstract class SpecificationExt<T>  extends Specification<T>{	
 	/**
-	 * ÇëÊµÏÖ¸Ã·½·¨£¬¸Ã·½·¨Ó¦¸Ã·µ»ØÒ»¸öhql±í´ïÊ½
+	 * è¯·å®ç°è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•åº”è¯¥è¿”å›ä¸€ä¸ªhqlè¡¨è¾¾å¼
 	 */
 	public abstract String getAbsHql();
 	
 	/**
-	 * ÇëÊµÏÖ¸Ã·½·¨£¬¸Ã·½·¨Ó¦¸Ã·µ»ØÒ»¸ösql±í´ïÊ½
+	 * è¯·å®ç°è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•åº”è¯¥è¿”å›ä¸€ä¸ªsqlè¡¨è¾¾å¼
 	 */
 	public abstract String getAbsSql();
 	
 	/**
-	 * ÇëÊµÏÖ¸Ã·½·¨£¬¸Ã·½·¨Ó¦¸Ã·µ»Øhql»òÕßsql±í´ïÊ½ËùĞèÒªµÄ²ÎÊı
+	 * è¯·å®ç°è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•åº”è¯¥è¿”å›hqlæˆ–è€…sqlè¡¨è¾¾å¼æ‰€éœ€è¦çš„å‚æ•°
 	 * @return
 	 */
 	public abstract Object[] getAbsParameters();
 	
 	/**
-	 * ÇëÊµÏÖ¸Ã·½·¨£¬¸Ã·½·¨·µ»Ø²Ù×÷±í´ïÊ½µÄ²Ù×÷ÀàĞÍ
+	 * è¯·å®ç°è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•è¿”å›æ“ä½œè¡¨è¾¾å¼çš„æ“ä½œç±»å‹
 	 * @return
 	 */
 	public abstract OperationType getAbsType();

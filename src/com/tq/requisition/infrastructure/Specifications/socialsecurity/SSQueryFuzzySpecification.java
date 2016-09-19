@@ -11,7 +11,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
 
 /**
- * ¸ù¾İ²éÑ¯modelÄ£ºı²éÑ¯Éç±£Êı¾İ£¬¹æÔ¼
+ * æ ¹æ®æŸ¥è¯¢modelæ¨¡ç³ŠæŸ¥è¯¢ç¤¾ä¿æ•°æ®ï¼Œè§„çº¦
  * @author jjh
  * @time 2015-12-31 2
  */

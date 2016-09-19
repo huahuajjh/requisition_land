@@ -15,7 +15,7 @@ import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
 
 /**
- * Éç±£¹ÜÀíÁìÓò·şÎñ
+ * ç¤¾ä¿ç®¡ç†é¢†åŸŸæœåŠ¡
  * @author jjh
  * @time 2015-01-04 17:35
  */
@@ -38,11 +38,11 @@ public class SocialsecurityServiceImpl extends BaseDomainService implements ISSS
 	@Override
 	public void addSSInfo(final SocialsecurityInfo ss) throws DomainException {		
 		ssRepository.addSS(ss);
-		//±ê¼Ç²ğÇ¨ÈËÔ±Éç±£×´Ì¬
+		//æ ‡è®°æ‹†è¿äººå‘˜ç¤¾ä¿çŠ¶æ€
 		FamilyItem item = itemRepository.getByKey(FamilyItem.class, ss.getFmlItemId());
 		if(null == item)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("Î´²éÑ¯µ½ÒªÉç±£µÄ²ğÇ¨ÈËÔ±ĞÅÏ¢");
+			throw new SpecifiedObjectDoesNotExistsException("æœªæŸ¥è¯¢åˆ°è¦ç¤¾ä¿çš„æ‹†è¿äººå‘˜ä¿¡æ¯");
 		}
 		item.markSocialsecurityState();
 		itemRepository.update(item);
@@ -86,7 +86,7 @@ public class SocialsecurityServiceImpl extends BaseDomainService implements ISSS
 		});
 		if(res!=list.size())
 		{
-			throw new RuntimeException("Ó°ÏìĞĞÊıÓë¸üĞÂĞĞÊı²»Ò»ÖÂ");
+			throw new RuntimeException("å½±å“è¡Œæ•°ä¸æ›´æ–°è¡Œæ•°ä¸ä¸€è‡´");
 		}
 		
 	}

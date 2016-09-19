@@ -286,7 +286,7 @@
 			</div>
 		</div>
 	</div>
-    <table class="table table-bordered bootstrap-datatable datatable table-hover">
+    <table class="table table-bordered bootstrap-datatable datatable table-hover" style="word-break: break-all;">
     	<thead>
     		<tr>
     			<th><span class="jHead">户主姓名</span></th>

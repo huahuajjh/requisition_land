@@ -148,13 +148,13 @@ color:#555;
 			<div class="form-group">
 				<label class="col-md-4 control-label">应拆总面积（违章）（平方米）<span class="text-danger">*</span></label>
 				<div class="col-md-5">
-					<input type="text" name="shouldRemoveIllegalArea" class="form-control" placeholder="请输入应拆总面积（违章）" maxlength="10">
+					<input type="text" name="shouldRemoveIllegalArea" class="form-control" placeholder="请输入应拆总面积（违章）" maxlength="10" value="0">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-4 control-label">项目应付补偿款（万元）<span class="text-danger">*</span></label>
 				<div class="col-md-5">
-					<input type="text" name="shouldPayMoney" class="form-control" placeholder="项目应付补偿款" maxlength="15">
+					<input type="text" name="shouldPayMoney" class="form-control" placeholder="项目应付补偿款" maxlength="15" value="0">
 				</div>
 			</div>
 			<div class="form-group">

@@ -2,7 +2,7 @@ function bindingSelect(optional){
 	var option = {
 			masterSelect:null,
 			childSelect:null,
-			childDefalueVal:"ÇëÑ¡Ôñ",
+			childDefalueVal:"è¯·é€‰æ‹©",
 			childVal:null,
 			url:"",
 			type:"POST",

@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 
 /**
- * 根据model查询发放台账总记录数规约
+ * 鏍规嵁model鏌ヨ鍙戞斁鍙拌处鎬昏褰曟暟瑙勭害
  * @author jjh
  * @time 2015-01-04 1:55
  *

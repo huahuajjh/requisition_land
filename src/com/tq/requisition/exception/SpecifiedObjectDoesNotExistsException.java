@@ -1,7 +1,7 @@
 package com.tq.requisition.exception;
 
 /**
- * 指定的查询条件下，无法查找出结果异常
+ * 鎸囧畾鐨勬煡璇㈡潯浠朵笅锛屾棤娉曟煡鎵惧嚭缁撴灉寮傚父
  * @author jjh
  * @time 2015-12-23 14:09
  */

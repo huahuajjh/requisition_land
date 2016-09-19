@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -8,27 +8,27 @@ import com.tq.requisition.domain.model.share.UseType;
 public class HPTUseAndCashInfoDto {
 	/**id*/
 	private UUID id;
-	/**¹º·¿È¯ËùÓĞÕßid*/
+	/**è´­æˆ¿åˆ¸æ‰€æœ‰è€…id*/
 	private UUID ownerId;
-	/**¹º·¿È¯id*/
+	/**è´­æˆ¿åˆ¸id*/
 	private UUID ticketId;
-	/**Ê¹ÓÃÈÕÆÚ*/
+	/**ä½¿ç”¨æ—¥æœŸ*/
 	private Date usingDate;
-	/**Ê¹ÓÃÀàĞÍ*/
+	/**ä½¿ç”¨ç±»å‹*/
 	private UseType usingType;
-	/**Ê¹ÓÃÈ¥Ïò*/
+	/**ä½¿ç”¨å»å‘*/
 	private String usingToWhere;
-	/**Çé¿öËµÃ÷*/
+	/**æƒ…å†µè¯´æ˜*/
 	private String situationExplain;
-	/**Ïà¹ØÆ¾Ö¤*/
+	/**ç›¸å…³å‡­è¯*/
 	private String evidencePath;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**Í¼Æ¬²É¼¯*/
+	/**å›¾ç‰‡é‡‡é›†*/
 	private String image;
 	
 	

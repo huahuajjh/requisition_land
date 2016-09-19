@@ -12,7 +12,7 @@ import com.tq.requisition.domain.service.idomainservice.ITransferMgtService;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ×ª»§¹ÜÀíÒµÎñ½Ó¿ÚÊµÏÖ
+ * è½¬æˆ·ç®¡ç†ä¸šåŠ¡æ¥å£å®ç°
  * @author jjh
  * @time 2015-12-30 19:09
  */
@@ -35,13 +35,13 @@ public class TransferMgtServiceImpl extends BaseDomainService implements ITransf
 	public void addTransferInfo(TransferHouseholdInfo model) throws DomainException {
 		transferInfoRepository.addTransferInfo(model);
 		
-		//¸üĞÂ²ğÇ¨ÈËÔ±×ª»§ĞÅÏ¢
+		//æ›´æ–°æ‹†è¿äººå‘˜è½¬æˆ·ä¿¡æ¯
 		FamilyItem item = itemRepository.getByKey(FamilyItem.class, model.getFmlItemId());
 		
-		//±ê¼Ç±»²ğÇ¨ÈËÔ±×ª»§×´Ì¬
+		//æ ‡è®°è¢«æ‹†è¿äººå‘˜è½¬æˆ·çŠ¶æ€
 		if(null == item)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½×ª»§¶ÔÓ¦µÄ²ğÇ¨ÈËÔ±ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°è½¬æˆ·å¯¹åº”çš„æ‹†è¿äººå‘˜ä¿¡æ¯");
 		}
 		item.setHouseholdId(model.getHouseHoldTypeId());
 		item.setHouseholdStr(model.getHouseHoldTypeStr());
@@ -51,13 +51,13 @@ public class TransferMgtServiceImpl extends BaseDomainService implements ITransf
 
 	@Override
 	public void addBatchTransferInfo(List<TransferHouseholdInfo> list) throws DomainException {
-		if(null == list || list.size()==0){throw new NullPointerException("ĞÂÔöµÄ×ª»§ĞÅÏ¢¼¯ºÏÎª¿Õ");}
-		//³Ö¾Ã»¯×ª»§ĞÅÏ¢
+		if(null == list || list.size()==0){throw new NullPointerException("æ–°å¢çš„è½¬æˆ·ä¿¡æ¯é›†åˆä¸ºç©º");}
+		//æŒä¹…åŒ–è½¬æˆ·ä¿¡æ¯
 		transferInfoRepository.addBatch(list);
-		//¸üĞÂ²ğÇ¨ÈËÔ±ĞÅÏ¢
+		//æ›´æ–°æ‹†è¿äººå‘˜ä¿¡æ¯
 		for (TransferHouseholdInfo transferHouseholdInfo : list) {
 			FamilyItem item = itemRepository.getByKey(FamilyItem.class, transferHouseholdInfo.getFmlItemId());
-			if(null==item){throw new DomainException("Î´²éÑ¯µ½×ª»§ĞÅÏ¢");}
+			if(null==item){throw new DomainException("æœªæŸ¥è¯¢åˆ°è½¬æˆ·ä¿¡æ¯");}
 			item.transferHousehold(transferHouseholdInfo);
 			itemRepository.update(item);
 		}

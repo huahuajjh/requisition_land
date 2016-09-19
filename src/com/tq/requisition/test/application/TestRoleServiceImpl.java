@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+Ôªøpackage com.tq.requisition.test.application;
 
 import java.util.UUID;
 
@@ -20,14 +20,14 @@ public class TestRoleServiceImpl {
 
 	@Test
 	public void createRole() {
-		RoleDto dto = new RoleDto("π‹¿Ì‘±", UUID.randomUUID());
+		RoleDto dto = new RoleDto("ÁÆ°ÁêÜÂëò", UUID.randomUUID());
 		String json = roleService.addRole(dto);
 		System.out.println(json);
 	}
 
 	@Test
 	public void modifyRole() {
-		RoleDto dto = new RoleDto("∆’Õ®1",
+		RoleDto dto = new RoleDto("ÊôÆÈÄö1",
 				UUID.fromString("13873e76-836a-4c1b-b975-72b0f7fc87e2"));
 		String json = roleService.updateRole(dto);
 		System.out.println(json);

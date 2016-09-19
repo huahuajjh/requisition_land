@@ -50,10 +50,10 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 	@Override
 	public String getAllHouseholdType() {
 		try {
-			return toJson("³É¹¦", getAllHouseholdTypeList(),
+			return toJson("æˆåŠŸ", getAllHouseholdTypeList(),
 					Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»ñÈ¡»§¿ÚÀàĞÍÊ§°Ü-" + e.getMessage(), null,
+			return toJson("è·å–æˆ·å£ç±»å‹å¤±è´¥-" + e.getMessage(), null,
 					Formater.OperationResult.FAIL);
 		}
 	}
@@ -61,10 +61,10 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 	@Override
 	public String getAllRelationshipType() {
 		try {
-			return toJson("³É¹¦", getAllRelationshipTypeList(),
+			return toJson("æˆåŠŸ", getAllRelationshipTypeList(),
 					Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»ñÈ¡»§Ö÷¹ØÏµÊı¾İÊ§°Ü-" + e.getMessage(), null,
+			return toJson("è·å–æˆ·ä¸»å…³ç³»æ•°æ®å¤±è´¥-" + e.getMessage(), null,
 					Formater.OperationResult.FAIL);
 		}
 	}
@@ -72,10 +72,10 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 	@Override
 	public String getAllSocialsecurityType() {
 		try {
-			return toJson("³É¹¦", getAllSocialsecurityTypeList(),
+			return toJson("æˆåŠŸ", getAllSocialsecurityTypeList(),
 					Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»ñÈ¡Éç±£ÀàĞÍÊı¾İÊ§°Ü-" + e.getMessage(), null,
+			return toJson("è·å–ç¤¾ä¿ç±»å‹æ•°æ®å¤±è´¥-" + e.getMessage(), null,
 					Formater.OperationResult.FAIL);
 		}
 	}
@@ -89,10 +89,10 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 	@Override
 	public List<RelationshipTypeDto> getAllRelationshipTypeList() {
 		List<RelationshipType> list = relationshipTypeRepository.getAllType();
-		//ÅÅĞòË³Ğò°Ñ¡°ÆäËûÕâ¸öÀàĞÍÅÄµ½×îºó¡±  by:Bless time:2016/3/5 16:43
+		//æ’åºé¡ºåºæŠŠâ€œå…¶ä»–è¿™ä¸ªç±»å‹æ‹åˆ°æœ€åâ€  by:Bless time:2016/3/5 16:43
 		List<RelationshipType> types = new ArrayList<RelationshipType>();
 		for (RelationshipType item : list) {
-			if(item.getName().equals("ÆäËû")){
+			if(item.getName().equals("å…¶ä»–")){
 				types.add(item);
 			}
 		}
@@ -117,9 +117,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			socialsecurityTypeRepository.removeByKey(SocialsecurityType.class, id);
 			context().commit();
-			return toJson("É¾³ıÊı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("åˆ é™¤æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("É¾³ıÊı¾İÊ§°Ü-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤æ•°æ®å¤±è´¥-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -129,9 +129,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			relationshipTypeRepository.removeByKey(RelationshipType.class, id);
 			context().commit();
-			return toJson("É¾³ıÊı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("åˆ é™¤æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("É¾³ıÊı¾İÊ§°Ü-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤æ•°æ®å¤±è´¥-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -141,9 +141,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			householdTypeRepository.removeByKey(HouseholdType.class, id);
 			context().commit();
-			return toJson("É¾³ıÊı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("åˆ é™¤æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("É¾³ıÊı¾İÊ§°Ü-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤æ•°æ®å¤±è´¥-"+ e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -153,9 +153,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			socialsecurityTypeRepository.editType(id, name);
 			context().commit();
-			return toJson("±à¼­Êı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("±à¼­Êı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -165,9 +165,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			relationshipTypeRepository.editType(id, name);
 			context().commit();
-			return toJson("±à¼­Êı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("±à¼­Êı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -177,9 +177,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			householdTypeRepository.editType(id, name);
 			context().commit();
-			return toJson("±à¼­Êı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("±à¼­Êı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -190,9 +190,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			socialsecurityTypeRepository.addType(entity);
 			context().commit();
-			return toJson("ĞÂÔöÊı¾İ³É¹¦", entity, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢æ•°æ®æˆåŠŸ", entity, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("ĞÂÔöÊı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -203,9 +203,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			householdTypeRepository.addHouseholdType(entity);
 			context().commit();
-			return toJson("ĞÂÔöÊı¾İ³É¹¦", entity, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢æ•°æ®æˆåŠŸ", entity, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("ĞÂÔöÊı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -216,9 +216,9 @@ public class ShareTypeServiceImpl extends BaseApplication implements
 			context().beginTransaction();
 			relationshipTypeRepository.addType(entity);
 			context().commit();
-			return toJson("ĞÂÔöÊı¾İ³É¹¦", entity, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢æ•°æ®æˆåŠŸ", entity, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("ĞÂÔöÊı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 

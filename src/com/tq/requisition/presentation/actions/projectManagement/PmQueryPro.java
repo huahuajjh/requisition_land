@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.projectManagement;
+ï»¿package com.tq.requisition.presentation.actions.projectManagement;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,25 +22,25 @@ public class PmQueryPro extends BaseAction {
 		this.proMgtServiceContract = getService("proMgtServiceContract", IProMgtServiceContract.class);
 	}
 	
-	/**µØÖ·²Ù×÷¶ÔÏó*/
+	/**åœ°å€æ“ä½œå¯¹è±¡*/
 	private IAddressServiceContract addressServiceContract;
 	private IProMgtServiceContract proMgtServiceContract;
 	
-	// ---Ä£ºı²éÑ¯ÁĞ±í
+	// ---æ¨¡ç³ŠæŸ¥è¯¢åˆ—è¡¨
 	private int pageNum = 30;
 	private int pageIndex = 1;
-	private int typeId = 0;
+	private String typeId = "";
 	private int annouceQueue = 0;
 	private String streetId = "";
 	private String communityId = "";
 	private String queryProName = "";
 	private String address;
 	
-	//----ĞŞ¸ÄµÄÊı¾İ
-	/**ÏîÄ¿±àºÅ*/
+	//----ä¿®æ”¹çš„æ•°æ®
+	/**é¡¹ç›®ç¼–å·*/
 	private String proId = "";
 	
-	/**Ò³Ãæ¶ÔÏó*/
+	/**é¡µé¢å¯¹è±¡*/
 	private List<AddressDto> addressDtos;
 	private List<ProTypeDto> proTypeDtos;
 	
@@ -69,7 +69,13 @@ public class PmQueryPro extends BaseAction {
 			queryModel.setProName(queryProName);
 		if (!streetId.equals(""))
 			queryModel.setStreetId(UUID.fromString(streetId));
-		queryModel.setTypeId(typeId);
+		int _typeId = 0;
+		try
+		{
+			_typeId = Integer.parseInt(typeId);
+		}
+		catch(Exception e){}
+		queryModel.setTypeId(_typeId);
 		queryModel.setAddress(address);
 		PageModel pageModel = new PageModel();
 		pageModel.setPageIndex(pageIndex);
@@ -98,7 +104,7 @@ public class PmQueryPro extends BaseAction {
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
-	public void setTypeId(int typeId) {
+	public void setTypeId(String typeId) {
 		this.typeId = typeId;
 	}
 	public void setAnnouceQueue(int annouceQueue) {

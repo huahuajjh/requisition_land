@@ -21,9 +21,9 @@ public class HouseholdTypeRepository extends HbRepository<HouseholdType> impleme
 
 	@Override
 	public HouseholdType addHouseholdType(HouseholdType entity) throws DomainException {		
-		entity.check(entity.getName(), "»§¿ÚÀàĞÍÃû³Æ²»ÄÜÎª¿Õ");		
+		entity.check(entity.getName(), "æˆ·å£ç±»å‹åç§°ä¸èƒ½ä¸ºç©º");		
 		boolean r = exists(new ExistsByColNameSpecification<>(HouseholdType.class, "tb_household_type", "type_name", entity.getName()));
-		if(r){throw new DomainException("Ãû³Æ["+entity.getName()+"]ÒÑ¾­´æÔÚ");}
+		if(r){throw new DomainException("åç§°["+entity.getName()+"]å·²ç»å­˜åœ¨");}
 		add(entity);
 		return entity;
 	}
@@ -59,12 +59,12 @@ public class HouseholdTypeRepository extends HbRepository<HouseholdType> impleme
 	
 	@Override
 	public void editType(UUID id,String name) throws DomainException {		
-		if(null==name || name.trim().equals("")){throw new DomainException("»§¿ÚÀàĞÍÃû³Æ²»ÄÜÎª¿Õ");}
+		if(null==name || name.trim().equals("")){throw new DomainException("æˆ·å£ç±»å‹åç§°ä¸èƒ½ä¸ºç©º");}
 		HouseholdType entity = getByKey(HouseholdType.class, id);
-		if(null==entity){throw new DomainException("Î´²éÑ¯µ½Ö¸¶¨µÄ»§¿ÚÀàĞÍÊı¾İ");}
+		if(null==entity){throw new DomainException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„æˆ·å£ç±»å‹æ•°æ®");}
 		if(entity.getName().equals(name)){return;}
 		boolean r = exists(new ExistsByColNameSpecification<>(HouseholdType.class, "tb_household_type", "type_name", name));
-		if(r){throw new DomainException("Ãû³Æ["+name+"]ÒÑ¾­´æÔÚ");}		
+		if(r){throw new DomainException("åç§°["+name+"]å·²ç»å­˜åœ¨");}		
 		entity.setName(name);
 		update(entity);		
 	}

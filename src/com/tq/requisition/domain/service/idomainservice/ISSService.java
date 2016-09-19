@@ -6,26 +6,26 @@ import com.tq.requisition.domain.model.socialsecurity.SocialsecurityInfo;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * 社保领域服务接口
+ * 绀句繚棰嗗煙鏈嶅姟鎺ュ彛
  * @author jjh
  * @time 2015-01-04 17:30
  */
 public interface ISSService {
 	/**
-	 * 新增社保信息
+	 * 鏂板绀句繚淇℃伅
 	 * @param ss
-	 * 		待新增的社保信息实体
+	 * 		寰呮柊澧炵殑绀句繚淇℃伅瀹炰綋
 	 * @return
-	 * 		返回新增消息
+	 * 		杩斿洖鏂板娑堟伅
 	 */
 	void addSSInfo(SocialsecurityInfo ss)  throws DomainException ;
 	
 	/**
-	 * 批量新增社保信息
+	 * 鎵归噺鏂板绀句繚淇℃伅
 	 * @param list
-	 * 		待新增的社保信息集合
+	 * 		寰呮柊澧炵殑绀句繚淇℃伅闆嗗悎
 	 * @return
-	 * 		返回新增后的消息
+	 * 		杩斿洖鏂板鍚庣殑娑堟伅
 	 */
 	void addSSBatch(List<SocialsecurityInfo> list)  throws DomainException ;
 	

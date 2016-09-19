@@ -27,7 +27,7 @@ import com.tq.requisition.presentation.dto.socialsecurityMgt.SsImportAndExportDt
 import com.tq.requisition.presentation.serviceContract.socialsecurityMgt.ISocialsecurityMgtServiceContract;
 
 /**
- * Éç±£¹ÜÀíÊµÏÖÀà
+ * ç¤¾ä¿ç®¡ç†å®ç°ç±»
  * @author jjh
  * @time 2015-12-31 20:17
  */
@@ -62,10 +62,10 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			context().beginTransaction();
 			ssService.addSSInfo(SSMapper.toModel(dto));
 			context().commit();
-			return toJson("ĞÂÔöÉç±£ĞÅÏ¢³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢ç¤¾ä¿ä¿¡æ¯æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("ĞÂÔöÉç±£ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢ç¤¾ä¿ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -78,9 +78,9 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			context().beginTransaction();
 			ssService.addSSBatch(SSMapper.toModelList(list));
 			context().commit();
-			return toJson("ÅúÁ¿ĞÂÔöÊı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ‰¹é‡æ–°å¢æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ÅúÁ¿ĞÂÔöÊı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ‰¹é‡æ–°å¢æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -94,9 +94,9 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 	public String queryFuzzyByAddJson(SocialsecurityQueryModel queryModel,
 			PageModel pageModel) {
 		try {
-			return toJsonByPage(queryFuzzyByAdd(queryModel, pageModel), "³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(queryFuzzyByAdd(queryModel, pageModel), "æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "Ê§°Ü-"+e.getMessage(), Formater.OperationResult.FAIL);
+			return toJsonByPage(null, "å¤±è´¥-"+e.getMessage(), Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -108,15 +108,15 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			info.setId(dto.getId());
 			ssRepository.editSS(info);
 			context().commit();
-			return toJson("±à¼­Êı¾İ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æ•°æ®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("±à¼­Êı¾İÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æ•°æ®å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
 	@Override
 	public String deleteSS(UUID... uuids) {
-		throw new NotImplementedException("Î´ÊµÏÖµÄ·½·¨");
+		throw new NotImplementedException("æœªå®ç°çš„æ–¹æ³•");
 	}
 	
 	@Override
@@ -129,9 +129,9 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 	public String query4TableByFuzzy(SocialsecurityQueryModel queryModel,
 			PageModel pageModel) {
 		try {
-			return toJsonByPage(query4TableListByFuzzy(queryModel, pageModel), "³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(query4TableListByFuzzy(queryModel, pageModel), "æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "Ê§°Ü-"+e.getMessage(), Formater.OperationResult.FAIL);
+			return toJsonByPage(null, "å¤±è´¥-"+e.getMessage(), Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -144,10 +144,10 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			}
 			for (SocialsecurityInfo socialsecurityInfo : list) {
 				UUID itemId = itemRepository.getIdByIdNumber(socialsecurityInfo.getIdNumber());
-				if(null==itemId){return toJson("Î´²éÑ¯µ½Éí·İÖ¤["+socialsecurityInfo.getIdNumber()+"]µÄÈËÔ±ĞÅÏ¢", null, Formater.OperationResult.FAIL);}
+				if(null==itemId){return toJson("æœªæŸ¥è¯¢åˆ°èº«ä»½è¯["+socialsecurityInfo.getIdNumber()+"]çš„äººå‘˜ä¿¡æ¯", null, Formater.OperationResult.FAIL);}
 				
 //				UUID typeId = typeRepository.getIdByName(socialsecurityInfo.getTypeStr());
-//				if(null==typeId){return toJson("Î´²éÑ¯µ½Éç±£´ıÓö["+socialsecurityInfo.getTypeStr()+"]µÄidĞÅÏ¢", null, Formater.OperationResult.FAIL);}
+//				if(null==typeId){return toJson("æœªæŸ¥è¯¢åˆ°ç¤¾ä¿å¾…é‡["+socialsecurityInfo.getTypeStr()+"]çš„idä¿¡æ¯", null, Formater.OperationResult.FAIL);}
 //				
 				//socialsecurityInfo.setSocialsecurityTypeId(typeId);
 				socialsecurityInfo.setFmlItemId(itemId);
@@ -155,10 +155,10 @@ public class SocialsecurityMgtServiceImpl extends BaseApplication implements ISo
 			context().beginTransaction();
 			ssService.addSSBatch(list);
 			context().commit();
-			return toJson("µ¼ÈëÉç±£ĞÅÏ¢³É¹¦", items, Formater.OperationResult.SUCCESS);
+			return toJson("å¯¼å…¥ç¤¾ä¿ä¿¡æ¯æˆåŠŸ", items, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
 			context().rollback();
-			return toJson("µ¼ÈëÉç±£ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¯¼å…¥ç¤¾ä¿ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

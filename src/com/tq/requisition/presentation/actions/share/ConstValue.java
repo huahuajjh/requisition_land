@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.share;
+﻿package com.tq.requisition.presentation.actions.share;
 
 public class ConstValue {
 	private final static String POLICY_FILE = "/policy_files";

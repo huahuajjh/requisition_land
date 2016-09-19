@@ -1,15 +1,15 @@
 package com.tq.requisition.domain.model.share;
 
 /**
- * ¹º·¿È¯Ê¹ÓÃÀàĞÍÃ¶¾Ù
+ * è´­æˆ¿åˆ¸ä½¿ç”¨ç±»å‹æšä¸¾
  * @author jjh
  * @time 2015-12-18 18:44
  */
 public enum UseType {
-	/**ÒÑÊ¹ÓÃ*/
-	USED(0,"Ê¹ÓÃ"),
-	/**ÒÑ¶ÒÏÖ*/
-	CASH(1,"¶ÒÏÖ");
+	/**å·²ä½¿ç”¨*/
+	USED(0,"ä½¿ç”¨"),
+	/**å·²å…‘ç°*/
+	CASH(1,"å…‘ç°");
 	
 	/*private fields*/
 	private String strV;
@@ -29,12 +29,12 @@ public enum UseType {
 		case 1:
 			return CASH;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨,×îĞ¡ÖµÎª0£¬×î´óÖµÎª1");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š,æœ€å°å€¼ä¸º0ï¼Œæœ€å¤§å€¼ä¸º1");
 		}
 	}
 	
 	/**
-	 * »ñÈ¡Ã¶¾ÙÖµµÃString
+	 * è·å–æšä¸¾å€¼å¾—String
 	 * @return
 	 */
 	public String toStr() {

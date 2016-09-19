@@ -15,7 +15,7 @@ import com.tq.requisition.infrastructure.Specifications.orgMgt.OrgNameExistsSpec
 import com.tq.requisition.infrastructure.Specifications.orgMgt.OrgNumberExistsSpecification;
 
 /**
- * ×éÖ¯¾ÛºÏ²Ö´¢
+ * ç»„ç»‡èšåˆä»“å‚¨
  * 
  * @author jjh
  * @time 2015-12-18 19:20
@@ -37,7 +37,7 @@ public class OrganizationRepository extends HbRepository<Organization>
 	public Organization createOrg(final Organization org) throws DomainException {
 		if(org==null)
 		{
-			throw new NullPointerException("µ¥Î»¶ÔÏóÎªnull");
+			throw new NullPointerException("å•ä½å¯¹è±¡ä¸ºnull");
 		}
 		checkNameAndNumber(org.getOrgName(), org.getOrgNumber(), org.getId());		
 		Organization o = Organization.obtain(org.getOrgName(),org.getOrgNumber());
@@ -49,7 +49,7 @@ public class OrganizationRepository extends HbRepository<Organization>
 	public void editOrg(Organization org) throws DomainException {
 		boolean r = exists(new OrgIdExistsSpecificator(Organization.class,org.getId()));
 		if (!r) {
-			throw new InvalidOperationException("Î´²éÑ¯µ½Ö¸¶¨µÄµ¥Î»ĞÅÏ¢");
+			throw new InvalidOperationException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„å•ä½ä¿¡æ¯");
 		}
 		Organization organization = getByKey(Organization.class, org.getId());
 		
@@ -59,7 +59,7 @@ public class OrganizationRepository extends HbRepository<Organization>
 		{return;}
 		
 		
-		//¼ì²âµ¥Î»Ãû³ÆºÍ±àºÅÊÇ·ñ´æÔÚ
+		//æ£€æµ‹å•ä½åç§°å’Œç¼–å·æ˜¯å¦å­˜åœ¨
 		checkNameAndNumber(org.getOrgName(), org.getOrgNumber(),org.getId());
 		
 		organization.setOrgName(org.getOrgName());
@@ -76,7 +76,7 @@ public class OrganizationRepository extends HbRepository<Organization>
 	public void deleteOrgByKey(UUID orgId) {
 		if(orgId == null)
 		{
-			throw new NullPointerException("×éÖ¯idÎªnull");
+			throw new NullPointerException("ç»„ç»‡idä¸ºnull");
 		}
 		
 		removeByKey(Organization.class, orgId);		
@@ -85,9 +85,9 @@ public class OrganizationRepository extends HbRepository<Organization>
 	private void checkNameAndNumber(String name,String number,UUID id) throws DomainException {
 		boolean r = exists(new OrgNameExistsSpecification(Organization.class, name,id));
 		if (r) {
-			throw new DomainException("µ¥Î»Ãû[" + name+ "]ÒÑ´æÔÚ");
+			throw new DomainException("å•ä½å[" + name+ "]å·²å­˜åœ¨");
 		}
 		boolean r2 = exists(new OrgNumberExistsSpecification(Organization.class, number,id));
-		if(r2){throw new DomainException("µ¥Î»±àºÅ[" + number+ "]ÒÑ´æÔÚ");}
+		if(r2){throw new DomainException("å•ä½ç¼–å·[" + number+ "]å·²å­˜åœ¨");}
 	}
 }

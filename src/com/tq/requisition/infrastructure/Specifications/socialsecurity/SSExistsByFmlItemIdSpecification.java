@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.socialsecurity.SocialsecurityInfo;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据拆迁人员id检测该人员是否有社保数据，规约
+ * 鏍规嵁鎷嗚縼浜哄憳id妫�娴嬭浜哄憳鏄惁鏈夌ぞ淇濇暟鎹紝瑙勭害
  * @author jjh
  * @time 2015-12-31 20:42
  */

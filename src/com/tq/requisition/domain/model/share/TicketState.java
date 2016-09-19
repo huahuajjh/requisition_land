@@ -1,25 +1,25 @@
 package com.tq.requisition.domain.model.share;
 
 /**
- * ¹º·¿È¯×´Ì¬Ã¶¾Ù
+ * è´­æˆ¿åˆ¸çŠ¶æ€æšä¸¾
  * @author jjh
  * @time 2015-12-18 18:44
  */
 public enum TicketState {
-	/**¹ÒÊ§*/
-	LOSSOFREPORT(1,"¹ÒÊ§"),
-	/**ÒÑ»»È¯*/
-	EXCHANGEED(2,"ÒÑ»»È¯"),
-	/**ÒÑ²¹È¯*/
-	MENDED(3,"ÒÑ²¹È¯"),
-	/**ÒÑ¶Ò»»*/
-	USED(4,"ÒÑ¶Ò»»"),
-	/**ÒÑÁìÈ¡*/
-	RECEIVED(5,"ÒÑÁìÈ¡"),
-	/**ÒÑ¶ÒÏÖ*/
-	CASHED(6,"ÒÑ¶ÒÏÖ"),
-	/**Õı³£*/
-	NORMAL(7,"Õı³£");
+	/**æŒ‚å¤±*/
+	LOSSOFREPORT(1,"æŒ‚å¤±"),
+	/**å·²æ¢åˆ¸*/
+	EXCHANGEED(2,"å·²æ¢åˆ¸"),
+	/**å·²è¡¥åˆ¸*/
+	MENDED(3,"å·²è¡¥åˆ¸"),
+	/**å·²å…‘æ¢*/
+	USED(4,"å·²å…‘æ¢"),
+	/**å·²é¢†å–*/
+	RECEIVED(5,"å·²é¢†å–"),
+	/**å·²å…‘ç°*/
+	CASHED(6,"å·²å…‘ç°"),
+	/**æ­£å¸¸*/
+	NORMAL(7,"æ­£å¸¸");
 	
 	/*private fields*/
 	private String strV;
@@ -37,7 +37,7 @@ public enum TicketState {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾Ù
+	 * é€šè¿‡intå€¼è·å–æšä¸¾
 	 * @param v
 	 * @return
 	 */
@@ -58,12 +58,12 @@ public enum TicketState {
 		case 7:
 			return NORMAL;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨,×îĞ¡ÖµÎª1£¬×î´óÖµÎª7");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š,æœ€å°å€¼ä¸º1ï¼Œæœ€å¤§å€¼ä¸º7");
 		}
 	}
 	
 	/**
-	 * »ñÈ¡Ã¶¾ÙÖµµÃString
+	 * è·å–æšä¸¾å€¼å¾—String
 	 * @return
 	 */
 	public String toStr() {

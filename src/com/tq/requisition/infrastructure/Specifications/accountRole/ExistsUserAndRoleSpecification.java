@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.roleAccount.RoleAccount;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * ¸ù¾İÕË»§idºÍ½ÇÉ«id²éÑ¯¸Ã¹ØÁªÊÇ·ñ´æÔÚµÄ¹æÔ¼Àà
+ * æ ¹æ®è´¦æˆ·idå’Œè§’è‰²idæŸ¥è¯¢è¯¥å…³è”æ˜¯å¦å­˜åœ¨çš„è§„çº¦ç±»
  * @author jjh
  * @time 2015-12-21 17:33
  */

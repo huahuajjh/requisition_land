@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+ï»¿package com.tq.requisition.test.application;
 
 import java.util.UUID;
 
@@ -37,7 +37,7 @@ public class TestAddress {
 	public void edit() {
 		AddressDto dto = new AddressDto();
 		dto.setId(UUID.fromString("83e21407-286a-41c6-ad00-bdcbf53762e0"));
-		dto.setName("º£µíÇø1");
+		dto.setName("æµ·æ·€åŒº1");
 		service.editAddress(dto);
 	}
 	

@@ -7,29 +7,29 @@ import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.domain.model.share.ResourceType;
 
 /**
- * ×ÊÔ´¾ÛºÏ¸ù²Ö´¢
+ * èµ„æºèšåˆæ ¹ä»“å‚¨
  * 
  * @author jjh
- * @time 2015-12-21 18£º13
+ * @time 2015-12-21 18ï¼š13
  */
 public interface IResourceRepository extends IRepository<Resource> {
 
 	/**
-	 * ¸ù¾İ×ÊÔ´¼¯ºÏID»ñÈ¡×ÊÔ´ÁĞ±í
+	 * æ ¹æ®èµ„æºé›†åˆIDè·å–èµ„æºåˆ—è¡¨
 	 * 
 	 * @param uuids
-	 *            ×ÊÔ´¼¯ºÏ
-	 * @return ×ÊÔ´¼¯ºÏ
+	 *            èµ„æºé›†åˆ
+	 * @return èµ„æºé›†åˆ
 	 */
 	List<Resource> getResourceByIds( int hierarchy,UUID... uuids);
 	
 	List<Resource> getResourcesByIdsAndType(int hierarchy,ResourceType type ,UUID... uuids);
 
 	/**
-	 * «@È¡ËùÓĞÙYÔ´ÁĞ±í
-	 * Ö»ĞèÒª²¿·Ö×Ö¶Î£¬ÙYÔ´Ãû·Q£¬ÙYÔ´id£¬ÙYÔ´ÊÇ·ñÓĞ×Ó¹üc
+	 * ç²å–æ‰€æœ‰è³‡æºåˆ—è¡¨
+	 * åªéœ€è¦éƒ¨åˆ†å­—æ®µï¼Œè³‡æºåç¨±ï¼Œè³‡æºidï¼Œè³‡æºæ˜¯å¦æœ‰å­ç¯€é»
 	 * @return List<Resource>
-	 * 		ÙYÔ´¼¯ºÏ
+	 * 		è³‡æºé›†åˆ
 	 */
 	List<Resource> getAllResources();
 }

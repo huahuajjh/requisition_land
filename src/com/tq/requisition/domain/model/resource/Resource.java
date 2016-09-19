@@ -5,37 +5,37 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ×ÊÔ´¾ÛºÏ¸ù
+ * èµ„æºèšåˆæ ¹
  * @author jjh
  * @time 2015-12-19 15:41
  */
 public class Resource extends AggregateRoot{
 	/*private fields*/
-	/**×ÊÔ´title*/
+	/**èµ„æºtitle*/
 	private String title;
-	/**×ÊÔ´link*/
+	/**èµ„æºlink*/
 	private String link;
-	/**×ÊÔ´icon*/
+	/**èµ„æºicon*/
 	private String icon;
-	/**×ÊÔ´ÀàĞÍ*/
+	/**èµ„æºç±»å‹*/
 	private Integer type;
-	/**ÅÅĞò*/
+	/**æ’åº*/
 	private Integer order;
-	/**ÊÇ·ñ¿É¼û*/
+	/**æ˜¯å¦å¯è§*/
 	private boolean visible;
-	/**¸¸×ÊÔ´id*/
+	/**çˆ¶èµ„æºid*/
 	private UUID parentResourceId;
-	/**ÊÇ·ñÓĞ×Ó½Úµã*/
+	/**æ˜¯å¦æœ‰å­èŠ‚ç‚¹*/
 	private boolean children;
-	/**×æÏÈÂ·¾¶ĞòÁĞ*/
+	/**ç¥–å…ˆè·¯å¾„åºåˆ—*/
 	private String path;
 	/**htmlid*/
 	private String htmlId;
 	/**html*/
 	private String html;
-	/**×ÊÔ´²ã¼¶*/
+	/**èµ„æºå±‚çº§*/
 	private Integer hierarchy;
-	/**Ä£¿éÃû³Æ*/
+	/**æ¨¡å—åç§°*/
 	private String moudle;
 	
 	/*gettsers and setters*/		
@@ -162,7 +162,7 @@ public class Resource extends AggregateRoot{
 		
 		if(_title==null || _type == null || _hierarchy == null || _order ==null)
 		{
-			throw new NullPointerException("titleµÈÎªnull");
+			throw new NullPointerException("titleç­‰ä¸ºnull");
 		}
 		
 		return new Resource(//

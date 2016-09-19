@@ -11,7 +11,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
 
 /**
- * 查询拆迁户基本信息，规约
+ * 鏌ヨ鎷嗚縼鎴峰熀鏈俊鎭紝瑙勭害
  * @author jjh
  * @time 2016-01-21 18:09
  *

@@ -3,7 +3,7 @@ package com.tq.requisition.infrastructure.utils;
 import java.io.Serializable;
 
 /**
- * Êı¾İ´«Êä¸ñÊ½,´ËÀà²»ÄÜ±»¼Ì³Ğ
+ * æ•°æ®ä¼ è¾“æ ¼å¼,æ­¤ç±»ä¸èƒ½è¢«ç»§æ‰¿
  * @author jjh
  * @time 2015-12-23 20:26
  */
@@ -40,17 +40,17 @@ public final class Formater implements Serializable{
 	}
 	
 	/**
-	 * ²Ù×÷½á¹ûÀàĞÍ
+	 * æ“ä½œç»“æœç±»å‹
 	 * @author jjh
 	 *
 	 */
 	public static enum OperationResult
 	{
-		/**³É¹¦*/
+		/**æˆåŠŸ*/
 		SUCCESS,
-		/**´íÎó*/
+		/**é”™è¯¯*/
 		ERROR,
-		/*Ê§°Ü*/
+		/*å¤±è´¥*/
 		FAIL
 	}
 }

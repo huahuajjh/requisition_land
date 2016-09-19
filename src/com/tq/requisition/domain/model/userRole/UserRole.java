@@ -5,13 +5,13 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ½ÇÉ«ÓÃ»§¾ÛºÏ¸ù
+ * è§’è‰²ç”¨æˆ·èšåˆæ ¹
  * @author jjh
  * @time 2015-12-19 14:23
  */
 public class UserRole extends AggregateRoot{
-	/**ÓÃ»§id*/
+	/**ç”¨æˆ·id*/
 	private UUID uid;
-	/**½ÇÉ«id*/
+	/**è§’è‰²id*/
 	private UUID rid;	
 }

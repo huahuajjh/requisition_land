@@ -4,7 +4,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTReportOfLossInfo;
 import com.tq.requisition.presentation.dto.hpt.HPTLossInfoDto;
 
 /**
- * ¹º·¿È¯¹ÒÊ§dtoÓ³Éä
+ * è´­æˆ¿åˆ¸æŒ‚å¤±dtoæ˜ å°„
  * @author jjh
  * @time 2015-01-02 22:12
  *

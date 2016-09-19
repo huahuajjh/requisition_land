@@ -8,33 +8,33 @@ import com.tq.requisition.exception.DomainException;
 
 public interface ISocialsecurityTypeRepository extends IRepository<SocialsecurityType>{
 	/**
-	 * 新增社保类型
+	 * 鏂板绀句繚绫诲瀷
 	 * @param entity
-	 * 		待新增的社保类型
+	 * 		寰呮柊澧炵殑绀句繚绫诲瀷
 	 * @return SocialsecurityType
-	 * 		新增后的社保实体数据
+	 * 		鏂板鍚庣殑绀句繚瀹炰綋鏁版嵁
 	 */
 	SocialsecurityType addType(SocialsecurityType entity) throws DomainException;
 	
 	List<SocialsecurityType> getAllType();
 	
 	/**
-	 * 编辑社保类型数据
+	 * 缂栬緫绀句繚绫诲瀷鏁版嵁
 	 * @param id
-	 * 		社保id
+	 * 		绀句繚id
 	 * @param name
-	 * 		社保名称
+	 * 		绀句繚鍚嶇О
 	 * @throws DomainException
-	 * 		业务异常
+	 * 		涓氬姟寮傚父
 	 */
 	void editType(UUID id,String name) throws DomainException;
 
 	/**
-	 * 根据唯一约束字段获取记录的id
+	 * 鏍规嵁鍞竴绾︽潫瀛楁鑾峰彇璁板綍鐨刬d
 	 * @param name
-	 * 		字段名称
+	 * 		瀛楁鍚嶇О
 	 * @return UUID
-	 * 		主键id
+	 * 		涓婚敭id
 	 */
 	UUID getIdByName(String name);
 }

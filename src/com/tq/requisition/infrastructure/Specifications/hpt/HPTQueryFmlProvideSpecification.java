@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * ²éÑ¯¹æÔ¼£¬¸ù¾İ»§Ö÷Éí·İÖ¤²éÑ¯¸Ã»§ËùÓĞ¹º·¿È¯ĞÅÏ¢ºÍÈËÔ±ĞÅÏ¢
+ * æŸ¥è¯¢è§„çº¦ï¼Œæ ¹æ®æˆ·ä¸»èº«ä»½è¯æŸ¥è¯¢è¯¥æˆ·æ‰€æœ‰è´­æˆ¿åˆ¸ä¿¡æ¯å’Œäººå‘˜ä¿¡æ¯
  * @author jjh
  * @time 2015-01-04
  */

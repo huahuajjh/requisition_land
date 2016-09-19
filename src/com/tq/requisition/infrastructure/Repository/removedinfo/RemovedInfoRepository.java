@@ -17,7 +17,7 @@ import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÒÑÇ¨»§µµ°¸²Ö´¢ÊµÏÖ
+ * å·²è¿æˆ·æ¡£æ¡ˆä»“å‚¨å®ç°
  * @author jjh
  * @time 2015-01-11 19:44
  *
@@ -31,9 +31,9 @@ public class RemovedInfoRepository extends HbRepository<RemovedInfo> implements 
 	@Override
 	public RemovedInfo addRemovedInfo(RemovedInfo entity) throws DomainException {
 		entity.validate();
-		//ÑéÖ¤Éí·İÖ¤ÊÇ·ñ´æÔÚ
+		//éªŒè¯èº«ä»½è¯æ˜¯å¦å­˜åœ¨
 		Boolean r = exists(new RemovedInfoIdNumExistsSpecification(RemovedInfo.class, entity.getIdNumber()));
-		if(r){throw new DomainException("¸ÃÉí·İÖ¤["+entity.getIdNumber()+"]ÒÑ´æÔÚ£¬²»ÄÜÖØ¸´Ìí¼Ó");}
+		if(r){throw new DomainException("è¯¥èº«ä»½è¯["+entity.getIdNumber()+"]å·²å­˜åœ¨ï¼Œä¸èƒ½é‡å¤æ·»åŠ ");}
 		add(entity);
 		return entity;
 	}
@@ -62,7 +62,7 @@ public class RemovedInfoRepository extends HbRepository<RemovedInfo> implements 
 	@Override
 	public RemovedInfo editRemovedInfo(RemovedInfo entity) throws DomainException {
 		RemovedInfo info = getByKey(RemovedInfo.class, entity.getId());
-		if(null == info){throw new DomainException("Î´²éÑ¯µ½Ö¸¶¨µÄÒÑÇ¨»§ÈËÔ±ĞÅÏ¢");}
+		if(null == info){throw new DomainException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„å·²è¿æˆ·äººå‘˜ä¿¡æ¯");}
 		info.validate();
 		info.modify(entity);
 		update(info);

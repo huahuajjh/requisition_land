@@ -1,30 +1,30 @@
-package com.tq.requisition.presentation.dto.visits;
+ï»¿package com.tq.requisition.presentation.dto.visits;
 
 import java.util.Date;
 import java.util.UUID;
 
 public class VisitsDto {
-	/**ÉÏ·ÃÊµÌåid*/
+	/**ä¸Šè®¿å®ä½“id*/
 	private UUID id;
-	/**ÉÏ·ÃÕßĞÕÃû*/
+	/**ä¸Šè®¿è€…å§“å*/
 	private String visitorName;
-	/**ÉÏ·ÃÕßÊÖ»úºÅ*/
+	/**ä¸Šè®¿è€…æ‰‹æœºå·*/
 	private String visitorTel;
-	/**ÉÏ·ÃÕßµØÖ·*/
+	/**ä¸Šè®¿è€…åœ°å€*/
 	private String visitorAddr;
-	/**ÆäËûĞÅÏ¢*/
+	/**å…¶ä»–ä¿¡æ¯*/
 	private String otherMsg;
-	/**·ÃÎÊÏîÄ¿*/
+	/**è®¿é—®é¡¹ç›®*/
 	private String visitProId;
-	/**·ÃÎÊÔ­Òò*/
+	/**è®¿é—®åŸå› */
 	private String visitReason;
-	/**·ÃÎÊÈÕÆÚ*/
+	/**è®¿é—®æ—¥æœŸ*/
 	private Date visitTime;
-	/**Ïà¹Ø×ÊÁÏ*/
+	/**ç›¸å…³èµ„æ–™*/
 	private String visitMaterialPath;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
 	
 	public UUID getId() {

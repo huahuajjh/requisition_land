@@ -8,10 +8,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.tq.requisition.infrastructure.log.LoggerFactory;
 
 /**
- * hibernate¹¤¾ßÀà£¬ÓÃÓÚ³õÊ¼»¯SessionFactory,´ËÀà²»ÄÜ±»¼Ì³Ğ
+ * hibernateå·¥å…·ç±»ï¼Œç”¨äºåˆå§‹åŒ–SessionFactory,æ­¤ç±»ä¸èƒ½è¢«ç»§æ‰¿
  * 
  * @author jjh
  * @time 2015-12-17 13:04
@@ -25,13 +26,13 @@ public class HibernateUtils {
 
 	static {
 		try {
-			//ÓÅÏÈÊ¹ÓÃweb·½Ê½¶ÁÈ¡
+			//ä¼˜å…ˆä½¿ç”¨webæ–¹å¼è¯»å–
 			StandardServiceRegistry registry;
 			try {
 				registry = new StandardServiceRegistryBuilder()
 						.configure("hibernate.cfg.xml").build();
 			} catch (Exception e) {
-				throw new HibernateException("HibernateUtilsÒì³££¬³õÊ¼»¯¹¤³§Òì³£-"+e.getMessage());
+				throw new HibernateException("HibernateUtilså¼‚å¸¸ï¼Œåˆå§‹åŒ–å·¥å‚å¼‚å¸¸-"+e.getMessage());
 			}
 			FACTORY = new MetadataSources(registry)
 					.buildMetadata().buildSessionFactory();
@@ -40,12 +41,12 @@ public class HibernateUtils {
 					.logger()
 					.error("com.tq.requisition.infrastructure.Repository.HibernateUtils",
 							"static code block", e.getMessage());
-			throw new HibernateException("HibernateUtilsÒì³££¬³õÊ¼»¯¹¤³§Òì³£-"+e.getMessage());
+			throw new HibernateException("HibernateUtilså¼‚å¸¸ï¼Œåˆå§‹åŒ–å·¥å‚å¼‚å¸¸-"+e.getMessage());
 		}
 	}
 
 	/**
-	 * »ñÈ¡session¹¤³§
+	 * è·å–sessionå·¥å‚
 	 * @return
 	 */
 	public static SessionFactory sessionFactory() {
@@ -53,13 +54,13 @@ public class HibernateUtils {
 	}
 	
 	public static SessionFactory rebuiltSessionFactory() {
-		throw new NotImplementedException("Î´ÊµÏÖµÄrebuiltSessionFactory·½·¨");
+		throw new NotImplementedException("æœªå®ç°çš„rebuiltSessionFactoryæ–¹æ³•");
 	}
 	
 	/**
-	 * »ñÈ¡SessionÊµÀı
+	 * è·å–Sessionå®ä¾‹
 	 * 
-	 * @return Session SessionÊµÀı
+	 * @return Session Sessionå®ä¾‹
 	 */
 	public static Session session() {	
 		if(SESSION_THREAD_LOCAL == null){
@@ -85,7 +86,7 @@ public class HibernateUtils {
 	}
 	
 	/**
-	 * ¹Ø±Õsession
+	 * å…³é—­session
 	 */
 	public static void closeSession() {
 		if(SESSION_THREAD_LOCAL == null){
@@ -100,20 +101,20 @@ public class HibernateUtils {
             }
         }  
 		catch(HibernateException e){
-			LoggerFactory.logger().error("com.tq.requisition.infrastructure.Repository.HibernateUtils","closeSession()", "¹Ø±Õsession³öÏÖÒì³£-jjh"+e.getMessage());
+			LoggerFactory.logger().error("com.tq.requisition.infrastructure.Repository.HibernateUtils","closeSession()", "å…³é—­sessionå‡ºç°å¼‚å¸¸-jjh"+e.getMessage());
 			throw e;
 		}
 	}
 	
 	/**
-	 * ¿ªÆôÊÂÎñ
+	 * å¼€å¯äº‹åŠ¡
 	 */
 	public static void beginTransaction() {
 
 	}
 	
 	/**
-	 * Ìá½»ÊÂÎñ
+	 * æäº¤äº‹åŠ¡
 	 */
 	public static void commitTransaction() {
 		

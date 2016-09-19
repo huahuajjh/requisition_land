@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+﻿package com.tq.requisition.test.application;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TestFmlItem {
 
 	@Test
 	public void getByIdnumAndName() {
-		String str = service.queryByIdNumberAndName("12222222222222222222", "С��");
+		String str = service.queryByIdNumberAndName("12222222222222222222", "小明");
 		System.out.println(str);
 	}
 }

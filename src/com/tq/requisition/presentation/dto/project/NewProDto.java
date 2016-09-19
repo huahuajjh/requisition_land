@@ -1,48 +1,48 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * ĞÂÔöí—Ä¿dto
+ * æ–°å¢é¡¹ç›®dto
  * @author jjh
  * @time 2015-12-18 11:01
  */
 public class NewProDto {
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
-	/**ÏîÄ¿ÉóÅúºÅ*/
+	/**é¡¹ç›®å®¡æ‰¹å·*/
 	private String approvalNumber;
-	/**Õ÷µØÃæ»ı*/
+	/**å¾åœ°é¢ç§¯*/
 	private float requisitionArea;
-	/**Ó¦²ğ¶°Êı*/
+	/**åº”æ‹†æ ‹æ•°*/
 	private int shouldRemoveBuildings;
-	/**Ó¦²ğ»§Êı*/
+	/**åº”æ‹†æˆ·æ•°*/
 	private int shouldRemoveHouses;
-	/**Ó¦²ğºÏ·¨×ÜÃæ»ı*/
+	/**åº”æ‹†åˆæ³•æ€»é¢ç§¯*/
 	private float shouldRemoveLegalArea;
-	/**Ó¦²ğÎ¥ÕÂ×ÜÃæ»ı*/
+	/**åº”æ‹†è¿ç« æ€»é¢ç§¯*/
 	private float shouldRemoveIllegalArea;
-	/**Ó¦¶¯Ç¨ÈË¿Ú*/
+	/**åº”åŠ¨è¿äººå£*/
 	private int shouldMovePopulation;
-	/**ÏîÄ¿Ó¦¸¶²¹³¥¿î*/
+	/**é¡¹ç›®åº”ä»˜è¡¥å¿æ¬¾*/
 	private BigDecimal shouldPayMoney;
-	/**í—Ä¿îĞÍid*/
+	/**é¡¹ç›®ç±»å‹id*/
 	private int proType;
-	/**í—Ä¿µØÖ·×Ö·û´®*/
+	/**é¡¹ç›®åœ°å€å­—ç¬¦ä¸²*/
 	private String address;
-	/**ÏîÄ¿½ÖµÀµØÖ·id×éºÏ*/
+	/**é¡¹ç›®è¡—é“åœ°å€idç»„åˆ*/
 	private String street;
-	/**ÏîÄ¿ÉçÇøµØÖ·id×éºÏ*/
+	/**é¡¹ç›®ç¤¾åŒºåœ°å€idç»„åˆ*/
 	private String community;
-	/**ÏîÄ¿·ÖÀà*/
+	/**é¡¹ç›®åˆ†ç±»*/
 	private String proCategory;
-	/**ÊÇ·ñÊôÓÚÁùÇ°ÏîÄ¿*/
+	/**æ˜¯å¦å±äºå…­å‰é¡¹ç›®*/
 	private String sixForwardPro;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 
 	/*constrcutors*/

@@ -11,7 +11,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * ×ª»§ÅúÁ¿ĞÂÔöÇ°²éÑ¯×ÜĞĞÊı¹æÔ¼
+ * è½¬æˆ·æ‰¹é‡æ–°å¢å‰æŸ¥è¯¢æ€»è¡Œæ•°è§„çº¦
  * @author jjh
  * @time 2015-12-31 17:34
  */

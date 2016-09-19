@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+ï»¿package com.tq.requisition.test.infrastructure.repository;
 
 import java.util.UUID;
 
@@ -69,11 +69,11 @@ public class TestShareType {
 	
 	@Test
 	public void addSS() {
-//		SocialsecurityType ss = SocialsecurityType.obtain(UUID.randomUUID(), "»ù±¾ÑøÀÏ±£ÏÕ", 1);
-//		SocialsecurityType ss1 = SocialsecurityType.obtain(UUID.randomUUID(), "»ù±¾Ò½ÁÆ±£ÏÕ", 2);
-//		SocialsecurityType ss2 = SocialsecurityType.obtain(UUID.randomUUID(), "Ê§Òµ±£ÏÕ", 3);
-//		SocialsecurityType ss3 = SocialsecurityType.obtain(UUID.randomUUID(), "¹¤ÉË±£ÏÕ", 4);
-//		SocialsecurityType ss4 = SocialsecurityType.obtain(UUID.randomUUID(), "ÉúÓı±£ÏÕ", 5);
+//		SocialsecurityType ss = SocialsecurityType.obtain(UUID.randomUUID(), "åŸºæœ¬å…»è€ä¿é™©", 1);
+//		SocialsecurityType ss1 = SocialsecurityType.obtain(UUID.randomUUID(), "åŸºæœ¬åŒ»ç–—ä¿é™©", 2);
+//		SocialsecurityType ss2 = SocialsecurityType.obtain(UUID.randomUUID(), "å¤±ä¸šä¿é™©", 3);
+//		SocialsecurityType ss3 = SocialsecurityType.obtain(UUID.randomUUID(), "å·¥ä¼¤ä¿é™©", 4);
+//		SocialsecurityType ss4 = SocialsecurityType.obtain(UUID.randomUUID(), "ç”Ÿè‚²ä¿é™©", 5);
 //		socialsecurityTypeRepository.context().beginTransaction();
 //		socialsecurityTypeRepository.add(ss);
 //		socialsecurityTypeRepository.add(ss1);
@@ -85,13 +85,13 @@ public class TestShareType {
 
 	@Test
 	public void getId4Relationship() {
-		UUID id = relationshipTypeRepository.getIdByName("ÆŞ×Ó");
+		UUID id = relationshipTypeRepository.getIdByName("å¦»å­");
 		System.out.println(id);
 	}
 	
 	@Test
 	public void getId4Socialsecurity() {
-		UUID id = socialsecurityTypeRepository.getIdByName("ÆŞ×Ó");
+		UUID id = socialsecurityTypeRepository.getIdByName("å¦»å­");
 		System.out.println(id);
 	}
 }

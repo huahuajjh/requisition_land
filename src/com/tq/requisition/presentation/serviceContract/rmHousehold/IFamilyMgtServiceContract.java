@@ -1,96 +1,106 @@
-package com.tq.requisition.presentation.serviceContract.rmHousehold;
+ï»¿package com.tq.requisition.presentation.serviceContract.rmHousehold;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedExportCondition;
+import com.tq.requisition.presentation.dto.rmHousehold.FamilyAndItem;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyDto;
-import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ²ğÇ¨»§¹ÜÀíÒµÎñ½Ó¿ÚÆõÔ¼
+ * æ‹†è¿æˆ·ç®¡ç†ä¸šåŠ¡æ¥å£å¥‘çº¦
  * 
  * @author jjh
  * @time 2015-12-28 18:04
  */
 public interface IFamilyMgtServiceContract {
 	/**
-	 * Â¼Èë²ğÇ¨»§¼ÒÍ¥ĞÅÏ¢£¬²¢ÇÒ·µ»ØĞÂÔöºóµÄ¼ÒÍ¥»§Êı¾İ£¬¸ñÊ½Îªjson
+	 * å½•å…¥æ‹†è¿æˆ·å®¶åº­ä¿¡æ¯ï¼Œå¹¶ä¸”è¿”å›æ–°å¢åçš„å®¶åº­æˆ·æ•°æ®ï¼Œæ ¼å¼ä¸ºjson
 	 * @param fml
 	 * @return json String
 	 */
 	String addFamily(FamilyDto fml);
 	
 	/**
-	 * Ä¬ÈÏµÄ¼ÒÍ¥»§ĞÅÏ¢²éÑ¯£¬·µ»ØlistÊı¾İ£¬»ùÓÚ²éÑ¯modelºÍ·ÖÒ³model
+	 * é»˜è®¤çš„å®¶åº­æˆ·ä¿¡æ¯æŸ¥è¯¢ï¼Œè¿”å›listæ•°æ®ï¼ŒåŸºäºæŸ¥è¯¢modelå’Œåˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryFmlsList(FamilyQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * »ùÓÚ·ÖÒ³modelºÍ²éÑ¯model²éÑ¯»§ĞÅÏ¢Êı¾İ£¬·µ»ØjsonÊı¾İ
+	 * åŸºäºåˆ†é¡µmodelå’ŒæŸ¥è¯¢modelæŸ¥è¯¢æˆ·ä¿¡æ¯æ•°æ®ï¼Œè¿”å›jsonæ•°æ®
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	String queryFmlByFuzzy(FamilyQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ĞŞ¸Ä¼ÒÍ¥»§ĞÅÏ¢
+	 * ä¿®æ”¹å®¶åº­æˆ·ä¿¡æ¯
 	 * @param fml
-	 * 		»§ĞÅÏ¢model
+	 * 		æˆ·ä¿¡æ¯model
 	 * @return json String
 	 */
 	String editFml(FamilyDto fml);
 	
 	/**
-	 * É¾³ı»§ĞÅÏ¢
+	 * åˆ é™¤æˆ·ä¿¡æ¯
 	 * @param id
-	 * 		¼ÒÍ¥»§ĞÅÏ¢id
+	 * 		å®¶åº­æˆ·ä¿¡æ¯id
 	 * @return json String
 	 */
 	String deleteFml(UUID id);	
 	
 	/**
-	 * µ¼Èë²ğÇ¨»§ĞÅÏ¢
+	 * å¯¼å…¥æ‹†è¿æˆ·ä¿¡æ¯
 	 * @param dto
-	 * 		²ğÇ¨»§entity
+	 * 		æ‹†è¿æˆ·entity
 	 * @return String
 	 * 		json
 	 */
 	String importFml(Family dto);
 	
 	/**
-	 * ´òÓ¡²ğÇ¨»§
+	 * æ‰“å°æ‹†è¿æˆ·
 	 * @param uuids
-	 * 		²ğÇ¨»§id×Ö·û´®£¬¸ñÊ½-'id','id','id'
+	 * 		æ‹†è¿æˆ·idå­—ç¬¦ä¸²ï¼Œæ ¼å¼-'id','id','id'
 	 * @return String
 	 * 		json
 	 */
 	String getFml4Print(String uuids);
 	
 	/**
-	 * ¸ù¾İ²ğÇ¨»§id»ñÈ¡²ğÇ¨»§ĞÅÏ¢,°üº¬ÆäËû³ÉÔ±ĞÅÏ¢
+	 * æ ¹æ®æ‹†è¿æˆ·idè·å–æ‹†è¿æˆ·ä¿¡æ¯,åŒ…å«å…¶ä»–æˆå‘˜ä¿¡æ¯
 	 * @param id
-	 * 		³ÉÔ±id
+	 * 		æˆå‘˜id
 	 * @return String
 	 * 		json
 	 */
 	String getFmlByItemId(UUID id);
 	
 	/**
-	 * »ñÈ¡ÏîÄ¿»ù±¾ĞÅÏ¢
+	 * è·å–é¡¹ç›®åŸºæœ¬ä¿¡æ¯
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return String
 	 * 		json
 	 */
 	String getFml4HPT(FamilyQueryModel queryModel,PageModel pageModel);
+	
+	/**
+	 * å¯¼å‡ºæˆ·æ•°æ®
+	 * @param query
+	 * 		æŸ¥è¯¢æ¡ä»¶
+	 * @return
+	 */
+	List<FamilyAndItem> exportByDate(RemovedExportCondition query);
 }
 

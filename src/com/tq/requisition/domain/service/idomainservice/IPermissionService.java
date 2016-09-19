@@ -5,35 +5,35 @@ import java.util.UUID;
 import com.tq.requisition.exception.InvalidOperationException;
 
 /**
- * ÊÚÈ¨¹ÜÀí·şÎñ½Ó¿Ú
+ * æˆæƒç®¡ç†æœåŠ¡æ¥å£
  * @author jjh
  * @time 2015-12-24 22:55
  */
 public interface IPermissionService {
 	/**
-	 * ÎªÖ¸¶¨µÄÕË»§Ö¸ÅÉ½ÇÉ«
+	 * ä¸ºæŒ‡å®šçš„è´¦æˆ·æŒ‡æ´¾è§’è‰²
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @param rids
-	 * 		½ÇÉ«idÊı×é
+	 * 		è§’è‰²idæ•°ç»„
 	 */
 	void assignRole4User(UUID id,UUID...rIds) throws InvalidOperationException;
 	
 	/**
-	 * ÎªÖ¸¶¨µÄ½ÇÉ«·ÖÅä×ÊÔ´
+	 * ä¸ºæŒ‡å®šçš„è§’è‰²åˆ†é…èµ„æº
 	 * @param rid
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @param resIds
-	 * 		×ÊÔ´idÊı×é
+	 * 		èµ„æºidæ•°ç»„
 	 */
 	void assignRes4Role(UUID rid,UUID...resIds) throws InvalidOperationException;
 	
 	/**
-	 * »ñÈ¡ËùÓĞ×ÊÔ´£¬Í¬Ê±¸ù¾İ½ÇÉ«id±ê×¢¸Ã½ÇÉ«¾ßÓĞµÄÈ¨ÏŞµÄ×ÊÔ´
-	 * Json£º
+	 * è·å–æ‰€æœ‰èµ„æºï¼ŒåŒæ—¶æ ¹æ®è§’è‰²idæ ‡æ³¨è¯¥è§’è‰²å…·æœ‰çš„æƒé™çš„èµ„æº
+	 * Jsonï¼š
 	 * [PermissionAtRoleDto...]
 	 * @param roleId
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @return
 	 */
 	String getAllRescourses(UUID roleId);

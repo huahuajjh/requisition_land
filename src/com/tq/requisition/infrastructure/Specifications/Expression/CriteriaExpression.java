@@ -8,7 +8,7 @@ import org.hibernate.criterion.Criterion;
 import com.tq.requisition.domain.Specification.expression.ICriteriaExpression;
 
 /**
- * CriteriaÓï¾ä±í´ïÊ½
+ * Criteriaè¯­å¥è¡¨è¾¾å¼
  * @author jjh
  * @time 2015-12-17 16:20
  *

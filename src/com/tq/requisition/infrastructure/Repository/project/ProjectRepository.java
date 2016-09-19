@@ -31,7 +31,7 @@ import com.tq.requisition.presentation.dto.project.ProQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÏîÄ¿²Ö´¢ÊµÏÖÀà
+ * é¡¹ç›®ä»“å‚¨å®ç°ç±»
  * 
  * @author jjh
  * @time 2015-12-27 21:01
@@ -46,7 +46,7 @@ public class ProjectRepository extends HbRepository<Project> implements
 	@Override
 	public List<Announcement> getAnnouncementsByProId(UUID proId) {
 		if (proId == null) {
-			throw new NullPointerException("ÏîÄ¿idÎªnull");
+			throw new NullPointerException("é¡¹ç›®idä¸ºnull");
 		}
 		List<Announcement> list = getBySql(Announcement.class, //
 				"select * from tb_announcement where pro_id=?",//
@@ -94,7 +94,7 @@ public class ProjectRepository extends HbRepository<Project> implements
 	@Override
 	public List<ProjectItem> getProjectItemsByProId(UUID proId) {
 		if (proId == null) {
-			throw new NullPointerException("ÏîÄ¿idÎªnull");
+			throw new NullPointerException("é¡¹ç›®idä¸ºnull");
 		}
 		List<ProjectItem> items = getBySql(ProjectItem.class,
 				"select * from tb_project_item where pro_id=?",
@@ -106,26 +106,26 @@ public class ProjectRepository extends HbRepository<Project> implements
 	public Project addProItem(ProjectItem item, UUID proId)
 			throws DomainException {
 		if (item == null) {
-			throw new DomainException("Î´²éÑ¯µ½Ö¸¶¨µÄÏîÄ¿ĞÅÏ¢");
+			throw new DomainException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„é¡¹ç›®ä¿¡æ¯");
 		}
 		item.validate();
 
-		// ¼ì²âÖØ¸´Ê±¼ä
+		// æ£€æµ‹é‡å¤æ—¶é—´
 		boolean r = exists(new ProItemExistsDateSpecification(Project.class,
 				item.getDate(), proId));
 		if (r) {
-			throw new DomainException("Ê±¼ä[" + item.getDate().toLocaleString()
-					+ "]ÒÑ¾­Â¼ÈëÁËÏîÄ¿ÔÂ¶ÈĞÅÏ¢£¬ÈçÒªĞŞ¸Ä£¬Çëµã»÷[¹ÜÀíÔÂ±¨]");
+			throw new DomainException("æ—¶é—´[" + item.getDate().toLocaleString()
+					+ "]å·²ç»å½•å…¥äº†é¡¹ç›®æœˆåº¦ä¿¡æ¯ï¼Œå¦‚è¦ä¿®æ”¹ï¼Œè¯·ç‚¹å‡»[ç®¡ç†æœˆæŠ¥]");
 		}
 
-		// ¸üĞÂÏîÄ¿ÊÇ·ñĞÂÆô¶¯
+		// æ›´æ–°é¡¹ç›®æ˜¯å¦æ–°å¯åŠ¨
 		Project pro = getByKey(Project.class, proId);
-		// ¸üĞÂÏîÄ¿ÀÛ¼ÆÅâ¸¶¿îÏî
+		// æ›´æ–°é¡¹ç›®ç´¯è®¡èµ”ä»˜æ¬¾é¡¹
 		pro.updateMoney(item.getPaidMoney());
 		if (item.getStartDate() != null) {
 			pro.updateStartDate(item.getStartDate());
 		}
-		// ¸üĞÂÏîÄ¿Äê¶ÈºÍÀÛ¼ÆÊı¾İ
+		// æ›´æ–°é¡¹ç›®å¹´åº¦å’Œç´¯è®¡æ•°æ®
 		pro.updateTotalData(item);
 		update(pro);
 		add(item);
@@ -140,19 +140,19 @@ public class ProjectRepository extends HbRepository<Project> implements
 				announcement.getDocPath(), announcement.getDate(), //
 				announcement.getSequence(), announcement.getProId());
 
-		// ¸üĞÂÏîÄ¿¹«¸æ½ø¶È
+		// æ›´æ–°é¡¹ç›®å…¬å‘Šè¿›åº¦
 		Project pro = getByKey(Project.class, announcement.getProId());
 		if (null == pro) {
-			throw new NullPointerException("Î´²éÑ¯µ½ÏîÄ¿ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°é¡¹ç›®ä¿¡æ¯");
 		}
 		pro.setSequence(announcement.getSequence());
 		pro.toAnnStr();
 		pro.toProTypeStr();
 
-		// ¸üĞÂÏîÄ¿¹«¸æ½ø¶È
+		// æ›´æ–°é¡¹ç›®å…¬å‘Šè¿›åº¦
 		update(pro);
 
-		// ³Ö¾Ã»¯¹«¸æĞÅÏ¢
+		// æŒä¹…åŒ–å…¬å‘Šä¿¡æ¯
 		add(an);
 		return pro;
 	}
@@ -171,20 +171,20 @@ public class ProjectRepository extends HbRepository<Project> implements
 	@Override
 	public void addPro(Project model) throws DomainException {
 		if (null == model) {
-			throw new DomainException("ĞÂÔöµÄÏîÄ¿ĞÅÏ¢Îª¿Õ");
+			throw new DomainException("æ–°å¢çš„é¡¹ç›®ä¿¡æ¯ä¸ºç©º");
 		}
 
 		boolean r = exists(new ProExistsByNameSpecification(Project.class,
 				model.getProName()));
 		if (r) {
-			throw new DomainException("ÏîÄ¿Ãû³Æ[" + model.getProName() + "]ÒÑ¾­´æÔÚ");
+			throw new DomainException("é¡¹ç›®åç§°[" + model.getProName() + "]å·²ç»å­˜åœ¨");
 		}
 
 //		boolean r1 = exists(new ProExistsByApprovalNumSpecification(
 //				Project.class, model.getApprovalNumber()));
 //		if (r1) {
-//			throw new DomainException("ÏîÄ¿ÉóÅúºÅ[" + model.getApprovalNumber()
-//					+ "]ÒÑ¾­´æÔÚ");
+//			throw new DomainException("é¡¹ç›®å®¡æ‰¹å·[" + model.getApprovalNumber()
+//					+ "]å·²ç»å­˜åœ¨");
 //		}
 
 		add(model);
@@ -226,7 +226,7 @@ public class ProjectRepository extends HbRepository<Project> implements
 	public void editProItem(ProjectItem item) {
 		ProjectItem entity = get(ProjectItem.class, item.getId());
 		if (null == entity) {
-			throw new NullPointerException("Î´²éÑ¯µ½ÔÂ¶ÈĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æœˆåº¦ä¿¡æ¯");
 		}
 		entity.modify(item);
 		update(entity);
@@ -289,23 +289,23 @@ public class ProjectRepository extends HbRepository<Project> implements
 
 		};
 		List<ProjectItem> items = getAllByHqlJoin(sp, -1, -1);
-		// Èç¹ûÎ´²éÑ¯µ½Ö¸¶¨ÏîÄ¿idÓëÏîÄ¿ÔÂ¶ÈÌî±¨ÈÕÆÚµÄ¼ÇÂ¼£¬ÔòĞÂÔöÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+		// å¦‚æœæœªæŸ¥è¯¢åˆ°æŒ‡å®šé¡¹ç›®idä¸é¡¹ç›®æœˆåº¦å¡«æŠ¥æ—¥æœŸçš„è®°å½•ï¼Œåˆ™æ–°å¢é¡¹ç›®æœˆåº¦ä¿¡æ¯
 		if (null == items || items.size() == 0) {
 			add(proItem);
 			return;
 		}
 
-		// Èç¹û²éÑ¯µ½Ö¸¶¨ÏîÄ¿ºÍÔÂ¶ÈÌî±¨Ê±¼äµÄ¼ÇÂ¼£¬Ôò¸²¸ÇÔÂ¶ÈÊı¾İ
+		// å¦‚æœæŸ¥è¯¢åˆ°æŒ‡å®šé¡¹ç›®å’Œæœˆåº¦å¡«æŠ¥æ—¶é—´çš„è®°å½•ï¼Œåˆ™è¦†ç›–æœˆåº¦æ•°æ®
 		ProjectItem item = items.get(0);
 		item.modify(proItem);
-		// ¸üĞÂÔÂ¶ÈĞÅÏ¢
+		// æ›´æ–°æœˆåº¦ä¿¡æ¯
 		update(item);
 	}
 
 	private void saveOrUpdatePro(Project pro) throws DomainException {
 		List<Project> ps = getAll(new ProQueryByNameSpecification(Project.class, pro.getProName()));
 		
-		// Èç¹ûÎ´²éÑ¯µ½ÏîÄ¿ĞÅÏ¢£¬ÊÓÎªĞÂÔö
+		// å¦‚æœæœªæŸ¥è¯¢åˆ°é¡¹ç›®ä¿¡æ¯ï¼Œè§†ä¸ºæ–°å¢
 		if (null == ps || ps.size()==0) {
 			add(pro);
 			for (ProjectItem item : pro.getItems()) {
@@ -319,7 +319,7 @@ public class ProjectRepository extends HbRepository<Project> implements
 //			}
 		} 
 		else {
-			// Èç¹û²»Îª¿Õ£¬Ôò¸üĞÂ
+			// å¦‚æœä¸ä¸ºç©ºï¼Œåˆ™æ›´æ–°
 			ps.get(0).modify4Import(pro);
 			update(ps.get(0));
 			for (ProjectItem item : pro.getItems()) {

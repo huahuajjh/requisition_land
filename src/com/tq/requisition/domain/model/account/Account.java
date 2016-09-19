@@ -8,25 +8,25 @@ import com.tq.requisition.exception.AccountOperationException;
 import com.tq.requisition.exception.ChangePwdException;
 
 /**
- * ÕË»§¾ÛºÏ¸ù
+ * è´¦æˆ·èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 16:46
  */
 public class Account extends AggregateRoot{
 	/*private fields*/
-	/**ÓÃ»§Ãû*/
+	/**ç”¨æˆ·å*/
 	private String account;
-	/**ÃÜÂë*/
+	/**å¯†ç */
 	private String pwd;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**×´Ì¬*/
+	/**çŠ¶æ€*/
 	private Integer state;
-	/**ËùÊô²¿ÃÅid*/
+	/**æ‰€å±éƒ¨é—¨id*/
 	private UUID deptId;
-	/**ËùÊô×éÖ¯id*/
+	/**æ‰€å±ç»„ç»‡id*/
 	private UUID orgId;
-	/**½ÇÉ«id*/
+	/**è§’è‰²id*/
 	private UUID roleId;
 	
 	/*override toString*/
@@ -104,64 +104,64 @@ public class Account extends AggregateRoot{
 
 	/*public methods*/
 	/**
-	 * ËøÕË»§
+	 * é”è´¦æˆ·
 	 */
 	public void lockAccount() {
 		this.state = AccountState.LOCKED.toValue();
 	}
 	
 	/**
-	 * ½ûÓÃÕË»§
+	 * ç¦ç”¨è´¦æˆ·
 	 */
 	public void disableAccount() {
 		this.state = AccountState.DISABLE.toValue();
 	}
 	
 	/**
-	 * ÆôÓÃÕË»§
+	 * å¯ç”¨è´¦æˆ·
 	 */
 	public void enableAccount() {
 		this.state = AccountState.ENABLE.toValue();
 	}
 
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹å¯†ç 
 	 * @param oldPwd
-	 * 		¾ÉÃÜÂë
+	 * 		æ—§å¯†ç 
 	 * @param newPwd
-	 * 		ĞÂÃÜÂë
+	 * 		æ–°å¯†ç 
 	 * @throws ChangePwdException
-	 * 		Å×³öÒì³£ÀàĞÍ
+	 * 		æŠ›å‡ºå¼‚å¸¸ç±»å‹
 	 */
 	public void changePwd(String oldPwd,String newPwd) throws ChangePwdException {
 		if(!oldPwd.equals(this.pwd))
 		{
-			throw new ChangePwdException("¾ÉÃÜÂë´íÎó");
+			throw new ChangePwdException("æ—§å¯†ç é”™è¯¯");
 		}		
 		if(oldPwd.equals(newPwd))
 		{
-			throw new ChangePwdException("¾ÉÃÜÂë²»ÄÜÓëĞÂÃÜÂëÏàÍ¬");
+			throw new ChangePwdException("æ—§å¯†ç ä¸èƒ½ä¸æ–°å¯†ç ç›¸åŒ");
 		}
 		if(newPwd.length() <= 6)
 		{
-			throw new ChangePwdException("ÃÜÂë³¤¶È²»ÄÜĞ¡ÓÚ6");
+			throw new ChangePwdException("å¯†ç é•¿åº¦ä¸èƒ½å°äº6");
 		}
 		this.pwd = newPwd;
 	}
 	
 	/**
-	 * ´´½¨ÕË»§
+	 * åˆ›å»ºè´¦æˆ·
 	 * @throws AccountOperationException
-	 * 		ÕË»§²Ù×÷Òì³£ 
+	 * 		è´¦æˆ·æ“ä½œå¼‚å¸¸ 
 	 */
 	public void accountCheck() throws AccountOperationException {
 		if(pwd.length() <= 2)
 		{
-			throw new AccountOperationException("ÃÜÂë³¤¶È²»ÄÜĞ¡ÓÚ3");
+			throw new AccountOperationException("å¯†ç é•¿åº¦ä¸èƒ½å°äº3");
 		}
 		if(account.length() <= 2)
 		{
-			throw new AccountOperationException("ÕË»§Ãû³¤¶È²»ÄÜĞ¡ÓÚ3");
+			throw new AccountOperationException("è´¦æˆ·åé•¿åº¦ä¸èƒ½å°äº3");
 		}
 	}
 	
@@ -180,7 +180,7 @@ public class Account extends AggregateRoot{
 	}
 	
 	/**
-	 * ÖØÖÃÃÜÂë£¬Ä¬ÈÏ1234567
+	 * é‡ç½®å¯†ç ï¼Œé»˜è®¤1234567
 	 */
 	public void resetPwd() {
 		this.pwd = "1234567";

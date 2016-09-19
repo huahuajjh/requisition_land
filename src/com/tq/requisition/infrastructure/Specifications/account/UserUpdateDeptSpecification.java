@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 规约，当部门被删除后，更新部门id为null
+ * 瑙勭害锛屽綋閮ㄩ棬琚垹闄ゅ悗锛屾洿鏂伴儴闂╥d涓簄ull
  * @author jjh
  * @time 2015-12-26 15:55
  * @version 1.0

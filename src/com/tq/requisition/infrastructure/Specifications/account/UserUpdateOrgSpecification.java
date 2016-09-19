@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 规约，更新账户仓储中已经被删除了的所有组织和部门
+ * 瑙勭害锛屾洿鏂拌处鎴蜂粨鍌ㄤ腑宸茬粡琚垹闄や簡鐨勬墍鏈夌粍缁囧拰閮ㄩ棬
  * @author jjh
  * @time 2015-12-26 15:11
  */

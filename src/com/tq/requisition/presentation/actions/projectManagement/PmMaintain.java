@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.projectManagement;
+锘縫ackage com.tq.requisition.presentation.actions.projectManagement;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,11 +19,11 @@ public class PmMaintain extends BaseAction {
 		this.proMgtServiceContract = getService("proMgtServiceContract", IProMgtServiceContract.class);
 	}
 	
-	/**地址操作对象*/
+	/**鍦板潃鎿嶄綔瀵硅薄*/
 	private IAddressServiceContract addressServiceContract;
 	private IProMgtServiceContract proMgtServiceContract;
 	
-	// ---模糊查询列表
+	// ---妯＄硦鏌ヨ鍒楄〃
 	private int pageNum = 30;
 	private int pageIndex = 1;
 	private int typeId = 0;
@@ -58,7 +58,7 @@ public class PmMaintain extends BaseAction {
 		this.address = address;
 	}
 	
-	/**页面对象*/
+	/**椤甸潰瀵硅薄*/
 	private List<AddressDto> addressDtos;
 	private List<ProTypeDto> proTypeDtos;
 	

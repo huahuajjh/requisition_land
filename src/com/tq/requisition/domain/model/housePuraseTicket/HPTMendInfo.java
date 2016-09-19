@@ -6,22 +6,22 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * ²¹È¯ÉÏÏÂÎÄÊµÌå
+ * è¡¥åˆ¸ä¸Šä¸‹æ–‡å®ä½“
  * @author jjh
  * @time 2015-12-18 16:53
  */
 public class HPTMendInfo extends Entity{
-	/**²¹È¯ÈÕÆÚ*/
+	/**è¡¥åˆ¸æ—¥æœŸ*/
 	private Date mendDate;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**²¹È¯ÈË*/
+	/**è¡¥åˆ¸äºº*/
 	private UUID onwerId;
-	/**ÕÒ²¹µÄ¹º·¿È¯*/
+	/**æ‰¾è¡¥çš„è´­æˆ¿åˆ¸*/
 	private UUID ticketId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	/*constructors*/

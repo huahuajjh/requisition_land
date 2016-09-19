@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+锘縫ackage com.tq.requisition.test.application;
 
 
 import java.util.UUID;
@@ -19,14 +19,14 @@ public class TestOrgMgt {
 	
 	@Test
 	public void createOrg() {
-		String json = service.addOrg(new OrgDto("国土局", UUID.randomUUID(), "#001"));
+		String json = service.addOrg(new OrgDto("鍥藉湡灞�", UUID.randomUUID(), "#001"));
 		System.out.println(json);
 		
 	}
 	
 	@Test
 	public void modifyOrg() {
-		String json = service.editOrgInfo(new OrgDto("国安局", UUID.fromString("3465302d-94ca-4da1-a860-b28581b70a1b"), "#007"));
+		String json = service.editOrgInfo(new OrgDto("鍥藉畨灞�", UUID.fromString("3465302d-94ca-4da1-a860-b28581b70a1b"), "#007"));
 		System.out.println(json);
 	}
 	

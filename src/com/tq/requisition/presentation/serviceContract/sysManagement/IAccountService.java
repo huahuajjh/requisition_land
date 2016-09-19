@@ -1,94 +1,94 @@
-package com.tq.requisition.presentation.serviceContract.sysManagement;
+ï»¿package com.tq.requisition.presentation.serviceContract.sysManagement;
 
 import java.util.UUID;
 
 import com.tq.requisition.presentation.dto.sysMgt.AccountDto;
 
 /**
- * ÕË»§Ïà¹Ø²Ù×÷ÆõÔ¼½Ó¿Ú
+ * è´¦æˆ·ç›¸å…³æ“ä½œå¥‘çº¦æ¥å£
  * 
  * @author jjh
  * @time 2015-12-23 15:37
  */
 public interface IAccountService {
 	/**
-	 * ´´½¨ÕË»§½Ó¿Ú-
+	 * åˆ›å»ºè´¦æˆ·æ¥å£-
 	 * 
 	 * @param accountDto
-	 * 		ÕË»§dto
+	 * 		è´¦æˆ·dto
 	 * @return TODO
 	 */
 	String createAccount(AccountDto accountDto);
 	
 	/**
-	 * ¼ì²âÕË»§ÊÇ·ñ´æÔÚ
+	 * æ£€æµ‹è´¦æˆ·æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param account
-	 *            ÕË»§Ãû
-	 * @return boolean ·µ»ØÒ»¸öbooleanÖµ£¬¸ÃÖ¸±íÃ÷Ö¸¶¨ÕË»§ÃûÊÇ·ñ´æÔÚ
+	 *            è´¦æˆ·å
+	 * @return boolean è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥æŒ‡è¡¨æ˜æŒ‡å®šè´¦æˆ·åæ˜¯å¦å­˜åœ¨
 	 */
 	boolean checkAccountExists(String account);
 
 	/**
-	 * ½ûÓÃÕË»§½Ó¿Ú-
+	 * ç¦ç”¨è´¦æˆ·æ¥å£-
 	 * 
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @return TODO
 	 */
 	String disableAccount(UUID id);
 	
 	/**
-	 * ÖØÖÃÓÃ»§ÃÜÂëÎª 1234567
+	 * é‡ç½®ç”¨æˆ·å¯†ç ä¸º 1234567
 	 * 
 	 * @param uId
-	 *            ÓÃ»§±êÊ¶
+	 *            ç”¨æˆ·æ ‡è¯†
 	 * @return
 	 */
 	String resetAccountPassword(UUID uId);
 	
 	/**
-	 * Ä£ºı²éÑ¯ÕËºÅÊı¾İ£¬£¨×¢Òâ£ºÊı¾İÀïÃæ²»ÄÜ°ÑÃÜÂë´ø³öÀ´£© 
-	 * Json£º[AccountDto...]
+	 * æ¨¡ç³ŠæŸ¥è¯¢è´¦å·æ•°æ®ï¼Œï¼ˆæ³¨æ„ï¼šæ•°æ®é‡Œé¢ä¸èƒ½æŠŠå¯†ç å¸¦å‡ºæ¥ï¼‰ 
+	 * Jsonï¼š[AccountDto...]
 	 * 
 	 * @param userName
-	 *            ÕËºÅ£¨×¢Òâ£º¿Õ ±íÊ¾»ñÈ¡ËùÓĞÈËÔ±£©
+	 *            è´¦å·ï¼ˆæ³¨æ„ï¼šç©º è¡¨ç¤ºè·å–æ‰€æœ‰äººå‘˜ï¼‰
 	 * @param name
-	 *            ĞÕÃû£¨×¢Òâ£º¿Õ ±íÊ¾»ñÈ¡ËùÓĞÈËÔ±£©
+	 *            å§“åï¼ˆæ³¨æ„ï¼šç©º è¡¨ç¤ºè·å–æ‰€æœ‰äººå‘˜ï¼‰
 	 * @param orgId
-	 *            ËùÊô×éÖ¯£¨×¢Òâ£ºnull ±íÊ¾»ñÈ¡ËùÓĞ×éÖ¯ÈËÔ±£©
+	 *            æ‰€å±ç»„ç»‡ï¼ˆæ³¨æ„ï¼šnull è¡¨ç¤ºè·å–æ‰€æœ‰ç»„ç»‡äººå‘˜ï¼‰
 	 * @param deptId
-	 *            ËùÊô²¿ÃÅ£¨Ö÷Òª£ºnull ±íÊ¾»ñÈ¡ËùÓĞ²¿ÃÅÈËÔ±£©
+	 *            æ‰€å±éƒ¨é—¨ï¼ˆä¸»è¦ï¼šnull è¡¨ç¤ºè·å–æ‰€æœ‰éƒ¨é—¨äººå‘˜ï¼‰
 	 * @param pageIndex
-	 *            Ò³Âë£¨Ä¬ÈÏ´Ó1¿ªÊ¼£©
+	 *            é¡µç ï¼ˆé»˜è®¤ä»1å¼€å§‹ï¼‰
 	 * @param pageNum
-	 *            Ã¿Ò³ÏÔÊ¾µÄÊı¾İ Ä¬ÈÏ´Ó1 ¿ªÊ¼
+	 *            æ¯é¡µæ˜¾ç¤ºçš„æ•°æ® é»˜è®¤ä»1 å¼€å§‹
 	 * @return
 	 */
 	String getAccountList(String userName, String name, UUID orgId,
 			UUID deptId, int pageIndex, int pageNum);
 	
 	/**
-	 * ½ûÓÃÕË»§½Ó¿Ú
+	 * ç¦ç”¨è´¦æˆ·æ¥å£
 	 * 
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @return TODO
 	 */
 	String enableAccount(UUID id);
 
 	/**
-	 * ¸üĞÂÕË»§ĞÅÏ¢
+	 * æ›´æ–°è´¦æˆ·ä¿¡æ¯
 	 * @param dto
-	 * 		ÕË»§ĞÅÏ¢dto
+	 * 		è´¦æˆ·ä¿¡æ¯dto
 	 * @return
 	 */
 	String updateAccount(AccountDto dto);
 		
 	/**
-	 * É¾³ıÕË»§
+	 * åˆ é™¤è´¦æˆ·
 	 * @param uid
-	 * 		´ıÉ¾³ıÕË»§µÄid
+	 * 		å¾…åˆ é™¤è´¦æˆ·çš„id
 	 * @return
 	 */
 	String removeAccount(UUID uid);

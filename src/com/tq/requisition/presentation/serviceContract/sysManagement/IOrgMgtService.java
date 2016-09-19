@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.sysManagement;
+锘縫ackage com.tq.requisition.presentation.serviceContract.sysManagement;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,23 +6,23 @@ import java.util.UUID;
 import com.tq.requisition.presentation.dto.sysMgt.OrgDto;
 
 /**
- * 组织管理契约接口
+ * 缁勭粐绠＄悊濂戠害鎺ュ彛
  * 
  * @author jjh
  * @time 2015-12-23 17:51
  */
 public interface IOrgMgtService {
 	/**
-	 * 新增组织
+	 * 鏂板缁勭粐
 	 * 
 	 * @param org
-	 *            组织Dto数据
+	 *            缁勭粐Dto鏁版嵁
 	 * @return
 	 */
 	String addOrg(OrgDto org);
 
 	/**
-	 * 修改组织信息
+	 * 淇敼缁勭粐淇℃伅
 	 * 
 	 * @param org
 	 * @return
@@ -30,24 +30,24 @@ public interface IOrgMgtService {
 	String editOrgInfo(OrgDto org);
 
 	/**
-	 * 删除组织
+	 * 鍒犻櫎缁勭粐
 	 * 
 	 * @param id
-	 *            组织标识
+	 *            缁勭粐鏍囪瘑
 	 */
 	String deleteByOrgKey(UUID orgId);
 
 	/**
-	 * 获取组织DTO集合数据
+	 * 鑾峰彇缁勭粐DTO闆嗗悎鏁版嵁
 	 * 
-	 * @return 数据DTO列表
+	 * @return 鏁版嵁DTO鍒楄〃
 	 */
 	List<OrgDto> getOrgList();
 
 	/**
-	 * 获取组织DTO数据Json集合数据
-	 * json：[OrgDto...]
-	 * @return Json集合
+	 * 鑾峰彇缁勭粐DTO鏁版嵁Json闆嗗悎鏁版嵁
+	 * json锛歔OrgDto...]
+	 * @return Json闆嗗悎
 	 */
 	String getOrgListJson();
 

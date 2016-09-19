@@ -1,7 +1,7 @@
-package com.tq.requisition.presentation.dto.share;
+﻿package com.tq.requisition.presentation.dto.share;
 
 /**
- * ��ҳ��ѯģ�ͣ��ṩ��ʼҳ��ҳ��intֵ
+ * 分页查询模型，提供起始页，页码int值
  * @author jjh
  *
  */

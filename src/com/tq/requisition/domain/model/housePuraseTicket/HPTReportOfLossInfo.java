@@ -6,24 +6,24 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.Entity;
 
 /**
- * ¹º·¿È¯¾ÛºÏ¸ù
+ * è´­æˆ¿åˆ¸èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 17:09
  */
 public class HPTReportOfLossInfo extends Entity{
-	/**¹ÒÊ§ÈÕÆÚ*/
+	/**æŒ‚å¤±æ—¥æœŸ*/
 	private Date reportOfLossDate;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**¹ÒÊ§ÈË*/
+	/**æŒ‚å¤±äºº*/
 	private UUID fmlItemId;
-	/**¹ÒÊ§µÄ¹º·¿È¯*/
+	/**æŒ‚å¤±çš„è´­æˆ¿åˆ¸*/
 	private UUID ticketId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
 	
 	public String getRemark() {

@@ -1,7 +1,7 @@
 package com.tq.requisition.domain.Specification.expression;
 
 /**
- * criteria±í´ïÊ½³éÏóÀà,ÊµÏÖ¸Ã³éÏóÀàµÄÀàĞÍÊÇcriteria±í´ïÊ½
+ * criteriaè¡¨è¾¾å¼æŠ½è±¡ç±»,å®ç°è¯¥æŠ½è±¡ç±»çš„ç±»å‹æ˜¯criteriaè¡¨è¾¾å¼
  * @author jjh
  * @time 2015-12-16 20:09
  */

@@ -1,16 +1,16 @@
-package com.tq.requisition.presentation.dto.share;
+ï»¿package com.tq.requisition.presentation.dto.share;
 
 import java.util.UUID;
 
 
 /**
- * Éç±£ÀàĞÍÉÏÏÂÎÄ
+ * ç¤¾ä¿ç±»å‹ä¸Šä¸‹æ–‡
  * @author jjh
  * @time 2015-12-18 16:39
  */
 public class SocialsecurityTypeDto{
 	private UUID id;
-	/**Éç±£ÀàĞÍÃû³Æ*/
+	/**ç¤¾ä¿ç±»å‹åç§°*/
 	private String name;
 		
 	/*getters and setters*/

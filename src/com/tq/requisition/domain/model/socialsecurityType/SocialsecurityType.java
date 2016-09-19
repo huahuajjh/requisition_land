@@ -5,12 +5,12 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * Éç±£ÀàĞÍÉÏÏÂÎÄ
+ * ç¤¾ä¿ç±»å‹ä¸Šä¸‹æ–‡
  * @author jjh
  * @time 2015-12-18 16:39
  */
 public class SocialsecurityType extends AggregateRoot{
-	/**Éç±£ÀàĞÍÃû³Æ*/
+	/**ç¤¾ä¿ç±»å‹åç§°*/
 	private String name;
 	
 	/*getters and setters*/

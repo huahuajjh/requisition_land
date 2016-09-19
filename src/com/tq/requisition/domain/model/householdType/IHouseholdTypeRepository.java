@@ -7,28 +7,28 @@ import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * »§¿ÚĞÔÖÊ¾ÛºÏ¸ù²Ö´¢½Ó¿Ú
+ * æˆ·å£æ€§è´¨èšåˆæ ¹ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-28 0:54
  */
 public interface IHouseholdTypeRepository extends IRepository<HouseholdType>{
 	/**
-	 * ĞÂÔö»§¿ÚÀàĞÍ
+	 * æ–°å¢æˆ·å£ç±»å‹
 	 * @param model
-	 * 		´ıĞÂÔöµÄ»§¿ÚÀàĞÍ
+	 * 		å¾…æ–°å¢çš„æˆ·å£ç±»å‹
 	 * @return HouseholdType
-	 * 		ĞÂÔöºóµÄ»§¿ÚÀàĞÍÊµÌå
+	 * 		æ–°å¢åçš„æˆ·å£ç±»å‹å®ä½“
 	 */
 	HouseholdType addHouseholdType(HouseholdType entity) throws DomainException ;
 	
 	List<HouseholdType> getAllType();
 	
 	/**
-	 * ±à¼­»§¿ÚÀàĞÍ
+	 * ç¼–è¾‘æˆ·å£ç±»å‹
 	 * @param name
-	 * 		»§¿ÚÀàĞÍÃû³Æ
+	 * 		æˆ·å£ç±»å‹åç§°
 	 * @param id
-	 * 		»§¿ÚÀàĞÍid
+	 * 		æˆ·å£ç±»å‹id
 	 */
 	void editType(UUID id,String name) throws DomainException ;	
 }

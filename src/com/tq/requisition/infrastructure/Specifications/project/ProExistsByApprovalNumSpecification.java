@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.project.Project;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 规约，根据项目审批号判断是否存在
+ * 瑙勭害锛屾牴鎹」鐩鎵瑰彿鍒ゆ柇鏄惁瀛樺湪
  * @author jjh
  * @time 2016-01-15 17:48
  *

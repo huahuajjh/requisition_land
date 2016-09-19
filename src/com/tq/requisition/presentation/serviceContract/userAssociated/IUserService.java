@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.userAssociated;
+ï»¿package com.tq.requisition.presentation.serviceContract.userAssociated;
 
 import java.util.UUID;
 
@@ -6,35 +6,35 @@ import com.tq.requisition.presentation.dto.sysMgt.AccountSafeDto;
 
 
 /**
- * ÓÃ»§Ïà¹Ø²Ù×÷ÆõÔ¼½Ó¿Ú
+ * ç”¨æˆ·ç›¸å…³æ“ä½œå¥‘çº¦æ¥å£
  * @author jjh
  * @time 2015-12-21 21:50
  */
 public interface IUserService {
 	/**
-	 * ÓÃ»§µÇÂ½
+	 * ç”¨æˆ·ç™»é™†
 	 * @param account
-	 * 		µÇÂ½ÕË»§
+	 * 		ç™»é™†è´¦æˆ·
 	 * @param pwd
-	 * 		ÓÃ»§ÃÜÂë
+	 * 		ç”¨æˆ·å¯†ç 
 	 * @return boolean
-	 * 		µÇÂ½ÊÇ·ñ³É¹¦±êÖ¾
+	 * 		ç™»é™†æ˜¯å¦æˆåŠŸæ ‡å¿—
 	 */
 	boolean login(String account,String pwd);
 	
 	/**
-	 * µÇÂ½
+	 * ç™»é™†
 	 * @param account
-	 * 		ÕË»§
+	 * 		è´¦æˆ·
 	 * @param pwd
-	 * 		ÃÜÂë
+	 * 		å¯†ç 
 	 * @return
-	 * 		µÇÂ½ÊµÌå
+	 * 		ç™»é™†å®ä½“
 	 */
 	AccountSafeDto login4session(String account,String pwd);
 	
 	/**
-	 * ¸ù¾İid»ñÈ¡ÓÃ»§¶ÔÏó
+	 * æ ¹æ®idè·å–ç”¨æˆ·å¯¹è±¡
 	 * @param id
 	 * 		id
 	 * @return
@@ -43,15 +43,15 @@ public interface IUserService {
 	AccountSafeDto getUserById(UUID id);
 		
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹å¯†ç 
 	 * @param uId
-	 * 		´ıĞŞ¸ÄÃÜÂëµÄÕËºÅ
+	 * 		å¾…ä¿®æ”¹å¯†ç çš„è´¦å·
 	 * @param DomainException
-	 * 		²Ù×÷Òì³£ÊµÀı
+	 * 		æ“ä½œå¼‚å¸¸å®ä¾‹
 	 * @param oldPwd
-	 * 		¾ÉÃÜÂë
+	 * 		æ—§å¯†ç 
 	 * @param newPwd
-	 * 		ĞÂÃÜÂë
+	 * 		æ–°å¯†ç 
 	 */
 	String changePwd(UUID uId,String oldPwd,String newPwd);
 	

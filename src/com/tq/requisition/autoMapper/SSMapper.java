@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.socialsecurity.SocialsecurityInfo;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.NewSocialsecurityDto;
 
 /**
- * Éç±£dto£¬ÓÃÓÚĞÂÔöÉç±£ĞÅÏ¢
+ * ç¤¾ä¿dtoï¼Œç”¨äºæ–°å¢ç¤¾ä¿ä¿¡æ¯
  * @author jjh
  * @time 2015-12-31 21:37
  */

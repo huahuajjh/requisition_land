@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ½ÇÉ«¾ÛºÏ¸ù
+ * è§’è‰²èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 16:49
  */
@@ -50,9 +50,9 @@ public class Role extends AggregateRoot{
 	
 	/*public methods*/
 	/**
-	 * ĞŞ¸Ä½ÇÉ«
+	 * ä¿®æ”¹è§’è‰²
 	 * @param role
-	 * 		´ıĞŞ¸ÄµÄ½ÇÉ«ÊµÌå
+	 * 		å¾…ä¿®æ”¹çš„è§’è‰²å®ä½“
 	 */
 	public void modify(Role role)
 	{
@@ -61,19 +61,19 @@ public class Role extends AggregateRoot{
 	}
 
 	/**
-	 * ¼ì²â½ÇÉ«ÃûÊÇ·ñÎª¿Õ
+	 * æ£€æµ‹è§’è‰²åæ˜¯å¦ä¸ºç©º
 	 */
 	public void checkRoleNameNull() {
 		if(this.roleName == null)
 		{
-			throw new NullPointerException("½ÇÉ«Ãû³Æ²»ÄÜÎª¿Õ");
+			throw new NullPointerException("è§’è‰²åç§°ä¸èƒ½ä¸ºç©º");
 		}
 	}
 	
 	public static Role obtain(String roleName) {
 		if(roleName == null)
 		{
-			throw new NullPointerException("´´½¨½ÇÉ«ÊµÌåÒı·¢Òì³££¬½ÇÉ«ÃûÎªnull");
+			throw new NullPointerException("åˆ›å»ºè§’è‰²å®ä½“å¼•å‘å¼‚å¸¸ï¼Œè§’è‰²åä¸ºnull");
 		}
 		return new Role(UUID.randomUUID(),roleName,false);
 	}

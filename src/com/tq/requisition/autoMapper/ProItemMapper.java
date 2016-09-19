@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.project.ProjectItem;
 import com.tq.requisition.presentation.dto.project.ProItemDto;
 
 /**
- * 项目月度dto与领域model转换
+ * 椤圭洰鏈堝害dto涓庨鍩焟odel杞崲
  * 
  * @author jjh
  * @time 2015-12-28 13:27

@@ -2,16 +2,16 @@ package com.tq.requisition.infrastructure.event;
 
 /**
  * @description
- * 		±íÃ÷ÊµÏÖ¸Ã½Ó¿ÚµÄÀàĞÍÊÇÒ»ÖÖÊÂ¼ş´¦ÀíÆ÷
+ * 		è¡¨æ˜å®ç°è¯¥æ¥å£çš„ç±»å‹æ˜¯ä¸€ç§äº‹ä»¶å¤„ç†å™¨
  * @author jjh
  * @time 2015-12-16 12:54
  */
 public interface IEventHandler<TEvent extends IEvent> {
 	/**
 	 * @description
-	 * 		ÊÂ¼ş´¦ÀíÆ÷´¦Àí·½·¨
+	 * 		äº‹ä»¶å¤„ç†å™¨å¤„ç†æ–¹æ³•
 	 * @param evt
-	 * 		ÊÂ¼ş½Ó¿ÚÊµÀı
+	 * 		äº‹ä»¶æ¥å£å®ä¾‹
 	 */
 	void handle(TEvent evt);
 }

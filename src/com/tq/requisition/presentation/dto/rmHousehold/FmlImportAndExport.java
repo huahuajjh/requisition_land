@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,31 +9,31 @@ import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.domain.model.share.Gender;
 
 /**
- * ²ğÇ¨»§µ¼ÈëÄ£°å
+ * æ‹†è¿æˆ·å¯¼å…¥æ¨¡æ¿
  * @author jjh
  * @time 2016-01-16 13:11
  *
  */
 public class FmlImportAndExport {
-	/**ÏîÄ¿Ãû³Æ*/
-	@InputColAnnotation(colCoord=1,required=true,rowCoord=1,requiredErrorMsg="[ÏîÄ¿Ãû³Æ]ÊÇ±ØÌîÏî")
+	/**é¡¹ç›®åç§°*/
+	@InputColAnnotation(colCoord=1,required=true,rowCoord=1,requiredErrorMsg="[é¡¹ç›®åç§°]æ˜¯å¿…å¡«é¡¹")
 	private String proName;
-	/**»§Ö÷ĞÕÃû*/
-	@InputColAnnotation(colCoord=5,required=true,rowCoord=1,requiredErrorMsg="[»§Ö÷ĞÕÃû]ÊÇ±ØÌîÏî")
+	/**æˆ·ä¸»å§“å*/
+	@InputColAnnotation(colCoord=5,required=true,rowCoord=1,requiredErrorMsg="[æˆ·ä¸»å§“å]æ˜¯å¿…å¡«é¡¹")
 	private String headName;
-	/**Õ÷µØ¹«¸æ·¢²¼ÈÕÆÚ*/
+	/**å¾åœ°å…¬å‘Šå‘å¸ƒæ—¥æœŸ*/
 	@InputColAnnotation(colCoord=7,rowCoord=1)
 	private String announceDate;
-	/**Ïç£¬Õò(°ìÊÂ´¦)*/
+	/**ä¹¡ï¼Œé•‡(åŠäº‹å¤„)*/
 	@InputColAnnotation(colCoord=11,rowCoord=1)
 	private String town;
-	/**´å*/
+	/**æ‘*/
 	@InputColAnnotation(colCoord=13,rowCoord=1)
 	private String contry;
-	/**×é*/
+	/**ç»„*/
 	@InputColAnnotation(colCoord=15,rowCoord=1)
 	private String group;
-	/**²ğÇ¨ÈËÔ±¼¯ºÏ*/
+	/**æ‹†è¿äººå‘˜é›†åˆ*/
 	private List<FmlItemImportAndExport> items;
 
 	public Family toFamily(List<FmlItemImportAndExport> list) {
@@ -95,7 +95,7 @@ public class FmlImportAndExport {
 	
 	boolean getHalf(String half)
 	{
-		if(half != null && half.trim().equals("ÊÇ"))
+		if(half != null && half.trim().equals("æ˜¯"))
 		{
 			return true;
 		}

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,195 +14,195 @@ import com.tq.requisition.domain.model.project.ProjectItem;
 import com.tq.requisition.domain.model.project.ProjectType;
 
 /**
- * µ¼Èëµ¼³öÏîÄ¿dto
+ * å¯¼å…¥å¯¼å‡ºé¡¹ç›®dto
  * 
  * @author jjh
  * @time 2016-01-15 19::49
  * 
  */
 public class ProImportAndExportDto {
-	/**ĞòºÅ*/
+	/**åºå·*/
 	@OutputColAnnotation(colCoord = 0,formula="(row() - 6)")
 	private String num;
-	/** ÏîÄ¿Ãû³Æ */
+	/** é¡¹ç›®åç§° */
 	@InputColAnnotation(colCoord = 1, isAbandonRowspanData = true)
 	@OutputColAnnotation(colCoord = 1)
 	private String proName;
-	/** ÏîÄ¿ÉóÅúºÅ */
+	/** é¡¹ç›®å®¡æ‰¹å· */
 	@InputColAnnotation(colCoord = 2,isAbandonRowspanData = true)
 	@OutputColAnnotation(colCoord = 2)
 	private String approvalNumber;
-	/** ÏîÄ¿ÀàĞÍ */
+	/** é¡¹ç›®ç±»å‹ */
 	@InputColAnnotation(colCoord = 3)
 	@OutputColAnnotation(colCoord = 3)
 	private String proCategory;
-	/** ÏîÄ¿ÀàĞÍÃû³Æ-»ù´¡ÉèÊ© */
+	/** é¡¹ç›®ç±»å‹åç§°-åŸºç¡€è®¾æ–½ */
 	@InputColAnnotation(colCoord = 4)
 	@OutputColAnnotation(colCoord = 4)
 	private String proTypeStrInfra;
-	/** ÏîÄ¿ÀàĞÍÃû³Æ-ÆäËû */
+	/** é¡¹ç›®ç±»å‹åç§°-å…¶ä»– */
 	@InputColAnnotation(colCoord = 5)
 	@OutputColAnnotation(colCoord = 5)
 	private String proTypeStrOther;
-	/** ±¾ÔÂĞÂÆô¶¯ÏîÄ¿ */
+	/** æœ¬æœˆæ–°å¯åŠ¨é¡¹ç›® */
 	@InputColAnnotation(colCoord = 6)
 	@OutputColAnnotation(colCoord = 6)
 	private String newStart;
-	/** ÊÇ·ñÎª±¾ÔÂÍê³É½áËãÏîÄ¿ */
+	/** æ˜¯å¦ä¸ºæœ¬æœˆå®Œæˆç»“ç®—é¡¹ç›® */
 	@InputColAnnotation(colCoord = 7)
 	@OutputColAnnotation(colCoord = 7)
 	private String curMonthComplete;
-	/** ÏîÄ¿È«µØÖ· */
+	/** é¡¹ç›®å…¨åœ°å€ */
 	@InputColAnnotation(colCoord = 8)
 	@OutputColAnnotation(colCoord = 8)
 	private String totalAddress;
 	
-	/** ¹«¸æ1 */
+	/** å…¬å‘Š1 */
 	@OutputColAnnotation(colCoord = 9)
 	private Date announce1;
 	private String announce1Number;
-	/** ¹«¸æ2 */
+	/** å…¬å‘Š2 */
 	@OutputColAnnotation(colCoord = 10)
 	private Date announce2;
 	private String announce2Number;
-	/** ¹«¸æ3 */
+	/** å…¬å‘Š3 */
 	@OutputColAnnotation(colCoord = 11)
 	private Date announce3;
 	private String announce3Number;
 
-	/** Õ÷µØÃæ»ı */
-	@InputColAnnotation(colCoord = 9, required = true, converErrorMsg = "ÀàĞÍ´íÎó£¬[Õ÷µØÃæ»ı]ÊÇĞ¡ÊıÀàĞÍ", requiredErrorMsg = "[Õ÷µØÃæ»ı]²»¿ÉÎª¿Õ")
+	/** å¾åœ°é¢ç§¯ */
+	@InputColAnnotation(colCoord = 9, required = true, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[å¾åœ°é¢ç§¯]æ˜¯å°æ•°ç±»å‹", requiredErrorMsg = "[å¾åœ°é¢ç§¯]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 12)
 	private float requisitionArea;
-	/** ÀÛ¼ÆÒÑÌÚµØ */
-	@InputColAnnotation(colCoord = 10, converErrorMsg = "ÀàĞÍ´íÎó£¬[ÀÛ¼ÆÒÑÌÚµØ]ÊÇĞ¡ÊıÀàĞÍ")
+	/** ç´¯è®¡å·²è…¾åœ° */
+	@InputColAnnotation(colCoord = 10, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[ç´¯è®¡å·²è…¾åœ°]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 13)
 	private float requisitionLandAreaTotal;
-	/** ±¾ÔÂÒÑÌÚµØ */
-	@InputColAnnotation(colCoord = 11, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÔÂÒÑÌÚµØ]ÊÇĞ¡ÊıÀàĞÍ")
+	/** æœ¬æœˆå·²è…¾åœ° */
+	@InputColAnnotation(colCoord = 11, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬æœˆå·²è…¾åœ°]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 14)
 	private float removedLandArea;
-	/** ±¾ÄêÒÑÌÚµØ */
-	@InputColAnnotation(colCoord = 12, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÒÑÌÚµØ]ÊÇĞ¡ÊıÀàĞÍ")
+	/** æœ¬å¹´å·²è…¾åœ° */
+	@InputColAnnotation(colCoord = 12, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´å·²è…¾åœ°]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 15)
 	private float requisitionLandAreaYear;
 	
-	/** Ó¦²ğ¶°Êı */
-	@InputColAnnotation(colCoord = 13, required = true, converErrorMsg = "ÀàĞÍ´íÎó£¬[Ó¦²ğ¶°Êı]ÊÇÕûÊıÀàĞÍ", requiredErrorMsg = "[Ó¦²ğ¶°Êı]²»¿ÉÎª¿Õ")
+	/** åº”æ‹†æ ‹æ•° */
+	@InputColAnnotation(colCoord = 13, required = true, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[åº”æ‹†æ ‹æ•°]æ˜¯æ•´æ•°ç±»å‹", requiredErrorMsg = "[åº”æ‹†æ ‹æ•°]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 16)
 	private int shouldRemoveBuildings;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨¶°Êı */
-	@InputColAnnotation(colCoord = 14, converErrorMsg = "ÀàĞÍ´íÎó£¬[ÀÛ¼ÆÒÑ²ğºÏ·¨¶°Êı]ÊÇÕûÊıÀàĞÍ")
+	/** ç´¯è®¡å·²æ‹†åˆæ³•æ ‹æ•° */
+	@InputColAnnotation(colCoord = 14, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[ç´¯è®¡å·²æ‹†åˆæ³•æ ‹æ•°]æ˜¯æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 17)
 	private int removedBuildingsLegalTotal;
-	/** ±¾ÔÂÒÑ²ğ¶°Êı */
-	@InputColAnnotation(colCoord = 15, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÔÂÒÑ²ğ¶°Êı]ÊÇÕûÊıÀàĞÍ")
+	/** æœ¬æœˆå·²æ‹†æ ‹æ•° */
+	@InputColAnnotation(colCoord = 15, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬æœˆå·²æ‹†æ ‹æ•°]æ˜¯æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 18)
 	private int removedBuildings;
-	/** ±¾ÄêÒÑ²ğºÏ·¨¶°Êı */
-	@InputColAnnotation(colCoord = 16, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÒÑ²ğºÏ·¨¶°Êı]ÊÇÕûÊıÀàĞÍ")
+	/** æœ¬å¹´å·²æ‹†åˆæ³•æ ‹æ•° */
+	@InputColAnnotation(colCoord = 16, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´å·²æ‹†åˆæ³•æ ‹æ•°]æ˜¯æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 19)
 	private int removedBuildingsLegalYear;
 	
-	/** Ó¦²ğºÏ·¨×ÜÃæ»ı */
-	@InputColAnnotation(colCoord = 17, required = true, converErrorMsg = "ÀàĞÍ´íÎó£¬[Ó¦²ğºÏ·¨×ÜÃæ»ı]ÊÇĞ¡ÊıÀàĞÍ", requiredErrorMsg = "[Ó¦²ğºÏ·¨×ÜÃæ»ı]²»¿ÉÎª¿Õ")
+	/** åº”æ‹†åˆæ³•æ€»é¢ç§¯ */
+	@InputColAnnotation(colCoord = 17, required = true, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[åº”æ‹†åˆæ³•æ€»é¢ç§¯]æ˜¯å°æ•°ç±»å‹", requiredErrorMsg = "[åº”æ‹†åˆæ³•æ€»é¢ç§¯]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 20)
 	private float shouldRemoveLegalArea;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı */
-	@InputColAnnotation(colCoord = 18, converErrorMsg = "ÀàĞÍ´íÎó£¬[ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı]ÊÇĞ¡ÊıÀàĞÍ")
+	/** ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯ */
+	@InputColAnnotation(colCoord = 18, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 21)
 	private float removedAreaLegalTotal;
-	/** ±¾ÔÂÒÑ²ğºÏ·¨Ãæ»ı */
-	@InputColAnnotation(colCoord = 19, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÔÂÒÑ²ğºÏ·¨Ãæ»ı]ÊÇĞ¡ÊıÀàĞÍ")
+	/** æœ¬æœˆå·²æ‹†åˆæ³•é¢ç§¯ */
+	@InputColAnnotation(colCoord = 19, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬æœˆå·²æ‹†åˆæ³•é¢ç§¯]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 22)
 	private float removedLegalArea;
-	/** ±¾ÄêÒÑ²ğºÏ·¨Ãæ»ı */
-	@InputColAnnotation(colCoord = 20, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÒÑ²ğºÏ·¨Ãæ»ı]ÊÇĞ¡ÊıÀàĞÍ")
+	/** æœ¬å¹´å·²æ‹†åˆæ³•é¢ç§¯ */
+	@InputColAnnotation(colCoord = 20, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´å·²æ‹†åˆæ³•é¢ç§¯]æ˜¯å°æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 23)
 	private float removedAreaLegalYear;
 	
-	/** Ó¦¶¯Ç¨ÈË¿Ú */
-	@InputColAnnotation(colCoord = 21, required = true, converErrorMsg = "ÀàĞÍ´íÎó£¬[Ó¦¶¯Ç¨ÈË¿Ú]ÊÇÕûÊıÀàĞÍ", requiredErrorMsg = "[Ó¦¶¯Ç¨ÈË¿Ú]²»¿ÉÎª¿Õ")
+	/** åº”åŠ¨è¿äººå£ */
+	@InputColAnnotation(colCoord = 21, required = true, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[åº”åŠ¨è¿äººå£]æ˜¯æ•´æ•°ç±»å‹", requiredErrorMsg = "[åº”åŠ¨è¿äººå£]ä¸å¯ä¸ºç©º")
 	@OutputColAnnotation(colCoord = 24)
 	private int shouldMovePopulation;
-	/** ÀÛ¼ÆÒÑÇ¨ÈË¿Ú */
-	@InputColAnnotation(colCoord = 22, converErrorMsg = "ÀàĞÍ´íÎó£¬[ÀÛ¼ÆÒÑÇ¨ÈË¿Ú]ÊÇÕûÊıÀàĞÍ")
+	/** ç´¯è®¡å·²è¿äººå£ */
+	@InputColAnnotation(colCoord = 22, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[ç´¯è®¡å·²è¿äººå£]æ˜¯æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 25)
 	private int removedPopulationTotal;
-	/** ±¾ÔÂÒÑ¶¯Ç¨ÈË¿Ú */
-	@InputColAnnotation(colCoord = 23, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÔÂÒÑ¶¯Ç¨ÈË¿Ú]ÕûÊıÀàĞÍ")
+	/** æœ¬æœˆå·²åŠ¨è¿äººå£ */
+	@InputColAnnotation(colCoord = 23, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬æœˆå·²åŠ¨è¿äººå£]æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 26)
 	private int movedPopulation;
-	/** ±¾ÄêÒÑÇ¨ÈË¿Ú */
-	@InputColAnnotation(colCoord = 24, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÒÑÇ¨ÈË¿Ú]ÊÇÕûÊıÀàĞÍ")
+	/** æœ¬å¹´å·²è¿äººå£ */
+	@InputColAnnotation(colCoord = 24, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´å·²è¿äººå£]æ˜¯æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 27)
 	private int removedPopulationYear;
 	
-	/** ±¾ÄêÏÂ´ïÏŞÆÚÌÚµØ¾ö¶¨Êé */
-	@InputColAnnotation(colCoord = 25, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÏÂ´ïÏŞÆÚÌÚµØ¾ö¶¨Êé]ÕûÊıÀàĞÍ")
+	/** æœ¬å¹´ä¸‹è¾¾é™æœŸè…¾åœ°å†³å®šä¹¦ */
+	@InputColAnnotation(colCoord = 25, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´ä¸‹è¾¾é™æœŸè…¾åœ°å†³å®šä¹¦]æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 28)
 	private int yearDeadlineFile;
-	/** ±¾ÄêÉêÇë·¨ÔºÖ´ĞĞ */
-	@InputColAnnotation(colCoord = 26, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÉêÇë·¨ÔºÖ´ĞĞ]ÕûÊıÀàĞÍ")
+	/** æœ¬å¹´ç”³è¯·æ³•é™¢æ‰§è¡Œ */
+	@InputColAnnotation(colCoord = 26, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´ç”³è¯·æ³•é™¢æ‰§è¡Œ]æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 29)
 	private int yearCourtExecute;
-	/** ±¾ÄêÒÀ·¨ÊµÊ©Ç¿ÖÆÌÚµØ»§Êı */
-	@InputColAnnotation(colCoord = 27, converErrorMsg = "ÀàĞÍ´íÎó£¬[±¾ÄêÒÀ·¨ÊµÊ©Ç¿ÖÆÌÚµØ»§Êı]ÕûÊıÀàĞÍ")
+	/** æœ¬å¹´ä¾æ³•å®æ–½å¼ºåˆ¶è…¾åœ°æˆ·æ•° */
+	@InputColAnnotation(colCoord = 27, converErrorMsg = "ç±»å‹é”™è¯¯ï¼Œ[æœ¬å¹´ä¾æ³•å®æ–½å¼ºåˆ¶è…¾åœ°æˆ·æ•°]æ•´æ•°ç±»å‹")
 	@OutputColAnnotation(colCoord = 30)
 	private int yearLegalRemoved;
-	/** ÊÇ·ñ¡°ÁùÇ°ÏîÄ¿¡± */
+	/** æ˜¯å¦â€œå…­å‰é¡¹ç›®â€ */
 	@InputColAnnotation(colCoord = 28)
 	@OutputColAnnotation(colCoord = 31)
 	private String sixForheadPro;
-	/** ±¸×¢ */
+	/** å¤‡æ³¨ */
 	@InputColAnnotation(colCoord = 29)
 	@OutputColAnnotation(colCoord = 32)
 	private String remark;
 	
 	
-	/** Ó¦²ğ»§Êı */
+	/** åº”æ‹†æˆ·æ•° */
 	private int shouldRemoveHouses;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨»§Êı */
+	/** ç´¯è®¡å·²æ‹†åˆæ³•æˆ·æ•° */
 	private int removedHousesLegalTotal;
-	/** ±¾ÄêÒÑ²ğºÏ·¨»§Êı */
+	/** æœ¬å¹´å·²æ‹†åˆæ³•æˆ·æ•° */
 	private int removedHousesLegalYear;
-	/** Ó¦²ğÎ¥ÕÂ×ÜÃæ»ı */
+	/** åº”æ‹†è¿ç« æ€»é¢ç§¯ */
 	private float shouldRemoveIllegalArea;
-	/** ÏîÄ¿Ó¦¸¶²¹³¥¿î */
+	/** é¡¹ç›®åº”ä»˜è¡¥å¿æ¬¾ */
 	private BigDecimal shouldPayMoney;
-	/** ÏîÄ¿ÀÛ¼ÆÒÑ¸¶²¹³¥¿î */
+	/** é¡¹ç›®ç´¯è®¡å·²ä»˜è¡¥å¿æ¬¾ */
 	private BigDecimal totalPayMoney = new BigDecimal(0);
-	/** ÏîÄ¿Æô¶¯ÈÕÆÚ */
+	/** é¡¹ç›®å¯åŠ¨æ—¥æœŸ */
 	private Date startDate;
-	/** ÀÛ¼ÆÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** ç´¯è®¡å·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedAreaIllegalTotal;
-	/** ±¾ÄêÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** æœ¬å¹´å·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedAreaIllegalYear;
-	/** ±¾ÔÂÒÑÇ¨»§Êı */
+	/** æœ¬æœˆå·²è¿æˆ·æ•° */
 	private int rmovedHouses;
-	/** ±¾ÔÂÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** æœ¬æœˆå·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedIllegalArea;
-	/** ±¾ÔÂÒÑ¸¶Åâ³¥¿î */
+	/** æœ¬æœˆå·²ä»˜èµ”å¿æ¬¾ */
 	private BigDecimal paidMoney = new BigDecimal(0);
-	/**ÏîÄ¿·ÖÀàid*/
+	/**é¡¹ç›®åˆ†ç±»id*/
 	private String categoryId;
 	
-	/**ÏîÄ¿·ÖÀàstr*/
+	/**é¡¹ç›®åˆ†ç±»str*/
 	@InputColAnnotation(colCoord = 5)
 	@OutputColAnnotation(colCoord = 5)
 	private String categoryStr;
 	
-	/** ÔÂ¶ÈÌî±¨Ê±¼ä */
+	/** æœˆåº¦å¡«æŠ¥æ—¶é—´ */
 	private Date date;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 
 	/* public methods */
 	public Project toProject() {
-		// ÏîÄ¿a
+		// é¡¹ç›®a
 		Project model = new Project();
 		model.setProName(proName);
 		model.setApprovalNumber(approvalNumber);
@@ -214,7 +214,7 @@ public class ProImportAndExportDto {
 		model.setShouldMovePopulation(shouldMovePopulation);
 		model.setShouldPayMoney(shouldPayMoney);
 		model.setTotalPayMoney(totalPayMoney);
-		if(curMonthComplete != null && (curMonthComplete.trim().equals("¡Ì") || curMonthComplete.trim().equals("ÊÇ"))){
+		if(curMonthComplete != null && (curMonthComplete.trim().equals("âˆš") || curMonthComplete.trim().equals("æ˜¯"))){
 			model.setStartDate(date);
 		}
 		model.setProType(getProType());
@@ -240,8 +240,8 @@ public class ProImportAndExportDto {
 		
 		model.setCurMonthComplete(curMonthComplete);
 		model.setCategoryStr(proCategory);
-		if(sixForheadPro != null && (sixForheadPro.trim().equals("¡Ì") || sixForheadPro.trim().equals("ÊÇ"))){
-			model.setSixForward("ÊÇ");
+		if(sixForheadPro != null && (sixForheadPro.trim().equals("âˆš") || sixForheadPro.trim().equals("æ˜¯"))){
+			model.setSixForward("æ˜¯");
 		} else {
 			model.setSixForward(sixForheadPro);
 		}
@@ -249,7 +249,7 @@ public class ProImportAndExportDto {
 		model.setCreateDate(createDate);
 		model.setCreateUid(createUid);
 
-		// ÏîÄ¿ÔÂ¶È		
+		// é¡¹ç›®æœˆåº¦		
 		ProjectItem item = new ProjectItem();
 		item.setId(UUID.randomUUID());
 		item.setDate(date);
@@ -266,8 +266,8 @@ public class ProImportAndExportDto {
 		item.setNewStart(false);
 		item.setProId(model.getId());
 		item.setStartDate(startDate);
-		if(curMonthComplete != null && (curMonthComplete.trim().equals("¡Ì") || curMonthComplete.trim().equals("ÊÇ"))){
-			item.setCurMonthComplete("ÊÇ");
+		if(curMonthComplete != null && (curMonthComplete.trim().equals("âˆš") || curMonthComplete.trim().equals("æ˜¯"))){
+			item.setCurMonthComplete("æ˜¯");
 		} else {
 			item.setCurMonthComplete(curMonthComplete);
 		}
@@ -277,9 +277,9 @@ public class ProImportAndExportDto {
 	}
 
 	/**
-	 * »ñÈ¡ÏîÄ¿ÀàĞÍintÖµ
+	 * è·å–é¡¹ç›®ç±»å‹intå€¼
 	 * 
-	 * @return int ·µ»ØÒ»¸öintÖµ£¬¸ÃÖµ±íÃ÷Ò»¸öÏîÄ¿ÀàĞÍµÄintÖµ
+	 * @return int è¿”å›ä¸€ä¸ªintå€¼ï¼Œè¯¥å€¼è¡¨æ˜ä¸€ä¸ªé¡¹ç›®ç±»å‹çš„intå€¼
 	 */
 	private int getProType() {
 		if (proTypeStrInfra != null && !(proTypeStrInfra.trim().equals(""))) {
@@ -289,9 +289,9 @@ public class ProImportAndExportDto {
 	}
 
 	/**
-	 * »ñÈ¡¹«¸æĞòÁĞ
+	 * è·å–å…¬å‘Šåºåˆ—
 	 * 
-	 * @return int ·µ»ØÒ»¸öintÖµ£¬¸ÃÖµ±íÃ÷µ±Ç°ÏîÄ¿´¦ÓÚµÚ¼¸¹«¸æ
+	 * @return int è¿”å›ä¸€ä¸ªintå€¼ï¼Œè¯¥å€¼è¡¨æ˜å½“å‰é¡¹ç›®å¤„äºç¬¬å‡ å…¬å‘Š
 	 */
 //	private int getSequence() {
 //		if (announce1 != null) {
@@ -329,11 +329,11 @@ public class ProImportAndExportDto {
 //	}
 
 	/**
-	 * ¸ù¾İÏîÄ¿¼¯ºÏ×ª»»³É±¨±ímodel
+	 * æ ¹æ®é¡¹ç›®é›†åˆè½¬æ¢æˆæŠ¥è¡¨model
 	 * 
 	 * @param pros
-	 *            ÏîÄ¿¼¯ºÏ
-	 * @return List<ProImportAndExportDto> ÏîÄ¿µ¼Èëµ¼³ömodel
+	 *            é¡¹ç›®é›†åˆ
+	 * @return List<ProImportAndExportDto> é¡¹ç›®å¯¼å…¥å¯¼å‡ºmodel
 	 */
 	public static List<ProImportAndExportDto> obtainByProList(List<Project> pros) {
 		List<ProImportAndExportDto> list = new ArrayList<ProImportAndExportDto>();
@@ -390,11 +390,11 @@ public class ProImportAndExportDto {
 	}
 
 	private static void setProType(ProImportAndExportDto dto, String typeName) {
-		if (typeName.trim().equals("»ù´¡ÉèÊ©")) {
-			dto.proTypeStrInfra = "¡Ì";
+		if (typeName.trim().equals("åŸºç¡€è®¾æ–½")) {
+			dto.proTypeStrInfra = "âˆš";
 			return;
 		}
-		dto.proTypeStrOther = "¡Ì";
+		dto.proTypeStrOther = "âˆš";
 	}
 
 	private static void setAnnounce(ProImportAndExportDto dto, Project pro) {

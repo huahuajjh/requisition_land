@@ -19,7 +19,7 @@ import com.tq.requisition.presentation.dto.sysMgt.RoleDto;
 import com.tq.requisition.presentation.serviceContract.sysManagement.IRoleService;
 
 /**
- * 角色操作服务实现
+ * 瑙掕壊鎿嶄綔鏈嶅姟瀹炵幇
  * 
  * @author jjh
  * @time 2015-12-24 10:10
@@ -69,7 +69,7 @@ public class RoleServiceImpl extends BaseApplication implements IRoleService {
 			dtoList.add(RoleMapper.model2Dto(role));
 		}
 		String json = Serialization.toJson(Formater.obtain(
-				"获取角色列表成功", //
+				"鑾峰彇瑙掕壊鍒楄〃鎴愬姛", //
 				PageFormater.obtain(dtoList, tc.getTotalCount()),
 				Formater.OperationResult.SUCCESS));
 		return json;
@@ -78,19 +78,19 @@ public class RoleServiceImpl extends BaseApplication implements IRoleService {
 	@Override
 	public String deleteRole(UUID roleId) {
 		context().beginTransaction();
-		//标记角色状态为删除
+		//鏍囪瑙掕壊鐘舵�佷负鍒犻櫎
 		roleRepository.removeByKey(Role.class, roleId);
-		//更新账户仓储
+		//鏇存柊璐︽埛浠撳偍
 		accountRepository.updateRole(roleId);
-		//提交事务
+		//鎻愪氦浜嬪姟
 		context().commit();
-		return toJson("删除角色成功", null, Formater.OperationResult.SUCCESS);
+		return toJson("鍒犻櫎瑙掕壊鎴愬姛", null, Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
 	public String getRoleListJson() {
 		return Serialization.toJson(//
-				Formater.obtain("成功",//
+				Formater.obtain("鎴愬姛",//
 						getRoleList(),//
 						Formater.OperationResult.SUCCESS));
 	}

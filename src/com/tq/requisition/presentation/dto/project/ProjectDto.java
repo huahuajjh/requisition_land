@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,84 +7,84 @@ import java.util.List;
 import java.util.UUID;
 
 public class ProjectDto {
-	/** í—Ä¿id */
+	/** é¡¹ç›®id */
 	private UUID id;
 	/* private fields */
-	/** ÏîÄ¿Ãû³Æ */
+	/** é¡¹ç›®åç§° */
 	private String proName;
-	/** ÏîÄ¿ÉóÅúºÅ */
+	/** é¡¹ç›®å®¡æ‰¹å· */
 	private String approvalNumber;
-	/** Õ÷µØÃæ»ı */
+	/** å¾åœ°é¢ç§¯ */
 	private float requisitionArea;
-	/** Ó¦²ğ¶°Êı */
+	/** åº”æ‹†æ ‹æ•° */
 	private int shouldRemoveBuildings;
-	/** Ó¦²ğ»§Êı */
+	/** åº”æ‹†æˆ·æ•° */
 	private int shouldRemoveHouses;
-	/** Ó¦²ğºÏ·¨×ÜÃæ»ı */
+	/** åº”æ‹†åˆæ³•æ€»é¢ç§¯ */
 	private float shouldRemoveLegalArea;
-	/** Ó¦²ğÎ¥ÕÂ×ÜÃæ»ı */
+	/** åº”æ‹†è¿ç« æ€»é¢ç§¯ */
 	private float shouldRemoveIllegalArea;
-	/** Ó¦¶¯Ç¨ÈË¿Ú */
+	/** åº”åŠ¨è¿äººå£ */
 	private int shouldMovePopulation;
-	/** ÏîÄ¿Ó¦¸¶²¹³¥¿î */
+	/** é¡¹ç›®åº”ä»˜è¡¥å¿æ¬¾ */
 	private BigDecimal shouldPayMoney;
-	/** ÏîÄ¿ÀÛ¼ÆÒÑ¸¶²¹³¥¿î */
+	/** é¡¹ç›®ç´¯è®¡å·²ä»˜è¡¥å¿æ¬¾ */
 	private BigDecimal totalPayMoney;
-	/** ÏîÄ¿Æô¶¯ÈÕÆÚ */
+	/** é¡¹ç›®å¯åŠ¨æ—¥æœŸ */
 	private Date startDate;
-	/** ÊÇ·ñĞÂÆô¶¯ */
+	/** æ˜¯å¦æ–°å¯åŠ¨ */
 	private boolean newStart;
-	/** ¹«¸æÃû³Æ */
+	/** å…¬å‘Šåç§° */
 	private String announceName;
-	/** ÏîÄ¿µØÖ· */
+	/** é¡¹ç›®åœ°å€ */
 	private String address;
-	/** ÏîÄ¿ÀàĞÍ */
+	/** é¡¹ç›®ç±»å‹ */
 	private Integer proType;
-	/** ¹«¸æĞòÁĞ */
+	/** å…¬å‘Šåºåˆ— */
 	private int s;
-	/** ÏîÄ¿½ÖµÀid */
+	/** é¡¹ç›®è¡—é“id */
 	private String streetId;
-	/** ÏîÄ¿ÉçÇøid */
+	/** é¡¹ç›®ç¤¾åŒºid */
 	private String communityId;
-	/** ÀÛ¼ÆÒÑÌÚµØ */
+	/** ç´¯è®¡å·²è…¾åœ° */
 	private float requisitionLandAreaTotal;
-	/** ±¾ÄêÒÑÌÚµØ */
+	/** æœ¬å¹´å·²è…¾åœ° */
 	private float requisitionLandAreaYear;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨¶°Êı */
+	/** ç´¯è®¡å·²æ‹†åˆæ³•æ ‹æ•° */
 	private int removedBuildingsLegalTotal;
-	/** ±¾ÄêÒÑ²ğºÏ·¨¶°Êı */
+	/** æœ¬å¹´å·²æ‹†åˆæ³•æ ‹æ•° */
 	private int removedBuildingsLegalYear;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨»§Êı */
+	/** ç´¯è®¡å·²æ‹†åˆæ³•æˆ·æ•° */
 	private int removedHousesLegalTotal;
-	/** ±¾ÄêÒÑ²ğºÏ·¨»§Êı */
+	/** æœ¬å¹´å·²æ‹†åˆæ³•æˆ·æ•° */
 	private int removedHousesLegalYear;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı */
+	/** ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯ */
 	private float removedAreaLegalTotal;
-	/** ±¾ÄêÒÑ²ğºÏ·¨Ãæ»ı */
+	/** æœ¬å¹´å·²æ‹†åˆæ³•é¢ç§¯ */
 	private float removedAreaLegalYear;
-	/** ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı */
+	/** ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯ */
 	private float removedAreaIllegalTotal;
-	/** ±¾ÄêÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** æœ¬å¹´å·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedAreaIllegalYear;
-	/** ÀÛ¼ÆÒÑÇ¨ÈË¿Ú */
+	/** ç´¯è®¡å·²è¿äººå£ */
 	private int removedPopulationTotal;
-	/** ±¾ÄêÒÑÇ¨ÈË¿Ú */
+	/** æœ¬å¹´å·²è¿äººå£ */
 	private int removedPopulationYear;
-	/**ÏîÄ¿·ÖÀàid*/
+	/**é¡¹ç›®åˆ†ç±»id*/
 	private String categoryId;
-	/**ÏîÄ¿·ÖÀàstr*/
+	/**é¡¹ç›®åˆ†ç±»str*/
 	private String categoryStr;
-	/**ÊÇ·ñ±¾ÔÂÍê³É*/
+	/**æ˜¯å¦æœ¬æœˆå®Œæˆ*/
 	private String curMonthComplete;
-	/**ÊÇ·ñ6Ç°ÏîÄ¿*/
+	/**æ˜¯å¦6å‰é¡¹ç›®*/
 	private String sixForward;
-	/**ÏîÄ¿ÀàĞÍÃû³Æ*/
+	/**é¡¹ç›®ç±»å‹åç§°*/
 	private String proTypeStr;
-	/**¹úÍÁ¾Ö³ö×Êµ¥Î»*/
+	/**å›½åœŸå±€å‡ºèµ„å•ä½*/
 	private String moneyUnit;
-	/**ÆäËû³ö×Êµ¥Î»*/
+	/**å…¶ä»–å‡ºèµ„å•ä½*/
 	private String otherMoneyUnit;
-	/**ÏîÄ¿item¼¯ºÏ*/
+	/**é¡¹ç›®itemé›†åˆ*/
 	private List<ProItemDto> items;
 
 	/* getters and setters */

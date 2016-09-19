@@ -11,7 +11,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * ±à¼­ÒÔ¼°ĞÂÔö×ª»§µÄ²éÑ¯ĞĞÊı¹æÔ¼
+ * ç¼–è¾‘ä»¥åŠæ–°å¢è½¬æˆ·çš„æŸ¥è¯¢è¡Œæ•°è§„çº¦
  * @author jjh
  * @time 2015-12-31 16:34
  *
@@ -27,9 +27,9 @@ public class TransferEditCountSpecification extends Specification<TransferHouseh
 	@Override
 	public IHqlExpression getHqlExpression() {
 		IHqlExpression expression = new HqlExpression();
-		//±í´ïÊ½
+		//è¡¨è¾¾å¼
 		StringBuilder sb = new StringBuilder();
-		//²ÎÊıÁĞ±í
+		//å‚æ•°åˆ—è¡¨
 		List<Object> list = new  ArrayList<Object>();
 		sb.append("select count(1) from tb_transfer_household_info t ");
 		sb.append("inner join tb_family_item f on f.id=t.fml_item_id");

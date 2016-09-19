@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 
 /**
- * ¸ù¾İ²éÑ¯model»ñÈ¡×Ü¼ÇÂ¼Êı£¬¹æÔ¼
+ * æ ¹æ®æŸ¥è¯¢modelè·å–æ€»è®°å½•æ•°ï¼Œè§„çº¦
  * @author jjh
  * @time 2016-01-13 13:57
  *

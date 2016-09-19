@@ -25,7 +25,7 @@ import com.tq.requisition.infrastructure.utils.PageHelper;
 import com.tq.requisition.presentation.dto.sysMgt.AccountSafeDto;
 
 /**
- * ±íÊ¾ÕË»§µÄ¾ÛºÏ¸ù²Ö´¢ÊµÏÖ
+ * è¡¨ç¤ºè´¦æˆ·çš„èšåˆæ ¹ä»“å‚¨å®ç°
  * @author jjh
  * @time 2015-12-20 23:30
  */
@@ -84,7 +84,7 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 			update(account);
 			return;
 		}
-		throw new SpecifiedObjectDoesNotExistsException("Î´²éÑ¯µ½ÒªĞŞ¸ÄµÄÓÃ»§ĞÅÏ¢");
+		throw new SpecifiedObjectDoesNotExistsException("æœªæŸ¥è¯¢åˆ°è¦ä¿®æ”¹çš„ç”¨æˆ·ä¿¡æ¯");
 	}
 
 	@Override
@@ -110,15 +110,15 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 	 */
 	@Override
 	public Account createAccount(Account account) throws AccountOperationException{
-		/*¼ì²âÕË»§´´½¨¹æÔ¼£¬²»·ûºÏ¹æÔ¼Ìõ¼şµÄ£¬Å×³öAccountOperationExceptionÒì³£*/
+		/*æ£€æµ‹è´¦æˆ·åˆ›å»ºè§„çº¦ï¼Œä¸ç¬¦åˆè§„çº¦æ¡ä»¶çš„ï¼ŒæŠ›å‡ºAccountOperationExceptionå¼‚å¸¸*/
 		account.accountCheck();
 		boolean isExists = exists(new UserNameExistsSpecification(Account.class, account));
 		if(isExists){
-			throw new AccountOperationException("ÕË»§Ãû["+account.getAccount()+"]ÒÑ¾­´æÔÚ");
+			throw new AccountOperationException("è´¦æˆ·å["+account.getAccount()+"]å·²ç»å­˜åœ¨");
 		}
 		Account acc = Account.obtain(account.getAccount(), account.getPwd(), account.getName(), account.getDeptId(), account.getOrgId());
 		acc.setRoleId(account.getRoleId());
-		/*½«ĞÂÔöÊµÌå±ê¼ÇÎªĞÂÔö×´Ì¬*/
+		/*å°†æ–°å¢å®ä½“æ ‡è®°ä¸ºæ–°å¢çŠ¶æ€*/
 		add(acc);
 		return acc;
 	}
@@ -137,22 +137,22 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 	public void updateOrg(UUID orgid) {
 		if(orgid == null)
 		{
-			throw new NullPointerException("×éÖ¯idÎªnull");
+			throw new NullPointerException("ç»„ç»‡idä¸ºnull");
 		}
 		executeUpdate(new UserUpdateOrgSpecification(Account.class, orgid));				
 	}
 
 	/**
-	 * ¸üĞÂÕË»§²Ö´¢ÖĞ±»É¾³ıµÄËùÓĞ²¿ÃÅidÎªnull
+	 * æ›´æ–°è´¦æˆ·ä»“å‚¨ä¸­è¢«åˆ é™¤çš„æ‰€æœ‰éƒ¨é—¨idä¸ºnull
 	 * @param deptid
-	 * 		±»É¾³ıµÄ²¿ÃÅid
+	 * 		è¢«åˆ é™¤çš„éƒ¨é—¨id
 	 */
 	@Override
 	public void updateDept(UUID deptid)
 	{
 		if(deptid==null)
 		{
-			throw new NullPointerException("×éÖ¯idÎªnull");
+			throw new NullPointerException("ç»„ç»‡idä¸ºnull");
 		}
 		executeUpdate(new UserUpdateDeptSpecification(Account.class, deptid));		
 	}
@@ -161,7 +161,7 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 	public void updateAccount(Account account) throws AccountOperationException {
 		if(account == null)
 		{
-			throw new NullPointerException("ÕË»§Îªnull");
+			throw new NullPointerException("è´¦æˆ·ä¸ºnull");
 		}
 		account.accountCheck();
 		Account acc = getByKey(Account.class, account.getId());
@@ -223,7 +223,7 @@ public class AccountRepository extends HbRepository<Account> implements IAccount
 		});
 		if(null == list || list.size()==0)
 		{
-			throw new NullPointerException("ÓÃ»§Ãû»òÕßÃÜÂë´íÎó");
+			throw new NullPointerException("ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯");
 		}
 		return list.get(0);
 	}

@@ -6,14 +6,14 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * µØÖ·¾ÛºÏ¸ù
+ * åœ°å€èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 16:37
  */
 public class Address extends AggregateRoot{
-	/**µØÖ·±êÌâ*/
+	/**åœ°å€æ ‡é¢˜*/
 	private String title;
-	/**µØÖ·¸¸Â·¾¶*/
+	/**åœ°å€çˆ¶è·¯å¾„*/
 	private UUID pid;
 		
 	/*override*/
@@ -58,13 +58,13 @@ public class Address extends AggregateRoot{
 	public static Address obtain(String title,UUID pid) {
 		if(title == null)
 		{
-			throw new NullPointerException("µØÖ·Ãû³ÆÎªnull");
+			throw new NullPointerException("åœ°å€åç§°ä¸ºnull");
 		}
 		return new Address(UUID.randomUUID(), title, pid);		
 	}
 	
 	public void validate() throws DomainException {
-		check(title, "µØÖ·Ãû³Æ²»ÄÜÎª¿Õ");
+		check(title, "åœ°å€åç§°ä¸èƒ½ä¸ºç©º");
 	}
 	
 }

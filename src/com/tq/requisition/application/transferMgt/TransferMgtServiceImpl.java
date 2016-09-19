@@ -17,7 +17,7 @@ import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 import com.tq.requisition.presentation.serviceContract.transferMgt.ITransferMgtServiceContract;
 
 /**
- * 转户管理业务接口实现
+ * 杞埛绠＄悊涓氬姟鎺ュ彛瀹炵幇
  * @author jjh
  * @time 2015-12-30 17:07
  *
@@ -43,10 +43,10 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 		try {
 			transferMgtService.addTransferInfo(NewTransferInfoMapper.toModel(dto));
 			context().commit();
-			return toJson("新增转户信息成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鏂板杞埛淇℃伅鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("新增转户信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鏂板杞埛淇℃伅澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -59,10 +59,10 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 			context().beginTransaction();
 			transferMgtService.addBatchTransferInfo(NewTransferInfoMapper.toModelList(list));
 			context().commit();
-			return toJson("批量新增成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鎵归噺鏂板鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("批量新增失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鎵归噺鏂板澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -75,9 +75,9 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 		PageFormater page = null;
 		try {
 			page = queryListByFuzzy(queryModel, pageModel);
-			return toJsonByPage(page,"查询成功",Formater.OperationResult.SUCCESS);
+			return toJsonByPage(page,"鏌ヨ鎴愬姛",Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(page,"查询失败-"+e.getMessage(),Formater.OperationResult.FAIL);
+			return toJsonByPage(page,"鏌ヨ澶辫触-"+e.getMessage(),Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -93,10 +93,10 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 			context().beginTransaction();
 			transferInfoRepository.deleteBact(uuids);
 			context().commit();
-			return toJson("删除成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鍒犻櫎鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("删除失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鍒犻櫎澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -114,9 +114,9 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 	public String query4AddByFuzzy(TransferInfoQueryModel queryModel,
 			PageModel pageModel) {
 		try {
-			return toJsonByPage(queryList4AddByFuzzy(queryModel, pageModel), "成功", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(queryList4AddByFuzzy(queryModel, pageModel), "鎴愬姛", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "失败-"+e.getMessage(), Formater.OperationResult.FAIL);
+			return toJsonByPage(null, "澶辫触-"+e.getMessage(), Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -128,10 +128,10 @@ public class TransferMgtServiceImpl extends BaseApplication implements ITransfer
 			t.setId(dto.getId());
 			transferInfoRepository.editTransferInfo(t);
 			context().commit();
-			return toJson("成功",t , Formater.OperationResult.SUCCESS);
+			return toJson("鎴愬姛",t , Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

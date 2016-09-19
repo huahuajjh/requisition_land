@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * ²ğÇ¨»§dto
+ * æ‹†è¿æˆ·dto
  * 
  * @author jjh
  * @time 2015-12-28 18:03
@@ -15,48 +15,48 @@ public class FamilyDto {
 	/*private fields*/
 	/**id*/
 	private UUID id;
-	/**»§Ö÷*/
+	/**æˆ·ä¸»*/
 	private String headName;
-	/**ËùÊôÏîÄ¿id*/
+	/**æ‰€å±é¡¹ç›®id*/
 	private UUID proId;
-	/**»§Ö÷id*/
+	/**æˆ·ä¸»id*/
 	private UUID headId;
-	/**½ÖµÀid*/
+	/**è¡—é“id*/
 	private UUID streetId;
-	/**ÉçÇøid*/
+	/**ç¤¾åŒºid*/
 	private UUID communityId;
-	/**µØÖ·È«Ãû³Æ*/
+	/**åœ°å€å…¨åç§°*/
 	private String address;
-	/**¼ÒÍ¥ÈËÊı*/
+	/**å®¶åº­äººæ•°*/
 	private Integer fmlNumber;
-	/**·¿ÎİºÏ·¨Ãæ»ı*/
+	/**æˆ¿å±‹åˆæ³•é¢ç§¯*/
 	private float houseLegalArea;
-	/**·¿ÎİÎ¥ÕÂÃæ»ı*/
+	/**æˆ¿å±‹è¿ç« é¢ç§¯*/
 	private float houseIllegalArea;
-	/**ÅúÖ¤¼°ÆäËûÇé¿öËµÃ÷*/
+	/**æ‰¹è¯åŠå…¶ä»–æƒ…å†µè¯´æ˜*/
 	private String satuationDesc;
-	/**Äâ¶¨´¦Àí·½°¸*/
+	/**æ‹Ÿå®šå¤„ç†æ–¹æ¡ˆ*/
 	private String dealSolution;
-	/**ÁªºÏ»áÉóÒâ¼û*/
+	/**è”åˆä¼šå®¡æ„è§*/
 	private String unionSuggestion;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
-	/**·¿ÎİÍ¼Æ¬µØÖ·*/
+	/**æˆ¿å±‹å›¾ç‰‡åœ°å€*/
 	private String houseImgPath;
-	/** ËùÊôÏîÄ¿Ãû³Æ */
+	/** æ‰€å±é¡¹ç›®åç§° */
 	private String proName;
-	/** ×éµØÖ·id*/
+	/** ç»„åœ°å€id*/
 	private UUID groupId;
-	/**ÁªºÏ»áÉóÒâ¼ûÎÄ¼şÂ·¾¶*/
+	/**è”åˆä¼šå®¡æ„è§æ–‡ä»¶è·¯å¾„*/
 	private String unionSuggestionPath;
-	/**¼ÒÍ¥³ÉÔ±¼¯ºÏ*/
+	/**å®¶åº­æˆå‘˜é›†åˆ*/
 	private List<FamilyItemDto> items;
-	/**¸ßÅÄÒÇÅÄÕÕ*/
+	/**é«˜æ‹ä»ªæ‹ç…§*/
 	private String image;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
 	/*getters and setters*/

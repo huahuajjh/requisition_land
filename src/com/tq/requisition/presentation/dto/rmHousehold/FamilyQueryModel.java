@@ -1,15 +1,15 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+锘縫ackage com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.UUID;
 
 /**
- * 家庭户查询model
+ * 瀹跺涵鎴锋煡璇odel
  * @author jjh
  * @time 2015-12-29 19:57
  */
 public class FamilyQueryModel {
 	/*private fields*/
-	/**项目ID*/
+	/**椤圭洰ID*/
 	private UUID proId;
 	public UUID getProId() {
 		return proId;
@@ -17,19 +17,19 @@ public class FamilyQueryModel {
 	public void setProId(UUID proId) {
 		this.proId = proId;
 	}
-	/**身份证号*/
+	/**韬唤璇佸彿*/
 	private String idNumber;
-	/**项目id*/
+	/**椤圭洰id*/
 	private String proName;
-	/**街道地址id*/
+	/**琛楅亾鍦板潃id*/
 	private UUID streetId;
-	/**社区地址id*/
+	/**绀惧尯鍦板潃id*/
 	private UUID communityId;
-	/**组地址id*/
+	/**缁勫湴鍧�id*/
 	private UUID groupId;
-	/**户主姓名*/
+	/**鎴蜂富濮撳悕*/
 	private String name;
-	/**创建用户*/
+	/**鍒涘缓鐢ㄦ埛*/
 	private String createUId;
 	
 	private String address;

@@ -5,15 +5,15 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ½ÇÉ«×ÊÔ´¾ÛºÏ¸ù
+ * è§’è‰²èµ„æºèšåˆæ ¹
  * @author jjh
  * @time 2015-12-19 15:46
  */
 public class ResRole extends AggregateRoot{
 	/*private fields*/
-	/**½ÇÉ«id*/
+	/**è§’è‰²id*/
 	private UUID roleId;
-	/**×ÊÔ´id*/
+	/**èµ„æºid*/
 	private UUID resId;
 	
 	/*getters and setters*/
@@ -55,7 +55,7 @@ public class ResRole extends AggregateRoot{
 	public static ResRole obtain(UUID rid,UUID resId) {
 		if(rid==null || resId == null)
 		{
-			throw new NullPointerException("Ö¸¶¨µÄ½ÇÉ«id»òÕß×ÊÔ´idÎªnull");
+			throw new NullPointerException("æŒ‡å®šçš„è§’è‰²idæˆ–è€…èµ„æºidä¸ºnull");
 		}
 		return new ResRole(UUID.randomUUID(), rid, resId);
 		

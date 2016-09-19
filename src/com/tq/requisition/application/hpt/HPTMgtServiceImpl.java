@@ -38,7 +38,7 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.hptMgt.IHPTMgtServiceContract;
 
 /**
- * ¹º·¿È¯·şÎñÆõÔ¼ÊµÏÖ
+ * è´­æˆ¿åˆ¸æœåŠ¡å¥‘çº¦å®ç°
  * @author jjh
  * @time 2015-01-02 20:57
  *
@@ -70,10 +70,10 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.addHPT(HPTMapper.toModel(dto));
 			context().commit();
-			return toJson("ĞÂÔö¹º·¿È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢è´­æˆ¿åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("ĞÂÔö¹º·¿È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢è´­æˆ¿åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -86,10 +86,10 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.addHPT(HPTMapper.toModelList(dtos));
 			context().commit();
-			return toJson("ÅúÁ¿ĞÂÔö¹º·¿È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ‰¹é‡æ–°å¢è´­æˆ¿åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("ÅúÁ¿ĞÂÔö¹º·¿È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ‰¹é‡æ–°å¢è´­æˆ¿åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -102,9 +102,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.exchange(HPTExchangeInfoMapper.toModel(dto), HPTMapper.toModel(hpt));
 			context().commit();
-			return toJson("»»È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ¢åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»»È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ¢åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -114,9 +114,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.mend(HPTMendMapper.toModel(mendDto), HPTMapper.toModel(hptDto));
 			context().commit();
-			return toJson("²¹È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("è¡¥åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²¹È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("è¡¥åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		
 	}
@@ -127,9 +127,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.useOrCash(HPTUseMapper.toModel(dto));
 			context().commit();
-			return toJson("¶Ò»»³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("å…‘æ¢æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("¶Ò»»Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å…‘æ¢å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -139,9 +139,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.provider(HPTProvideMapper.toModel(dto));
 			context().commit();
-			return toJson("ÁìÈ¡¹º·¿È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("é¢†å–è´­æˆ¿åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ÁìÈ¡¹º·¿È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("é¢†å–è´­æˆ¿åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -151,10 +151,10 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptService.reportOfLoss(HPTLossMapper.toModel(dto));
 			context().commit();
-			return toJson("¹ÒÊ§²Ù×÷³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æŒ‚å¤±æ“ä½œæˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("¹ÒÊ§²Ù×÷Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŒ‚å¤±æ“ä½œå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -165,9 +165,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	public String queryExchangeInfo(HPTQueryModel queryModel) {
 		try {
 			HPTDisplayDto dto = hptRepository.queryByIdnumberAndTicketNum(queryModel);
-			return toJson("²éÑ¯»»È¯ĞÅÏ¢³É¹¦", dto, Formater.OperationResult.SUCCESS);
+			return toJson("æŸ¥è¯¢æ¢åˆ¸ä¿¡æ¯æˆåŠŸ", dto, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²éÑ¯»»È¯ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŸ¥è¯¢æ¢åˆ¸ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -175,9 +175,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	public String queryByFml(String idNumber) {
 		 try {
 			 List<HPTDisplayFmlDto> list = hptService.queryByFml(idNumber);
-			 return toJson("²éÑ¯³É¹¦", list, Formater.OperationResult.SUCCESS);
+			 return toJson("æŸ¥è¯¢æˆåŠŸ", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²éÑ¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŸ¥è¯¢å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		 
 	}
@@ -186,9 +186,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	public String queryNotByProId(String proName, PageModel pageModel) {
 		 try {
 			 PageFormater list = hptService.queryNotByPro(proName,pageModel);
-			 return toJson("²éÑ¯³É¹¦", list, Formater.OperationResult.SUCCESS);
+			 return toJson("æŸ¥è¯¢æˆåŠŸ", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²éÑ¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŸ¥è¯¢å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -196,9 +196,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	public String queryByIdNumber(String idNumber) {
 		try {
 			List<HPTDisplayDto> dto = hptRepository.queryByIdnumber(idNumber);
-			return toJson("²éÑ¯³É¹¦", dto, Formater.OperationResult.SUCCESS);
+			return toJson("æŸ¥è¯¢æˆåŠŸ", dto, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²éÑ¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŸ¥è¯¢å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -206,9 +206,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	public String queryProvideTable(HPTFuzzyQueryModel queryModel,PageModel pageModel) {
 		try {
 			PageFormater page = hptRepository.queryProvideTable(queryModel, pageModel);
-			return toJsonByPage(page, "²éÑ¯·¢·ÅÌ¨ÕË³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(page, "æŸ¥è¯¢å‘æ”¾å°è´¦æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "²éÑ¯·¢·ÅÌ¨ÕËÊ§°Ü-"+e.getMessage(), Formater.OperationResult.FAIL);
+			return toJsonByPage(null, "æŸ¥è¯¢å‘æ”¾å°è´¦å¤±è´¥-"+e.getMessage(), Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -228,9 +228,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 				}
 			}
 			PageFormater page = hptRepository.queryUseTable(queryModel, pageModel);
-			return toJsonByPage(page, "²éÑ¯¶Ò¸¶Ì¨ÕË³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(page, "æŸ¥è¯¢å…‘ä»˜å°è´¦æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "²éÑ¯¶Ò¸¶Ì¨ÕËÊ§°Ü-"+e.getMessage(), Formater.OperationResult.FAIL);
+			return toJsonByPage(null, "æŸ¥è¯¢å…‘ä»˜å°è´¦å¤±è´¥-"+e.getMessage(), Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -240,10 +240,10 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 			context().beginTransaction();
 			hptRepository.provideByFml(HPTProvideMapper.toModelList(list));
 			context().commit();
-			return toJson("·¢·Å³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("å‘æ”¾æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (SpecifiedObjectDoesNotExistsException e) {
 			context().rollback();
-			return toJson("·¢·ÅÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å‘æ”¾å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -253,7 +253,7 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	@Override
 	public String importHPT(List<HPTImportAndExport> list) {
 		if(null==list || list.size()==0){
-			return toJson("´ıµ¼ÈëµÄÁĞ±íÎª¿Õ", null, Formater.OperationResult.FAIL);
+			return toJson("å¾…å¯¼å…¥çš„åˆ—è¡¨ä¸ºç©º", null, Formater.OperationResult.FAIL);
 		}
 		List<HPTImportAndExport>  notExistHPT = new ArrayList<HPTImportAndExport>();
 		List<HPTImportAndExport>  errorHPT = new ArrayList<HPTImportAndExport>();
@@ -282,10 +282,10 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 				}
 			}
 			context().commit();
-			return toJson("µ¼Èë¹º·¿È¯ĞÅÏ¢<br>²»´æÔÚµÄÈËÔ±ÓĞ£º"+notExistHPT.size() + "ÈË<br>ÖØ¸´µ¼ÈëµÄ¹º·¿È¯ÓĞ£º" + errorHPT.size() + "ÕÅ<br>³É¹¦µ¼ÈëµÄ¹º·¿È¯£º" + successHPT.size() + "ÕÅ", new Object[]{notExistHPT,errorHPT,successHPT}, Formater.OperationResult.SUCCESS);
+			return toJson("å¯¼å…¥è´­æˆ¿åˆ¸ä¿¡æ¯<br>ä¸å­˜åœ¨çš„äººå‘˜æœ‰ï¼š"+notExistHPT.size() + "äºº<br>é‡å¤å¯¼å…¥çš„è´­æˆ¿åˆ¸æœ‰ï¼š" + errorHPT.size() + "å¼ <br>æˆåŠŸå¯¼å…¥çš„è´­æˆ¿åˆ¸ï¼š" + successHPT.size() + "å¼ ", new Object[]{notExistHPT,errorHPT,successHPT}, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("µ¼Èë¹º·¿È¯ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¯¼å…¥è´­æˆ¿åˆ¸ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}finally{
 			context().close();
 		}
@@ -294,7 +294,7 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 	@Override
 	public String queryByPage4Json(HptUseAndCashQueryModel queryModel,
 			PageModel pageModel) {
-		return toJsonByPage(queryByPage4List(queryModel, pageModel), "²éÑ¯³É¹¦", Formater.OperationResult.SUCCESS);
+		return toJsonByPage(queryByPage4List(queryModel, pageModel), "æŸ¥è¯¢æˆåŠŸ", Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
@@ -323,9 +323,9 @@ public class HPTMgtServiceImpl extends BaseApplication implements IHPTMgtService
 				hptService.useOrCash(HPTUseMapper.toModel(dto));
 			}
 			context().commit();
-			return toJson("¶Ò»»³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("å…‘æ¢æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("¶Ò»»Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å…‘æ¢å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 

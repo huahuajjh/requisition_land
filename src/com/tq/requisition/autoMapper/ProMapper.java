@@ -8,7 +8,7 @@ import com.tq.requisition.domain.model.project.ProjectType;
 import com.tq.requisition.presentation.dto.project.ProjectDto;
 
 /**
- * 项目dto与领域model转换
+ * 椤圭洰dto涓庨鍩焟odel杞崲
  * 
  * @author jjh
  * @time 2015-12-28 3:23

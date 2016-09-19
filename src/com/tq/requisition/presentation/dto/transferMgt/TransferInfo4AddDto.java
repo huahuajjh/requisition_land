@@ -1,9 +1,9 @@
-package com.tq.requisition.presentation.dto.transferMgt;
+锘縫ackage com.tq.requisition.presentation.dto.transferMgt;
 
 import java.util.UUID;
 
 /**
- * 新增转户信息查询dto
+ * 鏂板杞埛淇℃伅鏌ヨdto
  * @author jjh
  * @time 2015-01-04 15:53
  *

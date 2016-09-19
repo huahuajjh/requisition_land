@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,33 +6,33 @@ import java.util.UUID;
 import com.tq.requisition.domain.model.share.UseType;
 
 public class HPTUseTableDto {
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private UUID proId;
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**²ğÇ¨»§ÈËÔ±id*/
+	/**æ‹†è¿æˆ·äººå‘˜id*/
 	private UUID fmlItemId;
-	/**¹º·¿È¯id*/
+	/**è´­æˆ¿åˆ¸id*/
 	private UUID ticketId;
-	/**È¯ºÅ*/
+	/**åˆ¸å·*/
 	private String ticketNumber;
-	/**Ãæ¶î*/
+	/**é¢é¢*/
 	private float bous;
-	/**Ê¹ÓÃÊ±¼ä*/
+	/**ä½¿ç”¨æ—¶é—´*/
 	private Date useTime;
-	/**Ê¹ÓÃÀàĞÍ*/
+	/**ä½¿ç”¨ç±»å‹*/
 	private UseType useType;
-	/**Ê¹ÓÃÈ¥Ïò*/
+	/**ä½¿ç”¨å»å‘*/
 	private String useToWhere;
-	/**Çé¿öËµÃ÷*/
+	/**æƒ…å†µè¯´æ˜*/
 	private String situation;
-	/**Ö¤Ã÷*/
+	/**è¯æ˜*/
 	private String evidence;
-	/**ÖÆÈ¯Ö®¼ä*/
+	/**åˆ¶åˆ¸ä¹‹é—´*/
 	private Date makeDate;
 	
 	public UUID getProId() {

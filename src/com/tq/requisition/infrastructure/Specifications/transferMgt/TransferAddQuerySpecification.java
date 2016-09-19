@@ -11,7 +11,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * 转户新增前查询model规约
+ * 杞埛鏂板鍓嶆煡璇odel瑙勭害
  * @author jjh
  * @time 2015-01-04 16:04
  *

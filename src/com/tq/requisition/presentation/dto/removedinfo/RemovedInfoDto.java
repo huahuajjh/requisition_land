@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.removedinfo;
+锘縫ackage com.tq.requisition.presentation.dto.removedinfo;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,23 +6,23 @@ import java.util.UUID;
 public class RemovedInfoDto {
 	/**id*/
 	private UUID id;
-	/**姓名*/
+	/**濮撳悕*/
 	private String name;
-	/**身份证号*/
+	/**韬唤璇佸彿*/
 	private String idNumber;
-	/**出生年月*/
+	/**鍑虹敓骞存湀*/
 	private Date birthDay;
-	/**地址*/
+	/**鍦板潃*/
 	private String address;
-	/**街道信息地址*/
+	/**琛楅亾淇℃伅鍦板潃*/
 	private UUID streetId;
-	/**街道信息地址*/
+	/**琛楅亾淇℃伅鍦板潃*/
 	private UUID communityId;
-	/**所在组地址id*/
+	/**鎵�鍦ㄧ粍鍦板潃id*/
 	private UUID groupId;
-	/**拆迁日期*/
+	/**鎷嗚縼鏃ユ湡*/
 	private Date removeDate;
-	/**是否删除*/
+	/**鏄惁鍒犻櫎*/
 	private boolean del;
 	
 	public UUID getId() {

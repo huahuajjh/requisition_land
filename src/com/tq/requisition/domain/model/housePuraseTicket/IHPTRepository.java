@@ -17,108 +17,108 @@ import com.tq.requisition.presentation.dto.hpt.HptUseAndCashQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¹º·¿È¯²Ö´¢½Ó¿Ú
+ * è´­æˆ¿åˆ¸ä»“å‚¨æ¥å£
  * 
  * @author jjh
  * @time 2015-12-31 22:20
  */
 public interface IHPTRepository extends IRepository<HousePuraseTicket> {
 	/**
-	 * ĞÂÔö¹º·¿È¯
+	 * æ–°å¢è´­æˆ¿åˆ¸
 	 * 
 	 * @param hpt
-	 *            ´ıĞÂÔöµÄ¹º·¿È¯
+	 *            å¾…æ–°å¢çš„è´­æˆ¿åˆ¸
 	 */
 	void addHPT(HousePuraseTicket hpt) throws DomainException;
 
 	/**
-	 * »»È¯²Ù×÷
+	 * æ¢åˆ¸æ“ä½œ
 	 * 
 	 * @param exHPT
-	 *            »»È¯ĞÅÏ¢
+	 *            æ¢åˆ¸ä¿¡æ¯
 	 * @param newTicket
-	 *            ĞÂÈ¯ÊµÌå
+	 *            æ–°åˆ¸å®ä½“
 	 */
 	void exchange(HPTExchangeInfo exHPT, HousePuraseTicket newTicket)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ¹º·¿È¯ÁìÈ¡
+	 * è´­æˆ¿åˆ¸é¢†å–
 	 * 
 	 * @param revieveHPT
-	 *            ÁìÈ¡ĞÅÏ¢
+	 *            é¢†å–ä¿¡æ¯
 	 */
 	void provider(HPTProviderInfo revieveHPT)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * °´ÕÕ»§·¢·Å¹º·¿È¯
+	 * æŒ‰ç…§æˆ·å‘æ”¾è´­æˆ¿åˆ¸
 	 * 
 	 * @param list
-	 *            ·¢·ÅĞÅÏ¢¼¯ºÏ
+	 *            å‘æ”¾ä¿¡æ¯é›†åˆ
 	 */
 	void provideByFml(List<HPTProviderInfo> list)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ¹º·¿È¯¹ÒÊ§
+	 * è´­æˆ¿åˆ¸æŒ‚å¤±
 	 * 
 	 * @param lossPHT
-	 *            ¹ÒÊ§ĞÅÏ¢
+	 *            æŒ‚å¤±ä¿¡æ¯
 	 */
 	void reportOfLoss(HPTReportOfLossInfo lossPHT)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ¹º·¿È¯²¹È¯
+	 * è´­æˆ¿åˆ¸è¡¥åˆ¸
 	 * 
 	 * @param mendHPT
-	 *            ²¹È¯ĞÅÏ¢
+	 *            è¡¥åˆ¸ä¿¡æ¯
 	 * @param newTicket
-	 *            ĞÂÈ¯ÊµÌå
+	 *            æ–°åˆ¸å®ä½“
 	 */
 	void mend(HPTMendInfo mendHPT, HousePuraseTicket newTicket)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ¹º·¿È¯µÄÊ¹ÓÃ
+	 * è´­æˆ¿åˆ¸çš„ä½¿ç”¨
 	 * 
 	 * @param useAndCashHPT
-	 *            Ê¹ÓÃĞÅÏ¢
+	 *            ä½¿ç”¨ä¿¡æ¯
 	 */
 	void useOrCash(HPTUseAndCash useAndCashHPT)
 			throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ÅúÁ¿ĞÂÔö¹º·¿È¯ĞÅÏ¢
+	 * æ‰¹é‡æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * 
 	 * @param list
-	 *            ¹º·¿È¯ĞÅÏ¢¼¯ºÏ
+	 *            è´­æˆ¿åˆ¸ä¿¡æ¯é›†åˆ
 	 */
 	void addBatch(List<HousePuraseTicket> list) throws DomainException;
 
 	/**
-	 * ²éÑ¯¹º·¿È¯·¢·ÅÌ¨ÕË
+	 * æŸ¥è¯¢è´­æˆ¿åˆ¸å‘æ”¾å°è´¦
 	 * 
 	 * @param queryModel
-	 *            ²éÑ¯model
-	 * @return ·µ»Ø·¢·ÅÌ¨ÕËmodel
+	 *            æŸ¥è¯¢model
+	 * @return è¿”å›å‘æ”¾å°è´¦model
 	 */
 	PageFormater queryProvideTable(HPTFuzzyQueryModel queryModel,
 			PageModel pageModel);
 
 	/**
-	 * ²éÑ¯¶Ò¸¶Ì¨ÕË
+	 * æŸ¥è¯¢å…‘ä»˜å°è´¦
 	 * 
 	 * @param queryModel
-	 *            ²éÑ¯model
-	 * @return ¶Ò¸¶Ì¨ÕËmodel
+	 *            æŸ¥è¯¢model
+	 * @return å…‘ä»˜å°è´¦model
 	 */
 	PageFormater queryUseTable(HPTFuzzyQueryModel queryModel,
 			PageModel pageModel);
 
 	/**
-	 * ²éÑ¯¹º·¿È¯µÄÊ¹ÓÃÓë¶Ô¸¶
+	 * æŸ¥è¯¢è´­æˆ¿åˆ¸çš„ä½¿ç”¨ä¸å¯¹ä»˜
 	 * 
 	 * @param queryModel
 	 * @param pageModel
@@ -128,47 +128,47 @@ public interface IHPTRepository extends IRepository<HousePuraseTicket> {
 			PageModel pageModel);
 
 	/**
-	 * ¸ù¾İÉí·İÖ¤ºÅ²éÑ¯¹º·¿È¯ºÍÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯å·æŸ¥è¯¢è´­æˆ¿åˆ¸å’Œäººå‘˜ä¿¡æ¯
 	 * 
 	 * @param idNumber
-	 *            Éí·İÖ¤
-	 * @return ¹º·¿È¯ºÍÈËÔ±ĞÅÏ¢model
+	 *            èº«ä»½è¯
+	 * @return è´­æˆ¿åˆ¸å’Œäººå‘˜ä¿¡æ¯model
 	 */
 	List<HPTDisplayDto> queryByIdnumber(String idNumber);
 
 	/**
-	 * ¸ù¾İ²éÑ¯model²éÑ¯¹º·¿È¯ºÍÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢è´­æˆ¿åˆ¸å’Œäººå‘˜ä¿¡æ¯
 	 * 
 	 * @param queryModel
-	 *            ²éÑ¯model
+	 *            æŸ¥è¯¢model
 	 * @return HPTDisplayDto
 	 */
 	HPTDisplayDto queryByIdnumberAndTicketNum(HPTQueryModel queryModel);
 
 	/**
-	 * ¸ù¾İÉí·İÖ¤²éÑ¯ÒÔ»§Îªµ¥Î»µÄ¹º·¿È¯ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯æŸ¥è¯¢ä»¥æˆ·ä¸ºå•ä½çš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * 
 	 * @param idNumber
-	 *            »§Ö÷Éí·İÖ¤
-	 * @return Õû»§µÄ¹º·¿È¯ĞÅÏ¢¼¯ºÏ
+	 *            æˆ·ä¸»èº«ä»½è¯
+	 * @return æ•´æˆ·çš„è´­æˆ¿åˆ¸ä¿¡æ¯é›†åˆ
 	 */
 	List<HPTDisplayFmlDto> queryFmlByFmlId(UUID fmlId);
 
 	/**
-	 * ¸ù¾İÈËÔ±²éÑ¯Î´·¢·Å¹º·¿È¯ÁĞ±í
+	 * æ ¹æ®äººå‘˜æŸ¥è¯¢æœªå‘æ”¾è´­æˆ¿åˆ¸åˆ—è¡¨
 	 * @param fmlItem
-	 * 		ÈËÔ±ÁĞ±í
+	 * 		äººå‘˜åˆ—è¡¨
 	 * @param pageModel
-	 * 		·ÖÒ³Êı¾İ
+	 * 		åˆ†é¡µæ•°æ®
 	 * @return
 	 */
 	PageFormater queryNotFmlByFmlItem(String proName,
 			PageModel pageModel);
 	
 	/**
-	 * »ñÈ¡ËùÓĞµÄ·¢·ÅÌ¨ÕËÊı¾İ
+	 * è·å–æ‰€æœ‰çš„å‘æ”¾å°è´¦æ•°æ®
 	 * @param proName
-	 * 		ÏîÄ¿Ãû³Æ
+	 * 		é¡¹ç›®åç§°
 	 * @return
 	 */
 	List<HPTReceiveTableDto> getHPTReceiveTableDtoAll(String proName);

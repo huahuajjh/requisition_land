@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.visits;
+锘縫ackage com.tq.requisition.presentation.serviceContract.visits;
 
 import java.util.UUID;
 
@@ -8,47 +8,47 @@ import com.tq.requisition.presentation.dto.visits.VisitsDto;
 import com.tq.requisition.presentation.dto.visits.VisitsQueryModel;
 
 /**
- * 上访管理契约接口
+ * 涓婅绠＄悊濂戠害鎺ュ彛
  * @author jjh
  * @time 2016-01-13 16:12
  *
  */
 public interface IVisitsServiceContract {
 	/**
-	 * 新增上访信息
+	 * 鏂板涓婅淇℃伅
 	 * @param dto
-	 * 		上访信息dto
+	 * 		涓婅淇℃伅dto
 	 * @return String
-	 * 		Formater json对象
+	 * 		Formater json瀵硅薄
 	 */
 	String addInfo(VisitsDto dto);
 	
 	/**
-	 * 编辑上访信息
+	 * 缂栬緫涓婅淇℃伅
 	 * @param dto
-	 * 		待编辑的上访信息dto
+	 * 		寰呯紪杈戠殑涓婅淇℃伅dto
 	 * @return String
-	 * 		Formater json 对象
+	 * 		Formater json 瀵硅薄
 	 */
 	String editInfo(VisitsDto dto);
 	
 	/**
-	 * 根据查询model和分页model查询上访信息集合
+	 * 鏍规嵁鏌ヨmodel鍜屽垎椤祄odel鏌ヨ涓婅淇℃伅闆嗗悎
 	 * @param queryModel
-	 * 		查询model
+	 * 		鏌ヨmodel
 	 * @param pageModel
-	 * 		分页model
+	 * 		鍒嗛〉model
 	 * @return PageFormater
-	 * 		PageFormater json对象
+	 * 		PageFormater json瀵硅薄
 	 */
 	String queryByPage4Json(VisitsQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * 根据查询model和分页model查询上访信息集合
+	 * 鏍规嵁鏌ヨmodel鍜屽垎椤祄odel鏌ヨ涓婅淇℃伅闆嗗悎
 	 * @param queryModel
-	 * 		查询model
+	 * 		鏌ヨmodel
 	 * @param pageModel
-	 * 		分页model
+	 * 		鍒嗛〉model
 	 * @return List<VisitsDto>
 	 * 		List<VisitsDto>
 	 * 		
@@ -56,11 +56,11 @@ public interface IVisitsServiceContract {
 	PageFormater queryByPage4List(VisitsQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * 根据id删除上访信息
+	 * 鏍规嵁id鍒犻櫎涓婅淇℃伅
 	 * @param id
-	 * 		待删除上访实体id
+	 * 		寰呭垹闄や笂璁垮疄浣搃d
 	 * @return String
-	 * 		Formater json对象
+	 * 		Formater json瀵硅薄
 	 */
 	String delById(UUID id);
 }

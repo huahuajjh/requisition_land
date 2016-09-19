@@ -3,11 +3,11 @@ package com.tq.requisition.domain.model.policyType;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * Õş²ß¾ÛºÏ¸ù
+ * æ”¿ç­–èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 18:58
  */
 public class PolicyType extends AggregateRoot{
-	/**Õş²ßÃû³Æ*/
+	/**æ”¿ç­–åç§°*/
 	private String policyName;
 }

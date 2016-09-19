@@ -3,15 +3,15 @@ package com.tq.requisition.domain.service.idomainservice;
 import java.util.UUID;
 
 /**
- * 组织删除服务
+ * 缁勭粐鍒犻櫎鏈嶅姟
  * @author jjh
  * @time 2015-12-26 14:44
  */
 public interface IOrgRemoveService {
 	/**
-	 * 根据id删除组织
+	 * 鏍规嵁id鍒犻櫎缁勭粐
 	 * @param Id
-	 * 		组织id
+	 * 		缁勭粐id
 	 */
 	void removeOrgById(UUID Id);
 }

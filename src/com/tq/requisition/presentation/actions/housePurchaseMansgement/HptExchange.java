@@ -54,7 +54,7 @@ public class HptExchange extends BaseAction {
 			housePuraseTicketDtoDto.setCreateUId(userId().toString());
 			stateJson = this.hptMgtServiceContract.exchange(hptExchangeInfoDto, housePuraseTicketDtoDto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR," ˝æ›∏Ò Ω≤ª’˝»∑");
+			stateJson = toForMaterJson(OperationResult.ERROR,"Êï∞ÊçÆÊ†ºÂºè‰∏çÊ≠£Á°Æ");
 		}
 		response().getWriter().write(stateJson);
 		return null;

@@ -7,7 +7,7 @@ import com.tq.requisition.domain.Specification.ISpecification;
 import com.tq.requisition.domain.share.IAggregateRoot;
 
 /**
- * ±íÃ÷¸Ã½Ó¿ÚµÄÊµÏÖÊÇÒ»¸ö²Ö´¢ÉÏÏÂÎÄ,²Ö´¢ÉÏÏÂÎÄ¶¨ÒåÁË¾ßÌåµÄÊı¾İ³Ö¾Ã»¯api£¬ÕâĞ©apiµÄÊµÏÖÎ»ÓÚ»ù´¡ÉèÊ©²ã¡£ÊµÏÖ¿ÉÌæ»»µÄ³Ö¾Ã»¯»úÖÆ¡£
+ * è¡¨æ˜è¯¥æ¥å£çš„å®ç°æ˜¯ä¸€ä¸ªä»“å‚¨ä¸Šä¸‹æ–‡,ä»“å‚¨ä¸Šä¸‹æ–‡å®šä¹‰äº†å…·ä½“çš„æ•°æ®æŒä¹…åŒ–apiï¼Œè¿™äº›apiçš„å®ç°ä½äºåŸºç¡€è®¾æ–½å±‚ã€‚å®ç°å¯æ›¿æ¢çš„æŒä¹…åŒ–æœºåˆ¶ã€‚
  * 
  * @author jjh
  * @time 2015-12-17 00:12
@@ -18,20 +18,20 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	protected Class<TAggregateRoot> rootClass;
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 * @param _context
-	 *            ²Ö´¢ÉÏÏÂÎÄ
+	 *            ä»“å‚¨ä¸Šä¸‹æ–‡
 	 */
 	public Repository(IRepositoryContext _context) {
 		context = _context;
 	}
 
 	/**
-	 * ÉèÖÃ·ºĞÍÀàĞÍclass
+	 * è®¾ç½®æ³›å‹ç±»å‹class
 	 * 
 	 * @param root
-	 *            ·ºĞÍÀàĞÍclass
+	 *            æ³›å‹ç±»å‹class
 	 */
 	@Override
 	public IRepository<TAggregateRoot> setAggregatorRootClass(
@@ -41,9 +41,9 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * »ñÈ¡²Ö´¢ÉÏÏÂÎÄ
+	 * è·å–ä»“å‚¨ä¸Šä¸‹æ–‡
 	 * 
-	 * @return IRepositoryContext ²Ö´¢ÉÏÏÂÎÄ¶ÔÏó
+	 * @return IRepositoryContext ä»“å‚¨ä¸Šä¸‹æ–‡å¯¹è±¡
 	 */
 	@Override
 	public IRepositoryContext context() {
@@ -74,10 +74,10 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ½«Ö¸¶¨µÄ¾ÛºÏ¸úÌí¼Óµ½²Ö´¢ÖĞ
+	 * å°†æŒ‡å®šçš„èšåˆè·Ÿæ·»åŠ åˆ°ä»“å‚¨ä¸­
 	 * 
 	 * @param aggregateRoot
-	 *            ´ıÌí¼ÓµÄ¾ÛºÏ¸ù
+	 *            å¾…æ·»åŠ çš„èšåˆæ ¹
 	 */
 	@Override
 	public void add(TAggregateRoot aggregateRoot) {
@@ -85,13 +85,13 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸ù¾İ¾ÛºÏ¸ùµÄidÖµ£¬»ñÈ¡¾ÛºÏ¸ù
+	 * æ ¹æ®èšåˆæ ¹çš„idå€¼ï¼Œè·å–èšåˆæ ¹
 	 * 
 	 * @param key
-	 *            ¾ÛºÏ¸ùid
+	 *            èšåˆæ ¹id
 	 * @param cls
-	 *            ¾ÛºÏ¸ùclass
-	 * @return TAggregateRoot ¾ÛºÏ¸ùÊµÀı
+	 *            èšåˆæ ¹class
+	 * @return TAggregateRoot èšåˆæ ¹å®ä¾‹
 	 */
 	@Override
 	public TAggregateRoot getByKey(Class<TAggregateRoot> cls, UUID key) {
@@ -99,11 +99,11 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄ¹æÔ¼£¬´Ó²Ö´¢ÖĞ»ñÈ¡ËùÓĞ·ûºÏÌõ¼şµÄ¾ÛºÏ¸ù
+	 * æ ¹æ®æŒ‡å®šçš„è§„çº¦ï¼Œä»ä»“å‚¨ä¸­è·å–æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„èšåˆæ ¹
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
-	 * @return List<TAggregateRoot> ·ûºÏÌõ¼şµÄ¾ÛºÏ¸ùÊµÀı¼¯ºÏ
+	 *            è§„çº¦
+	 * @return List<TAggregateRoot> ç¬¦åˆæ¡ä»¶çš„èšåˆæ ¹å®ä¾‹é›†åˆ
 	 */
 	@Override
 	public List<TAggregateRoot> getAll(
@@ -112,15 +112,15 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ·ÖÒ³»ñÈ¡¾ÛºÏ¸ù¼¯ºÏ¶ÔÏó
+	 * åˆ†é¡µè·å–èšåˆæ ¹é›†åˆå¯¹è±¡
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
+	 *            è§„çº¦
 	 * @param indexPage
-	 *            ÆğÊ¼Ò³
+	 *            èµ·å§‹é¡µ
 	 * @param pageSize
-	 *            Ò³Âë´óĞ¡
-	 * @return List<TAggregateRoot> ¾ÛºÏ¸ù¼¯ºÏ
+	 *            é¡µç å¤§å°
+	 * @return List<TAggregateRoot> èšåˆæ ¹é›†åˆ
 	 */
 	@Override
 	public List<TAggregateRoot> getAll(
@@ -130,10 +130,10 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ½«Ö¸¶¨µÄ¾ÛºÏ¸ù´Ó²Ö´¢ÖĞÉ¾³ı
+	 * å°†æŒ‡å®šçš„èšåˆæ ¹ä»ä»“å‚¨ä¸­åˆ é™¤
 	 * 
 	 * @param aggregateRoot
-	 *            ´ıÉ¾³ıµÄ¾ÛºÏ¸ù
+	 *            å¾…åˆ é™¤çš„èšåˆæ ¹
 	 */
 	@Override
 	public void remove(TAggregateRoot aggregateRoot) {
@@ -141,10 +141,10 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸ù¾İ¹æÔ¼É¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®è§„çº¦åˆ é™¤èšåˆæ ¹
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
+	 *            è§„çº¦
 	 */
 	@Override
 	public void remove(ISpecification<TAggregateRoot> specification) {
@@ -152,12 +152,12 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸ù¾İidÉ¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®idåˆ é™¤èšåˆæ ¹
 	 * 
 	 * @param cls
-	 *            ¾ÛºÏ¸ùclass
+	 *            èšåˆæ ¹class
 	 * @param keyUuid
-	 *            uuidÖ÷¼ü
+	 *            uuidä¸»é”®
 	 */
 	@Override
 	public void removeByKey(Class<TAggregateRoot> cls, UUID keyUuid) {
@@ -165,10 +165,10 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸üĞÂÖ¸¶¨µÄ¾ÛºÏ¸ù
+	 * æ›´æ–°æŒ‡å®šçš„èšåˆæ ¹
 	 * 
 	 * @param aggregateRoot
-	 *            ´ı¸üĞÂµÄ¾ÛºÏ¸ù
+	 *            å¾…æ›´æ–°çš„èšåˆæ ¹
 	 */
 	@Override
 	public void update(TAggregateRoot aggregateRoot) {
@@ -176,91 +176,91 @@ public abstract class Repository<TAggregateRoot extends IAggregateRoot>
 	}
 
 	/**
-	 * ¸ù¾İid»ñÈ¡¾ÛºÏ¸ù£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ ¹æ®idè·å–èšåˆæ ¹ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param key
-	 *            ¾ÛºÏ¸ùid
+	 *            èšåˆæ ¹id
 	 * @param cls
-	 *            ¾ÛºÏ¸ùclass
-	 * @return TAggregateRoot ¾ÛºÏ¸ù¶ÔÏó
+	 *            èšåˆæ ¹class
+	 * @return TAggregateRoot èšåˆæ ¹å¯¹è±¡
 	 */
 	protected abstract TAggregateRoot doGetByKey(Class<TAggregateRoot> cls,
 			UUID key);
 
 	/**
-	 * ĞÂÔöÖ¸¶¨µÄ¾ÛºÏ¸ùµ½²Ö´¢ÖĞ£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ–°å¢æŒ‡å®šçš„èšåˆæ ¹åˆ°ä»“å‚¨ä¸­ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param aggregateRoot
-	 *            ´ıĞÂÔöµÄ¾ÛºÏ¸ù
+	 *            å¾…æ–°å¢çš„èšåˆæ ¹
 	 */
 	protected abstract void doAdd(TAggregateRoot aggregateRoot);
 
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄ¹æÔ¼»ñÈ¡¾ÛºÏ¸ù£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ ¹æ®æŒ‡å®šçš„è§„çº¦è·å–èšåˆæ ¹ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param specification
-	 *            Ö¸¶¨µÄ¹æÔ¼
-	 * @return List<TAggregateRoot> ¾ÛºÏ¸ù¼¯ºÏ
+	 *            æŒ‡å®šçš„è§„çº¦
+	 * @return List<TAggregateRoot> èšåˆæ ¹é›†åˆ
 	 */
 	protected abstract List<TAggregateRoot> doGetAll(
 			ISpecification<TAggregateRoot> specification);
 
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄ¹æÔ¼·ÖÒ³»ñÈ¡¾ÛºÏ¸ù£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ ¹æ®æŒ‡å®šçš„è§„çº¦åˆ†é¡µè·å–èšåˆæ ¹ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param specification
-	 *            Ö¸¶¨µÄ¹æÔ¼
+	 *            æŒ‡å®šçš„è§„çº¦
 	 * @param indexPage
-	 *            ÆğÊ¼Ò³
+	 *            èµ·å§‹é¡µ
 	 * @param pageSize
-	 *            Ò³Âë
-	 * @return List<TAggregateRoot> ¾ÛºÏ¸ù¼¯ºÏ
+	 *            é¡µç 
+	 * @return List<TAggregateRoot> èšåˆæ ¹é›†åˆ
 	 */
 	protected abstract List<TAggregateRoot> doGetAll(
 			ISpecification<TAggregateRoot> specification, int indexPage,
 			int pageSize);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄ¾ÛºÏ¸ù£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * åˆ é™¤æŒ‡å®šçš„èšåˆæ ¹ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param aggregateRoot
-	 *            ´ıÉ¾³ıµÄ¾ÛºÏ¸ù
+	 *            å¾…åˆ é™¤çš„èšåˆæ ¹
 	 */
 	protected abstract void doRemove(TAggregateRoot aggregateRoot);
 
 	/**
-	 * ¸ù¾İ¹æÔ¼É¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®è§„çº¦åˆ é™¤èšåˆæ ¹
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
+	 *            è§„çº¦
 	 */
 	protected abstract void doRemove(
 			ISpecification<TAggregateRoot> specification);
 
 	/**
-	 * ¸ù¾İidÉ¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®idåˆ é™¤èšåˆæ ¹
 	 * 
 	 * @param cls
-	 *            ¾ÛºÏ¸ùclass
+	 *            èšåˆæ ¹class
 	 * @param keyUuid
-	 *            uuidÖ÷¼ü
+	 *            uuidä¸»é”®
 	 */
 	protected abstract void doRemove(Class<TAggregateRoot> cls, UUID key);
 
 	/**
-	 * ¸üĞÂÖ¸¶¨µÄ¾ÛºÏ¸ùµ½²Ö´¢ÖĞ£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ›´æ–°æŒ‡å®šçš„èšåˆæ ¹åˆ°ä»“å‚¨ä¸­ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param aggregateRoot
-	 *            ´ı¸üĞÂµÄ¾ÛºÏ¸ù
+	 *            å¾…æ›´æ–°çš„èšåˆæ ¹
 	 */
 	protected abstract void doUpdate(TAggregateRoot aggregateRoot);
 
 	/**
-	 * ·µ»ØÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷¸Ã¾ÛºÏ¸ùÊÇ·ñ´æÔÚ ¸Ã·½·¨Ó¦µ±ÓÉ×ÓÀàÖØĞ´
+	 * è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜è¯¥èšåˆæ ¹æ˜¯å¦å­˜åœ¨ è¯¥æ–¹æ³•åº”å½“ç”±å­ç±»é‡å†™
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
-	 * @return boolean Èç¹û·ûºÏÖ¸¶¨¹æÔ¼Ìõ¼şµÄ¾ÛºÏ¸ù´æÔÚ£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 *            è§„çº¦
+	 * @return boolean å¦‚æœç¬¦åˆæŒ‡å®šè§„çº¦æ¡ä»¶çš„èšåˆæ ¹å­˜åœ¨ï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	protected abstract boolean doExists(
 			ISpecification<TAggregateRoot> specification);

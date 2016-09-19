@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.sysManagement;
+锘縫ackage com.tq.requisition.presentation.serviceContract.sysManagement;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.tq.requisition.presentation.dto.sysMgt.ResDto;
 
 /**
- * 獲取资源服務
+ * 鑾峰彇璧勬簮鏈嶅姟
  * 
  * @author Bless
  * @version 1.0
@@ -14,64 +14,64 @@ import com.tq.requisition.presentation.dto.sysMgt.ResDto;
  */
 public interface IGetResService {
 	/**
-	 * 根据用户标识获取用户菜单资源
+	 * 鏍规嵁鐢ㄦ埛鏍囪瘑鑾峰彇鐢ㄦ埛鑿滃崟璧勬簮
 	 * 
 	 * @param uId
-	 *            用户标识
+	 *            鐢ㄦ埛鏍囪瘑
 	 * @param hierarchy
-	 *            层级
-	 * @return 菜单资源
+	 *            灞傜骇
+	 * @return 鑿滃崟璧勬簮
 	 */
 //	List<ResDto> getMenuResByUserId(UUID uId, int hierarchy);
 	
 	/**
-	 * 根据用户标识获取用户菜单资源
+	 * 鏍规嵁鐢ㄦ埛鏍囪瘑鑾峰彇鐢ㄦ埛鑿滃崟璧勬簮
 	 * 
 	 * @param uId
-	 *            用户标识
+	 *            鐢ㄦ埛鏍囪瘑
 	 * @param hierarchy
-	 *            层级
-	 * @return 菜单资源
+	 *            灞傜骇
+	 * @return 鑿滃崟璧勬簮
 	 */
 //	String getMenuResByUserIdJSON(UUID uId, int hierarchy);
 
 	/**
-	 * 根据用户Id和父节点Id获取资源
+	 * 鏍规嵁鐢ㄦ埛Id鍜岀埗鑺傜偣Id鑾峰彇璧勬簮
 	 * 
 	 * @param uId
-	 *            用户Id
+	 *            鐢ㄦ埛Id
 	 * @param type
-	 *            资源类型
+	 *            璧勬簮绫诲瀷
 	 * @param hierarchy
-	 *            层级
-	 * @return 资源数据
+	 *            灞傜骇
+	 * @return 璧勬簮鏁版嵁
 	 */
 //	List<ResDto> getResByUserIdAndType(UUID uId, ResourceType type, int hierarchy);
 	
 	/**
-	 * 根据用户Id和父节点Id获取资源
+	 * 鏍规嵁鐢ㄦ埛Id鍜岀埗鑺傜偣Id鑾峰彇璧勬簮
 	 * 
 	 * @param uId
-	 *            用户Id
+	 *            鐢ㄦ埛Id
 	 * @param type
-	 *            资源类型
+	 *            璧勬簮绫诲瀷
 	 * @param hierarchy
-	 *            层级
-	 * @return 资源数据
+	 *            灞傜骇
+	 * @return 璧勬簮鏁版嵁
 	 */
 //	String getResByUserIdAndTypeJSON(UUID uId,ResourceType type, int hierarchy);
 	
 	/**
-	 * 根据用户id获取资源集合
+	 * 鏍规嵁鐢ㄦ埛id鑾峰彇璧勬簮闆嗗悎
 	 * @param uid
-	 * 		用户id
+	 * 		鐢ㄦ埛id
 	 * @return List<ResDto>
-	 * 		资源集合
+	 * 		璧勬簮闆嗗悎
 	 */
 	List<ResDto> getResByUserId(UUID uid);
 	
 	/**
-	 * 根据用户id获取资源集合
+	 * 鏍规嵁鐢ㄦ埛id鑾峰彇璧勬簮闆嗗悎
 	 * @param uid
 	 * @return
 	 */

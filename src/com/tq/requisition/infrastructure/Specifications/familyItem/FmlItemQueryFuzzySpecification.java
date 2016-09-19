@@ -33,22 +33,22 @@ public class FmlItemQueryFuzzySpecification extends Specification<FamilyItem>{
 		if(queryModel.getCreateUId() != null && !queryModel.getCreateUId().equals("")){
 			sb.append(" and f.create_uId='" + queryModel.getCreateUId() + "'");
 		}
-		//是否转户
+		//鏄惁杞埛
 		if(queryModel.getIsTransfer() == ThreeState.YES)
 		{
 			sb.append(" and fi.is_transferd=1");
 		}
-		//是否转户
+		//鏄惁杞埛
 		if(queryModel.getIsTransfer() == ThreeState.NO)
 		{
 			sb.append(" and fi.is_transferd=0");
 		}
-		//是否纳入社保
+		//鏄惁绾冲叆绀句繚
 		if(queryModel.getIsSSecurity()==ThreeState.YES)
 		{
 			sb.append(" and fi.is_socialsecurity=1");
 		}
-		//是否纳入社保
+		//鏄惁绾冲叆绀句繚
 		if(queryModel.getIsSSecurity()==ThreeState.NO)
 		{
 			sb.append(" and fi.is_socialsecurity=0");
@@ -93,18 +93,18 @@ public class FmlItemQueryFuzzySpecification extends Specification<FamilyItem>{
 		{
 			sb.append(" and fi.name  like '%" + queryModel.getName() + "%'");
 		}
-		//独生子女
+		//鐙敓瀛愬コ
 		if(queryModel.getIsOnlyChild()==ThreeState.YES)
 		{
 			sb.append(" and fi.only_child_number is not null");
 		}
-		//独生子女
+		//鐙敓瀛愬コ
 		if(queryModel.getIsOnlyChild()==ThreeState.NO)
 		{
 			sb.append(" and fi.only_child_number is null");
 		}
 		
-		//分页
+		//鍒嗛〉
 		sb.append(" limit ?,?");
 		list.add(PageHelper.getPageIndex(pageModel.pageIndex, pageModel.pageSize));
 		list.add(pageModel.pageSize);

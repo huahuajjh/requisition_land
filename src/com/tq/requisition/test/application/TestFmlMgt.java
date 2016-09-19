@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+ï»¿package com.tq.requisition.test.application;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,15 +32,15 @@ public class TestFmlMgt {
 		dto.setAddress("address");
 		dto.setBirthday(new Date());
 		dto.setCommunityId(UUID.randomUUID());
-		dto.setCurrentEducationSituation("ÊÜ½ÌÓıÇé¿ö");
-		dto.setEducationLevel("ÊÜ½ÌÓı³Ì¶È");
+		dto.setCurrentEducationSituation("å—æ•™è‚²æƒ…å†µ");
+		dto.setEducationLevel("å—æ•™è‚²ç¨‹åº¦");
 		dto.setFarmingTime("20");
 		dto.setFmlId(UUID.randomUUID());
 		dto.setGender(Gender.MALE);
 		dto.setGroupId(UUID.randomUUID());
 		dto.setHalf(false);
 		dto.setHouseholdId(UUID.randomUUID());
-		dto.setHouseholdStr("»§¿ÚÀàĞÍ");
+		dto.setHouseholdStr("æˆ·å£ç±»å‹");
 		dto.setIdNumber("21512451445");
 		dto.setName("name");
 		dto.setOnlyChildNumber("12255");

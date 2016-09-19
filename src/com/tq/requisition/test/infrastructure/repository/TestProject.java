@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+ï»¿package com.tq.requisition.test.infrastructure.repository;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -152,7 +152,7 @@ public class TestProject {
 
 	@Test
 	public void getId() {
-		UUID id = repository.getIdByName("»ğĞÇ²ğÇ¨¼Æ»®1");
+		UUID id = repository.getIdByName("ç«æ˜Ÿæ‹†è¿è®¡åˆ’1");
 		System.out.println(id);
 	}
 }

@@ -11,7 +11,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据条件查询账户集合规约
+ * 鏍规嵁鏉′欢鏌ヨ璐︽埛闆嗗悎瑙勭害
  * @author jjh
  * @time 2015-01-07 17:44
  *

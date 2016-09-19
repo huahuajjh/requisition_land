@@ -1,36 +1,36 @@
-package com.tq.requisition.presentation.dto.sysMgt;
+ï»¿package com.tq.requisition.presentation.dto.sysMgt;
 
 import java.util.UUID;
 
 /**
- * ÓÃ»§ÕË»§dto
+ * ç”¨æˆ·è´¦æˆ·dto
  * @author jjh
  * @time 2015-12-21 16:34
  *
  */
 public class AccountDto {
 	/*private fields*/
-	/**ÕË»§id*/
+	/**è´¦æˆ·id*/
 	private UUID id;
-	/**ÕË»§Ãû*/
+	/**è´¦æˆ·å*/
 	private String account;
-	/**ÕË»§ÃÜÂë*/
+	/**è´¦æˆ·å¯†ç */
 	private String pwd;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**ÕË»§ËùÊô²¿ÃÅid*/
+	/**è´¦æˆ·æ‰€å±éƒ¨é—¨id*/
 	private UUID deptId;
-	/**ÕËºÅËùÊô²¿ÃÅÃû³Æ*/
+	/**è´¦å·æ‰€å±éƒ¨é—¨åç§°*/
 	private String depName;
-	/**ÕË»§ËùÊô×éÖ¯id*/
+	/**è´¦æˆ·æ‰€å±ç»„ç»‡id*/
 	private UUID orgId;
-	/**ÕËºÅËùÊô×éÖ¯µÄÃû³Æ*/
+	/**è´¦å·æ‰€å±ç»„ç»‡çš„åç§°*/
 	private String orgName;
-	/**ÕË»§½ÇÉ«id*/
+	/**è´¦æˆ·è§’è‰²id*/
 	private UUID roleId;
-	/**ÕË»§½ÇÉ«Ãû³Æ*/
+	/**è´¦æˆ·è§’è‰²åç§°*/
 	private String roleName;
-	/**ÕË»§×´Ì¬*/
+	/**è´¦æˆ·çŠ¶æ€*/
 	private Integer state;
 	
 	public String getDepName() {

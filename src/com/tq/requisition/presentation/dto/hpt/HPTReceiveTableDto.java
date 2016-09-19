@@ -1,36 +1,36 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * ¹º·¿È¯·¢·ÅÌ¨ÕËdto
+ * è´­æˆ¿åˆ¸å‘æ”¾å°è´¦dto
  * @author jjh
  * @time 2015-01-02 22:27
  *
  */
 public class HPTReceiveTableDto {
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private UUID proId;
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;
-	/**²ğÇ¨»§ÈËÔ±id*/
+	/**æ‹†è¿æˆ·äººå‘˜id*/
 	private UUID fmlItemId;
-	/**¹º·¿È¯ºÅ*/
+	/**è´­æˆ¿åˆ¸å·*/
 	private UUID ticketId;
-	/**ĞÕÃû*/
+	/**å§“å*/
 	private String name;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**ÁìÓÃÈË*/
+	/**é¢†ç”¨äºº*/
 	private String gettingPerson;
-	/**È¯ºÅ*/
+	/**åˆ¸å·*/
 	private String ticketNumber;
-	/**Æ¾Ö¤*/
+	/**å‡­è¯*/
 	private String evidenve;
-	/**ÁìÓÃÊ±¼ä*/
+	/**é¢†ç”¨æ—¶é—´*/
 	private Date recevieTime;
-	/**½ğ¶î*/
+	/**é‡‘é¢*/
 	private float bonus;
 	
 	/*constructors*/

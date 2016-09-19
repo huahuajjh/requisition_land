@@ -52,7 +52,7 @@ public class HptSet extends BaseAction {
 			}
 			stateJson = this.hptMgtServiceContract.provideByFml(dtos);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR,"Êı¾İ¸ñÊ½²»ÕıÈ·");
+			stateJson = toForMaterJson(OperationResult.ERROR,"æ•°æ®æ ¼å¼ä¸æ­£ç¡®");
 		}
 		response().getWriter().write(stateJson);
 		return null;

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.removedDocManagement;
+ï»¿package com.tq.requisition.presentation.actions.removedDocManagement;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -74,7 +74,7 @@ public class RemovedInfoAdd extends BaseAction {
 				 int removedInfoRowIndex = Integer.parseInt(ConfigFileUtil.readByKey("removedInfoRowIndex"));
 				List<RemovedInfoImportAndExportDto> dtos = excelInput.getDatas(RemovedInfoImportAndExportDto.class,removedInfoRowIndex);
 				if(errors.size() > 0){
-					 String str = toForMaterJson(OperationResult.ERROR, "ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+					 String str = toForMaterJson(OperationResult.ERROR, "ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 					 response().getWriter().write(str);
 					 return null;
 				 } else {
@@ -87,17 +87,17 @@ public class RemovedInfoAdd extends BaseAction {
 						}
 						 stateJsonString = this.removedInfoServiceContract.importRemovedInfo(dtos);
 					 } else {
-						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "ÎÄ¼şÖĞÃ»ÓĞÊı¾İ");
+						 stateJsonString = toForMaterJson(OperationResult.SUCCESS, "æ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®");
 					 }
 					 response().getWriter().write(stateJsonString);
 				 }
 			} catch (InstantiationException | NoSuchMethodException
 					| ConvertErrorException e) {
-				String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÁĞ±í´íÎó");
+				String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelåˆ—è¡¨é”™è¯¯");
 				 response().getWriter().write(str);
 			}
 		} catch (IOException e) {
-			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 			 response().getWriter().write(str);
 		} finally{
 			file.delete();

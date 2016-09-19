@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTExchangeInfo;
 import com.tq.requisition.presentation.dto.hpt.HPTExchangeInfoDto;
 
 /**
- * ¹º·¿È¯»»È¯dtoÓ³Éä
+ * è´­æˆ¿åˆ¸æ¢åˆ¸dtoæ˜ å°„
  * @author jjh
  * @time 2015-01-02 21:24
  *

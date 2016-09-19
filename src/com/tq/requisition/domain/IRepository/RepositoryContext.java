@@ -7,7 +7,7 @@ import com.tq.requisition.domain.share.IAggregateRoot;
 import com.tq.requisition.exception.InvalidOperationException;
 
 /**
- * ²Ö´¢ÉÏÏÂÎÄ»ùÀà
+ * ä»“å‚¨ä¸Šä¸‹æ–‡åŸºç±»
  * @author jjh
  * @time 2015-12-17 00:46
  */
@@ -23,38 +23,38 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	}
 
 	/**
-	 * ÉèÖÃÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷ÁËµ±Ç°µÄuowÊÂÎñÊÇ·ñ±»Ìá½» 
+	 * è®¾ç½®ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜äº†å½“å‰çš„uowäº‹åŠ¡æ˜¯å¦è¢«æäº¤ 
 	 * @return boolean
-	 * 		ÊÇ·ñÌá½»
+	 * 		æ˜¯å¦æäº¤
 	 */
 	@Override
 	public boolean commited() {
 		if(localCommited.get()==null)
 		{
 			localCommited.set(false);
-//			throw new NullPointerException("RepositoryContextÀàÖĞµÄlocalCommited.get()Îªnull");
+//			throw new NullPointerException("RepositoryContextç±»ä¸­çš„localCommited.get()ä¸ºnull");
 		}
 		return localCommited.get();
 	}
 
 	/**
-	 * ÉèÖÃÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷ÁËµ±Ç°µÄuowÊÂÎñÊÇ·ñ±»Ìá½» 
+	 * è®¾ç½®ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜äº†å½“å‰çš„uowäº‹åŠ¡æ˜¯å¦è¢«æäº¤ 
 	 * @param isCommited
-	 * 		ÊÇ·ñÌá½»
+	 * 		æ˜¯å¦æäº¤
 	 */
 	@Override
 	public void commited(boolean isCommited) {
 		localCommited.set(isCommited);
 	}
 
-	/*IUnitOfWorkÊµÏÖ*/	
+	/*IUnitOfWorkå®ç°*/	
 	@Override
 	public void commit() {
 		doCommit();
 	}
 	
 	/**
-	 * ¹Ø±ÕÉÏÏÂÎÄ
+	 * å…³é—­ä¸Šä¸‹æ–‡
 	 */
 	@Override
 	public void close() {
@@ -62,7 +62,7 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	}
 
 	/**
-	 * ¿ªÆôÊÂÎñ
+	 * å¼€å¯äº‹åŠ¡
 	 */
 	@Override
 	public void beginTransaction() {
@@ -75,19 +75,19 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	}
 
 	/**
-	 * Ìá½»ÊÂÎñ£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æäº¤äº‹åŠ¡ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 */
 	protected abstract void doCommit();
 	
 	protected abstract void doClose();
 	
 	/**
-	 * ¿ªÆôÊÂÎñ£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * å¼€å¯äº‹åŠ¡ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 */
 	protected abstract void doBegintransaction();
 	
 	/**
-	 * »Ø¹öÊÂÎñ£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * å›æ»šäº‹åŠ¡ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 */
 	protected abstract void doRollback();
 
@@ -95,7 +95,7 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	public <TAggregateRoot extends IAggregateRoot> void registerNew(TAggregateRoot root) {
 		if(localDeletedCollection.get().containsKey(root.id()))
 		{
-			throw new InvalidOperationException("¸Ã¶ÔÏó²»ÄÜ±»±ê¼ÇÎªĞÂÔö£¬ÒòÎªËüµ±Ç°±»±ê¼ÇÎªÉ¾³ı×´Ì¬");
+			throw new InvalidOperationException("è¯¥å¯¹è±¡ä¸èƒ½è¢«æ ‡è®°ä¸ºæ–°å¢ï¼Œå› ä¸ºå®ƒå½“å‰è¢«æ ‡è®°ä¸ºåˆ é™¤çŠ¶æ€");
 		}
 		if(!localNewCollection.get().containsKey(root.id()) && !localModifiedCollection.get().containsKey(root.id()))
 		{
@@ -109,7 +109,7 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	public <TAggregateRoot extends IAggregateRoot> void registerModified(TAggregateRoot root) {
 		if(localDeletedCollection.get().containsKey(root.id()))
 		{
-			throw new InvalidOperationException("¸Ã¶ÔÏó²»ÄÜ±»±ê¼ÇÎªĞÂÔö£¬ÒòÎªËüµ±Ç°±»±ê¼ÇÎªÉ¾³ı×´Ì¬");
+			throw new InvalidOperationException("è¯¥å¯¹è±¡ä¸èƒ½è¢«æ ‡è®°ä¸ºæ–°å¢ï¼Œå› ä¸ºå®ƒå½“å‰è¢«æ ‡è®°ä¸ºåˆ é™¤çŠ¶æ€");
 		}
 		if(!localNewCollection.get().containsKey(root.id()) && !localModifiedCollection.get().containsKey(root.id()))
 		{
@@ -122,7 +122,7 @@ public abstract class RepositoryContext implements IRepositoryContext{
 	@Override
 	public <TAggregateRoot extends IAggregateRoot> void registerDeleted(TAggregateRoot root) {
 		if(root.id().equals(null))
-		{throw new NullPointerException("¿ÕÖ¸ÕëÒì³£");}
+		{throw new NullPointerException("ç©ºæŒ‡é’ˆå¼‚å¸¸");}
 		
 		if(localNewCollection.get().containsKey(root.id()))
 		{

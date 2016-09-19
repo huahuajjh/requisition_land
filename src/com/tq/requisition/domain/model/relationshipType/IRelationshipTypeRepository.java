@@ -8,29 +8,29 @@ import com.tq.requisition.exception.DomainException;
 
 public interface IRelationshipTypeRepository extends IRepository<RelationshipType>{
 	/**
-	 * ĞÂÔö¹ØÏµÀàĞÍ
+	 * æ–°å¢å…³ç³»ç±»å‹
 	 * @param entity
-	 * 		´ıĞÂÔöµÄ¹ØÏµÀàĞÍÊµÌå
+	 * 		å¾…æ–°å¢çš„å…³ç³»ç±»å‹å®ä½“
 	 * @return RelationshipType
-	 * 		ĞÂÔöºóµÄ¹ØÏµÀàĞÍÊµÌå
+	 * 		æ–°å¢åçš„å…³ç³»ç±»å‹å®ä½“
 	 */
 	RelationshipType addType(RelationshipType entity) throws DomainException;
 	
 	List<RelationshipType> getAllType();
 	
 	/**
-	 * ±à¼­Óë»§Ö÷¹ØÏµÀàĞÍ
+	 * ç¼–è¾‘ä¸æˆ·ä¸»å…³ç³»ç±»å‹
 	 * @param id
-	 * 		¹ØÏµid
+	 * 		å…³ç³»id
 	 * @param name
-	 * 		¹ØÏµÃû³Æ
+	 * 		å…³ç³»åç§°
 	 */
 	void editType(UUID id,String name) throws DomainException;
 	
 	/**
-	 * ¸ù¾İÃû³Æ»ñÈ¡id
+	 * æ ¹æ®åç§°è·å–id
 	 * @param name
-	 * 		¹ØÏµÃû³Æ
+	 * 		å…³ç³»åç§°
 	 * @return UUID
 	 * 		UUID
 	 */

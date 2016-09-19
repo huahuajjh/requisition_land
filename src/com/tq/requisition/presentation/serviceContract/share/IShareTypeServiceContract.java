@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.share;
+ï»¿package com.tq.requisition.presentation.serviceContract.share;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,130 +8,130 @@ import com.tq.requisition.presentation.dto.share.RelationshipTypeDto;
 import com.tq.requisition.presentation.dto.share.SocialsecurityTypeDto;
 
 /**
- * ×Ö¶ÎÀàĞÍ½Ó¿Ú
+ * å­—æ®µç±»å‹æ¥å£
  * @author jjh
  * @time 2015-12-29 17:53
  *
  */
 public interface IShareTypeServiceContract {
 	/**
-	 * »ñÈ¡ËùÓĞ»§¿ÚÀàĞÍ£¬·µ»ØjsonÊı¾İ
+	 * è·å–æ‰€æœ‰æˆ·å£ç±»å‹ï¼Œè¿”å›jsonæ•°æ®
 	 * @return
 	 */
 	String getAllHouseholdType();
 	
 	/**
-	 * »ñÈ¡ËùÓĞÓë»§Ö÷¹ØÏµ¼¯ºÏ£¬·µ»ØjsonÊı¾İ
+	 * è·å–æ‰€æœ‰ä¸æˆ·ä¸»å…³ç³»é›†åˆï¼Œè¿”å›jsonæ•°æ®
 	 * @return
 	 */
 	String getAllRelationshipType();
 	
 	/**
-	 * »ñÈ¡ËùÓĞÉç±£ÀàĞÍ¼¯ºÏ£¬·µ»ØjsonÊı¾İ
+	 * è·å–æ‰€æœ‰ç¤¾ä¿ç±»å‹é›†åˆï¼Œè¿”å›jsonæ•°æ®
 	 * @return
 	 */
 	String getAllSocialsecurityType();
 		
 	/**
-	 * »ñÈ¡ËùÓĞ»§¿ÚÀàĞÍ¼¯ºÏ
+	 * è·å–æ‰€æœ‰æˆ·å£ç±»å‹é›†åˆ
 	 * @return
 	 */
 	List<HouseholdTypeDto> getAllHouseholdTypeList();
 	
 	/**
-	 * »ñÈ¡ËùÓĞÓë»§Ö÷¹ØÏµ¼¯ºÏ
+	 * è·å–æ‰€æœ‰ä¸æˆ·ä¸»å…³ç³»é›†åˆ
 	 * @return
 	 */
 	List<RelationshipTypeDto> getAllRelationshipTypeList();
 	
 	/**
-	 * »ñÈ¡ËùÓĞÉç±£ÀàĞÍ¼¯ºÏ
+	 * è·å–æ‰€æœ‰ç¤¾ä¿ç±»å‹é›†åˆ
 	 * @return
 	 */
 	List<SocialsecurityTypeDto> getAllSocialsecurityTypeList();
 	
 	/**
-	 * É¾³ıÉç±£ÀàĞÍ
+	 * åˆ é™¤ç¤¾ä¿ç±»å‹
 	 * @param id
-	 * 		Éç±£id
+	 * 		ç¤¾ä¿id
 	 * @return String
 	 * 		json
 	 */
 	String delSSType(UUID id);
 	
 	/**
-	 * É¾³ıÓë»§Ö÷¹ØÏµÀàĞÍ
+	 * åˆ é™¤ä¸æˆ·ä¸»å…³ç³»ç±»å‹
 	 * @param id
-	 * 		»§Ö÷id
+	 * 		æˆ·ä¸»id
 	 * @return String
 	 * 		json
 	 */
 	String delRelationshipType(UUID id);
 	
 	/**
-	 * É¾³ı»§¿ÚÀàĞÍ
+	 * åˆ é™¤æˆ·å£ç±»å‹
 	 * @param id
-	 * 		»§¿Úid
+	 * 		æˆ·å£id
 	 * @return String
 	 * 		json
 	 */
 	String delHouseholdType(UUID id);
 	
 	/**
-	 * ±à¼­Éç±£ÀàĞÍ
+	 * ç¼–è¾‘ç¤¾ä¿ç±»å‹
 	 * @param id
-	 * 		Éç±£id
+	 * 		ç¤¾ä¿id
 	 * @param name
-	 * 		ÀàĞÍÃû³Æ
+	 * 		ç±»å‹åç§°
 	 * @return String
 	 * 		json
 	 */
 	String editSSType(UUID id,String name);
 	
 	/**
-	 * ±à¼­Óë»§Ö÷¹ØÏµÀàĞÍ
+	 * ç¼–è¾‘ä¸æˆ·ä¸»å…³ç³»ç±»å‹
 	 * @param id
-	 * 		¹ØÏµid
+	 * 		å…³ç³»id
 	 * @param name
-	 * 		ÀàĞÍÃû³Æ
+	 * 		ç±»å‹åç§°
 	 * @return String
 	 * 		json
 	 */
 	String editRelationshipType(UUID id,String name);
 	
 	/**
-	 * ±à¼­»§¿ÚÀàĞÍ
+	 * ç¼–è¾‘æˆ·å£ç±»å‹
 	 * @param id
-	 * 		»§¿Úid
+	 * 		æˆ·å£id
 	 * @param name
-	 * 		ÀàĞÍÃû³Æ
+	 * 		ç±»å‹åç§°
 	 * @return String
 	 * 		json
 	 */
 	String editHouseholdType(UUID id,String name);
 	
 	/**
-	 * ĞÂÔöÉç±£ÀàĞÍ
+	 * æ–°å¢ç¤¾ä¿ç±»å‹
  	 * @param name
- 	 * 		Éç±£Ãû³Æ
+ 	 * 		ç¤¾ä¿åç§°
 	 * @return String
 	 * 		json
 	 */
 	String addSSType(String name);
 	
 	/**
-	 * ĞÂÔö»§¿ÚÀàĞÍ
+	 * æ–°å¢æˆ·å£ç±»å‹
  	 * @param name
- 	 * 		»§¿ÚÃû³Æ
+ 	 * 		æˆ·å£åç§°
 	 * @return String
 	 * 		json
 	 */
 	String addHouseholdType(String name);
 	
 	/**
-	 * ĞÂÔöÓë»§Ö÷¹ØÏµÀàĞÍ
+	 * æ–°å¢ä¸æˆ·ä¸»å…³ç³»ç±»å‹
  	 * @param name
- 	 * 		¹ØÏµÃû³Æ
+ 	 * 		å…³ç³»åç§°
 	 * @return String
 	 * 		json
 	 */

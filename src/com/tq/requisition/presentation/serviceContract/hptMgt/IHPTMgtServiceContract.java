@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.hptMgt;
+ï»¿package com.tq.requisition.presentation.serviceContract.hptMgt;
 
 import java.util.List;
 import java.util.UUID;
@@ -20,180 +20,180 @@ import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¹º·¿È¯·şÎñÆõÔ¼
+ * è´­æˆ¿åˆ¸æœåŠ¡å¥‘çº¦
  * @author jjh
  * @time 2015-01-02 17:31
  *
  */
 public interface IHPTMgtServiceContract {
 	/**
-	 * ĞÂÔö¹º·¿È¯ĞÅÏ¢
+	 * æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param dto
-	 * 		´ıĞÂÔöµÄ¹º·¿È¯ĞÅÏ¢
+	 * 		å¾…æ–°å¢çš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String add(HousePuraseTicketDto dto);
 	
 	/**
-	 * ÅúÁ¿ĞÂÔö¹º·¿È¯ĞÅÏ¢
+	 * æ‰¹é‡æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param dtos
-	 * 		¹º·¿È¯dto¼¯ºÏ
+	 * 		è´­æˆ¿åˆ¸dtoé›†åˆ
 	 * @return
 	 * 		json
 	 */
 	String add(List<HousePuraseTicketDto> dtos);
 	
 	/**
-	 * »»È¯
+	 * æ¢åˆ¸
 	 * @param dto
-	 * 		»»È¯ĞÅÏ¢
+	 * 		æ¢åˆ¸ä¿¡æ¯
 	 * @param hpt
-	 * 		ĞÂÔöµÄ¹º·¿È¯
+	 * 		æ–°å¢çš„è´­æˆ¿åˆ¸
 	 * @return
 	 * 		json
 	 */
 	String exchange(HPTExchangeInfoDto dto,HousePuraseTicketDto hpt);
 	
 	/**
-	 * ²¹È¯
+	 * è¡¥åˆ¸
 	 * @param mendDto
-	 * 		²¹È¯ĞÅÏ¢
+	 * 		è¡¥åˆ¸ä¿¡æ¯
 	 * @param hptDto
-	 * 		ĞÂÔöµÄ¹º·¿È¯
+	 * 		æ–°å¢çš„è´­æˆ¿åˆ¸
 	 * @return
 	 * 		json
 	 */
 	String mend(HPTMendInfoDto mendDto,HousePuraseTicketDto hptDto);
 	
 	/**
-	 * ¹º·¿È¯µÄÊ¹ÓÃºÍ¶ÒÏÖ
+	 * è´­æˆ¿åˆ¸çš„ä½¿ç”¨å’Œå…‘ç°
 	 * @param dto
-	 * 		Ê¹ÓÃĞÅÏ¢
+	 * 		ä½¿ç”¨ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String use(HPTUseAndCashInfoDto dto);
 	
 	/**
-	 * ¹º·¿È¯µÄ·¢·Å
+	 * è´­æˆ¿åˆ¸çš„å‘æ”¾
 	 * @param dto
-	 * 		·¢·ÅĞÅÏ¢
+	 * 		å‘æ”¾ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String provide(HPTRecevieInfoDto dto);
 	
 	/**
-	 * ¹ÒÊ§
+	 * æŒ‚å¤±
 	 * @param dto
-	 * 		¹ÒÊ§ĞÅÏ¢
+	 * 		æŒ‚å¤±ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String lossOfReport(HPTLossInfoDto dto);
 
 	/**
-	 * ²éÑ¯»»È¯ĞÅÏ¢
+	 * æŸ¥è¯¢æ¢åˆ¸ä¿¡æ¯
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @return
 	 * 		json
 	 */
 	String queryExchangeInfo(HPTQueryModel queryModel);
 
 	/**
-	 * ²éÑ¯Ò»»§µÄ¹º·¿È¯ĞÅÏ¢
+	 * æŸ¥è¯¢ä¸€æˆ·çš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param idNumber
-	 * 		»§Ö÷Éí·İÖ¤
+	 * 		æˆ·ä¸»èº«ä»½è¯
 	 * @return
 	 * 		json
 	 */
 	String queryByFml(String idNumber);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿µÄÃû³Æ»ñÈ¡Î´·¢·Å¹º·¿È¯
+	 * æ ¹æ®é¡¹ç›®çš„åç§°è·å–æœªå‘æ”¾è´­æˆ¿åˆ¸
 	 * @param proName
-	 * 		ÏîÄ¿Ãû³Æ
+	 * 		é¡¹ç›®åç§°
 	 * @return
 	 */
 	String queryNotByProId(String proName,PageModel pageModel);
 	
 	/**
-	 * ²éÑ¯µ¥ÈËµÄ¹º·¿È¯ĞÅÏ¢
+	 * æŸ¥è¯¢å•äººçš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @return
 	 * 		json
 	 */
 	String queryByIdNumber(String idNumber);
 	
 	/**
-	 * ²éÑ¯·¢·ÅÌ¨ÕË
+	 * æŸ¥è¯¢å‘æ”¾å°è´¦
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @return
 	 * 		json
 	 */
 	String queryProvideTable(HPTFuzzyQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ²éÑ¯¶Ò¸¶Ì¨ÕË
+	 * æŸ¥è¯¢å…‘ä»˜å°è´¦
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @return
 	 * 		json
 	 */
 	String queryUseTable(HPTFuzzyQueryModel queryModel,PageModel pageModel);	
 	
 	/**
-	 * °´»§·¢·Å¹º·¿È¯
+	 * æŒ‰æˆ·å‘æ”¾è´­æˆ¿åˆ¸
 	 * @param list
-	 * 		·¢·Ådto¼¯ºÏ
+	 * 		å‘æ”¾dtoé›†åˆ
 	 * @return
 	 */
 	String provideByFml(List<HPTRecevieInfoDto> list);
 	
 	/**
-	 * µ¼Èë¹º·¿È¯
+	 * å¯¼å…¥è´­æˆ¿åˆ¸
 	 * @param list
-	 * 		¹º·¿È¯µ¼Èëµ¼³ödto
+	 * 		è´­æˆ¿åˆ¸å¯¼å…¥å¯¼å‡ºdto
 	 * @return String
 	 * 		json
 	 */
 	String importHPT(List<HPTImportAndExport> list);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²åĞğ½á¹û¼¯
-	 * @param queryModel ²éÑ¯model
-	 * @param pageModel ·ÖÒ³model
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæ’å™ç»“æœé›†
+	 * @param queryModel æŸ¥è¯¢model
+	 * @param pageModel åˆ†é¡µmodel
 	 * @return
 	 */
 	String queryByPage4Json(HptUseAndCashQueryModel queryModel,
 			PageModel pageModel);
 
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²åĞğ½á¹û¼¯
-	 * @param queryModel ²éÑ¯model
-	 * @param pageModel ·ÖÒ³model
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæ’å™ç»“æœé›†
+	 * @param queryModel æŸ¥è¯¢model
+	 * @param pageModel åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryByPage4List(HptUseAndCashQueryModel queryModel,
 			PageModel pageModel);
 	
 	/**
-	 * ¹º·¿È¯µÄÊ¹ÓÃºÍ¶ÒÏÖ
+	 * è´­æˆ¿åˆ¸çš„ä½¿ç”¨å’Œå…‘ç°
 	 * @param dtos
-	 * 		Ê¹ÓÃĞÅÏ¢
+	 * 		ä½¿ç”¨ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String use(List<HPTUseAndCashInfoDto> dtos);
 	
 	/**
-	 * »ñÈ¡ËùÓĞµÄ·¢·ÅÌ¨ÕËÊı¾İ
+	 * è·å–æ‰€æœ‰çš„å‘æ”¾å°è´¦æ•°æ®
 	 * @param proName
-	 * 		ÏîÄ¿Ãû³Æ
+	 * 		é¡¹ç›®åç§°
 	 * @return
 	 */
 	List<HPTReceiveTableDto> getHPTReceiveTableDtoAll(String proName);

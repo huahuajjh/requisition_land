@@ -1,15 +1,15 @@
 package com.tq.requisition.domain.model.share;
 
 /**
- * ĞÔ±ğÃ¶¾Ù
+ * æ€§åˆ«æšä¸¾
  * @author jjh
  * @time 2015-12-18 18:44
  */
 public enum Gender {
-	/**ÄĞ*/
-	MALE(0,"ÄĞ"),
-	/**Å®*/
-	FEMALE(1,"Å®");
+	/**ç”·*/
+	MALE(0,"ç”·"),
+	/**å¥³*/
+	FEMALE(1,"å¥³");
 	
 	/*private fields*/
 	private String strV;
@@ -27,7 +27,7 @@ public enum Gender {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾Ù
+	 * é€šè¿‡intå€¼è·å–æšä¸¾
 	 * @param v
 	 * @return
 	 */
@@ -38,13 +38,13 @@ public enum Gender {
 		case 1:
 			return Gender.FEMALE;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨,×îĞ¡ÖµÎª0£¬×î´óÖµÎª1");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š,æœ€å°å€¼ä¸º0ï¼Œæœ€å¤§å€¼ä¸º1");
 		}
 	}
 	
 	public Gender obtainByStr(String s) {
 		switch (s) {
-		case "ÄĞ":
+		case "ç”·":
 			return MALE;
 
 		default:
@@ -53,7 +53,7 @@ public enum Gender {
 	}
 	
 	/**
-	 * »ñÈ¡Ã¶¾ÙÖµµÃString
+	 * è·å–æšä¸¾å€¼å¾—String
 	 * @return
 	 */
 	public String toStr() {

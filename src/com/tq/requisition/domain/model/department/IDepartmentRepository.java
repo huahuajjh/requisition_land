@@ -7,53 +7,53 @@ import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ²¿ÃÅ¾ÛºÏ²Ö´¢
+ * éƒ¨é—¨èšåˆä»“å‚¨
  * 
  * @author jjh
- * @time 2015-12-21 16£º38
+ * @time 2015-12-21 16ï¼š38
  */
 public interface IDepartmentRepository extends IRepository<Department>{
 	
 	/**
-	 * ¸ù¾İ×éÖ¯id¼ì²âĞÂÔöµÄ²¿ÃÅÃû³ÆÊÇ·ñÎ¨Ò»
+	 * æ ¹æ®ç»„ç»‡idæ£€æµ‹æ–°å¢çš„éƒ¨é—¨åç§°æ˜¯å¦å”¯ä¸€
 	 * @param orgId
-	 * 		×éÖ¯id
+	 * 		ç»„ç»‡id
 	 * @param deptName
-	 * 		²¿ÃÅÃû³Æ
+	 * 		éƒ¨é—¨åç§°
 	 * @return boolean
-	 * 		·µ»ØÒ»¸öbooleanÖµ£¬±íÃ÷¸Ã²¿ÃÅÃû³ÆÊÇ·ñÔÚµ±Ç°×éÖ¯ÖĞÊÇÎ¨Ò»µÄ
+	 * 		è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¡¨æ˜è¯¥éƒ¨é—¨åç§°æ˜¯å¦åœ¨å½“å‰ç»„ç»‡ä¸­æ˜¯å”¯ä¸€çš„
 	 */
 	boolean isDeptNameUnique(UUID orgId,String deptName);
 	
 	/**
-	 * ÔÚÖ¸¶¨µÄ×éÖ¯ÏÂÃæ´´½¨Æä²¿ÃÅ£¬¸Ã²¿ÃÅÊôÓÚ¸Ã×éÖ¯
+	 * åœ¨æŒ‡å®šçš„ç»„ç»‡ä¸‹é¢åˆ›å»ºå…¶éƒ¨é—¨ï¼Œè¯¥éƒ¨é—¨å±äºè¯¥ç»„ç»‡
 	 * @param dept
-	 * 		´ı„“½¨µÄ²¿éTŒów
-	 * 		½M¿—id
+	 * 		å¾…å‰µå»ºçš„éƒ¨é–€å¯¦é«”
+	 * 		çµ„ç¹”id
 	 * @return TODO
 	 */
 	Department createDept(Department dept) throws DomainException;
 	
 	/**
-	 * ĞŞ¸Ä²¿ÃÅÊµÌå
+	 * ä¿®æ”¹éƒ¨é—¨å®ä½“
 	 * @param dept
-	 * 		´ıĞŞ¸ÄµÄ²¿ÃÅÊµÌå
+	 * 		å¾…ä¿®æ”¹çš„éƒ¨é—¨å®ä½“
 	 */
 	void modifyDept(Department dept) throws DomainException;
 	
 	/**
-	 * ¸ù¾İ×éÖ¯id»ñÈ¡²¿ÃÅ¼¯ºÏ
+	 * æ ¹æ®ç»„ç»‡idè·å–éƒ¨é—¨é›†åˆ
 	 * @param orgId
-	 * 		×éÖ¯id
+	 * 		ç»„ç»‡id
 	 * @return List<Department>
-	 * 		²¿ÃÅ¼¯ºÏ
+	 * 		éƒ¨é—¨é›†åˆ
 	 */
 	List<Department> getDeptByOrgId(UUID orgId);
 	
 	/**
-	 * ¸ù¾İidÉ¾³ıÖ¸¶¨µÄ²¿ÃÅ
+	 * æ ¹æ®idåˆ é™¤æŒ‡å®šçš„éƒ¨é—¨
 	 * @param deptId
-	 * 		²¿ÃÅid
+	 * 		éƒ¨é—¨id
 	 */
 	void removeDept(UUID deptId);
 }

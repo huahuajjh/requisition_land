@@ -1,16 +1,16 @@
-package com.tq.requisition.presentation.dto.share;
+锘縫ackage com.tq.requisition.presentation.dto.share;
 
 import java.util.UUID;
 
 
 /**
- * 与户主关系聚合根
+ * 涓庢埛涓诲叧绯昏仛鍚堟牴
  * @author jjh
  * @time 2015-12-18 16:38
  */
 public class RelationshipTypeDto{
 	public UUID id;	
-	/**关系名称*/
+	/**鍏崇郴鍚嶇О*/
 	private String name;
 
 	public UUID getId() {

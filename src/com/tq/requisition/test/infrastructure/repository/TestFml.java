@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+锘縫ackage com.tq.requisition.test.infrastructure.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,7 +46,7 @@ public class TestFml {
 				"pro name"));
 		
 		Family fml = Family.obtain(//
-				"户主名字",//
+				"鎴蜂富鍚嶅瓧",//
 				UUID.randomUUID(), //
 				UUID.randomUUID(), //
 				UUID.randomUUID(), //

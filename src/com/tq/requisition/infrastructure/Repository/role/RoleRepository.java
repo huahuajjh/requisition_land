@@ -16,7 +16,7 @@ import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.TotalCount;
 
 /**
- * ½ÇÉ«²Ö´¢ÊµÏÖÀà
+ * è§’è‰²ä»“å‚¨å®ç°ç±»
  * @author jjh
  * @time 2015-12-21 13:16
  * 
@@ -31,7 +31,7 @@ public class RoleRepository extends HbRepository<Role> implements IRoleRepositor
 		boolean r = exists(new SpecificationExt<Role>(Role.class) {
 			@Override
 			public String getAbsHql() {
-				throw new NotImplementedException("Î´ÊµÏÖµÄ·½·¨getAbsHql()");
+				throw new NotImplementedException("æœªå®ç°çš„æ–¹æ³•getAbsHql()");
 			}
 
 			@Override
@@ -53,11 +53,11 @@ public class RoleRepository extends HbRepository<Role> implements IRoleRepositor
 
 		if(r)
 		{
-			return Formater.obtain(String.format("½ÇÉ«Ãû%sÒÑ¾­´æÔÚ", role.getRoleName()), null, Formater.OperationResult.FAIL);
+			return Formater.obtain(String.format("è§’è‰²å%så·²ç»å­˜åœ¨", role.getRoleName()), null, Formater.OperationResult.FAIL);
 		}		
 		Role _role = Role.obtain(role.getRoleName());
 		add(_role);
-		return Formater.obtain("ĞÂÔö½ÇÉ«³É¹¦", _role, Formater.OperationResult.SUCCESS);
+		return Formater.obtain("æ–°å¢è§’è‰²æˆåŠŸ", _role, Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
@@ -95,11 +95,11 @@ public class RoleRepository extends HbRepository<Role> implements IRoleRepositor
 		Role role = getByKey(Role.class, _role.getId());
 		if(role==null)
 		{
-			return Formater.obtain("²»´æÔÚµÄ½ÇÉ«£¬ÎŞ·¨ĞŞ¸Ä", null, Formater.OperationResult.ERROR);
+			return Formater.obtain("ä¸å­˜åœ¨çš„è§’è‰²ï¼Œæ— æ³•ä¿®æ”¹", null, Formater.OperationResult.ERROR);
 		}
 		role.setRoleName(_role.getRoleName());
 		update(role);
-		return Formater.obtain("ĞŞ¸Ä½ÇÉ«³É¹¦", null, Formater.OperationResult.SUCCESS);
+		return Formater.obtain("ä¿®æ”¹è§’è‰²æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 	}
 
 	@Override

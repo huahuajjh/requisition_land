@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HousePuraseTicket;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 查询规约，根据身份证查询记录
+ * 鏌ヨ瑙勭害锛屾牴鎹韩浠借瘉鏌ヨ璁板綍
  * @author jjh
  * @time 2015-01-02 23:13
  */

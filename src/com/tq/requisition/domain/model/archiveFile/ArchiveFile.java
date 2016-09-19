@@ -3,15 +3,15 @@ package com.tq.requisition.domain.model.archiveFile;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ¹éµµÎÄ¼ş¾ÛºÏ¸ù
+ * å½’æ¡£æ–‡ä»¶èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 19:13
  */
 public class ArchiveFile extends AggregateRoot{
-	/**ÎÄµµÂ·¾¶*/
+	/**æ–‡æ¡£è·¯å¾„*/
 	private String filePath;
-	/**ÎÄµµÀàĞÍ*/
+	/**æ–‡æ¡£ç±»å‹*/
 	private String fileTypeId;
-	/**ÎÄµµ±êÌâ*/
+	/**æ–‡æ¡£æ ‡é¢˜*/
 	private String title;
 }

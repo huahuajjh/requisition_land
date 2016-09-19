@@ -11,16 +11,16 @@ public final class ResMapper {
 	public static Resource toModel(ResDto dto)
 	{
 		Resource res = Resource.obtain(//
-				dto.getName(),//资源名称
-				dto.getLink(),//资源链接
-				"NA",//资源icon
-				dto.getType(),//资源类型
-				dto.getOrder(), //资源排序
-				dto.getpId(), //资源父id
-				true, //是否有子节点
-				dto.getPath(),//资源祖先序列
-				dto.getHtmlId(), //资源hemlid
-				dto.getHtml(),//资源html
+				dto.getName(),//璧勬簮鍚嶇О
+				dto.getLink(),//璧勬簮閾炬帴
+				"NA",//璧勬簮icon
+				dto.getType(),//璧勬簮绫诲瀷
+				dto.getOrder(), //璧勬簮鎺掑簭
+				dto.getpId(), //璧勬簮鐖秈d
+				true, //鏄惁鏈夊瓙鑺傜偣
+				dto.getPath(),//璧勬簮绁栧厛搴忓垪
+				dto.getHtmlId(), //璧勬簮hemlid
+				dto.getHtml(),//璧勬簮html
 				dto.getHierarchy());
 		return res;
 	}

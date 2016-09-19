@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.statistics;
+ï»¿package com.tq.requisition.presentation.actions.statistics;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class Statistics extends BaseAction {
 		this.daoChuData = daoChuData;
 	}
 
-	// Êä³öÎÄ¼şÁ÷
+	// è¾“å‡ºæ–‡ä»¶æµ
 	private InputStream outputStream;
 	private String downloadChineseFileName;
 	public InputStream getOutputStream() {

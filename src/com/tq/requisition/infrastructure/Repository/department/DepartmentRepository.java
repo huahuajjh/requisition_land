@@ -14,9 +14,9 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.deptMgt.DeptMgtNameExistsSpecification;
 
 /**
- * ²¿ÃÅ¾ÛºÏ²Ö´¢
+ * éƒ¨é—¨èšåˆä»“å‚¨
  * @author jjh
- * @time 2015-12-21 16£º38
+ * @time 2015-12-21 16ï¼š38
  */
 public class DepartmentRepository extends HbRepository<Department> implements IDepartmentRepository{
 	public DepartmentRepository(IRepositoryContext context) {
@@ -38,7 +38,7 @@ public class DepartmentRepository extends HbRepository<Department> implements ID
 		boolean r = exists(new DeptMgtNameExistsSpecification(Department.class, dept));
 		if(r)
 		{
-			throw new InvalidOperationException("¸Ã×éÖ¯ÏÂÒÑ¾­´æÔÚÃûÎª["+dept.getDeptName()+"]µÄ²¿ÃÅÃû³Æ£¬ÇëÖØÏëÒ»¸ö");
+			throw new InvalidOperationException("è¯¥ç»„ç»‡ä¸‹å·²ç»å­˜åœ¨åä¸º["+dept.getDeptName()+"]çš„éƒ¨é—¨åç§°ï¼Œè¯·é‡æƒ³ä¸€ä¸ª");
 		}
 		Department department = Department.obtain(dept.getDeptName(), dept.getOrgId());
 		add(department);
@@ -52,12 +52,12 @@ public class DepartmentRepository extends HbRepository<Department> implements ID
 	public void modifyDept(Department dept) throws DomainException {
 		if(dept == null)
 		{
-			throw new NullPointerException("´ıĞÂÔöµÄ²¿ÃÅÊµÌåÎªnull");
+			throw new NullPointerException("å¾…æ–°å¢çš„éƒ¨é—¨å®ä½“ä¸ºnull");
 		}
 		Department _dept = getByKey(Department.class, dept.getId());
 		if(_dept == null)
 		{
-			throw new NullPointerException("ÒªĞŞ¸ÄµÄ²¿ÃÅ²»´æÔÚ£¬²¿ÃÅÊµÌåÎªnull");
+			throw new NullPointerException("è¦ä¿®æ”¹çš„éƒ¨é—¨ä¸å­˜åœ¨ï¼Œéƒ¨é—¨å®ä½“ä¸ºnull");
 		}
 		_dept.modify(dept);
 		update(_dept);	
@@ -67,7 +67,7 @@ public class DepartmentRepository extends HbRepository<Department> implements ID
 	public List<Department> getDeptByOrgId(final UUID orgId) {
 		if(orgId == null)
 		{
-			throw new NullPointerException("×éÖ¯idÎªnull");
+			throw new NullPointerException("ç»„ç»‡idä¸ºnull");
 		}
 		List<Department> deptList = getAll(new SpecificationExt<Department>(Department.class) {
 			@Override
@@ -99,7 +99,7 @@ public class DepartmentRepository extends HbRepository<Department> implements ID
 	public void removeDept(UUID deptId) {
 		if(deptId == null)
 		{
-			throw new NullPointerException("²¿ÃÅidÎªnull");
+			throw new NullPointerException("éƒ¨é—¨idä¸ºnull");
 		}
 		removeByKey(Department.class, deptId);
 	}

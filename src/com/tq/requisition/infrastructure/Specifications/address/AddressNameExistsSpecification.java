@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.address.Address;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 规约，检测新增地址信息相同节点下是否存在同样的地址名称
+ * 瑙勭害锛屾娴嬫柊澧炲湴鍧�淇℃伅鐩稿悓鑺傜偣涓嬫槸鍚﹀瓨鍦ㄥ悓鏍风殑鍦板潃鍚嶇О
  * @author jjh
  * @time 2015-01-08 17:23
  *

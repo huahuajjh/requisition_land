@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.projectManagement;
+ï»¿package com.tq.requisition.presentation.actions.projectManagement;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,9 +32,9 @@ import com.tq.requisition.presentation.serviceContract.share.IAddressServiceCont
 @SuppressWarnings("serial")
 public class PmProgress extends BaseAction {
 
-	public static final String[] ANNVALS = new String[] { "Ò»¹«¸æ", "¶ş¹«¸æ", "Èı¹«¸æ" };
+	public static final String[] ANNVALS = new String[] { "ä¸€å…¬å‘Š", "äºŒå…¬å‘Š", "ä¸‰å…¬å‘Š" };
 
-	// Êä³öÎÄ¼şÁ÷
+	// è¾“å‡ºæ–‡ä»¶æµ
 	private InputStream outputStream;
 	private String downloadChineseFileName;
 
@@ -48,35 +48,35 @@ public class PmProgress extends BaseAction {
 	private IProMgtServiceContract proMgtServiceContract;
 	private IAddressServiceContract addressServiceContract;
 
-	/** Ç°¶Ë½»»¥Êı¾İ */
-	// ---Ä£ºı²éÑ¯ÁĞ±í
+	/** å‰ç«¯äº¤äº’æ•°æ® */
+	// ---æ¨¡ç³ŠæŸ¥è¯¢åˆ—è¡¨
 	private int pageNum = 30;
 	private int pageIndex = 1;
 	private int typeId = 0;
 	private int annouceQueue = 0;
 	private String address;
 	// --------
-	private String val;// Ä£ºı²éÑ¯ÏîÄ¿Ãû³Æ
+	private String val;// æ¨¡ç³ŠæŸ¥è¯¢é¡¹ç›®åç§°
 	// ---------
-	private String proId = "";// ÏîÄ¿ID
+	private String proId = "";// é¡¹ç›®ID
 
-	// Â¼ÈëÔÂ±¨ĞÅÏ¢
+	// å½•å…¥æœˆæŠ¥ä¿¡æ¯
 	private String dataJson;
 	// -----------------------
-	// ¹«¸æModel
+	// å…¬å‘ŠModel
 	private String number;
 	private String date;
 	private String fdocVal;
 	private int sequence;
 	private String id;
 
-	// ´òÓ¡²ÎÊı
+	// æ‰“å°å‚æ•°
 	private String daYinData;
 	private String daYinIds;
 	private String daoChuAttrModel;
 	private String daoChuHead;
 
-	/** Ò³Ãæ¶ÔÏó */
+	/** é¡µé¢å¯¹è±¡ */
 	private List<AddressDto> addressDtos;
 	private List<ProTypeDto> proTypeDtos;
 
@@ -87,7 +87,7 @@ public class PmProgress extends BaseAction {
 		return SUCCESS;
 	}
 
-	// »ñÈ¡ÁĞ±í
+	// è·å–åˆ—è¡¨
 	public String list() throws IOException {
 		ProQueryModel queryModel = new ProQueryModel();
 		queryModel.setAnnouceQueue(annouceQueue);
@@ -111,14 +111,14 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// »ñÈ¡Ãû×ÖÁĞ±í
+	// è·å–åå­—åˆ—è¡¨
 	public String names() throws IOException {
 		String names = this.proMgtServiceContract.getProNameListFuzzy(val);
 		response().getWriter().write(names);
 		return null;
 	}
 
-	// »ñÈ¡ÔÂ±¨ÏêÏ¸ĞÅÏ¢
+	// è·å–æœˆæŠ¥è¯¦ç»†ä¿¡æ¯
 	public String info() throws IOException {
 		String info = this.proMgtServiceContract.getProItemsByProId(UUID
 				.fromString(proId));
@@ -126,7 +126,7 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// Â¼ÈëÔÂ±¨
+	// å½•å…¥æœˆæŠ¥
 	public String inputMouth() throws ParseException, IOException {
 		ProItemDto dto = Serialization.toObject(dataJson, ProItemDto.class);
 		String jsonData = this.proMgtServiceContract.addProItem(dto,
@@ -135,7 +135,7 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// ĞŞ¸ÄÔÂ±¨
+	// ä¿®æ”¹æœˆæŠ¥
 	public String editMouth() throws IOException {
 		ProItemDto dto = Serialization.toObject(dataJson, ProItemDto.class);
 		String stateJson = this.proMgtServiceContract.editProItem(dto);
@@ -143,7 +143,7 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// »ñÈ¡¹«¸æÁĞ±í
+	// è·å–å…¬å‘Šåˆ—è¡¨
 	public String getAnnouncement() throws IOException {
 		String infos = this.proMgtServiceContract.getAnnounce(UUID
 				.fromString(proId));
@@ -151,7 +151,7 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// ĞÂÔö¹«¹²
+	// æ–°å¢å…¬å…±
 	public String addAnnouncement() throws ParseException, IOException {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = dateFormat.parse(this.date);
@@ -168,7 +168,7 @@ public class PmProgress extends BaseAction {
 		return null;
 	}
 
-	// ĞŞ¸Ä¹«¸æ
+	// ä¿®æ”¹å…¬å‘Š
 	public String editAnnouncement() throws ParseException, IOException {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = dateFormat.parse(this.date);
@@ -210,9 +210,9 @@ public class PmProgress extends BaseAction {
 		IExcelOutput excelOutput = null;
 		try {
 			excelOutput = ExcelFactory.getExcelOutput();
-			excelOutput.setColVal(0, 0, "³¤É³ÏØ??Äê?ÔÂÊ¡¡¢ÊĞÖØµã¹¤³ÌÏîÄ¿²ğÇ¨²¹³¥½ø¶ÈÇé¿öÍ³¼Æ±í", 0, 33);
-			excelOutput.setColVal(1, 0, "Ìî±¨Ê±¼ä£º", 0, 23);
-			excelOutput.setColVal(1, 24, "µ¥Î»£ºÄ¶¡¢¶°¡¢Æ½·½Ã×¡¢ÈË¡¢ÍòÔª", 0, 8);
+			excelOutput.setColVal(0, 0, "é•¿æ²™å¿??å¹´?æœˆçœã€å¸‚é‡ç‚¹å·¥ç¨‹é¡¹ç›®æ‹†è¿è¡¥å¿è¿›åº¦æƒ…å†µç»Ÿè®¡è¡¨", 0, 33);
+			excelOutput.setColVal(1, 0, "å¡«æŠ¥æ—¶é—´ï¼š", 0, 23);
+			excelOutput.setColVal(1, 24, "å•ä½ï¼šäº©ã€æ ‹ã€å¹³æ–¹ç±³ã€äººã€ä¸‡å…ƒ", 0, 8);
 			excelOutput.writeDatas(colDatas);
 			excelOutput.writeDatas(ProImportAndExportDto.class, dtos,
 					colAttrVals, proTemplateRowIndex);

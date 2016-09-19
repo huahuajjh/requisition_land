@@ -14,7 +14,7 @@ import com.tq.requisition.presentation.dto.sysMgt.OrgDto;
 import com.tq.requisition.presentation.serviceContract.sysManagement.IOrgMgtService;
 
 /**
- * 组织管理业务
+ * 缁勭粐绠＄悊涓氬姟
  * @author jjh+bless
  * @time 2015-12-23 16:22
  */
@@ -45,7 +45,7 @@ public class OrgMgtServiceImpl extends BaseApplication implements IOrgMgtService
 	@Override
 	public String getOrgListJson() {
 		context().beginTransaction();
-		String json = toJson("获取组织列表成功", getOrgList(), Formater.OperationResult.SUCCESS);
+		String json = toJson("鑾峰彇缁勭粐鍒楄〃鎴愬姛", getOrgList(), Formater.OperationResult.SUCCESS);
 		context().commit();
 		return json;
 	}
@@ -56,9 +56,9 @@ public class OrgMgtServiceImpl extends BaseApplication implements IOrgMgtService
 			context().beginTransaction();
 			Organization o = orgRepository.createOrg(OrgMapper.toModel(org));
 			context().commit();
-			return toJson("新增单位信息成功", OrgMapper.toDto(o), Formater.OperationResult.SUCCESS);
+			return toJson("鏂板鍗曚綅淇℃伅鎴愬姛", OrgMapper.toDto(o), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("新增单位信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鏂板鍗曚綅淇℃伅澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -68,9 +68,9 @@ public class OrgMgtServiceImpl extends BaseApplication implements IOrgMgtService
 			context().beginTransaction();
 			orgRepository.editOrg(OrgMapper.toModel(org));
 			context().commit();
-			return toJson("修改单位信息成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("淇敼鍗曚綅淇℃伅鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("编辑单位信息失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("缂栬緫鍗曚綅淇℃伅澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -80,9 +80,9 @@ public class OrgMgtServiceImpl extends BaseApplication implements IOrgMgtService
 			context().beginTransaction();
 			orgRemoveDomainService.removeOrgById(orgId);
 			context().commit();
-			return toJson("删除组织成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鍒犻櫎缁勭粐鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("删除组织失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鍒犻櫎缁勭粐澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 

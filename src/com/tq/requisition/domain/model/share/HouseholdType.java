@@ -1,10 +1,10 @@
 package com.tq.requisition.domain.model.share;
 
 public enum HouseholdType {
-	/**Å©Òµ»§¿Ú*/
-	FARMER(0,"Å©Òµ»§¿Ú"),
-	/**¾ÓÃñ»§¿Ú*/
-	CITY(1,"¾ÓÃñ»§¿Ú");
+	/**å†œä¸šæˆ·å£*/
+	FARMER(0,"å†œä¸šæˆ·å£"),
+	/**å±…æ°‘æˆ·å£*/
+	CITY(1,"å±…æ°‘æˆ·å£");
 	
 	/*private fields*/
 	private String strV;
@@ -22,7 +22,7 @@ public enum HouseholdType {
 	}
 	
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾Ù
+	 * é€šè¿‡intå€¼è·å–æšä¸¾
 	 * @param v
 	 * @return
 	 */
@@ -33,12 +33,12 @@ public enum HouseholdType {
 		case 1:
 			return HouseholdType.CITY;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨,×îĞ¡ÖµÎª0£¬×î´óÖµÎª1");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š,æœ€å°å€¼ä¸º0ï¼Œæœ€å¤§å€¼ä¸º1");
 		}
 	}
 	
 	/**
-	 * »ñÈ¡Ã¶¾ÙÖµµÃString
+	 * è·å–æšä¸¾å€¼å¾—String
 	 * @return
 	 */
 	public String toStr() {

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.projectManagement;
+ï»¿package com.tq.requisition.presentation.actions.projectManagement;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,7 +34,7 @@ import com.tq.requisition.presentation.serviceContract.share.IShareTypeServiceCo
 @SuppressWarnings("serial")
 public class UploadRemoveInfo extends BaseAction {
 	
-	/**µØÖ·²Ù×÷¶ÔÏó*/
+	/**åœ°å€æ“ä½œå¯¹è±¡*/
 	private IAddressServiceContract addressServiceContract;
 	private IFamilyMgtServiceContract familyMgtServiceContract;
 	private IShareTypeServiceContract shareTypeServiceContract;
@@ -87,7 +87,7 @@ public class UploadRemoveInfo extends BaseAction {
 			family.setCreateUid(userId().toString());
 			stateJson = this.familyMgtServiceContract.addFamily(family);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR,"Êı¾İ¸ñÊ½²»ÕıÈ·");
+			stateJson = toForMaterJson(OperationResult.ERROR,"æ•°æ®æ ¼å¼ä¸æ­£ç¡®");
 		}
 		response().getWriter().write(stateJson);
 		return null;
@@ -120,7 +120,7 @@ public class UploadRemoveInfo extends BaseAction {
 					}
 				}
 				if(errors.size() > 0){
-					 String str = toForMaterJson(OperationResult.ERROR, "ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+					 String str = toForMaterJson(OperationResult.ERROR, "ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 					 response().getWriter().write(str);
 					 return null;
 				 } else {
@@ -128,17 +128,17 @@ public class UploadRemoveInfo extends BaseAction {
 					 if(dtos.size() > 0){
 						 stateJsonString = this.familyMgtServiceContract.importFml(dtos.get(0));
 					 } else {
-						 stateJsonString = toForMaterJson(OperationResult.FAIL, "ÎÄ¼şÖĞÃ»ÓĞÊı¾İ");
+						 stateJsonString = toForMaterJson(OperationResult.FAIL, "æ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®");
 					 }
 					 response().getWriter().write(stateJsonString);
 				 }
 			} catch (InstantiationException | NoSuchMethodException
 					| ConvertErrorException e) {
-				String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÁĞ±í´íÎó");
+				String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelåˆ—è¡¨é”™è¯¯");
 				 response().getWriter().write(str);
 			}
 		} catch (IOException e) {
-			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 			 response().getWriter().write(str);
 		} finally{
 			file.delete();

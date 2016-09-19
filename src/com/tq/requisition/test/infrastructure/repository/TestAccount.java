@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+﻿package com.tq.requisition.test.infrastructure.repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -55,7 +55,7 @@ public class TestAccount {
 	@Test
 	public void accountRepositoryUpdate() {
 		Account account = repository.getByKey(Account.class, UUID.fromString("e78d5d99-e5da-4edf-8ce8-c991c1891662"));
-		account.setName("ϰ��ƽ");
+		account.setName("习近平");
 		repository.update(account);
 		repository.context().commit();
 	}	

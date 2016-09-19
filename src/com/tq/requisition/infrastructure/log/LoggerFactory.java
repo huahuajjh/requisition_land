@@ -2,7 +2,7 @@ package com.tq.requisition.infrastructure.log;
 
 /**
  * @description
- * 		log4j工厂，此类不能被继承
+ * 		log4j宸ュ巶锛屾绫讳笉鑳借缁ф壙
  * @author jjh
  * @time 2015-12-14 16:41
  */
@@ -18,9 +18,9 @@ public final class LoggerFactory {
 	
 	/**
 	 * @description
-	 * 		获取Logger对象
+	 * 		鑾峰彇Logger瀵硅薄
 	 * @return
-	 * 		Logger对象
+	 * 		Logger瀵硅薄
 	 */
 	public final static ILog logger() {
 		return logger;

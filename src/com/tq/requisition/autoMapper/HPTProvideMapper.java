@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTProviderInfo;
 import com.tq.requisition.presentation.dto.hpt.HPTRecevieInfoDto;
 
 /**
- * ¹º·¿È¯·¢·ÅdtoÓ³Éä
+ * è´­æˆ¿åˆ¸å‘æ”¾dtoæ˜ å°„
  * @author jjh
  * @time 2015-01-02 21:53
  *

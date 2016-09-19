@@ -33,7 +33,7 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.proMgt.IProMgtServiceContract;
 
 /**
- * ÏîÄ¿¹ÜÀíÆõÔ¼½Ó¿ÚÊµÏÖÀà£¬¸ÃÀà²Ù×÷ÏîÄ¿µÄcurd£¬ÒÔ¼°ÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+ * é¡¹ç›®ç®¡ç†å¥‘çº¦æ¥å£å®ç°ç±»ï¼Œè¯¥ç±»æ“ä½œé¡¹ç›®çš„curdï¼Œä»¥åŠé¡¹ç›®æœˆåº¦ä¿¡æ¯
  * @author jjh
  * @time 2015-12-27 17:42
  */
@@ -55,9 +55,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			projectRepository.addPro(pro);
 			context().commit();
-			return toJson("ĞÂÔöí—Ä¿³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢é …ç›®æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (DomainException e) {
-			return toJson("ĞÂÔöí—Ä¿Ê§”¡-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢é …ç›®å¤±æ•—-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -77,9 +77,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			List<Announcement> list = projectRepository.getAnnouncementsByProId(proId);
 			List<AnnouncementDto> dtos = AnnouncementMapper.toDtoList(list);
-			return toJson("³É¹¦", dtos, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", dtos, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -87,9 +87,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 	public String getProListFuzzy(ProQueryModel query, PageModel page) {
 		try {
 			PageFormater pageFormater = projectRepository.getProjectsByFuzzy(query, page);
-			return toJson("³É¹¦", pageFormater, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", pageFormater, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 		}
@@ -107,9 +107,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 			pro.toProTypeStr();
 			projectRepository.update(pro);
 			context().commit();
-			return toJson("ĞŞ¸ÄÏîÄ¿ĞÅÏ¢³É¹¦", pro, Formater.OperationResult.SUCCESS);
+			return toJson("ä¿®æ”¹é¡¹ç›®ä¿¡æ¯æˆåŠŸ", pro, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ĞŞ¸ÄÏîÄ¿ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ä¿®æ”¹é¡¹ç›®ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -118,17 +118,17 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 
 	@Override
 	public String deletePro(UUID proId) {
-		throw new NotImplementedException("Î´ÊµÏÖµÄ·½·¨");
+		throw new NotImplementedException("æœªå®ç°çš„æ–¹æ³•");
 	}
 
 	@Override
 	public String getProNameListFuzzy(String fuzzyName) {
-		/*²Ö´¢ÖĞ¿ªÆôÁËÊÂÎñ*/
+		/*ä»“å‚¨ä¸­å¼€å¯äº†äº‹åŠ¡*/
 		try {
 			List<ProNameDto> names = projectRepository.getProNameByFuzzy(fuzzyName);
-			return toJson("³É¹¦", names, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", names, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»ñÈ¡ÏîÄ¿ÃûÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("è·å–é¡¹ç›®åå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -138,9 +138,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			Project pro = projectRepository.addProItem(ProItemMapper.toModel(dto), proId);
 			context().commit();
-			return toJson("ĞÂÔöí—Ä¿ÔÂ¶ÈĞÅÏ¢³É¹¦", pro, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢é …ç›®æœˆåº¦ä¿¡æ¯æˆåŠŸ", pro, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ĞÂÔöí—Ä¿ÔÂ¶ÈĞÅÏ¢Ê§”¡-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢é …ç›®æœˆåº¦ä¿¡æ¯å¤±æ•—-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -152,9 +152,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			List<ProjectItem> items = projectRepository.getProjectItemsByProId(proId);
 			List<ProItemDto> dtos = ProItemMapper.toDtoList(items);
-			return toJson("³É¹¦", dtos, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", dtos, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("«@È¡ÔÂ¶ÈĞÅÏ¢Ê§”¡-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç²å–æœˆåº¦ä¿¡æ¯å¤±æ•—-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -164,9 +164,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 			context().beginTransaction();
 			Project pro = projectRepository.addAnnouncement(AnnouncementMapper.toModel(dto));
 			context().commit();
-			return toJson("ĞÂÔö¹«¸æ³É¹¦", pro, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢å…¬å‘ŠæˆåŠŸ", pro, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ĞÂÔö¹«¸æÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢å…¬å‘Šå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		
 	}
@@ -174,9 +174,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 	@Override
 	public String getProById(UUID id) {
 		try {
-			return toJson("³É¹¦", getById4Entity(id), Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", getById4Entity(id), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("»ñÈ¡ÏîÄ¿ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("è·å–é¡¹ç›®ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -193,7 +193,7 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 	@Override
 	public String addByFile(List<ProImportAndExportDto> list) {
 		if(null == list){
-			return toJson("ÏîÄ¿±¨±í×ª»»Òì³£-Î´»ñÈ¡µ½ÏîÄ¿ĞÅÏ¢", null, Formater.OperationResult.FAIL);
+			return toJson("é¡¹ç›®æŠ¥è¡¨è½¬æ¢å¼‚å¸¸-æœªè·å–åˆ°é¡¹ç›®ä¿¡æ¯", null, Formater.OperationResult.FAIL);
 		}
 		List<Project> pros = new ArrayList<>();
 		for (ProImportAndExportDto proImportAndExportDto : list) {
@@ -204,10 +204,10 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 		try {
 			projectRepository.addProByFile(pros);
 			context().commit();
-			return toJson("ÏîÄ¿±¨±íÉÏ´«³É¹¦", list, Formater.OperationResult.SUCCESS);
+			return toJson("é¡¹ç›®æŠ¥è¡¨ä¸Šä¼ æˆåŠŸ", list, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("ÏîÄ¿±¨±í×ª»»Òì³£-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("é¡¹ç›®æŠ¥è¡¨è½¬æ¢å¼‚å¸¸-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -235,9 +235,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 			an.setId(dto.getId());
 			projectRepository.editAnnouncement(an);
 			context().commit();
-			return toJson("±à¼­¹«¸æ³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘å…¬å‘ŠæˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("±à¼­¹«¸æÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘å…¬å‘Šå¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().rollback();
@@ -252,9 +252,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 			item.setId(dto.getId());
 			projectRepository.editProItem(item);
 			context().commit();
-			return toJson("±à¼­ÔÂ¶ÈĞÅÏ¢³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æœˆåº¦ä¿¡æ¯æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("±à¼­ÔÂ¶ÈĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘æœˆåº¦ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().rollback();
@@ -264,7 +264,7 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 	@Override
 	public String getPro4Print(String uuids) {
 		List<Project> list = projectRepository.getProjects4Print(uuids);
-		return toJson("»ñÈ¡´òÓ¡ĞÅÏ¢³É¹¦", list, Formater.OperationResult.SUCCESS);
+		return toJson("è·å–æ‰“å°ä¿¡æ¯æˆåŠŸ", list, Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
@@ -276,9 +276,9 @@ public class ProMgtServiceIContractmpl extends BaseApplication implements IProMg
 			pro.setOtherMoneyUnit(otherMoneyUnit);
 			projectRepository.update(pro);
 			context().commit();
-			return toJson("Â¼ÈëÏîÄ¿³ö×Êµ¥Î»ĞÅÏ¢³É¹¦", pro, Formater.OperationResult.SUCCESS);
+			return toJson("å½•å…¥é¡¹ç›®å‡ºèµ„å•ä½ä¿¡æ¯æˆåŠŸ", pro, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Â¼ÈëÏîÄ¿³ö×Êµ¥Î»ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å½•å…¥é¡¹ç›®å‡ºèµ„å•ä½ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

@@ -1,9 +1,9 @@
-package com.tq.requisition.presentation.dto.sysMgt;
+ï»¿package com.tq.requisition.presentation.dto.sysMgt;
 
 import java.util.UUID;
 
 /**
- * ×ÊÔ´DTO
+ * èµ„æºDTO
  * 
  * @author Bless
  * @time 2015-12-24 15:36
@@ -21,7 +21,7 @@ public class ResDto {
 	private String path;
 	
 	/**
-	 * »ñÈ¡×ÊÔ´×æÏÈ½ÚµãĞòÁĞ
+	 * è·å–èµ„æºç¥–å…ˆèŠ‚ç‚¹åºåˆ—
 	 * @return
 	 */
 	public String getPath() {
@@ -29,7 +29,7 @@ public class ResDto {
 	}
 	
 	/**
-	 * ÉèÖÃ×ÊÔ´×æÏÈ½ÚµãĞòÁĞ
+	 * è®¾ç½®èµ„æºç¥–å…ˆèŠ‚ç‚¹åºåˆ—
 	 * @return
 	 */
 
@@ -38,171 +38,171 @@ public class ResDto {
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´ÀàĞÍ
+	 * è·å–èµ„æºç±»å‹
 	 * 
-	 * @return ×ÊÔ´ÀàĞÍ
+	 * @return èµ„æºç±»å‹
 	 */
 	public Integer getType() {
 		return type;
 	}
 
 	/**
-	 * ÉèÖÃ×ÊÔ´ÀàĞÍ
+	 * è®¾ç½®èµ„æºç±»å‹
 	 * 
 	 * @param type
-	 *            ×ÊÔ´ÀàĞÍ
+	 *            èµ„æºç±»å‹
 	 */
 	public void setType(Integer type) {
 		this.type = type;
 	}
 
 	/**
-	 * »ñÈ¡²ã¼¶
+	 * è·å–å±‚çº§
 	 * 
-	 * @return ²ã¼¶
+	 * @return å±‚çº§
 	 */
 	public int getHierarchy() {
 		return hierarchy;
 	}
 
 	/**
-	 * ÉèÖÃ²ã¼¶
+	 * è®¾ç½®å±‚çº§
 	 * 
 	 * @param hierarchy
-	 *            ²ã¼¶
+	 *            å±‚çº§
 	 */
 	public void setHierarchy(int hierarchy) {
 		this.hierarchy = hierarchy;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´±êÊ¶
+	 * è·å–èµ„æºæ ‡è¯†
 	 * 
-	 * @return ×ÊÔ´±êÊ¶
+	 * @return èµ„æºæ ‡è¯†
 	 */
 	public UUID getId() {
 		return id;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´±êÊ¶
+	 * å†™å…¥èµ„æºæ ‡è¯†
 	 * 
 	 * @param id
-	 *            ×ÊÔ´±êÊ¶
+	 *            èµ„æºæ ‡è¯†
 	 */
 	public void setId(UUID id) {
 		this.id = id;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´Ãû³Æ
+	 * è·å–èµ„æºåç§°
 	 * 
-	 * @return ×ÊÔ´Ãû³Æ
+	 * @return èµ„æºåç§°
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´Ãû³Æ
+	 * å†™å…¥èµ„æºåç§°
 	 * 
 	 * @param name
-	 *            ×ÊÔ´Ãû³Æ
+	 *            èµ„æºåç§°
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´Á´½Ó
+	 * è·å–èµ„æºé“¾æ¥
 	 * 
-	 * @return ×ÊÔ´Á´½Ó
+	 * @return èµ„æºé“¾æ¥
 	 */
 	public String getLink() {
 		return link;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´Á´½Ó
+	 * å†™å…¥èµ„æºé“¾æ¥
 	 * 
 	 * @param link
-	 *            ×ÊÔ´Á´½Ó
+	 *            èµ„æºé“¾æ¥
 	 */
 	public void setLink(String link) {
 		this.link = link;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´¸¸±êÊ¶
+	 * è·å–èµ„æºçˆ¶æ ‡è¯†
 	 * 
-	 * @return ×ÊÔ´¸¸±êÊ¶
+	 * @return èµ„æºçˆ¶æ ‡è¯†
 	 */
 	public UUID getpId() {
 		return pId;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´¸¸±êÊ¶
+	 * å†™å…¥èµ„æºçˆ¶æ ‡è¯†
 	 * 
 	 * @param pId
-	 *            ×ÊÔ´¸¸±êÊ¶
+	 *            èµ„æºçˆ¶æ ‡è¯†
 	 */
 	public void setpId(UUID pId) {
 		this.pId = pId;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´Html±êÊ¶
+	 * è·å–èµ„æºHtmlæ ‡è¯†
 	 * 
-	 * @return ×ÊÔ´Html±êÊ¶
+	 * @return èµ„æºHtmlæ ‡è¯†
 	 */
 	public String getHtmlId() {
 		return htmlId;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´Html±êÊ¶
+	 * å†™å…¥èµ„æºHtmlæ ‡è¯†
 	 * 
 	 * @param htmlId
-	 *            ×ÊÔ´Html±êÊ¶
+	 *            èµ„æºHtmlæ ‡è¯†
 	 */
 	public void setHtmlId(String htmlId) {
 		this.htmlId = htmlId;
 	}
 
 	/**
-	 * »ñÈ¡Html×ÊÔ´
+	 * è·å–Htmlèµ„æº
 	 * 
-	 * @return Html×ÊÔ´
+	 * @return Htmlèµ„æº
 	 */
 	public String getHtml() {
 		return html;
 	}
 
 	/**
-	 * Ğ´ÈëHtml×ÊÔ´
+	 * å†™å…¥Htmlèµ„æº
 	 * 
 	 * @param html
-	 *            Html×ÊÔ´
+	 *            Htmlèµ„æº
 	 */
 	public void setHtml(String html) {
 		this.html = html;
 	}
 
 	/**
-	 * »ñÈ¡×ÊÔ´ÅÅĞò
+	 * è·å–èµ„æºæ’åº
 	 * 
-	 * @return ×ÊÔ´ÅÅĞò
+	 * @return èµ„æºæ’åº
 	 */
 	public Integer getOrder() {
 		return order;
 	}
 
 	/**
-	 * Ğ´Èë×ÊÔ´ÅÅĞò
+	 * å†™å…¥èµ„æºæ’åº
 	 * 
 	 * @param order
-	 *            ×ÊÔ´ÅÅĞò
+	 *            èµ„æºæ’åº
 	 */
 	public void setOrder(Integer order) {
 		this.order = order;

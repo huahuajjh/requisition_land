@@ -7,8 +7,8 @@ import org.springframework.beans.BeanUtils;
 
 
 /**
- * hql��ԃ�Y���cpojo��ӳ�䣬��Щ��ԃ����Ҫ����ȫ���ֶΣ���Щ��ԃ��Ҫ�ϲ�ԃ
- * 	�˕r��ԃ�Y���������خ���ӳ��õČ��w��Ոʹ�ô��ӳ����Ҫ��pojo�
+ * hql查詢結果與pojo的映射，有些查詢不需要返回全部字段，有些查詢需要聯合查詢
+ * 	此時查詢結果不會返回當初映射好的實體，請使用此類來映射需要的pojo類
  * 
  * @author jjh
  * @time 2015-12-25 0:35
@@ -19,7 +19,7 @@ public final class Hql2Pojo {
 		{
 			return null;
 		}
-		//���������Ŀ��pojo��Class��������
+		//根據傳入的目標pojo的Class對象實例化
 		Object _target = target.newInstance();
 		if(_target != null)
 		{

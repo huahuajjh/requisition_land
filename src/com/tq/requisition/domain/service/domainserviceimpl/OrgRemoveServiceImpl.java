@@ -14,16 +14,16 @@ import com.tq.requisition.domain.service.idomainservice.IOrgRemoveService;
 import com.tq.requisition.infrastructure.Specifications.deptMgt.DeptRemoveByOrgIdSpecification;
 
 /**
- * É¾³ı×éÖ¯·şÎñÊµÏÖÀà
+ * åˆ é™¤ç»„ç»‡æœåŠ¡å®ç°ç±»
  * @author jjh
  * @time 2015-12-26 14:51
  */
 public class OrgRemoveServiceImpl extends BaseDomainService implements IOrgRemoveService{
-	/**×éÖ¯²Ö´¢*/
+	/**ç»„ç»‡ä»“å‚¨*/
 	private IOrganizationRepository orgRepository;
-	/**²¿ÃÅ²Ö´¢*/
+	/**éƒ¨é—¨ä»“å‚¨*/
 	private IDepartmentRepository deptRepository;
-	/**ÕË»§²Ö´¢*/
+	/**è´¦æˆ·ä»“å‚¨*/
 	private IAccountRepository accountRepository;
 	
 	public OrgRemoveServiceImpl(//
@@ -44,16 +44,16 @@ public class OrgRemoveServiceImpl extends BaseDomainService implements IOrgRemov
 
 	@Override
 	public void removeOrgById(UUID Id) {
-		//½«´ıÉ¾³ıµÄ×éÖ¯±ê¼ÇÎªÉ¾³ı×´Ì¬
+		//å°†å¾…åˆ é™¤çš„ç»„ç»‡æ ‡è®°ä¸ºåˆ é™¤çŠ¶æ€
 		orgRepository.removeByKey(Organization.class, Id);
 		System.out.println("--------------------------org delete--------------------------");
-		//¸ù¾İ×éÖ¯idÈ¥²¿ÃÅ²Ö´¢ÖĞ±ê¼Ç²¿ÃÅÎªÉ¾³ı×´Ì¬
+		//æ ¹æ®ç»„ç»‡idå»éƒ¨é—¨ä»“å‚¨ä¸­æ ‡è®°éƒ¨é—¨ä¸ºåˆ é™¤çŠ¶æ€
 		deptRepository.executeUpdate(new DeptRemoveByOrgIdSpecification(Department.class, Id));
 		System.out.println("--------------------------dept delete--------------------------");
-		//½«ÕË»§²Ö´¢ÖĞ¹ØÓÚ¸Ã²¿ÃÅµÄid¼ÇÂ¼±ê¼ÇÎªnull×´Ì¬
+		//å°†è´¦æˆ·ä»“å‚¨ä¸­å…³äºè¯¥éƒ¨é—¨çš„idè®°å½•æ ‡è®°ä¸ºnullçŠ¶æ€
 		accountRepository.updateOrg(Id);
 		System.out.println("--------------------------acc update--------------------------");
-		//Ìá½»ÊÂÎñ
+		//æäº¤äº‹åŠ¡
 		context().commit();
 	}
 

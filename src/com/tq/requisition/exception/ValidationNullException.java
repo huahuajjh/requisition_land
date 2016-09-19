@@ -1,7 +1,7 @@
 package com.tq.requisition.exception;
 
 /**
- * ��֤����ʱ�쳣�����಻�ܱ��̳�
+ * 验证运行时异常，该类不能被继承
  * @author jjh
  * @time 2015-12-17 01:20
  */

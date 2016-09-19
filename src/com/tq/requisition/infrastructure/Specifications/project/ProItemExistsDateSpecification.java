@@ -10,7 +10,7 @@ import com.tq.requisition.domain.model.project.Project;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * ¼ì²âÏîÄ¿ÔÂ¶ÈÊ±¼äÊÇ·ñÎ¨Ò»£¬¹æÔ¼
+ * æ£€æµ‹é¡¹ç›®æœˆåº¦æ—¶é—´æ˜¯å¦å”¯ä¸€ï¼Œè§„çº¦
  * @author jjh
  * @time 2016-01-17 1:58
  *

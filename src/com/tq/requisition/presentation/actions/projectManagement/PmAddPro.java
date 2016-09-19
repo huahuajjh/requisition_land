@@ -28,11 +28,11 @@ import com.tq.requisition.presentation.serviceContract.share.IAddressServiceCont
 
 @SuppressWarnings("serial")
 public class PmAddPro extends BaseAction{
-	/**µØÖ·²Ù×÷¶ÔÏó*/
+	/**åœ°å€æ“ä½œå¯¹è±¡*/
 	private IAddressServiceContract addressServiceContract;
 	private IProMgtServiceContract proMgtServiceContract;
 	
-	/**Ò³Ãæ¶ÔÏó*/
+	/**é¡µé¢å¯¹è±¡*/
 	private List<AddressDto> addressDtos;
 	private List<ProTypeDto> proTypeDtos;
 	
@@ -103,7 +103,7 @@ public class PmAddPro extends BaseAction{
 				 int proTemplateRowIndex = Integer.parseInt(ConfigFileUtil.readByKey("proTemplateRowIndex"));
 				 List<ProImportAndExportDto> dtos =  excelInput.getDatas(ProImportAndExportDto.class, proTemplateRowIndex);
 				 if(errors.size() > 0){
-					 String str = toForMaterJson(OperationResult.ERROR, "ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+					 String str = toForMaterJson(OperationResult.ERROR, "ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 					 response().getWriter().write(str);
 					 return null;
 				 } else if(dtos.size() > 0){
@@ -117,15 +117,15 @@ public class PmAddPro extends BaseAction{
 					 String str = proMgtServiceContract.addByFile(dtos);
 					 response().getWriter().write(str);
 				 } else {
-					 String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÀïÃæÃ»ÓĞÊı¾İ");
+					 String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelé‡Œé¢æ²¡æœ‰æ•°æ®");
 					 response().getWriter().write(str);
 				 }
 			} catch (InstantiationException | NoSuchMethodException | ParseException e) {
-				String str = toForMaterJson(OperationResult.ERROR, "»ñÈ¡ExcelÁĞ±í´íÎó");
+				String str = toForMaterJson(OperationResult.ERROR, "è·å–Excelåˆ—è¡¨é”™è¯¯");
 				 response().getWriter().write(str);
 			}
 		} catch (IOException e) {
-			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 			 response().getWriter().write(str);
 		} finally{
 			file.delete();

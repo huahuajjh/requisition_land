@@ -5,12 +5,12 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * 与户主关系聚合根
+ * 涓庢埛涓诲叧绯昏仛鍚堟牴
  * @author jjh
  * @time 2015-12-18 16:38
  */
 public class RelationshipType extends AggregateRoot{
-	/**关系名称*/
+	/**鍏崇郴鍚嶇О*/
 	private String name;
 	
 	/*constructors*/

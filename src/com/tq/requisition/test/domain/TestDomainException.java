@@ -1,4 +1,4 @@
-package com.tq.requisition.test.domain;
+锘縫ackage com.tq.requisition.test.domain;
 
 import org.junit.Test;
 
@@ -8,6 +8,6 @@ import com.tq.requisition.exception.DomainException;
 public class TestDomainException {
 	@Test
 	public void ctorTest() throws DomainException {
-		throw new DomainException("领域业务异常");
+		throw new DomainException("棰嗗煙涓氬姟寮傚父");
 	}
 }

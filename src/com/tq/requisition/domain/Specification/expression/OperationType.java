@@ -2,7 +2,7 @@ package com.tq.requisition.domain.Specification.expression;
 
 
 /**
- * 表明当前的操作表达式类型
+ * 琛ㄦ槑褰撳墠鐨勬搷浣滆〃杈惧紡绫诲瀷
  * @author jjh
  * @time 2015-12-21 1:09
  */

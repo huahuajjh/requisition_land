@@ -11,15 +11,15 @@ import com.tq.requisition.domain.service.BaseDomainService;
 import com.tq.requisition.domain.service.idomainservice.IDeptRemoveService;
 
 /**
- * É¾³ı²¿ÃÅÊµÏÖÀà
+ * åˆ é™¤éƒ¨é—¨å®ç°ç±»
  * 
  * @author jjh
  * @time 2015-12-26 16:01
  */
 public class DeptRemoveServiceImpl extends BaseDomainService implements IDeptRemoveService{
-	//ÕË»§²Ö´¢
+	//è´¦æˆ·ä»“å‚¨
 	private IAccountRepository accountRepository;
-	//²¿ÃÅ²Ö´¢
+	//éƒ¨é—¨ä»“å‚¨
 	private IDepartmentRepository deptRepository;	
 
 	public DeptRemoveServiceImpl(
@@ -37,9 +37,9 @@ public class DeptRemoveServiceImpl extends BaseDomainService implements IDeptRem
 
 	@Override
 	public void removeDept(UUID deptId) {
-		//½«±»É¾³ıµÄ²¿ÃÅ±ê¼ÇÎªÉ¾³ı×´Ì¬
+		//å°†è¢«åˆ é™¤çš„éƒ¨é—¨æ ‡è®°ä¸ºåˆ é™¤çŠ¶æ€
 		deptRepository.removeDept(deptId);
-		//¸üĞÂËùÓĞµÄ¹ØÓÚ±»É¾³ı²¿ÃÅµÄÕË»§µÄ²¿ÃÅĞÅÏ¢±ê×¢Îªnull
+		//æ›´æ–°æ‰€æœ‰çš„å…³äºè¢«åˆ é™¤éƒ¨é—¨çš„è´¦æˆ·çš„éƒ¨é—¨ä¿¡æ¯æ ‡æ³¨ä¸ºnull
 		accountRepository.updateDept(deptId);
 	}
 

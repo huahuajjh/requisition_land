@@ -1,15 +1,15 @@
-package com.tq.requisition.presentation.dto.project;
+锘縫ackage com.tq.requisition.presentation.dto.project;
 
 /**
- * 項目類型dto
+ * 椤圭洰绫诲瀷dto
  * @author jjh
  *
  */
 public class ProTypeDto {
 	/*private fields*/
-	/**類型代码*/
+	/**绫诲瀷浠ｇ爜*/
 	private int code;
-	/**類型name*/
+	/**绫诲瀷name*/
 	private String name;
 	
 	/*override*/

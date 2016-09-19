@@ -1,10 +1,10 @@
 package com.tq.requisition.domain.Specification;
 
 /**
- * ×éºÏ¹æÔ¼½Ó¿ÚÊµÏÖµÄ³éÏó¹æÔ¼Àà
+ * ç»„åˆè§„çº¦æ¥å£å®ç°çš„æŠ½è±¡è§„çº¦ç±»
  * @author jjh
  * @param <T>
- * 		Âú×ã¹æÔ¼µÄ¶ÔÏó
+ * 		æ»¡è¶³è§„çº¦çš„å¯¹è±¡
  * @date 2015-12-16 16:58
  *
  */
@@ -19,18 +19,18 @@ public abstract class CompositeSpecification<T> extends Specification<T> impleme
 	}
 	
 	/**
-	 * »ñÈ¡×éºÏ¹æÔ¼¶ÔÏóÉèÖÃ×ó½Úµã
+	 * è·å–ç»„åˆè§„çº¦å¯¹è±¡è®¾ç½®å·¦èŠ‚ç‚¹
 	 * @return ISpecification<T>
-	 * 		¹æÔ¼¶ÔÏó
+	 * 		è§„çº¦å¯¹è±¡
 	 */
 	public ISpecification<T> left() {
 		return this.left;
 	}
 	
 	/**
-	 * »ñÈ¡×éºÏ¹æÔ¼¶ÔÏóÉèÖÃÓÒ½Úµã
+	 * è·å–ç»„åˆè§„çº¦å¯¹è±¡è®¾ç½®å³èŠ‚ç‚¹
 	 * @return ISpecification<T>
-	 * 		¹æÔ¼¶ÔÏó
+	 * 		è§„çº¦å¯¹è±¡
 	 */
 	public ISpecification<T> right() {
 		return this.right;

@@ -15,7 +15,7 @@ import com.tq.requisition.presentation.dto.visits.VisitsQueryModel;
 import com.tq.requisition.presentation.serviceContract.visits.IVisitsServiceContract;
 
 /**
- * ÉÏ·Ã¹ÜÀí·şÎñÊµÏÖ
+ * ä¸Šè®¿ç®¡ç†æœåŠ¡å®ç°
  * @author jjh
  * @time 2016-01-13 16:17/
  *
@@ -35,9 +35,9 @@ public class VisitsServiceImpl extends BaseApplication implements IVisitsService
 			context().beginTransaction();
 			visitsRepository.add(VisitsMapper.toModel(dto));
 			context().commit();
-			return toJson("ĞÂÔöÉÏ·ÃĞÅÏ¢³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢ä¸Šè®¿ä¿¡æ¯æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ĞÂÔöÉÏ·ÃĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢ä¸Šè®¿ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}		
 	}
 
@@ -45,21 +45,21 @@ public class VisitsServiceImpl extends BaseApplication implements IVisitsService
 	public String editInfo(VisitsDto dto) {
 		context().beginTransaction();
 		Visits model = visitsRepository.getByKey(Visits.class, dto.getId());
-		if(null==model){return toJson("Î´²éÑ¯µ½Ö¸¶¨µÄÉÏ·ÃĞÅÏ¢", null, Formater.OperationResult.FAIL);}
+		if(null==model){return toJson("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„ä¸Šè®¿ä¿¡æ¯", null, Formater.OperationResult.FAIL);}
 		model.modify(VisitsMapper.toModel(dto));
 		try {
 			visitsRepository.update(model);
 			context().commit();
-			return toJson("ĞŞ¸ÄÉÏ·ÃĞÅÏ¢³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("ä¿®æ”¹ä¸Šè®¿ä¿¡æ¯æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ĞŞ¸ÄÉÏ·ÃĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ä¿®æ”¹ä¸Šè®¿ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
 	@Override
 	public String queryByPage4Json(VisitsQueryModel queryModel,
 			PageModel pageModel){
-		return toJsonByPage(queryByPage4List(queryModel, pageModel), "»ñÈ¡Êı¾İ³É¹¦", Formater.OperationResult.SUCCESS);
+		return toJsonByPage(queryByPage4List(queryModel, pageModel), "è·å–æ•°æ®æˆåŠŸ", Formater.OperationResult.SUCCESS);
 	}
 
 	@Override
@@ -74,9 +74,9 @@ public class VisitsServiceImpl extends BaseApplication implements IVisitsService
 			context().beginTransaction();
 			visitsRepository.delById(id);
 			context().commit();
-			return toJson("É¾³ıÉÏ·ÃĞÅÏ¢³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("åˆ é™¤ä¸Šè®¿ä¿¡æ¯æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("É¾³ıÉÏ·ÃĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤ä¸Šè®¿ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 

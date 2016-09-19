@@ -10,46 +10,46 @@ import com.tq.requisition.presentation.dto.registedAgr.RegistedAgricQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢²Ö´¢½Ó¿Ú
+ * åœ¨ç±å†œä¸šäººå£ä¿¡æ¯ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-01-05 18:50
  *
  */
 public interface IRegistedAgricultureInfoRepository extends IRepository<RegistedAgricultureInfo>{
 	/**
-	 * ¸ù¾İ·ÖÒ³Óë²éÑ¯model²éÑ¯
+	 * æ ¹æ®åˆ†é¡µä¸æŸ¥è¯¢modelæŸ¥è¯¢
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return List<RegistedAgricultureInfo>
-	 * 		ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢¼¯ºÏ
+	 * 		åœ¨ç±å†œä¸šäººå£ä¿¡æ¯é›†åˆ
 	 */
 	PageFormater queryByPage(RegistedAgricQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ĞÂÔöÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢
+	 * æ–°å¢åœ¨ç±å†œä¸šäººå£ä¿¡æ¯
 	 * @param entity
-	 * 		ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢ÊµÌå
+	 * 		åœ¨ç±å†œä¸šäººå£ä¿¡æ¯å®ä½“
 	 */
 	void addInfo(RegistedAgricultureInfo entity);
 	
 	/**
-	 * ÅúÁ¿ĞÂÔöÔÚ¼®Å©ÒµĞÅÏ¢
+	 * æ‰¹é‡æ–°å¢åœ¨ç±å†œä¸šä¿¡æ¯
 	 * @param list
-	 * 		ĞÅÏ¢¼¯ºÏ
+	 * 		ä¿¡æ¯é›†åˆ
 	 */
 	void addBatch(List<RegistedAgricultureInfo> list);
 	
 	/**
-	 * ±à¼­ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢
+	 * ç¼–è¾‘åœ¨ç±å†œä¸šäººå£ä¿¡æ¯
 	 * @param entity
-	 * 		ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢ÊµÌå
+	 * 		åœ¨ç±å†œä¸šäººå£ä¿¡æ¯å®ä½“
 	 */
 	void editInfo(RegistedAgricultureInfo entity) throws DomainException ;
 	
 	/**
-	 * ¸ù¾İidÉ¾³ıÖ¸¶¨µÄĞÅÏ¢
+	 * æ ¹æ®idåˆ é™¤æŒ‡å®šçš„ä¿¡æ¯
 	 * @param id
 	 * 		id
 	 */

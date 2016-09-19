@@ -41,10 +41,10 @@ public class HPTMgtFmlItemServiceImpl extends BaseApplication implements IHPTMgt
 			fmlRepository.editFamily(family);
 			htpRepository.addHPT(personAndHPTDto.toHousePuraseTicket(item));
 			context().commit();
-			return toJson("ĞÂÔöÈËÔ±ÒÔ¼°¹º·¿È¯³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ–°å¢äººå‘˜ä»¥åŠè´­æˆ¿åˆ¸æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("ĞÂÔöÈËÔ±ÒÔ¼°¹º·¿È¯Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æ–°å¢äººå‘˜ä»¥åŠè´­æˆ¿åˆ¸å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -60,10 +60,10 @@ public class HPTMgtFmlItemServiceImpl extends BaseApplication implements IHPTMgt
 			family.setFmlNumber(family.getFmlNumber() + 1);
 			fmlRepository.editFamily(family);
 			context().commit();
-			return toJson("³É¹¦", item, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", item, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();

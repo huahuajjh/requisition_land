@@ -10,7 +10,7 @@ import com.tq.requisition.presentation.dto.removedinfo.RemovedInfoQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * 规约，根据查询model查询
+ * 瑙勭害锛屾牴鎹煡璇odel鏌ヨ
  * @author jjh
  * @time 2016-01-11 22:42
  *

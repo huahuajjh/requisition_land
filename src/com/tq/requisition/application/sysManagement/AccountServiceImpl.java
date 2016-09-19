@@ -22,11 +22,11 @@ import com.tq.requisition.presentation.dto.sysMgt.AccountDto;
 import com.tq.requisition.presentation.serviceContract.sysManagement.IAccountService;
 
 /**
- * ÕË»§Ïà¹Ø²Ù×÷ÊµÏÖÀà
+ * è´¦æˆ·ç›¸å…³æ“ä½œå®ç°ç±»
  * @author jjh
  * @time 2015-12-23 16:22
  * 
- * ÊµÏÖÁË¼ì²éÕËºÅÊÇ·ñ´æÔÚµÄ½Ó¿Ú
+ * å®ç°äº†æ£€æŸ¥è´¦å·æ˜¯å¦å­˜åœ¨çš„æ¥å£
  * @author Bless
  * @time 2016/3/3 9:54
  */
@@ -66,15 +66,15 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 	public String createAccount(AccountDto accountDto){
 		if(validateAdmin(accountDto.getAccount()))
 		{
-			return toJson("´´½¨ÕË»§Ê§°Ü-ÕË»§Ãû["+accountDto.getAccount()+"]ÒÑ´æÔÚ", null, Formater.OperationResult.FAIL);
+			return toJson("åˆ›å»ºè´¦æˆ·å¤±è´¥-è´¦æˆ·å["+accountDto.getAccount()+"]å·²å­˜åœ¨", null, Formater.OperationResult.FAIL);
 		}
 		try {
 			context().beginTransaction();
 			Account account = accountRepository.createAccount(AccountMapper.toModel(accountDto));
 			context().commit();
-			return toJson("´´½¨ÕË»§³É¹¦", AccountSafeMapper.toDto(account), Formater.OperationResult.SUCCESS);
+			return toJson("åˆ›å»ºè´¦æˆ·æˆåŠŸ", AccountSafeMapper.toDto(account), Formater.OperationResult.SUCCESS);
 		} catch (AccountOperationException e) {
-			return toJson("´´½¨ÕË»§Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("åˆ›å»ºè´¦æˆ·å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -92,9 +92,9 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 			acc.setState(1);
 			accountRepository.updateAccount(acc);
 			context().commit();
-			return toJson("¸üĞÂÕË»§³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ›´æ–°è´¦æˆ·æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (AccountOperationException e) {
-			return toJson("¸üĞÂÕË»§Ê§°Ü-"+e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("æ›´æ–°è´¦æˆ·å¤±è´¥-"+e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -112,9 +112,9 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 			acc.setId(dto.getId());
 			accountRepository.updateAccount(acc);
 			context().commit();
-			return toJson("¸üĞÂÕË»§³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("æ›´æ–°è´¦æˆ·æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (AccountOperationException e) {
-			return toJson("¸üĞÂÕË»§Ê§°Ü-"+e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("æ›´æ–°è´¦æˆ·å¤±è´¥-"+e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -125,9 +125,9 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 			accountRepository.removeByKey(Account.class, uid);
 			roleAccountRepository.removeAllRelationships(uid);
 			context().commit();
-			return toJson("É¾³ıÕË»§³É¹¦",null, Formater.OperationResult.SUCCESS); 
+			return toJson("åˆ é™¤è´¦æˆ·æˆåŠŸ",null, Formater.OperationResult.SUCCESS); 
 		} catch (Exception e) {
-			return toJson("É¾³ıÕË»§Ê§°Ü-"+e.getMessage(),null, Formater.OperationResult.FAIL);
+			return toJson("åˆ é™¤è´¦æˆ·å¤±è´¥-"+e.getMessage(),null, Formater.OperationResult.FAIL);
 		}
 		
 	}
@@ -140,9 +140,9 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 			account.resetPwd();
 			accountRepository.update(account);
 			context().commit();
-			return toJson("ÖØÖÃÃÜÂë³É¹¦", null, Formater.OperationResult.SUCCESS);
+			return toJson("é‡ç½®å¯†ç æˆåŠŸ", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("ÖØÖÃÃÜÂëÊ§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("é‡ç½®å¯†ç å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -150,9 +150,9 @@ public class AccountServiceImpl extends BaseApplication implements IAccountServi
 	public String getAccountList(String userName, String name, UUID orgId, UUID deptId, int pageIndex, int pageNum) {
 		try {
 			PageFormater page = accountRepository.queryByPage(userName, name, orgId, deptId, pageIndex, pageNum);
-			return toJsonByPage(page, "»ñÈ¡ÕË»§ÁĞ±í³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(page, "è·å–è´¦æˆ·åˆ—è¡¨æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJsonByPage(null, "»ñÈ¡ÕË»§ÁĞ±íÊ§°Ü-"+e.getMessage(), Formater.OperationResult.FAIL);	
+			return toJsonByPage(null, "è·å–è´¦æˆ·åˆ—è¡¨å¤±è´¥-"+e.getMessage(), Formater.OperationResult.FAIL);	
 		}
 	}
 

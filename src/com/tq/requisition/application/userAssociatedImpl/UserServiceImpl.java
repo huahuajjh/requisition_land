@@ -13,7 +13,7 @@ import com.tq.requisition.presentation.dto.sysMgt.AccountSafeDto;
 import com.tq.requisition.presentation.serviceContract.userAssociated.IUserService;
 
 /**
- * 用户相关操作接口实现
+ * 鐢ㄦ埛鐩稿叧鎿嶄綔鎺ュ彛瀹炵幇
  * @author jjh
  * @time 2015-12-21 22:01
  */
@@ -39,7 +39,7 @@ public class UserServiceImpl implements IUserService{
 	/**
 	 * {@inheritDoc} 
 	 * @throws DomainException
-	 * 操作异常实例 
+	 * 鎿嶄綔寮傚父瀹炰緥 
 	 */
 	@Override
 	public String changePwd(UUID uId, String oldPwd, String newPwd) {
@@ -47,9 +47,9 @@ public class UserServiceImpl implements IUserService{
 			accountRepository.context().beginTransaction();
 			accountRepository.changePwd(uId, oldPwd, newPwd);
 			accountRepository.context().commit();
-			return Serialization.toJson(Formater.obtain("修改密码成功", null, Formater.OperationResult.SUCCESS)); 
+			return Serialization.toJson(Formater.obtain("淇敼瀵嗙爜鎴愬姛", null, Formater.OperationResult.SUCCESS)); 
 		} catch (DomainException e) {
-			return Serialization.toJson(Formater.obtain("修改密码失败-"+e.getMessage(), null, Formater.OperationResult.FAIL));
+			return Serialization.toJson(Formater.obtain("淇敼瀵嗙爜澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL));
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package com.tq.requisition.test.application;
+ï»¿package com.tq.requisition.test.application;
 
 import java.util.UUID;
 
@@ -21,14 +21,14 @@ public class TestDeptService {
 
 	@Test
 	public void createDept() throws DomainException {
-		DeptDto dto = new DeptDto("×éÖ¯²¿", UUID.randomUUID(), UUID.randomUUID());
+		DeptDto dto = new DeptDto("ç»„ç»‡éƒ¨", UUID.randomUUID(), UUID.randomUUID());
 		String json = service.createDept(dto);
 		System.out.println(json);
 	}
 
 	@Test
 	public void editDept() throws DomainException {
-		DeptDto dto = new DeptDto("ÐÂÐû²¿", UUID.fromString("2582672b-a338-42d7-a7f9-435291e87538"), UUID.randomUUID());
+		DeptDto dto = new DeptDto("æ–°å®£éƒ¨", UUID.fromString("2582672b-a338-42d7-a7f9-435291e87538"), UUID.randomUUID());
 		String json = service.edit(dto);
 		System.out.println(json);
 	}

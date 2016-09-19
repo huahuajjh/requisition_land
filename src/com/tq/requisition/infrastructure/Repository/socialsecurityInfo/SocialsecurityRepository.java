@@ -21,7 +21,7 @@ import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityDto;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
 
 /**
- * Éç±£ĞÅÏ¢²Ö´¢ÊµÏÖ
+ * ç¤¾ä¿ä¿¡æ¯ä»“å‚¨å®ç°
  * @author jjh
  * @time 2015-12-31 20:38
  */
@@ -35,13 +35,13 @@ public class SocialsecurityRepository  extends HbRepository<SocialsecurityInfo> 
 	public void addSS(SocialsecurityInfo ss) throws SpecifiedObjectDoesNotExistsException {
 		if(null == ss)
 		{
-			throw new NullPointerException("ĞÂÔöµÄÉç±£ĞÅÏ¢Îª¿Õ");
+			throw new NullPointerException("æ–°å¢çš„ç¤¾ä¿ä¿¡æ¯ä¸ºç©º");
 		}		
-		//¼ì²â¸ÃÓÃ»§ÊÇ·ñÓĞÉç±£Êı¾İ
+		//æ£€æµ‹è¯¥ç”¨æˆ·æ˜¯å¦æœ‰ç¤¾ä¿æ•°æ®
 		boolean r = exists(new SSExistsByFmlItemIdSpecification(SocialsecurityInfo.class, ss.getFmlItemId()));
 		if(r)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("ÒÑ¾­Ìí¼Ó¹ı¸ÃÓÃ»§µÄÉç±£ĞÅÏ¢ÁË");
+			throw new SpecifiedObjectDoesNotExistsException("å·²ç»æ·»åŠ è¿‡è¯¥ç”¨æˆ·çš„ç¤¾ä¿ä¿¡æ¯äº†");
 		}
 		add(ss);
 	}
@@ -50,7 +50,7 @@ public class SocialsecurityRepository  extends HbRepository<SocialsecurityInfo> 
 	public void addBatch(List<SocialsecurityInfo> list) throws SpecifiedObjectDoesNotExistsException {
 		if(null == list)
 		{
-			throw new NullPointerException("ĞÂÔöÊı¾İ²¿·ÖÎª¿Õ");
+			throw new NullPointerException("æ–°å¢æ•°æ®éƒ¨åˆ†ä¸ºç©º");
 		}
 		for (SocialsecurityInfo socialsecurityInfo : list) {
 			addSS(socialsecurityInfo);
@@ -61,7 +61,7 @@ public class SocialsecurityRepository  extends HbRepository<SocialsecurityInfo> 
 	public void deleteSS(UUID... uuids) {
 		if(null == uuids)
 		{
-			throw new NullPointerException("´ıÉ¾³ıµÄÉç±£Êı¾İidÎª¿Õ");
+			throw new NullPointerException("å¾…åˆ é™¤çš„ç¤¾ä¿æ•°æ®idä¸ºç©º");
 		}
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < uuids.length; i++) {
@@ -78,12 +78,12 @@ public class SocialsecurityRepository  extends HbRepository<SocialsecurityInfo> 
 	public void editSS(SocialsecurityInfo ss) throws SpecifiedObjectDoesNotExistsException {
 		if(null == ss)
 		{
-			throw new NullPointerException("´ıĞŞ¸ÄµÄÉç±£Êı¾İÎª¿Õ");
+			throw new NullPointerException("å¾…ä¿®æ”¹çš„ç¤¾ä¿æ•°æ®ä¸ºç©º");
 		}
 		SocialsecurityInfo _s = getByKey(SocialsecurityInfo.class, ss.getId());
 		if(null == _s)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("Î´²éÑ¯µ½´ı±à¼­µÄÉç±£Êı¾İ");
+			throw new SpecifiedObjectDoesNotExistsException("æœªæŸ¥è¯¢åˆ°å¾…ç¼–è¾‘çš„ç¤¾ä¿æ•°æ®");
 		}
 		_s.modify(ss);
 		update(_s);

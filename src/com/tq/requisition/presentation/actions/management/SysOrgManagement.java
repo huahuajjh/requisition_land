@@ -43,7 +43,7 @@ public class SysOrgManagement extends BaseAction {
 	}
 
 	/**
-	 * 获取组织列表
+	 * 鑾峰彇缁勭粐鍒楄〃
 	 * @throws IOException
 	 */
 	public String getOrgList() throws IOException {
@@ -53,7 +53,7 @@ public class SysOrgManagement extends BaseAction {
 	}
 
 	/**
-	 * 新增组织信息
+	 * 鏂板缁勭粐淇℃伅
 	 * @throws IOException
 	 */
 	public String addOrg() throws IOException {
@@ -64,7 +64,7 @@ public class SysOrgManagement extends BaseAction {
 	}
 
 	/**
-	 * 修改组织信息
+	 * 淇敼缁勭粐淇℃伅
 	 * @throws IOException
 	 */
 	public String editOrg() throws IOException {
@@ -75,7 +75,7 @@ public class SysOrgManagement extends BaseAction {
 	}
 
 	/**
-	 * 删除组织
+	 * 鍒犻櫎缁勭粐
 	 * @throws IOException 
 	 */
 	public String delete() throws IOException {

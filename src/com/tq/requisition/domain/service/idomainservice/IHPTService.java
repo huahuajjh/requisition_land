@@ -15,75 +15,75 @@ import com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¹º·¿È¯¹ÜÀíÁìÓò·şÎñ
+ * è´­æˆ¿åˆ¸ç®¡ç†é¢†åŸŸæœåŠ¡
  * @author jjh
  * @time 2015-01-01 10:48
  */
 public interface IHPTService {
 	/**
-	 * ĞÂÔö¹º·¿È¯ĞÅÏ¢,²¢ÇÒ·µ»ØĞÂÔöºóµÄÏûÏ¢
+	 * æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯,å¹¶ä¸”è¿”å›æ–°å¢åçš„æ¶ˆæ¯
 	 * @param hpt
-	 * 		´ıĞÂÔöµÄ¹º·¿È¯ĞÅÏ¢ÊµÌå
+	 * 		å¾…æ–°å¢çš„è´­æˆ¿åˆ¸ä¿¡æ¯å®ä½“
 	 * @return String
-	 * 		·µ»ØÒ»¸öString·ûºÅ£¬ÃèÊöĞÂÔö½á¹û
+	 * 		è¿”å›ä¸€ä¸ªStringç¬¦å·ï¼Œæè¿°æ–°å¢ç»“æœ
 	 */
 	void addHPT(HousePuraseTicket hpt) throws DomainException ;
 	
 	/**
-	 * ÅúÁ¿ĞÂÔö¹º·¿È¯
+	 * æ‰¹é‡æ–°å¢è´­æˆ¿åˆ¸
 	 * @param hpts
-	 * 		¹º·¿È¯ĞÅÏ¢¼¯ºÏ
+	 * 		è´­æˆ¿åˆ¸ä¿¡æ¯é›†åˆ
 	 * @throws DomainException
 	 */
 	void addHPT(List<HousePuraseTicket> hpts) throws DomainException ;
 	
 	/**
-	 * »»È¯²Ù×÷
+	 * æ¢åˆ¸æ“ä½œ
 	 * @param exHPT
-	 * 		»»È¯ĞÅÏ¢
+	 * 		æ¢åˆ¸ä¿¡æ¯
 	 */
 	void exchange(HPTExchangeInfo exHPT,HousePuraseTicket newTicket) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¹º·¿È¯ÁìÈ¡
+	 * è´­æˆ¿åˆ¸é¢†å–
 	 * @param revieveHPT
-	 * 		ÁìÈ¡ĞÅÏ¢
+	 * 		é¢†å–ä¿¡æ¯
 	 */
 	void provider(HPTProviderInfo revieveHPT) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¹º·¿È¯¹ÒÊ§
+	 * è´­æˆ¿åˆ¸æŒ‚å¤±
 	 * @param lossPHT
-	 * 		¹ÒÊ§ĞÅÏ¢
+	 * 		æŒ‚å¤±ä¿¡æ¯
 	 */
 	void reportOfLoss(HPTReportOfLossInfo lossPHT) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¹º·¿È¯²¹È¯
+	 * è´­æˆ¿åˆ¸è¡¥åˆ¸
 	 * @param mendHPT
-	 * 		²¹È¯ĞÅÏ¢
+	 * 		è¡¥åˆ¸ä¿¡æ¯
 	 */
 	void mend(HPTMendInfo mendHPT,HousePuraseTicket newTicket) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¹º·¿È¯µÄÊ¹ÓÃ
+	 * è´­æˆ¿åˆ¸çš„ä½¿ç”¨
 	 * @param useAndCashHPT
-	 * 		Ê¹ÓÃĞÅÏ¢
+	 * 		ä½¿ç”¨ä¿¡æ¯
 	 */
 	void useOrCash(HPTUseAndCash useAndCashHPT) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¸ù¾İ»§Ö÷Éí·İ²éÑ¯¸Ã»§¹º·¿È¯ĞÅÏ¢
+	 * æ ¹æ®æˆ·ä¸»èº«ä»½æŸ¥è¯¢è¯¥æˆ·è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param idNumber
-	 * 		»§Ö÷Éí·İÖ¤
+	 * 		æˆ·ä¸»èº«ä»½è¯
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public List<HPTDisplayFmlDto> queryByFml(String idNumber) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¸ù¾İÏîÄ¿ID»ñÈ¡Î´·¢·ÅµÄ¹º·¿È¯ĞÅÏ¢
+	 * æ ¹æ®é¡¹ç›®IDè·å–æœªå‘æ”¾çš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param proId
-	 * 		ÏîÄ¿±àºÅ
+	 * 		é¡¹ç›®ç¼–å·
 	 * @return
 	 * @throws SpecifiedObjectDoesNotExistsException
 	 */

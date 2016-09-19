@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 用户名检测规约类，该规约通过用户名检测是否存在该用户
+ * 鐢ㄦ埛鍚嶆娴嬭绾︾被锛岃瑙勭害閫氳繃鐢ㄦ埛鍚嶆娴嬫槸鍚﹀瓨鍦ㄨ鐢ㄦ埛
  * @author jjh
  * @time 2015-12-23 16:22
  */

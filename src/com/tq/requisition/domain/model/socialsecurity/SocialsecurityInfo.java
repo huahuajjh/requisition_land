@@ -6,44 +6,44 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * Éç±£ÊµÌå
+ * ç¤¾ä¿å®ä½“
  * @author jjh
  * @time 2015-12-18 18:30
  */
 public class SocialsecurityInfo extends AggregateRoot{
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**ÄÉÈëÉç±£ÈÕÆÚ*/
+	/**çº³å…¥ç¤¾ä¿æ—¥æœŸ*/
 	private Date socialsecurityDate;
-	/**Éç±£ÀàĞÍid*/
+	/**ç¤¾ä¿ç±»å‹id*/
 	private UUID socialsecurityTypeId;
-	/**Éç±£ÈËid*/
+	/**ç¤¾ä¿äººid*/
 	private UUID fmlItemId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ)*/
+	/**å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ)*/
 	private Integer serveArmyTime;
-	/**ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ*/
+	/**å…»è€ä¿é™©è¡¥ç¼´å¹´é™*/
 	private Integer endowmentInsuranceYear;
-	/**Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı*/
+	/**åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•°*/
 	private Integer medicalInsuranceMonth;
-	/**²Î¼ÓºÎÖÖÒ½ÁÆ±£ÏÕ*/
+	/**å‚åŠ ä½•ç§åŒ»ç–—ä¿é™©*/
 	private String joinWhichMedicalInsurance;
-	/**ËùÊôÉçÇø*/
+	/**æ‰€å±ç¤¾åŒº*/
 	private String community;
-	/**·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ)*/
+	/**æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ)*/
 	private Integer prisonTime;
-	/**ÊÇ·ñ²Î¼Ó¹ıÉç±£*/
+	/**æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿*/
 	private Boolean isSocialsecurity;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**ÀàĞÍ×Ö·û´®*/
+	/**ç±»å‹å­—ç¬¦ä¸²*/
 	private String typeStr;
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
 	/*getters and setters*/	

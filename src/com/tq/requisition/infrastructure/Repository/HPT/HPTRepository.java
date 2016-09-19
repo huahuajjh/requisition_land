@@ -44,7 +44,7 @@ import com.tq.requisition.presentation.dto.rmHousehold.FamilyBasicInfoDto;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¹º·¿È¯²Ö´¢ÊµÏÖ
+ * è´­æˆ¿åˆ¸ä»“å‚¨å®ç°
  * @author jjh
  * @time 2015-01-01 10:37
  */
@@ -58,9 +58,9 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	public void addHPT(final HousePuraseTicket hpt) throws DomainException {
 		if(null == hpt)
 		{
-			throw new NullPointerException("ĞÂÔöµÄ¹º·¿È¯ĞÅÏ¢Îª¿Õ");
+			throw new NullPointerException("æ–°å¢çš„è´­æˆ¿åˆ¸ä¿¡æ¯ä¸ºç©º");
 		}
-		//¼ì²âÖØ¸´Ìí¼Ó
+		//æ£€æµ‹é‡å¤æ·»åŠ 
 		int count = getTotalCount(new SpecificationExt<HousePuraseTicket>(HousePuraseTicket.class) {
 
 			@Override
@@ -107,7 +107,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 				return OperationType.SQL;
 			}
 		});
-		if(count >= 2 || state){throw new DomainException("ÒÑ¾­Îª¸ÃÈËÔ±Ìí¼ÓÁË¹º·¿È¯");}
+		if(count >= 2 || state){throw new DomainException("å·²ç»ä¸ºè¯¥äººå‘˜æ·»åŠ äº†è´­æˆ¿åˆ¸");}
 		add(hpt);
 	}
 
@@ -115,53 +115,53 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	public void exchange(HPTExchangeInfo exHPT,HousePuraseTicket newTicket) throws SpecifiedObjectDoesNotExistsException {
 		if(null == exHPT || null == newTicket)
 		{
-			throw new NullPointerException("ĞÂÔö¹º·¿È¯ĞÅÏ¢»òÕß»»È¯ĞÅÏ¢Îª¿Õ");
+			throw new NullPointerException("æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯æˆ–è€…æ¢åˆ¸ä¿¡æ¯ä¸ºç©º");
 		}
-		//»ñÈ¡Òª±»¸ü»»µÄ¹º·¿È¯
+		//è·å–è¦è¢«æ›´æ¢çš„è´­æˆ¿åˆ¸
 		HousePuraseTicket ticket = getByKey(HousePuraseTicket.class, exHPT.getOldTicketId());
-		if(null == ticket){throw new NullPointerException("Î´²éÑ¯µ½Òª¸ü»»µÄ¹º·¿È¯ĞÅÏ¢");}
-		//»»È¯²Ù×÷
+		if(null == ticket){throw new NullPointerException("æœªæŸ¥è¯¢åˆ°è¦æ›´æ¢çš„è´­æˆ¿åˆ¸ä¿¡æ¯");}
+		//æ¢åˆ¸æ“ä½œ
 		ticket.exchange();
-		//³Ö¾Ã»¯ĞÂÔöµÄ¹º·¿È¯
+		//æŒä¹…åŒ–æ–°å¢çš„è´­æˆ¿åˆ¸
 		add(newTicket);
-		//¸üĞÂ»»È¯ĞÅÏ¢
+		//æ›´æ–°æ¢åˆ¸ä¿¡æ¯
 		exHPT.setNewTicketId(newTicket.getId());
-		//³Ö¾Ã»¯»»È¯ĞÅÏ¢
+		//æŒä¹…åŒ–æ¢åˆ¸ä¿¡æ¯
 		add(exHPT);
 	}
 
 	@Override
 	public void provider(HPTProviderInfo revieveHPT) throws SpecifiedObjectDoesNotExistsException {
 		if (null == revieveHPT) {
-			throw new NullPointerException("·¢·ÅÊµÌåÊÇ¿Õ");
+			throw new NullPointerException("å‘æ”¾å®ä½“æ˜¯ç©º");
 		}		
-		//²éÑ¯´ıÁìÈ¡¹º·¿È¯µÄ×´Ì¬£¬ĞŞ¸Ä¶ÔÓ¦¹º·¿È¯×´Ì¬
+		//æŸ¥è¯¢å¾…é¢†å–è´­æˆ¿åˆ¸çš„çŠ¶æ€ï¼Œä¿®æ”¹å¯¹åº”è´­æˆ¿åˆ¸çŠ¶æ€
 		HousePuraseTicket ticket = getByKey(HousePuraseTicket.class, revieveHPT.getTicketId());
 		if(null == ticket)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½Ö¸¶¨µÄ¹º·¿È¯µÄĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„è´­æˆ¿åˆ¸çš„ä¿¡æ¯");
 		}
-		//Ö´ĞĞÁìÈ¯²Ù×÷£¬Èç¹û²»·ûºÏÒµÎñ¹æÔò£¬Å×³öÒì³£
+		//æ‰§è¡Œé¢†åˆ¸æ“ä½œï¼Œå¦‚æœä¸ç¬¦åˆä¸šåŠ¡è§„åˆ™ï¼ŒæŠ›å‡ºå¼‚å¸¸
 		ticket.receive();
-		//¸üĞÂ¹º·¿È¯×´Ì¬
+		//æ›´æ–°è´­æˆ¿åˆ¸çŠ¶æ€
 		update(ticket);
-		//³Ö¾Ã»¯¹º·¿È¯·¢·ÅĞÅÏ¢
+		//æŒä¹…åŒ–è´­æˆ¿åˆ¸å‘æ”¾ä¿¡æ¯
 		add(revieveHPT);
 	}
 
 	@Override
 	public void reportOfLoss(HPTReportOfLossInfo lossPHT) throws SpecifiedObjectDoesNotExistsException {
-		//¸ù¾İ¹ÒÊ§ĞÅÏ¢ÖĞµÄ´ı¹ÒÊ§È¯µÄid£¬²éÑ¯×´Ì¬
+		//æ ¹æ®æŒ‚å¤±ä¿¡æ¯ä¸­çš„å¾…æŒ‚å¤±åˆ¸çš„idï¼ŒæŸ¥è¯¢çŠ¶æ€
 		HousePuraseTicket ticket = getByKey(HousePuraseTicket.class,lossPHT.getTicketId());
 		if(null == ticket)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½Ö¸¶¨µÄ¹º·¿È¯ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„è´­æˆ¿åˆ¸ä¿¡æ¯");
 		}
-		//¹ÒÊ§²Ù×÷
+		//æŒ‚å¤±æ“ä½œ
 		ticket.reportOfLoss();
-		//¸üĞÂ¹º·¿È¯×´Ì¬Îª¹ÒÊ§
+		//æ›´æ–°è´­æˆ¿åˆ¸çŠ¶æ€ä¸ºæŒ‚å¤±
 		update(ticket);
-		//³Ö¾Ã»¯¹ÒÊ§ĞÅÏ¢
+		//æŒä¹…åŒ–æŒ‚å¤±ä¿¡æ¯
 		add(lossPHT);
 	}
 
@@ -169,36 +169,36 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	public void mend(HPTMendInfo mendHPT,HousePuraseTicket newTicket) throws SpecifiedObjectDoesNotExistsException {
 		if(null == mendHPT || null == newTicket)
 		{
-			throw new NullPointerException("²¹È¯ĞÅÏ¢»òÕßĞÂÈ¯Îª¿Õ");
+			throw new NullPointerException("è¡¥åˆ¸ä¿¡æ¯æˆ–è€…æ–°åˆ¸ä¸ºç©º");
 		}
-		//»ñÈ¡¹º·¿È¯×´Ì¬
+		//è·å–è´­æˆ¿åˆ¸çŠ¶æ€
 		HousePuraseTicket ticket = getByKey(HousePuraseTicket.class, mendHPT.getTicketId());
 		if(null == ticket)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½¹º·¿È¯ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°è´­æˆ¿åˆ¸ä¿¡æ¯");
 		}
-		//²¹È¯²Ù×÷
+		//è¡¥åˆ¸æ“ä½œ
 		ticket.mend();
-		//³Ö¾Ã»¯ĞÂÈ¯
+		//æŒä¹…åŒ–æ–°åˆ¸
 		newTicket.setState(TicketState.NORMAL);
 		add(newTicket);
-		//¸üĞÂ¹º·¿È¯×´Ì¬
+		//æ›´æ–°è´­æˆ¿åˆ¸çŠ¶æ€
 		update(ticket);
-		//³Ö¾Ã»¯²¹È¯ĞÅÏ¢
+		//æŒä¹…åŒ–è¡¥åˆ¸ä¿¡æ¯
 		add(mendHPT);
 	}
 
 	@Override
 	public void useOrCash(HPTUseAndCash useAndCashHPT) throws SpecifiedObjectDoesNotExistsException {
-		if(null == useAndCashHPT){throw new NullPointerException("Ê¹ÓÃ»ò¶ÒÏÖĞÅÏ¢Îª¿Õ");}
-		//²éÑ¯¹º·¿È¯		
+		if(null == useAndCashHPT){throw new NullPointerException("ä½¿ç”¨æˆ–å…‘ç°ä¿¡æ¯ä¸ºç©º");}
+		//æŸ¥è¯¢è´­æˆ¿åˆ¸		
 		HousePuraseTicket ticket = getByKey(HousePuraseTicket.class, useAndCashHPT.getTicketId());
-		if(null == ticket){throw new NullPointerException("Î´²éÑ¯µ½Ö¸¶¨µÄ¹º·¿È¯ĞÅÏ¢");}
-		//Ê¹ÓÃ¹º·¿È¯²Ù×÷
+		if(null == ticket){throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„è´­æˆ¿åˆ¸ä¿¡æ¯");}
+		//ä½¿ç”¨è´­æˆ¿åˆ¸æ“ä½œ
 		ticket.useAndCash();
-		//¸üĞÂ¹º·¿È¯×´Ì¬
+		//æ›´æ–°è´­æˆ¿åˆ¸çŠ¶æ€
 		update(ticket);
-		//³Ö¾Ã»¯Ê¹ÓÃ»òÕß¶Ò»»ĞÅÏ¢
+		//æŒä¹…åŒ–ä½¿ç”¨æˆ–è€…å…‘æ¢ä¿¡æ¯
 		add(useAndCashHPT);		
 	}
 	
@@ -206,7 +206,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	public void addBatch(List<HousePuraseTicket> list) throws DomainException  {
 		if(null==list)
 		{
-			throw new NullPointerException("¹º·¿È¯¼¯ºÏÎª¿Õ");
+			throw new NullPointerException("è´­æˆ¿åˆ¸é›†åˆä¸ºç©º");
 		}
 		for (HousePuraseTicket housePuraseTicket : list) {
 			addHPT(housePuraseTicket);
@@ -251,7 +251,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 		List<HPTDisplayDto> list = getAllByHqlJoin(new HPTQueryByIdNumSpecification(HousePuraseTicket.class, idNumber), 0, 10);
 		if(null == list || list.size()==0)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½¹º·¿È¯ĞÅÏ¢");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°è´­æˆ¿åˆ¸ä¿¡æ¯");
 		}
 		return list;
 		
@@ -260,7 +260,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<HPTDisplayFmlDto> queryFmlByFmlId(UUID fmlId) {
-		//¸ù¾İ»§Ö÷Éí·İÖ¤²éÑ¯»§Ö÷ĞÅÏ¢
+		//æ ¹æ®æˆ·ä¸»èº«ä»½è¯æŸ¥è¯¢æˆ·ä¸»ä¿¡æ¯
 		
 		List<HPTDisplayFmlDto> list = getAllByHqlJoin(
 				new HPTQueryFmlProvideSpecification(HousePuraseTicket.class, fmlId),0,999);
@@ -291,7 +291,7 @@ public class HPTRepository extends HbRepository<HousePuraseTicket> implements IH
 	
 	@Override
 	public void provideByFml(List<HPTProviderInfo> list) throws SpecifiedObjectDoesNotExistsException {
-		if(null == list){throw new NullPointerException("´ı·¢·ÅµÄ»§¼¯ºÏĞÅÏ¢Îª¿Õ");}
+		if(null == list){throw new NullPointerException("å¾…å‘æ”¾çš„æˆ·é›†åˆä¿¡æ¯ä¸ºç©º");}
 		for (HPTProviderInfo hptProviderInfo : list) {
 			provider(hptProviderInfo);
 		}

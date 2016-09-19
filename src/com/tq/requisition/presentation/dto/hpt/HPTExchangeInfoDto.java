@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,23 +6,23 @@ import java.util.UUID;
 public class HPTExchangeInfoDto {
 	/**id*/
 	private UUID id;
-	/**ËùÓĞÕßid*/
+	/**æ‰€æœ‰è€…id*/
 	private UUID ownerId;
-	/**²Ù×÷ÈËid*/
+	/**æ“ä½œäººid*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**»»·¢ÈÕÆÚ*/
+	/**æ¢å‘æ—¥æœŸ*/
 	private Date exchengeDate;
-	/**ĞÂÈ¯id*/
+	/**æ–°åˆ¸id*/
 	private UUID newTicketId;
-	/**ÁìÓÃÖ¤Ã÷*/
+	/**é¢†ç”¨è¯æ˜*/
 	private String evidencePath;
-	/**ÀÏÈ¯id*/
+	/**è€åˆ¸id*/
 	private UUID oldTicketId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**ÁìÓÃÈË*/
+	/**é¢†ç”¨äºº*/
 	private String gettingUser;
 	
 	/*getters and setters*/

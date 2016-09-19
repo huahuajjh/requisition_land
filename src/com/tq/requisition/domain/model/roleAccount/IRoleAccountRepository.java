@@ -8,60 +8,60 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.domain.model.role.Role;
 
 /**
- * ½ÇÉ«ÓÃ»§¹ØÏµ²Ö´¢½Ó¿Ú
+ * è§’è‰²ç”¨æˆ·å…³ç³»ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-21 17:32
  */
 public interface IRoleAccountRepository extends IRepository<RoleAccount>{
 	/**
-	 * ¸ù¾İÓÃ»§id»ñÈ¡½ÇÉ«
+	 * æ ¹æ®ç”¨æˆ·idè·å–è§’è‰²
 	 * @param uId
-	 * 		ÓÃ»§id
+	 * 		ç”¨æˆ·id
 	 * @return Role
-	 * 		½ÇÉ«¶ÔÏó
+	 * 		è§’è‰²å¯¹è±¡
 	 */
 	Role getRoleByUid(UUID uId);
 	
 	/**
-	 * ¸ù¾İ½ÇÉ«id»ñÈ¡ÓÃ»§ÁĞ±í
+	 * æ ¹æ®è§’è‰²idè·å–ç”¨æˆ·åˆ—è¡¨
 	 * @param rId
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 * @return List<Account>
-	 * 		ÓÃ»§¼¯ºÏ
+	 * 		ç”¨æˆ·é›†åˆ
 	 */
 	List<Account> getUsersByRid(UUID rId);
 	
 	/**
-	 * ´´½¨ÕË»§½ÇÉ«¹ØÏµ	
+	 * åˆ›å»ºè´¦æˆ·è§’è‰²å…³ç³»	
 	 * @param uid
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @param rId
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 */
 	void	createRelationship(UUID uid,UUID rId);
 		
 	/**
-	 * ½â³ıÖ¸¶¨ÕË»§µÄ½ÇÉ«
+	 * è§£é™¤æŒ‡å®šè´¦æˆ·çš„è§’è‰²
 	 * @param uid
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @param rId
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 */
 	void removeRelationship(UUID uid,UUID rId);
 	
 	/**
-	 * ÒÆ³ıÖ¸¶¨ÕË»§µÄËùÓĞ½ÇÉ«£¬Õâ¸ö²Ù×÷Ö»±ê¼ÇÉ¾³ı±ê¼ÇÎªtrue
+	 * ç§»é™¤æŒ‡å®šè´¦æˆ·çš„æ‰€æœ‰è§’è‰²ï¼Œè¿™ä¸ªæ“ä½œåªæ ‡è®°åˆ é™¤æ ‡è®°ä¸ºtrue
 	 * @param uid
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 */
 	void removeAllRelationships(UUID uid);
 
 	/**
-	 * ¸ü¸ÄÓÃ»§½ÇÉ«
+	 * æ›´æ”¹ç”¨æˆ·è§’è‰²
 	 * @param uid
-	 * 		ÓÃ»§id
+	 * 		ç”¨æˆ·id
 	 * @param roleid
-	 * 		½ÇÉ«id
+	 * 		è§’è‰²id
 	 */
 	void	changeRole(UUID uid,UUID roleid);
 }

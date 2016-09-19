@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.address.Address;
 import com.tq.requisition.presentation.dto.share.AddressDto;
 
 /**
- * 地址dto與model轉換
+ * 鍦板潃dto鑸噈odel杞夋彌
  * @author jjh
  * @time 2015-12-27 23:12
  */
@@ -27,7 +27,7 @@ public final class AddressMapper {
 	public static Address toModel(AddressDto dto) {
 		if(dto.getName().equals("") || dto.getName() == null)
 		{
-			throw new NullPointerException("地址名称为null");
+			throw new NullPointerException("鍦板潃鍚嶇О涓簄ull");
 		}
 		return Address.obtain(dto.getName(), dto.getPid());
 	}

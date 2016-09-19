@@ -23,7 +23,7 @@ import com.tq.requisition.presentation.dto.hpt.HPTDisplayFmlDto;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¹º·¿È¯¹ÜÀíÁìÓò·şÎñ½Ó¿Ú
+ * è´­æˆ¿åˆ¸ç®¡ç†é¢†åŸŸæœåŠ¡æ¥å£
  * @author jjh
  * @time 2015-01-01 10:54
  */
@@ -46,13 +46,13 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 
 	@Override
 	public void addHPT(HousePuraseTicket hpt) throws DomainException {
-		//½«ĞÂÔöµÄ¹º·¿È¯ÖĞĞÕÃûÓëÉí·İÖ¤µ½²ğÇ¨»§ĞÅÏ¢ÖĞ²éÑ¯£¬Èç¹û²»Æ¥ÅäÔò²»²Ù×÷£¬·µ»ØÏûÏ¢¸øµ÷ÓÃÕß
+		//å°†æ–°å¢çš„è´­æˆ¿åˆ¸ä¸­å§“åä¸èº«ä»½è¯åˆ°æ‹†è¿æˆ·ä¿¡æ¯ä¸­æŸ¥è¯¢ï¼Œå¦‚æœä¸åŒ¹é…åˆ™ä¸æ“ä½œï¼Œè¿”å›æ¶ˆæ¯ç»™è°ƒç”¨è€…
 		FamilyItem fi = familyItemRepository.queryByIdNumber(hpt.getIdNumber()); 
 		if(fi == null)
 		{
-			throw new DomainException("ĞÂÔöÊ§°Ü£¬Î´²éÑ¯µ½¶ÔÓ¦µÄ²ğÇ¨ÈËÔ±ĞÅÏ¢");
+			throw new DomainException("æ–°å¢å¤±è´¥ï¼ŒæœªæŸ¥è¯¢åˆ°å¯¹åº”çš„æ‹†è¿äººå‘˜ä¿¡æ¯");
 		}
-		//ĞÂÔö¹º·¿È¯ĞÅÏ¢µ½È¯¿âÖĞ
+		//æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯åˆ°åˆ¸åº“ä¸­
 		hptRepository.addHPT(hpt);
 	}
 	
@@ -60,7 +60,7 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 	public void addHPT(List<HousePuraseTicket> hpts) throws DomainException {
 		if(hpts==null)
 		{
-			throw new NullPointerException("´ıĞÂÔöµÄ¹º·¿È¯¼¯ºÏÎª¿Õ");
+			throw new NullPointerException("å¾…æ–°å¢çš„è´­æˆ¿åˆ¸é›†åˆä¸ºç©º");
 		}
 		for (HousePuraseTicket housePuraseTicket : hpts) {
 			addHPT(housePuraseTicket);
@@ -97,14 +97,14 @@ public class HPTServiceImpl extends BaseDomainService implements IHPTService{
 	}
 
 	/**
-	 * ¸ù¾İ»§Ö÷Éí·İ²éÑ¯¸Ã»§¹º·¿È¯ĞÅÏ¢
+	 * æ ¹æ®æˆ·ä¸»èº«ä»½æŸ¥è¯¢è¯¥æˆ·è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param idNumber
-	 * 		»§Ö÷Éí·İÖ¤
+	 * 		æˆ·ä¸»èº«ä»½è¯
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public List<HPTDisplayFmlDto> queryByFml(String idNumber) throws SpecifiedObjectDoesNotExistsException {
 		FamilyItem item = familyItemRepository.queryByIdNumber(idNumber);
-		if(null == item){throw new NullPointerException("Î´²éÑ¯µ½»§Ö÷ĞÅÏ¢");}
+		if(null == item){throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æˆ·ä¸»ä¿¡æ¯");}
 		return hptRepository.queryFmlByFmlId(item.getFmlId());
 	}
 

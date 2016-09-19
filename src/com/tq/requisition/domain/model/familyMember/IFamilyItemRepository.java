@@ -13,87 +13,87 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 public interface IFamilyItemRepository extends IRepository<FamilyItem>{
 	
 	/**
-	 * Â¼Èë²ğÇ¨»§¼ÒÍ¥ÈËÔ±ĞÅÏ¢
+	 * å½•å…¥æ‹†è¿æˆ·å®¶åº­äººå‘˜ä¿¡æ¯
 	 * @param fid
 	 * @return
 	 */
 	FamilyItem addFamilyItem(FamilyItem item);
 	
 	/**
-	 * Ä£ºı²éÑ¯
+	 * æ¨¡ç³ŠæŸ¥è¯¢
 	 * @param queryModel
-	 * 		Ä£ºı²éÑ¯model
+	 * 		æ¨¡ç³ŠæŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryByFuzzy(FamilyItemQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ±à¼­²ğÇ¨»§³ÉÔ±ĞÅÏ¢
+	 * ç¼–è¾‘æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯
 	 * @param item
-	 * 		²ğÇ¨»§³ÉÔ±ÊµÌå
+	 * 		æ‹†è¿æˆ·æˆå‘˜å®ä½“
 	 */
 	FamilyItem editFamilyItem(FamilyItem item);
 	
 	/**
-	 * É¾³ı²ğÇ¨»§³ÉÔ±ĞÅÏ¢
+	 * åˆ é™¤æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯
 	 * @param id
-	 * 		´ıÉ¾³ıµÄÊı¾İÊµÌåid
+	 * 		å¾…åˆ é™¤çš„æ•°æ®å®ä½“id
 	 */
 	void deleteFamilyItem(UUID id);
 	
 	/**
-	 * ¸ù¾İÉí·İÖ¤»ñÈ¡²ğÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯è·å–æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @return
 	 */
 	FamilyItem queryByIdNumber(String idNumber) throws SpecifiedObjectDoesNotExistsException;
 
 	/**
-	 * ¸ù¾İÉí·İÖ¤ºÍĞÕÃû²éÑ¯ÊÇ·ñ´æÔÚ¸Ã²ğÇ¨»§ÈËÔ±¼ÇÂ¼
+	 * æ ¹æ®èº«ä»½è¯å’Œå§“åæŸ¥è¯¢æ˜¯å¦å­˜åœ¨è¯¥æ‹†è¿æˆ·äººå‘˜è®°å½•
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @param name
-	 * 		ĞÕÃû
+	 * 		å§“å
 	 * @return
-	 * 		·µ»ØÒ»¸öBooleanÖµ£¬µ±´æÔÚ¸Ã¼ÇÂ¼Ê±·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 		è¿”å›ä¸€ä¸ªBooleanå€¼ï¼Œå½“å­˜åœ¨è¯¥è®°å½•æ—¶è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	boolean existsByIdNumAndName(String idNumber,String name);
 
 	/**
-	 * ¸ù¾İ²ğÇ¨»§id²éÑ¯²ğÇ¨»§³ÉÔ±ĞÅÏ¢
+	 * æ ¹æ®æ‹†è¿æˆ·idæŸ¥è¯¢æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯
 	 * @param fmlId
-	 * 		²ğÇ¨»§id
+	 * 		æ‹†è¿æˆ·id
 	 * @return
-	 * 		²ğÇ¨»§³ÉÔ±¼¯ºÏÊı¾İ
+	 * 		æ‹†è¿æˆ·æˆå‘˜é›†åˆæ•°æ®
 	 */
 	List<FamilyItem> queryItemsByFmlId(UUID fmlId);
 	
 	/**
-	 * ¸ù¾İÏîÄ¿ID»ñÈ¡ÈËÔ±ÁĞ±í
+	 * æ ¹æ®é¡¹ç›®IDè·å–äººå‘˜åˆ—è¡¨
 	 * @param proId
-	 * 		ÏîÄ¿ID
+	 * 		é¡¹ç›®ID
 	 * @return
 	 */
 	List<FamilyItem> queryItemsByProName(String proName);
 	
 	/**
-	 * ¸ù¾İÉí·İÖ¤ºÍĞÕÃû²éÑ¯²ğÇ¨ÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯å’Œå§“åæŸ¥è¯¢æ‹†è¿äººå‘˜ä¿¡æ¯
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @param name
-	 * 		ĞÕÃû
+	 * 		å§“å
 	 * @return FamilyItem
-	 * 		²ğÇ¨ÈËÔ±ĞÅÏ¢
+	 * 		æ‹†è¿äººå‘˜ä¿¡æ¯
 	 */
 	FamilyItem queryByIdNumberAndName(String idNumber,String name);
 	
 	/**
-	 * ¸ù¾İÉí·İÖ¤²éÑ¯id
+	 * æ ¹æ®èº«ä»½è¯æŸ¥è¯¢id
 	 * @param idnumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @return UUID
 	 * 		id
 	 */

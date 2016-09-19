@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.sysManagement;
+ï»¿package com.tq.requisition.presentation.serviceContract.sysManagement;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,57 +6,57 @@ import java.util.UUID;
 import com.tq.requisition.presentation.dto.sysMgt.RoleDto;
 
 /**
- * ½ÇÉ«¹ÜÀíÆõÔ¼½Ó¿Ú
+ * è§’è‰²ç®¡ç†å¥‘çº¦æ¥å£
  * @author jjh
  * @time 2015-12-24 9:38
  */
 public interface IRoleService {	
 	/**
-	 * ´´½¨½ÇÉ« -
+	 * åˆ›å»ºè§’è‰² -
 	 * @param dto
-	 * ½ÇÉ«dto
+	 * è§’è‰²dto
 	 */
 	String addRole(RoleDto dto);
 	
 	/**
-	 * ĞŞ¸Ä½ÇÉ«
+	 * ä¿®æ”¹è§’è‰²
 	 * @param dto
-	 * 		´ıĞŞ¸ÄµÄ½ÇÉ«dto
+	 * 		å¾…ä¿®æ”¹çš„è§’è‰²dto
 	 */
 	String updateRole(RoleDto dto);
 	
 	/**
-	 * »ñÈ¡½ÇÉ«ÁĞ±í
+	 * è·å–è§’è‰²åˆ—è¡¨
 	 * * 		{
 	 * 			datas:[roledto...],
-	 * 			totalCount:×Ü¼ÇÂ¼Êı
+	 * 			totalCount:æ€»è®°å½•æ•°
 	 * 		}
-	 * @param name ½ÇÉ«Ãû³Æ£¬¿Õ»òÕßnull±íÊ¾²éÑ¯ËùÓĞ½ÇÉ«
-	 * @param pageIndex Ò³Âë
-	 * @param pageNum Ã¿Ò³ÏÔÊ¾µÄÊıÁ¿
+	 * @param name è§’è‰²åç§°ï¼Œç©ºæˆ–è€…nullè¡¨ç¤ºæŸ¥è¯¢æ‰€æœ‰è§’è‰²
+	 * @param pageIndex é¡µç 
+	 * @param pageNum æ¯é¡µæ˜¾ç¤ºçš„æ•°é‡
 	 * @return String
-	 * 		json¸ñÊ½Êı¾İ
+	 * 		jsonæ ¼å¼æ•°æ®
 	 */
 	String getListJson(String name,int pageIndex,int pageNum);
 	
 	/**
-	 * É¾³ı½ÇÉ«
-	 * @param roleId ½ÇÉ«±àºÅ
+	 * åˆ é™¤è§’è‰²
+	 * @param roleId è§’è‰²ç¼–å·
 	 * @return
 	 */
 	String deleteRole(UUID roleId);
 
 	/**
-	 * »ñÈ¡½ÇÉ«ÁĞ±í
+	 * è·å–è§’è‰²åˆ—è¡¨
 	 * @return String
-	 * 		jsonÊı¾İ½á¹û
+	 * 		jsonæ•°æ®ç»“æœ
 	 */
 	String getRoleListJson();
 	
 	/**
-	 * »ñÈ¡½ÇÉ«ÁĞ±í
+	 * è·å–è§’è‰²åˆ—è¡¨
 	 * @return List<RoleDto>
-	 * 		½ÇÉ«dto¼¯ºÏ
+	 * 		è§’è‰²dtoé›†åˆ
 	 */
 	List<RoleDto> getRoleList();
 }

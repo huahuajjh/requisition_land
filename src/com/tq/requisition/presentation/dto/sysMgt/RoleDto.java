@@ -1,9 +1,9 @@
-package com.tq.requisition.presentation.dto.sysMgt;
+﻿package com.tq.requisition.presentation.dto.sysMgt;
 
 import java.util.UUID;
 
 /**
- * ��ɫdto
+ * 角色dto
  * @author jjh
  * @time 2015-12-24 9:39
  */

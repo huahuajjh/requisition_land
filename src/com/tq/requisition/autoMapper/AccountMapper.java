@@ -7,17 +7,17 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.presentation.dto.sysMgt.AccountDto;
 
 /**
- * accout¾ÛºÏ¸ùÓëdto×ª»»Àà,´ËÀà²»ÄÜ±»¼Ì³Ğ
+ * accoutèšåˆæ ¹ä¸dtoè½¬æ¢ç±»,æ­¤ç±»ä¸èƒ½è¢«ç»§æ‰¿
  * @author jjh
  * @time 2015-12-23 17:05
  */
 public final class AccountMapper {	
 	/**
-	 * account dto×ªaccountÁìÓòÊµÌå
+	 * account dtoè½¬accounté¢†åŸŸå®ä½“
 	 * @param accountDto
-	 * 		´ı×ª»»µÄaccountDto
+	 * 		å¾…è½¬æ¢çš„accountDto
 	 * @return Account
-	 * 		·µ»ØAccountÁìÓòÊµÌå
+	 * 		è¿”å›Accounté¢†åŸŸå®ä½“
 	 */
 	public static Account toModel(AccountDto accountDto) {
 		return new Account(accountDto.getId()//
@@ -31,11 +31,11 @@ public final class AccountMapper {
 	}
 	
 	/**
-	 * accountÁìÓòÊµÌå×ªaccount dto
+	 * accounté¢†åŸŸå®ä½“è½¬account dto
 	 * @param account
-	 * 		´ı×ª»»µÄaccount
+	 * 		å¾…è½¬æ¢çš„account
 	 * @return AccountDto
-	 * 		·µ»ØAccountDtoÊµÌå
+	 * 		è¿”å›AccountDtoå®ä½“
 	 */
 	public static AccountDto toDto(Account account) {
 		return new AccountDto(account.getId()//
@@ -51,7 +51,7 @@ public final class AccountMapper {
 	public static List<Account> toModelList(List<AccountDto> dtoList) {
 		if(dtoList==null)
 		{
-			throw new NullPointerException("´ı×ª»»µÄdto¼¯ºÏÎªnull");
+			throw new NullPointerException("å¾…è½¬æ¢çš„dtoé›†åˆä¸ºnull");
 		}
 		List<Account> modelList = new ArrayList<Account>();
 		for (AccountDto accountDto : dtoList) {
@@ -63,7 +63,7 @@ public final class AccountMapper {
 	public static List<AccountDto> toDtoList(List<Account> modelList) {
 		if(modelList==null)
 		{
-			throw new NullPointerException("´ı×ª»»µÄmodel¼¯ºÏÎªnull");
+			throw new NullPointerException("å¾…è½¬æ¢çš„modelé›†åˆä¸ºnull");
 		}
 		List<AccountDto> dtoList = new ArrayList<>();
 		for (Account account : modelList) {

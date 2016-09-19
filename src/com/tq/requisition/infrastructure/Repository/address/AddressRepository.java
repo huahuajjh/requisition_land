@@ -14,7 +14,7 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.address.AddressNameExistsSpecification;
 
 /**
- * µØÖ·²Ö´¢ÊµÏÖÀà
+ * åœ°å€ä»“å‚¨å®ç°ç±»
  * @author jjh
  * @time 2015-12-27 23:23
  */
@@ -88,7 +88,7 @@ public class AddressRepository extends HbRepository<Address>implements IAddressR
 	public void deleteAddressById(UUID... ids) {
 		if(ids == null)
 		{
-			throw new NullPointerException("µØÖ·idÎªnull");
+			throw new NullPointerException("åœ°å€idä¸ºnull");
 		}
 		for (UUID uuid : ids) {
 			removeByKey(Address.class, uuid);
@@ -99,12 +99,12 @@ public class AddressRepository extends HbRepository<Address>implements IAddressR
 	public void editAddress(Address address) {
 		if(address==null)
 		{
-			throw new NullPointerException("´ıĞŞ¸ÄµÄµØÖ·ĞÅÏ¢Îª¿Õ");
+			throw new NullPointerException("å¾…ä¿®æ”¹çš„åœ°å€ä¿¡æ¯ä¸ºç©º");
 		}
 		address = getByKey(Address.class, address.getId());
 		if(address==null)
 		{
-			throw new NullPointerException("Ã»ÓĞÕâÌõµØÖ·ĞÅÏ¢,ÎŞ·¨ĞŞ¸Ä");
+			throw new NullPointerException("æ²¡æœ‰è¿™æ¡åœ°å€ä¿¡æ¯,æ— æ³•ä¿®æ”¹");
 		}
 		update(address);
 	}
@@ -114,7 +114,7 @@ public class AddressRepository extends HbRepository<Address>implements IAddressR
 		boolean r = exists(new AddressNameExistsSpecification(Address.class, address.getTitle(), address.getPid()));
 		if(r)
 		{
-			throw new DataAlreadyExistsException("µØÖ·Ãû³Æ["+address.getTitle()+"]ÒÑ¾­´æÔÚ");
+			throw new DataAlreadyExistsException("åœ°å€åç§°["+address.getTitle()+"]å·²ç»å­˜åœ¨");
 		}
 		add(address);
 		return address;

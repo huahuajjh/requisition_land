@@ -9,72 +9,72 @@ import com.tq.requisition.domain.model.transferHouseholdInfo.TransferHouseholdIn
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ¼ÒÍ¥³ÉÔ±ĞÅÏ¢¾ÛºÏ¸ù
+ * å®¶åº­æˆå‘˜ä¿¡æ¯èšåˆæ ¹
  * 
  * @author jjh
  * @time 2015-12-18 13:25
  */
 public class FamilyItem extends AggregateRoot {
 	/* private fields */
-	/** ĞÕÃû */
+	/** å§“å */
 	private String name;
-	/**ËùÊôÏîÄ¿Ãû³Æ*/
+	/**æ‰€å±é¡¹ç›®åç§°*/
 	private String proName;
-	/** Éí·İÖ¤ºÅ */
+	/** èº«ä»½è¯å· */
 	private String idNumber;
-	/** ³öÉúÄêÔÂ */
+	/** å‡ºç”Ÿå¹´æœˆ */
 	private Date birthday;
-	/** ĞÔ„e */
+	/** æ€§åˆ¥ */
 	private Gender gender;
-	/** ªšÉí×ÓÅ®Ì– */
+	/** ç¨èº«å­å¥³è™Ÿ */
 	private String onlyChildNumber;
-	/** °ëß…‘ô */
+	/** åŠé‚Šæˆ¶ */
 	private boolean half;
-	/** ¼ÒÍ¥×¡Ö· */
+	/** å®¶åº­ä½å€ */
 	private String address;
-	/** Óë»§Ö÷¹ØÏµ */
+	/** ä¸æˆ·ä¸»å…³ç³» */
 	private String relationshipStr;
-	/** »§¿ÚĞÔÖÊ */
+	/** æˆ·å£æ€§è´¨ */
 	private String householdStr;
-	/** Éç±£ÀàĞÍ */
+	/** ç¤¾ä¿ç±»å‹ */
 	private String socialsecurityStr;
-	/** ½ÖµÀid */
+	/** è¡—é“id */
 	private UUID streetId;
-	/** ÉçÇøid */
+	/** ç¤¾åŒºid */
 	private UUID communityId;
-	/** Óë»§Ö÷¹ØÏµid */
+	/** ä¸æˆ·ä¸»å…³ç³»id */
 	private UUID relationshipId;
-	/** »§¿ÚÀàĞÍid */
+	/** æˆ·å£ç±»å‹id */
 	private UUID householdId;
-	/** Éç±£ÀàĞÍid */
+	/** ç¤¾ä¿ç±»å‹id */
 	private UUID socialsecurityTypeId;
-	/** ÏîÄ¿id */
+	/** é¡¹ç›®id */
 	private UUID proId;
-	/** ËùÊô»§id */
+	/** æ‰€å±æˆ·id */
 	private UUID fmlId;
-	/** ÊÇ·ñ²ğÇ¨ */
+	/** æ˜¯å¦æ‹†è¿ */
 	private boolean removed;
-	/** ÊÇ·ñ×ª»§ */
+	/** æ˜¯å¦è½¬æˆ· */
 	private boolean transfer;
-	/** ÊÇ·ñÉç±£ */
+	/** æ˜¯å¦ç¤¾ä¿ */
 	private boolean socialsecurity;
-	/**ÊÜ½ÌÓı³Ì¶È*/
+	/**å—æ•™è‚²ç¨‹åº¦*/
 	private String educationLevel;
-	/**ÔÚ¶ÁÇé¿ö*/	
+	/**åœ¨è¯»æƒ…å†µ*/	
 	private String currentEducationSituation;
-	/**ÎñÅ©Ê±¼ä*/
+	/**åŠ¡å†œæ—¶é—´*/
 	private String farmingTime;
-	/**·ş±øÒÛ£¬ÀÍ½ÌµÈÇé¿ö¼°Ê±¼ä*/
+	/**æœå…µå½¹ï¼ŒåŠ³æ•™ç­‰æƒ…å†µåŠæ—¶é—´*/
 	private String serveArmySituation;
-	/**µç»°*/
+	/**ç”µè¯*/
 	private String tel;
-	/**ËùÔÚ×éµØÖ·id*/
+	/**æ‰€åœ¨ç»„åœ°å€id*/
 	private UUID groupId;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
-	/**ÊÇ·ñ²Î¼Ó¹ıÉç±£*/
+	/**æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿*/
 	private boolean isSocialsecurity;
-	/**ÆäËû¹ØÏµÄÚÈİ*/
+	/**å…¶ä»–å…³ç³»å†…å®¹*/
 	private String otherRelationship;
 	
 	/*constructors*/
@@ -145,7 +145,7 @@ public class FamilyItem extends AggregateRoot {
 	}
 	
 	/**
-	 * ĞŞ¸Ä
+	 * ä¿®æ”¹
 	 * @param item
 	 */
 	public void modify(FamilyItem item) {
@@ -355,23 +355,23 @@ public class FamilyItem extends AggregateRoot {
 	}
 	/*public methods*/
 	/**
-	 * ±ê¼Ç×ª»§×´Ì¬
+	 * æ ‡è®°è½¬æˆ·çŠ¶æ€
 	 */
 	public void markTransferState() {
 		this.transfer = true;
 	}
 
 	/**
-	 * ±ê¼Ç×ª»§µÄÉç±£×´Ì¬ÎªÒÑÉç±£
+	 * æ ‡è®°è½¬æˆ·çš„ç¤¾ä¿çŠ¶æ€ä¸ºå·²ç¤¾ä¿
 	 */
 	public void markSocialsecurityState() {
 		this.socialsecurity = true;
 	}
 	
 	/**
-	 * ×ª»§ĞÅÏ¢¸üĞÂ
+	 * è½¬æˆ·ä¿¡æ¯æ›´æ–°
 	 * @param info
-	 * 		×ª»§ĞÅÏ¢
+	 * 		è½¬æˆ·ä¿¡æ¯
 	 */
 	public void transferHousehold(TransferHouseholdInfo info) {
 		this.householdId = info.getHouseHoldTypeId();

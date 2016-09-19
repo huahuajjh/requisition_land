@@ -1,63 +1,63 @@
 package com.tq.requisition.domain.Specification.expression;
 
 /**
- * hql±í´ïÊ½³éÏóÀà,ÊµÏÖ¸ÃÀàµÄÀàĞÍÊÇÒ»ÖÖhql·½Ê½µÄ±í´ïÊ½
+ * hqlè¡¨è¾¾å¼æŠ½è±¡ç±»,å®ç°è¯¥ç±»çš„ç±»å‹æ˜¯ä¸€ç§hqlæ–¹å¼çš„è¡¨è¾¾å¼
  * @author jjh
  * @time 2015-12-16 20::09
  */
 public abstract class IHqlExpression implements IExpression{
 	/**
-	 * ÉèÖÃsql±í´ïÊ½
+	 * è®¾ç½®sqlè¡¨è¾¾å¼
 	 * @param _hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	public abstract void setSql(String sql);
 	
 	/**
-	 * ÉèÖÃhql»òÕßsql±í´ïÊ½µÄ²ÎÊı
+	 * è®¾ç½®hqlæˆ–è€…sqlè¡¨è¾¾å¼çš„å‚æ•°
 	 * @param objects
-	 * 		²ÎÊıÊı×é	
+	 * 		å‚æ•°æ•°ç»„	
 	 */
 	public abstract void setParameters(Object... objects);
 	
 	/**
-	 * »ñÈ¡hql»òÕßsql±í´ïÊ½µÄ²ÎÊı
+	 * è·å–hqlæˆ–è€…sqlè¡¨è¾¾å¼çš„å‚æ•°
 	 * @return
 	 */
 	public abstract Object[] getParameters();
 	
 	/**
-	 * ÉèÖÃhql±í´ïÊ½
+	 * è®¾ç½®hqlè¡¨è¾¾å¼
 	 * @param hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	public abstract void setHql(String hql);
 	
 	/**
-	 * »ñÈ¡sql±í´ïÊ½
+	 * è·å–sqlè¡¨è¾¾å¼
 	 * @return String
-	 * 		sql±í´ïÊ½
+	 * 		sqlè¡¨è¾¾å¼
 	 */
 	public abstract String getSql();
 	
 	/**
-	 * »ñÈ¡hql±í´ïÊ½
+	 * è·å–hqlè¡¨è¾¾å¼
 	 * @param hql
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	public abstract String getHql();
 	
 	/**
-	 * ÉèÖÃµ±Ç°²Ù×÷±í´ïÊ½µÄÀàĞÍ
+	 * è®¾ç½®å½“å‰æ“ä½œè¡¨è¾¾å¼çš„ç±»å‹
 	 * @param type
-	 * 		²Ù×÷±í´ïÊ½ÀàĞÍ
+	 * 		æ“ä½œè¡¨è¾¾å¼ç±»å‹
 	 */
 	public abstract void setType(OperationType type);
 	
 	/**
-	 * ·µ»ØÒ»¸öÃ¶¾Ù£¬±íÃ÷µ±Ç°²Ù×÷±í´ïÊ½µÄÀàĞÍ
+	 * è¿”å›ä¸€ä¸ªæšä¸¾ï¼Œè¡¨æ˜å½“å‰æ“ä½œè¡¨è¾¾å¼çš„ç±»å‹
 	 * @return OperationType
-	 * 		²Ù×÷±í´ïÊ½ÀàĞÍ
+	 * 		æ“ä½œè¡¨è¾¾å¼ç±»å‹
 	 */
 	public abstract OperationType getType();
 

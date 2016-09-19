@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.supervisionManagement;
+锘縫ackage com.tq.requisition.presentation.actions.supervisionManagement;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import com.tq.requisition.presentation.serviceContract.share.IAddressServiceCont
 
 public class InfoSummary extends BaseAction {
 
-	/**地址操作对象*/
+	/**鍦板潃鎿嶄綔瀵硅薄*/
 	private IAddressServiceContract addressServiceContract;
 	private IProMgtServiceContract proMgtServiceContract;
 
-	/**页面对象*/
+	/**椤甸潰瀵硅薄*/
 	private List<AddressDto> addressDtos;
 	private List<ProTypeDto> proTypeDtos;
 	

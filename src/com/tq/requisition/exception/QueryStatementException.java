@@ -1,7 +1,7 @@
 package com.tq.requisition.exception;
 
 /**
- * ²éÑ¯Óï¾äÒì³£Àà
+ * æŸ¥è¯¢è¯­å¥å¼‚å¸¸ç±»
  * @author jjh
  * @time 2015-12-22 2:50
  */

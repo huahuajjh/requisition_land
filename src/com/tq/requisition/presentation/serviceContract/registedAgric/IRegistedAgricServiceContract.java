@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.registedAgric;
+ï»¿package com.tq.requisition.presentation.serviceContract.registedAgric;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,64 +9,64 @@ import com.tq.requisition.presentation.dto.registedAgr.RegistedAgricultureInfoDt
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢¹ÜÀí·şÎñÆõÔ¼
+ * åœ¨ç±å†œä¸šäººå£ä¿¡æ¯ç®¡ç†æœåŠ¡å¥‘çº¦
  * @author jjh
  * @time 2016 01-12 19:55
  */
 public interface IRegistedAgricServiceContract{
 	/**
-	 * ĞÂÔöÔÚ¼®Å©Òµ
+	 * æ–°å¢åœ¨ç±å†œä¸š
 	 * @param dto
-	 * 		ÔÚ¼®Å©ÒµÈË¿Údto
+	 * 		åœ¨ç±å†œä¸šäººå£dto
 	 * @return String
-	 * 		Formater ĞòÁĞ»¯¶ÔÏó
+	 * 		Formater åºåˆ—åŒ–å¯¹è±¡
 	 */
 	String addInfo(RegistedAgricultureInfoDto dto);
 	
 	/**
-	 * ÅúÁ¿ĞÂÔöÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢
+	 * æ‰¹é‡æ–°å¢åœ¨ç±å†œä¸šäººå£ä¿¡æ¯
 	 * @param list
-	 * 		ÔÚ¼®Å©ÒµÈË¿Ú¼¯ºÏ
+	 * 		åœ¨ç±å†œä¸šäººå£é›†åˆ
 	 * @return String
-	 * 		Formater ĞòÁĞ»¯¶ÔÏó
+	 * 		Formater åºåˆ—åŒ–å¯¹è±¡
 	 */
 	String addBatch(List<RegistedAgricultureInfoDto> list);
 	
 	/**
-	 * ±à¼­ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢
+	 * ç¼–è¾‘åœ¨ç±å†œä¸šäººå£ä¿¡æ¯
 	 * @param dto
-	 * 		´ı±à¼­µÄÔÚ¼®Å©ÒµÈË¿Údto
+	 * 		å¾…ç¼–è¾‘çš„åœ¨ç±å†œä¸šäººå£dto
 	 * @return String
-	 * 		Formater ĞòÁĞ»¯¶ÔÏó
+	 * 		Formater åºåˆ—åŒ–å¯¹è±¡
 	 */
 	String editInfo(RegistedAgricultureInfoDto dto);
 	
 	/**
-	 * ¸ù¾İidÉ¾³ıÖ¸¶¨µÄÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢
+	 * æ ¹æ®idåˆ é™¤æŒ‡å®šçš„åœ¨ç±å†œä¸šäººå£ä¿¡æ¯
 	 * @param id
 	 * 		id
 	 * @return String
-	 * 		Formater ĞòÁĞ»¯¶ÔÏó
+	 * 		Formater åºåˆ—åŒ–å¯¹è±¡
 	 */
 	String delInfo(UUID id);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²éÑ¯½á¹û¼¯
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæŸ¥è¯¢ç»“æœé›†
 	 * @param queryModel
-	 *		²éÑ¯model
+	 *		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return String
-	 * 		List<RegistedAgricultureInfoDto> ĞòÁĞ»¯¶ÔÏó
+	 * 		List<RegistedAgricultureInfoDto> åºåˆ—åŒ–å¯¹è±¡
 	 */
 	String queryByPage4Json(RegistedAgricQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯modelºÍ·ÖÒ³model²éÑ¯½á¹û¼¯
+	 * æ ¹æ®æŸ¥è¯¢modelå’Œåˆ†é¡µmodelæŸ¥è¯¢ç»“æœé›†
 	 * @param queryModel
-	 *		²éÑ¯model
+	 *		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return String
 	 * 		List<RegistedAgricultureInfoDto>
 	 */

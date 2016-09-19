@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.serviceContract.socialsecurityMgt;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,90 +11,90 @@ import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQuery
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SsImportAndExportDto;
 
 /**
- * Éç±£¹ÜÀí½Ó¿Ú
+ * ç¤¾ä¿ç®¡ç†æ¥å£
  * @author jjh
  * @time 2015-12-30 17:39
  */
 public interface ISocialsecurityMgtServiceContract {
 	/**
-	 * Â¼ÈëÉç±£ĞÅÏ¢
+	 * å½•å…¥ç¤¾ä¿ä¿¡æ¯
 	 * @param dto
-	 * 		Éç±£ĞÅÏ¢dto
+	 * 		ç¤¾ä¿ä¿¡æ¯dto
 	 * @return
-	 * 		ĞÂÔöºóµÄÉç±£ĞÅÏ¢
+	 * 		æ–°å¢åçš„ç¤¾ä¿ä¿¡æ¯
 	 */
 	String addSSInfo(NewSocialsecurityDto dto);
 	
 	/**
-	 * ÅúÁ¿ĞÂÔöÉç±£Êı¾İ
+	 * æ‰¹é‡æ–°å¢ç¤¾ä¿æ•°æ®
 	 * @param list
-	 * 		´ıĞÂÔöµÄÉç±£¼¯ºÏÊı¾İ
+	 * 		å¾…æ–°å¢çš„ç¤¾ä¿é›†åˆæ•°æ®
 	 * @return
 	 */
 	String addBatch(List<NewSocialsecurityDto> list);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯model²éÑ¯Êı¾İ
+	 * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢æ•°æ®
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryFuzzyByAdd(SocialsecurityQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯model²éÑ¯Êı¾İ
+	 * æ ¹æ®æŸ¥è¯¢modelæŸ¥è¯¢æ•°æ®
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	String queryFuzzyByAddJson(SocialsecurityQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * Ì¨ÕË²éÑ¯½Ó¿Ú
+	 * å°è´¦æŸ¥è¯¢æ¥å£
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
-	 * 		Ì¨ÕËdto¼¯ºÏ
+	 * 		å°è´¦dtoé›†åˆ
 	 */
 	PageFormater query4TableListByFuzzy(SocialsecurityQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * Ì¨ÕË²éÑ¯½Ó¿Ú
+	 * å°è´¦æŸ¥è¯¢æ¥å£
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
-	 * 		Ì¨ÕËdto jsonÊı¾İ
+	 * 		å°è´¦dto jsonæ•°æ®
 	 */
 	String query4TableByFuzzy(SocialsecurityQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ±à¼­Éç±£ĞÅÏ¢
+	 * ç¼–è¾‘ç¤¾ä¿ä¿¡æ¯
 	 * @param dto
-	 * 		´ı¸üĞÂµÄÉç±£Êı¾İ
+	 * 		å¾…æ›´æ–°çš„ç¤¾ä¿æ•°æ®
 	 * @return
 	 */
 	String editSS(NewSocialsecurityDto dto);
 	
 	/**
-	 * É¾³ıÖ¸¶¨Éç±£idµÄÊı¾İ
+	 * åˆ é™¤æŒ‡å®šç¤¾ä¿idçš„æ•°æ®
 	 * @param uuids
-	 * 		´ıÉ¾³ıµÄidÊı×é
+	 * 		å¾…åˆ é™¤çš„idæ•°ç»„
 	 * @return
 	 */
 	String deleteSS(UUID... uuids);
 	
 	/**
-	 * µ¼ÈëÉç±£ĞÅÏ¢
+	 * å¯¼å…¥ç¤¾ä¿ä¿¡æ¯
 	 * @param list
-	 * 		Éç±£¼¯ºÏ
+	 * 		ç¤¾ä¿é›†åˆ
 	 * @return String
 	 * 		json
 	 */	

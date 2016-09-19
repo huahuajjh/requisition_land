@@ -2,56 +2,56 @@ package com.tq.requisition.infrastructure.log;
 
 /**
  * @description
- * 		ÈÕÖ¾½Ó¿Ú£¬¼Ì³Ğ¸Ã½Ó¿ÚÊµÏÖÈÕÖ¾ÏµÍ³µÄÊµÏÖ
+ * 		æ—¥å¿—æ¥å£ï¼Œç»§æ‰¿è¯¥æ¥å£å®ç°æ—¥å¿—ç³»ç»Ÿçš„å®ç°
  * @author jjh
  * @time 2015-12-14 18:19
  */
 public interface ILog {
 	/**
-	 *	info¼¶±ğÈÕÖ¾Êä³ö
+	 *	infoçº§åˆ«æ—¥å¿—è¾“å‡º
 	 */	
 	public void info(Object message);
 	
 	/**
-	 *	info¼¶±ğÈÕÖ¾Êä³ö
+	 *	infoçº§åˆ«æ—¥å¿—è¾“å‡º
 	 * @param className
-	 * 		Êä³öÈÕÖ¾µÄclass name
+	 * 		è¾“å‡ºæ—¥å¿—çš„class name
 	 * @param methodName
-	 * 		Êä³öÈÕÖ¾µÄmethod name
+	 * 		è¾“å‡ºæ—¥å¿—çš„method name
 	 * @param message
-	 * 		ÈÕÖ¾ÏûÏ¢
+	 * 		æ—¥å¿—æ¶ˆæ¯
 	 */
 	public void info(String className,String methodName,Object message);
 	
 	/**
-	 *	debug¼¶±ğÈÕÖ¾Êä³ö
+	 *	debugçº§åˆ«æ—¥å¿—è¾“å‡º
 	 */
 	public void debug(Object message);
 	
 	/**
-	 *	info¼¶±ğÈÕÖ¾Êä³ö
+	 *	infoçº§åˆ«æ—¥å¿—è¾“å‡º
 	 * @param className
-	 * 		Êä³öÈÕÖ¾µÄclass name
+	 * 		è¾“å‡ºæ—¥å¿—çš„class name
 	 * @param methodName
-	 * 		Êä³öÈÕÖ¾µÄmethod name
+	 * 		è¾“å‡ºæ—¥å¿—çš„method name
 	 * @param message
-	 * 		ÈÕÖ¾ÏûÏ¢
+	 * 		æ—¥å¿—æ¶ˆæ¯
 	 */
 	public void debug(String className,String methodName,Object message);
 		
 	/**
-	 *	error¼¶±ğÈÕÖ¾Êä³ö
+	 *	errorçº§åˆ«æ—¥å¿—è¾“å‡º
 	 */
 	public void error(Object message);
 	
 	/**
-	 *	info¼¶±ğÈÕÖ¾Êä³ö
+	 *	infoçº§åˆ«æ—¥å¿—è¾“å‡º
 	 * @param className
-	 * 		Êä³öÈÕÖ¾µÄclass name
+	 * 		è¾“å‡ºæ—¥å¿—çš„class name
 	 * @param methodName
-	 * 		Êä³öÈÕÖ¾µÄmethod name
+	 * 		è¾“å‡ºæ—¥å¿—çš„method name
 	 * @param message
-	 * 		ÈÕÖ¾ÏûÏ¢
+	 * 		æ—¥å¿—æ¶ˆæ¯
 	 */
 	public void error(String className,String methodName,Object message);
 	

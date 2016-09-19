@@ -1,47 +1,47 @@
-package com.tq.requisition.presentation.dto.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.dto.socialsecurityMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * ĞÂÔöÉç±£ĞÅÏ¢dto
+ * æ–°å¢ç¤¾ä¿ä¿¡æ¯dto
  * @author jjh
- * @time 2015-12-31 18£º57
+ * @time 2015-12-31 18ï¼š57
  */
 public class NewSocialsecurityDto {
 	/*private fields*/
 	private UUID id;
-	/**Éç±£ÈËid*/
+	/**ç¤¾ä¿äººid*/
 	private UUID fmlItemId;
-	/**ÄÉÈëÉç±£ÈÕÆÚ*/
+	/**çº³å…¥ç¤¾ä¿æ—¥æœŸ*/
 	private Date socialsecurityDate;
-	/**ÏíÊÜÉç±£ÀàĞÍid*/
+	/**äº«å—ç¤¾ä¿ç±»å‹id*/
 	private UUID socialsecurityTypeId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**²Ù×÷ÈËid*/
+	/**æ“ä½œäººid*/
 	private UUID oprUserId;
 	private boolean del;
-	/**¾ü¶Ó·şÒÛÊ±¼ä(ÔÂ)*/
+	/**å†›é˜Ÿæœå½¹æ—¶é—´(æœˆ)*/
 	private Integer serveArmyTime;
-	/**ÑøÀÏ±£ÏÕ²¹½ÉÄêÏŞ*/
+	/**å…»è€ä¿é™©è¡¥ç¼´å¹´é™*/
 	private Integer endowmentInsuranceYear;
-	/**Ò½ÁÆ±£ÏÕÊÓÍ¬½É·ÑÔÂÊı*/
+	/**åŒ»ç–—ä¿é™©è§†åŒç¼´è´¹æœˆæ•°*/
 	private Integer medicalInsuranceMonth;
-	/**²Î¼ÓºÎÖÖÒ½ÁÆ±£ÏÕ*/
+	/**å‚åŠ ä½•ç§åŒ»ç–—ä¿é™©*/
 	private String joinWhichMedicalInsurance;
-	/**ËùÊôÉçÇø*/
+	/**æ‰€å±ç¤¾åŒº*/
 	private String community;
-	/**·şĞÌ»òÀÍ¶¯½ÌÑøÊ±¼ä(ÔÂ)*/
+	/**æœåˆ‘æˆ–åŠ³åŠ¨æ•™å…»æ—¶é—´(æœˆ)*/
 	private Integer prisonTime;
-	/**ÊÇ·ñ²Î¼Ó¹ıÉç±£*/
+	/**æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿*/
 	private Boolean isSocialsecurity;
-	/**ÄêÁä¶Î*/
+	/**å¹´é¾„æ®µ*/
 	private String ageRange;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
 	/*constructors*/

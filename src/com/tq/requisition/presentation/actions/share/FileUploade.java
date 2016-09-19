@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.share;
+ï»¿package com.tq.requisition.presentation.actions.share;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,11 +17,11 @@ import com.tq.requisition.presentation.actions.BaseAction;
 public class FileUploade extends BaseAction {	
 	
 	private String fileType;
-    private File file ; //¾ßÌåÉÏ´«ÎÄ¼şµÄ ÒıÓÃ , Ö¸ÏòÁÙÊ±Ä¿Â¼ÖĞµÄÁÙÊ±ÎÄ¼ş  
-    private String fileFileName ;  // ÉÏ´«ÎÄ¼şµÄÃû×Ö ,FileName ¹Ì¶¨µÄĞ´·¨  
-//    private String fileContentType ; //ÉÏ´«ÎÄ¼şµÄÀàĞÍ£¬ ContentType ¹Ì¶¨µÄĞ´·¨
+    private File file ; //å…·ä½“ä¸Šä¼ æ–‡ä»¶çš„ å¼•ç”¨ , æŒ‡å‘ä¸´æ—¶ç›®å½•ä¸­çš„ä¸´æ—¶æ–‡ä»¶  
+    private String fileFileName ;  // ä¸Šä¼ æ–‡ä»¶çš„åå­— ,FileName å›ºå®šçš„å†™æ³•  
+//    private String fileContentType ; //ä¸Šä¼ æ–‡ä»¶çš„ç±»å‹ï¼Œ ContentType å›ºå®šçš„å†™æ³•
     
-    private String baseSFFile;//base64Í¼Æ¬ÎÄ¼ş
+    private String baseSFFile;//base64å›¾ç‰‡æ–‡ä»¶
 	
 	public String updateFile() throws IOException{
 		String jsonState = "";
@@ -43,9 +43,9 @@ public class FileUploade extends BaseAction {
 			FileUtils.copyFile(file, tempFile);
 			file.delete();
 			String rFilePath =fileFileName + "/uploadFile" + ConstValue.getType(fileType) + "/"+name;
-			jsonState = toForMaterJson(OperationResult.SUCCESS,"ÉÏ´«ÎÄ¼ş³É¹¦",rFilePath);
+			jsonState = toForMaterJson(OperationResult.SUCCESS,"ä¸Šä¼ æ–‡ä»¶æˆåŠŸ",rFilePath);
 		} catch (Exception e) {
-			jsonState = toForMaterJson(OperationResult.ERROR,"ÉÏ´«ÎÄ¼şÊ§°Ü");
+			jsonState = toForMaterJson(OperationResult.ERROR,"ä¸Šä¼ æ–‡ä»¶å¤±è´¥");
 		}
 		response().getWriter().write(jsonState);
 		return null;
@@ -54,12 +54,12 @@ public class FileUploade extends BaseAction {
 	public String saveFile() throws IOException{
 		String stateJson = "";
 		if(baseSFFile == null || baseSFFile.equals("")){
-			stateJson = toForMaterJson(OperationResult.ERROR, "Ìá½»ĞÅÏ¢ÓÉ´íÎó");
+			stateJson = toForMaterJson(OperationResult.ERROR, "æäº¤ä¿¡æ¯ç”±é”™è¯¯");
 		} else {
 			BASE64Decoder decoder = new BASE64Decoder();
 			byte[] bytes = decoder.decodeBuffer(baseSFFile);
 			for (int i = 0; i < bytes.length; ++i) {
-				if (bytes[i] < 0) {// µ÷ÕûÒì³£Êı¾İ
+				if (bytes[i] < 0) {// è°ƒæ•´å¼‚å¸¸æ•°æ®
 					bytes[i] += 256;
 				}
 			}
@@ -81,7 +81,7 @@ public class FileUploade extends BaseAction {
 				}
 			}
 			String rFilePath = "uploadFile" + ConstValue.getType("EVIDENCE_FILE") +"/"+ fileName;
-			stateJson = toForMaterJson(OperationResult.SUCCESS, "ÉÏ´«ÎÄ¼ş³É¹¦",rFilePath);
+			stateJson = toForMaterJson(OperationResult.SUCCESS, "ä¸Šä¼ æ–‡ä»¶æˆåŠŸ",rFilePath);
 		}
 		response().getWriter().write(stateJson);
 		return null;

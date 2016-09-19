@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.socialSecurityMansgement;
+Ôªøpackage com.tq.requisition.presentation.actions.socialSecurityMansgement;
 
 import java.io.IOException;
 import java.util.Date;
@@ -79,7 +79,7 @@ public class SolmQuery extends BaseAction {
 			 dto.setOprUserId(userId());
 			 stateJson = this.socialsecurityMgtServiceContract.editSS(dto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR," ˝æ›∏Ò Ω≤ª’˝»∑");
+			stateJson = toForMaterJson(OperationResult.ERROR,"Êï∞ÊçÆÊ†ºÂºè‰∏çÊ≠£Á°Æ");
 		}
 		response().getWriter().write(stateJson);
 		return null;

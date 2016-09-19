@@ -1,9 +1,9 @@
-package com.tq.requisition.presentation.dto.removedinfo;
+锘縫ackage com.tq.requisition.presentation.dto.removedinfo;
 
 import java.util.UUID;
 
 /**
- * 已迁户档案信息查询model
+ * 宸茶縼鎴锋。妗堜俊鎭煡璇odel
  * @author jjh
  * 	@time 2016-01-11 18::54
  *

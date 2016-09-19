@@ -1,10 +1,10 @@
-package com.tq.requisition.presentation.dto.transferMgt;
+ï»¿package com.tq.requisition.presentation.dto.transferMgt;
 
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * ×ª»§ĞÅÏ¢²éÑ¯dto£¬UIMODEL£¬ÓÃÓÚÌ¨ÕËmodel
+ * è½¬æˆ·ä¿¡æ¯æŸ¥è¯¢dtoï¼ŒUIMODELï¼Œç”¨äºå°è´¦model
  * @author jjh
  * @time 2015-12-30 18:47
  *
@@ -12,31 +12,31 @@ import java.util.UUID;
 public class TransferInfoDto4Table {
 	/*private fields*/
 	private UUID id;
-	/**×ª»§ÈËĞÕÃû*/
+	/**è½¬æˆ·äººå§“å*/
 	private String name;
-	/**×ª»§ÈËÉí·İÖ¤*/
+	/**è½¬æˆ·äººèº«ä»½è¯*/
 	private String idNumber;
-	/**×ª»§È«µØÖ·*/
+	/**è½¬æˆ·å…¨åœ°å€*/
 	private String address;
-	/**×ª»§ÈÕÆÚ*/
+	/**è½¬æˆ·æ—¥æœŸ*/
 	private Date transferDate;
-	/**×ª»§ºóµÄ»§¿ÚÀàĞÍ*/
+	/**è½¬æˆ·åçš„æˆ·å£ç±»å‹*/
 	private String houseHoldTypeStr;
-	/**ËùÊôÏîÄ¿id*/
+	/**æ‰€å±é¡¹ç›®id*/
 	private UUID proId;
-	/**ËùÊôÏîÄ¿Ãû³Æ*/
+	/**æ‰€å±é¡¹ç›®åç§°*/
 	private String proName;
-	/**±»²ğÇ¨ÈËÔ±id*/
+	/**è¢«æ‹†è¿äººå‘˜id*/
 	private UUID fmlItemId;
-	/**×ª»§ĞÅÏ¢id*/
+	/**è½¬æˆ·ä¿¡æ¯id*/
 	private UUID transferId;
-	/**»§¿ÚÀàĞÍid*/
+	/**æˆ·å£ç±»å‹id*/
 	private UUID houseHoldTypeId;
-	/**½ÖµÀµØÖ·id*/
+	/**è¡—é“åœ°å€id*/
 	private UUID streetId;
-	/**ÉçÇøµØÖ·id*/
+	/**ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**×éµØÖ·id*/
+	/**ç»„åœ°å€id*/
 	private UUID groupId;
 	
 	

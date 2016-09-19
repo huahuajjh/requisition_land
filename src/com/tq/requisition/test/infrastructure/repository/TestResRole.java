@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+锘縫ackage com.tq.requisition.test.infrastructure.repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -59,7 +59,7 @@ public class TestResRole {
 		boolean r = repository.exists(new SpecificationExt<ResRole>(ResRole.class) {
 			@Override
 			public String getAbsHql() {
-				throw new NotImplementedException("未实现的方法getAbsHql()");
+				throw new NotImplementedException("鏈疄鐜扮殑鏂规硶getAbsHql()");
 			}
 			@Override
 			public String getAbsSql() {

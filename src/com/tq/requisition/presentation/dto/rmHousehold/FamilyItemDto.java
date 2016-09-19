@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.Date;
 import java.util.UUID;
@@ -9,65 +9,65 @@ public class FamilyItemDto {
 	/* private fields */
 	/** id */
 	private UUID id;
-	/** ĞÕÃû */
+	/** å§“å */
 	private String name;
-	/** Éí·İÖ¤ºÅ */
+	/** èº«ä»½è¯å· */
 	private String idNumber;
-	/** ³öÉúÄêÔÂ */
+	/** å‡ºç”Ÿå¹´æœˆ */
 	private Date birthday;
-	/** ĞÔ„e */
+	/** æ€§åˆ« */
 	private Gender gender;
-	/** ªšÉí×ÓÅ®Ì– */
+	/** ç‹¬èº«å­å¥³å· */
 	private String onlyChildNumber;
-	/** °ëß…‘ô */
+	/** åŠè¾¹æˆ· */
 	private boolean half;
-	/** ¼ÒÍ¥×¡Ö· */
+	/** å®¶åº­ä½å€ */
 	private String address;
-	/** Óë»§Ö÷¹ØÏµ */
+	/** ä¸æˆ·ä¸»å…³ç³» */
 	private String relationshipStr;
-	/** »§¿ÚĞÔÖÊ */
+	/** æˆ·å£æ€§è´¨ */
 	private String householdStr;
-	/** Éç±£ÀàĞÍ */
+	/** ç¤¾ä¿ç±»å‹ */
 	private String socialsecurityStr;
-	/** ½ÖµÀid */
+	/** è¡—é“id */
 	private UUID streetId;
-	/** ÉçÇøid */
+	/** ç¤¾åŒºid */
 	private UUID communityId;
-	/** Óë»§Ö÷¹ØÏµid */
+	/** ä¸æˆ·ä¸»å…³ç³»id */
 	private UUID relationshipId;
-	/** »§¿ÚÀàĞÍid */
+	/** æˆ·å£ç±»å‹id */
 	private UUID householdId;
-	/** Éç±£ÀàĞÍid */
+	/** ç¤¾ä¿ç±»å‹id */
 	private UUID socialsecurityTypeId;
-	/** ÏîÄ¿id */
+	/** é¡¹ç›®id */
 	private UUID proId;
-	/** ËùÊô»§id */
+	/** æ‰€å±æˆ·id */
 	private UUID fmlId;
-	/** ËùÊôÏîÄ¿Ãû³Æ */
+	/** æ‰€å±é¡¹ç›®åç§° */
 	private String proName;
-	/** ÊÇ·ñ²ğÇ¨ */
+	/** æ˜¯å¦æ‹†è¿ */
 	private boolean isRemoved;
-	/** ÊÇ·ñ×ª»§ */
+	/** æ˜¯å¦è½¬æˆ· */
 	private boolean isTransfer;
-	/** ÊÇ·ñÉç±£ */
+	/** æ˜¯å¦ç¤¾ä¿ */
 	private boolean isSS;
-	/** ×éµØÖ·id*/
+	/** ç»„åœ°å€id*/
 	private UUID groupId;
-	/**ÊÜ½ÌÓı³Ì¶È*/
+	/**å—æ•™è‚²ç¨‹åº¦*/
 	private String educationLevel;
-	/**ÔÚ¶ÁÇé¿ö*/	
+	/**åœ¨è¯»æƒ…å†µ*/	
 	private String currentEducationSituation;
-	/**ÎñÅ©Ê±¼ä*/
+	/**åŠ¡å†œæ—¶é—´*/
 	private String farmingTime;
-	/**·ş±øÒÛ£¬ÀÍ½ÌµÈÇé¿ö¼°Ê±¼ä*/
+	/**æœå…µå½¹ï¼ŒåŠ³æ•™ç­‰æƒ…å†µåŠæ—¶é—´*/
 	private String serveArmySituation;
-	/**µç»°*/
+	/**ç”µè¯*/
 	private String tel;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
-	/**ÊÇ·ñ²Î¼Ó¹ıÉç±£*/
+	/**æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿*/
 	private boolean userdSocialsecurity;
-	/**ÆäËû¹ØÏµÄÚÈİ*/
+	/**å…¶ä»–å…³ç³»å†…å®¹*/
 	private String otherRelationship;
 	
 	/*getters and setters*/

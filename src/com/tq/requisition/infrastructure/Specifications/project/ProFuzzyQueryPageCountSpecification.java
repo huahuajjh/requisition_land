@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.project.ProQueryModel;
 
 /**
- * ÏîÄ¿Ä£ºı²éÑ¯»ñÈ¡×ÜĞĞÊı¹æÔ¼Ìõ¼ş
+ * é¡¹ç›®æ¨¡ç³ŠæŸ¥è¯¢è·å–æ€»è¡Œæ•°è§„çº¦æ¡ä»¶
  * @author jjh
  * @time 2015-12-28 3:10
  *

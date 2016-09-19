@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.Date;
 import java.util.UUID;
@@ -6,25 +6,25 @@ import java.util.UUID;
 public class HPTRecevieInfoDto {
 	/**id*/
 	private UUID id;
-	/**¹º·¿È¯id*/
+	/**è´­æˆ¿åˆ¸id*/
 	private UUID ticketId;
-	/**¹º·¿È¯ËùÓĞÕß*/
+	/**è´­æˆ¿åˆ¸æ‰€æœ‰è€…*/
 	private UUID ownerId;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private UUID oprUserId;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprDate;
-	/**ÁìÈ¡Æ¾Ö¤*/
+	/**é¢†å–å‡­è¯*/
 	private String evidenceOfGetting;
-	/**ÁìÓÃÈËĞÕÃû*/
+	/**é¢†ç”¨äººå§“å*/
 	private String name;
-	/**ÁìÓÃÈËÉí·İÖ¤*/
+	/**é¢†ç”¨äººèº«ä»½è¯*/
 	private String idNumber;
-	/**ÁìÓÃÊ±¼ä*/
+	/**é¢†ç”¨æ—¶é—´*/
 	private Date gettingDate;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	private String remark;
 	
 	public UUID getId() {

@@ -1,42 +1,42 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.UUID;
 
 import com.tq.requisition.infrastructure.utils.ThreeState;
 
 /**
- * Ä£ºı²éÑ¯²ğÇ¨ÈËÔ±model
+ * æ¨¡ç³ŠæŸ¥è¯¢æ‹†è¿äººå‘˜model
  * @author jjh
- * @time 2015-12-29 15£º39
+ * @time 2015-12-29 15ï¼š39
  *
  */
 public class FamilyItemQueryModel {
 		/*private fields*/
-		/**Éí·İÖ¤*/
+		/**èº«ä»½è¯*/
 		private String idNumber;
-		/**ÏîÄ¿Ãû³Æ*/
+		/**é¡¹ç›®åç§°*/
 		private String proName;
-		/**ÊÇ·ñÊÇ¶ÀÉí×ÓÅ®Ã¶¾Ù*/
+		/**æ˜¯å¦æ˜¯ç‹¬èº«å­å¥³æšä¸¾*/
 		private ThreeState isOnlyChild;
-		/**ÊÇ·ñÊÇ°ë±ß»§*/
+		/**æ˜¯å¦æ˜¯åŠè¾¹æˆ·*/
 		private ThreeState half;
 		/**the street address id*/
 		private UUID streetId;
 		/**the community address id*/
 		private UUID communityId;
-		/**ÊÇ·ñ×ª»§Ã¶¾Ù*/
+		/**æ˜¯å¦è½¬æˆ·æšä¸¾*/
 		private ThreeState isTransfer;
-		/**ÊÇ·ñÉç±£Ã¶¾Ù*/
+		/**æ˜¯å¦ç¤¾ä¿æšä¸¾*/
 		private ThreeState isSSecurity;
-		/**×éµØÖ·id*/
+		/**ç»„åœ°å€id*/
 		private UUID groupId;
-		/**ĞÕÃû*/
+		/**å§“å*/
 		private String name;
-		/**»§Ö÷ĞÕÃû*/
+		/**æˆ·ä¸»å§“å*/
 		private String headName;
-		/**´´½¨ÈËµÄID*/
+		/**åˆ›å»ºäººçš„ID*/
 		private String createUId;
-		/**µØÖ·*/
+		/**åœ°å€*/
 		private String address;
 		
 		public String getIdNumber() {

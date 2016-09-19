@@ -14,10 +14,10 @@ import com.tq.requisition.infrastructure.Specifications.resource.ResourceByTypeL
 import com.tq.requisition.infrastructure.Specifications.resource.ResourceListSpecifocations;
 
 /**
- * ×ÊÔ´¾ÛºÏ¸ù²Ö´¢ÊµÏÖ
+ * èµ„æºèšåˆæ ¹ä»“å‚¨å®ç°
  * 
  * @author jjh
- * @time 2015-12-21 18£º14
+ * @time 2015-12-21 18ï¼š14
  */
 public class ResourceRepository extends HbRepository<Resource> implements
 		IResourceRepository {

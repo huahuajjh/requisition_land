@@ -18,7 +18,7 @@ import com.tq.requisition.infrastructure.Repository.HbRepository;
 import com.tq.requisition.infrastructure.Specifications.resRole.ResourIdsAtRoleIdsSpecifications;
 
 /**
- * 角色资源仓储
+ * 瑙掕壊璧勬簮浠撳偍
  * @author jjh
  * @time 2015-12-21 21:20
  */
@@ -43,7 +43,7 @@ public class ResRoleRepository  extends HbRepository<ResRole> implements IResRol
 		int r = executeUpdate(new SpecificationExt<ResRole>(ResRole.class) {
 			@Override
 			public String getAbsHql() {
-				throw new NotImplementedException("未使用hql表达式，待实现的方法getAbsHql()");
+				throw new NotImplementedException("鏈娇鐢╤ql琛ㄨ揪寮忥紝寰呭疄鐜扮殑鏂规硶getAbsHql()");
 			}
 			@Override
 			public String getAbsSql() {
@@ -66,7 +66,7 @@ public class ResRoleRepository  extends HbRepository<ResRole> implements IResRol
 		boolean r = exists(new SpecificationExt<ResRole>(ResRole.class) {
 			@Override
 			public String getAbsHql() {
-				throw new NotImplementedException("未实现的方法getAbsHql()");
+				throw new NotImplementedException("鏈疄鐜扮殑鏂规硶getAbsHql()");
 			}
 			@Override
 			public String getAbsSql() {
@@ -83,7 +83,7 @@ public class ResRoleRepository  extends HbRepository<ResRole> implements IResRol
 		});
 		if(r)
 		{
-			throw new DataAlreadyExistsException("为该角色指定资源已经存在");
+			throw new DataAlreadyExistsException("涓鸿瑙掕壊鎸囧畾璧勬簮宸茬粡瀛樺湪");
 		}
 		add(ResRole.obtain(rid, resId));
 	}
@@ -92,7 +92,7 @@ public class ResRoleRepository  extends HbRepository<ResRole> implements IResRol
 	public List<UUID> getResourcesByRid(final UUID rid) {
 		if(null == rid)
 		{
-			throw new NullPointerException("角色id為null");
+			throw new NullPointerException("瑙掕壊id鐐簄ull");
 		}
 		List<UUID> idList = new ArrayList<>();
 		SQLQuery sql = hbContext().session().createSQLQuery("select res_id from tb_permission where role_id='"+rid.toString()+"'");

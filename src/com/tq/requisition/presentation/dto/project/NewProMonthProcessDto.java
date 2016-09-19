@@ -1,33 +1,33 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.util.Date;
 
 public class NewProMonthProcessDto {
-	/** ÔÂ¶ÈÌî±¨Ê±¼ä */
+	/** æœˆåº¦å¡«æŠ¥æ—¶é—´ */
 	private Date date;
-	/** ±¾ÔÂÒÑÌÚµØ */
+	/** æœ¬æœˆå·²è…¾åœ° */
 	private float removedLandArea;
-	/** ±¾ÔÂÒÑ²ğ¶°Êı */
+	/** æœ¬æœˆå·²æ‹†æ ‹æ•° */
 	private int removedBuildings;
-	/** ±¾ÔÂÒÑÇ¨»§Êı */
+	/** æœ¬æœˆå·²è¿æˆ·æ•° */
 	private int rmovedHouses;
-	/** ±¾ÔÂÒÑ²ğºÏ·¨Ãæ»ı */
+	/** æœ¬æœˆå·²æ‹†åˆæ³•é¢ç§¯ */
 	private float removedLegalArea;
-	/** ±¾ÔÂÒÑ²ğÎ¥ÕÂÃæ»ı */
+	/** æœ¬æœˆå·²æ‹†è¿ç« é¢ç§¯ */
 	private float removedIllegalArea;
-	/** ±¾ÔÂÒÑ¶¯Ç¨ÈË¿Ú */
+	/** æœ¬æœˆå·²åŠ¨è¿äººå£ */
 	private int movedPopulation;
-	/** ±¾ÔÂÒÑ¸¶Åâ³¥¿î */
+	/** æœ¬æœˆå·²ä»˜èµ”å¿æ¬¾ */
 	private float paidMoney;
-	/** ±¾ÄêÏÂ´ïÏŞÆÚÌÚµØ¾ö¶¨Êé */
+	/** æœ¬å¹´ä¸‹è¾¾é™æœŸè…¾åœ°å†³å®šä¹¦ */
 	private int yearDeadlineFile;
-	/** ±¾ÄêÉêÇë·¨ÔºÖ´ĞĞ */
+	/** æœ¬å¹´ç”³è¯·æ³•é™¢æ‰§è¡Œ */
 	private int yearCourtExecute;
-	/** ±¾ÄêÒÀ·¨ÊµÊ©Ç¿ÖÆÌÚµØ»§Êı */
+	/** æœ¬å¹´ä¾æ³•å®æ–½å¼ºåˆ¶è…¾åœ°æˆ·æ•° */
 	private int yearLegalRemoved;
-	/** ±¸×¢ */
+	/** å¤‡æ³¨ */
 	private String remark;
-	/** ±¾ÔÂĞÂÆô¶¯ */
+	/** æœ¬æœˆæ–°å¯åŠ¨ */
 	private boolean newStart;
 	public Date getDate() {
 		return date;

@@ -10,55 +10,55 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.socialsecurityMgt.SocialsecurityQueryModel;
 
 /**
- * Éç±£²Ö´¢½Ó¿Ú
+ * ç¤¾ä¿ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-31 20:26
  */
 public interface ISocialsecurityRepository extends IRepository<SocialsecurityInfo>{
 	/**
-	 * ĞÂÔöÉç±£ĞÅÏ¢
+	 * æ–°å¢ç¤¾ä¿ä¿¡æ¯
 	 * @param ss
-	 * 		´ıĞÂÔöµÄÉç±£ĞÅÏ¢
+	 * 		å¾…æ–°å¢çš„ç¤¾ä¿ä¿¡æ¯
 	 */
 	void addSS(SocialsecurityInfo ss) throws SpecifiedObjectDoesNotExistsException ;
 	
 	/**
-	 * ÅúÁ¿ĞÂÔöÉç±£Êı¾İ
+	 * æ‰¹é‡æ–°å¢ç¤¾ä¿æ•°æ®
 	 * @param list
-	 * 		´ıĞÂÔöµÄÉç±£¼¯ºÏÊı¾İ
+	 * 		å¾…æ–°å¢çš„ç¤¾ä¿é›†åˆæ•°æ®
 	 */
 	void addBatch(List<SocialsecurityInfo> list) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄidÉ¾³ıÉç±£ĞÅÏ¢ÊµÌå
+	 * æ ¹æ®æŒ‡å®šçš„idåˆ é™¤ç¤¾ä¿ä¿¡æ¯å®ä½“
 	 * @param uuids
-	 * 		´ıÉ¾³ıµÄidÊı×é
+	 * 		å¾…åˆ é™¤çš„idæ•°ç»„
 	 */
 	void deleteSS(UUID... uuids);
 	
 	/**
-	 * ±à¼­Ö¸¶¨µÄÉç±£ĞÅÏ¢
+	 * ç¼–è¾‘æŒ‡å®šçš„ç¤¾ä¿ä¿¡æ¯
 	 * @param ss
-	 * 		´ı¸üĞÂµÄÉç±£ÊµÌå
+	 * 		å¾…æ›´æ–°çš„ç¤¾ä¿å®ä½“
 	 */
 	void editSS(SocialsecurityInfo ss) throws SpecifiedObjectDoesNotExistsException;
 	
 	/**
-	 * ·ÖÒ³²éÑ¯Éç±£Êı¾İÌ¨ÕË,Ì¨ÕË²éÑ¯
+	 * åˆ†é¡µæŸ¥è¯¢ç¤¾ä¿æ•°æ®å°è´¦,å°è´¦æŸ¥è¯¢
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater query4TableByFuzzy(SocialsecurityQueryModel queryModel,PageModel pageModel);
 
 	/**
-	 * ĞÂÔöÉç±£Êı¾İÊ±µÄ²éÑ¯£¬·ÖÒ³²éÑ¯Éç±£Êı¾İÌ¨ÕË
+	 * æ–°å¢ç¤¾ä¿æ•°æ®æ—¶çš„æŸ¥è¯¢ï¼Œåˆ†é¡µæŸ¥è¯¢ç¤¾ä¿æ•°æ®å°è´¦
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater query4AddByFuzzy(SocialsecurityQueryModel queryModel,PageModel pageModel);

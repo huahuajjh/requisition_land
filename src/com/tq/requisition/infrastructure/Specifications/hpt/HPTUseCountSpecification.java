@@ -9,7 +9,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 
 /**
- * ¹æÔ¼£¬¸ù¾İ²éÑ¯model»ñÈ¡¹º·¿È¯Ê¹ÓÃÌ¨ÕË×Ü¼ÇÂ¼
+ * è§„çº¦ï¼Œæ ¹æ®æŸ¥è¯¢modelè·å–è´­æˆ¿åˆ¸ä½¿ç”¨å°è´¦æ€»è®°å½•
  * @author jjh
  * @time 2015-01-04 2::09
  *

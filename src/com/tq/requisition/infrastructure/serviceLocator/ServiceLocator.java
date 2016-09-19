@@ -9,7 +9,7 @@ import com.tq.requisition.infrastructure.log.LoggerFactory;
 
 /*
  * @description
- * 		·şÎñ¶¨Î»Æ÷
+ * 		æœåŠ¡å®šä½å™¨
  * @author jjh
  * @time 2015-12-14 23:42
  */
@@ -32,7 +32,7 @@ public final class ServiceLocator implements IServiceLocator {
 			springContext = new ClassPathXmlApplicationContext(
 					"../config/spring.xml");
 		} catch (BeansException e) {
-			// Èç¹ûweb¶ÁÈ¡ÅäÖÃÊ§°Ü£¬Ôò²ÉÓÃÎÄ¼şÏµÍ³¶ÁÈ¡
+			// å¦‚æœwebè¯»å–é…ç½®å¤±è´¥ï¼Œåˆ™é‡‡ç”¨æ–‡ä»¶ç³»ç»Ÿè¯»å–
 			springContext = new FileSystemXmlApplicationContext(
 					"WebRoot/WEB-INF/config/spring.xml");
 		}
@@ -40,9 +40,9 @@ public final class ServiceLocator implements IServiceLocator {
 	}
 
 	/*
-	 * @description »ñÈ¡·şÎñ¶¨Î»Æ÷ÊµÀı
+	 * @description è·å–æœåŠ¡å®šä½å™¨å®ä¾‹
 	 * 
-	 * @return IServiceLocator ·µ»ØÒ»¸ö·şÎñ¶¨Î»Æ÷½Ó¿ÚÀàĞÍ
+	 * @return IServiceLocator è¿”å›ä¸€ä¸ªæœåŠ¡å®šä½å™¨æ¥å£ç±»å‹
 	 */
 	public static IServiceLocator instance() {
 		if(null==instance){
@@ -56,11 +56,11 @@ public final class ServiceLocator implements IServiceLocator {
 	}
 
 	/*
-	 * @description ¸ù¾İ·şÎñÀàĞÍ²ÎÊı£¬»ñÈ¡Ò»¸ö·şÎñÊµÀı
+	 * @description æ ¹æ®æœåŠ¡ç±»å‹å‚æ•°ï¼Œè·å–ä¸€ä¸ªæœåŠ¡å®ä¾‹
 	 * 
-	 * @param serviceType ·şÎñÀàĞÍ²ÎÊı
+	 * @param serviceType æœåŠ¡ç±»å‹å‚æ•°
 	 * 
-	 * @return TService ·şÎñÀàĞÍ
+	 * @return TService æœåŠ¡ç±»å‹
 	 */
 	@Override
 	public <TService> TService getService(Class<TService> serviceType) {
@@ -68,13 +68,13 @@ public final class ServiceLocator implements IServiceLocator {
 	}
 
 	/*
-	 * @description ¸ù¾İ·şÎñÀàĞÍ²ÎÊı£¬»ñÈ¡Ò»¸ö·şÎñÊµÀı
+	 * @description æ ¹æ®æœåŠ¡ç±»å‹å‚æ•°ï¼Œè·å–ä¸€ä¸ªæœåŠ¡å®ä¾‹
 	 * 
-	 * @param serviceType ·şÎñÀàĞÍ²ÎÊı
+	 * @param serviceType æœåŠ¡ç±»å‹å‚æ•°
 	 * 
-	 * @param springId ÅäÖÃbean½Úµãid
+	 * @param springId é…ç½®beanèŠ‚ç‚¹id
 	 * 
-	 * @return TService ·şÎñÀàĞÍ
+	 * @return TService æœåŠ¡ç±»å‹
 	 */
 	@Override
 	public <TService> TService getService(String springId,

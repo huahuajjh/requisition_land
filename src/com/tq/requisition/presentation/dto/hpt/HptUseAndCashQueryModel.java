@@ -1,22 +1,22 @@
-package com.tq.requisition.presentation.dto.hpt;
+ï»¿package com.tq.requisition.presentation.dto.hpt;
 
 import java.util.UUID;
 
 public class HptUseAndCashQueryModel {
 	
-	/**Ä£ºı²éÑ¯ÏîÄ¿*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢é¡¹ç›®*/
 	private String proName;
-	/**Ä£ºı²éÑ¯ÈËÔ±Ãû³Æ*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢äººå‘˜åç§°*/
 	private String name;
-	/**ÈËÔ±µÄÉí·İÖ¤*/
+	/**äººå‘˜çš„èº«ä»½è¯*/
 	private String idNumber;
-	/**Ä£ºı²éÑ¯½ÖµÀ*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢è¡—é“*/
 	private UUID streetId;
-	/**Ä£ºı²éÑ¯ÉçÇø*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢ç¤¾åŒº*/
 	private UUID communityId;
-	/**Ä£ºı²éÑ¯ÉçÇø×é*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢ç¤¾åŒºç»„*/
 	private UUID groupId;
-	/**¼ÒÍ¥ÈËÔ±ID*/
+	/**å®¶åº­äººå‘˜ID*/
 	private UUID fmlItemId;
 	
 	private String address;

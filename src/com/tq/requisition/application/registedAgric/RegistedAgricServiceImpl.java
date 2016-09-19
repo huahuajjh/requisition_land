@@ -16,7 +16,7 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.serviceContract.registedAgric.IRegistedAgricServiceContract;
 
 /**
- * 已迁户服务实现类
+ * 宸茶縼鎴锋湇鍔″疄鐜扮被
  * @author jjh
  * @version 1.0
  * @time 2016-01-12 22:12
@@ -37,9 +37,9 @@ public class RegistedAgricServiceImpl extends BaseApplication implements IRegist
 			context().beginTransaction();
 			registedAgricultureInfoRepository.addInfo(RegistedAgricMapper.toModel(dto));
 			context().commit();
-			return toJson("新增数据成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鏂板鏁版嵁鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("新增数据失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);			
+			return toJson("鏂板鏁版嵁澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);			
 		}
 	}
 
@@ -49,9 +49,9 @@ public class RegistedAgricServiceImpl extends BaseApplication implements IRegist
 			context().beginTransaction();
 			registedAgricultureInfoRepository.addBatch(RegistedAgricMapper.toModelList(list));
 			context().commit();
-			return toJson("新增数据成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("鏂板鏁版嵁鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("新增数据失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("鏂板鏁版嵁澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -61,9 +61,9 @@ public class RegistedAgricServiceImpl extends BaseApplication implements IRegist
 			context().beginTransaction();
 			registedAgricultureInfoRepository.editInfo(RegistedAgricMapper.toModel(dto));
 			context().commit();
-			return toJson("编辑数据成功", null, Formater.OperationResult.SUCCESS);
+			return toJson("缂栬緫鏁版嵁鎴愬姛", null, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("编辑数据失败-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("缂栬緫鏁版嵁澶辫触-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -73,16 +73,16 @@ public class RegistedAgricServiceImpl extends BaseApplication implements IRegist
 			context().beginTransaction();
 			registedAgricultureInfoRepository.delById(id);
 			context().commit();
-			return toJson("删除数据成功",null , Formater.OperationResult.SUCCESS);
+			return toJson("鍒犻櫎鏁版嵁鎴愬姛",null , Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("删除数据失败-"+e.getMessage(),null , Formater.OperationResult.FAIL);
+			return toJson("鍒犻櫎鏁版嵁澶辫触-"+e.getMessage(),null , Formater.OperationResult.FAIL);
 		}
 	}
 
 	@Override
 	public String queryByPage4Json(RegistedAgricQueryModel queryModel,
 			PageModel pageModel) {
-		return toJson("获取数据成功", queryByPage4List(queryModel, pageModel), Formater.OperationResult.SUCCESS);
+		return toJson("鑾峰彇鏁版嵁鎴愬姛", queryByPage4List(queryModel, pageModel), Formater.OperationResult.SUCCESS);
 	}
 
 	@Override

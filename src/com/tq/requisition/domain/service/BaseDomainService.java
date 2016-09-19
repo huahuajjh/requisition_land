@@ -3,7 +3,7 @@ package com.tq.requisition.domain.service;
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 
 /**
- * 领域服务抽象基类
+ * 棰嗗煙鏈嶅姟鎶借薄鍩虹被
  * @author jjh
  * @time 2015-12-26 14:49
  */

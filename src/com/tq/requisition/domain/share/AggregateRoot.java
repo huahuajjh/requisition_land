@@ -5,13 +5,13 @@ import java.util.UUID;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ±íÃ÷¾ÛºÏ¸ùÀàĞÍµÄ»ùÀàĞÍ
+ * è¡¨æ˜èšåˆæ ¹ç±»å‹çš„åŸºç±»å‹
  * 
  * @author jjh
  * @time 2015-12-14 13:30
  */
 public abstract class AggregateRoot implements IAggregateRoot {
-	/* domainÊµÌåµÄÎ¨Ò»±êÊ¶ */
+	/* domainå®ä½“çš„å”¯ä¸€æ ‡è¯† */
 	protected UUID id;
 
 	// public methods

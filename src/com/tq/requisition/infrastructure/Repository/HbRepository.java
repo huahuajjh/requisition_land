@@ -21,10 +21,10 @@ import com.tq.requisition.infrastructure.Specifications.Expression.CriteriaExpre
 import com.tq.requisition.infrastructure.Specifications.share.ExistsByIdSpecification;
 
 /**
- * Hibernate²Ö´¢
+ * Hibernateä»“å‚¨
  * 
  * @param <TAggregatorRoot>
- *            ¾ÛºÏ¸ù
+ *            èšåˆæ ¹
  * @author jjh
  * @time 2015-12-17 13:45
  */
@@ -33,10 +33,10 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	private IHbRepositoryContext hbContext;
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 * @param context
-	 *            ²Ö´¢ÉÏÏÂÎÄ¶ÔÏó
+	 *            ä»“å‚¨ä¸Šä¸‹æ–‡å¯¹è±¡
 	 */
 	public HbRepository(IRepositoryContext context) {
 		super(context);
@@ -44,9 +44,9 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 
 	/**
-	 * »ñÈ¡²Ö´¢ÉÏÏÂÎÄ
+	 * è·å–ä»“å‚¨ä¸Šä¸‹æ–‡
 	 * 
-	 * @return IRepositoryContext ²Ö´¢ÉÏÏÂÎÄÊµÀı
+	 * @return IRepositoryContext ä»“å‚¨ä¸Šä¸‹æ–‡å®ä¾‹
 	 */
 	@Override
 	public IRepositoryContext context() {
@@ -55,31 +55,31 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 
 	/* protect methods */
 	/**
-	 * »ñÈ¡hibernateµÄ²Ö´¢ÉÏÏÂÎÄ
+	 * è·å–hibernateçš„ä»“å‚¨ä¸Šä¸‹æ–‡
 	 * 
-	 * @return IHbRepositoryContext hibernate²Ö´¢ÉÏÏÂÎÄ
+	 * @return IHbRepositoryContext hibernateä»“å‚¨ä¸Šä¸‹æ–‡
 	 */
 	protected IHbRepositoryContext hbContext() {
 		return hbContext;
 	}
 
 	/**
-	 * ¼ì²ârootClass
+	 * æ£€æµ‹rootClass
 	 */
 	private void checkRootClassNull() {
 		if (rootClass == null)
 			throw new RuntimeException(
-					"HbRepository:checkRootClassNull--rootClassÎª±»³õÊ¼»¯£¬ÇëÊ¹ÓÃsetAggregatorRootClass·½·¨Ö¸¶¨Òª³Ö¾Ã»¯µÄÊµÌåÀàĞÍ");
+					"HbRepository:checkRootClassNull--rootClassä¸ºè¢«åˆå§‹åŒ–ï¼Œè¯·ä½¿ç”¨setAggregatorRootClassæ–¹æ³•æŒ‡å®šè¦æŒä¹…åŒ–çš„å®ä½“ç±»å‹");
 	}
 
 	/**
-	 * ¸ù¾İid»ñÈ¡¾ÛºÏ¸ù£¬¸Ã·½·¨ÓÉ×ÓÀàÊµÏÖ
+	 * æ ¹æ®idè·å–èšåˆæ ¹ï¼Œè¯¥æ–¹æ³•ç”±å­ç±»å®ç°
 	 * 
 	 * @param key
-	 *            ¾ÛºÏ¸ùid
+	 *            èšåˆæ ¹id
 	 * @param cls
-	 *            ¾ÛºÏ¸ùclass
-	 * @return TAggregateRoot ¾ÛºÏ¸ù¶ÔÏó
+	 *            èšåˆæ ¹class
+	 * @return TAggregateRoot èšåˆæ ¹å¯¹è±¡
 	 */
 	@Override
 	protected TAggregatorRoot doGetByKey(Class<TAggregatorRoot> cls, UUID key) {
@@ -95,11 +95,11 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 
 	/**
-	 * ¸ù¾İ¹æÔ¼»ñÈ¡¾ÛºÏ¸ù¼¯ºÏ
+	 * æ ¹æ®è§„çº¦è·å–èšåˆæ ¹é›†åˆ
 	 * 
 	 * @param specification
-	 *            ¹æÔ¼
-	 * @return List<TAggregatorRoot> ¾ÛºÏ¸ùÊµÀı¼¯ºÏ
+	 *            è§„çº¦
+	 * @return List<TAggregatorRoot> èšåˆæ ¹å®ä¾‹é›†åˆ
 	 */
 	@Override
 	protected List<TAggregatorRoot> doGetAll(			
@@ -156,7 +156,7 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	 */
 	@Override
 	protected void doRemove(ISpecification<TAggregatorRoot> specification) {
-		throw new NotImplementedException("Î´ÊµÏÖµÄ·½·¨");
+		throw new NotImplementedException("æœªå®ç°çš„æ–¹æ³•");
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 		TAggregatorRoot entity = getByKey(rootClass, key);
 		if(entity == null)
 		{
-			throw new NullPointerException("¸ù¾İidÎ´²éÑ¯µ½ÊµÌå£¬Êı¾İÎªnull");
+			throw new NullPointerException("æ ¹æ®idæœªæŸ¥è¯¢åˆ°å®ä½“ï¼Œæ•°æ®ä¸ºnull");
 		}
 		doRemove(entity);
 	}
@@ -188,7 +188,7 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 		if (type == OperationType.SQL) {
 			r = expression.getSql().toLowerCase().contains(" count(");
 			if (!r) {
-				throw new QueryStatementException("ÇëÊ¹ÓÃcountµÄsql×Ó¾ä");
+				throw new QueryStatementException("è¯·ä½¿ç”¨countçš„sqlå­å¥");
 			}
 			sqlQuery = hbContext.session().createSQLQuery(expression.getSql());
 			for (int i = 0; i < objects.length; i++) {
@@ -200,7 +200,7 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 		if (type == OperationType.HQL) {
 			r = expression.getHql().toLowerCase().contains(" count(");
 			if (!r) {
-				throw new QueryStatementException("ÇëÊ¹ÓÃcountµÄsql×Ó¾ä");
+				throw new QueryStatementException("è¯·ä½¿ç”¨countçš„sqlå­å¥");
 			}
 			hqlQuery = hbContext.session().createQuery(expression.getHql());
 			for (int i = 0; i < objects.length; i++) {
@@ -272,12 +272,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 	
 	/**
-	 * ¸ù¾İhql²éÑ¯ÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®hqlæŸ¥è¯¢å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		²éÑ¯Óï¾ä
+	 * 		æŸ¥è¯¢è¯­å¥
 	 * @param objects
-	 * 		²éÑ¯²ÎÊı
+	 * 		æŸ¥è¯¢å‚æ•°
 	 * @return
 	 */
 	protected <T extends IEntity> List<T> getByHql(String query,Object... objects) {
@@ -292,12 +292,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 
 	/**
-	 * ¸ù¾İsql²éÑ¯ÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®sqlæŸ¥è¯¢å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		²éÑ¯Óï¾ä
+	 * 		æŸ¥è¯¢è¯­å¥
 	 * @param objects
-	 * 		²éÑ¯²ÎÊı
+	 * 		æŸ¥è¯¢å‚æ•°
 	 * @return
 	 */
 	protected <T extends IEntity> List<T> getBySql(Class<T> cls,String query,Object... objects) {
@@ -312,20 +312,20 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 		
 	/**
-	 * éŒów³Ö¾Ã»¯£¬Ô“·½·¨é¾ÛºÏ¸ùÏÂµÄŒówÌá¹©³Ö¾Ã»¯²Ù×÷¡£
+	 * ç‚ºå¯¦é«”æŒä¹…åŒ–ï¼Œè©²æ–¹æ³•ç‚ºèšåˆæ ¹ä¸‹çš„å¯¦é«”æä¾›æŒä¹…åŒ–æ“ä½œã€‚
 	 * @param entity
-	 * 		´ıĞÂÔöµÄŒów
+	 * 		å¾…æ–°å¢çš„å¯¦é«”
 	 */
 	protected <T extends IEntity> void add(T entity) {
 		hbContext.session().save(entity);
 	}
 	
 	/**
-	 * ¸ù¾İÎ¨Ò»Ô¼ÊøµÄ×Ö¶Î²éÕÒid
+	 * æ ¹æ®å”¯ä¸€çº¦æŸçš„å­—æ®µæŸ¥æ‰¾id
 	 * @param queryStr
-	 * 		sql±í´ïÊ½
+	 * 		sqlè¡¨è¾¾å¼
 	 * @param param
-	 * 		²ÎÊı
+	 * 		å‚æ•°
 	 * @return UUID
 	 * 		UUID
 	 */
@@ -341,12 +341,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 	
 	/**
-	 * ¸ù¾İsqlÉ¾³ıÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®sqlåˆ é™¤å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		É¾³ıÓï¾ä
+	 * 		åˆ é™¤è¯­å¥
 	 * @param objects
-	 * 		É¾³ı²ÎÊı
+	 * 		åˆ é™¤å‚æ•°
 	 * @return
 	 */
 	protected void removeBySql(String sqlStr,Object... objects) {
@@ -369,12 +369,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 	
 	/**
-	 * ¸ù¾İhqlÉ¾³ıÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®hqlåˆ é™¤å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		É¾³ıÓï¾ä
+	 * 		åˆ é™¤è¯­å¥
 	 * @param objects
-	 * 		É¾³ı²ÎÊı
+	 * 		åˆ é™¤å‚æ•°
 	 * @return
 	 */
 	protected void removeByHql(String hqlStr,Object... objects) {
@@ -389,12 +389,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 	
 	/**
-	 * ¸ù¾İsql¸üĞÂÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®sqlæ›´æ–°å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		¸üĞÂÓï¾ä
+	 * 		æ›´æ–°è¯­å¥
 	 * @param objects
-	 * 		¸üĞÂ²ÎÊı
+	 * 		æ›´æ–°å‚æ•°
 	 * @return
 	 */
 	protected void updateBySql(String sqlStr,Object... objects) {
@@ -409,12 +409,12 @@ public class HbRepository<TAggregatorRoot extends IAggregateRoot> extends
 	}
 	
 	/**
-	 * ¸ù¾İhql¸üĞÂÊµÌå¼¯ºÏ£¬Çë²»ÒªÇáÒ×µ÷ÓÃ¸Ã·½·¨£¬¸Ã·½·¨ÎªÁË¸ø¾ÛºÏ¸ùÒ»ÖÂĞÔÌá½»Ìá¹©Æä½çÏŞ·¶Î§ÄÚµÄÁìÓòÊµÌå
-	 * ³Ö¾Ã»¯Ê¹ÓÃµÄ¡£Èç¹û²»ÊÇ¸ÃĞèÇó£¬ÇëÊ¹ÓÃ¾ÛºÏ¸ù²Ö´¢Ìá¹©µÄapi
+	 * æ ¹æ®hqlæ›´æ–°å®ä½“é›†åˆï¼Œè¯·ä¸è¦è½»æ˜“è°ƒç”¨è¯¥æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸ºäº†ç»™èšåˆæ ¹ä¸€è‡´æ€§æäº¤æä¾›å…¶ç•Œé™èŒƒå›´å†…çš„é¢†åŸŸå®ä½“
+	 * æŒä¹…åŒ–ä½¿ç”¨çš„ã€‚å¦‚æœä¸æ˜¯è¯¥éœ€æ±‚ï¼Œè¯·ä½¿ç”¨èšåˆæ ¹ä»“å‚¨æä¾›çš„api
 	 * @param query
-	 * 		¸üĞÂÓï¾ä
+	 * 		æ›´æ–°è¯­å¥
 	 * @param objects
-	 * 		¸üĞÂ²ÎÊı
+	 * 		æ›´æ–°å‚æ•°
 	 * @return
 	 */
 	protected void updateByHql(String hqlStr,Object... objects) {

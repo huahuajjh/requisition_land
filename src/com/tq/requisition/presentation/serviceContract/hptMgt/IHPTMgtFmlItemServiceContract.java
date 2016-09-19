@@ -1,27 +1,27 @@
-package com.tq.requisition.presentation.serviceContract.hptMgt;
+ï»¿package com.tq.requisition.presentation.serviceContract.hptMgt;
 
 import com.tq.requisition.presentation.dto.hpt.PersonAndHPTDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyItemDto;
 
 /**
- * ¹º·¿È¯ºÍÈËÔ±µÄ·şÎñÆõÔ¼
+ * è´­æˆ¿åˆ¸å’Œäººå‘˜çš„æœåŠ¡å¥‘çº¦
  * @author Bless
- * @time 2015-03-16 15£º25
+ * @time 2015-03-16 15ï¼š25
  *
  */
 public interface IHPTMgtFmlItemServiceContract {
 	
 	/**
-	 * ĞÂÔö¹º·¿È¯ĞÅÏ¢
+	 * æ–°å¢è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @param dto
-	 * 		´ıĞÂÔöµÄ¹º·¿È¯ĞÅÏ¢
+	 * 		å¾…æ–°å¢çš„è´­æˆ¿åˆ¸ä¿¡æ¯
 	 * @return
 	 * 		json
 	 */
 	String add(PersonAndHPTDto personAndHPTDto);
 	
 	/**
-	 * Ôö¼Ó¼ÒÍ¥³ÉÔ±
+	 * å¢åŠ å®¶åº­æˆå‘˜
 	 * @param dto
 	 * @return
 	 */

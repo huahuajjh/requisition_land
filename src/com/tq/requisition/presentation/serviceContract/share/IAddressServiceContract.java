@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.share;
+﻿package com.tq.requisition.presentation.serviceContract.share;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,46 +7,46 @@ import com.tq.requisition.presentation.dto.share.AddressDto;
 
 public interface IAddressServiceContract {
 	/**
-	 * �B�ӫ@ȡ��ַ��Ϣ�����nodeId��null����ʾ�@ȡ���и����c
+	 * 连动获取地址信息，如果nodeId为null，标示获取所有根节点
 	 * json{}
 	 * @param nodeId
-	 * 		���cid
+	 * 		节点id
 	 * @return
 	 */
 	String getAddress(UUID nodeId);
 	
 	/**
-	 * �@ȡ��ַ������Ϣ
+	 * 获取地址集合信息
 	 * @return
 	 */
 	List<AddressDto> getAddress();
 	
 	/**
-	 * ������ַ�ڵ�
+	 * 新增地址节点
 	 * @param ads
-	 * 		��ַ�ڵ�ʵ��
+	 * 		地址节点实体
 	 * @return
 	 */
 	String addNewAddress(AddressDto ads);
 	
 	/**
-	 * �༭��ַ��Ϣ
+	 * 编辑地址信息
 	 * @param ads
-	 * 		�����µĵ�ַdto����
+	 * 		待更新的地址dto对象
 	 * @return
 	 */
 	String editAddress(AddressDto ads);
 	
 	/**
-	 * ����idɾ����ַ�ڵ�����
+	 * 根据id删除地址节点数据
 	 * @param id
-	 * 		��ɾ����ַ�ڵ��id
+	 * 		待删除地址节点的id
 	 * @return
 	 */
 	String deleteAddress(UUID... id);
 	
 	/**
-	 * ��ȡ���е�ַ��Ϣ
+	 * 获取所有地址信息
 	 * @return AddressDto
 	 * 		json
 	 */

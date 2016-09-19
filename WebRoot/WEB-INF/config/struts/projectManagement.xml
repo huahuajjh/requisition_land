@@ -85,6 +85,13 @@
 		<action name="queryRemoveInfoEdit" method="edit" class="com.tq.requisition.presentation.actions.projectManagement.QueryRemoveInfo"></action>
 		<action name="queryRemoveInfoAddRemoveInfo" method="addRemoveInfo" class="com.tq.requisition.presentation.actions.projectManagement.QueryRemoveInfo"></action>
 		<action name="queryRemoveInfoDaYin" method="daYin" class="com.tq.requisition.presentation.actions.projectManagement.QueryRemoveInfo"></action>
+		<action name="queryRemoveInfoDaoChu" method="daoChu" class="com.tq.requisition.presentation.actions.projectManagement.QueryRemoveInfo">  
+		    <result name="success" type="stream">  
+		        <param name="contentType">application/vnd.ms-excel</param>  
+		        <param name="contentDisposition">attachment; filename="${downloadChineseFileName}.xlsx"</param>  
+		        <param name="inputName">outputStream</param>  
+		    </result>  
+		</action>
 		
 		<!--  维护拆迁户户信息 -->
 		<action name="maintainRemove" class="com.tq.requisition.presentation.actions.projectManagement.MaintainRemove">

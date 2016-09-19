@@ -1,30 +1,30 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.util.UUID;
 
 /**
- * ÏîÄ¿¶àÌõ¼şÄ£ºı²éÑ¯Ä£ĞÍ
+ * é¡¹ç›®å¤šæ¡ä»¶æ¨¡ç³ŠæŸ¥è¯¢æ¨¡å‹
  * 
  * @author jjh
  * @time 2015-12-27 20:47
  */
 public class ProQueryModel {
 	/* private fields */
-	/** ÏîÄ¿Ãû³Æ */
+	/** é¡¹ç›®åç§° */
 	private String proName;
-	/** ÏîÄ¿ÀàĞÍid */
+	/** é¡¹ç›®ç±»å‹id */
 	private int type = 0;
-	/** ¹«¸æĞòÁĞ£¬´Ó1¿ªÊ¼£¬°´ÕÕË³Ğò */
+	/** å…¬å‘Šåºåˆ—ï¼Œä»1å¼€å§‹ï¼ŒæŒ‰ç…§é¡ºåº */
 	private int annouceQueue = 0;
-	/** ½ÖµÀid */
+	/** è¡—é“id */
 	private UUID streetId;
-	/** ÉçÇøid */
+	/** ç¤¾åŒºid */
 	private UUID communityId;
 	
-	/**Ä£ºı²éÑ¯µØÖ·*/
+	/**æ¨¡ç³ŠæŸ¥è¯¢åœ°å€*/
 	private String address;
 	
-	/**´´½¨ÈËµÄID*/
+	/**åˆ›å»ºäººçš„ID*/
 	private String createUId;
 
 	/* constructors */

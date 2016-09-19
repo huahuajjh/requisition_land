@@ -18,19 +18,19 @@ import com.tq.requisition.infrastructure.utils.Serialization;
 import com.tq.requisition.presentation.dto.sysMgt.PermissionAtRoleDto;
 
 /**
- * ÊÚÈ¨¹ÜÀí·şÎñ
+ * æˆæƒç®¡ç†æœåŠ¡
  * @author jjh
  * @time 2015-12-24 23:12
  */
 public class PermissionService implements IPermissionService{
 	/*private fields*/
-	/*½ÇÉ«Ù~‘ôÖĞég‚}ƒ¦*/
+	/*è§’è‰²è³¬æˆ¶ä¸­é–“å€‰å„²*/
 	private IRoleAccountRepository roleAccountRepository;
-	/*ÙYÔ´½ÇÉ«ÖĞég‚}ƒ¦-™àÏŞ±í*/
+	/*è³‡æºè§’è‰²ä¸­é–“å€‰å„²-æ¬Šé™è¡¨*/
 	private IResRoleRepository resRoleRepository;
-	/*‚}ƒ¦ÉÏÏÂÎÄ*/
+	/*å€‰å„²ä¸Šä¸‹æ–‡*/
 	private IRepositoryContext repositoryContext;
-	/*ÙYÔ´‚}ƒ¦*/
+	/*è³‡æºå€‰å„²*/
 	private IResourceRepository resourceRepository;
 	
 	/*construtors*/
@@ -57,13 +57,13 @@ public class PermissionService implements IPermissionService{
 		repositoryContext.beginTransaction();
 		if(rIds==null)
 		{
-			throw new NullPointerException("½ÇÉ«idÊı×éÎªnull£¬rIds=null");
+			throw new NullPointerException("è§’è‰²idæ•°ç»„ä¸ºnullï¼ŒrIds=null");
 		}
 		
-		//Çå¿Õ¸ÃÕË»§idÏÂµÄËùÓĞ½ÇÉ«
+		//æ¸…ç©ºè¯¥è´¦æˆ·idä¸‹çš„æ‰€æœ‰è§’è‰²
 		roleAccountRepository.removeAllRelationships(id);		
 		
-		//ĞÂÔö´ı²åÈëµÄ½ÇÉ«
+		//æ–°å¢å¾…æ’å…¥çš„è§’è‰²
 		for (int i = 0; i < rIds.length; i++) {
 			roleAccountRepository.createRelationship(id, rIds[i]);
 		}
@@ -76,12 +76,12 @@ public class PermissionService implements IPermissionService{
 		repositoryContext.beginTransaction();
 		if(resIds==null)
 		{
-			throw new NullPointerException("½ÇÉ«idÊı×éÎªnull£¬rIds=null");
+			throw new NullPointerException("è§’è‰²idæ•°ç»„ä¸ºnullï¼ŒrIds=null");
 		}
-		//Çå¿Õ¸Ã½ÇÉ«ÏÂµÄËùÓĞ×ÊÔ´ÁĞ±í
+		//æ¸…ç©ºè¯¥è§’è‰²ä¸‹çš„æ‰€æœ‰èµ„æºåˆ—è¡¨
 		resRoleRepository.removeAllPermissionByRId(rid);
 		
-		//Îª½ÇÉ«·ÖÅäĞÂµÄ×ÊÔ´
+		//ä¸ºè§’è‰²åˆ†é…æ–°çš„èµ„æº
 		for (int i = 0; i < resIds.length; i++) {
 			resRoleRepository.assignRes4Role(rid, resIds[i]);
 		}
@@ -90,11 +90,11 @@ public class PermissionService implements IPermissionService{
 	
 	@Override
 	public String getAllRescourses(UUID roleId) {
-		//«@È¡ËùÓĞÙYÔ´¼¯ºÏ
+		//ç²å–æ‰€æœ‰è³‡æºé›†åˆ
 		List<Resource> resources = resourceRepository.getAllResources();
-		//dto¼¯ºÏ
+		//dtoé›†åˆ
 		List<PermissionAtRoleDto> p = new ArrayList<PermissionAtRoleDto>();
-		//Œ¢ÙYÔ´¼¯ºÏŞD“Qédto¼¯ºÏ
+		//å°‡è³‡æºé›†åˆè½‰æ›ç‚ºdtoé›†åˆ
 		for (Resource resource : resources) {
 			PermissionAtRoleDto dto = new PermissionAtRoleDto();
 			dto.setId(resource.getId());
@@ -104,9 +104,9 @@ public class PermissionService implements IPermissionService{
 			dto.setOrder(resource.getOrder());
 			p.add(dto);
 		}
-		//¸ù“ş½ÇÉ«id«@È¡Æä¾ßÓĞµÄËùÓĞÙYÔ´¼¯ºÏ
+		//æ ¹æ“šè§’è‰²idç²å–å…¶å…·æœ‰çš„æ‰€æœ‰è³‡æºé›†åˆ
 		List<UUID> ids = resRoleRepository.getResourcesByRid(roleId);
-		//Ó³ÉäƒÉ‚€¼¯ºÏ£¬Œ¢½ÇÉ«¾ßÓĞµÄ™àÏŞµÄÙYÔ´˜ËÔ]étrue
+		//æ˜ å°„å…©å€‹é›†åˆï¼Œå°‡è§’è‰²å…·æœ‰çš„æ¬Šé™çš„è³‡æºæ¨™è¨»ç‚ºtrue
 		for (UUID uuid : ids) {
 			for (PermissionAtRoleDto permissionAtRoleDto : p) {
 				if(permissionAtRoleDto.getId().equals(uuid))
@@ -115,7 +115,7 @@ public class PermissionService implements IPermissionService{
 				}
 			}
 		}
-		return Serialization.toJson(Formater.obtain("«@È¡ÙYÔ´³É¹¦", p, Formater.OperationResult.SUCCESS));
+		return Serialization.toJson(Formater.obtain("ç²å–è³‡æºæˆåŠŸ", p, Formater.OperationResult.SUCCESS));
 	}
 
 }

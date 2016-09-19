@@ -1,7 +1,7 @@
 package com.tq.requisition.infrastructure.unitOfWork;
 
 /**
- * ±íÃ÷ÊµÏÖ¸Ã½Ó¿ÚµÄÀàÊÇÒ»ÖÖuowµÄÊµÏÖ£¬¸ÃÄ£Ê½µÄÊµÏÖÓÃÓÚ±£Ö¤Êı¾İÒ»ÖÂĞÔ¡£
+ * è¡¨æ˜å®ç°è¯¥æ¥å£çš„ç±»æ˜¯ä¸€ç§uowçš„å®ç°ï¼Œè¯¥æ¨¡å¼çš„å®ç°ç”¨äºä¿è¯æ•°æ®ä¸€è‡´æ€§ã€‚
  * @author jjh
  * @time 2015-12-14 14:46
  */
@@ -9,23 +9,23 @@ public interface IUnitOfWork {
 	void beginTransaction();
 	
 	/**
-	 * ÉèÖÃÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷ÁËµ±Ç°µÄuowÊÂÎñÊÇ·ñ±»Ìá½» 
+	 * è®¾ç½®ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜äº†å½“å‰çš„uowäº‹åŠ¡æ˜¯å¦è¢«æäº¤ 
 	 * @return boolean
-	 * 		ÊÇ·ñÌá½»
+	 * 		æ˜¯å¦æäº¤
 	 */
 	boolean commited();
 		
 	/**
-	 * ÉèÖÃÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷ÁËµ±Ç°µÄuowÊÂÎñÊÇ·ñ±»Ìá½» 
+	 * è®¾ç½®ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜äº†å½“å‰çš„uowäº‹åŠ¡æ˜¯å¦è¢«æäº¤ 
 	 * @param isCommited
-	 * 		ÊÇ·ñÌá½»
+	 * 		æ˜¯å¦æäº¤
 	 */
 	void commited(boolean isCommited);
 	
-	/**Ìá½»µ±Ç°uowÊÂÎñ*/
+	/**æäº¤å½“å‰uowäº‹åŠ¡*/
 	void commit();
 	
-	/**»Ø¹öµ±Ç°uowÊÂÎñ*/
+	/**å›æ»šå½“å‰uowäº‹åŠ¡*/
 	void rollback();
 	
 }

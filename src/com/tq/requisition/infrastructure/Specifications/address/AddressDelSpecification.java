@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.address.Address;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 删除地址规约，需要删除以此为pid的子节点
+ * 鍒犻櫎鍦板潃瑙勭害锛岄渶瑕佸垹闄や互姝や负pid鐨勫瓙鑺傜偣
  * @author jjh
  * @time 2015-01-07 1:54
  *

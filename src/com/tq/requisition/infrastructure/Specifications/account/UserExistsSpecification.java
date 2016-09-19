@@ -10,7 +10,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.CriteriaExpre
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * Í¨¹ıÓÃ»§ÃûÃÜÂëÑéÖ¤ÕË»§´æÔÚÓë·ñ--¹æÔ¼
+ * é€šè¿‡ç”¨æˆ·åå¯†ç éªŒè¯è´¦æˆ·å­˜åœ¨ä¸å¦--è§„çº¦
  * @author jjh
  * @time 2015-12-23 16:22
  */
@@ -23,9 +23,9 @@ public class UserExistsSpecification extends Specification<Account>{
 	}
 
 	/**
-	 * »ñÈ¡hql±í´ïÊ½
+	 * è·å–hqlè¡¨è¾¾å¼
 	 * @return IHqlExpression
-	 * 		hql±í´ïÊ½ÊµÀı
+	 * 		hqlè¡¨è¾¾å¼å®ä¾‹
 	 */
 	@Override
 	public IHqlExpression getHqlExpression() {
@@ -36,9 +36,9 @@ public class UserExistsSpecification extends Specification<Account>{
 	}
 
 	/**
-	 * »ñÈ¡Criteria±í´ïÊ½
+	 * è·å–Criteriaè¡¨è¾¾å¼
 	 * @return ICriteriaExpression
-	 * 		Criteria±í´ïÊ½ÊµÀı
+	 * 		Criteriaè¡¨è¾¾å¼å®ä¾‹
 	 */
 	@Override
 	public ICriteriaExpression getCriteriaExpression() {

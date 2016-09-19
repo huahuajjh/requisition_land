@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.utils.Formater;
 import com.tq.requisition.infrastructure.utils.TotalCount;
 
 /**
- * ½ÇÉ«²Ö´¢½Ó¿Ú
+ * è§’è‰²ä»“å‚¨æ¥å£
  * 
  * @author jjh
  * @time 2015-12-21 13:16
@@ -16,44 +16,44 @@ import com.tq.requisition.infrastructure.utils.TotalCount;
  */
 public interface IRoleRepository extends IRepository<Role> {
 	/**
-	 * ´´½¨½ÇÉ«
+	 * åˆ›å»ºè§’è‰²
 	 * @param dto
-	 * ½ÇÉ«dto
+	 * è§’è‰²dto
 	 */
 	Formater createRole(Role role) throws InvalidOperationException;
 	
 	/**
-	 * ¸ù¾İ½ÇÉ«Ãû³Æ»ñÈ¡½ÇÉ«ÁĞ±í£¬Ä£ºı²éÑ¯
+	 * æ ¹æ®è§’è‰²åç§°è·å–è§’è‰²åˆ—è¡¨ï¼Œæ¨¡ç³ŠæŸ¥è¯¢
 	 * @param name
-	 * 		½ÇÉ«Ãû
+	 * 		è§’è‰²å
 	 * @param pageIndex
-	 * 		ÆğÊ¼Ò³
+	 * 		èµ·å§‹é¡µ
 	 * @param pageNum
-	 * 		Ò³Âë
+	 * 		é¡µç 
 	 * @param totalCount TODO
 	 * @return List<RoleDto>
-	 * 		½ÇÉ«¼¯ºÏ
+	 * 		è§’è‰²é›†åˆ
 	 */
 	List<Role> getRoleList(String name, int pageIndex, int pageNum, TotalCount totalCount);
 
 	/**
-	 * ĞŞ¸Ä½ÇÉ«
+	 * ä¿®æ”¹è§’è‰²
 	 * @param dto
-	 * 		´ıĞŞ¸ÄµÄ½ÇÉ«dto
+	 * 		å¾…ä¿®æ”¹çš„è§’è‰²dto
 	 */
 	Formater	modifyRole(Role role) throws InvalidOperationException;
 	
 	/**
-	 * ¸ù¾İ½ÇÉ«Ãû³Æ»ñÈ¡½ÇÉ«
+	 * æ ¹æ®è§’è‰²åç§°è·å–è§’è‰²
 	 * @param roleName
-	 * 		½ÇÉ«Ãû³Æ
+	 * 		è§’è‰²åç§°
 	 * @return RoleDto
-	 * 		½ÇÉ«dto¶ÔÏó
+	 * 		è§’è‰²dtoå¯¹è±¡
 	 */
 	Role getRoleByName(String roleName);
 
 	/**
-	 * »ñÈ¡ËùÓĞ½ÇÉ«
+	 * è·å–æ‰€æœ‰è§’è‰²
 	 * @return
 	 */
 	List<Role> getAllRole();

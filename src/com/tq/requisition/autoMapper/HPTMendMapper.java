@@ -4,7 +4,7 @@ import com.tq.requisition.domain.model.housePuraseTicket.HPTMendInfo;
 import com.tq.requisition.presentation.dto.hpt.HPTMendInfoDto;
 
 /**
- * ¹º·¿È¯²¹È¯dtoÓ³Éä
+ * è´­æˆ¿åˆ¸è¡¥åˆ¸dtoæ˜ å°„
  * @author jjh
  * @time 2015-01-02 21:34
  *

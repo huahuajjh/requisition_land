@@ -5,16 +5,16 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ²¿ÃÅ¾ÛºÏ¸ù
+ * éƒ¨é—¨èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 19:20 
  */
 public class Department extends AggregateRoot{
-	/**²¿ÃÅÃû³Æ*/
+	/**éƒ¨é—¨åç§°*/
 	private String deptName;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**ËùÊô×éÖ¯id*/
+	/**æ‰€å±ç»„ç»‡id*/
 	private UUID orgId;
 	
 	/*getters and setters*/
@@ -62,9 +62,9 @@ public class Department extends AggregateRoot{
 	
 	/*public methods*/
 	/**
-	 * ĞŞ¸Ä²¿ÃÅ
+	 * ä¿®æ”¹éƒ¨é—¨
 	 * @param dept
-	 * 		´ıĞŞ¸ÄµÄ²¿ÃÅÊµÌå
+	 * 		å¾…ä¿®æ”¹çš„éƒ¨é—¨å®ä½“
 	 */
 	public void modify(Department dept)
 	{
@@ -76,7 +76,7 @@ public class Department extends AggregateRoot{
 	public static Department obtain(String name,UUID _orgId) {
 		if(name == null || _orgId == null)
 		{
-			throw new NullPointerException("²¿ÃÅÃû³Æ»òÕß×éÖ¯idÎªnull");
+			throw new NullPointerException("éƒ¨é—¨åç§°æˆ–è€…ç»„ç»‡idä¸ºnull");
 		}
 		return new Department(UUID.randomUUID(),name, false, _orgId);
 	}

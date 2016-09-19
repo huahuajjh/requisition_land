@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.registedInfoManagement;
+﻿package com.tq.requisition.presentation.actions.registedInfoManagement;
 
 import java.io.IOException;
 import java.util.List;

@@ -5,16 +5,16 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ×éÖ¯¾ÛºÏ¸ù
+ * ç»„ç»‡èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 19:18 
  */
 public class Organization extends AggregateRoot{
-	/**×éÖ¯Ãû³Æ*/
+	/**ç»„ç»‡åç§°*/
 	private String orgName;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
-	/**µ¥Î»±àºÅ*/
+	/**å•ä½ç¼–å·*/
 	private String orgNumber;
 	
 	/*constructors*/
@@ -59,7 +59,7 @@ public class Organization extends AggregateRoot{
 	public static Organization obtain(String name,String orgNumber) {
 		if(name == null || name.trim().equals(""))
 		{
-			throw new NullPointerException("×éÖ¯Ãû³ÆÎªnull");
+			throw new NullPointerException("ç»„ç»‡åç§°ä¸ºnull");
 		}
 		return new Organization(UUID.randomUUID(), name,orgNumber);
 	}

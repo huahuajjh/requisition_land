@@ -9,7 +9,7 @@ import com.tq.requisition.domain.model.roleAccount.RoleAccount;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据用户id获取角色规约
+ * 鏍规嵁鐢ㄦ埛id鑾峰彇瑙掕壊瑙勭害
  * @author jjh
  * @time 2015-01-06 8:55
  *

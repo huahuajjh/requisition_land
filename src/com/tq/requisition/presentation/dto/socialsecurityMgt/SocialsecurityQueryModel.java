@@ -1,19 +1,19 @@
-package com.tq.requisition.presentation.dto.socialsecurityMgt;
+ï»¿package com.tq.requisition.presentation.dto.socialsecurityMgt;
 
 import java.util.UUID;
 
 public class SocialsecurityQueryModel {
-	/**ÏîÄ¿id*/
+	/**é¡¹ç›®id*/
 	private String proName;
-	/**½ÖµÀµØÖ·id*/
+	/**è¡—é“åœ°å€id*/
 	private UUID streetId;
-	/**ÉçÇøµØÖ·id*/
+	/**ç¤¾åŒºåœ°å€id*/
 	private UUID communityId;
-	/**×éid*/
+	/**ç»„id*/
 	private UUID groupId;
-	/**Éí·İÖ¤*/
+	/**èº«ä»½è¯*/
 	private String idNumber;
-	/**´´½¨ÈËÔ±ĞÅÏ¢*/
+	/**åˆ›å»ºäººå‘˜ä¿¡æ¯*/
 	private String createUId;
 	
 	private String address;

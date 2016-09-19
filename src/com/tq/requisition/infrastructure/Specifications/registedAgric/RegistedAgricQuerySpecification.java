@@ -8,7 +8,7 @@ import com.tq.requisition.presentation.dto.registedAgr.RegistedAgricQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ¸ù¾İ²éÑ¯model»ñÈ¡Êı¾İ£¬¹æÔ¼
+ * æ ¹æ®æŸ¥è¯¢modelè·å–æ•°æ®ï¼Œè§„çº¦
  * @author jjh
  * @time 2016-01-13 14:14
  *

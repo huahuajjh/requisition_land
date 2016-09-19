@@ -1,14 +1,14 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.util.UUID;
 
 public class NewAddressDto {
-	/**Éç…^id*/
+	/**ç¤¾åŒºid*/
 	private UUID communityId;
-	/**½ÖµÀid*/
+	/**è¡—é“id*/
 	private UUID streetId;
 	
-	/**¿‚µØÙ|*/
+	/**æ€»åœ°è´¨*/
 	private String totalAddress;
 	
 	public UUID getCommunityId() {

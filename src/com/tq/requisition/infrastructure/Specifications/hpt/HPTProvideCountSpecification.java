@@ -9,7 +9,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.hpt.HPTFuzzyQueryModel;
 
 /**
- * 查询规约，根据查询model返回总记录数
+ * 鏌ヨ瑙勭害锛屾牴鎹煡璇odel杩斿洖鎬昏褰曟暟
  * @author jjh
  * @time 2015-01-02 22:48
  */

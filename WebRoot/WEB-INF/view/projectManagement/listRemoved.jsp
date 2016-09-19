@@ -258,7 +258,7 @@
 			<td colspan="6">
 				<div class="form-group">
 					<label>批证及其他情况说明</label>
-					<div class="form-control">{{satuationDesc}}</div>
+					<div class="form-control" style="height: auto;">{{satuationDesc}}</div>
 				</div>
 			</td>
 		</tr>

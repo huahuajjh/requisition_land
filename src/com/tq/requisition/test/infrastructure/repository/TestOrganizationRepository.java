@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+Ôªøpackage com.tq.requisition.test.infrastructure.repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +22,7 @@ public class TestOrganizationRepository {
 	@Test
 	public void addOrg() {
 		orgRepository.context().beginTransaction();
-		Organization org = Organization.obtain("’˜µÿ∞Ï1","001");
+		Organization org = Organization.obtain("ÂæÅÂú∞Âäû1","001");
 		try {
 			orgRepository.createOrg(org);
 		} catch (DomainException e) {
@@ -50,7 +50,7 @@ public class TestOrganizationRepository {
 	public void edit() throws DomainException {
 		Organization org = new Organization();
 		org.setId(UUID.fromString(""));
-		org.setOrgName("π˙Õ¡æ÷");
+		org.setOrgName("ÂõΩÂúüÂ±Ä");
 		org.setDel(false);
 		orgRepository.editOrg(org);
 	}

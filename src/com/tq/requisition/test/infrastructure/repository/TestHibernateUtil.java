@@ -1,4 +1,4 @@
-package com.tq.requisition.test.infrastructure.repository;
+﻿package com.tq.requisition.test.infrastructure.repository;
 
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;

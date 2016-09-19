@@ -1,59 +1,59 @@
-package com.tq.requisition.presentation.dto.rmHousehold;
+ï»¿package com.tq.requisition.presentation.dto.rmHousehold;
 
 import java.util.Date;
 
 import com.excel.util.annotation.InputColAnnotation;
 
 /**
- * ²ğÇ¨»§¼ÒÍ¥³ÉÔ±µ¼³öµ¼Èëmodel
+ * æ‹†è¿æˆ·å®¶åº­æˆå‘˜å¯¼å‡ºå¯¼å…¥model
  * @author jjh
  * @time 2016-01-16 13:16
  *
  */
 public class FmlItemImportAndExport {
-	/** ĞÕÃû */
-	@InputColAnnotation(colCoord=1,requiredErrorMsg="[Ãû³Æ]ÊÇ±ØÌîÏî")
+	/** å§“å */
+	@InputColAnnotation(colCoord=1,requiredErrorMsg="[åç§°]æ˜¯å¿…å¡«é¡¹")
 	private String name;
-	/** Éí·İÖ¤ºÅ */
-	@InputColAnnotation(colCoord=6,required=true,requiredErrorMsg="[Éí·İÖ¤ºÅ]ÊÇ±ØÌîÏî",only = true,onlyErrorMsg = "[Éí·İÖ¤ºÅ]ÊÇ±ØĞëÎ¨Ò»")
+	/** èº«ä»½è¯å· */
+	@InputColAnnotation(colCoord=6,required=true,requiredErrorMsg="[èº«ä»½è¯å·]æ˜¯å¿…å¡«é¡¹",only = true,onlyErrorMsg = "[èº«ä»½è¯å·]æ˜¯å¿…é¡»å”¯ä¸€")
 	private String idNumber;
-	/** ³öÉúÄêÔÂ */
-	@InputColAnnotation(colCoord=5,required=true,converErrorMsg="ÀàĞÍ´íÎó£¬[³öÉúÊ±¼ä]ÊÇÈÕÆÚÀàĞÍ-¸ñÊ½Îª2016-01-01",requiredErrorMsg="[³öÉúÊ±¼ä]ÊÇ±ØÌîÏî")
+	/** å‡ºç”Ÿå¹´æœˆ */
+	@InputColAnnotation(colCoord=5,required=true,converErrorMsg="ç±»å‹é”™è¯¯ï¼Œ[å‡ºç”Ÿæ—¶é—´]æ˜¯æ—¥æœŸç±»å‹-æ ¼å¼ä¸º2016-01-01",requiredErrorMsg="[å‡ºç”Ÿæ—¶é—´]æ˜¯å¿…å¡«é¡¹")
 	private Date birthday;
-	/** ĞÔ„e */
-	@InputColAnnotation(colCoord=4,required=true,requiredErrorMsg="[ĞÔ„e]ÊÇ±ØÌîÏî")
+	/** æ€§åˆ« */
+	@InputColAnnotation(colCoord=4,required=true,requiredErrorMsg="[æ€§åˆ«]æ˜¯å¿…å¡«é¡¹")
 	private String gender;
-	/** ªšÉí×ÓÅ®Ì– */
+	/** ç‹¬èº«å­å¥³å· */
 	@InputColAnnotation(colCoord=11)
 	private String onlyChildNumber;
-	/** °ëß…‘ô */
+	/** åŠè¾¹æˆ· */
 	@InputColAnnotation(colCoord=12)
 	private String half;
-	/** Óë»§Ö÷¹ØÏµ */
+	/** ä¸æˆ·ä¸»å…³ç³» */
 	@InputColAnnotation(colCoord=2)
 	private String relationshipStr;
-	/** »§¿ÚĞÔÖÊ */
+	/** æˆ·å£æ€§è´¨ */
 	@InputColAnnotation(colCoord=3)
 	private String householdStr;
-	/** ÊÇ·ñ²Î¼Ó¹ıÉç±£ */
+	/** æ˜¯å¦å‚åŠ è¿‡ç¤¾ä¿ */
 	@InputColAnnotation(colCoord=10)
 	private String socialsecurity;
-	/**ÊÜ½ÌÓı³Ì¶È*/
+	/**å—æ•™è‚²ç¨‹åº¦*/
 	@InputColAnnotation(colCoord=7)
 	private String educationLevel;
-	/**ÔÚ¶ÁÇé¿ö*/	
+	/**åœ¨è¯»æƒ…å†µ*/	
 	@InputColAnnotation(colCoord=8)
 	private String currentEducationSituation;
-	/**ÎñÅ©Ê±¼ä*/
+	/**åŠ¡å†œæ—¶é—´*/
 	@InputColAnnotation(colCoord=9)
 	private String farmingTime;
-	/**·ş±øÒÛ£¬ÀÍ½ÌµÈÇé¿ö¼°Ê±¼ä*/
+	/**æœå…µå½¹ï¼ŒåŠ³æ•™ç­‰æƒ…å†µåŠæ—¶é—´*/
 	@InputColAnnotation(colCoord=13)
 	private String serveArmySituation;
-	/**µç»°*/
+	/**ç”µè¯*/
 	@InputColAnnotation(colCoord=14)
 	private String tel;
-	/**±¸×¢*/
+	/**å¤‡æ³¨*/
 	@InputColAnnotation(colCoord=15)
 	private String remark;
 	
@@ -82,7 +82,7 @@ public class FmlItemImportAndExport {
 		return householdStr;
 	}
 	public boolean isSocialsecurity() {
-		return socialsecurity != null && socialsecurity.equals("ÊÇ");
+		return socialsecurity != null && socialsecurity.equals("æ˜¯");
 	}
 	public String getEducationLevel() {
 		return educationLevel;

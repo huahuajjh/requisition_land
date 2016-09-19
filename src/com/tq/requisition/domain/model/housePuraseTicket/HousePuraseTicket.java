@@ -8,31 +8,31 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.SpecifiedObjectDoesNotExistsException;
 
 /**
- * ¹º·¿È¯¾ÛºÏ¸ù
+ * è´­æˆ¿åˆ¸èšåˆæ ¹
  * 
  * @author jjh
  * @time 2015-12-18 16:53
  */
 public class HousePuraseTicket extends AggregateRoot {
-	/** ²¹Ìù½ğ¶î */
+	/** è¡¥è´´é‡‘é¢ */
 	private float bonus;
-	/** ÖÆÈ¯ÈÕÆÚ */
+	/** åˆ¶åˆ¸æ—¥æœŸ */
 	private Date makeDate;
-	/** È¯ºÅ */
+	/** åˆ¸å· */
 	private String ticketNumber;
-	/** ¹º·¿È¯×´Ì¬ */
+	/** è´­æˆ¿åˆ¸çŠ¶æ€ */
 	private TicketState state;
-	/** ¹º·¿È¯ËùÓĞÕßid */
+	/** è´­æˆ¿åˆ¸æ‰€æœ‰è€…id */
 	private UUID fmlItemId;
-	/** ¹º·¿È¯ËùÓĞÕßÉí·İÖ¤ */
+	/** è´­æˆ¿åˆ¸æ‰€æœ‰è€…èº«ä»½è¯ */
 	private String idNumber;
-	/** ÊÇ·ñÉ¾³ı */
+	/** æ˜¯å¦åˆ é™¤ */
 	private boolean del;
-	/** ĞÕÃû */
+	/** å§“å */
 	private String name;
-	/**´´½¨ÈËID*/
+	/**åˆ›å»ºäººID*/
 	private String createUId;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 
 	/* constructors */
@@ -147,83 +147,83 @@ public class HousePuraseTicket extends AggregateRoot {
 
 	/* public methods */
 	/**
-	 * ÁìÓÃ¹º·¿È¯
+	 * é¢†ç”¨è´­æˆ¿åˆ¸
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public void receive() throws SpecifiedObjectDoesNotExistsException {
 		if(this.state!=TicketState.NORMAL)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("ÎŞ·¨ÁìÈ¡Ö¸¶¨µÄ¹º·¿È¯£¬¸Ã¹º·¿È¯×´Ì¬Îª:"+this.state.toStr());
+			throw new SpecifiedObjectDoesNotExistsException("æ— æ³•é¢†å–æŒ‡å®šçš„è´­æˆ¿åˆ¸ï¼Œè¯¥è´­æˆ¿åˆ¸çŠ¶æ€ä¸º:"+this.state.toStr());
 		}
 		this.state = TicketState.RECEIVED;
 	}
 
 	/**
-	 * »»È¯,½«Ô­À´µÄ¹º·¿È¯±ê¼ÇÎªtrue£¬²»ÔÙÊ¹ÓÃ£¬²¢ÇÒĞÂÔö¸ü»»µÄ¹º·¿È¯
+	 * æ¢åˆ¸,å°†åŸæ¥çš„è´­æˆ¿åˆ¸æ ‡è®°ä¸ºtrueï¼Œä¸å†ä½¿ç”¨ï¼Œå¹¶ä¸”æ–°å¢æ›´æ¢çš„è´­æˆ¿åˆ¸
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public void exchange() throws SpecifiedObjectDoesNotExistsException {
 		if(this.del==true)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("¸ÃÈ¯ÒÑ¾­±»¹ÒÊ§×÷ÎªÀúÊ·¼ÇÂ¼");
+			throw new SpecifiedObjectDoesNotExistsException("è¯¥åˆ¸å·²ç»è¢«æŒ‚å¤±ä½œä¸ºå†å²è®°å½•");
 		}
 		
-		if(this.state==TicketState.CASHED || //ÒÑ¶ÒÏÖ×´Ì¬
-				this.state==TicketState.LOSSOFREPORT || //¹ÒÊ§×´Ì¬
-				this.state==TicketState.NORMAL || //Õı³£×´Ì¬£¬Î´ÁìÈ¡
-				this.state==TicketState.USED)	//ÒÑ¶Ò»»
+		if(this.state==TicketState.CASHED || //å·²å…‘ç°çŠ¶æ€
+				this.state==TicketState.LOSSOFREPORT || //æŒ‚å¤±çŠ¶æ€
+				this.state==TicketState.NORMAL || //æ­£å¸¸çŠ¶æ€ï¼Œæœªé¢†å–
+				this.state==TicketState.USED)	//å·²å…‘æ¢
 		{
-			throw new SpecifiedObjectDoesNotExistsException("²»ÄÜÖ´ĞĞ¸Ã²Ù×÷£¬µ±Ç°¹º·¿È¯×´Ì¬Îª:"+this.state.toStr());
+			throw new SpecifiedObjectDoesNotExistsException("ä¸èƒ½æ‰§è¡Œè¯¥æ“ä½œï¼Œå½“å‰è´­æˆ¿åˆ¸çŠ¶æ€ä¸º:"+this.state.toStr());
 		}
 		this.state = TicketState.EXCHANGEED;
 		this.del = true;
 	}
 
 	/**
-	 * ¹ÒÊ§²Ù×÷£¬±ê¼Ç¹º·¿È¯×´Ì¬Îª¹ÒÊ§
+	 * æŒ‚å¤±æ“ä½œï¼Œæ ‡è®°è´­æˆ¿åˆ¸çŠ¶æ€ä¸ºæŒ‚å¤±
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public void reportOfLoss() throws SpecifiedObjectDoesNotExistsException {
 		if(this.del==true)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("²»ÄÜ¹ÒÊ§¸Ã¹º·¿È¯£¬¸ÃÈ¯ÒÑ±»¹ÒÊ§¹ı");
+			throw new SpecifiedObjectDoesNotExistsException("ä¸èƒ½æŒ‚å¤±è¯¥è´­æˆ¿åˆ¸ï¼Œè¯¥åˆ¸å·²è¢«æŒ‚å¤±è¿‡");
 		}
 		if(!(this.state==TicketState.RECEIVED || this.state==TicketState.EXCHANGEED||this.state==TicketState.MENDED))
 		{
-			throw new SpecifiedObjectDoesNotExistsException("²»ÄÜ¹ÒÊ§Ö¸¶¨µÄ¹º·¿È¯£¬µ±Ç°¹º·¿È¯×´Ì¬Îª:"+this.state.toStr());
+			throw new SpecifiedObjectDoesNotExistsException("ä¸èƒ½æŒ‚å¤±æŒ‡å®šçš„è´­æˆ¿åˆ¸ï¼Œå½“å‰è´­æˆ¿åˆ¸çŠ¶æ€ä¸º:"+this.state.toStr());
 		}		
 		this.state = TicketState.LOSSOFREPORT;
 	}
 
 	/**
-	 * ²¹È¯
+	 * è¡¥åˆ¸
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public void mend() throws SpecifiedObjectDoesNotExistsException {
 		if(this.state!=TicketState.LOSSOFREPORT)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("ÎŞ·¨Ö´ĞĞ¸Ã²Ù×÷,Ö»ÓĞ¹ÒÊ§ºóµÄ¹º·¿È¯²ÅÄÜ½øĞĞ¸Ã²Ù×÷£¬µ±Ç°¹º·¿È¯µÄ×´Ì¬Îª:"+this.state.toStr());
+			throw new SpecifiedObjectDoesNotExistsException("æ— æ³•æ‰§è¡Œè¯¥æ“ä½œ,åªæœ‰æŒ‚å¤±åçš„è´­æˆ¿åˆ¸æ‰èƒ½è¿›è¡Œè¯¥æ“ä½œï¼Œå½“å‰è´­æˆ¿åˆ¸çš„çŠ¶æ€ä¸º:"+this.state.toStr());
 		}
 		this.state = TicketState.MENDED;
-		//½«Ô­ÓĞµÄ¹º·¿È¯×÷ÎªÀúÊ·¼ÍÂ¼±£´æ
+		//å°†åŸæœ‰çš„è´­æˆ¿åˆ¸ä½œä¸ºå†å²çºªå½•ä¿å­˜
 		this.del = true;
 	}
 
 	/**
-	 * Ê¹ÓÃ
+	 * ä½¿ç”¨
 	 * @throws SpecifiedObjectDoesNotExistsException 
 	 */
 	public void useAndCash() throws SpecifiedObjectDoesNotExistsException {
 		if(this.del==true)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("¸ÃÈ¯²»ÄÜÊ¹ÓÃ");
+			throw new SpecifiedObjectDoesNotExistsException("è¯¥åˆ¸ä¸èƒ½ä½¿ç”¨");
 		}
 		if(this.state == TicketState.CASHED ||
 				this.state == TicketState.LOSSOFREPORT ||
 				this.state == TicketState.NORMAL||
 				this.state == TicketState.USED)
 		{
-			throw new SpecifiedObjectDoesNotExistsException("ÎŞ·¨Ö´ĞĞ¸Ã²Ù×÷£¬¸Ã¹º·¿È¯×´Ì¬Îª:"+this.state.toStr());
+			throw new SpecifiedObjectDoesNotExistsException("æ— æ³•æ‰§è¡Œè¯¥æ“ä½œï¼Œè¯¥è´­æˆ¿åˆ¸çŠ¶æ€ä¸º:"+this.state.toStr());
 		}
 		this.state = TicketState.CASHED;		
 	}

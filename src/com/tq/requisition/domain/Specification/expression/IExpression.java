@@ -2,7 +2,7 @@ package com.tq.requisition.domain.Specification.expression;
 
 /**
  * @description
- * 		±í´ïÊ½½Ó¿Ú,±íÃæ¼Ì³Ğ¸Ã½Ó¿ÚµÄÊµÏÖÊÇÒ»ÖÖ±í´ïÊ½
+ * 		è¡¨è¾¾å¼æ¥å£,è¡¨é¢ç»§æ‰¿è¯¥æ¥å£çš„å®ç°æ˜¯ä¸€ç§è¡¨è¾¾å¼
  * @author jjh
  * @time 2015-12-16 17:37
  */

@@ -15,7 +15,7 @@ import com.tq.requisition.presentation.dto.registedAgr.RegistedAgricQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢¹ÜÀí²Ö´¢ÊµÏÖ
+ * åœ¨ç±å†œä¸šäººå£ä¿¡æ¯ç®¡ç†ä»“å‚¨å®ç°
  * 
  * @author jjh
  * @time 2015-01-07 16:37
@@ -52,7 +52,7 @@ public class RegistedAgricultureInfoRepository extends HbRepository<RegistedAgri
 	@Override
 	public void editInfo(RegistedAgricultureInfo entity) throws DomainException {
 		RegistedAgricultureInfo info = getByKey(RegistedAgricultureInfo.class, entity.getId());
-		if(null == info){throw new DomainException("Î´²éÑ¯µ½Ö¸¶¨µÄÔÚ¼®Å©ÒµÈË¿ÚĞÅÏ¢");}
+		if(null == info){throw new DomainException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„åœ¨ç±å†œä¸šäººå£ä¿¡æ¯");}
 		info.modify(entity);
 		update(info);
 	}

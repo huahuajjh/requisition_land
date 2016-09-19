@@ -3,20 +3,20 @@ package com.tq.requisition.domain.share;
 import java.util.UUID;
 
 /**
- * domain实体接口，表明实现该接口的实例是domain实体
+ * domain瀹炰綋鎺ュ彛锛岃〃鏄庡疄鐜拌鎺ュ彛鐨勫疄渚嬫槸domain瀹炰綋
  * @author jjh
  * @time 2015-12-14 13:20 
  */
 public interface IEntity {
 	/**
-	 * 获取一个id
+	 * 鑾峰彇涓�涓猧d
 	 * @return UUID
 	 * 		UUID
 	 */
 	UUID id();
 	
 	/**
-	 * 设置一个id
+	 * 璁剧疆涓�涓猧d
 	 * @param id
 	 * 		UUID
 	 */

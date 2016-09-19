@@ -6,23 +6,23 @@ import com.tq.requisition.domain.model.account.Account;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ²Ù×÷ÈÕÖ¾¼ÇÂ¼¾ÛºÏ¸ù
+ * æ“ä½œæ—¥å¿—è®°å½•èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 23:15
  */
 public class OperationRecord extends AggregateRoot{
-	/**ipµØÖ·*/
+	/**ipåœ°å€*/
 	private String ipAddr;
-	/**²Ù×÷ÈÕÆÚ*/
+	/**æ“ä½œæ—¥æœŸ*/
 	private Date oprTime;
-	/**²Ù×÷Ä£¿é*/
+	/**æ“ä½œæ¨¡å—*/
 	private String oprMoudle;
-	/**²Ù×÷¶¯×÷*/
+	/**æ“ä½œåŠ¨ä½œ*/
 	private String oprAction;
-	/**²Ù×÷ÄÚÈİ¼ÇÂ¼*/
+	/**æ“ä½œå†…å®¹è®°å½•*/
 	private String oprContent;
-	/**ÎïÀíµØÖ·*/
+	/**ç‰©ç†åœ°å€*/
 	private String macAddr;
-	/**²Ù×÷ÈË*/
+	/**æ“ä½œäºº*/
 	private Account account;
 }

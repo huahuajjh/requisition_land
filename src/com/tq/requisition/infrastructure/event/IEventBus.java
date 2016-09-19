@@ -2,7 +2,7 @@ package com.tq.requisition.infrastructure.event;
 
 /**
  * @description
- * 		±íÃ÷¸Ã½Ó¿ÚµÄÊµÏÖÀàĞÍÊÇÒ»ÖÖÊÂ¼ş¾ÛºÏÆ÷ÀàĞÍ
+ * 		è¡¨æ˜è¯¥æ¥å£çš„å®ç°ç±»å‹æ˜¯ä¸€ç§äº‹ä»¶èšåˆå™¨ç±»å‹
  * @author jjh
  * @time 2015-12-16 12:57
  */
@@ -10,25 +10,25 @@ public interface IEventBus {
 	
 	/**
 	 * @description
-	 * 		ÊÂ¼ş¶©ÔÄ·½·¨
+	 * 		äº‹ä»¶è®¢é˜…æ–¹æ³•
 	 * @param handler
-	 * 		ÊÂ¼ş´¦ÀíÆ÷
+	 * 		äº‹ä»¶å¤„ç†å™¨
 	 */
 	void subscribe(IEventHandler<IEvent> handler);
 	
 	/**
 	 * @description
-	 * 		È¡Ïû¶©ÔÄ·½·¨
+	 * 		å–æ¶ˆè®¢é˜…æ–¹æ³•
 	 * @param handler
-	 * 		ÊÂ¼ş´¦ÀíÆ÷
+	 * 		äº‹ä»¶å¤„ç†å™¨
 	 */
 	void unsubscribe(IEventHandler<IEvent> handler);
 	
 	/**
 	 * @description
-	 * 		·¢²¼ÊÂ¼ş	
+	 * 		å‘å¸ƒäº‹ä»¶	
 	 * @param evt
-	 * 		´ı·¢²¼µÄÊÂ¼ş
+	 * 		å¾…å‘å¸ƒçš„äº‹ä»¶
 	 */
 	void publish(IEvent evt);
 }

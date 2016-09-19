@@ -58,9 +58,9 @@ public class SocialsecurityTypeRepository extends HbRepository<SocialsecurityTyp
 	
 	@Override
 	public void editType(UUID id, String name) throws DomainException {
-		if(null == name || name.trim().equals("")){throw new DomainException("¹ØÏµÃû³Æ²»ÄÜÎª¿Õ");}
+		if(null == name || name.trim().equals("")){throw new DomainException("å…³ç³»åç§°ä¸èƒ½ä¸ºç©º");}
 		SocialsecurityType entity = getByKey(SocialsecurityType.class, id);
-		if(null==entity){throw new DomainException("Î´²éÑ¯µ½Ö¸¶¨µÄ¹ØÏµÊı¾İ");}
+		if(null==entity){throw new DomainException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„å…³ç³»æ•°æ®");}
 		if(entity.getName().equals(name)){return;}
 		checkDuplicate(name);
 		entity.setName(name);
@@ -69,7 +69,7 @@ public class SocialsecurityTypeRepository extends HbRepository<SocialsecurityTyp
 	
 	private void checkDuplicate(String name) throws DomainException{
 		boolean r = exists(new ExistsByColNameSpecification<>(SocialsecurityType.class, "tb_socialsecurity_type", "type_name", name));
-		if(r){throw new DomainException("Ãû³Æ["+name+"]ÒÑ¾­´æÔÚ");}
+		if(r){throw new DomainException("åç§°["+name+"]å·²ç»å­˜åœ¨");}
 	}
 	
 	@Override

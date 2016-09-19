@@ -5,65 +5,73 @@ import java.util.UUID;
 
 import com.tq.requisition.domain.IRepository.IRepository;
 import com.tq.requisition.infrastructure.utils.PageFormater;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedExportCondition;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ²ğÇ¨»§¾ÛºÏ¸ù½Ó¿Ú
+ * æ‹†è¿æˆ·èšåˆæ ¹æ¥å£
  * @author jjh
  * @time 2015-12-28 2:26
  */
 public interface IFamilyRepository extends IRepository<Family>{
 	/**
-	 * ĞÂÔö²ğÇ¨»§
+	 * æ–°å¢æ‹†è¿æˆ·
 	 * @param fml
-	 * 		´ıĞÂÔöµÄ²ğÇ¨»§
+	 * 		å¾…æ–°å¢çš„æ‹†è¿æˆ·
 	 * @return
-	 * 		ĞÂÔöºóµÄ²ğÇ¨»§
+	 * 		æ–°å¢åçš„æ‹†è¿æˆ·
 	 */
 	Family addFamily(Family fml);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯Ä£ĞÍ²éÑ¯²ğÇ¨»§¼¯ºÏ
+	 * æ ¹æ®æŸ¥è¯¢æ¨¡å‹æŸ¥è¯¢æ‹†è¿æˆ·é›†åˆ
 	 * @param queryModel
-	 * 		²éÑ¯Ä£ĞÍ
+	 * 		æŸ¥è¯¢æ¨¡å‹
 	 * @param pageModel
-	 * 		·ÖÒ³Ä£ĞÍ
+	 * 		åˆ†é¡µæ¨¡å‹
 	 * @return PageFormater
-	 * 		pageÄ£ĞÍ
+	 * 		pageæ¨¡å‹
 	 */
 	PageFormater getListByFuzzy(FamilyQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ±à¼­²ğÇ¨»§Êı¾İ
+	 * ç¼–è¾‘æ‹†è¿æˆ·æ•°æ®
 	 * @param fml
 	 */
 	Family editFamily(Family fml);
 	
 	/**
-	 * É¾³ı²ğÇ¨»§ĞÅÏ¢
+	 * åˆ é™¤æ‹†è¿æˆ·ä¿¡æ¯
 	 * @param id
-	 * 		²ğÇ¨»§id
+	 * 		æ‹†è¿æˆ·id
 	 */
 	void deleteFamily(UUID id);
 	
 	/**
-	 * ¸ù¾İid¼¯ºÏ»ñÈ¡»§ĞÅÏ¢¼¯ºÏ
+	 * æ ¹æ®idé›†åˆè·å–æˆ·ä¿¡æ¯é›†åˆ
 	 * @param uuids
-	 * 		id¼¯ºÏ
+	 * 		idé›†åˆ
 	 * @return List<Family>
-	 * 		»§¼¯ºÏ
+	 * 		æˆ·é›†åˆ
 	 */
 	List<Family> getFml4Print(String uuids);
 	
 	/**
-	 * ²éÑ¯²ğÇ¨»§»ù±¾ĞÅÏ¢¼¯ºÏ
+	 * æŸ¥è¯¢æ‹†è¿æˆ·åŸºæœ¬ä¿¡æ¯é›†åˆ
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return List<FamilyBasicInfoDto>
 	 * 		List<FamilyBasicInfoDto>
 	 */
 	PageFormater getFmlBasicInfo(FamilyQueryModel queryModel,PageModel pageModel);
+	
+	/**
+	 * æ ¹æ®åŒ¹é…ä¿¡æ¯,æŸ¥è¯¢æˆ·ä¿¡æ¯
+	 * @param query
+	 * @return
+	 */
+	List<Family> exportByDate(final RemovedExportCondition query);
 }

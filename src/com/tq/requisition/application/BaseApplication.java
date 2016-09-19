@@ -6,7 +6,7 @@ import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.infrastructure.utils.Serialization;
 
 /**
- * Ó¦ÓÃ²ã¸¸Àà£¬Ìá¹©²Ö´¢ÉÏÏÂÎÄ
+ * åº”ç”¨å±‚çˆ¶ç±»ï¼Œæä¾›ä»“å‚¨ä¸Šä¸‹æ–‡
  * @author jjh
  * @version 1.0
  * @time 2015-12-24 17:32
@@ -21,22 +21,22 @@ public abstract class BaseApplication {
 	}
 	
 	/**
-	 * »ñÈ¡Í³Ò»ÉÏÏÂÎÄ
+	 * è·å–ç»Ÿä¸€ä¸Šä¸‹æ–‡
 	 * @return IRepositoryContext
-	 * 		²Ö´¢ÉÏÏÂÎÄ
+	 * 		ä»“å‚¨ä¸Šä¸‹æ–‡
 	 */
 	protected IRepositoryContext context(){
 		return context;
 	}
 
 	/**
-	 * ¸ñÊ½»¯
+	 * æ ¼å¼åŒ–
 	 * @param msg
-	 * 		ÏûÏ¢
+	 * 		æ¶ˆæ¯
 	 * @param data
-	 * 		Êı¾İ
+	 * 		æ•°æ®
 	 * @param type
-	 * 		²Ù×÷½á¹ûÀàĞÍ
+	 * 		æ“ä½œç»“æœç±»å‹
 	 * @return
 	 */
 	private Formater formater(String msg,Object data,Formater.OperationResult type) {
@@ -48,30 +48,30 @@ public abstract class BaseApplication {
 	}
 	
 	/**
-	 * ĞòÁĞ»¯²Ù×÷·â×°
+	 * åºåˆ—åŒ–æ“ä½œå°è£…
 	 * @param obj
-	 * 		´ıĞòÁĞ»¯µÄ¶ÔÏó
+	 * 		å¾…åºåˆ—åŒ–çš„å¯¹è±¡
 	 * @return
-	 * 		ĞòÁĞ»¯ºóµÄjsonÊı¾İ
+	 * 		åºåˆ—åŒ–åçš„jsonæ•°æ®
 	 */
 	protected String toJson(Object obj) {
 		if(obj == null)
 		{
-			throw new NullPointerException("´ıĞòÁĞ»¯µÄ¶ÔÏóÎªnull");
+			throw new NullPointerException("å¾…åºåˆ—åŒ–çš„å¯¹è±¡ä¸ºnull");
 		}
 		return Serialization.toJson(obj);
 	}
 		
 	/**
-	 * ·µ»Ø·ÖÒ³Ä£ĞÍjsonÊı¾İ
+	 * è¿”å›åˆ†é¡µæ¨¡å‹jsonæ•°æ®
 	 * @param data
-	 * 		×°ÌîµÄÊı¾İ
+	 * 		è£…å¡«çš„æ•°æ®
 	 * @param totalCount
-	 * 		×ÜĞĞÊı
+	 * 		æ€»è¡Œæ•°
 	 * @param msg
-	 * 		ÏûÏ¢
+	 * 		æ¶ˆæ¯
 	 * @param type
-	 * 		²Ù×÷½á¹ûÀàĞÍ
+	 * 		æ“ä½œç»“æœç±»å‹
 	 * @return String
 	 * 		json{PageFormater}
 	 */

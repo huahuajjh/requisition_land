@@ -9,159 +9,159 @@ import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 
 /**
- * ±íÊ¾ÕË»§µÄ¾ÛºÏ¸ù²Ö´¢½Ó¿Ú
+ * è¡¨ç¤ºè´¦æˆ·çš„èšåˆæ ¹ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-20 23:26
  * 
- * Ôö¼ÓÒ»¸ö¼ì²éÓÃ»§ÕËºÅÊÇ·ñ´æÔÚµÄ½Ó¿Ú
+ * å¢åŠ ä¸€ä¸ªæ£€æŸ¥ç”¨æˆ·è´¦å·æ˜¯å¦å­˜åœ¨çš„æ¥å£
  * @author Bless
  * @time 2016/3/3 9:51
  */
 public interface IAccountRepository extends IRepository<Account>{
 	/**
-	 * µÇÂ½ÕË»§¼ì²â
+	 * ç™»é™†è´¦æˆ·æ£€æµ‹
 	 * @param account
-	 * 		ÕË»§Ãû
+	 * 		è´¦æˆ·å
 	 * @param pwd
-	 * 		ÕË»§ÃÜÂë
+	 * 		è´¦æˆ·å¯†ç 
 	 * @return boolean
-	 * 		·µ»ØÒ»¸öbooleanÖµ£¬±íÃ÷¸ø¶¨µÄÓÃ»§ÃûºÍÃÜÂëÊÇ·ñ´æÔÚ¶ÔÓ¦µÄÕË»§
+	 * 		è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¡¨æ˜ç»™å®šçš„ç”¨æˆ·åå’Œå¯†ç æ˜¯å¦å­˜åœ¨å¯¹åº”çš„è´¦æˆ·
 	 */
 	boolean login(String account,String pwd);
 	
 	/**
-	 * µÇÂ½ÕË»§¼ì²â
+	 * ç™»é™†è´¦æˆ·æ£€æµ‹
 	 * @param account
-	 * 		ÕË»§Ãû
+	 * 		è´¦æˆ·å
 	 * @param pwd
-	 * 		ÕË»§ÃÜÂë
+	 * 		è´¦æˆ·å¯†ç 
 	 * @return Account
 	 */
 	Account login4session(String account,String pwd);
 	
 	/**
-	 * ¸ù¾İid»ñÈ¡ÓÃ»§ÊµÌå
+	 * æ ¹æ®idè·å–ç”¨æˆ·å®ä½“
 	 * @param id
-	 * 		ÓÃ»§id
+	 * 		ç”¨æˆ·id
 	 * @return
 	 */
 	Account getById(UUID id);
 	
 	/**
-	 * ´´½¨ĞÂÕË»§
+	 * åˆ›å»ºæ–°è´¦æˆ·
 	 * @param account
-	 * 		ÕË»§ÊµÀı
+	 * 		è´¦æˆ·å®ä¾‹
 	 * @return TODO
 	 */
 	Account createAccount(Account account) throws AccountOperationException;
 	
 	/**
-	 * ´´½¨ÕË»§
+	 * åˆ›å»ºè´¦æˆ·
 	 * @param account
-	 * 		ÕË»§Ãû
+	 * 		è´¦æˆ·å
 	 * @param pwd
-	 * 		ÃÜÂë
+	 * 		å¯†ç 
 	 * @param state
-	 * 		ÕË»§×´Ì¬
+	 * 		è´¦æˆ·çŠ¶æ€
 	 * @param name
-	 * 		ĞÕÃû
+	 * 		å§“å
 	 */
 	public void createAccount(String account,String pwd,AccountState state,String... name);
 	
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹å¯†ç 
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 * @param oldPwd
-	 * 		¾ÉÃÜÂë
+	 * 		æ—§å¯†ç 
 	 * @param newPwd
-	 * 		ĞÂÃÜÂë
+	 * 		æ–°å¯†ç 
 	 */
 	public void changePwd(UUID id,String oldPwd,String newPwd) throws DomainException;
 	
 	/**
-	 * ½ûÓÃÕË»§
+	 * ç¦ç”¨è´¦æˆ·
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 */
 	public void disableAccount(UUID id);
 	
 	/**
-	 * ¸üĞÂÕË»§ĞÅÏ¢
+	 * æ›´æ–°è´¦æˆ·ä¿¡æ¯
 	 * @param account
-	 * 		´ı¸üĞÂµÄÕË»§
+	 * 		å¾…æ›´æ–°çš„è´¦æˆ·
 	 */
 	public void updateAccount(Account account) throws AccountOperationException ;
 	
 	/**
-	 * ËøÕË»§
+	 * é”è´¦æˆ·
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 */
 	public void lockAccount(UUID id);
 
 	/**
-	 * ÆôÓÃÕË»§
+	 * å¯ç”¨è´¦æˆ·
 	 * @param id
-	 * 		ÕË»§id
+	 * 		è´¦æˆ·id
 	 */
 	public void enableAccount(UUID id);
 	
 	/**
-	 * ¸ù¾İÓÃ»§id¼ì²âÊÇ·ñ´æÔÚ¸ÃÓÃ»§
+	 * æ ¹æ®ç”¨æˆ·idæ£€æµ‹æ˜¯å¦å­˜åœ¨è¯¥ç”¨æˆ·
 	 * @param id
-	 * 		ÓÃ»§id
+	 * 		ç”¨æˆ·id
 	 * @return boolean
-	 * 		Èç¹û´æÔÚ¸ÃÓÃ»§·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 		å¦‚æœå­˜åœ¨è¯¥ç”¨æˆ·è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	public boolean existsById(UUID id);
 	
 	/**
-	 * ½â³ı±»É¾³ı²¿ÃÅ¼°×éÖ¯
+	 * è§£é™¤è¢«åˆ é™¤éƒ¨é—¨åŠç»„ç»‡
 	 * @param orgid
-	 * 		±»É¾³ı×éÖ¯id
+	 * 		è¢«åˆ é™¤ç»„ç»‡id
 	 */
 	public void updateOrg(UUID orgid);
 	
 	/**
-	 * ¸üĞÂÕË»§²Ö´¢ÖĞ±»É¾³ıµÄËùÓĞ²¿ÃÅidÎªnull
+	 * æ›´æ–°è´¦æˆ·ä»“å‚¨ä¸­è¢«åˆ é™¤çš„æ‰€æœ‰éƒ¨é—¨idä¸ºnull
 	 * @param deptid
-	 * 		±»É¾³ıµÄ²¿ÃÅid
+	 * 		è¢«åˆ é™¤çš„éƒ¨é—¨id
 	 */
 	public void updateDept(UUID deptid);	
 
 	/**
-	 * Ö¸¶¨½ÇÉ«±»É¾³ıÊ±£¬¸üĞÂËùÓĞÕËºÅ²Ö´¢µÄ½ÇÉ«ĞÅÏ¢
+	 * æŒ‡å®šè§’è‰²è¢«åˆ é™¤æ—¶ï¼Œæ›´æ–°æ‰€æœ‰è´¦å·ä»“å‚¨çš„è§’è‰²ä¿¡æ¯
 	 * @param rid
-	 * 		±»É¾³ıµÄ½ÇÉ«id
+	 * 		è¢«åˆ é™¤çš„è§’è‰²id
 	 */
 	public void updateRole(UUID rid);
 	
 	/**
-	 * ·ÖÒ³»ñÈ¡ÕË»§ÁĞ±í
+	 * åˆ†é¡µè·å–è´¦æˆ·åˆ—è¡¨
 	 * @param userName
-	 * 		ÓÃ»§Ãû
+	 * 		ç”¨æˆ·å
 	 * @param name
-	 * 		ĞÕÃû
+	 * 		å§“å
 	 * @param orgId
-	 * 		µ¥Î»id
+	 * 		å•ä½id
 	 * @param deptId
-	 * 		²¿ÃÅid
+	 * 		éƒ¨é—¨id
 	 * @param pageIndex
-	 * 		ÆğÊ¼Ò³
+	 * 		èµ·å§‹é¡µ
 	 * @param pageNum
-	 * 		Ò³Âë
+	 * 		é¡µç 
 	 * @return List<Account>
-	 * 		ÕË»§¼¯ºÏ
+	 * 		è´¦æˆ·é›†åˆ
 	 */
 	PageFormater queryByPage(String userName, String name, UUID orgId, UUID deptId, int pageIndex, int pageNum);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÕËºÅ¼ì²âÊÇ·ñ´æÔÚ¸ÃÓÃ»§
+	 * æ ¹æ®ç”¨æˆ·è´¦å·æ£€æµ‹æ˜¯å¦å­˜åœ¨è¯¥ç”¨æˆ·
 	 * @param account
-	 * 		ÓÃ»§ÕËºÅ
+	 * 		ç”¨æˆ·è´¦å·
 	 * @return boolean
-	 * 		Èç¹û´æÔÚ¸ÃÓÃ»§·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 		å¦‚æœå­˜åœ¨è¯¥ç”¨æˆ·è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	public boolean existsByAccount(String account);
 }

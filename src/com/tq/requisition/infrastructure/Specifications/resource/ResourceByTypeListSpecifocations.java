@@ -27,9 +27,9 @@ public class ResourceByTypeListSpecifocations  extends Specification<Resource> {
 	}
 
 	/**
-	 * »ñÈ¡hql±í´ïÊ½
+	 * è·å–hqlè¡¨è¾¾å¼
 	 * 
-	 * @return IHqlExpression hql±í´ïÊ½ÊµÀı
+	 * @return IHqlExpression hqlè¡¨è¾¾å¼å®ä¾‹
 	 */
 	@Override
 	public IHqlExpression getHqlExpression() {

@@ -7,10 +7,10 @@ import com.tq.requisition.domain.Specification.expression.IHqlExpression;
 
 
 /**
- * ¹æÔ¼½Ó¿ÚÊµÏÖµÄ³éÏó¹æÔ¼Àà
+ * è§„çº¦æ¥å£å®ç°çš„æŠ½è±¡è§„çº¦ç±»
  * @author jjh
  * @param <T>
- * 		Âú×ã¹æÔ¼µÄ¶ÔÏó
+ * 		æ»¡è¶³è§„çº¦çš„å¯¹è±¡
  * @date 2015-12-16 16:50
  *
  */
@@ -18,9 +18,9 @@ public abstract class Specification<T> implements ISpecification<T>{
 	protected Class<T> t;
 	
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * @param t
-	 * 		¹æÔ¼·ºĞÍ²ÎÊı
+	 * 		è§„çº¦æ³›å‹å‚æ•°
 	 */
 	public Specification(Class<T> _t)
 	{
@@ -56,18 +56,18 @@ public abstract class Specification<T> implements ISpecification<T>{
 	}
 	
 	/**
-	 * »ñÈ¡Ìõ¼ş±í´ïÊ½
+	 * è·å–æ¡ä»¶è¡¨è¾¾å¼
 	 * @return HqlExpression
-	 * 		hql±í´ïÊ½
+	 * 		hqlè¡¨è¾¾å¼
 	 */
 	public IHqlExpression getHqlExpression(){
 		throw new NotImplementedException("");
 	}
 	
 	/**
-	 * »ñÈ¡Ìõ¼ş±í´ïÊ½
+	 * è·å–æ¡ä»¶è¡¨è¾¾å¼
 	 * @return HqlExpression
-	 * 		Criteria±í´ïÊ½
+	 * 		Criteriaè¡¨è¾¾å¼
 	 */
 	public ICriteriaExpression getCriteriaExpression(){
 		throw new NotImplementedException("");

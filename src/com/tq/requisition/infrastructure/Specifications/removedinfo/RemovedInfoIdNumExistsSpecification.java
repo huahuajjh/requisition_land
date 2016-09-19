@@ -7,7 +7,7 @@ import com.tq.requisition.domain.model.removedInfo.RemovedInfo;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * ¹æÔ¼£¬¼ìÑéÉí·İÖ¤ÊÇ·ñÔÚÒÑÇ¨»§µµ°¸ÖĞ´æÔÚ
+ * è§„çº¦ï¼Œæ£€éªŒèº«ä»½è¯æ˜¯å¦åœ¨å·²è¿æˆ·æ¡£æ¡ˆä¸­å­˜åœ¨
  * @author jjh
  * @time 2016-01-11 20:07
  *

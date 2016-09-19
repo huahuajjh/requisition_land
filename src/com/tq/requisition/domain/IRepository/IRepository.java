@@ -7,133 +7,133 @@ import com.tq.requisition.domain.Specification.ISpecification;
 import com.tq.requisition.domain.share.IAggregateRoot;
 
 /**
- * ±íÃ÷ÊµÏÖ¸Ã½Ó¿ÚµÄÊµÀıÎªdomainÖĞ²Ö´¢µÄ½Ó¿ÚÊµÏÖ£¬½«¸Ã½Ó¿Ú¶¨ÒåÔÚdomainÖĞ£¬ÊÇÎªÁËÊµÏÖÓë¼¼ÊõÏ¸½ÚµÄ³Ö¾Ã»¯²ã£¨»ù´¡ÉèÊ©²ãinfrastructure£©µÄ·ÖÀë£¨ÒÀÀµµ¹ÖÃ£©
- * Í¬Ê±£¬¸Ã½Ó¿Ú·ºĞÍÀàĞÍÏŞ¶¨±ØĞëÊÇÊµÏÖÁËIAggregateRootµÄÊµÀı£¬¼´·ºĞÍ²ÎÊıÀàĞÍ±ØĞëÊÇ¾ÛºÏ¸ù
+ * è¡¨æ˜å®ç°è¯¥æ¥å£çš„å®ä¾‹ä¸ºdomainä¸­ä»“å‚¨çš„æ¥å£å®ç°ï¼Œå°†è¯¥æ¥å£å®šä¹‰åœ¨domainä¸­ï¼Œæ˜¯ä¸ºäº†å®ç°ä¸æŠ€æœ¯ç»†èŠ‚çš„æŒä¹…åŒ–å±‚ï¼ˆåŸºç¡€è®¾æ–½å±‚infrastructureï¼‰çš„åˆ†ç¦»ï¼ˆä¾èµ–å€’ç½®ï¼‰
+ * åŒæ—¶ï¼Œè¯¥æ¥å£æ³›å‹ç±»å‹é™å®šå¿…é¡»æ˜¯å®ç°äº†IAggregateRootçš„å®ä¾‹ï¼Œå³æ³›å‹å‚æ•°ç±»å‹å¿…é¡»æ˜¯èšåˆæ ¹
  * @author jjh
  * @time 2015-12-14 14:05
  */
 public interface IRepository<TAggregateRoot extends IAggregateRoot> {
 	/**
-	 * ÉèÖÃ·ºĞÍÀàĞÍclass 	
+	 * è®¾ç½®æ³›å‹ç±»å‹class 	
 	 * @param root
-	 * 		·ºĞÍÀàĞÍclass
+	 * 		æ³›å‹ç±»å‹class
 	 */
 	public IRepository<TAggregateRoot> setAggregatorRootClass(Class<TAggregateRoot> root);
 	
 	/**
-	 * ·µ»ØÒ»¸öbooleanÖµ£¬¸ÃÖµ±íÃ÷¸Ã¾ÛºÏ¸ùÊÇ·ñ´æÔÚ
+	 * è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¯¥å€¼è¡¨æ˜è¯¥èšåˆæ ¹æ˜¯å¦å­˜åœ¨
 	 * @param specification
-	 * 		¹æÔ¼
+	 * 		è§„çº¦
 	 * @return boolean
-	 * 		Èç¹û·ûºÏÖ¸¶¨¹æÔ¼Ìõ¼şµÄ¾ÛºÏ¸ù´æÔÚ£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 		å¦‚æœç¬¦åˆæŒ‡å®šè§„çº¦æ¡ä»¶çš„èšåˆæ ¹å­˜åœ¨ï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	boolean exists(ISpecification<TAggregateRoot> specification);
 	
 	/**
-	 * »ñÈ¡²Ö´¢ÉÏÏÂÎÄ
+	 * è·å–ä»“å‚¨ä¸Šä¸‹æ–‡
 	 * @return IRepositoryContext
-	 * 		²Ö´¢ÉÏÏÂÎÄ
+	 * 		ä»“å‚¨ä¸Šä¸‹æ–‡
 	 */
 	IRepositoryContext context();
 	
 	/**
-	 * ½«Ö¸¶¨µÄ¾ÛºÏ¸úÌí¼Óµ½²Ö´¢ÖĞ
+	 * å°†æŒ‡å®šçš„èšåˆè·Ÿæ·»åŠ åˆ°ä»“å‚¨ä¸­
 	 * @param aggregateRoot
-	 * 		´ıÌí¼ÓµÄ¾ÛºÏ¸ù
+	 * 		å¾…æ·»åŠ çš„èšåˆæ ¹
 	 */
 	void add(TAggregateRoot aggregateRoot);
 	
 	/**
-	 * ¸ù¾İ¾ÛºÏ¸ùµÄidÖµ£¬»ñÈ¡¾ÛºÏ¸ù
+	 * æ ¹æ®èšåˆæ ¹çš„idå€¼ï¼Œè·å–èšåˆæ ¹
 	 * @param key
-	 * 		¾ÛºÏ¸ùid
+	 * 		èšåˆæ ¹id
 	 * @param cls
-	 * 		¾ÛºÏ¸ùclass
+	 * 		èšåˆæ ¹class
 	 * @return TAggregateRoot
-	 * 		¾ÛºÏ¸ùÊµÀı
+	 * 		èšåˆæ ¹å®ä¾‹
 	 */
 	TAggregateRoot getByKey(Class<TAggregateRoot> cls,UUID key);
 		
 	/**
-	 * ¸ù¾İÖ¸¶¨µÄ¹æÔ¼£¬´Ó²Ö´¢ÖĞ»ñÈ¡ËùÓĞ·ûºÏÌõ¼şµÄ¾ÛºÏ¸ù
+	 * æ ¹æ®æŒ‡å®šçš„è§„çº¦ï¼Œä»ä»“å‚¨ä¸­è·å–æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„èšåˆæ ¹
 	 * @param specification
-	 * 		¹æÔ¼
+	 * 		è§„çº¦
 	 * @return List<TAggregateRoot>
-	 * 		·ûºÏÌõ¼şµÄ¾ÛºÏ¸ùÊµÀı¼¯ºÏ
+	 * 		ç¬¦åˆæ¡ä»¶çš„èšåˆæ ¹å®ä¾‹é›†åˆ
 	 */
 	List<TAggregateRoot> getAll(ISpecification<TAggregateRoot> specification);
 	
 	/**
-	 * ·ÖÒ³»ñÈ¡¾ÛºÏ¸ù¼¯ºÏ¶ÔÏó
+	 * åˆ†é¡µè·å–èšåˆæ ¹é›†åˆå¯¹è±¡
 	 * @param specification
-	 * 		¹æÔ¼
+	 * 		è§„çº¦
 	 * @param indexPage
-	 * 		ÆğÊ¼Ò³
+	 * 		èµ·å§‹é¡µ
 	 * @param pageSize
-	 * 		Ò³Âë´óĞ¡
+	 * 		é¡µç å¤§å°
 	 * @return List<TAggregateRoot>
-	 * 		¾ÛºÏ¸ù¼¯ºÏ
+	 * 		èšåˆæ ¹é›†åˆ
 	 */
 	List<TAggregateRoot> getAll(ISpecification<TAggregateRoot> specification,int indexPage,int pageSize);
 	
 	/**
-	 * ½«Ö¸¶¨µÄ¾ÛºÏ¸ù´Ó²Ö´¢ÖĞÉ¾³ı
+	 * å°†æŒ‡å®šçš„èšåˆæ ¹ä»ä»“å‚¨ä¸­åˆ é™¤
 	 * @param aggregateRoot
-	 * 		´ıÉ¾³ıµÄ¾ÛºÏ¸ù
+	 * 		å¾…åˆ é™¤çš„èšåˆæ ¹
 	 */
 	void remove(TAggregateRoot aggregateRoot);
 	
 	/**
-	 * ¸ù¾İ¹æÔ¼É¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®è§„çº¦åˆ é™¤èšåˆæ ¹
 	 * @param specification
-	 * 		¹æÔ¼
+	 * 		è§„çº¦
 	 */
 	void remove(ISpecification<TAggregateRoot> specification);
 	
 	/**
-	 * ¸ù¾İidÉ¾³ı¾ÛºÏ¸ù
+	 * æ ¹æ®idåˆ é™¤èšåˆæ ¹
 	 * @param cls
-	 * 		¾ÛºÏ¸ùclass
+	 * 		èšåˆæ ¹class
 	 * @param keyUuid
-	 * 		uuidÖ÷¼ü
+	 * 		uuidä¸»é”®
 	 */
 	void removeByKey(Class<TAggregateRoot> cls,UUID keyUuid);
 	
 	/**
-	 * ¸üĞÂÖ¸¶¨µÄ¾ÛºÏ¸ù
+	 * æ›´æ–°æŒ‡å®šçš„èšåˆæ ¹
 	 * @param aggregateRoot
-	 * 		´ı¸üĞÂµÄ¾ÛºÏ¸ù
+	 * 		å¾…æ›´æ–°çš„èšåˆæ ¹
 	 */
 	void update(TAggregateRoot aggregateRoot);
 		
 	/**
-	 * ¸ù¾İ¾ÛºÏ¸ùid¼ì²âÊÇ·ñ´æÔÚ¸Ã¾ÛºÏ¸ù
+	 * æ ¹æ®èšåˆæ ¹idæ£€æµ‹æ˜¯å¦å­˜åœ¨è¯¥èšåˆæ ¹
 	 * @param id
-	 * 		¾ÛºÏ¸ùid
+	 * 		èšåˆæ ¹id
 	 * @param tableName
-	 * 		±íÃû
+	 * 		è¡¨å
 	 * @param idName
-	 * 		idÁĞÃû
+	 * 		idåˆ—å
 	 * @return boolean
-	 * 		´æÔÚ·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * 		å­˜åœ¨è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	boolean existsById(UUID id,String tableName,String idName);
 
 	/**
-	 * Ö´ĞĞÒ»´Îupdate»òÕßdeletÃüÁî
+	 * æ‰§è¡Œä¸€æ¬¡updateæˆ–è€…deletå‘½ä»¤
 	 * @param specification
-	 * 		¹æÔ¼
+	 * 		è§„çº¦
 	 * @return int
-	 * 		Ó°ÏìĞĞÊı
+	 * 		å½±å“è¡Œæ•°
 	 */
 	int executeUpdate(ISpecification<TAggregateRoot> specification);
 
 	/**
-	 * »ñÈ¡×Ü¼ÇÂ¼Êı
+	 * è·å–æ€»è®°å½•æ•°
 	 * @param tableName
-	 * 		±íÃû
+	 * 		è¡¨å
 	 * @return int
-	 * 		×Ü¼ÇÂ¼Êı
+	 * 		æ€»è®°å½•æ•°
 	 */
 	int getTotalCount(ISpecification<TAggregateRoot> specification);
 }

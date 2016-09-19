@@ -8,32 +8,32 @@ import com.tq.requisition.domain.model.resource.Resource;
 public interface IGetResService {
 
 //	/**
-//	 * »ñÈ¡ÓÃ»§ËùÓµÓĞµÄ×ÊÔ´
+//	 * è·å–ç”¨æˆ·æ‰€æ‹¥æœ‰çš„èµ„æº
 //	 * 
 //	 * @param userId
-//	 *            ÓÃ»§DI
+//	 *            ç”¨æˆ·DI
 //	 * @param hierarchy
-//	 *            ×ÊÔ´²ã¼¶
-//	 * @return ×ÊÔ´¼¯ºÏ
+//	 *            èµ„æºå±‚çº§
+//	 * @return èµ„æºé›†åˆ
 //	 */
 //	List<Resource> getResourceByUserId(UUID userId, int hierarchy);
 //
 //	/**
-//	 * »ñÈ¡ÓÃ»§ËùÓµÓĞµÄ×ÊÔ´
+//	 * è·å–ç”¨æˆ·æ‰€æ‹¥æœ‰çš„èµ„æº
 //	 * 
 //	 * @param userId
-//	 *            ÓÃ»§DI
+//	 *            ç”¨æˆ·DI
 //	 * @param hierarchy
-//	 *            ×ÊÔ´²ã¼¶
+//	 *            èµ„æºå±‚çº§
 //	 * @param ResourceType
-//	 *            ×ÊÔ´ÀàĞÍ
-//	 * @return ×ÊÔ´¼¯ºÏ
+//	 *            èµ„æºç±»å‹
+//	 * @return èµ„æºé›†åˆ
 //	 */
 //	List<Resource> getResourceByUserId(UUID userId, ResourceType type,
 //			int hierarchy);
 //	
 	/**
-	 * ¸ù¾İÓÃ»§»ñÈ¡×ÊÔ´
+	 * æ ¹æ®ç”¨æˆ·è·å–èµ„æº
 	 * @param uid
 	 * @return
 	 */

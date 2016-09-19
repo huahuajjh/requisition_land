@@ -65,6 +65,8 @@
 					<hr>
 					<div class="btn-group pull-right">
 						<input type="button" onclick="tableData.goPage(1); " class="btn btn-primary pull-right" value="查询">
+						<button type="button" class="btn btn-default pull-right" 
+						onclick="$('#selectExportModal').modal('show');">导出拆迁户户信息台账</button>
 						<button type="reset" class="bk-margin-5 btn btn-link pull-right" >重置</button>
 					</div>
 				</div>
@@ -247,6 +249,21 @@
 		</div>
 	</div>
 </form>
+
+<div class="modal fade" id="selectExportModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">导出需要的数据</h4>
+      </div>
+      <div class="modal-body">
+      	<iframe src="exportHTML/queryRemoveInfo.html" style="border: 0;width: 100%;height: 500px;" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="showProInfoModal">
   <div class="modal-dialog">
     <div class="modal-content" id="showProInfoArea">
@@ -493,7 +510,7 @@
 					<td colspan="6">
 						<div class="form-group">
 							<label>批证及其他情况说明</label>
-							<div class="form-control">{{satuationDesc}}</div>
+							<div class="form-control" style="height: auto;">{{satuationDesc}}</div>
 						</div>
 					</td>
 				</tr>

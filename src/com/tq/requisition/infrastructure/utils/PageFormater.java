@@ -1,7 +1,7 @@
 package com.tq.requisition.infrastructure.utils;
 
 /**
- * ·ÖÒ³Ä£ÐÍ
+ * åˆ†é¡µæ¨¡åž‹
  * @author jjh
  * @time 2015-12-25 18::30
  */

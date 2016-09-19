@@ -7,7 +7,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 /**
  * @description
- * 		Log的log4j实现
+ * 		Log鐨刲og4j瀹炵幇
  * @author jjh
  * @time 2015-12-14 18:21
  */
@@ -25,7 +25,7 @@ public final class LogImpl implements ILog{
 	}
 	
 	/**
-	 *	info级别日志输出
+	 *	info绾у埆鏃ュ織杈撳嚭
 	 */	
 	@Override
 	public void info(Object message) {
@@ -33,13 +33,13 @@ public final class LogImpl implements ILog{
 	}
 
 	/**
-	 *	info级别日志输出
+	 *	info绾у埆鏃ュ織杈撳嚭
 	 * @param className
-	 * 		输出日志的class name
+	 * 		杈撳嚭鏃ュ織鐨刢lass name
 	 * @param methodName
-	 * 		输出日志的method name
+	 * 		杈撳嚭鏃ュ織鐨刴ethod name
 	 * @param message
-	 * 		日志消息
+	 * 		鏃ュ織娑堟伅
 	 */
 	@Override
 	public void debug(Object message) {
@@ -47,7 +47,7 @@ public final class LogImpl implements ILog{
 	}
 
 	/**
-	 *	debug级别日志输出
+	 *	debug绾у埆鏃ュ織杈撳嚭
 	 */
 	@Override
 	public void error(Object message) {

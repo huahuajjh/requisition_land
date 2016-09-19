@@ -1,18 +1,18 @@
-package com.tq.requisition.presentation.dto.share;
+ï»¿package com.tq.requisition.presentation.dto.share;
 
 import java.util.UUID;
 
 public class AddressDto {
 	/**
-	 * ¹ücid
+	 * èŠ‚ç‚¹id
 	 */
 	private UUID id;
 
-	/** ¸¸id */
+	/** çˆ¶id */
 	private UUID pid;
 
 	/**
-	 * ¹ücname
+	 * èŠ‚ç‚¹name
 	 */
 	private String name;
 

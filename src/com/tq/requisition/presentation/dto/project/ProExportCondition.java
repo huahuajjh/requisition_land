@@ -1,27 +1,27 @@
-package com.tq.requisition.presentation.dto.project;
+ï»¿package com.tq.requisition.presentation.dto.project;
 
 import java.util.Date;
 
 /**
- * ÏîÄ¿µ¼³öÌõ¼şmodel
+ * é¡¹ç›®å¯¼å‡ºæ¡ä»¶model
  * @author jjh
  * @time 2016 02-26 18:19
  * 
- * Ôö¼ÓÁ½¸öÌõ¼ş£¬·Ö±ğÊÇ£ºÊÇ·ñÎª±¾ÔÂÍê³É½áËãÏîÄ¿£»ÏîÄ¿·ÖÀà
+ * å¢åŠ ä¸¤ä¸ªæ¡ä»¶ï¼Œåˆ†åˆ«æ˜¯ï¼šæ˜¯å¦ä¸ºæœ¬æœˆå®Œæˆç»“ç®—é¡¹ç›®ï¼›é¡¹ç›®åˆ†ç±»
  * @author bless
  * @time 2016/3/4 16:01
  */
 public class ProExportCondition {
-	/**ÆğÊ¼ÈÕÆÚ*/
+	/**èµ·å§‹æ—¥æœŸ*/
 	private Date startDate;
 	
-	/**½áÊøÈÕÆÚ*/
+	/**ç»“æŸæ—¥æœŸ*/
 	private Date endDate;
 	
-	/**ÊÇ·ñ±¾ÔÂÍê³É*/
+	/**æ˜¯å¦æœ¬æœˆå®Œæˆ*/
 	private Boolean isInstantAchieve;
 	
-	/**ÏîÄ¿·ÖÀà*/
+	/**é¡¹ç›®åˆ†ç±»*/
 	private String proCategory;
 
 	public Date getStartDate() {

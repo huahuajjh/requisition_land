@@ -30,18 +30,18 @@ public class SysDataDict extends BaseAction {
 		return SUCCESS;
 	}
 	
-	//»ñÈ¡ËùÓĞ»§¿ÚÀàĞÍ
+	//è·å–æ‰€æœ‰æˆ·å£ç±»å‹
 	public String getAllHouseholdType() throws IOException{
 		String jsonState = this.shareTypeServiceContract.getAllHouseholdType();
 		response().getWriter().write(jsonState);
 		return null;
 	}
-	public String deleteHouseholdType() throws IOException{//É¾³ı
+	public String deleteHouseholdType() throws IOException{//åˆ é™¤
 		String jsonData = this.shareTypeServiceContract.delHouseholdType(UUID.fromString(id));
 		response().getWriter().write(jsonData);
 		return null;
 	}
-	public String editHouseholdType() throws IOException{//ĞŞ¸Ä
+	public String editHouseholdType() throws IOException{//ä¿®æ”¹
 		String jsonData = this.shareTypeServiceContract.editHouseholdType(UUID.fromString(id), name);
 		response().getWriter().write(jsonData);
 		return null;
@@ -52,7 +52,7 @@ public class SysDataDict extends BaseAction {
 		return null;
 	}
 	
-	//»ñÈ¡ËùÓĞÓë»§Ö÷¹ØÏµ¼¯ºÏ
+	//è·å–æ‰€æœ‰ä¸æˆ·ä¸»å…³ç³»é›†åˆ
 	public String getAllRelationshipType() throws IOException{
 		String jsonState = this.shareTypeServiceContract.getAllRelationshipType();
 		response().getWriter().write(jsonState);
@@ -74,7 +74,7 @@ public class SysDataDict extends BaseAction {
 		return null;
 	}
 	
-	//»ñÈ¡ËùÓĞÉç±£ÀàĞÍ¼¯ºÏ
+	//è·å–æ‰€æœ‰ç¤¾ä¿ç±»å‹é›†åˆ
 	public String getAllSocialsecurityType() throws IOException{
 		String jsonState = this.shareTypeServiceContract.getAllSocialsecurityType();
 		response().getWriter().write(jsonState);
@@ -96,7 +96,7 @@ public class SysDataDict extends BaseAction {
 		return null;
 	}
 	
-	//»ñÈ¡ËùÓĞµØÖ·
+	//è·å–æ‰€æœ‰åœ°å€
 	public String getAddress() throws IOException{
 		String jsonState = this.addressServiceContract.getAllAddresses();
 		response().getWriter().write(jsonState);
@@ -138,7 +138,7 @@ public class SysDataDict extends BaseAction {
 		return null;
 	}
 	
-	//Õş²ß·¨¹æÀàĞÍ
+	//æ”¿ç­–æ³•è§„ç±»å‹
 	public String getPolicyType(){
 		return null;
 	}

@@ -11,62 +11,62 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.transferMgt.TransferInfoQueryModel;
 
 /**
- * ×ª»§ĞÅÏ¢²Ö´¢½Ó¿Ú
+ * è½¬æˆ·ä¿¡æ¯ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2015-12-30 23:04
  */
 public interface ITransferInfoRepository  extends IRepository<TransferHouseholdInfo>{
 	/**
-	 * Â¼Èë×ª»§ĞÅÏ¢	
+	 * å½•å…¥è½¬æˆ·ä¿¡æ¯	
 	 * @param entity
-	 * 		´ıÂ¼ÈëµÄ×ª»§ĞÅÏ¢ÊµÌå
+	 * 		å¾…å½•å…¥çš„è½¬æˆ·ä¿¡æ¯å®ä½“
 	 */
 	void addTransferInfo(TransferHouseholdInfo entity) throws DomainException ;
 	
 	/**
-	 * ÅúÁ¿Â¼Èë×ª»§ĞÅÏ¢
+	 * æ‰¹é‡å½•å…¥è½¬æˆ·ä¿¡æ¯
 	 * @param list
-	 * 		×ª»§ĞÅÏ¢¼¯ºÏ
+	 * 		è½¬æˆ·ä¿¡æ¯é›†åˆ
 	 */
 	void addBatch(List<TransferHouseholdInfo> list) throws DomainException ;
 	
 	/**
-	 * ¸üĞÂ×ª»§ĞÅÏ¢
+	 * æ›´æ–°è½¬æˆ·ä¿¡æ¯
 	 * @param entity
-	 * 		´ı¸üĞÂµÄ×ª»§ÊµÌå
+	 * 		å¾…æ›´æ–°çš„è½¬æˆ·å®ä½“
 	 */
 	void editTransferInfo(TransferHouseholdInfo entity) throws SpecifiedObjectDoesNotExistsException ;
 	
 	/**
-	 * ÅúÁ¿¸üĞÂ×ª»§ĞÅÏ¢
+	 * æ‰¹é‡æ›´æ–°è½¬æˆ·ä¿¡æ¯
 	 * @param list
-	 * 		´ı¸üĞÂµÄ¼¯ºÏ
+	 * 		å¾…æ›´æ–°çš„é›†åˆ
 	 */
 	void editBact(List<TransferHouseholdInfo> list) throws SpecifiedObjectDoesNotExistsException ;
 	
 	/**
-	 * ÅúÁ¿É¾³ı×ª»§ĞÅÏ¢
+	 * æ‰¹é‡åˆ é™¤è½¬æˆ·ä¿¡æ¯
 	 * @param uuids
 	 */
 	void deleteBact(UUID... uuids);
 	
 	/**
-	 * Ä£ºı²éÑ¯×ª»§¼¯ºÏ
+	 * æ¨¡ç³ŠæŸ¥è¯¢è½¬æˆ·é›†åˆ
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return List<TransferHouseholdInfo>
-	 * 		×ª»§¼¯ºÏĞÅÏ¢
+	 * 		è½¬æˆ·é›†åˆä¿¡æ¯
 	 */
 	PageFormater queryByFuzzy(TransferInfoQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ÓÃÓÚĞÂÔöÊ±ĞÅÏ¢²éÑ¯
+	 * ç”¨äºæ–°å¢æ—¶ä¿¡æ¯æŸ¥è¯¢
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
 	 */
 	PageFormater queryByFuzzy4Add(TransferInfoQueryModel queryModel,PageModel pageModel);

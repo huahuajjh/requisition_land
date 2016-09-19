@@ -1,16 +1,16 @@
 package com.tq.requisition.domain.model.project;
 
 /**
- * ÏîÄ¿ÀàĞÍ
+ * é¡¹ç›®ç±»å‹
  * 
  * @author jjh
  * @time 2015-12-18 12:40
  */
 public enum ProjectType {
-	/** ÖØµãÏîÄ¿ */
-	INFRASTRUCTURE(1, "»ù´¡ÉèÊ©"),
-	/** Ò»°ãÏîÄ¿ */
-	OTHER(2, "ÆäËû");
+	/** é‡ç‚¹é¡¹ç›® */
+	INFRASTRUCTURE(1, "åŸºç¡€è®¾æ–½"),
+	/** ä¸€èˆ¬é¡¹ç›® */
+	OTHER(2, "å…¶ä»–");
 
 	/* private fields */
 	private int value;
@@ -23,7 +23,7 @@ public enum ProjectType {
 	}
 
 	/**
-	 * ·µ»ØÃ¶¾ÙµÄintÖµ
+	 * è¿”å›æšä¸¾çš„intå€¼
 	 * 
 	 * @return
 	 */
@@ -32,11 +32,11 @@ public enum ProjectType {
 	}
 
 	/**
-	 * Í¨¹ıintÖµ»ñÈ¡Ã¶¾ÙÀàĞÍ
+	 * é€šè¿‡intå€¼è·å–æšä¸¾ç±»å‹
 	 * 
 	 * @param v
-	 *            int²ÎÊı
-	 * @return Ã¶¾Ù
+	 *            intå‚æ•°
+	 * @return æšä¸¾
 	 */
 	public ProjectType obtainByInt(int v) {
 
@@ -46,7 +46,7 @@ public enum ProjectType {
 		case 2:
 			return OTHER;
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š");
 		}
 	}
 
@@ -57,11 +57,11 @@ public enum ProjectType {
 	public String toStr(int v) {
 		switch (v) {
 		case 1:
-			return "»ù´¡ÉèÊ©";
+			return "åŸºç¡€è®¾æ–½";
 		case 2:
-			return "ÆäËû";
+			return "å…¶ä»–";
 		default:
-			throw new IllegalArgumentException("Ã¶¾Ùint²ÎÊı´íÎó£¬³¬³öÃ¶¾ÙÏŞ¶¨");
+			throw new IllegalArgumentException("æšä¸¾intå‚æ•°é”™è¯¯ï¼Œè¶…å‡ºæšä¸¾é™å®š");
 		}
 
 	}

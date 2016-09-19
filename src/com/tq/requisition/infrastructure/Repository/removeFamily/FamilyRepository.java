@@ -5,9 +5,11 @@ import java.util.UUID;
 
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 import com.tq.requisition.domain.Specification.Specification;
+import com.tq.requisition.domain.Specification.SpecificationExt;
 import com.tq.requisition.domain.Specification.expression.IHqlExpression;
 import com.tq.requisition.domain.Specification.expression.OperationType;
 import com.tq.requisition.domain.model.familyMember.FamilyItem;
+import com.tq.requisition.domain.model.relationshipType.RelationshipType;
 import com.tq.requisition.domain.model.removeFamily.Family;
 import com.tq.requisition.domain.model.removeFamily.IFamilyRepository;
 import com.tq.requisition.infrastructure.Repository.HbRepository;
@@ -18,12 +20,13 @@ import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlQueryFuz
 import com.tq.requisition.infrastructure.Specifications.removeFamily.FmlTotalCountSpecification;
 import com.tq.requisition.infrastructure.utils.PageFormater;
 import com.tq.requisition.infrastructure.utils.PageHelper;
+import com.tq.requisition.presentation.dto.removedinfo.RemovedExportCondition;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyBasicInfoDto;
 import com.tq.requisition.presentation.dto.rmHousehold.FamilyQueryModel;
 import com.tq.requisition.presentation.dto.share.PageModel;
 
 /**
- * ²ğÇ¨»§¾ÛºÏ¸ù²Ö´¢ÊµÏÖÀà
+ * æ‹†è¿æˆ·èšåˆæ ¹ä»“å‚¨å®ç°ç±»
  * @author jjh
  * @time 2015-12-29 21:34
  */
@@ -39,7 +42,7 @@ public class FamilyRepository extends HbRepository<Family> implements IFamilyRep
 		{
 			for (final FamilyItem item : fml.getItems()) {
 				item.setFmlId(fml.getId());
-				if(item.getRelationshipStr().equals("»§Ö÷"))
+				if(item.getRelationshipStr().equals("æˆ·ä¸»"))
 				{
 					fml.setHeadId(item.getId());
 				}
@@ -54,7 +57,7 @@ public class FamilyRepository extends HbRepository<Family> implements IFamilyRep
 					}
 				});
 				if(count > 0){
-					throw new NullPointerException("Ê§°Ü-Éí·İÖ¤[" + item.getIdNumber() + "]ÒÑ¾­´æÔÚ");
+					throw new NullPointerException("å¤±è´¥-èº«ä»½è¯[" + item.getIdNumber() + "]å·²ç»å­˜åœ¨");
 				}
 				add(item);
 			}
@@ -80,7 +83,7 @@ public class FamilyRepository extends HbRepository<Family> implements IFamilyRep
 		Family f = getByKey(Family.class, fml.getId());
 		if(null == f)
 		{
-			throw new NullPointerException("Î´²éÑ¯µ½Ö¸¶¨µÄ²ğÇ¨»§Êı¾İ");
+			throw new NullPointerException("æœªæŸ¥è¯¢åˆ°æŒ‡å®šçš„æ‹†è¿æˆ·æ•°æ®");
 		}
 		f.modify(fml);
 		update(f);
@@ -115,6 +118,38 @@ public class FamilyRepository extends HbRepository<Family> implements IFamilyRep
 				pageModel.pageSize);
 				
 		return PageFormater.obtain(list, count);
+	}
+
+	@Override
+	public List<Family> exportByDate(final RemovedExportCondition query) {
+		List<Family> list = getAll(new SpecificationExt<Family>(Family.class) {
+
+			@Override
+			public String getAbsHql() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getAbsSql() {
+				if(query != null && query.getProName() != null && !query.getProName().equals("")) {
+					return "select * from tb_family where pro_name like '%" + query.getProName() + "%'";
+				}
+				return "select * from tb_family";
+			}
+
+			@Override
+			public Object[] getAbsParameters() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public OperationType getAbsType() {
+				return OperationType.SQL;
+			}
+		});
+		return list;
 	}
 
 }

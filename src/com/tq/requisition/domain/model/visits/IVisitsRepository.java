@@ -8,16 +8,16 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 import com.tq.requisition.presentation.dto.visits.VisitsQueryModel;
 
 /**
- * ÉÏ·Ã¼ÇÂ¼²Ö´¢½Ó¿Ú
+ * ä¸Šè®¿è®°å½•ä»“å‚¨æ¥å£
  * @author jjh
  * @time 2016-01-13 15:42
  *
  */
 public interface IVisitsRepository extends IRepository<Visits>{
 	/**
-	 * ¸ù¾İidÉ¾³ıÖ¸¶¨µÄÉÏ·ÃĞÅÏ¢
+	 * æ ¹æ®idåˆ é™¤æŒ‡å®šçš„ä¸Šè®¿ä¿¡æ¯
 	 * @param id
-	 * 		´ıÉ¾³ı¶ÔÏóµÄid
+	 * 		å¾…åˆ é™¤å¯¹è±¡çš„id
 	 */
 	void delById(UUID id);
 	

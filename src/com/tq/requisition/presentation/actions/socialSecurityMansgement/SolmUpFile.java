@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.socialSecurityMansgement;
+ï»¿package com.tq.requisition.presentation.actions.socialSecurityMansgement;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,7 +55,7 @@ public class SolmUpFile extends HttpServlet {
 //		for (FileItem item : fileList) {
 //			if (!item.isFormField()) {
 //				{
-//					is = item.getInputStream();// ÉÏ´«ÎÄ¼şÁ÷
+//					is = item.getInputStream();// ä¸Šä¼ æ–‡ä»¶æµ
 //				}
 //			}
 //		}
@@ -87,7 +87,7 @@ public class SolmUpFile extends HttpServlet {
 //						SsImportAndExportDto.class, 2);
 //				if (errors.size() > 0) {
 //					String str = toForMaterJson(OperationResult.ERROR,
-//							"ÉÏ´«´íÎó£¬Çë°´´íÎó°´Å¥²é¿´ÏêÏ¸´íÎó", errors.toArray());
+//							"ä¸Šä¼ é”™è¯¯ï¼Œè¯·æŒ‰é”™è¯¯æŒ‰é’®æŸ¥çœ‹è¯¦ç»†é”™è¯¯", errors.toArray());
 //					response.getWriter().write(str);
 //					return;
 //				} else {
@@ -101,18 +101,18 @@ public class SolmUpFile extends HttpServlet {
 //						stateJsonString = ssService.importSS(items);
 //					} else {
 //						stateJsonString = toForMaterJson(
-//								OperationResult.SUCCESS, "ÎÄ¼şÖĞÃ»ÓĞÊı¾İ");
+//								OperationResult.SUCCESS, "æ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®");
 //					}
 //					response.getWriter().write(stateJsonString);
 //				}
 //			} catch (InstantiationException | NoSuchMethodException
 //					| ConvertErrorException e) {
 //				String str = toForMaterJson(OperationResult.ERROR,
-//						"»ñÈ¡ExcelÁĞ±í´íÎó");
+//						"è·å–Excelåˆ—è¡¨é”™è¯¯");
 //				response.getWriter().write(str);
 //			}
 //		} catch (IOException e) {
-//			String str = toForMaterJson(OperationResult.ERROR, "ÇëÉÏ´«ÕıÈ·µÄExcelÎÄ¼ş");
+//			String str = toForMaterJson(OperationResult.ERROR, "è¯·ä¸Šä¼ æ­£ç¡®çš„Excelæ–‡ä»¶");
 //			response.getWriter().write(str);
 //		} finally {
 //			if (excelInput != null) {

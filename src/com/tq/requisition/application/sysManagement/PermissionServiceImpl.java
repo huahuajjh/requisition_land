@@ -8,7 +8,7 @@ import com.tq.requisition.exception.InvalidOperationException;
 import com.tq.requisition.presentation.serviceContract.sysManagement.IPermissionService;
 
 /**
- * 权限管理
+ * 鏉冮檺绠＄悊
  * @author jjh
  * @time 2015-12-24 22:14
  */

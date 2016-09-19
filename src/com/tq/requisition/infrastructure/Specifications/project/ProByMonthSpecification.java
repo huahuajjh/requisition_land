@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.presentation.dto.project.ProExportCondition;
 
 /**
- * °´ÕÕÔÂ·İ²éÑ¯ÏîÄ¿ÔÂ¶ÈĞÅÏ¢
+ * æŒ‰ç…§æœˆä»½æŸ¥è¯¢é¡¹ç›®æœˆåº¦ä¿¡æ¯
  * @author jjh
  * @time 2016-01-15 22:02
  *
@@ -26,9 +26,9 @@ public class ProByMonthSpecification extends Specification<ProjectItem>{
 		IHqlExpression expression = new HqlExpression();
 		String hql = "from ProjectItem where ";
 		if(condition.getIsInstantAchieve() != null && condition.getIsInstantAchieve()){
-			hql += "curMonthComplete is not null and curMonthComplete <> '' and curMonthComplete <> '·ñ' and ";
+			hql += "curMonthComplete is not null and curMonthComplete <> '' and curMonthComplete <> 'å¦' and ";
 		} else if (condition.getIsInstantAchieve() != null && !condition.getIsInstantAchieve()) {
-			hql += "(curMonthComplete is null or curMonthComplete = '' or curMonthComplete = '·ñ') and ";
+			hql += "(curMonthComplete is null or curMonthComplete = '' or curMonthComplete = 'å¦') and ";
 		}
 		hql += "date between ? and ?";
 		expression.setHql(hql);

@@ -3,11 +3,8 @@ package com.tq.requisition.application.fmlMgtImpl;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.commons.lang3.NotImplementedException;
-
 import com.tq.requisition.application.BaseApplication;
 import com.tq.requisition.autoMapper.FamilyItemMapper;
-import com.tq.requisition.autoMapper.FamilyMapper;
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 import com.tq.requisition.domain.Specification.Specification;
 import com.tq.requisition.domain.Specification.expression.IHqlExpression;
@@ -46,9 +43,9 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 	public String queryFamilyItemsByFuzzy(FamilyItemQueryModel queryModel,
 			PageModel pageModel) {
 		try {
-			return toJsonByPage(queryFamilyItemListByFuzzy(queryModel, pageModel), "³É¹¦", Formater.OperationResult.SUCCESS);
+			return toJsonByPage(queryFamilyItemListByFuzzy(queryModel, pageModel), "æˆåŠŸ", Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -68,10 +65,10 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 			context().beginTransaction();
 			FamilyItem fmlItem = itemRepository.editFamilyItem(i);
 			context().commit();
-			return toJson("±à¼­³É¹¦", fmlItem, Formater.OperationResult.SUCCESS);
+			return toJson("ç¼–è¾‘æˆåŠŸ", fmlItem, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("±à¼­Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("ç¼–è¾‘å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -103,7 +100,7 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 				}
 			});
 			if(countSol > 0 || countHpt > 0){
-				return toJson("Ê§°Ü-ÈËÔ±ÓĞ¹º·¿È¯»òÉç±£ĞÅÏ¢¹ØÁª", null, Formater.OperationResult.FAIL);
+				return toJson("å¤±è´¥-äººå‘˜æœ‰è´­æˆ¿åˆ¸æˆ–ç¤¾ä¿ä¿¡æ¯å…³è”", null, Formater.OperationResult.FAIL);
 			}
 			Family family = fmlRepository.getByKey(Family.class, item.getFmlId());
 			context().beginTransaction();
@@ -112,10 +109,10 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 			family.setFmlNumber(family.getFmlNumber() - 1);
 			fmlRepository.editFamily(family);
 			context().commit();
-			return toJson("³É¹¦", item, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", item, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -123,9 +120,9 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 	public String queryByIdNumber(String idNumber) {
 		try {
 			FamilyItem item = itemRepository.queryByIdNumber(idNumber);
-			return toJson("³É¹¦", item, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", item, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 
@@ -133,9 +130,9 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 	public String queryByFmlId(UUID id) {
 		try {
 			List<FamilyItem> list = itemRepository.queryItemsByFmlId(id);
-			return toJson("³É¹¦", FamilyItemMapper.toDtoList(list), Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", FamilyItemMapper.toDtoList(list), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	
@@ -145,10 +142,10 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 			context().beginTransaction();
 			FamilyItem item = itemRepository.addFamilyItem(FamilyItemMapper.toModel(dto));
 			context().commit();
-			return toJson("³É¹¦", item, Formater.OperationResult.SUCCESS);
+			return toJson("æˆåŠŸ", item, Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
 			context().rollback();
-			return toJson("Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 		finally{
 			context().close();
@@ -159,9 +156,9 @@ public class FamilyItemServiceImpl extends BaseApplication implements IFamilyIte
 	public String queryByIdNumberAndName(String idNumber, String name) {
 		try {
 			FamilyItem item = itemRepository.queryByIdNumberAndName(idNumber, name);
-			return toJson("²éÑ¯ÈËÔ±ĞÅÏ¢³É¹¦", FamilyItemMapper.toDto(item), Formater.OperationResult.SUCCESS);
+			return toJson("æŸ¥è¯¢äººå‘˜ä¿¡æ¯æˆåŠŸ", FamilyItemMapper.toDto(item), Formater.OperationResult.SUCCESS);
 		} catch (Exception e) {
-			return toJson("²éÑ¯ÈËÔ±ĞÅÏ¢Ê§°Ü-"+e.getMessage(), null, Formater.OperationResult.FAIL);
+			return toJson("æŸ¥è¯¢äººå‘˜ä¿¡æ¯å¤±è´¥-"+e.getMessage(), null, Formater.OperationResult.FAIL);
 		}
 	}
 	

@@ -3,13 +3,13 @@ package com.tq.requisition.domain.model.archiveFileType;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ¹éµµÎÄ¼şÀàĞÍ¾ÛºÏ¸ù
+ * å½’æ¡£æ–‡ä»¶ç±»å‹èšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 19:15
  */
 public class ArchiveFileType extends AggregateRoot{
-	/**ÀàĞÍÃû³Æ*/
+	/**ç±»å‹åç§°*/
 	private String typeName;
-	/**¸¸ÀàĞÍ*/
+	/**çˆ¶ç±»å‹*/
 	private ArchiveFileType parentType;
 }

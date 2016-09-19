@@ -5,17 +5,17 @@ import java.util.UUID;
 import com.tq.requisition.domain.share.AggregateRoot;
 
 /**
- * ½ÇÉ«ÓÃ»§¹ØÏµ¾ÛºÏ¸ù
+ * è§’è‰²ç”¨æˆ·å…³ç³»èšåˆæ ¹
  * @author jjh
  * @time 2015-12-21 17:21
  */
 public class RoleAccount  extends AggregateRoot{
 	/*private fields*/
-	/**ÕË»§id*/
+	/**è´¦æˆ·id*/
 	private UUID accountId;
-	/**½ÇÉ«id*/
+	/**è§’è‰²id*/
 	private UUID roleId;
-	/**ÊÇ·ñÉ¾³ı*/
+	/**æ˜¯å¦åˆ é™¤*/
 	private boolean del;
 	
 	/*constructors*/
@@ -65,7 +65,7 @@ public class RoleAccount  extends AggregateRoot{
 	public static RoleAccount obtain(UUID uid,UUID rid) {
 		if(uid == null || rid == null)
 		{
-			throw new NullPointerException("ÕË»§id»òÕß½ÇÉ«idÎªnull");
+			throw new NullPointerException("è´¦æˆ·idæˆ–è€…è§’è‰²idä¸ºnull");
 		}
 		return new RoleAccount(UUID.randomUUID(),uid,rid);
 	}

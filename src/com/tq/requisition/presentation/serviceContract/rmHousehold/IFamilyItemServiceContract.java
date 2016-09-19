@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.serviceContract.rmHousehold;
+ï»¿package com.tq.requisition.presentation.serviceContract.rmHousehold;
 
 import java.util.UUID;
 
@@ -9,75 +9,75 @@ import com.tq.requisition.presentation.dto.share.PageModel;
 
 public interface IFamilyItemServiceContract {
 	/**
-	 * ¸ù¾İÄ£ºıÌõ¼ş²éÑ¯model²éÑ¯²ğÇ¨»§ÈËÔ±ĞÅÏ¢£¬·µ»ØjsonÊı¾İ
+	 * æ ¹æ®æ¨¡ç³Šæ¡ä»¶æŸ¥è¯¢modelæŸ¥è¯¢æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯ï¼Œè¿”å›jsonæ•°æ®
 	 * @param queryModel
-	 * 		Ä£ºıÌõ¼ş²éÑ¯model
+	 * 		æ¨¡ç³Šæ¡ä»¶æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return json String
 	 */
 	String queryFamilyItemsByFuzzy(FamilyItemQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * Ä¬ÈÏ»ñÈ¡²ğÇ¨»§ÈËÔ±ĞÅÏ¢ÁĞ±í¼¯ºÏ,»ùÓÚ·ÖÒ³model£¬²éÑ¯model
+	 * é»˜è®¤è·å–æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯åˆ—è¡¨é›†åˆ,åŸºäºåˆ†é¡µmodelï¼ŒæŸ¥è¯¢model
 	 * @param queryModel
-	 * 		²éÑ¯model
+	 * 		æŸ¥è¯¢model
 	 * @param pageModel
-	 * 		·ÖÒ³model
+	 * 		åˆ†é¡µmodel
 	 * @return
-	 * 		²ğÇ¨»§ÈËÔ±¼¯ºÏ
+	 * 		æ‹†è¿æˆ·äººå‘˜é›†åˆ
 	 */
 	PageFormater queryFamilyItemListByFuzzy(FamilyItemQueryModel queryModel,PageModel pageModel);
 	
 	/**
-	 * ±à¼­³ÉÔ±ĞÅÏ¢
+	 * ç¼–è¾‘æˆå‘˜ä¿¡æ¯
 	 * @param item
-	 * 		³ÉÔ±ĞÅÏ¢model
+	 * 		æˆå‘˜ä¿¡æ¯model
 	 * @return
 	 */
 	String editFmlItem(FamilyItemDto item);
 	
 	/**
-	 * É¾³ı²ğÇ¨»§³ÉÔ±ĞÅÏ¢
+	 * åˆ é™¤æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯
 	 * @param id
-	 * 		´ıÉ¾³ıµÄ²ğÇ¨»§³ÉÔ±ĞÅÏ¢
+	 * 		å¾…åˆ é™¤çš„æ‹†è¿æˆ·æˆå‘˜ä¿¡æ¯
 	 * @return json
 	 */
 	String deleteFmlItem(UUID id);
 	
 	/**
-	 * ¸ù¾İÉí·İÖ¤»ñÈ¡²ğÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯è·å–æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @return
 	 */
 	String queryByIdNumber(String idNumber);
 	
 	/**
-	 * ¸ù¾İ²ğÇ¨»§id»ñÈ¡²ğÇ¨»§³ÉÔ±ÁĞ±í
+	 * æ ¹æ®æ‹†è¿æˆ·idè·å–æ‹†è¿æˆ·æˆå‘˜åˆ—è¡¨
 	 * @param id
-	 * 		²ğÇ¨»§id
+	 * 		æ‹†è¿æˆ·id
 	 * @return
 	 */
 	String queryByFmlId(UUID id);
 	
 	/**
-	 * ĞÂÔö²ğÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * æ–°å¢æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @param dto
-	 * 		´ıĞÂÔöµÄ²ğÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * 		å¾…æ–°å¢çš„æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯
 	 * @return
-	 * 		ĞÂÔöºóµÄ²ğÇ¨»§ÈËÔ±ĞÅÏ¢
+	 * 		æ–°å¢åçš„æ‹†è¿æˆ·äººå‘˜ä¿¡æ¯
 	 */
 	String addFmlItem(FamilyItemDto dto);
 	
 	/**
-	 * ¸ù¾İÉí·İÖ¤ºÍĞÕÃû²éÑ¯²ğÇ¨ÈËÔ±ĞÅÏ¢
+	 * æ ¹æ®èº«ä»½è¯å’Œå§“åæŸ¥è¯¢æ‹†è¿äººå‘˜ä¿¡æ¯
 	 * @param idNumber
-	 * 		Éí·İÖ¤
+	 * 		èº«ä»½è¯
 	 * @param name
-	 * 		ĞÕÃû
+	 * 		å§“å
 	 * @return
-	 * 		²ğÇ¨ÈËÔ±ĞÅÏ¢
+	 * 		æ‹†è¿äººå‘˜ä¿¡æ¯
 	 */
 	String queryByIdNumberAndName(String idNumber,String name);
 }

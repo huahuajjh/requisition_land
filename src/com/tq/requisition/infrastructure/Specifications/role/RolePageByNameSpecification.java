@@ -8,7 +8,7 @@ import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression
 import com.tq.requisition.infrastructure.utils.PageHelper;
 
 /**
- * 角色规约条件，通过角色名模糊组装条件，并且分页显示
+ * 瑙掕壊瑙勭害鏉′欢锛岄�氳繃瑙掕壊鍚嶆ā绯婄粍瑁呮潯浠讹紝骞朵笖鍒嗛〉鏄剧ず
  * @author jjh
  * @time 2015-12-21 13:16
  * 

@@ -1,10 +1,10 @@
 package com.tq.requisition.domain.Specification;
 
 /**
- * »ò¹æÔ¼ÀàĞÍ
+ * æˆ–è§„çº¦ç±»å‹
  * @author jjh
  * @param <T>
- * 		Âú×ã¹æÔ¼µÄ¶ÔÏó
+ * 		æ»¡è¶³è§„çº¦çš„å¯¹è±¡
  * @date 2015-12-16 17:07
  *
  */

@@ -1,4 +1,4 @@
-package com.tq.requisition.presentation.actions.transferAccountManagement;
+Ôªøpackage com.tq.requisition.presentation.actions.transferAccountManagement;
 
 import java.io.IOException;
 import java.util.Date;
@@ -128,7 +128,7 @@ public class TaQuery extends BaseAction {
 			 dto.setOprUserId(userId());
 			 stateJson = this.transferMgtServiceContract.editTransferInfo(dto);
 		} catch (Exception e) {
-			stateJson = toForMaterJson(OperationResult.ERROR," ˝æ›∏Ò Ω≤ª’˝»∑");
+			stateJson = toForMaterJson(OperationResult.ERROR,"Êï∞ÊçÆÊ†ºÂºè‰∏çÊ≠£Á°Æ");
 		}
 		response().getWriter().write(stateJson);
 		return null;

@@ -5,20 +5,20 @@ import org.hibernate.Session;
 import com.tq.requisition.domain.IRepository.IRepositoryContext;
 
 /**
- * hibernateÊµÏÖµÄ²Ö´¢ÉÏÏÂÎÄ£¬·²ÊÇ¼Ì³Ğ¸Ã½Ó¿ÚµÄÊµÏÖ¶¼ÊÇhibernateµÄÊµÏÖ
+ * hibernateå®ç°çš„ä»“å‚¨ä¸Šä¸‹æ–‡ï¼Œå‡¡æ˜¯ç»§æ‰¿è¯¥æ¥å£çš„å®ç°éƒ½æ˜¯hibernateçš„å®ç°
  * @author jjh
  * @time 2015-12-17 12:42
  */
 public interface IHbRepositoryContext extends IRepositoryContext{
 	/**
-	 * hibernateÉÏÏÂÎÄ
+	 * hibernateä¸Šä¸‹æ–‡
 	 * @return Session
-	 * 		ÉÏÏÂÎÄÊµÀı
+	 * 		ä¸Šä¸‹æ–‡å®ä¾‹
 	 */
 	Session session();
 	
 	/**
-	 * ¿ªÆôÊÂÎñ
+	 * å¼€å¯äº‹åŠ¡
 	 */
 	void beginTransaction();	
 }

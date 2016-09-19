@@ -9,7 +9,7 @@ import com.tq.requisition.domain.share.IAggregateRoot;
 import com.tq.requisition.infrastructure.Specifications.Expression.HqlExpression;
 
 /**
- * 根据id判定对象是否存在的规约类
+ * 鏍规嵁id鍒ゅ畾瀵硅薄鏄惁瀛樺湪鐨勮绾︾被
  * @author jjh
  * @time 2015-12-20 23:30
  */

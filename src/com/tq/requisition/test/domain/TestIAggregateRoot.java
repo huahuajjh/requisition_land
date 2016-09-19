@@ -1,4 +1,4 @@
-package com.tq.requisition.test.domain;
+﻿package com.tq.requisition.test.domain;
 
 import java.util.UUID;
 

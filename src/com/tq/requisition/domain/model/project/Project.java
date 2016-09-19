@@ -10,94 +10,94 @@ import com.tq.requisition.domain.share.AggregateRoot;
 import com.tq.requisition.exception.DomainException;
 
 /**
- * ÏîÄ¿ÁìÓòÄ£ĞÍ£¬¾ÛºÏ¸ù
+ * é¡¹ç›®é¢†åŸŸæ¨¡å‹ï¼Œèšåˆæ ¹
  * @author jjh
  * @time 2015-12-18 11:01
  */
 public class Project extends AggregateRoot{
 	/*private fields*/
-	/**ÏîÄ¿Ãû³Æ*/
+	/**é¡¹ç›®åç§°*/
 	private String proName;	
-	/**ÏîÄ¿ÉóÅúºÅ*/
+	/**é¡¹ç›®å®¡æ‰¹å·*/
 	private String approvalNumber;
-	/**Õ÷µØÃæ»ı*/
+	/**å¾åœ°é¢ç§¯*/
 	private float requisitionArea;
-	/**Ó¦²ğ¶°Êı*/
+	/**åº”æ‹†æ ‹æ•°*/
 	private int shouldRemoveBuildings;
-	/**Ó¦²ğ»§Êı*/
+	/**åº”æ‹†æˆ·æ•°*/
 	private int shouldRemoveHouses;
-	/**Ó¦²ğºÏ·¨×ÜÃæ»ı*/
+	/**åº”æ‹†åˆæ³•æ€»é¢ç§¯*/
 	private float shouldRemoveLegalArea;
-	/**Ó¦²ğÎ¥ÕÂ×ÜÃæ»ı*/
+	/**åº”æ‹†è¿ç« æ€»é¢ç§¯*/
 	private float shouldRemoveIllegalArea;
-	/**Ó¦¶¯Ç¨ÈË¿Ú*/
+	/**åº”åŠ¨è¿äººå£*/
 	private int shouldMovePopulation;
-	/**ÏîÄ¿Ó¦¸¶²¹³¥¿î*/
+	/**é¡¹ç›®åº”ä»˜è¡¥å¿æ¬¾*/
 	private BigDecimal shouldPayMoney = new BigDecimal(0);
-	/**ÏîÄ¿ÀÛ¼ÆÒÑ¸¶²¹³¥¿î*/
+	/**é¡¹ç›®ç´¯è®¡å·²ä»˜è¡¥å¿æ¬¾*/
 	private BigDecimal totalPayMoney = new BigDecimal(0);
-	/**ÏîÄ¿Æô¶¯ÈÕÆÚ*/
+	/**é¡¹ç›®å¯åŠ¨æ—¥æœŸ*/
 	private Date startDate;
-	/**ÊÇ·ñĞÂÆô¶¯*/
+	/**æ˜¯å¦æ–°å¯åŠ¨*/
 	private boolean newStart;
-	/**ÏîÄ¿ÀàĞÍ*/
+	/**é¡¹ç›®ç±»å‹*/
 	private Integer proType;
-	/**ÏîÄ¿ÀàĞÍÃû³Æ*/
+	/**é¡¹ç›®ç±»å‹åç§°*/
 	private String proTypeStr;
-	/**ÏîÄ¿È«µØÖ·*/
+	/**é¡¹ç›®å…¨åœ°å€*/
 	private String totalAddress;
-	/**½ÖµÀµØÖ·id*/
+	/**è¡—é“åœ°å€id*/
 	private String streetId;
-	/**ÉçÇøµØÖ·id*/
+	/**ç¤¾åŒºåœ°å€id*/
 	private String communityId;
-	/**¹«¸æĞòÁĞ*/
+	/**å…¬å‘Šåºåˆ—*/
 	private int sequence;
-	/**¹«¸æÃû³Æ*/
+	/**å…¬å‘Šåç§°*/
 	private String sequenceStr;
-	/**ÀÛ¼ÆÒÑÌÚµØ*/
+	/**ç´¯è®¡å·²è…¾åœ°*/
 	private float requisitionLandAreaTotal;
-	/**±¾ÄêÒÑÌÚµØ*/
+	/**æœ¬å¹´å·²è…¾åœ°*/
 	private float requisitionLandAreaYear;
-	/**ÀÛ¼ÆÒÑ²ğºÏ·¨¶°Êı*/
+	/**ç´¯è®¡å·²æ‹†åˆæ³•æ ‹æ•°*/
 	private int removedBuildingsLegalTotal;
-	/**±¾ÄêÒÑ²ğºÏ·¨¶°Êı*/
+	/**æœ¬å¹´å·²æ‹†åˆæ³•æ ‹æ•°*/
 	private int removedBuildingsLegalYear;
-	/**ÀÛ¼ÆÒÑ²ğºÏ·¨»§Êı*/
+	/**ç´¯è®¡å·²æ‹†åˆæ³•æˆ·æ•°*/
 	private int removedHousesLegalTotal;
-	/**±¾ÄêÒÑ²ğºÏ·¨»§Êı*/
+	/**æœ¬å¹´å·²æ‹†åˆæ³•æˆ·æ•°*/
 	private int removedHousesLegalYear;
-	/**ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı*/
+	/**ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯*/
 	private float removedAreaLegalTotal;
-	/**±¾ÄêÒÑ²ğºÏ·¨Ãæ»ı*/
+	/**æœ¬å¹´å·²æ‹†åˆæ³•é¢ç§¯*/
 	private float removedAreaLegalYear;
-	/**ÀÛ¼ÆÒÑ²ğºÏ·¨Ãæ»ı*/
+	/**ç´¯è®¡å·²æ‹†åˆæ³•é¢ç§¯*/
 	private float removedAreaIllegalTotal;
-	/**±¾ÄêÒÑ²ğÎ¥ÕÂÃæ»ı*/
+	/**æœ¬å¹´å·²æ‹†è¿ç« é¢ç§¯*/
 	private float removedAreaIllegalYear;
-	/**ÀÛ¼ÆÒÑÇ¨ÈË¿Ú*/
+	/**ç´¯è®¡å·²è¿äººå£*/
 	private int removedPopulationTotal;
-	/**±¾ÄêÒÑÇ¨ÈË¿Ú*/
+	/**æœ¬å¹´å·²è¿äººå£*/
 	private int removedPopulationYear;
-	/**ÏîÄ¿·ÖÀàid*/
+	/**é¡¹ç›®åˆ†ç±»id*/
 	private String categoryId;
-	/**ÏîÄ¿·ÖÀàstr*/
+	/**é¡¹ç›®åˆ†ç±»str*/
 	private String categoryStr;
-	/**ÊÇ·ñ±¾ÔÂÍê³É*/
+	/**æ˜¯å¦æœ¬æœˆå®Œæˆ*/
 	private String curMonthComplete;
-	/**ÊÇ·ñ6Ç°ÏîÄ¿*/
+	/**æ˜¯å¦6å‰é¡¹ç›®*/
 	private String sixForward;
-	/**³ö×Êµ¥Î»*/
+	/**å‡ºèµ„å•ä½*/
 	private String moneyUnit;
-	/**ÆäËû³ö×Êµ¥Î»*/
+	/**å…¶ä»–å‡ºèµ„å•ä½*/
 	private String otherMoneyUnit;
-	/**¹«¸æ¼¯ºÏ-Îªµ¼³ö·şÎñ*/
+	/**å…¬å‘Šé›†åˆ-ä¸ºå¯¼å‡ºæœåŠ¡*/
 	private List<Announcement> announcements;
-	/**ÏîÄ¿item¼¯ºÏ*/
+	/**é¡¹ç›®itemé›†åˆ*/
 	private List<ProjectItem> items;
 	
-	/**´´½¨ÈËµÄ±êÊ¶*/
+	/**åˆ›å»ºäººçš„æ ‡è¯†*/
 	private String createUid;
-	/**´´½¨Ê±¼ä*/
+	/**åˆ›å»ºæ—¶é—´*/
 	private Date createDate;
 	
 	/*getters and setters*/
@@ -453,7 +453,7 @@ public class Project extends AggregateRoot{
 	}
 
 	/**
-	 * ×Ö¶ÎÑéÖ¤
+	 * å­—æ®µéªŒè¯
 	 */
 	public void validate() {
 		
@@ -495,13 +495,13 @@ public class Project extends AggregateRoot{
 	public void toAnnStr() {
 		switch (sequence) {
 		case 1:
-			this.sequenceStr = "Ò»¹«¸æ";
+			this.sequenceStr = "ä¸€å…¬å‘Š";
 			break;
 		case 2:
-			this.sequenceStr = "¶ş¹«¸æ";
+			this.sequenceStr = "äºŒå…¬å‘Š";
 			break;
 		case 3:
-			this.sequenceStr = "Èı¹«¸æ";
+			this.sequenceStr = "ä¸‰å…¬å‘Š";
 			break;
 		default:
 			break;
@@ -511,11 +511,11 @@ public class Project extends AggregateRoot{
 	public void toProTypeStr() {
 		switch (proType) {
 		case 1:
-			this.proTypeStr="»ù´¡ÉèÊ©";
+			this.proTypeStr="åŸºç¡€è®¾æ–½";
 			break;
 			
 		case 2:
-			this.proTypeStr="ÆäËû";
+			this.proTypeStr="å…¶ä»–";
 			break;
 
 		default:
@@ -526,13 +526,13 @@ public class Project extends AggregateRoot{
 	public void updateMoney(BigDecimal m) throws DomainException {
 		if(null==m){return;}
 		if(this.getTotalPayMoney().add(m).compareTo(this.getShouldPayMoney())>0){
-			throw new DomainException("[ÒÑ¸¶²¹³¥¿î]ÀÛ¼ÆÒÑ¾­´óÓÚ[ÏîÄ¿Ó¦¸¶²¹³¥¿î]ÁË");
+			throw new DomainException("[å·²ä»˜è¡¥å¿æ¬¾]ç´¯è®¡å·²ç»å¤§äº[é¡¹ç›®åº”ä»˜è¡¥å¿æ¬¾]äº†");
 		}
 		this.setTotalPayMoney(this.getTotalPayMoney().add(m));
 	}
 	
 	/**
-	 * ¸üĞÂÏîÄ¿Æô¶¯Ê±¼ä
+	 * æ›´æ–°é¡¹ç›®å¯åŠ¨æ—¶é—´
 	 * @param d
 	 */
 	public void updateStartDate(Date d) {
@@ -544,12 +544,12 @@ public class Project extends AggregateRoot{
 	}
 		
 	/**
-	 * ¸üĞÂÄê¶ÈºÍÀÛ¼ÆÊı¾İ
+	 * æ›´æ–°å¹´åº¦å’Œç´¯è®¡æ•°æ®
 	 * @param item
-	 * 		ÔÂ¶ÈĞÅÏ¢ÊµÌå
+	 * 		æœˆåº¦ä¿¡æ¯å®ä½“
 	 */
 	public void updateTotalData(ProjectItem item) {
-		//ÔÂ¶ÈÀÛ¼Æ
+		//æœˆåº¦ç´¯è®¡
 		this.removedAreaIllegalTotal += item.getRemovedIllegalArea();
 		this.removedAreaLegalTotal += item.getRemovedLegalArea();
 		this.removedBuildingsLegalTotal += item.getRemovedBuildings();
@@ -557,7 +557,7 @@ public class Project extends AggregateRoot{
 		this.removedPopulationTotal += item.getMovedPopulation();
 		this.requisitionLandAreaTotal += item.getRemovedLandArea();
 		
-		//Äê¶È£¿
+		//å¹´åº¦ï¼Ÿ
 		this.removedAreaIllegalYear += item.getRemovedIllegalArea();
 		this.removedAreaLegalYear += item.getRemovedLegalArea();
 		this.removedBuildingsLegalYear += item.getRemovedBuildings();

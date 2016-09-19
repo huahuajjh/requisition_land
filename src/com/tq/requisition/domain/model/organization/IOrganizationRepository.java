@@ -8,52 +8,52 @@ import com.tq.requisition.exception.DomainException;
 import com.tq.requisition.exception.InvalidOperationException;
 
 /**
- * ×éÖ¯¾ÛºÏ²Ö´¢½Ó¿Ú
+ * ç»„ç»‡èšåˆä»“å‚¨æ¥å£
  * 
  * @author jjh
  * @time 2015-12-21 15:01
  */
 public interface IOrganizationRepository extends IRepository<Organization> {
 	/**
-	 * ¼ì²âÒ»¸ö×éÖ¯Ãû³ÆÊÇ·ñÎ¨Ò»
+	 * æ£€æµ‹ä¸€ä¸ªç»„ç»‡åç§°æ˜¯å¦å”¯ä¸€
 	 * 
 	 * @param orgName
-	 *            ×éÖ¯Ãû³Æ
-	 * @return boolean ·µ»ØÒ»¸öbooleanÖµ£¬±íÃ÷¸Ã×éÖ¯Ã¿´ÎÊÇ·ñÊÇÎ¨Ò»µÄ
+	 *            ç»„ç»‡åç§°
+	 * @return boolean è¿”å›ä¸€ä¸ªbooleanå€¼ï¼Œè¡¨æ˜è¯¥ç»„ç»‡æ¯æ¬¡æ˜¯å¦æ˜¯å”¯ä¸€çš„
 	 */
 	boolean isOrgNameUnique(String orgName);
 
 	/**
-	 * ĞÂÔö×éÖ¯Êı¾İ
+	 * æ–°å¢ç»„ç»‡æ•°æ®
 	 * 
 	 * @param org
-	 *            ×éÖ¯Êı¾İ
+	 *            ç»„ç»‡æ•°æ®
 	 * @return TODO
 	 * @throws InvalidOperationException
-	 *             ²Ù×÷Òì³£
+	 *             æ“ä½œå¼‚å¸¸
 	 */
 	Organization createOrg(Organization org) throws DomainException;
 
 	/**
-	 * ĞŞ¸Ä×éÖ¯ĞÅÏ¢
+	 * ä¿®æ”¹ç»„ç»‡ä¿¡æ¯
 	 * 
 	 * @param org
-	 *            ×éÖ¯Êı¾İ
+	 *            ç»„ç»‡æ•°æ®
 	 * @throws InvalidOperationException
-	 *             ²Ù×÷Òì³£
+	 *             æ“ä½œå¼‚å¸¸
 	 */
 	void editOrg(Organization org) throws DomainException;
 
 	/**
-	 * »ñÈ¡×éÖ¯Êı¾İ¼¯ºÏ
+	 * è·å–ç»„ç»‡æ•°æ®é›†åˆ
 	 * 
-	 * @return ×éÖ¯Êı¾İ¼¯ºÏ
+	 * @return ç»„ç»‡æ•°æ®é›†åˆ
 	 */
 	List<Organization> getOrgList();
 	
 	/**
-	 * ¸ù¾İ×éÖ¯IDÉ¾³ı×éÖ¯
-	 * @param orgId ¸ù¾İ×éÖ¯IDÉ¾³ı×éÖ¯
+	 * æ ¹æ®ç»„ç»‡IDåˆ é™¤ç»„ç»‡
+	 * @param orgId æ ¹æ®ç»„ç»‡IDåˆ é™¤ç»„ç»‡
 	 */
 	void deleteOrgByKey(UUID orgId);
 }

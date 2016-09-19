@@ -7,7 +7,7 @@ import com.tq.requisition.domain.share.IAggregateRoot;
 import com.tq.requisition.infrastructure.log.LoggerFactory;
 
 /**
- * hibernateÊµÏÖµÄ²Ö´¢ÉÏÏÂÎÄ
+ * hibernateå®ç°çš„ä»“å‚¨ä¸Šä¸‹æ–‡
  * 
  * @author jjh
  * @time 2015-12-17 12:46
@@ -20,9 +20,9 @@ public class HbRepositoryContext extends RepositoryContext implements
 	}
 
 	/**
-	 * »ñÈ¡SessionÉÏÏÂÎÄ
+	 * è·å–Sessionä¸Šä¸‹æ–‡
 	 * 
-	 * @return Session SessionÊµÀı
+	 * @return Session Sessionå®ä¾‹
 	 */
 	@Override
 	public Session session() {
@@ -30,7 +30,7 @@ public class HbRepositoryContext extends RepositoryContext implements
 	}
 
 	/**
-	 * ÇåÀí¾´æ
+	 * æ¸…ç†ç·©å­˜
 	 */
 	public void clear() {
 		session().clear();

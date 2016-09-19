@@ -1,7 +1,7 @@
 package com.tq.requisition.infrastructure.utils;
 
 /**
- * ·ÖÒ³¼ÆËã°ïÖúÀà£¬¼ÆËãÒ³ÂëºÍÒ³Ã¼
+ * åˆ†é¡µè®¡ç®—å¸®åŠ©ç±»ï¼Œè®¡ç®—é¡µç å’Œé¡µçœ‰
  * @author jjh
  * @time 2015-12-25 20:01
  * 
@@ -10,12 +10,12 @@ public final class PageHelper {
 	private PageHelper(){}
 	
 	/**
-	 * ¼ÆËã·ÖÒ³Êı¾İ
+	 * è®¡ç®—åˆ†é¡µæ•°æ®
 	 * @param pageStart
-	 * 		ÆğÊ¼Ò³²ÎÊı
+	 * 		èµ·å§‹é¡µå‚æ•°
 	 * @param pageNum
-	 * 		Ò³Âë
-	 * @return ·µ»ØÊı¾İ¿âÆäÊµ¼ÇÂ¼ĞĞÊı
+	 * 		é¡µç 
+	 * @return è¿”å›æ•°æ®åº“å…¶å®è®°å½•è¡Œæ•°
 	 */
 	public static int getPageIndex(int pageStart,int pageNum) {
 		return (pageStart-1)*pageNum;
